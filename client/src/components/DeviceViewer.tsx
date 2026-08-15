@@ -1,6 +1,6 @@
-/* BioLab style: tactile 3D learning surface, deep teal stage, mint hotspot pulses, clear Uzbek labels. */
-import React, { useMemo, useState } from "react";
-import { ArrowLeft, Box, CircleHelp, Crosshair, Info, Rotate3D, Sparkles } from "lucide-react";
+/* BioLab style: tactile 2D technical schematic, deep teal stage, mint hotspot pulses, clear Uzbek labels. */
+import { useMemo, useState } from "react";
+import { ArrowLeft, Box, CircleHelp, Crosshair, Info, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Equipment } from "@/lib/equipmentData";
 
@@ -16,32 +16,11 @@ export default function DeviceViewer({ device, onBack }: { device: Equipment; on
   const [activeHotspot, setActiveHotspot] = useState(hotspots[0]);
   const [tourStep, setTourStep] = useState(0);
   const [showInfo, setShowInfo] = useState(true);
-  const [modelLoaded, setModelLoaded] = useState(false);
   const tour = useMemo(() => [
     { title: "Qurilmani ko‘zdan kechiring", text: "Modelni aylantiring va asosiy qismlarning joylashuvini kuzating." },
     { title: "Namuna zonasini aniqlang", text: "PCR plastinkasi yoki naychalari joylashadigan markaziy blokni toping." },
     { title: "Boshqaruvni o‘rganing", text: "Harorat sikli va optik o‘lchovni boshqaruvchi panelni tekshiring." },
   ], []);
-
-  const viewer = React.createElement("model-viewer", {
-    src: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
-    alt: `${device.name} uchun namunaviy 3D model`,
-    "camera-controls": true,
-    "auto-rotate": true,
-    "shadow-intensity": "1",
-    "camera-orbit": "45deg 65deg 2.8m",
-    onLoad: () => setModelLoaded(true),
-    style: { width: "100%", height: "100%", background: "transparent", position: "relative", zIndex: 10 },
-    children: hotspots.map((spot) => React.createElement("button", {
-      key: spot.id,
-      className: `hotspot absolute z-10 grid h-8 w-8 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 border-white bg-[#73e0c2] text-[#0f4548] shadow-lg transition hover:scale-110 ${activeHotspot.id === spot.id ? "ring-4 ring-[#73e0c2]/30" : ""}`,
-      slot: `hotspot-${spot.id}`,
-      "data-position": spot.position,
-      "data-normal": spot.normal,
-      "aria-label": spot.label,
-      onClick: () => { setActiveHotspot(spot); setShowInfo(true); },
-    }, React.createElement(Crosshair, { size: 14 })))
-  });
 
   return (
     <div className="min-h-screen bg-[#f7fbfa] text-[#173d42]">
@@ -69,25 +48,24 @@ export default function DeviceViewer({ device, onBack }: { device: Equipment; on
 
         <div className="grid gap-5 xl:grid-cols-[minmax(0,1.3fr)_minmax(330px,0.7fr)]">
           <section className="model-stage relative min-h-[540px] overflow-hidden rounded-[28px] border border-[#215b5e] p-5 shadow-[0_24px_60px_rgba(18,76,76,0.18)] sm:p-8">
-            <div className="absolute left-6 top-6 z-10 rounded-full border border-white/15 bg-[#0d464d]/80 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-[#b7eee0] backdrop-blur-md">3D namuna ko‘rinishi</div>
-            <div className="absolute right-6 top-6 z-10 flex items-center gap-2 text-xs text-[#b7eee0]"><Rotate3D size={16} /> Aylantiring va yaqinlashtiring</div>
+            <div className="absolute left-6 top-6 z-10 rounded-full border border-white/15 bg-[#0d464d]/80 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-[#b7eee0] backdrop-blur-md">Texnik sxema</div>
+            <div className="absolute right-6 top-6 z-10 text-xs text-[#b7eee0]">Interaktiv qismlarni tanlang</div>
             <div className="relative h-[430px] sm:h-[500px]">
-              {!modelLoaded && <div className="absolute inset-0 z-0 flex items-center justify-center" aria-label="PCR qurilmasining sxematik ko‘rinishi">
+              <div className="absolute inset-0 flex items-center justify-center" aria-label="PCR qurilmasining texnik sxematik ko‘rinishi">
                 <div className="relative h-[265px] w-[360px] rounded-[26px] border border-[#7ec9ba]/50 bg-gradient-to-br from-[#d6eee7] via-[#b5dcd3] to-[#76b8ad] shadow-[0_26px_50px_rgba(3,35,44,0.36)] sm:h-[310px] sm:w-[440px]">
                   <div className="absolute inset-x-6 top-5 h-7 rounded-lg border border-[#75aaa3] bg-[#a8d1c8]/80" />
                   <div className="absolute left-8 top-16 h-32 w-[210px] rounded-2xl border border-[#6da69d] bg-[#85bdb4]/75 shadow-inner sm:left-10 sm:h-40 sm:w-[265px]"><div className="absolute inset-5 rounded-xl border-2 border-dashed border-[#d7f5e8]/70" /><div className="absolute bottom-5 left-1/2 h-7 w-24 -translate-x-1/2 rounded-md bg-[#4f918b]/80" /></div>
                   <div className="absolute right-7 top-16 h-24 w-24 rounded-xl border border-[#6da69d] bg-[#e5f6f0]/85 p-3 sm:right-10 sm:h-28 sm:w-28"><div className="mb-3 h-2 w-10 rounded bg-[#2e7a76]/70" /><div className="space-y-2"><div className="h-1.5 w-full rounded bg-[#8abcb3]" /><div className="h-1.5 w-4/5 rounded bg-[#8abcb3]" /><div className="h-5 w-8 rounded border border-[#2e7a76]/40 bg-[#bfe6d9]" /></div></div>
                   <div className="absolute bottom-4 left-8 right-8 flex items-center justify-between text-[9px] font-bold uppercase tracking-[0.16em] text-[#2d6f6a]"><span>THERMAL CYCLE</span><span>REAL-TIME PCR</span></div>
                 </div>
-              </div>}
+              </div>
               <div className="pointer-events-none absolute inset-0 z-20">
                 {hotspots.map((spot, index) => <button key={`fallback-${spot.id}`} className={`pointer-events-auto absolute grid h-8 w-8 place-items-center rounded-full border-2 border-white bg-[#73e0c2] text-[#0f4548] shadow-lg transition hover:scale-110 ${activeHotspot.id === spot.id ? "ring-4 ring-[#73e0c2]/30" : ""}`} style={{ left: `${[68, 36, 55][index]}%`, top: `${[38, 56, 28][index]}%` }} aria-label={spot.label} onClick={() => { setActiveHotspot(spot); setShowInfo(true); }}><Crosshair size={14} /></button>)}
               </div>
-              {viewer}
             </div>
             <div className="absolute bottom-6 left-6 right-6 z-10 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/10 bg-[#0a3d45]/75 px-4 py-3 text-xs text-[#c4e9df] backdrop-blur-md">
               <span><span className="mr-2 inline-block h-2 w-2 rounded-full bg-[#73e0c2]" />Hotspotni tanlang</span>
-              <span>Model aniqligi: namuna</span>
+              <span>3D ko‘rinish vaqtincha o‘chirilgan</span>
             </div>
           </section>
 

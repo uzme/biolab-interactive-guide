@@ -50,6 +50,9 @@
 
 ## Sof qurilma rasmi va joylashuvi
 
+- [x] Avvalgi katalog karta ierarxiyasini tiklash; rasmni qo‘llab-quvvatlovchi, nom va protokol ma’lumotini esa asosiy o‘qiladigan qism sifatida saqlash
+- [x] Sof mahsulot rasmlarini karta oynasini to‘liq qoplaydigan, markaziy fokusli `object-cover` joylashuvda tekshirish
+- [x] Qaytarilgan karta dizaynini katalogning desktop ko‘rinishida tekshirib checkpointga saqlash
 - [ ] Katalog hamda ichki sahifalardagi odam, qo‘l yoki jarayon fonli rasm yozuvlarini aniqlash
 - [ ] Har bir aniqlangan holatni sof qurilma mahsulot rasmi yoki brendsiz reprezentativ qurilma tasviri bilan almashtirish
 - [ ] Kartalar va ichki sahifalarda rasmlarni markazlash, kesilmaslik va bir xil o‘lchamda ko‘rsatishni tekshirish

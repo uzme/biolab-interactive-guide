@@ -116,11 +116,6 @@ button { cursor: pointer; }
   .soft-grid { background-image: linear-gradient(oklch(0.47 0.07 185 / 0.07) 1px, transparent 1px), linear-gradient(90deg, oklch(0.47 0.07 185 / 0.07) 1px, transparent 1px); background-size: 26px 26px; }
   .tech-label { font-family: "Plus Jakarta Sans", sans-serif; letter-spacing: 0.13em; text-transform: uppercase; font-size: 0.62rem; font-weight: 800; }
   .signal-line { height: 1px; background: linear-gradient(90deg, oklch(0.49 0.1 184 / 0.5), transparent); }
-  .hotspot { animation: pulse-ring 2.2s infinite; }
-  .hotspot:nth-child(2) { animation-delay: 320ms; }
-  .hotspot:nth-child(3) { animation-delay: 640ms; }
-  @keyframes pulse-ring { 0%, 100% { box-shadow: 0 0 0 0 oklch(0.76 0.12 175 / 0.44); } 50% { box-shadow: 0 0 0 9px oklch(0.76 0.12 175 / 0); } }
-  .model-stage { background: radial-gradient(circle at 62% 34%, oklch(0.8 0.1 175 / 0.22), transparent 36%), oklch(0.29 0.06 195); }
   .metric-number { font-variant-numeric: tabular-nums; letter-spacing: -0.05em; }
   .scrollbar-thin::-webkit-scrollbar { width: 5px; height: 5px; }
   .scrollbar-thin::-webkit-scrollbar-thumb { background: oklch(0.72 0.07 178); border-radius: 999px; }

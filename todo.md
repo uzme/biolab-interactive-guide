@@ -1,26 +1,37 @@
-# BioLab o‘quv va xarid bazalarini integratsiya qilish
+# BioLab 16 bo‘limli chuqur o‘quv tizimi
 
-- [x] 10 ta yuborilgan faylning 1–100 qamrovi va takrorlarini tekshirish
-- [x] O‘quv va xarid ma’lumotlarini yagona qurilma modeli bo‘yicha birlashtirish
-- [x] 100 ta qurilma ma’lumotlarini frontend ma’lumotlar qatlamiga import qilish
-- [x] Qurilma sahifasiga ketma-ket o‘quv bo‘limlarini qo‘shish
-- [x] Xarid, narx va tanlash ma’lumotlarini alohida modulga joylash
-- [x] Kategoriya va qidiruv natijalarini tekshirish
-- [x] TypeScript, production build hamda responsive ko‘rinishni tekshirish
-- [ ] Yangilangan checkpoint yaratish
+- [x] 3D va 2D texnik ko‘rinishlarni butun platformadan olib tashlash
+- [x] 16 ta majburiy o‘quv bo‘limi bo‘yicha mavjud kontent qamrovini tekshirish
+- [x] Asosiy qismlar, namuna tayyorlash va troubleshooting maydonlarini manbali shakllantirish
+- [x] Ishonchli manbalar blokini manufacturer/manual/application note havolalari bilan qo‘shish
+- [x] 100 ta qurilma uchun manba asosida 16 bo‘limli data model yaratish
+- [x] Qurilma sahifasini o‘qishga qulay, bo‘limli o‘quv markaziga qayta yaratish
+- [x] 100 qurilmada bo‘limlar, qidiruv, navigatsiya va responsivlikni tekshirish
+- [x] TypeScript va production buildni tekshirish
+- [x] Yangilangan checkpoint yaratish
 
-## Kontent ketma-ketligi
-1. Qurilma nima va nima uchun kerak.
-2. Ishlash prinsipi hamda asosiy qismlar.
-3. Tayyorlash va foydalanish bosqichlari.
-4. Xavfsizlik, sifat nazorati va texnik xizmat.
-5. Texnik parametrlar, model variantlari va sarf materiallari.
-6. Xarid strategiyasi, narx benchmarki hamda alternativalar.
+## Majburiy o‘quv tartibi
+1. O‘zbekcha nomi.
+2. Original nomi, manufacturer va model.
+3. Qurilma nima.
+4. Qurilma nima qiladi.
+5. Ishlash prinsipi.
+6. Nimalarni o‘rganish mumkin.
+7. Asosiy qismlari.
+8. Namuna tayyorlash.
+9. Bosqichma-bosqich foydalanish.
+10. Natijani o‘qish va talqin qilish.
+11. Ko‘p uchraydigan xatolar.
+12. Xavfsizlik.
+13. Tozalash va kundalik xizmat.
+14. Kalibratsiya va troubleshooting.
+15. Amaliy mashqlar.
+16. Ishonchli o‘quv manbalari.
 
 ## Qaror
-Platforma o‘rganish uchun birinchi o‘ringa qo‘yiladi: xarid ma’lumotlari o‘quv bloklaridan keyin alohida, yengil o‘qiladigan modulda ko‘rsatiladi. 3D model vaqtincha o‘chirib qo‘yilgan; texnik 2D sxema hamda hotspotlar saqlanadi.
+Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qanday 3D model, 2D qurilma sxemasi yoki hotspot ko‘rinishi ishlatilmaydi. Modelga xos tugma, parametr yoki texnik da’vo faqat user-provided ma’lumot yoki ishlab chiqaruvchining ishonchli manbasi bo‘lsa ko‘rsatiladi; aks holda manual/SOPga havola beriladi.
 
 ## Style Decisions
-- Har bir qurilma uchun sovuq laboratoriya ranglarida 2D texnik sxema qo‘llanadi.
-- O‘quv bloklari belgilangan tartibda va progress ko‘rsatkichi bilan beriladi.
-- Xarid ma’lumotlari o‘quv kontentidan vizual ravishda ajratiladi, lekin bitta sahifada mavjud bo‘ladi.
+- Qurilma sahifasi uzun, lekin modulga bo‘lingan o‘quv konspekti sifatida ishlaydi.
+- Bo‘limlar professorona, sodda va o‘zbekcha sarlavhalar bilan ajratiladi.
+- Ishonchli manbalar sahifaning yakunida, alohida reference bo‘limida beriladi.

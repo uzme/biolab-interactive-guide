@@ -29,6 +29,13 @@
 - [ ] Rasmli versiyani checkpointga saqlash
 - [ ] Foydalanuvchi tasdiqidan keyin Google Drive’dagi “Loyiha 1” nusxasini yangilash
 
+## Rasm shaffofligi va litsenziya ma’lumoti
+
+- [x] 100 ta rasm yozuvi uchun ko‘rsatiladigan manba URLi, rasm turi va foydalanish/litsenziya holatini tekshirish
+- [x] Qurilma sahifasida manba, foydalanish holati va rasm bo‘yicha izohni ko‘rsatadigan shaffoflik blokini yaratish
+- [x] AI-reprezentativ va rasmiy/distributor rasm holatlari uchun tushunarli, alohida izohlarni kiritish
+- [x] Shaffoflik blokini desktop va mobil ko‘rinishda tekshirish hamda checkpointga saqlash
+
 ## Majburiy o‘quv tartibi
 1. O‘zbekcha nomi.
 2. Original nomi, manufacturer va model.

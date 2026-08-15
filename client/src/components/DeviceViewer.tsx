@@ -43,6 +43,8 @@ export default function DeviceViewer({ device, onBack }: { device: Equipment; on
   const learning = learningByNumber[device.number];
   const purchase = purchaseByNumber[device.number];
   const image = equipmentImages[device.id];
+  const verificationSource = learning?.sources.find((source) => source.url);
+  const isOfficialImage = image?.sourceType === "official";
 
   const sections = useMemo(() => learning ? [
     { id: "uz-name", number: 1, title: "Qurilmaning o‘zbekcha nomi", subtitle: "Kanonik atama", icon: BookOpenCheck, content: learning.title },
@@ -91,6 +93,16 @@ export default function DeviceViewer({ device, onBack }: { device: Equipment; on
             <span className="font-bold uppercase tracking-[0.13em] text-[#0d7774]">O‘quv ko‘rgazmasi</span>
           </figcaption>
         </figure>}
+        {image && <section aria-label="Rasm manbasi va foydalanish shaffofligi" className="mt-4 overflow-hidden rounded-[22px] border border-[#bddbd1] bg-[#eef8f4] shadow-[0_10px_28px_rgba(28,71,67,0.045)]">
+          <div className="flex flex-col justify-between gap-3 border-b border-[#cbe4da] px-5 py-4 sm:flex-row sm:items-center">
+            <div className="flex items-center gap-3"><span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[#0d7774] text-white"><Info size={17} /></span><div><div className="tech-label text-[#42736d]">Rasm shaffofligi</div><h2 className="mt-0.5 text-base font-bold text-[#174a4b]">Manba va foydalanish holati</h2></div></div>
+            <span className={`w-fit rounded-full border px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] ${isOfficialImage ? "border-[#a9d7c5] bg-white text-[#087a73]" : "border-[#d9c58e] bg-[#fffaf0] text-[#866011]"}`}>{isOfficialImage ? "Mahsulot manbasi" : "AI vizuali"}</span>
+          </div>
+          <div className="grid divide-y divide-[#cfe5dc] sm:grid-cols-2 sm:divide-x sm:divide-y-0">
+            <div className="p-5"><div className="tech-label text-[#6c8d86]">Rasm manbasi</div><p className="mt-2 text-sm font-bold leading-6 text-[#214d50]">{isOfficialImage ? "Rasmiy ishlab chiqaruvchi yoki ishonchli distributor mahsulot fotosurati" : "BioLab uchun yaratilgan laboratoriya-realistik AI ko‘rgazma vizuali"}</p><p className="mt-2 text-sm leading-6 text-[#5d7c76]">{isOfficialImage ? "Tanlangan manba, model/tur mosligi bilan ichki rasm reyestrida qayd etilgan. Quyidagi havola model va ishlab chiqaruvchi ma’lumotini tekshirish uchun beriladi." : "Bu tasvir haqiqiy ishlab chiqaruvchi fotosurati yoki ma’lum bir modelning ko‘rinishi emas; u qurilma turini o‘quv maqsadida tasavvur qilishga yordam beradi."}</p>{verificationSource?.url && <a href={verificationSource.url} target="_blank" rel="noreferrer" className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-[#087a73] underline decoration-[#87cdb7] underline-offset-4 transition hover:text-[#075e5c]">Model/ishlab chiqaruvchi manbasini ochish <ExternalLink size={15} /></a>}</div>
+            <div className="p-5"><div className="tech-label text-[#6c8d86]">Litsenziya va qayta foydalanish</div><p className="mt-2 text-sm font-bold leading-6 text-[#214d50]">{isOfficialImage ? "Mualliflik huquqi tegishli rasm egasida qoladi" : "BioLab o‘quv ko‘rgazmasi sifatida yaratilgan"}</p><p className="mt-2 text-sm leading-6 text-[#5d7c76]">{isOfficialImage ? "Rasm faqat qurilmani aniqlash va o‘qitish kontekstida ko‘rsatiladi. Uni yuklab olish, qayta nashr qilish yoki tijoriy ishlatishdan oldin asl manba saytining foydalanish shartlari va huquq egasining alohida ruxsatini tekshiring." : "Tasvir qurilmani tanitish uchun ishlatiladi. U asbobning texnik spetsifikatsiyasi, rasmiy modeli yoki laboratoriya validatsiyasi o‘rnini bosa olmaydi."}</p>{verificationSource?.url && <a href={verificationSource.url} target="_blank" rel="noreferrer" className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-[#087a73] underline decoration-[#87cdb7] underline-offset-4 transition hover:text-[#075e5c]">Manba sayti va foydalanish shartlarini tekshirish <ExternalLink size={15} /></a>}</div>
+          </div>
+        </section>}
         <p className="mt-5 max-w-3xl text-base leading-7 text-[#5b7773]">{learning?.whatIs || device.description}</p>
         <div className="mt-7 grid gap-3 sm:grid-cols-3">
           <div className="rounded-2xl border border-[#d8e7e3] bg-white p-4"><div className="tech-label text-[#78908c]">Original nomi</div><div className="mt-2 text-sm font-bold leading-5 text-[#214d50]">{learning?.originalName || device.name}</div></div>

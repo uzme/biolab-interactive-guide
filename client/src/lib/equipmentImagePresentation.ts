@@ -8,14 +8,10 @@ export type ImagePresentation = {
   position?: string;
 };
 
-const safeFrameIds = new Set([
-  "BIO-017", "BIO-018", "BIO-019", "BIO-021", "BIO-022", "BIO-023", "BIO-024",
-  "BIO-026", "BIO-027", "BIO-028", "BIO-029", "BIO-034", "BIO-037", "BIO-038",
-  "BIO-041", "BIO-042", "BIO-046", "BIO-050", "BIO-052", "BIO-053", "BIO-054",
-  "BIO-057", "BIO-062", "BIO-063", "BIO-064", "BIO-065", "BIO-071", "BIO-073",
-  "BIO-075", "BIO-080", "BIO-082", "BIO-083", "BIO-089", "BIO-092", "BIO-097",
-  "BIO-098", "BIO-099", "BIO-100",
-]);
+// PCR kartasi foydalanuvchi tasdiqlagan kadr nisbatini saqlaydi. Qolgan
+// qurilmalarda asosiy mahsulot hech qachon kesilmasligi uchun `contain`
+// ishlatiladi; karta oynasi xiralashtirilgan fon qatlami bilan to‘liq qoplanadi.
+const coverFrameIds = new Set(["BIO-001"]);
 
 const tunedPositions: Partial<Record<string, string>> = {
   "BIO-017": "62% 50%",
@@ -36,7 +32,7 @@ const tunedPositions: Partial<Record<string, string>> = {
 
 export function getImagePresentation(id: string): ImagePresentation {
   return {
-    fit: safeFrameIds.has(id) ? "contain" : "cover",
+    fit: coverFrameIds.has(id) ? "cover" : "contain",
     position: tunedPositions[id] ?? "50% 50%",
   };
 }

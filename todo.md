@@ -50,6 +50,9 @@
 
 ## Sof qurilma rasmi va joylashuvi
 
+- [x] Har bir karta rasmini alohida fokus xaritasi bilan qayta tekshirib, hali xato ko‘rinayotgan qurilmalarni rasm-ID bo‘yicha qayd etish
+- [x] Har bir muammoli karta uchun qirqim/markazlash parametrini individual moslash yoki kerak bo‘lsa mahsulot rasmini almashtirish
+- [x] Tuzatishdan keyin kartani mobil qurilma nisbatida to‘liq vizual tasdiqlash
 - [x] 100 ta karta rasmini PCR namunasi bilan solishtirib, chetga siljigan, haddan tashqari kattalashgan yoki noto‘g‘ri kesilgan qurilmalarni aniqlash
 - [x] Har bir aniqlangan rasm uchun markazlash/fokus koordinatasini yozib, qurilmani aniq ko‘rsatadigan ko‘rinishni joriy qilish
 - [x] Mobil kartalarda rasm maydoni bo‘sh qolmasligi va qurilmaning muhim qismi kesilmasligini vizual tekshirish

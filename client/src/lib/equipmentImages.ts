@@ -84,22 +84,22 @@ export const equipmentImages: Record<string, EquipmentImage> = {
   },
   "BIO-016": {
     url: "/manus-storage/biolab-equipment-016-heracell-vios-160i_9f02791f.jpg",
-    alt: "Thermo Scientific Heracell VIOS 160i CO2 inkubatorining rasmiy mahsulot rasmi",
+    alt: "Thermo Scientific Heracell VIOS 160i CO2 inkubatorining to‘liq mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-017": {
     url: "/manus-storage/biolab-equipment-017-tsx-ult-freezer_142dbb35.jpg",
-    alt: "Thermo Scientific TSX ultra-past haroratli muzlatgichining rasmiy mahsulot rasmi",
+    alt: "Thermo Scientific TSX ultra-past haroratli muzlatgichining to‘liq mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-018": {
-    url: "/manus-storage/biolab-equipment-018-martin-christ-lyophilizer_e7aefb85.png",
-    alt: "Martin Christ Alpha 1-2 turidagi laboratoriya lyofilizatorining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-018-lyophilizer-full_419f53d0.webp",
+    alt: "To‘liq ko‘rinadigan laboratoriya lyofilizatorining mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-019": {
-    url: "/manus-storage/biolab-equipment-019-ultrasonic-homogenizer_20769d42.webp",
-    alt: "Ultratovushli gomogenizatorning mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-019-qsonica-q125-full_c4939e11.png",
+    alt: "QSonica Q125 sonikatorining boshqaruv bloki va probasi bilan to‘liq mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-020": {
@@ -108,23 +108,23 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-021": {
-    url: "/manus-storage/biolab-equipment-021-mettler-toledo-s470_7b3993d3.jpg",
-    alt: "Mettler Toledo SevenExcellence S470 pH-metrining rasmiy mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-021-seven-excellence-full_92b484ec.jpg",
+    alt: "Mettler Toledo SevenExcellence S470 pH va konduktometriya stansiyasining to‘liq mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-022": {
-    url: "/manus-storage/biolab-equipment-022-sartorius-entris-ii_3d3a959b.jpg",
-    alt: "Sartorius Entris II BCE64i-1S analitik tarozisining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-022-entris-ii-full-clean_c748c576.jpg",
+    alt: "To‘liq ko‘rinadigan Sartorius Entris II analitik tarozisining mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-023": {
-    url: "/manus-storage/biolab-equipment-023-memmert-in260_256aab95.png",
+    url: "/manus-storage/biolab-equipment-023-memmert-in260-full_8b3e2693.png",
     alt: "Memmert IN260 laboratoriya termostatining rasmiy mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-024": {
-    url: "/manus-storage/biolab-equipment-024-liquid-nitrogen-dewar_0e4d38fc.webp",
-    alt: "Suyuq azot uchun kriogen Dewar idishining mahsulot rasmi; konfiguratsiya namuna sifatida berilgan",
+    url: "/manus-storage/biolab-equipment-024-dewar-complete-clean_9878fd9f.jpg",
+    alt: "To‘liq siluetli kriogen Dewar idishining mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-025": {
@@ -133,13 +133,13 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-026": {
-    url: "/manus-storage/biolab-equipment-026-vortex-genie-2_8c5a1553.png",
-    alt: "Scientific Industries Vortex-Genie 2 vorteks aralashtirgichining rasmiy mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-026-vortex-genie-full-clean_618ab044.png",
+    alt: "To‘liq ko‘rinadigan Scientific Industries Vortex-Genie 2 vorteks aralashtirgichining mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-027": {
-    url: "/manus-storage/biolab-equipment-027-eppendorf-repeater-m4_3fb8349d.jpg",
-    alt: "Eppendorf Repeater M4 dispenserli pipetkasining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-027-repeater-m4-full-clean_f78df2bc.jpg",
+    alt: "To‘liq ko‘rinadigan Eppendorf Repeater M4 dispenserli pipetkasining mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-028": {
@@ -148,8 +148,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-029": {
-    url: "/manus-storage/biolab-equipment-029-applied-biosystems-veriti-96_8fb70090.jpg",
-    alt: "Applied Biosystems Veriti 96 termotsiklerining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-029-veriti-full-clean_b66c0950.jpg",
+    alt: "To‘liq ko‘rinadigan Applied Biosystems Veriti 96 termotsiklerining mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-030": {
@@ -273,23 +273,23 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-054": {
-    url: "/manus-storage/biolab-equipment-054-biorad-mini-protean-tetra_30964f28.jpg",
-    alt: "Bio-Rad Mini-PROTEAN Tetra SDS-PAGE tizimining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-054-mini-protean-tetra-full_d7a92987.jpg",
+    alt: "Bio-Rad Mini-PROTEAN Tetra SDS-PAGE tizimining komplekt mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-055": {
-    url: "/manus-storage/biolab-equipment-055-ief-system-clean_72a1fa8d.jpg",
-    alt: "Izoelektrik fokuslash kamerasining oq fondagi sof mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-055-protean-ief-full_db1daf7c.jpg",
+    alt: "Bio-Rad PROTEAN IEF Cell tizimining to‘liq mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-056": {
-    url: "/manus-storage/biolab-equipment-056-cytiva-akta-pure-25_928ba797.jpg",
-    alt: "Cytiva ÄKTA pure 25 FPLC tizimining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-056-akta-pure-full_85ac2e8f.png",
+    alt: "Cytiva ÄKTA pure FPLC oqsil tozalash tizimining to‘liq mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-057": {
-    url: "/manus-storage/biolab-equipment-057-amersham-imagequant-800_cca34369.jpg",
-    alt: "Amersham ImageQuant 800 xemiluminessent deteksiya tizimining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-057-imagequant-800-full_7d745b4b.png",
+    alt: "Amersham ImageQuant 800 xemiluminessent deteksiya tizimining to‘liq mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-058": {
@@ -463,8 +463,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-092": {
-    url: "/manus-storage/biolab-equipment-092-biomek-i7-crispr-workflow-clean_7cd66d97.png",
-    alt: "Beckman Coulter Biomek i7 Hybrid CRISPR-Cas9 workflow avtomatlashtirish ish stantsiyasining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-092-biomek-i7-full_a9ab1be5.png",
+    alt: "To‘liq ko‘rinadigan Beckman Coulter Biomek i7 Hybrid CRISPR workflow avtomatlashtirish ish stantsiyasi mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-093": {
@@ -483,8 +483,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-096": {
-    url: "/manus-storage/biolab-equipment-096-gradient-master-clean_ffe7205f.jpeg",
-    alt: "BioComp Gradient Master 108 mikserining oq fondagi mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-096-gradient-master-full_26035a30.jpg",
+    alt: "To‘liq ko‘rinadigan BioComp Gradient Master 108 qurilmasining mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-097": {

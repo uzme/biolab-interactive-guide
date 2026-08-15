@@ -49,10 +49,10 @@ export default function EquipmentCard({ device, index, onOpen }: { device: Equip
 
   return <article className="equipment-card group relative flex h-full flex-col overflow-hidden rounded-[22px] border border-[#ccdcd8] bg-[#ffffff] shadow-[0_7px_18px_rgba(23,61,66,0.025)]" style={{ animationDelay: `${Math.min(index, 7) * 35}ms` }}>
     <div className={`absolute inset-x-0 top-0 h-1 ${tone.signal}`} />
-    <figure className="relative grid h-52 place-items-center overflow-hidden border-b border-[#d9e9e5] bg-[#eaf5f2] sm:h-48">
+    <figure className="relative grid h-52 place-items-center overflow-hidden border-b border-[#d9e9e5] bg-[#d6e7e2] sm:h-48">
       {image ? <>
-        {imagePresentation.fit === "contain" && <img aria-hidden="true" src={image.url} alt="" className="absolute inset-0 h-full w-full scale-110 object-cover opacity-30 blur-xl" style={{ objectPosition: imagePresentation.position }} />}
-        <img src={image.url} alt={image.alt} loading="lazy" decoding="async" className={`relative h-full w-full transition duration-300 group-hover:scale-[1.025] ${imagePresentation.fit === "contain" ? "object-contain p-2" : "object-cover"}`} style={{ objectPosition: imagePresentation.position }} />
+        {imagePresentation.fit === "contain" && <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(240,249,247,0.82),rgba(204,225,219,0.72)_65%,rgba(180,209,201,0.72))]" />}
+        <img src={image.url} alt={image.alt} loading="lazy" decoding="async" className={`absolute inset-0 z-10 h-full w-full transition duration-300 group-hover:scale-[1.02] ${imagePresentation.fit === "contain" ? "object-contain p-4 contrast-110 mix-blend-multiply drop-shadow-[0_10px_15px_rgba(21,66,68,0.22)] [-webkit-mask-image:radial-gradient(ellipse_92%_105%_at_center,black_52%,transparent_100%)] [mask-image:radial-gradient(ellipse_92%_105%_at_center,black_52%,transparent_100%)] sm:p-3" : "object-cover"}`} style={{ objectPosition: imagePresentation.position }} />
       </> : <div className={`grid h-20 w-20 place-items-center rounded-2xl border soft-grid ${tone.icon}`}><Icon size={30} /></div>}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-white/75 to-transparent" />
       <span className={`absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-white/75 bg-white/90 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-[0.12em] shadow-sm backdrop-blur ${tone.icon.split(" ").filter((className) => className.startsWith("text-")).join(" ")}`}><Icon size={12} />{imageLabel}</span>

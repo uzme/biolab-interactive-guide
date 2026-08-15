@@ -28,3 +28,4 @@
 - The hero’s numbered 16-step curriculum rail is a dominant structural element rather than a supporting statistic; the rail anchors the visual transition from scientific understanding to SOP-guided practice.
 - The BioLab mark uses a deep-teal precision module, an unmistakable laboratory-symbol lock-up, and a `LAB-01` identifier to distinguish the learning platform from a generic equipment catalogue.
 - Catalogue cards carry category-specific glyph colors and deep-teal protocol bands so that their scientific grouping, model context, and 16-step learning scope can be scanned before opening a record.
+- The hero opens with the 16-step LAB-01 SOP rail, while every card exposes its model, manual/manufacturer context, and a unique SOP record code before the user opens the full learning page.

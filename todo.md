@@ -36,6 +36,18 @@
 - [x] AI-reprezentativ va rasmiy/distributor rasm holatlari uchun tushunarli, alohida izohlarni kiritish
 - [x] Shaffoflik blokini desktop va mobil ko‘rinishda tekshirish hamda checkpointga saqlash
 
+## Katalog karta rasmi — demo
+
+- [x] Qurilma nomi ustiga katta mahsulot rasmi joylashgan mobil karta demosini tayyorlash
+- [x] Demo rasmini foydalanuvchi tasdiqlashi uchun yuborish
+
+## Katalog kartalarida katta rasm
+
+- [x] Barcha kartalarda biriktirilgan rasmni nom tepasidagi yagona mahsulot oynasiga ulash
+- [x] Katta rasmli kartaning desktop, planshet va mobil o‘lchamlarini muvozanatlash
+- [x] 100 ta qurilma kartasida rasm URLlari va fallback holatini tekshirish
+- [ ] Katalogdagi katta rasmli versiyani production build bilan tekshirib checkpointga saqlash
+
 ## Majburiy o‘quv tartibi
 1. O‘zbekcha nomi.
 2. Original nomi, manufacturer va model.

@@ -6,6 +6,7 @@
 import { ArrowUpRight, Beaker, BookOpenCheck, CircleDollarSign, Cpu, FlaskConical, Gauge, Grid2X2, Microscope, Settings2, Snowflake } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Equipment } from "@/lib/equipmentData";
+import { equipmentImages } from "@/lib/equipmentImages";
 import { learningByNumber, purchaseByNumber } from "@/lib/learningData";
 
 const cardIcons: Record<string, typeof FlaskConical> = {
@@ -39,21 +40,28 @@ export default function EquipmentCard({ device, index, onOpen }: { device: Equip
   const price = purchaseByNumber[device.number]?.price || device.newPrice;
   const learning = learningByNumber[device.number];
   const tone = categoryTone[device.category] || categoryTone["Molekulyar biologiya"];
+  const imageKey = `BIO-${String(device.number).padStart(3, "0")}`;
+  const image = equipmentImages[imageKey];
+  const imageLabel = image?.sourceType === "official" ? "Mahsulot rasmi" : "O‘quv vizuali";
+  const recordCode = `SOP-${String(device.number).padStart(3, "0")}`;
 
-  return <article className="equipment-card group relative overflow-hidden rounded-[22px] border border-[#ccdcd8] bg-[#ffffff] p-5 shadow-[0_7px_18px_rgba(23,61,66,0.025)]" style={{ animationDelay: `${Math.min(index, 7) * 35}ms` }}>
+  return <article className="equipment-card group relative flex h-full flex-col overflow-hidden rounded-[22px] border border-[#ccdcd8] bg-[#ffffff] shadow-[0_7px_18px_rgba(23,61,66,0.025)]" style={{ animationDelay: `${Math.min(index, 7) * 35}ms` }}>
     <div className={`absolute inset-x-0 top-0 h-1 ${tone.signal}`} />
-    <div className="absolute right-0 top-0 h-24 w-24 -translate-y-8 translate-x-8 rounded-full border border-[#d7efe7] bg-[#f2faf7]" />
-    <div className="relative mb-5 flex items-start justify-between gap-3">
-      <div className={`relative grid h-14 w-20 place-items-center overflow-hidden rounded-xl border soft-grid ${tone.icon}`}><Icon size={22} /><span className={`absolute bottom-1.5 left-1.5 h-1 w-8 rounded-full opacity-70 ${tone.signal}`} /></div>
-      <div className="space-y-1 text-right"><span className="block rounded-full border border-[#bccfca] bg-[#f8fbfa] px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#355b57]">BIO-{String(device.number).padStart(3, "0")}</span><span className="tech-label block text-[#5f8880]">O‘QUV-16</span></div>
+    <figure className="relative grid h-52 place-items-center overflow-hidden border-b border-[#d9e9e5] bg-[linear-gradient(90deg,rgba(11,119,115,0.055)_1px,transparent_1px),linear-gradient(rgba(11,119,115,0.055)_1px,transparent_1px)] bg-[size:22px_22px] bg-[#f5fbf9] sm:h-48">
+      {image ? <img src={image.url} alt={image.alt} loading="lazy" decoding="async" className="h-full w-full object-contain p-3 transition duration-300 group-hover:scale-[1.025]" /> : <div className={`grid h-20 w-20 place-items-center rounded-2xl border soft-grid ${tone.icon}`}><Icon size={30} /></div>}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-white/75 to-transparent" />
+      <span className={`absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-white/75 bg-white/90 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-[0.12em] shadow-sm backdrop-blur ${tone.icon.split(" ").filter((className) => className.startsWith("text-")).join(" ")}`}><Icon size={12} />{imageLabel}</span>
+      <span className="absolute right-3 top-3 rounded-full border border-[#b7d4cc] bg-white/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#355b57] shadow-sm backdrop-blur">{imageKey}</span>
+    </figure>
+    <div className="flex flex-1 flex-col p-5">
+      <div className="relative eyebrow mb-2">{device.category}</div>
+      <h3 className="relative display min-h-[58px] text-[1.35rem] font-bold leading-[1.08] tracking-[-0.035em] text-[#173d42]">{device.name}</h3>
+      <div className="relative mt-3 overflow-hidden rounded-xl border border-[#b9d5cd] bg-[#f5faf8] text-[10px] font-bold uppercase tracking-[0.09em]">
+        <div className="grid grid-cols-[1fr_auto] gap-2 border-b border-[#d6e6e0] px-3 py-2.5"><span className="flex min-w-0 items-center gap-1.5 truncate text-[#355e58]"><span className="shrink-0 text-[8px] text-[#789b94]">MODEL</span><span className="truncate">{device.model}</span></span><span className="rounded-sm bg-[#0b5358] px-1.5 py-0.5 text-white">16 qadam</span></div>
+        <div className="flex items-center justify-between gap-2 px-3 py-2"><span className="flex min-w-0 items-center gap-1.5 truncate text-[#5f817c]"><BookOpenCheck size={12} className="shrink-0 text-[#0d9488]" /><span className="truncate">{learning?.manufacturer || "Manual"}</span></span><span className="shrink-0 rounded border border-[#bce4d8] bg-[#e7f5ef] px-1.5 py-0.5 text-[#087a73]">{recordCode}</span></div>
+      </div>
+      <p className="relative mt-3 min-h-[54px] text-sm leading-6 text-[#6f8984]">{device.description}</p>
+      <div className="relative mt-auto flex items-center justify-between gap-3 border-t border-[#d7e5df] pt-4"><span className="min-w-0 truncate text-xs font-semibold text-[#466c67]"><CircleDollarSign size={13} className="mr-1 inline text-[#0d9488]" />{price}</span><Button size="sm" variant="outline" className="shrink-0 border-[#94bcb1] bg-transparent text-[#0d7774] hover:bg-[#e3f2e9]" onClick={() => onOpen(device)}>O‘rganish <ArrowUpRight size={15} /></Button></div>
     </div>
-    <div className="relative eyebrow mb-2">{device.category}</div>
-    <h3 className="relative display min-h-[58px] text-[1.35rem] font-bold leading-[1.08] tracking-[-0.035em] text-[#173d42]">{device.name}</h3>
-    <div className="relative mt-3 overflow-hidden rounded-xl border border-[#cadbd5] bg-[#f5faf8] text-[10px] font-bold uppercase tracking-[0.09em]">
-      <div className="grid grid-cols-[1fr_auto] gap-2 border-b border-[#d6e6e0] px-3 py-2.5"><span className="truncate text-[#355e58]">{device.model}</span><span className="rounded-sm bg-[#0d7774] px-1.5 py-0.5 text-white">16 bo‘lim</span></div>
-      <div className="flex items-center justify-between gap-2 px-3 py-2"><span className="flex min-w-0 items-center gap-1.5 truncate text-[#5f817c]"><BookOpenCheck size={12} className="shrink-0 text-[#0d9488]" />{learning?.manufacturer || "Manual"}</span><span className="shrink-0 rounded bg-[#dff3eb] px-1.5 py-0.5 text-[#087a73]">SOP</span></div>
-    </div>
-    <p className="relative mt-3 min-h-[54px] text-sm leading-6 text-[#6f8984]">{device.description}</p>
-    <div className="relative mt-5 flex items-center justify-between gap-3 border-t border-[#d7e5df] pt-4"><span className="min-w-0 truncate text-xs font-semibold text-[#466c67]"><CircleDollarSign size={13} className="mr-1 inline text-[#0d9488]" />{price}</span><Button size="sm" variant="outline" className="shrink-0 border-[#94bcb1] bg-transparent text-[#0d7774] hover:bg-[#e3f2e9]" onClick={() => onOpen(device)}>O‘rganish <ArrowUpRight size={15} /></Button></div>
   </article>;
 }

@@ -10,6 +10,25 @@
 - [x] TypeScript va production buildni tekshirish
 - [x] Yangilangan checkpoint yaratish
 
+## Google Drive nusxasi — Loyiha 1
+
+- [x] Google Drive integratsiyasi va mavjud “Biotexnologiya yangi” papkasini tekshirish
+- [x] Loyiha kodlari, konfiguratsiya va kerakli statik resurslarni eksportga tayyorlash
+- [x] “Biotexnologiya yangi/Loyiha 1” papka tuzilmasini yaratish
+- [x] Loyiha kodlarini Google Drive’ga yuklash
+- [x] Yuklangan tarkib va papka havolasini tekshirish
+
+## 100 ta qurilma rasmi
+
+- [ ] 100 ta qurilma uchun kanonik rasm identifikatori, manufacturer/model mosligi va manba strategiyasini belgilash
+- [ ] Rasmiy manbalardan yuqori aniqlikdagi rasmlarni tanlash hamda manbalarni reyestrga kiritish
+- [ ] Rasm manbasi bo‘lmagan qurilmalar uchun laboratoriya-realistik AI vizuallar yaratish
+- [ ] Rasmlarni web asset sifatida xavfsiz yuklash va 100 ta qurilma bilan bog‘lash
+- [ ] Qurilma sahifasining yuqori qismiga rasm blokini integratsiya qilish
+- [ ] Rasm-model mosligi, desktop/mobile o‘qilishi va fallback holatini tekshirish
+- [ ] Rasmli versiyani checkpointga saqlash
+- [ ] Foydalanuvchi tasdiqidan keyin Google Drive’dagi “Loyiha 1” nusxasini yangilash
+
 ## Majburiy o‘quv tartibi
 1. O‘zbekcha nomi.
 2. Original nomi, manufacturer va model.

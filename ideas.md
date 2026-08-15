@@ -25,3 +25,6 @@
 - The hero must communicate structured scientific learning immediately through a 16-step curriculum rail, calibration-grid overlay, and precise manual/SOP language rather than functioning only as a promotional banner.
 - The visual system uses deep teal for authority, mint only for active learning signals, and sharper cool-slate separators for laboratory-grade contrast.
 - Equipment cards use a compact manufacturer/model/manual data band and category-specific instrument glyph; no device 3D, 2D schematic, or hotspot preview is used.
+- The hero’s numbered 16-step curriculum rail is a dominant structural element rather than a supporting statistic; the rail anchors the visual transition from scientific understanding to SOP-guided practice.
+- The BioLab mark uses a deep-teal precision module, an unmistakable laboratory-symbol lock-up, and a `LAB-01` identifier to distinguish the learning platform from a generic equipment catalogue.
+- Catalogue cards carry category-specific glyph colors and deep-teal protocol bands so that their scientific grouping, model context, and 16-step learning scope can be scanned before opening a record.

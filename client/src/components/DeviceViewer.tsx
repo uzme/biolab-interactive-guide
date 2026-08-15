@@ -24,6 +24,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import type { Equipment } from "@/lib/equipmentData";
+import { equipmentImages } from "@/lib/equipmentImages";
 import { learningByNumber, purchaseByNumber } from "@/lib/learningData";
 
 function SourceText({ value }: { value: string }) {
@@ -41,6 +42,7 @@ export default function DeviceViewer({ device, onBack }: { device: Equipment; on
   const [lessonIndex, setLessonIndex] = useState(0);
   const learning = learningByNumber[device.number];
   const purchase = purchaseByNumber[device.number];
+  const image = equipmentImages[device.id];
 
   const sections = useMemo(() => learning ? [
     { id: "uz-name", number: 1, title: "Qurilmaning o‘zbekcha nomi", subtitle: "Kanonik atama", icon: BookOpenCheck, content: learning.title },
@@ -82,6 +84,13 @@ export default function DeviceViewer({ device, onBack }: { device: Equipment; on
       <section className="border-b border-[#dbe9e5] pb-8">
         <div className="eyebrow mb-3">{device.category} / BIO-{String(device.number).padStart(3, "0")}</div>
         <h1 className="display max-w-4xl text-4xl font-bold leading-[0.98] text-[#173d42] sm:text-6xl">{learning?.title || device.name}</h1>
+        {image && <figure className="mt-7 overflow-hidden rounded-[28px] border border-[#cfe3dd] bg-white shadow-[0_18px_42px_rgba(28,71,67,0.08)]">
+          <img src={image.url} alt={image.alt} className="h-auto max-h-[480px] w-full object-cover" loading="eager" />
+          <figcaption className="flex flex-wrap items-center justify-between gap-2 border-t border-[#dceae5] bg-[#fbfefd] px-5 py-3 text-xs leading-5 text-[#66847e]">
+            <span>{image.sourceType === "official" ? "Rasmiy mahsulot rasmi" : "Qurilma turining laboratoriya-realistik vizuali"}</span>
+            <span className="font-bold uppercase tracking-[0.13em] text-[#0d7774]">O‘quv ko‘rgazmasi</span>
+          </figcaption>
+        </figure>}
         <p className="mt-5 max-w-3xl text-base leading-7 text-[#5b7773]">{learning?.whatIs || device.description}</p>
         <div className="mt-7 grid gap-3 sm:grid-cols-3">
           <div className="rounded-2xl border border-[#d8e7e3] bg-white p-4"><div className="tech-label text-[#78908c]">Original nomi</div><div className="mt-2 text-sm font-bold leading-5 text-[#214d50]">{learning?.originalName || device.name}</div></div>

@@ -193,8 +193,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-038": {
-    url: "/manus-storage/biolab-equipment-038-misco-palm-abbe_37f2039a.jpg",
-    alt: "MISCO Palm Abbe Digital refraktometrining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-038-refractometer-clean_92feb5e0.jpg",
+    alt: "MISCO Palm Abbe Digital refraktometrining oq fondagi sof mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-039": {
@@ -218,8 +218,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-043": {
-    url: "/manus-storage/biolab-equipment-043-sartorius-biostat-b_23358768.webp",
-    alt: "Sartorius BIOSTAT B bioreaktor tizimining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-043-bioreactor-clean_d6a5099c.webp",
+    alt: "Sartorius BIOSTAT B bioreaktorining oq fondagi sof mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-044": {
@@ -228,8 +228,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-045": {
-    url: "/manus-storage/biolab-equipment-045-biotek-elx50_6791f55f.webp",
-    alt: "BioTek ELx50 mikroplanshet yuvgichining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-045-microplate-washer-clean_ab2daad0.jpg",
+    alt: "BioTek ELx50 mikroplanshet yuvgichining oq fondagi sof mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-046": {
@@ -263,8 +263,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-052": {
-    url: "/manus-storage/biolab-equipment-052-eppendorf-thermomixer-c_b5563743.jpg",
-    alt: "Eppendorf ThermoMixer C blok termostatining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-052-thermomixer-clean_07a02632.jpg",
+    alt: "Eppendorf ThermoMixer C qurilmasining qo‘lsiz mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-053": {
@@ -278,8 +278,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-055": {
-    url: "/manus-storage/biolab-equipment-055-biorad-protean-ief_fa80cf23.jpg",
-    alt: "Bio-Rad PROTEAN IEF Cell izoelektrik fokuslash tizimining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-055-ief-system-clean_72a1fa8d.jpg",
+    alt: "Izoelektrik fokuslash kamerasining oq fondagi sof mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-056": {
@@ -293,8 +293,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-058": {
-    url: "/manus-storage/biolab-equipment-058-bruker-avance-neo-400_893f4584.jpg",
-    alt: "Bruker AVANCE NEO 400 MHz NMR spektrometrining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-058-bruker-avance-neo-400-clean_1b49a0dd.jpg",
+    alt: "Bruker AVANCE NEO 400 MHz NMR tizimining studio mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-059": {
@@ -308,8 +308,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-061": {
-    url: "/manus-storage/biolab-equipment-061-leica-rm2255_805b3563.webp",
-    alt: "Leica RM2255 avtomatlashtirilgan mikroto‘mining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-061-microtome-clean_4f16db67.jpg",
+    alt: "Leica RM2255 mikroto‘mining oq fondagi sof mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-062": {
@@ -323,8 +323,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-064": {
-    url: "/manus-storage/biolab-equipment-064-sakura-prisma-plus_4b360cbb.jpg",
-    alt: "Sakura Tissue-Tek Prisma Plus avtomatik bo‘yash qurilmasining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-064-staining-system-clean_aa010bbd.jpg",
+    alt: "Sakura Tissue-Tek Prisma Plus qurilmasining oq fondagi sof mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-065": {
@@ -383,8 +383,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-076": {
-    url: "/manus-storage/biolab-equipment-076-integra-mediaclave-30_287232d0.jpg",
-    alt: "INTEGRA MEDIACLAVE 30 muhit tayyorlash stantsiyasining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-076-mediaclave-clean_34909a88.png",
+    alt: "INTEGRA MEDIACLAVE 30 muhit tayyorlash stantsiyasining sof mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-077": {
@@ -398,18 +398,18 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-079": {
-    url: "/manus-storage/biolab-equipment-079-spectramax-i3x_0a5dba29.jpg",
-    alt: "Molecular Devices SpectraMax i3x ferment faolligi o‘quv stantsiyasining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-079-spectramax-i3x-clean_0e39f54e.webp",
+    alt: "Molecular Devices SpectraMax i3x qurilmasining sof mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-080": {
-    url: "/manus-storage/biolab-equipment-080-beckman-pa800-plus_eae5b216.jpg",
-    alt: "Beckman Coulter PA 800 Plus kapillyar elektroforez tizimining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-080-pa800-plus-clean_f02661e9.png",
+    alt: "Beckman Coulter PA 800 Plus tizimining oq fondagi sof mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-081": {
-    url: "/manus-storage/biolab-equipment-081-cytiva-biacore-t200_c0aeaddb.webp",
-    alt: "Cytiva Biacore T200 SPR biosensor tizimining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-081-biacore-t200-clean_e075203d.jpg",
+    alt: "Cytiva Biacore T200 SPR biosensorining sof mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-082": {
@@ -423,8 +423,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-084": {
-    url: "/manus-storage/biolab-equipment-084-planer-kryo-560-16_1817d4a8.webp",
-    alt: "Planer Kryo 560-16 kriokonservatsiya tizimining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-084-planer-kryo-560-clean_a2650d7f.jpg",
+    alt: "Planer Kryo 560-16 kriokonservatsiya tizimining sof mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-085": {
@@ -463,8 +463,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-092": {
-    url: "/manus-storage/biolab-equipment-092-crispr-cas9-rnp-workstation_f5383717.jpg",
-    alt: "CRISPR-Cas9 RNP ish stantsiyasining laboratoriya muhiti aks etgan vakillikdagi rasmi",
+    url: "/manus-storage/biolab-equipment-092-crispr-cas9-clean_754f7705.jpg",
+    alt: "IDT Alt-R CRISPR-Cas9 reagent tizimining neytral fondagi mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-093": {
@@ -473,18 +473,18 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-094": {
-    url: "/manus-storage/biolab-equipment-094-biorad-tc20_90276cdc.jpg",
-    alt: "Bio-Rad TC20 avtomatik hujayra sanagichining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-094-tc20-cell-counter-clean_20f9047a.jpg",
+    alt: "Bio-Rad TC20 avtomatik hujayra sanagichining oq fondagi sof mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-095": {
-    url: "/manus-storage/biolab-equipment-095-biorad-ngc_5f6ca38d.png",
-    alt: "Bio-Rad NGC ion-almashinish xromatografiya tizimining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-095-chromatography-system-clean_27fd4708.jpg",
+    alt: "Bio-Rad NGC xromatografiya tizimining oq fondagi mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-096": {
-    url: "/manus-storage/biolab-equipment-096-gradient-master_601fd76b.webp",
-    alt: "Gradient Master avtomatik gradient mikserining mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-096-gradient-master-clean_ffe7205f.jpeg",
+    alt: "BioComp Gradient Master 108 mikserining oq fondagi mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-097": {

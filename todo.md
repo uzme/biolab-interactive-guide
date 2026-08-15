@@ -48,6 +48,13 @@
 - [x] 100 ta qurilma kartasida rasm URLlari va fallback holatini tekshirish
 - [ ] Katalogdagi katta rasmli versiyani production build bilan tekshirib checkpointga saqlash
 
+## Sof qurilma rasmi va joylashuvi
+
+- [ ] Katalog hamda ichki sahifalardagi odam, qo‘l yoki jarayon fonli rasm yozuvlarini aniqlash
+- [ ] Har bir aniqlangan holatni sof qurilma mahsulot rasmi yoki brendsiz reprezentativ qurilma tasviri bilan almashtirish
+- [ ] Kartalar va ichki sahifalarda rasmlarni markazlash, kesilmaslik va bir xil o‘lchamda ko‘rsatishni tekshirish
+- [ ] Sof qurilma rasmli versiyani desktop/mobil ko‘rinishda tekshirib checkpointga saqlash
+
 ## Katalog qidiruvi va filtrlash
 
 - [x] Model, ishlab chiqaruvchi va qurilma nomi bo‘yicha aniq tezkor qidiruvni joriy qilish

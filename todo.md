@@ -48,6 +48,13 @@
 - [x] 100 ta qurilma kartasida rasm URLlari va fallback holatini tekshirish
 - [ ] Katalogdagi katta rasmli versiyani production build bilan tekshirib checkpointga saqlash
 
+## Katalog qidiruvi va filtrlash
+
+- [x] Model, ishlab chiqaruvchi va qurilma nomi bo‘yicha aniq tezkor qidiruvni joriy qilish
+- [x] Kategoriya tanlash, natija soni va faol filtr holatini aniq ko‘rsatish
+- [x] Qidiruv/filtrlarni tozalash hamda natija topilmagandagi holatni qo‘shish
+- [ ] Desktop va mobil ekranda qidiruv oqimini tekshirib checkpointga saqlash
+
 ## Majburiy o‘quv tartibi
 1. O‘zbekcha nomi.
 2. Original nomi, manufacturer va model.

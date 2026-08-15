@@ -29,3 +29,6 @@
 - The BioLab mark uses a deep-teal precision module, an unmistakable laboratory-symbol lock-up, and a `LAB-01` identifier to distinguish the learning platform from a generic equipment catalogue.
 - Catalogue cards carry category-specific glyph colors and deep-teal protocol bands so that their scientific grouping, model context, and 16-step learning scope can be scanned before opening a record.
 - The hero opens with the 16-step LAB-01 SOP rail, while every card exposes its model, manual/manufacturer context, and a unique SOP record code before the user opens the full learning page.
+- The LAB-01 numbered rail remains the primary visual spine of the homepage; category discovery is presented as a structured consequence of the SOP curriculum rather than a generic product feed.
+- Equipment imagery supports quick recognition, while the protocol-record band, manufacturer/model/manual context, category glyph and SOP code carry the principal visual identity of each card.
+- Long catalogues are divided into explicit scientific module zones with calibrated separators and numbered module headers; BioLab microcopy remains procedural, manual-grounded and operator-focused.

@@ -50,6 +50,9 @@
 
 ## Sof qurilma rasmi va joylashuvi
 
+- [x] 100 ta karta rasmini PCR namunasi bilan solishtirib, chetga siljigan, haddan tashqari kattalashgan yoki noto‘g‘ri kesilgan qurilmalarni aniqlash
+- [x] Har bir aniqlangan rasm uchun markazlash/fokus koordinatasini yozib, qurilmani aniq ko‘rsatadigan ko‘rinishni joriy qilish
+- [x] Mobil kartalarda rasm maydoni bo‘sh qolmasligi va qurilmaning muhim qismi kesilmasligini vizual tekshirish
 - [x] Avvalgi katalog karta ierarxiyasini tiklash; rasmni qo‘llab-quvvatlovchi, nom va protokol ma’lumotini esa asosiy o‘qiladigan qism sifatida saqlash
 - [x] Sof mahsulot rasmlarini karta oynasini to‘liq qoplaydigan, markaziy fokusli `object-cover` joylashuvda tekshirish
 - [x] Qaytarilgan karta dizaynini katalogning desktop ko‘rinishida tekshirib checkpointga saqlash

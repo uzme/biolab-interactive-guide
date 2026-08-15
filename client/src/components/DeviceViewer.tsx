@@ -25,6 +25,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import type { Equipment } from "@/lib/equipmentData";
 import { equipmentImages } from "@/lib/equipmentImages";
+import { getImagePresentation } from "@/lib/equipmentImagePresentation";
 import { learningByNumber, purchaseByNumber } from "@/lib/learningData";
 
 function SourceText({ value }: { value: string }) {
@@ -43,6 +44,7 @@ export default function DeviceViewer({ device, onBack }: { device: Equipment; on
   const learning = learningByNumber[device.number];
   const purchase = purchaseByNumber[device.number];
   const image = equipmentImages[device.id];
+  const imagePresentation = getImagePresentation(device.id);
   const verificationSource = learning?.sources.find((source) => source.url);
   const isOfficialImage = image?.sourceType === "official";
 
@@ -86,8 +88,9 @@ export default function DeviceViewer({ device, onBack }: { device: Equipment; on
       <section className="border-b border-[#dbe9e5] pb-8">
         <div className="eyebrow mb-3">{device.category} / BIO-{String(device.number).padStart(3, "0")}</div>
         <h1 className="display max-w-4xl text-4xl font-bold leading-[0.98] text-[#173d42] sm:text-6xl">{learning?.title || device.name}</h1>
-        {image && <figure className="mt-7 overflow-hidden rounded-[28px] border border-[#cfe3dd] bg-white shadow-[0_18px_42px_rgba(28,71,67,0.08)]">
-          <img src={image.url} alt={image.alt} className="h-auto max-h-[480px] w-full object-cover" loading="eager" />
+        {image && <figure className="relative mt-7 overflow-hidden rounded-[28px] border border-[#cfe3dd] bg-[#eaf5f2] shadow-[0_18px_42px_rgba(28,71,67,0.08)]">
+          {imagePresentation.fit === "contain" && <img aria-hidden="true" src={image.url} alt="" className="absolute inset-0 h-[min(480px,58vw)] w-full scale-110 object-cover opacity-25 blur-2xl" style={{ objectPosition: imagePresentation.position }} />}
+          <img src={image.url} alt={image.alt} className={`relative h-[min(480px,58vw)] min-h-[250px] w-full ${imagePresentation.fit === "contain" ? "object-contain p-5" : "object-cover"}`} style={{ objectPosition: imagePresentation.position }} loading="eager" />
           <figcaption className="flex flex-wrap items-center justify-between gap-2 border-t border-[#dceae5] bg-[#fbfefd] px-5 py-3 text-xs leading-5 text-[#66847e]">
             <span>{image.sourceType === "official" ? "Rasmiy mahsulot rasmi" : "Qurilma turining laboratoriya-realistik vizuali"}</span>
             <span className="font-bold uppercase tracking-[0.13em] text-[#0d7774]">O‘quv ko‘rgazmasi</span>

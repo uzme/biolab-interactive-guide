@@ -463,8 +463,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-092": {
-    url: "/manus-storage/biolab-equipment-092-crispr-cas9-clean_754f7705.jpg",
-    alt: "IDT Alt-R CRISPR-Cas9 reagent tizimining neytral fondagi mahsulot rasmi",
+    url: "/manus-storage/biolab-equipment-092-biomek-i7-crispr-workflow-clean_7cd66d97.png",
+    alt: "Beckman Coulter Biomek i7 Hybrid CRISPR-Cas9 workflow avtomatlashtirish ish stantsiyasining mahsulot rasmi",
     sourceType: "official",
   },
   "BIO-093": {

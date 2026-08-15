@@ -1,17 +1,26 @@
-# BioLab 3D ko‘rinishni vaqtincha olib tashlash
+# BioLab o‘quv va xarid bazalarini integratsiya qilish
 
-- [x] DeviceViewer ichidagi model-viewer va 3D boshqaruvlarini olib tashlash
-- [x] 3D bo‘lmagan texnik sxema panelini saqlash va qayta nomlash
-- [x] Hotspotlarni 3D modeldan mustaqil interaktiv tugmalarga aylantirish
-- [x] Guided tour va qurilma tafsilotlarini saqlash
-- [x] TypeScript/build tekshiruvlarini bajarish
+- [x] 10 ta yuborilgan faylning 1–100 qamrovi va takrorlarini tekshirish
+- [x] O‘quv va xarid ma’lumotlarini yagona qurilma modeli bo‘yicha birlashtirish
+- [x] 100 ta qurilma ma’lumotlarini frontend ma’lumotlar qatlamiga import qilish
+- [x] Qurilma sahifasiga ketma-ket o‘quv bo‘limlarini qo‘shish
+- [x] Xarid, narx va tanlash ma’lumotlarini alohida modulga joylash
+- [x] Kategoriya va qidiruv natijalarini tekshirish
+- [x] TypeScript, production build hamda responsive ko‘rinishni tekshirish
 - [ ] Yangilangan checkpoint yaratish
 
+## Kontent ketma-ketligi
+1. Qurilma nima va nima uchun kerak.
+2. Ishlash prinsipi hamda asosiy qismlar.
+3. Tayyorlash va foydalanish bosqichlari.
+4. Xavfsizlik, sifat nazorati va texnik xizmat.
+5. Texnik parametrlar, model variantlari va sarf materiallari.
+6. Xarid strategiyasi, narx benchmarki hamda alternativalar.
+
 ## Qaror
-3D model keyingi bosqichda alohida asset sifatida qayta qo‘shilishi mumkin; hozirgi sahifa texnik sxema va o‘quv ma’lumotlariga tayanadi.
+Platforma o‘rganish uchun birinchi o‘ringa qo‘yiladi: xarid ma’lumotlari o‘quv bloklaridan keyin alohida, yengil o‘qiladigan modulda ko‘rsatiladi. 3D model vaqtincha o‘chirib qo‘yilgan; texnik 2D sxema hamda hotspotlar saqlanadi.
 
 ## Style Decisions
-- 3D o‘rniga sovuq laboratoriya fonida aniq, 2D texnik sxema ishlatiladi.
-- Hotspot tugmalari sxema qismlarini izohlash uchun saqlanadi.
-- Guided tour va tezkor ma’lumotlar paneli o‘zgarmaydi.
-
+- Har bir qurilma uchun sovuq laboratoriya ranglarida 2D texnik sxema qo‘llanadi.
+- O‘quv bloklari belgilangan tartibda va progress ko‘rsatkichi bilan beriladi.
+- Xarid ma’lumotlari o‘quv kontentidan vizual ravishda ajratiladi, lekin bitta sahifada mavjud bo‘ladi.

@@ -20,14 +20,14 @@
 
 ## 100 ta qurilma rasmi
 
-- [ ] 100 ta qurilma uchun kanonik rasm identifikatori, manufacturer/model mosligi va manba strategiyasini belgilash
-- [ ] Rasmiy manbalardan yuqori aniqlikdagi rasmlarni tanlash hamda manbalarni reyestrga kiritish
-- [ ] Rasm manbasi bo‘lmagan qurilmalar uchun laboratoriya-realistik AI vizuallar yaratish
-- [ ] Rasmlarni web asset sifatida xavfsiz yuklash va 100 ta qurilma bilan bog‘lash
-- [ ] Qurilma sahifasining yuqori qismiga rasm blokini integratsiya qilish
-- [ ] Rasm-model mosligi, desktop/mobile o‘qilishi va fallback holatini tekshirish
-- [ ] Rasmli versiyani checkpointga saqlash
-- [ ] Foydalanuvchi tasdiqidan keyin Google Drive’dagi “Loyiha 1” nusxasini yangilash
+- [x] 100 ta qurilma uchun kanonik rasm identifikatori, manufacturer/model mosligi va manba strategiyasini belgilash
+- [x] Rasmiy manbalardan yuqori aniqlikdagi rasmlarni tanlash hamda manbalarni reyestrga kiritish
+- [x] Rasm manbasi bo‘lmagan qurilmalar uchun laboratoriya-realistik AI vizuallar yaratish
+- [x] Rasmlarni web asset sifatida xavfsiz yuklash va 100 ta qurilma bilan bog‘lash
+- [x] Qurilma sahifasining yuqori qismiga rasm blokini integratsiya qilish
+- [x] Rasm-model mosligi, desktop/mobile o‘qilishi va fallback holatini tekshirish
+- [x] Rasmli versiyani checkpointga saqlash
+- [x] Foydalanuvchi tasdiqidan keyin Google Drive’dagi “Loyiha 1” nusxasini yangilash
 
 ## Rasm shaffofligi va litsenziya ma’lumoti
 
@@ -46,7 +46,7 @@
 - [x] Barcha kartalarda biriktirilgan rasmni nom tepasidagi yagona mahsulot oynasiga ulash
 - [x] Katta rasmli kartaning desktop, planshet va mobil o‘lchamlarini muvozanatlash
 - [x] 100 ta qurilma kartasida rasm URLlari va fallback holatini tekshirish
-- [ ] Katalogdagi katta rasmli versiyani production build bilan tekshirib checkpointga saqlash
+- [x] Katalogdagi katta rasmli versiyani production build bilan tekshirib checkpointga saqlash
 
 ## Sof qurilma rasmi va joylashuvi
 
@@ -59,10 +59,10 @@
 - [x] Avvalgi katalog karta ierarxiyasini tiklash; rasmni qo‘llab-quvvatlovchi, nom va protokol ma’lumotini esa asosiy o‘qiladigan qism sifatida saqlash
 - [x] Sof mahsulot rasmlarini karta oynasini to‘liq qoplaydigan, markaziy fokusli `object-cover` joylashuvda tekshirish
 - [x] Qaytarilgan karta dizaynini katalogning desktop ko‘rinishida tekshirib checkpointga saqlash
-- [ ] Katalog hamda ichki sahifalardagi odam, qo‘l yoki jarayon fonli rasm yozuvlarini aniqlash
-- [ ] Har bir aniqlangan holatni sof qurilma mahsulot rasmi yoki brendsiz reprezentativ qurilma tasviri bilan almashtirish
-- [ ] Kartalar va ichki sahifalarda rasmlarni markazlash, kesilmaslik va bir xil o‘lchamda ko‘rsatishni tekshirish
-- [ ] Sof qurilma rasmli versiyani desktop/mobil ko‘rinishda tekshirib checkpointga saqlash
+- [x] Katalog hamda ichki sahifalardagi odam, qo‘l yoki jarayon fonli rasm yozuvlarini aniqlash
+- [x] Har bir aniqlangan holatni sof qurilma mahsulot rasmi yoki brendsiz reprezentativ qurilma tasviri bilan almashtirish
+- [x] Kartalar va ichki sahifalarda rasmlarni markazlash, kesilmaslik va bir xil o‘lchamda ko‘rsatishni tekshirish
+- [x] Sof qurilma rasmli versiyani desktop/mobil ko‘rinishda tekshirib checkpointga saqlash
 
 ## Katalog qidiruvi va filtrlash
 

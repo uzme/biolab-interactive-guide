@@ -21,4 +21,4 @@
 - [x] Pure3DCarousel.css va Pure3DCarousel.tsx da kartalarning vertikal ("tepadan pastga") emas, balki original 3D aylanish geometriyasiga mos kelishini ta’minlash
 - [x] TypeScript va production build tekshiruvini bajarish
 - [x] Playwright regressiya testlarini o‘tkazish
-- [ ] GitHub va Google Drive ga sanitizatsiyalangan snapshotni sinxronlash
+- [x] GitHub va Google Drive ga sanitizatsiyalangan snapshotni sinxronlash (`e761a2f`, Drive file `1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT`)

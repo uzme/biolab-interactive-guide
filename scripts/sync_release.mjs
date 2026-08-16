@@ -21,12 +21,14 @@ try {
   execSync("node scripts/test_catalog_controls.mjs", { stdio: "inherit" });
 
   console.log("[3/4] Creating sanitized source archive for Google Drive...");
-  if (!fs.existsSync("/home/ubuntu/biolab-sync")) {
-    fs.mkdirSync("/home/ubuntu/biolab-sync", { recursive: true });
+  const syncDir = ".sync";
+  const archivePath = `${syncDir}/BioLab_Interactive_Guide_source.zip`;
+  if (!fs.existsSync(syncDir)) {
+    fs.mkdirSync(syncDir, { recursive: true });
   }
-  execSync("git archive --format=zip --output=/home/ubuntu/biolab-sync/BioLab_Interactive_Guide_source.zip HEAD", { stdio: "inherit" });
+  execSync(`git archive --format=zip --output=${archivePath} HEAD`, { stdio: "inherit" });
 
-  const archiveStat = fs.statSync("/home/ubuntu/biolab-sync/BioLab_Interactive_Guide_source.zip");
+  const archiveStat = fs.statSync(archivePath);
   console.log(`[Info] Sanitized source archive prepared successfully: ${(archiveStat.size / 1024).toFixed(1)} KB`);
 
   if (mode === "--check") {
@@ -45,10 +47,10 @@ try {
   execSync("git push origin main", { stdio: "inherit" });
 
   // Re-generate archive after commit so it includes latest committed state
-  execSync("git archive --format=zip --output=/home/ubuntu/biolab-sync/BioLab_Interactive_Guide_source.zip HEAD", { stdio: "inherit" });
+  execSync(`git archive --format=zip --output=${archivePath} HEAD`, { stdio: "inherit" });
 
   console.log(" -> Updating Google Drive snapshot (fileId: 1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT)...");
-  const updateCmd = `gws drive files update --params '{"fileId":"1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT"}' --upload /home/ubuntu/biolab-sync/BioLab_Interactive_Guide_source.zip --upload-content-type application/zip --json '{"name":"BioLab_Interactive_Guide_source.zip","description":"BioLab Interactive Guide sanitizatsiyalangan manba kodi (GitHub main branch)."}' --format json`;
+  const updateCmd = `gws drive files update --params '{"fileId":"1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT"}' --upload ${archivePath} --upload-content-type application/zip --json '{"name":"BioLab_Interactive_Guide_source.zip","description":"BioLab Interactive Guide sanitizatsiyalangan manba kodi (GitHub main branch)."}' --format json`;
   execSync(updateCmd, { stdio: "inherit" });
 
   console.log("\n=== PUBLISH COMPLETED SUCCESSFULLY ===");

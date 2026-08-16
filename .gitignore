@@ -115,3 +115,14 @@ docs/skills.md
 # Manus version file (auto-generated, not part of source)
 client/public/__manus__/version.json
 .project-config.json
+
+# Local publish archive; never commit or upload as source code
+.sync/
+.environment/
+.runtime/
+
+# Local sync artifacts
+biolab-sync/
+logs/
+.env*
+!.env.example

@@ -8,10 +8,11 @@
 - [x] PDF eksport funksiyasi
 - [x] Sozlamalar va mualliflik huquqi (Copyright) paneli
 - [x] Pure 3D Carousel va barcha 100 qurilma kengaytmasi
+- [x] Qurilma to‘liq xususiyatlari modal oynasi va 16 bo‘limli o‘quv dosyesi
 
-## Qurilma To‘liq Xususiyatlari Modal Oynasi — Reliz
-- [x] Qurilma kartalariga bosganda 16 bo‘limli to‘liq xususiyatlarni ochuvchi modal komponentni (DeviceViewer modal wrapper) yaratish
-- [x] Pure3DCarousel va EquipmentCard bosish hodisalarini modal ochishga ulash
-- [x] Modal oynada scrollable mazmun, PDF eksport va yopish tugmasini ta’minlash
-- [x] TypeScript va production build tekshiruvini bajarish
-- [x] GitHub va Drive source snapshotini oxirgi modal reliz metadata bilan yangilash
+## Joriy Reliz va Sinxronizatsiya
+- [x] TypeScript tekshiruvi va production build muvaffaqiyatli bajarildi (`dist/` yaratildi)
+- [x] Regression testlar (`test_catalog_controls.mjs`, `test_device_viewer.mjs`) muvaffaqiyatli o‘tdi
+- [x] Sanitizatsiyalangan source snapshot Google Drive’dagi **Biotexnologiya yangi / Loyiha 1** papkasiga (`1X_1fA8kg2Mpx6YW1NGrBoPHdjOcZ5Hxw`) va mavjud `1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT` fayliga duplikatsiyasiz yangilandi
+- [x] GitHub uzme/biolab-interactive-guide `main` branchiga (`df4cd7e`) push qilindi
+- [x] PROJECT_STATE.md va todo.md metadata yangilandi

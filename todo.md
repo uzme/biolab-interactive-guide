@@ -47,3 +47,9 @@
 - [x] `sync_release.mjs` skriptini tekshirib, barcha fayl va snapshotlar faqat "Biotexnologiya yangi" papkasi (`1X_1fA8kg2Mpx6YW1NGrBoPHdjOcZ5Hxw`) doirasida ishlashini kafolatlash
 - [x] PROJECT_STATE.md va loyiha ko‘rsatmalariga qoidani yozib qo‘yish
 - [x] TypeScript, production build, Playwright testlari va sanitizatsiyalangan release sinxronizatsiyasini bajarish (`b6d91f2`)
+
+## Pure3DCarousel Xatosini Tuzatish va Original Holatga Qaytarish
+- [x] `Pure3DCarousel.tsx` da `.pure3d-carousel` tashqi wrapperini tiklash va rasm URL logikasini to‘g‘rilash
+- [x] TypeScript check va production build bajarish
+- [x] Playwright regressiya testlarini yangilash va o‘tkazish
+- [ ] GitHub va Google Drive ga sanitizatsiyalangan snapshotni sinxronlash

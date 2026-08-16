@@ -18,107 +18,133 @@ type Pure3DCarouselProps = {
 
 export default function Pure3DCarousel({ onSelectDevice, isBookmarked, onToggleBookmark }: Pure3DCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerPage = 12;
-  const totalPages = Math.ceil(equipment.length / itemsPerPage);
-
-  const paginatedEquipment = equipment.slice(currentIndex * itemsPerPage, (currentIndex + 1) * itemsPerPage);
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % totalPages);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + totalPages) % totalPages);
-  };
+  const pageSize = 12;
+  const totalPages = Math.ceil(equipment.length / pageSize);
+  const pageEquipment = equipment.slice(currentIndex * pageSize, (currentIndex + 1) * pageSize);
 
   return (
-    <div className="mx-auto w-full max-w-[1400px]">
-      <div className="mb-6 flex items-center justify-between px-2">
+    <section
+      className="pure3d-carousel my-8 rounded-[32px] border border-[#d3e5df] bg-gradient-to-b from-[#f7fcfb] to-[#edf7f4] p-6 shadow-[0_20px_50px_rgba(28,71,67,0.06)] sm:p-10"
+      aria-label="Asosiy qurilmalar 3D carouseli"
+    >
+      <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
         <div>
-          <div className="tech-label text-[#0d7774]">3D KMR / 100 QURILMA HALQASI</div>
-          <p className="text-xs text-[#5d827c]">Sahifa {currentIndex + 1} / {totalPages} (Har sahifada 12 ta asbob)</p>
+          <div className="eyebrow mb-2">Original 3D Carousel Arxitekturasi</div>
+          <h2 className="display text-3xl font-bold text-[#173d42]">Asosiy Biotexnologiya Qurilmalari</h2>
+          <p className="mt-1 text-sm text-[#62827d]">
+            Har bir qurilma original namuna geometriyasidagi aylanuvchi halqada ko‘rsatiladi.
+          </p>
         </div>
         <div className="flex items-center gap-2">
           <button
             type="button"
-            onClick={prevSlide}
-            className="grid h-10 w-10 place-items-center rounded-xl border border-[#b8d8ce] bg-white text-[#0b7772] shadow-sm transition hover:bg-[#0d7774] hover:text-white"
-            aria-label="Oldingi sahifa"
+            onClick={() => setCurrentIndex((page) => Math.max(0, page - 1))}
+            disabled={currentIndex === 0}
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#b8d8cc] bg-white text-[#0d7774] shadow-sm transition hover:bg-[#e7f5f1] disabled:cursor-not-allowed disabled:opacity-40"
+            title="Oldingi sahifa"
+            aria-label="Oldingi carousel sahifasi"
           >
-            <ChevronLeft size={18} />
+            <ChevronLeft size={20} />
           </button>
+          <span className="rounded-xl border border-[#b8d8cc] bg-white px-4 py-2 text-xs font-bold text-[#173d42]" aria-live="polite">
+            Sahifa {currentIndex + 1} / {totalPages}
+          </span>
           <button
             type="button"
-            onClick={nextSlide}
-            className="grid h-10 w-10 place-items-center rounded-xl border border-[#b8d8ce] bg-white text-[#0b7772] shadow-sm transition hover:bg-[#0d7774] hover:text-white"
-            aria-label="Keyingi sahifa"
+            onClick={() => setCurrentIndex((page) => Math.min(totalPages - 1, page + 1))}
+            disabled={currentIndex === totalPages - 1}
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#b8d8cc] bg-white text-[#0d7774] shadow-sm transition hover:bg-[#e7f5f1] disabled:cursor-not-allowed disabled:opacity-40"
+            title="Keyingi sahifa"
+            aria-label="Keyingi carousel sahifasi"
           >
-            <ChevronRight size={18} />
+            <ChevronRight size={20} />
           </button>
         </div>
       </div>
 
-      <div className="scene" style={{ "--n": paginatedEquipment.length } as CarouselStyle}>
-        <div className="a3d">
-          {paginatedEquipment.map((device, index) => {
-            const rawImg = equipmentImages[device.id];
-            const presentation = getImagePresentation(device.id);
-            const bookmarked = isBookmarked(device.id);
-            return (
-              <div
-                key={device.id}
-                className="card group cursor-pointer"
-                style={{ "--i": index } as CarouselStyle}
-                onClick={() => onSelectDevice(device)}
-              >
-                <div className="card-shell relative flex h-full flex-col overflow-hidden rounded-[22px] border border-[#d2e4dd] bg-[#ffffff] p-3 text-left shadow-[0_12px_30px_rgba(20,68,64,0.08)] transition group-hover:border-[#0d7774] group-hover:shadow-[0_18px_40px_rgba(13,119,116,0.18)]">
-                  <div className="absolute right-3 top-3 z-20">
-                      <button
-                        type="button"
-                        data-bookmark-button="true"
-                        aria-pressed={bookmarked}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onToggleBookmark(device.id);
-                        }}
-                        className={`grid h-8 w-8 place-items-center rounded-full border transition ${bookmarked ? "border-[#0d7774] bg-[#0d7774] text-white shadow" : "border-[#c4e0d6] bg-white/90 text-[#547b74] hover:border-[#0d7774] hover:text-[#0d7774]"}`}
-                        aria-label="Saralashga qo‘shish"
-                      >
-                      <Heart size={15} fill={bookmarked ? "currentColor" : "none"} />
-                    </button>
-                  </div>
-                  <div className="relative mb-3 flex h-44 w-full items-center justify-center overflow-hidden rounded-xl bg-[#f4f8f6] p-2">
-                    {rawImg ? (
-                      <img
-                        src={typeof rawImg === "string" ? rawImg : String(rawImg)}
-                        alt={device.name}
-                        className={`max-h-full max-w-full transition duration-300 group-hover:scale-105 ${presentation.fit === "cover" ? "h-full w-full object-cover" : "object-contain"}`}
-                        style={{ objectPosition: presentation.position }}
-                      />
-                    ) : (
-                      <FlaskConical size={36} className="text-[#0d7774]/40" />
-                    )}
-                    <span className="absolute bottom-2 left-2 rounded-md bg-[#0b3941]/85 px-2 py-0.5 text-[10px] font-bold text-[#d2f4eb] backdrop-blur-sm">
-                      {device.id}
+      {pageEquipment.length > 0 ? (
+        <div className="scene" aria-live="polite">
+          <div className="a3d" style={{ "--n": pageEquipment.length } as CarouselStyle}>
+            {pageEquipment.map((device, index) => {
+              const image = equipmentImages[device.id];
+              const imagePresentation = getImagePresentation(device.id);
+              const isPriorityImage = currentIndex === 0 && index < 3;
+              const bookmarked = isBookmarked(device.id);
+
+              return (
+                <div
+                  key={device.id}
+                  className="card group cursor-pointer"
+                  style={{ "--i": index } as CarouselStyle}
+                  role="group"
+                  tabIndex={0}
+                  onClick={() => onSelectDevice(device)}
+                  onKeyDown={(event) => {
+                    if (event.target !== event.currentTarget) return;
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      onSelectDevice(device);
+                    }
+                  }}
+                  aria-label={`${device.name}, ${device.model}, o‘rganish`}
+                >
+                  <span className="card-shell">
+                    <span className="card-media">
+                      {image ? (
+                        <>
+                          {imagePresentation.fit === "contain" && (
+                            <img
+                              aria-hidden="true"
+                              src={image.url}
+                              alt=""
+                              className="absolute inset-0 h-full w-full scale-110 object-cover opacity-20 blur-xl"
+                              style={{ objectPosition: imagePresentation.position }}
+                            />
+                          )}
+                          <img
+                            src={image.url}
+                            alt={image.alt}
+                            className={`relative h-full w-full ${imagePresentation.fit === "contain" ? "object-contain p-2" : "object-cover"}`}
+                            style={{ objectPosition: imagePresentation.position }}
+                            loading={isPriorityImage ? "eager" : "lazy"}
+                          />
+                        </>
+                      ) : (
+                        <span className="flex h-full w-full items-center justify-center bg-[#e5f2ee] text-[#0d7774]">
+                          <FlaskConical size={36} />
+                        </span>
+                      )}
+                      <span className="card-code">{device.id}</span>
                     </span>
-                  </div>
-                  <div className="flex flex-1 flex-col justify-between">
-                    <div>
-                      <div className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#0d7774]">{device.category}</div>
-                      <h4 className="mt-1 line-clamp-1 text-sm font-bold tracking-[-0.02em] text-[#173d42]">{device.name}</h4>
-                      <p className="mt-0.5 line-clamp-1 text-xs text-[#5d827c]">{device.model || device.brands}</p>
-                    </div>
-                    <div className="mt-3 flex items-center justify-between border-t border-[#e5f0ec] pt-2 text-[11px] font-bold text-[#0d7774]">
-                      <span>16 qadamli SOP</span>
-                      <span className="transition group-hover:translate-x-1">→</span>
-                    </div>
-                  </div>
+                    <button
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        onToggleBookmark(device.id);
+                      }}
+                      data-bookmark-button={device.id}
+                      aria-pressed={bookmarked}
+                      aria-label={bookmarked ? `${device.name} saralanganlardan olib tashlash` : `${device.name} saralanganlarga saqlash`}
+                      className={`absolute right-3 top-3 z-20 grid h-8 w-8 place-items-center rounded-full border shadow-sm backdrop-blur transition ${bookmarked ? "border-[#0d7774] bg-[#0d7774] text-white" : "border-white/80 bg-white/90 text-[#0d7774] hover:border-[#0d7774] hover:bg-[#e3f2e9]"}`}
+                    >
+                      <Heart size={14} fill={bookmarked ? "currentColor" : "none"} />
+                    </button>
+                    <span className="card-caption">
+                      <span className="card-category">{device.category}</span>
+                      <span className="card-name">{device.name}</span>
+                      <span className="card-model">{device.model}</span>
+                    </span>
+                  </span>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </div>
+      ) : (
+        <div className="carousel-empty">Carousel uchun qurilmalar topilmadi.</div>
+      )}
+    </section>
   );
 }
+
+/* The .scene/.a3d/.card class names intentionally mirror the supplied original sample. */

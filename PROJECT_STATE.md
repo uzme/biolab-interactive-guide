@@ -20,4 +20,8 @@ Tekshirilgan manba kodlari va hujjatlar faqat yangi GitHub repository hamda Goog
 | Manzil | Holat |
 |---|---|
 | GitHub — `uzme/biolab-interactive-guide` | Yangi public repository yaratildi; tekshirilgan manba kodi `main` branchiga yuborildi |
-| Google Drive — “Biotexnologiya yangi / Loyiha 1” (`1X_1fA8kg2Mpx6YW1NGrBoPHdjOcZ5Hxw`) | Mavjud snapshot sanitizatsiyalangan yangi paket bilan almashtirilishi kutilmoqda |
+| Google Drive — “Biotexnologiya yangi / Loyiha 1” (`1X_1fA8kg2Mpx6YW1NGrBoPHdjOcZ5Hxw`) | Mavjud `1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT` snapshot fayli joyida yangilandi; parallel nusxa yaratilmagan |
+
+## Snapshot tarkibi
+
+Drive’dagi yagona arxiv: `BioLab_Interactive_Guide_source.zip`. U Git tomonidan kuzatilgan manba kodlari va hujjatlarni o‘z ichiga oladi hamda `node_modules`, build chiqindilari, maxfiy konfiguratsiyalar, loglar, lokal audit materiallari va runtime fayllarini o‘z ichiga olmaydi. Arxiv sanitizatsiya qoidasi bo‘yicha tekshirildi; uning nazorat yig‘indisi har sinxronlashda yangidan hisoblanadi.

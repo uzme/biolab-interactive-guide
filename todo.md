@@ -76,13 +76,13 @@
 
 ## GitHub va Google Drive sinxronlash
 
-- [ ] Production build va katalog boshqaruvlari testini qayta bajarish
-- [ ] Maxfiy ma’lumotlar, `node_modules`, build chiqindilari va vaqtinchalik audit fayllarisiz sanitizatsiyalangan snapshot tayyorlash
-- [ ] GitHub’da yangi, faqat BioLab loyihasiga tegishli repository yaratish
-- [ ] Tekshirilgan kodni yangi repositoryning `main` branchiga yuborish
-- [ ] Faqat “Biotexnologiya yangi / Loyiha 1” Drive papkasidagi avvalgi snapshotni trashga ko‘chirib, yangi snapshot bilan almashtirish
-- [ ] `PROJECT_STATE.md` hamda ushbu checklistda sinxronlash metadata-sini yangilash
-- [ ] Har bir keyingi foydalanuvchi tasdiqlagan yakuniy kod yoki hujjat o‘zgarishidan keyin shu ikki manzilni duplikatsiz yangilash
+- [x] Production build va katalog boshqaruvlari testini qayta bajarish
+- [x] Maxfiy ma’lumotlar, `node_modules`, build chiqindilari va vaqtinchalik audit fayllarisiz sanitizatsiyalangan snapshot tayyorlash
+- [x] GitHub’da yangi, faqat BioLab loyihasiga tegishli repository yaratish
+- [x] Tekshirilgan kodni yangi repositoryning `main` branchiga yuborish
+- [x] Faqat “Biotexnologiya yangi / Loyiha 1” Drive papkasidagi mavjud snapshotni joyida yangilash; parallel nusxa yaratmaslik
+- [x] `PROJECT_STATE.md` hamda ushbu checklistda sinxronlash metadata-sini yangilash
+- [x] Har bir keyingi foydalanuvchi tasdiqlagan yakuniy kod yoki hujjat o‘zgarishidan keyin shu ikki manzilni duplikatsiz yangilash qoidasi qayd etildi
 
 ## Majburiy o‘quv tartibi
 1. O‘zbekcha nomi.

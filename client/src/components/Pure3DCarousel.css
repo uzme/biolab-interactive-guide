@@ -1,0 +1,174 @@
+.pure3d-carousel .scene,
+.pure3d-carousel .a3d {
+  display: grid;
+}
+
+.pure3d-carousel .scene {
+  overflow: hidden;
+  height: min(30em, 76vw);
+  min-height: 22rem;
+  perspective: 35em;
+  mask: linear-gradient(90deg, #0000, red 20% 80%, #0000);
+}
+
+.pure3d-carousel .a3d {
+  place-self: center;
+  --ba: calc(1turn / var(--n));
+  transform-style: preserve-3d;
+  animation: pure3d-ry 32s linear infinite;
+}
+
+@keyframes pure3d-ry {
+  to {
+    rotate: y 1turn;
+  }
+}
+
+.pure3d-carousel .card {
+  --w: 17.5em;
+  grid-area: 1 / 1;
+  width: var(--w);
+  aspect-ratio: 7 / 10;
+  border: 0;
+  border-radius: 1.5em;
+  backface-visibility: hidden;
+  transform: rotatey(calc(var(--i) * var(--ba))) translatez(calc(-1 * (0.5 * var(--w) + 0.5em) / tan(0.5 * var(--ba))));
+}
+
+.pure3d-carousel .card-shell {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  height: 100%;
+  padding: 0.75rem;
+  overflow: hidden;
+  border-radius: inherit;
+  background: #fff;
+  box-shadow: 0 1rem 2rem rgb(14 78 78 / 16%);
+  text-align: left;
+}
+
+.pure3d-carousel .card-media {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 1em;
+  background: #f0f8f5;
+}
+
+.pure3d-carousel .card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0.5rem;
+  mix-blend-mode: multiply;
+}
+
+.pure3d-carousel .card-caption {
+  display: grid;
+  gap: 0.18rem;
+  padding: 0.75rem 0.15rem 0.15rem;
+}
+
+.pure3d-carousel .card-category,
+.pure3d-carousel .card-model,
+.pure3d-carousel .card-code {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pure3d-carousel .card-category {
+  color: #0d9488;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pure3d-carousel .card-name {
+  margin: 0;
+  overflow: hidden;
+  color: #173d42;
+  font-family: var(--font-display, inherit);
+  font-size: 0.86rem;
+  font-weight: 800;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pure3d-carousel .card-model {
+  color: #5a7c76;
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+
+.pure3d-carousel .card-code {
+  position: absolute;
+  top: 0.55rem;
+  left: 0.55rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.35rem;
+  background: rgb(255 255 255 / 90%);
+  color: #0b6663;
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0.2rem 0.5rem rgb(14 78 78 / 12%);
+}
+
+.pure3d-carousel .card:focus-visible {
+  outline: 3px solid #0d9488;
+  outline-offset: 0.35rem;
+}
+
+.pure3d-carousel .card:hover .card-shell {
+  box-shadow: 0 1.25rem 2.3rem rgb(14 78 78 / 22%);
+}
+
+.pure3d-carousel .a3d:hover {
+  animation-play-state: paused;
+}
+
+.pure3d-carousel .carousel-empty {
+  display: grid;
+  min-height: 22rem;
+  place-items: center;
+  color: #5a7c76;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pure3d-carousel .a3d {
+    animation-duration: 128s;
+  }
+}
+
+@media (max-width: 640px) {
+  .pure3d-carousel .scene {
+    height: 24rem;
+    min-height: 24rem;
+  }
+
+  .pure3d-carousel .card {
+    --w: 14.5em;
+  }
+}
+
+@media (max-width: 400px) {
+  .pure3d-carousel .scene {
+    height: 21.5rem;
+    min-height: 21.5rem;
+  }
+
+  .pure3d-carousel .card {
+    --w: 12.5em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pure3d-carousel .a3d {
+    animation-play-state: paused;
+  }
+}
+/* Original sample CSS: .scene/.a3d 35em perspective, y-axis 32s rotation, 7/10 cards. */

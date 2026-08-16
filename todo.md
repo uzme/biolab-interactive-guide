@@ -194,3 +194,9 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 - [x] Qurilma nomlarini original koddagi belgilangan joyga moslashtirish
 - [x] TypeScript va production build tekshiruvi
 - [x] GitHub va Drive source snapshotini oxirgi metadata bilan yangilash
+
+## Professional Pure CSS 3D Carousel Tiklash — 2026-08-16
+- [x] Original ZIP uslubidagi `.scene`, `.a3d` va 3D card transformatsiya CSS qoidalarini toza CSS modul yoki scoped style shaklida kiritish
+- [x] Ortiqcha banner va o‘zboshimcha qismlarni olib tashlab, faqat original animatsiya va rasm ostida qurilma nomi slotini qoldirish
+- [x] TypeScript va production build tekshiruvi
+- [ ] Foydalanuvchi tasdig‘i bilangina GitHub va Drive source snapshotini yangilash

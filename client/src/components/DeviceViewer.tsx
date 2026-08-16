@@ -11,6 +11,7 @@ import {
   BookOpenCheck,
   CheckCircle2,
   ClipboardCheck,
+  Download,
   ExternalLink,
   FlaskConical,
   GraduationCap,
@@ -80,7 +81,76 @@ export default function DeviceViewer({ device, onBack }: { device: Equipment; on
       <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4">
         <button onClick={onBack} className="flex items-center gap-2 text-sm font-bold text-[#126a6a] transition hover:gap-3"><ArrowLeft size={17} /> Barcha uskunalar</button>
         <div className="hidden items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#6d8b87] sm:flex"><BookOpenCheck size={15} /> 16 bo‘limli o‘quv markazi</div>
-        <div className="rounded-full border border-[#b7d6ca] bg-white px-3 py-1.5 text-xs font-bold text-[#126a6a]">{lessonIndex + 1} / 16</div>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => {
+              const htmlContent = `<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>${device.name} — BioLab O‘quv Konspekti</title>
+<style>
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #173d42; line-height: 1.6; padding: 40px; max-width: 900px; margin: 0 auto; background: #fff; }
+  h1 { font-size: 28px; color: #0d7774; margin-bottom: 4px; }
+  .eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: bold; color: #6d8b87; margin-bottom: 8px; }
+  .meta { background: #f2faf7; border: 1px solid #cfe5dc; padding: 15px 20px; border-radius: 12px; margin: 20px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 13px; }
+  .section { margin-top: 25px; border-bottom: 1px solid #e1ede8; padding-bottom: 20px; }
+  h2 { font-size: 18px; color: #125552; margin-bottom: 8px; }
+  p, li { font-size: 14px; color: #335955; white-space: pre-line; }
+  ol { padding-left: 20px; }
+  .footer { margin-top: 40px; border-top: 2px solid #0d7774; padding-top: 15px; font-size: 12px; color: #78908c; display: flex; justify-content: space-between; }
+  @media print { body { padding: 20px; } button { display: none; } }
+</style>
+</head>
+<body>
+<div class="eyebrow">${device.category} / BIO-${String(device.number).padStart(3, "0")}</div>
+<h1>${learning?.title || device.name}</h1>
+<p><strong>Original nomi:</strong> ${learning?.originalName || device.name} | <strong>Manufacturer:</strong> ${learning?.manufacturer || "—"} | <strong>Model:</strong> ${learning?.model || device.model}</p>
+
+<div class="meta">
+  <div><strong>O‘quv tuzilmasi:</strong> 16 ta ketma-ket bo‘lim</div>
+  <div><strong>Rasm manbasi:</strong> ${isOfficialImage ? "Rasmiy mahsulot rasmi" : "Laboratoriya-realistik AI vizuali"}</div>
+</div>
+
+${sections.map(s => `
+  <div class="section">
+    <h2>${s.number}. ${s.title}</h2>
+    <p>${s.content || (s.id === 'sources' ? (learning?.sources || []).map(src => src.label + ': ' + src.note + (src.url ? ' (' + src.url + ')' : '')).join('\n\n') : '')}</p>
+  </div>
+`).join('')}
+
+${purchase ? `
+  <div class="section">
+    <h2>Qo‘shimcha: Xarid va foydalanish xarajatlari</h2>
+    <p><strong>Narx benchmarki:</strong> ${purchase.price || device.newPrice}</p>
+    <p>${purchase.priceEvidence}</p>
+    <p><strong>Xarid va import:</strong> ${purchase.whereToBuy} — ${purchase.availabilityUz}</p>
+  </div>
+` : ''}
+
+<div class="footer">
+  <span>BioLab Interactive Guide — Professional Bioteknologiya Qurilmalari O‘quv Platformasi</span>
+  <span>Sahifa: O‘quv Konspekti (PDF eksport)</span>
+</div>
+<script>window.print();</script>
+</body>
+</html>`;
+              const blob = new Blob([htmlContent], { type: "text/html;charset=utf-8" });
+              const url = URL.createObjectURL(blob);
+              const win = window.open(url, "_blank");
+              if (!win) {
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = `BioLab_${device.id}_konspekt.html`;
+                a.click();
+              }
+            }}
+            className="flex items-center gap-2 rounded-xl border border-[#0d7774] bg-[#0d7774] px-3.5 py-1.5 text-xs font-bold text-white shadow-sm transition hover:bg-[#075e5c]"
+          >
+            <Download size={15} /> PDF eksport qilish
+          </button>
+          <div className="rounded-full border border-[#b7d6ca] bg-white px-3 py-1.5 text-xs font-bold text-[#126a6a]">{lessonIndex + 1} / 16</div>
+        </div>
       </div>
     </header>
 

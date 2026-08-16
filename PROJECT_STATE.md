@@ -62,3 +62,7 @@ Mavjud Google Drive rasm arxivi (`BioLab_Interactive_Guide_images.zip`, fayl ID:
 - `README.md`: Boshqa AI yoki dasturchi uchun loyihani noldan qayta tiklash ko‘rsatmasi.
 
 Fayl Drive’da yangi nusxa ochmasdan, aynan mavjud ID bo‘yicha almashtirildi. GitHub `uzme/biolab-interactive-guide` va Drive manzil sinxronizatsiyasi to‘liq yakunlandi.
+
+## PDF Eksport Funksiyasi Qo‘shildi — 2026-08-16
+
+BioLab qurilma tafsilot sahifasiga (DeviceViewer) **“PDF eksport qilish”** tugmasi qo‘shildi. Bu funksiya tanlangan qurilmaning barcha 16 ta o‘quv bo‘limi matnini, original nomi, manufacturer/model ma’lumotlarini, rasm shaffofligi holatini, ishonchli manbalarni hamda xarid/import benchmarklarini toza, sahifalangan formatda tayyorlaydi va brauzerning chop etish/PDF sifatida saqlash oynasini ochadi. TypeScript tahlili, production build va barcha regressiya testlari muvaffaqiyatli yakunlandi.

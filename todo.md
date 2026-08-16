@@ -164,3 +164,11 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 
 - [x] Eng so‘nggi PROJECT_STATE.md metadata yangilanishini sync_release.mjs orqali tekshirish
 - [x] GitHub main branch va mavjud Drive source snapshotini oxirgi metadata bilan yangilash
+
+## PDF eksport funksiyasi — 2026-08-16
+
+- [ ] Tanlangan qurilmaning 16 bo‘limli o‘quv konspektini toza PDF formatida generatsiya qiluvchi funksiyani yozish
+- [ ] DeviceViewer componentiga "PDF ga eksport qilish" tugmasini qo‘shish
+- [ ] Rasm shaffofligi va ishonchli manbalarni PDF hujjatiga kiritish
+- [ ] TypeScript va production build bilan testdan o‘tkazish
+- [ ] GitHub va Drive source snapshotini oxirgi metadata bilan yangilash

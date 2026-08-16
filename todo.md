@@ -74,6 +74,16 @@
 - [x] Qidiruv/filtrlarni tozalash hamda natija topilmagandagi holatni qo‘shish
 - [x] Desktop va mobil ekranda qidiruv oqimini tekshirib checkpointga saqlash
 
+## GitHub va Google Drive sinxronlash
+
+- [ ] Production build va katalog boshqaruvlari testini qayta bajarish
+- [ ] Maxfiy ma’lumotlar, `node_modules`, build chiqindilari va vaqtinchalik audit fayllarisiz sanitizatsiyalangan snapshot tayyorlash
+- [ ] GitHub’da yangi, faqat BioLab loyihasiga tegishli repository yaratish
+- [ ] Tekshirilgan kodni yangi repositoryning `main` branchiga yuborish
+- [ ] Faqat “Biotexnologiya yangi / Loyiha 1” Drive papkasidagi avvalgi snapshotni trashga ko‘chirib, yangi snapshot bilan almashtirish
+- [ ] `PROJECT_STATE.md` hamda ushbu checklistda sinxronlash metadata-sini yangilash
+- [ ] Har bir keyingi foydalanuvchi tasdiqlagan yakuniy kod yoki hujjat o‘zgarishidan keyin shu ikki manzilni duplikatsiz yangilash
+
 ## Majburiy o‘quv tartibi
 1. O‘zbekcha nomi.
 2. Original nomi, manufacturer va model.

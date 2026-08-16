@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import type { Equipment } from "@/lib/equipmentData";
 import { equipmentImages } from "@/lib/equipmentImages";
 import { getImagePresentation } from "@/lib/equipmentImagePresentation";
-import { learningByNumber, purchaseByNumber } from "@/lib/learningData";
 
 const cardIcons: Record<string, typeof FlaskConical> = {
   "Molekulyar biologiya": Cpu,
@@ -38,8 +37,7 @@ const categoryTone: Record<string, { icon: string; signal: string }> = {
 
 export default function EquipmentCard({ device, index, onOpen }: { device: Equipment; index: number; onOpen: (device: Equipment) => void }) {
   const Icon = cardIcons[device.category] || FlaskConical;
-  const price = purchaseByNumber[device.number]?.price || device.newPrice;
-  const learning = learningByNumber[device.number];
+  const price = device.newPrice;
   const tone = categoryTone[device.category] || categoryTone["Molekulyar biologiya"];
   const imageKey = `BIO-${String(device.number).padStart(3, "0")}`;
   const image = equipmentImages[imageKey];
@@ -64,7 +62,7 @@ export default function EquipmentCard({ device, index, onOpen }: { device: Equip
       <h3 className="relative display min-h-[58px] text-[1.35rem] font-bold leading-[1.08] tracking-[-0.035em] text-[#173d42]">{device.name}</h3>
       <div className="relative mt-3 overflow-hidden rounded-xl border border-[#b9d5cd] bg-[#f5faf8] text-[10px] font-bold uppercase tracking-[0.09em]">
         <div className="grid grid-cols-[1fr_auto] gap-2 border-b border-[#d6e6e0] px-3 py-2.5"><span className="flex min-w-0 items-center gap-1.5 truncate text-[#355e58]"><span className="shrink-0 rounded bg-[#dcefe8] px-1 py-0.5 text-[8px] text-[#39746a]">MODEL</span><span className="truncate">{device.model}</span></span><span className="rounded-sm bg-[#0b5358] px-1.5 py-0.5 text-white">16 qadam</span></div>
-        <div className="flex items-center justify-between gap-2 px-3 py-2"><span className="flex min-w-0 items-center gap-1.5 truncate text-[#5f817c]"><BookOpenCheck size={12} className="shrink-0 text-[#0d9488]" /><span className="truncate">{learning?.manufacturer || "Manual"}</span></span><span className="shrink-0 rounded border border-[#bce4d8] bg-[#e7f5ef] px-1.5 py-0.5 text-[#087a73]">{recordCode}</span></div>
+        <div className="flex items-center justify-between gap-2 px-3 py-2"><span className="flex min-w-0 items-center gap-1.5 truncate text-[#5f817c]"><BookOpenCheck size={12} className="shrink-0 text-[#0d9488]" /><span className="truncate">{device.brands || "Manual"}</span></span><span className="shrink-0 rounded border border-[#bce4d8] bg-[#e7f5ef] px-1.5 py-0.5 text-[#087a73]">{recordCode}</span></div>
       </div>
       <p className="relative mt-3 min-h-[54px] text-sm leading-6 text-[#6f8984]">{device.description}</p>
       <div className="relative mt-auto flex items-center justify-between gap-3 border-t border-[#d7e5df] pt-4"><span className="min-w-0 truncate text-xs font-semibold text-[#466c67]"><CircleDollarSign size={13} className="mr-1 inline text-[#0d9488]" />{price}</span><Button size="sm" variant="outline" className="shrink-0 border-[#94bcb1] bg-transparent text-[#0d7774] hover:bg-[#e3f2e9]" onClick={() => onOpen(device)}>O‘rganish <ArrowUpRight size={15} /></Button></div>

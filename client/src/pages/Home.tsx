@@ -2,13 +2,15 @@
   BioLab design reminder: Modern Precision Biotech — cold laboratory canvas, deep teal authority,
   asymmetric left navigation, and a 16-section Uzbek learning curriculum for every instrument.
 */
-import { useMemo, useState } from "react";
+import { lazy, Suspense, useMemo, useState } from "react";
 import { ArrowUpRight, Beaker, BookOpen, ChevronRight, CircleHelp, FlaskConical, Grid2X2, LibraryBig, Menu, Microscope, Search, Settings2, Sparkles, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { equipment, categories, type Equipment } from "@/lib/equipmentData";
-import DeviceViewer from "@/components/DeviceViewer";
 import EquipmentCard from "@/components/EquipmentCard";
+import { toast } from "sonner";
+
+const DeviceViewer = lazy(() => import("@/components/DeviceViewer"));
 
 const categoryIcons: Record<string, typeof FlaskConical> = {
   "Molekulyar biologiya": FlaskConical,
@@ -74,7 +76,7 @@ export default function Home() {
     setModelQuery("");
   };
 
-  if (selectedDevice) return <DeviceViewer device={selectedDevice} onBack={() => setSelectedDevice(null)} />;
+  if (selectedDevice) return <Suspense fallback={<main className="grid min-h-screen place-items-center bg-[#f7fbfa] px-6 text-center text-[#173d42]"><div><div className="eyebrow text-[#0d7774]">BIO.LAB / YUKLANMOQDA</div><p className="mt-3 text-sm font-semibold text-[#587872]">Qurilmaning o‘quv dosyesi tayyorlanmoqda…</p></div></main>}><DeviceViewer device={selectedDevice} onBack={() => setSelectedDevice(null)} /></Suspense>;
 
   return <div className="shell">
     {mobileNav && <div className="fixed inset-0 z-40 bg-[#173d42]/25 backdrop-blur-sm sm:hidden" onClick={() => setMobileNav(false)} />}
@@ -82,7 +84,7 @@ export default function Home() {
     <div className="hidden sm:block"><Sidebar activeCategory={activeCategory} onCategory={setActiveCategory} /></div>
     <main className="min-w-0 flex-1">
       <header className="border-b border-[#d6e3dc] bg-[#f7fbfa]/85 px-5 py-4 backdrop-blur-xl sm:px-8 lg:px-12">
-        <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4"><div className="flex items-center gap-3"><Button variant="ghost" size="icon" className="text-[#0d7774] sm:hidden" onClick={() => setMobileNav(true)} aria-label="Menyuni ochish"><Menu size={20} /></Button><div className="text-xs font-bold uppercase tracking-[0.16em] text-[#6d8b87]">BioLab / <span className="text-[#0d7774]">Katalog</span></div></div><div className="flex items-center gap-2"><span className="hidden rounded-full border border-[#cbded4] bg-[#ffffff] px-3 py-1.5 text-xs font-semibold text-[#597b75] sm:inline-flex"><span className="mr-2 h-2 w-2 rounded-full bg-[#16a085]" /> Onlayn ma’lumotlar bazasi</span><Button variant="ghost" size="icon" className="text-[#52716d]" aria-label="Sozlamalar"><Settings2 size={18} /></Button></div></div>
+        <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4"><div className="flex items-center gap-3"><Button variant="ghost" size="icon" className="text-[#0d7774] sm:hidden" onClick={() => setMobileNav(true)} aria-label="Menyuni ochish"><Menu size={20} /></Button><div className="text-xs font-bold uppercase tracking-[0.16em] text-[#6d8b87]">BioLab / <span className="text-[#0d7774]">Katalog</span></div></div><div className="flex items-center gap-2"><span className="hidden rounded-full border border-[#cbded4] bg-[#ffffff] px-3 py-1.5 text-xs font-semibold text-[#597b75] sm:inline-flex"><span className="mr-2 h-2 w-2 rounded-full bg-[#16a085]" /> Onlayn ma’lumotlar bazasi</span><Button variant="ghost" size="icon" className="text-[#52716d]" aria-label="Sozlamalar" onClick={() => toast.info("Sozlamalar paneli hali qo‘shilmagan", { description: "Hozir katalog, qidiruv va 16 bo‘limli o‘quv oqimidan foydalanishingiz mumkin." })}><Settings2 size={18} /></Button></div></div>
       </header>
 
       <div className="mx-auto max-w-[1500px] px-5 py-6 sm:px-8 sm:py-10 lg:px-12">
@@ -120,7 +122,6 @@ export default function Home() {
 
         <section className="mt-8" aria-live="polite"><div className="mb-4 flex items-center justify-between gap-3"><div><div className="eyebrow mb-1">LAB-01 / REKORD OQIMI</div><h2 className="display text-2xl font-bold text-[#173d42]">{activeCategory}</h2><p className="mt-1 text-sm text-[#78908c]">{filtered.length} ta qurilma topildi{hasActiveFilters ? " — faol filtrlar qo‘llanilgan" : ""}</p></div>{hasActiveFilters && <button onClick={clearFilters} className="text-xs font-bold text-[#0d7774] hover:underline">Barcha filtrlarni tozalash</button>}</div>
           {filtered.length > 0 ? <div className="space-y-9">{visibleCategoryGroups.map((group, groupIndex) => { const Icon = categoryIcons[group.category] || Beaker; return <section key={group.category} className="relative"><div className="mb-4 flex items-end justify-between gap-4 border-y border-[#c9ddd6] bg-[#f1f8f5] px-4 py-3"><div className="flex min-w-0 items-center gap-3"><div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-[#b8d8ce] bg-white text-[#0b7772]"><Icon size={18} /></div><div><div className="tech-label text-[#0b7772]">MODUL {String(groupIndex + 1).padStart(2, "0")} / SOP KATALOGI</div><h3 className="display truncate text-xl font-bold tracking-[-0.035em] text-[#173d42]">{group.category}</h3></div></div><div className="hidden rounded-full border border-[#b8d8ce] bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#537972] sm:block">{group.devices.length} rekord</div></div><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{group.devices.map((device) => <EquipmentCard key={device.id} device={device} index={filtered.indexOf(device)} onOpen={setSelectedDevice} />)}</div></section>; })}</div> : <div className="rounded-[22px] border border-dashed border-[#b9d8cd] bg-[#ffffff] px-6 py-16 text-center"><Search size={28} className="mx-auto mb-4 text-[#70a298]" /><h3 className="display text-2xl font-bold">Qurilma topilmadi</h3><p className="mt-2 text-sm text-[#78908c]">Qidiruv so‘zini yoki kategoriyani o‘zgartirib ko‘ring.</p></div>}
-          {filtered.length > 18 && <div className="mt-6 text-center text-xs font-bold uppercase tracking-[0.16em] text-[#7d9992]">Yana {filtered.length - 18} ta qurilma mavjud — qidiruv orqali toping</div>}
         </section>
       </div>
     </main>

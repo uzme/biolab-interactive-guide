@@ -122,3 +122,10 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 ## Ikki bosqichli avtomatlashtirilgan sinxronlash (Check & Publish)
 - [x] `sync_release.mjs` skriptiga `--check` rejimi qo‘shildi: faqat test, build va arxiv sanitizatsiyasini tekshiradi, yuklamaydi.
 - [x] Foydalanuvchi tasdig‘idan keyin `--publish` rejimi orqali GitHub `main` branch va Google Drive snapshotini duplikatsiz yangilash (`sync_release.mjs --publish` orqali ta'minlandi).
+
+## To‘liq xatolik va mayda nuqson auditi
+- [x] TypeScript, production build, testlar va runtime loglarini tekshirish
+- [x] Asosiy katalog, qidiruv, filtr, tozalash va qurilma tafsilot sahifalari oqimini tekshirish
+- [x] Desktop hamda mobil ekranlarda kontrast, kesilish, overflow va responsivlikni tekshirish
+- [x] Aniqlangan xavfsiz tuzatiladigan xatolarni bartaraf etish va regressiya testlarini qayta bajarish
+- [x] Audit yakunini, qolishi mumkin bo‘lgan cheklovlarni va tasdiqdan keyingi sinxronlash holatini qayd etish

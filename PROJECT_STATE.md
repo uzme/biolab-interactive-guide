@@ -5,11 +5,11 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Web checkpoint | `875946f5` |
+| Oxirgi tasdiqlangan web checkpoint | `b5a1aa4a` |
 | Git commit | GitHub `main` branchida sinxronlash metadata-si bilan qayd etilgan joriy versiya |
 | Ishlab chiqarish manzili | `https://biolabguide-fbcitqyf.manus.space` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Oxirgi tekshiruv | TypeScript tekshiruvi, production build va katalog boshqaruvlari brauzer testi muvaffaqiyatli bajarildi |
+| Oxirgi tekshiruv | TypeScript tekshiruvi, production build, katalog hamda qurilma-tafsiloti brauzer testlari muvaffaqiyatli bajarildi |
 
 ## Sinxronlash qoidasi
 
@@ -22,6 +22,10 @@ Tekshirilgan manba kodlari va hujjatlar faqat yangi GitHub repository hamda Goog
 | GitHub — `uzme/biolab-interactive-guide` | Yangi public repository yaratildi; tekshirilgan manba kodi `main` branchiga yuborildi |
 | Google Drive — “Biotexnologiya yangi / Loyiha 1” (`1X_1fA8kg2Mpx6YW1NGrBoPHdjOcZ5Hxw`) | Mavjud `1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT` snapshot fayli joyida yangilandi; parallel nusxa yaratilmagan |
 | Google Drive — qayta foydalanish rasm arxivi | `1QuDHKjR8FuMz72en8wjOudrk1Quj0dqk` — `BioLab_Interactive_Guide_images.zip` alohida, maqsadli rasm arxivi sifatida qo‘shildi |
+
+## Auditdan keyingi sinxronlash holati
+
+2026-08-16 auditida katalogdagi chalg‘ituvchi hisob xabari olib tashlandi, “Sozlamalar” tugmasiga aniq holat xabari qo‘shildi, qurilma tafsiloti regressiya testi yaratildi va o‘quv dosyesi lazy-loading orqali ajratildi. Bu o‘zgarishlar lokal tekshiruvdan muvaffaqiyatli o‘tdi, ammo foydalanuvchining “tasdiqlayman” javobisiz GitHub hamda Drive snapshotiga **hali yuborilmagan**. Tasdiqdan keyin `node scripts/sync_release.mjs --publish` mavjud GitHub `main` branchi hamda Drive snapshotini duplikatsiz yangilaydi.
 
 ## Snapshot tarkibi
 

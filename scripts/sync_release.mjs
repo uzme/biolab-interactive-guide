@@ -17,8 +17,8 @@ try {
   console.log("[1/4] Running TypeScript check and production build...");
   execSync("pnpm run check && pnpm run build", { stdio: "inherit" });
 
-  console.log("[2/4] Running catalog controls test...");
-  execSync("node scripts/test_catalog_controls.mjs", { stdio: "inherit" });
+  console.log("[2/4] Running catalog and device-viewer regression tests...");
+  execSync("node scripts/test_catalog_controls.mjs && node scripts/test_device_viewer.mjs", { stdio: "inherit" });
 
   console.log("[3/4] Creating sanitized source archive for Google Drive...");
   const syncDir = ".sync";

@@ -38,3 +38,11 @@ Drive’dagi yagona arxiv: `BioLab_Interactive_Guide_source.zip`. U Git tomonida
 ## Qayta foydalanish uchun rasm arxivi
 
 `BioLab_Interactive_Guide_images.zip` ichida platformada ishlatilayotgan 100 qurilma yozuviga mos **99 ta noyob rasm fayli**, `ASSET_MANIFEST.tsv` bog‘lanish reyestri va manba/litsenziya hujjatlari bor. Arxiv hajmi taxminan **63 MB**. BIO-063 va BIO-064 uchun bitta ayni kontent topilgani sabab u faqat bir marta saqlangan; ushbu bog‘lanish manifestda ochiq ko‘rsatilgan. Bu arxiv manba-kod snapshotining duplikati emas, balki kelajakda rasm fayllarini boshqa AI yoki platformada ishlatish uchun alohida media zaxirasidir.
+
+## Mobil pastki audit va WebP optimallashtirish — 2026-08-16
+
+390×844 mobil viewportda katalog sahifasi to‘liq skroll qilinib tekshirildi. 100 ta karta ko‘rildi; gorizontal overflow aniqlanmadi, barcha kartalarning pastki qismi viewportga sig‘di, barcha kartalarda “O‘rganish” tugmasi mavjud bo‘ldi va tugma kartadan tashqariga chiqmagan. To‘liq skrolldan keyin 100/100 rasm yuklandi, loading/error fallbacklari 0 ta bo‘ldi.
+
+BIO-004–BIO-100 uchun 97 ta keyingi lazy-loading rasm WebP formatiga o‘tkazildi. O‘lchamlar saqlandi; WebP quality=84 va method=6 ishlatildi. Lokal manba hajmi 58,002,475 baytdan 3,400,182 baytgacha kamaydi, ya’ni 94.14% tejaldi. BIO-001–BIO-003 ustuvor preload rasmlari o‘zgartirilmadi. `EquipmentCard` fallback kodi qayta tekshirildi va BIO-004 buzilgan WebP URL bilan brauzer testida “Rasm vaqtincha ochilmadi”, “Qayta yuklab ko‘ring” hamda “O‘rganish” tugmasi birgalikda to‘g‘ri ko‘rsatildi.
+
+WebP o‘zgarishidan keyin `pnpm test`, `node scripts/test_catalog_controls.mjs`, `node scripts/test_device_viewer.mjs` va `pnpm build` muvaffaqiyatli bajarildi. Production buildda faqat mavjud chunk-size ogohlantirishi qayd etildi; build xatosi yo‘q. Sinxronlashdan oldingi sanitizatsiya `scripts/sync_release.mjs --check` orqali qayta tekshiriladi.

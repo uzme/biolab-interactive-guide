@@ -146,3 +146,16 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 - [x] Birinchi katalog kartalari rasm preloadi va fallback holatini mobil viewportda tekshirish
 - [x] Natijani checklistda qayd etish va foydalanuvchiga yetkazish
 - [x] Mobil preload qayta sinovi natijasini foydalanuvchiga O‘zbek tilida aniq hisobot qilib yuborish
+
+## Mobil pastki audit va WebP optimallashtirish
+- [x] Mobil viewportda katalog kartalarining pastki qismigacha barcha asosiy holatlarni vizual tekshirish
+- [x] Keyingi lazy-loading rasmlarni WebP formatiga xavfsiz konvertatsiya qilish va hajmni taqqoslash
+- [x] WebP URLlarini katalog rasm reyestriga ulash va fallback yo‘lini saqlash
+- [x] WebP o‘zgarishidan keyin TypeScript, production build va regressiya testlarini bajarish
+- [ ] PROJECT_STATE.md va todo.md metadata-sini yangilash
+- [ ] Foydalanuvchi tasdig‘idan keyin GitHub main branchi va yagona Google Drive snapshotini duplikatsiyasiz yangilash
+- [ ] Mobil audit va WebP optimallashtirish natijasini foydalanuvchiga yetkazish
+- [x] WebP o‘zgarishidan keyin EquipmentCard fallback logikasini koddan qayta tekshirish va checklistda qayd etish
+- [x] Kamida bitta buzilgan WebP URLida loading/error fallback holatini brauzer testi bilan tasdiqlash
+- [x] WebP o‘zgarishidan keyin pnpm test va katalog/qurilma regressiya testlarini qayta ishga tushirish va tasdiqlash
+- [x] WebP o‘zgarishidan keyin pnpm test buyrug‘ini ham bajarib tasdiqlash

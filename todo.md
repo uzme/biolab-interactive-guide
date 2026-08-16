@@ -129,3 +129,10 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 - [x] Desktop hamda mobil ekranlarda kontrast, kesilish, overflow va responsivlikni tekshirish
 - [x] Aniqlangan xavfsiz tuzatiladigan xatolarni bartaraf etish va regressiya testlarini qayta bajarish
 - [x] Audit yakunini, qolishi mumkin bo‘lgan cheklovlarni va tasdiqdan keyingi sinxronlash holatini qayd etish
+
+## Mobil rasm yuklanishini tezlashtirish
+- [x] Katalog kartalarida rasm yuklanishi, priority va network ketma-ketligini tahlil qilish
+- [x] Birinchi ekran kartalari uchun tezlashtirilgan yuklash va keyingi kartalar uchun lazy-loading qoidasini joriy qilish
+- [x] Rasm yuklanayotgan yoki yuklanmagan holatda bo‘sh oyna o‘rniga tushunarli fallback ko‘rsatish
+- [x] Mobil hamda desktop ko‘rinishda rasm yuklanish oqimini tekshirish va regressiya testini yangilash
+- [x] Natijani va tasdiqdan keyingi GitHub/Drive sinxronlash holatini qayd etish

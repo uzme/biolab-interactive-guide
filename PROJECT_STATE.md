@@ -25,7 +25,7 @@ Tekshirilgan manba kodlari va hujjatlar faqat yangi GitHub repository hamda Goog
 
 ## Auditdan keyingi sinxronlash holati
 
-2026-08-16 auditida katalogdagi chalg‘ituvchi hisob xabari olib tashlandi, “Sozlamalar” tugmasiga aniq holat xabari qo‘shildi, qurilma tafsiloti regressiya testi yaratildi va o‘quv dosyesi lazy-loading orqali ajratildi. Bu o‘zgarishlar lokal tekshiruvdan muvaffaqiyatli o‘tdi, ammo foydalanuvchining “tasdiqlayman” javobisiz GitHub hamda Drive snapshotiga **hali yuborilmagan**. Tasdiqdan keyin `node scripts/sync_release.mjs --publish` mavjud GitHub `main` branchi hamda Drive snapshotini duplikatsiz yangilaydi.
+2026-08-16 auditida katalogdagi chalg‘ituvchi hisob xabari olib tashlandi, “Sozlamalar” tugmasiga aniq holat xabari qo‘shildi, qurilma tafsiloti regressiya testi yaratildi va o‘quv dosyesi lazy-loading orqali ajratildi. Shuningdek, mobil katalogning dastlabki uch kartasi uchun rasm preload/ustuvor yuklash qoidasi, keyingi kartalar uchun lazy-loading hamda rasm kutish yoki xatolik fallbacki qo‘shildi. Bu o‘zgarishlar lokal tekshiruvdan muvaffaqiyatli o‘tdi, ammo foydalanuvchining “tasdiqlayman” javobisiz GitHub hamda Drive snapshotiga **hali yuborilmagan**. Tasdiqdan keyin `node scripts/sync_release.mjs --publish` mavjud GitHub `main` branchi hamda Drive snapshotini duplikatsiz yangilaydi.
 
 ## Snapshot tarkibi
 

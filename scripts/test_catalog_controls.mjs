@@ -12,10 +12,18 @@ const assert = (condition, message) => {
   if (!condition) throw new Error(message);
 };
 
-const cardCodes = async () => page.locator("article.equipment-card figure span:last-child").allTextContents();
+const cardCodes = async () => page.locator("article.equipment-card [data-equipment-code]").allTextContents();
 
 await page.goto(previewUrl, { waitUntil: "networkidle" });
 await page.locator("#catalog").scrollIntoViewIfNeeded();
+
+const priorityImages = page.locator("article.equipment-card img[loading='eager'][fetchpriority='high']");
+assert(await priorityImages.count() === 3, "Birinchi uchta karta rasmi ustuvor yuklanishga belgilanmadi.");
+await page.waitForFunction(() => {
+  const image = document.querySelector("article.equipment-card img");
+  return image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0 && getComputedStyle(image).opacity === "1";
+}, undefined, { timeout: 10_000 });
+assert(await page.locator("article.equipment-card").first().getByText("Rasm yuklanmoqda").count() === 0, "Desktopda birinchi katalog rasmi yuklangandan keyin loading holati yopilmadi.");
 
 let codes = await cardCodes();
 assert(codes.length === 100, `Boshlang‘ich katalogda 100 ta karta kutilgan, ${codes.length} ta topildi.`);
@@ -47,5 +55,16 @@ assert(await deviceSearch.inputValue() === "" && await modelSearch.inputValue() 
 codes = await cardCodes();
 assert(codes.length === 100 && codes[0] === "BIO-001" && codes.at(-1) === "BIO-100", "Tozalashdan keyin BIO-001–BIO-100 tartibi tiklanmadi.");
 
+const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true });
+await mobilePage.goto(previewUrl, { waitUntil: "domcontentloaded" });
+await mobilePage.locator("#catalog").scrollIntoViewIfNeeded();
+await mobilePage.waitForFunction(() => {
+  const image = document.querySelector("article.equipment-card img");
+  return image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0 && getComputedStyle(image).opacity === "1";
+}, undefined, { timeout: 10_000 });
+assert(await mobilePage.locator("article.equipment-card img[loading='eager'][fetchpriority='high']").count() === 3, "Mobil ekranda birinchi kartalar uchun rasm priority qoidasi yo‘q.");
+assert(await mobilePage.locator("article.equipment-card").first().getByText("Rasm yuklanmoqda").count() === 0, "Mobil ekranda birinchi karta rasm yuklangandan keyin loading holati yopilmadi.");
+await mobilePage.close();
+
 await browser.close();
-console.log("Katalog tartibi, qidiruv va tozalash boshqaruvlari muvaffaqiyatli tekshirildi.");
+console.log("Katalog tartibi, qidiruv/tozalash boshqaruvlari va mobil rasm yuklanishi muvaffaqiyatli tekshirildi.");

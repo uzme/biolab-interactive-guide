@@ -159,3 +159,8 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 - [x] Kamida bitta buzilgan WebP URLida loading/error fallback holatini brauzer testi bilan tasdiqlash
 - [x] WebP o‘zgarishidan keyin pnpm test va katalog/qurilma regressiya testlarini qayta ishga tushirish va tasdiqlash
 - [x] WebP o‘zgarishidan keyin pnpm test buyrug‘ini ham bajarib tasdiqlash
+
+## Yakuniy metadata va source snapshot sync — 2026-08-16
+
+- [ ] Eng so‘nggi PROJECT_STATE.md metadata yangilanishini sync_release.mjs orqali tekshirish
+- [ ] GitHub main branch va mavjud Drive source snapshotini oxirgi metadata bilan yangilash

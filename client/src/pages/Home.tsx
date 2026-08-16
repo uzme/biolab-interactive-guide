@@ -78,7 +78,7 @@ export default function Home() {
     setModelQuery("");
   };
 
-  if (selectedDevice) return <Suspense fallback={<main className="grid min-h-screen place-items-center bg-[#f7fbfa] px-6 text-center text-[#173d42]"><div><div className="eyebrow text-[#0d7774]">BIO.LAB / YUKLANMOQDA</div><p className="mt-3 text-sm font-semibold text-[#587872]">Qurilmaning o‘quv dosyesi tayyorlanmoqda…</p></div></main>}><DeviceViewer device={selectedDevice} onBack={() => setSelectedDevice(null)} /></Suspense>;
+
 
   return <div className="shell">
     {mobileNav && <div className="fixed inset-0 z-40 bg-[#173d42]/25 backdrop-blur-sm sm:hidden" onClick={() => setMobileNav(false)} />}
@@ -141,7 +141,7 @@ export default function Home() {
         </section>
       </div>
     </main>
-    {selectedDevice && <DeviceViewer device={selectedDevice} onBack={() => setSelectedDevice(null)} />}
+    {selectedDevice && <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#173d42]/60 p-2 backdrop-blur-md sm:p-6" onClick={() => setSelectedDevice(null)}><div className="relative max-h-[92vh] w-full max-w-6xl overflow-hidden rounded-[30px] border border-[#d8e7e3] bg-white shadow-[0_30px_90px_rgba(20,68,64,0.3)]" onClick={(e) => e.stopPropagation()}><Suspense fallback={<div className="grid h-96 place-items-center bg-[#f7fbfa] text-center text-[#173d42]"><div><div className="eyebrow text-[#0d7774]">BIO.LAB / YUKLANMOQDA</div><p className="mt-3 text-sm font-semibold text-[#587872]">Qurilmaning o‘quv dosyesi tayyorlanmoqda…</p></div></div>}><DeviceViewer device={selectedDevice} onBack={() => setSelectedDevice(null)} /></Suspense></div></div>}
     {settingsOpen && <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#173d42]/40 p-4 backdrop-blur-md" onClick={() => setSettingsOpen(false)}>
       <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-[28px] border border-[#d8e7e3] bg-white p-6 shadow-[0_24px_60px_rgba(28,71,67,0.2)] sm:p-8" onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between border-b border-[#e2ede8] pb-4">

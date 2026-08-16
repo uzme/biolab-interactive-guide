@@ -30,7 +30,7 @@ try {
   await learningNavigation.getByRole("button", { name: /Ishonchli o‘quv manbalari/ }).click();
   await assert(await desktop.getByRole("heading", { name: "Ishonchli o‘quv manbalari" }).isVisible(), "16-bo‘limdagi manbalar bo‘limi ochilmadi.");
 
-  await desktop.getByRole("button", { name: "Barcha uskunalar" }).click();
+  await desktop.locator("header button:has-text('Barcha uskunalar')").click();
   await assert(await desktop.locator("article.equipment-card").count() === 100, "Qurilma sahifasidan katalogga qaytishda 100 ta karta tiklanmadi.");
 
   const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });

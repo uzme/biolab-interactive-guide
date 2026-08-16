@@ -84,6 +84,15 @@
 - [x] `PROJECT_STATE.md` hamda ushbu checklistda sinxronlash metadata-sini yangilash
 - [x] Har bir keyingi foydalanuvchi tasdiqlagan yakuniy kod yoki hujjat o‘zgarishidan keyin shu ikki manzilni duplikatsiz yangilash qoidasi qayd etildi
 
+## Qayta foydalanish uchun rasm arxivi
+
+- [x] Platformada amalda ishlatilayotgan rasm URLlarini va manba reyestrini aniqlash
+- [x] Mos lokal asl fayllarni tanlab, takrorlangan yoki audit uchun ishlatilgan materiallarni chiqarib tashlash
+- [x] Rasm fayllari hamda manba/litsenziya reyestrini yagona, tartibli arxivga yig‘ish
+- [x] Arxiv tarkibida maxfiy, vaqtinchalik yoki build fayllari yo‘qligini tekshirish
+- [x] Faqat “Biotexnologiya yangi / Loyiha 1” papkasiga bitta maqsadli rasm arxivini qo‘shish
+- [x] `PROJECT_STATE.md` va checklistda rasm arxivi holatini qayd etish
+
 ## Majburiy o‘quv tartibi
 1. O‘zbekcha nomi.
 2. Original nomi, manufacturer va model.

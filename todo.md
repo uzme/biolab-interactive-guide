@@ -136,3 +136,8 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 - [x] Rasm yuklanayotgan yoki yuklanmagan holatda bo‘sh oyna o‘rniga tushunarli fallback ko‘rsatish
 - [x] Mobil hamda desktop ko‘rinishda rasm yuklanish oqimini tekshirish va regressiya testini yangilash
 - [x] Natijani va tasdiqdan keyingi GitHub/Drive sinxronlash holatini qayd etish
+
+## Tasdiqlangan mobil rasm yuklanishi publishi
+- [ ] `sync_release.mjs --check` orqali sinxronlashdan oldingi test/build va snapshot sanitizatsiyasini tekshirish
+- [ ] `sync_release.mjs --publish` orqali GitHub `main` va Drive’dagi mavjud snapshotni yangilash
+- [ ] GitHub commit hamda Drive snapshot holatini tekshirib, metadata va checklistni yangilash

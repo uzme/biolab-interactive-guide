@@ -59,7 +59,7 @@
 - [x] `public/sw.js` (Service Worker) yaratish va offline kesh strategiyasini yozish
 - [x] `client/src/components/OfflineManager.tsx` orqali foydalanuvchiga offline paketni yuklab olish, kesh holatini ko‘rsatish va yangilash imkoniyatini berish
 - [x] Home.tsx va sarlavhaga offline boshqaruv tugmasi va status indikatorini ulash
-- [ ] TypeScript, production build, Playwright testlari va "Biotexnologiya yangi" Drive papkasiga sinxronlashni bajarish
+- [x] TypeScript, production build, Playwright testlari va "Biotexnologiya yangi" Drive papkasiga sinxronlashni bajarish (`f721102`, Drive file `1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT`)
 
 - [x] Service worker’da versionlangan build app-shell assetlarini (JS/CSS/font) cache qilish va offline reload oqimini test bilan tasdiqlash
 - [x] OfflineManager/Home header’da aniq online/offline status indikatorini ko‘rsatish va holat almashishini brauzer testida tekshirish

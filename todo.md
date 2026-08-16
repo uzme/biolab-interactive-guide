@@ -66,10 +66,13 @@
 
 ## Katalog qidiruvi va filtrlash
 
+- [x] Qidiruv va filtr faol bo‘lmaganda katalogni BIO-001 dan BIO-100 gacha qat’iy tartiblash
+- [x] Qidiruv satriga alohida bekor qilish belgisi va filtrlar uchun ko‘rinadigan “Tozalash” boshqaruvini qo‘shish
+- [x] Bo‘sh qidiruv, kategoriya filtri, natija yo‘q holati va tozalashdan keyingi qaytish oqimini desktop hamda mobil ko‘rinishda tekshirish
 - [x] Model, ishlab chiqaruvchi va qurilma nomi bo‘yicha aniq tezkor qidiruvni joriy qilish
 - [x] Kategoriya tanlash, natija soni va faol filtr holatini aniq ko‘rsatish
 - [x] Qidiruv/filtrlarni tozalash hamda natija topilmagandagi holatni qo‘shish
-- [ ] Desktop va mobil ekranda qidiruv oqimini tekshirib checkpointga saqlash
+- [x] Desktop va mobil ekranda qidiruv oqimini tekshirib checkpointga saqlash
 
 ## Majburiy o‘quv tartibi
 1. O‘zbekcha nomi.

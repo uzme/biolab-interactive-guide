@@ -35,4 +35,4 @@
 - [x] Home.tsx da o‘ng panelni ochish/yopish state va header tugmasini ulash
 - [x] Panel ichida saqlangan qurilmalarni ko‘rsatish, bittalab yoki to‘liq tozalash va to‘g‘ridan-to‘g‘ri o‘quv modaliga o‘tishni ta’minlash
 - [x] Playwright testlariga o‘ng yon panelni ochish va sinash tekshiruvlarini kiritish
-- [x] TypeScript, production build, GitHub va Google Drive ga sinxronlashni yakunlash
+- [x] TypeScript, production build, GitHub va Google Drive ga sinxronlashni yakunlash (`e37afcb`, Drive file `1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT`)

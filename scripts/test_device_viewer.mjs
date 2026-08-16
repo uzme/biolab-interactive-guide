@@ -14,6 +14,11 @@ const assert = (condition, message) => {
 try {
   const desktop = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   await desktop.goto(previewUrl, { waitUntil: "networkidle" });
+  const carouselScene = desktop.locator(".pure3d-carousel .scene");
+  await carouselScene.waitFor({ state: "visible" });
+  await assert(await desktop.locator(".pure3d-carousel .a3d").count() === 1, "Original .a3d 3D halqa konteyneri topilmadi.");
+  await assert(await desktop.locator(".pure3d-carousel .card").count() === 12, "Carousel original .card tuzilmasida 12 ta qurilmani ko‘rsatmadi.");
+  await assert(await desktop.locator(".pure3d-carousel .carousel-item").count() === 0, "Original carousel classlari o‘rniga eski grid classlari qolib ketgan.");
 
   await desktop.getByRole("button", { name: "Sozlamalar va Mualliflik Huquqi" }).click();
   await assert(await desktop.getByText("Sozlamalar va Mualliflik Huquqi").isVisible(), "Sozlamalar paneli ochilmadi.");

@@ -16,3 +16,9 @@
 - [x] Sanitizatsiyalangan source snapshot Google Drive’dagi **Biotexnologiya yangi / Loyiha 1** papkasiga (`1X_1fA8kg2Mpx6YW1NGrBoPHdjOcZ5Hxw`) va mavjud `1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT` fayliga duplikatsiyasiz yangilandi
 - [x] GitHub uzme/biolab-interactive-guide `main` branchiga (`df4cd7e`) push qilindi
 - [x] PROJECT_STATE.md va todo.md metadata yangilandi
+
+## Pure 3D Carousel Geometriyasini Asl Namuna Boyicha Tiklash
+- [x] Pure3DCarousel.css va Pure3DCarousel.tsx da kartalarning vertikal ("tepadan pastga") emas, balki original 3D aylanish geometriyasiga mos kelishini ta’minlash
+- [x] TypeScript va production build tekshiruvini bajarish
+- [x] Playwright regressiya testlarini o‘tkazish
+- [ ] GitHub va Google Drive ga sanitizatsiyalangan snapshotni sinxronlash

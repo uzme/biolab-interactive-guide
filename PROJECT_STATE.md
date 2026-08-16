@@ -52,3 +52,13 @@ WebP o‘zgarishidan keyin `pnpm test`, `node scripts/test_catalog_controls.mjs`
 Foydalanuvchi tasdig‘idan keyin BioLab uchun faqat quyidagi manzillar yakuniy deb belgilandi: GitHub `uzme/biolab-interactive-guide` repositorysi va Google Drive’dagi `Biotexnologiya yangi / Loyiha 1` papkasi (`1X_1fA8kg2Mpx6YW1NGrBoPHdjOcZ5Hxw`). Second Brain repositorysi va `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd` papkasiga BioLab kodlari kiritilmaydi.
 
 WebP relizi `sync_release.mjs --publish` orqali muvaffaqiyatli yuborildi. GitHub `main` branchining yangi commiti `6d5c734`; Drive’da yangi fayl yaratilmadi, mavjud `BioLab_Interactive_Guide_source.zip` fayli (`1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT`) joyida yangilandi. Sanitizatsiyalangan source archive 305.4 KB bo‘ldi; maxfiy fayllar, `.env`, tokenlar, loglar, `node_modules` va `dist` snapshotga kiritilmadi.
+
+## Rasm arxivi WebP va Manifest bilan yangilandi — 2026-08-16
+
+Mavjud Google Drive rasm arxivi (`BioLab_Interactive_Guide_images.zip`, fayl ID: `1QuDHKjR8FuMz72en8wjOudrk1Quj0dqk`) yangi WebP aktivlari va boshqa AI agentlari loyihani qayta qurishi uchun `ASSET_MANIFEST.json` hamda `README.md` bilan joyida yangilandi. Yangi arxiv quyidagilarni o‘z ichiga oladi:
+- BIO-001 – BIO-003: 3 ta yuqori ustuvorlikdagi asl JPG rasmlar (`eager` preload uchun).
+- BIO-004 – BIO-100: 97 ta optimallashtirilgan WebP formatidagi toza mahsulot rasmlari.
+- `ASSET_MANIFEST.json`: Har bir qurilma kodi, rasm turi va bayt hajmi ko‘rsatilgan to‘liq bog‘lanish reyestri.
+- `README.md`: Boshqa AI yoki dasturchi uchun loyihani noldan qayta tiklash ko‘rsatmasi.
+
+Fayl Drive’da yangi nusxa ochmasdan, aynan mavjud ID bo‘yicha almashtirildi. GitHub `uzme/biolab-interactive-guide` va Drive manzil sinxronizatsiyasi to‘liq yakunlandi.

@@ -1,6 +1,18 @@
 # BioLab Interactive Guide
 
+[![CI](https://github.com/uzme/biolab-interactive-guide/actions/workflows/ci.yml/badge.svg)](https://github.com/uzme/biolab-interactive-guide/actions/workflows/ci.yml)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=20232A)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
 **BioLab Interactive Guide** is an interactive learning platform for exploring **100 biotechnology devices** through a structured catalogue and device viewer experience.
+
+## Preview
+
+![BioLab Interactive Guide preview](./docs/preview.webp)
+
+The interface combines a searchable catalogue, category filters, equipment records, and a structured 16-step learning flow for each device.
 
 The project is designed to make technical biotechnology information easier to browse, understand, and use in an educational context.
 
@@ -62,6 +74,16 @@ docs/         Project documentation
 server/       Server entry point and backend code
 scripts/      Automated project checks
 shared/       Shared types and utilities
+```
+
+## Quality checks
+
+The repository uses GitHub Actions to run type checking and a production build on every push to `main` and every pull request targeting `main`. The interactive browser checks remain available locally through the project test scripts.
+
+```bash
+pnpm check
+pnpm test
+pnpm build
 ```
 
 ## Status

@@ -138,6 +138,6 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 - [x] Natijani va tasdiqdan keyingi GitHub/Drive sinxronlash holatini qayd etish
 
 ## Tasdiqlangan mobil rasm yuklanishi publishi
-- [ ] `sync_release.mjs --check` orqali sinxronlashdan oldingi test/build va snapshot sanitizatsiyasini tekshirish
-- [ ] `sync_release.mjs --publish` orqali GitHub `main` va Drive’dagi mavjud snapshotni yangilash
-- [ ] GitHub commit hamda Drive snapshot holatini tekshirib, metadata va checklistni yangilash
+- [x] `sync_release.mjs --check` orqali sinxronlashdan oldingi test/build va snapshot sanitizatsiyasini tekshirish
+- [x] `sync_release.mjs --publish` orqali GitHub `main` va Drive’dagi mavjud snapshotni yangilash
+- [x] GitHub commit hamda Drive snapshot holatini tekshirib, metadata va checklistni yangilash

@@ -52,3 +52,11 @@ GitHub `uzme/biolab-interactive-guide` repository’ning `main` branchiga `4ca67
 Saqlangan qurilmalarni tezda ko‘zdan kechirish va o‘rganish uchun ekranning o‘ng tomonidan ochiladigan responsive `BookmarksSidebar` (Shadcn Sheet) komponenti qo‘shildi. Header qismidagi yurakcha tugmasi joriy saqlanganlar sonini ko‘rsatib turadi va bosilganda panelni ochadi. Panel ichida har bir qurilmaning rasmi, o‘zbekcha nomi, modeli, kategoriyasi, to‘g‘ridan-to‘g‘ri o‘quv modaliga o‘tish tugmasi, ularni bittalab yoki to‘liq tozalash imkoniyati mavjud.
 
 Playwright regressiya testiga o‘ng yon panelni ochish, elementlarni tekshirish va modalga o‘tish oqimlari qo‘shildi.
+
+## Google Drive To‘liq Audit Natijasi — 2026-08-16
+
+Sizning ko‘rsatmangiz bo‘yicha butun Google Drive hisobi read-only metadata rejimida to‘liq skanerlandi.
+- **Skanerlash doirasi**: Barcha asosiy papkalar, shu jumladan `Second Brain`, `Kodlar`, `PUBG`, `Skills` va boshqa barcha shaxsiy/umumiy papkalar.
+- **Tekshiruv sharti**: `name = '' and trashed = false` (Google Drive API `name is null` ni qo‘llab-quvvatlamaydi, shuning uchun bo‘sh satrli nomlar tekshirildi).
+- **Natija**: Butun Drive bo‘yicha **0 ta** nomsiz fayl yoki papka topildi.
+- **Xulosa**: Hozirgi kunda Google Drive hisobingizda bizning avtomatlashtirilgan sinxronlash jarayonlarimiz yoki boshqa loyihalar tomonidan yaratilgan **nomsiz fayllar mavjud emas**. Barcha arxivlar (`BioLab_Interactive_Guide_source.zip`, `second-brain-sanitized-*.tar.gz` va boshqalar) to‘liq nomlangan va tegishli loyihalariga biriktirilgan.

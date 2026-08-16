@@ -36,3 +36,8 @@
 - [x] Panel ichida saqlangan qurilmalarni ko‘rsatish, bittalab yoki to‘liq tozalash va to‘g‘ridan-to‘g‘ri o‘quv modaliga o‘tishni ta’minlash
 - [x] Playwright testlariga o‘ng yon panelni ochish va sinash tekshiruvlarini kiritish
 - [x] TypeScript, production build, GitHub va Google Drive ga sinxronlashni yakunlash (`e37afcb`, Drive file `1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT`)
+
+## Google Drive To‘liq Nomsiz Obyektlar Auditi
+- [x] Butun Google Drive bo‘ylab read-only metadata rejimida skanerlash (`name = ''` yoki `name is null`)
+- [x] Topilgan nomsiz fayl yoki papkalarning ID, egasi, yaratilgan vaqti va parent papkasini aniqlash
+- [x] Obyektlarning qaysi loyihaga tegishli ekanligini aniqlab batafsil hisobot tayyorlash (`0` ta nomsiz obyekt aniqlandi)

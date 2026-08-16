@@ -27,9 +27,16 @@ try {
   await carouselBookmark.dispatchEvent("click");
   await assert(await carouselBookmark.getAttribute("aria-pressed") === "true", "Carousel qurilmasi saralanganlarga saqlanmadi.");
   await desktop.reload({ waitUntil: "networkidle" });
+  const bookmarksSidebar = desktop.locator("[data-bookmarks-sidebar]");
+  await desktop.getByRole("button", { name: "Saralanganlarni ochish" }).click();
+  await assert(await bookmarksSidebar.isVisible(), "Saralanganlar o‘ng yon paneli ochilmadi.");
+  await assert(await bookmarksSidebar.getByText("BIO-001").isVisible(), "Sidebar ichida saqlangan BIO-001 qurilmasi ko‘rinmadi.");
+  await bookmarksSidebar.getByRole("button", { name: /taf silotlarini ochish|tafsilotlarini ochish/ }).click();
+  await desktop.getByText("Molekulyar biologiya / BIO-001").waitFor({ state: "visible" });
+  await desktop.getByRole("banner").getByRole("button", { name: "Barcha uskunalar" }).click();
   const catalogBookmark = desktop.locator("article.equipment-card").first().getByRole("button", { name: /saralanganlardan olib tashlash/ });
   await assert(await catalogBookmark.getAttribute("aria-pressed") === "true", "Saralangan qurilma brauzer xotirasidan qayta tiklanmadi.");
-  await desktop.getByRole("button", { name: /^Saralanganlar/ }).click();
+  await desktop.getByRole("button", { name: /^Saralanganlar 1$/ }).click();
   await assert(await desktop.locator("article.equipment-card").count() === 1, "Saralanganlar filtri faqat saqlangan qurilmani ko‘rsatmadi.");
   await catalogBookmark.click();
   await assert(await desktop.getByText("Qurilma topilmadi").isVisible(), "Saralangan qurilma o‘chirilgandan keyin bo‘sh holat ko‘rsatilmagan.");

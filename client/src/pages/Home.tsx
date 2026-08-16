@@ -5,6 +5,7 @@
 import { lazy, Suspense, useMemo, useState } from "react";
 import { ArrowUpRight, Beaker, BookOpen, ChevronRight, CircleHelp, FlaskConical, Grid2X2, Heart, LibraryBig, Menu, Microscope, Search, Settings2, Sparkles, X } from "lucide-react";
 import Pure3DCarousel from "@/components/Pure3DCarousel";
+import BookmarksSidebar from "@/components/BookmarksSidebar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { equipment, categories, type Equipment } from "@/lib/equipmentData";
@@ -56,8 +57,10 @@ export default function Home() {
   const [selectedDevice, setSelectedDevice] = useState<Equipment | null>(null);
   const [mobileNav, setMobileNav] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [bookmarksOpen, setBookmarksOpen] = useState(false);
   const [bookmarksOnly, setBookmarksOnly] = useState(false);
   const { bookmarkedIds, bookmarkedCount, isBookmarked, toggleBookmark, clearBookmarks } = useBookmarks();
+  const bookmarkedDevices = useMemo(() => bookmarkedIds.map((id) => equipment.find((device) => device.id === id)).filter((device): device is Equipment => Boolean(device)), [bookmarkedIds]);
 
   const categoryCounts = useMemo(() => categories.slice(1).map((category) => ({ name: category, count: equipment.filter((item) => item.category === category).length })), []);
   const filtered = useMemo(() => equipment.filter((item) => {
@@ -91,7 +94,7 @@ export default function Home() {
     <div className="hidden sm:block"><Sidebar activeCategory={activeCategory} onCategory={setActiveCategory} /></div>
     <main className="min-w-0 flex-1">
       <header className="border-b border-[#d6e3dc] bg-[#f7fbfa]/85 px-5 py-4 backdrop-blur-xl sm:px-8 lg:px-12">
-        <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4"><div className="flex items-center gap-3"><Button variant="ghost" size="icon" className="text-[#0d7774] sm:hidden" onClick={() => setMobileNav(true)} aria-label="Menyuni ochish"><Menu size={20} /></Button><div className="text-xs font-bold uppercase tracking-[0.16em] text-[#6d8b87]">BioLab / <span className="text-[#0d7774]">Katalog</span></div></div>          <div className="flex items-center gap-2"><span className="hidden rounded-full border border-[#cbded4] bg-[#ffffff] px-3 py-1.5 text-xs font-semibold text-[#597b75] sm:inline-flex"><span className="mr-2 h-2 w-2 rounded-full bg-[#16a085]" /> Onlayn ma’lumotlar bazasi</span><Button variant="ghost" size="icon" className="text-[#52716d]" aria-label="Sozlamalar va Mualliflik Huquqi" onClick={() => setSettingsOpen(true)}><Settings2 size={18} /></Button></div></div>
+        <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4"><div className="flex items-center gap-3"><Button variant="ghost" size="icon" className="text-[#0d7774] sm:hidden" onClick={() => setMobileNav(true)} aria-label="Menyuni ochish"><Menu size={20} /></Button><div className="text-xs font-bold uppercase tracking-[0.16em] text-[#6d8b87]">BioLab / <span className="text-[#0d7774]">Katalog</span></div></div>          <div className="flex items-center gap-2"><span className="hidden rounded-full border border-[#cbded4] bg-[#ffffff] px-3 py-1.5 text-xs font-semibold text-[#597b75] sm:inline-flex"><span className="mr-2 h-2 w-2 rounded-full bg-[#16a085]" /> Onlayn ma’lumotlar bazasi</span><Button variant="ghost" size="icon" className="relative text-[#0d7774]" aria-label="Saralanganlarni ochish" onClick={() => setBookmarksOpen(true)}><Heart size={18} fill={bookmarkedCount > 0 ? "currentColor" : "none"} />{bookmarkedCount > 0 && <span className="absolute -right-0.5 -top-0.5 grid h-4 min-w-4 place-items-center rounded-full bg-[#0d7774] px-1 text-[9px] font-bold text-white">{bookmarkedCount}</span>}</Button><Button variant="ghost" size="icon" className="text-[#52716d]" aria-label="Sozlamalar va Mualliflik Huquqi" onClick={() => setSettingsOpen(true)}><Settings2 size={18} /></Button></div></div>
       </header>
 
       <div className="mx-auto max-w-[1500px] px-5 py-6 sm:px-8 sm:py-10 lg:px-12">
@@ -149,6 +152,7 @@ export default function Home() {
         </section>
       </div>
     </main>
+    <BookmarksSidebar open={bookmarksOpen} onOpenChange={setBookmarksOpen} devices={bookmarkedDevices} onSelectDevice={setSelectedDevice} onToggleBookmark={toggleBookmark} onClearBookmarks={clearBookmarks} />
     {selectedDevice && <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#173d42]/60 p-2 backdrop-blur-md sm:p-6" onClick={() => setSelectedDevice(null)}><div className="relative max-h-[92vh] w-full max-w-6xl overflow-hidden rounded-[30px] border border-[#d8e7e3] bg-white shadow-[0_30px_90px_rgba(20,68,64,0.3)]" onClick={(e) => e.stopPropagation()}><Suspense fallback={<div className="grid h-96 place-items-center bg-[#f7fbfa] text-center text-[#173d42]"><div><div className="eyebrow text-[#0d7774]">BIO.LAB / YUKLANMOQDA</div><p className="mt-3 text-sm font-semibold text-[#587872]">Qurilmaning o‘quv dosyesi tayyorlanmoqda…</p></div></div>}><DeviceViewer device={selectedDevice} onBack={() => setSelectedDevice(null)} /></Suspense></div></div>}
     {settingsOpen && <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#173d42]/40 p-4 backdrop-blur-md" onClick={() => setSettingsOpen(false)}>
       <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-[28px] border border-[#d8e7e3] bg-white p-6 shadow-[0_24px_60px_rgba(28,71,67,0.2)] sm:p-8" onClick={(e) => e.stopPropagation()}>

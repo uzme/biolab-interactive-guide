@@ -46,3 +46,9 @@ Sinxronlashdan oldingi holat: kod va testlar tayyor; keyingi `sync_release.mjs -
 Saralanganlar relizi uchun TypeScript tekshiruvi, production build, katalog regressiya testi va DeviceViewer/mobil oqim testi `sync_release.mjs --publish` ichida qayta bajarilib muvaffaqiyatli yakunlandi. Sanitizatsiyalangan source arxivi 309.6 KB hajmda tayyorlandi; `.env`, tokenlar, kalitlar, parollar, `node_modules`, `dist`, loglar va vaqtinchalik debug fayllari kiritilmadi.
 
 GitHub `uzme/biolab-interactive-guide` repository’ning `main` branchiga `4ca6796` commit yuborildi. Google Drive’dagi mavjud `BioLab_Interactive_Guide_source.zip` snapshot fayli (`1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT`) joyida yangilandi; yangi duplicate fayl yaratilmadi.
+
+## Saralanganlar O‘ng Yon Paneli (Sidebar) — 2026-08-16
+
+Saqlangan qurilmalarni tezda ko‘zdan kechirish va o‘rganish uchun ekranning o‘ng tomonidan ochiladigan responsive `BookmarksSidebar` (Shadcn Sheet) komponenti qo‘shildi. Header qismidagi yurakcha tugmasi joriy saqlanganlar sonini ko‘rsatib turadi va bosilganda panelni ochadi. Panel ichida har bir qurilmaning rasmi, o‘zbekcha nomi, modeli, kategoriyasi, to‘g‘ridan-to‘g‘ri o‘quv modaliga o‘tish tugmasi, ularni bittalab yoki to‘liq tozalash imkoniyati mavjud.
+
+Playwright regressiya testiga o‘ng yon panelni ochish, elementlarni tekshirish va modalga o‘tish oqimlari qo‘shildi.

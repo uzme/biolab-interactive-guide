@@ -179,3 +179,7 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 - [x] Platforma mualliflik huquqi, foydalanish shartlari va rasm litsenziyasi shaffofligi sahifasini qo‘shish
 - [x] TypeScript va production build bilan sinovdan o‘tkazish
 - [x] GitHub va Drive source snapshotini oxirgi metadata bilan yangilash
+
+## Sozlamalar va Copyright Relizini Sync Qilish — 2026-08-16
+- [x] Sozlamalar va copyright paneli qo‘shilgan holatni test va build orqali tekshirish
+- [ ] GitHub `uzme/biolab-interactive-guide` `main` branchini va Google Drive dagi yagona snapshotlarni yangilash

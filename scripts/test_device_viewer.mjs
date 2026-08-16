@@ -15,8 +15,9 @@ try {
   const desktop = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   await desktop.goto(previewUrl, { waitUntil: "networkidle" });
 
-  await desktop.getByRole("button", { name: "Sozlamalar" }).click();
-  await assert(await desktop.getByText("Sozlamalar paneli hali qo‘shilmagan").isVisible(), "Sozlamalar tugmasi foydalanuvchiga holatni bildirmadi.");
+  await desktop.getByRole("button", { name: "Sozlamalar va Mualliflik Huquqi" }).click();
+  await assert(await desktop.getByText("Sozlamalar va Mualliflik Huquqi").isVisible(), "Sozlamalar paneli ochilmadi.");
+  await desktop.getByRole("button", { name: "Tushunarli, yopish" }).click();
 
   await desktop.getByRole("button", { name: /O‘rganish/ }).first().click();
   await desktop.getByText("Molekulyar biologiya / BIO-001").waitFor({ state: "visible" });

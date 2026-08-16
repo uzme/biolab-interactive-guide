@@ -46,3 +46,9 @@ Drive’dagi yagona arxiv: `BioLab_Interactive_Guide_source.zip`. U Git tomonida
 BIO-004–BIO-100 uchun 97 ta keyingi lazy-loading rasm WebP formatiga o‘tkazildi. O‘lchamlar saqlandi; WebP quality=84 va method=6 ishlatildi. Lokal manba hajmi 58,002,475 baytdan 3,400,182 baytgacha kamaydi, ya’ni 94.14% tejaldi. BIO-001–BIO-003 ustuvor preload rasmlari o‘zgartirilmadi. `EquipmentCard` fallback kodi qayta tekshirildi va BIO-004 buzilgan WebP URL bilan brauzer testida “Rasm vaqtincha ochilmadi”, “Qayta yuklab ko‘ring” hamda “O‘rganish” tugmasi birgalikda to‘g‘ri ko‘rsatildi.
 
 WebP o‘zgarishidan keyin `pnpm test`, `node scripts/test_catalog_controls.mjs`, `node scripts/test_device_viewer.mjs` va `pnpm build` muvaffaqiyatli bajarildi. Production buildda faqat mavjud chunk-size ogohlantirishi qayd etildi; build xatosi yo‘q. Sinxronlashdan oldingi sanitizatsiya `scripts/sync_release.mjs --check` orqali qayta tekshiriladi.
+
+## Yakuniy WebP relizi va manzil tasdig‘i — 2026-08-16
+
+Foydalanuvchi tasdig‘idan keyin BioLab uchun faqat quyidagi manzillar yakuniy deb belgilandi: GitHub `uzme/biolab-interactive-guide` repositorysi va Google Drive’dagi `Biotexnologiya yangi / Loyiha 1` papkasi (`1X_1fA8kg2Mpx6YW1NGrBoPHdjOcZ5Hxw`). Second Brain repositorysi va `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd` papkasiga BioLab kodlari kiritilmaydi.
+
+WebP relizi `sync_release.mjs --publish` orqali muvaffaqiyatli yuborildi. GitHub `main` branchining yangi commiti `6d5c734`; Drive’da yangi fayl yaratilmadi, mavjud `BioLab_Interactive_Guide_source.zip` fayli (`1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT`) joyida yangilandi. Sanitizatsiyalangan source archive 305.4 KB bo‘ldi; maxfiy fayllar, `.env`, tokenlar, loglar, `node_modules` va `dist` snapshotga kiritilmadi.

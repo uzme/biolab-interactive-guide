@@ -152,9 +152,9 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 - [x] Keyingi lazy-loading rasmlarni WebP formatiga xavfsiz konvertatsiya qilish va hajmni taqqoslash
 - [x] WebP URLlarini katalog rasm reyestriga ulash va fallback yo‘lini saqlash
 - [x] WebP o‘zgarishidan keyin TypeScript, production build va regressiya testlarini bajarish
-- [ ] PROJECT_STATE.md va todo.md metadata-sini yangilash
-- [ ] Foydalanuvchi tasdig‘idan keyin GitHub main branchi va yagona Google Drive snapshotini duplikatsiyasiz yangilash
-- [ ] Mobil audit va WebP optimallashtirish natijasini foydalanuvchiga yetkazish
+- [x] PROJECT_STATE.md va todo.md metadata-sini yangilash
+- [x] Foydalanuvchi tasdig‘idan keyin GitHub main branchi va yagona Google Drive snapshotini duplikatsiyasiz yangilash
+- [x] Mobil audit va WebP optimallashtirish natijasini foydalanuvchiga yetkazish
 - [x] WebP o‘zgarishidan keyin EquipmentCard fallback logikasini koddan qayta tekshirish va checklistda qayd etish
 - [x] Kamida bitta buzilgan WebP URLida loading/error fallback holatini brauzer testi bilan tasdiqlash
 - [x] WebP o‘zgarishidan keyin pnpm test va katalog/qurilma regressiya testlarini qayta ishga tushirish va tasdiqlash

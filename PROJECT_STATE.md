@@ -60,3 +60,9 @@ Sizning ko‘rsatmangiz bo‘yicha butun Google Drive hisobi read-only metadata 
 - **Tekshiruv sharti**: `name = '' and trashed = false` (Google Drive API `name is null` ni qo‘llab-quvvatlamaydi, shuning uchun bo‘sh satrli nomlar tekshirildi).
 - **Natija**: Butun Drive bo‘yicha **0 ta** nomsiz fayl yoki papka topildi.
 - **Xulosa**: Hozirgi kunda Google Drive hisobingizda bizning avtomatlashtirilgan sinxronlash jarayonlarimiz yoki boshqa loyihalar tomonidan yaratilgan **nomsiz fayllar mavjud emas**. Barcha arxivlar (`BioLab_Interactive_Guide_source.zip`, `second-brain-sanitized-*.tar.gz` va boshqalar) to‘liq nomlangan va tegishli loyihalariga biriktirilgan.
+
+## Mualliflik Huquqi, 10/10 Xavfsizlik va "Biotexnologiya yangi" Papka Qoidasi — 2026-08-16
+
+- **Mualliflik Huquqi va Xavfsizlik (10/10)**: Sozlamalar va kopirayt modalida platformaning intellektual mulk huquqlari (`© 2026 BioLab Interactive Guide / Manus AI & Biotexnolog`), xavfsizlik standartlari (PPE, SOP, bioxavfsizlik, favqulodda to‘xtatish tartibi) qat’iy belgilandi.
+- **Yagona Google Drive Papkasi Qoidasi**: Barcha loyiha fayllari, snapshotlar va arxivlar faqat yagona **Biotexnologiya yangi** asosiy Google Drive papkasi (`1X_1fA8kg2Mpx6YW1NGrBoPHdjOcZ5Hxw`) va uning `Loyiha 1` subpapkasi doirasida boshqariladi. Boshqa papkalarda BioLab fayllari yaratilmaydi va mavjud snapshotlar faqat shu papka ichida duplikatsiyasiz yangilanadi.
+- **Test va Build**: TypeScript check, production build va Playwright regressiya testlari to‘liq muvaffaqiyatli bajarildi. O‘zgarishlar GitHub va Drive’ga sinxronlandi.

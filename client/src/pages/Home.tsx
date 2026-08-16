@@ -170,7 +170,11 @@ export default function Home() {
           </section>
           <section className="rounded-2xl border border-[#d8e7e3] bg-[#f7fbfa] p-5">
             <h3 className="font-bold text-[#173d42]">2. Mualliflik huquqi va Kopirayt (Copyright Notice)</h3>
-            <p className="mt-2 leading-6 text-[#5b7c77]">© 2026 BioLab Interactive Guide / Manus AI & Biotexnolog. Barcha huquqlar himoyalangan. Platformaning kod bazasi, interfeys dizayni, 16 bo‘limli o‘quv konspektlari va tuzilmasi mualliflik huquqi qonunchiligi bilan muhofaza qilinadi. Uni ruxsatsiz ko‘chirish, tijoriy maqsadlarda tarqatish yoki o‘zgartirish taqiqlanadi.</p>
+            <p className="mt-2 leading-6 text-[#5b7c77]">© 2026 BioLab Interactive Guide / Manus AI & Biotexnolog. Barcha huquqlar himoyalangan. Platformaning kod bazasi, interfeys dizayni, 16 bo‘limli o‘quv konspektlari va tuzilmasi mualliflik huquqi qonunchiligi bilan qat’iy muhofaza qilinadi. Uni ruxsatsiz ko‘chirish, tijoriy maqsadlarda tarqatish yoki o‘zgartirish taqiqlanadi.</p>
+          </section>
+          <section className="rounded-2xl border border-[#b6dcd1] bg-[#eef7f4] p-5">
+            <h3 className="font-bold text-[#0e6f67]">3. Xavfsizlik standartlari (10/10 Himoya va SOP)</h3>
+            <p className="mt-2 leading-6 text-[#245b53]">Laboratoriya amaliyotida 10/10 xavfsizlik qoidalariga rioya etiladi: har bir asbob uchun shaxsiy himoya vositalari (PPE), bioxavfsizlik talablari, favqulodda to‘xtatish tartibi va standart operatsion protseduralar (SOP) qat’iy ko‘rsatilgan. Hech qachon sinovdan o‘tmagan yoki tasdiqlanmagan reaktiv nisbatlari qo‘llanilmaydi.</p>
           </section>
           <section className="rounded-2xl border border-[#d8e7e3] bg-[#f7fbfa] p-5">
             <h3 className="font-bold text-[#173d42]">3. Foydalanish shartlari va Ta’limiy cheklovlar</h3>
@@ -181,8 +185,8 @@ export default function Home() {
             <p className="mt-2 leading-6 text-[#5b7c77]">Platformadagi rasmlar ikki turga bo‘linadi: ishlab chiqaruvchilarning rasmiy/distributor mahsulot fotosuratlari (ularning asl mualliflik huquqi tegishli kompaniyalarda qoladi va faqat o‘quv/identifikatsiya maqsadida ko‘rsatiladi) hamda o‘quv ko‘rgazmasi uchun yaratilgan laboratoriya-realistik AI vizuallari. Har bir qurilma sahifasida rasm shaffofligi bloki va manba havolasi mavjud.</p>
           </section>
           <section className="rounded-2xl border border-[#d8e7e3] bg-[#f7fbfa] p-5">
-            <h3 className="font-bold text-[#173d42]">5. Texnik Sinxronlash va Repozitoriy</h3>
-            <p className="mt-2 leading-6 text-[#5b7c77]">Loyiha kodi faqat rasmiy <code className="rounded bg-[#e2ede8] px-1.5 py-0.5 text-xs text-[#0d7774]">uzme/biolab-interactive-guide</code> GitHub repozitoriyining <code className="rounded bg-[#e2ede8] px-1.5 py-0.5 text-xs text-[#0d7774]">main</code> branchida va Google Drive’dagi yagona <code className="rounded bg-[#e2ede8] px-1.5 py-0.5 text-xs text-[#0d7774]">Biotexnologiya yangi / Loyiha 1</code> papkasida saqlanadi. Maxfiy tokenlar, env fayllar va build chiqindilari sinxronizatsiyadan qat’iy ravishda chetlatiladi.</p>
+            <h3 className="font-bold text-[#173d42]">6. Texnik Sinxronlash va Google Drive Qoidasi</h3>
+            <p className="mt-2 leading-6 text-[#5b7c77]">Loyiha kodi faqat rasmiy <code className="rounded bg-[#e2ede8] px-1.5 py-0.5 text-xs text-[#0d7774]">uzme/biolab-interactive-guide</code> GitHub repozitoriyining <code className="rounded bg-[#e2ede8] px-1.5 py-0.5 text-xs text-[#0d7774]">main</code> branchida saqlanadi. Google Drive bo‘yicha esa **barcha fayllar, subpapkalar va snapshotlar faqat yagona "Biotexnologiya yangi" asosiy papkasi (va uning "Loyiha 1" subpapkasi) ichida yaratiladi va boshqariladi**. Boshqa Drive papkalariga BioLab fayllari chiqarilmaydi. Maxfiy tokenlar va env fayllar sinxronizatsiyadan qat’iy chetlatiladi.</p>
           </section>
         </div>
         <div className="mt-8 flex justify-end border-t border-[#e2ede8] pt-4">

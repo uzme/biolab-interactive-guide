@@ -41,3 +41,9 @@
 - [x] Butun Google Drive bo‘ylab read-only metadata rejimida skanerlash (`name = ''` yoki `name is null`)
 - [x] Topilgan nomsiz fayl yoki papkalarning ID, egasi, yaratilgan vaqti va parent papkasini aniqlash
 - [x] Obyektlarning qaysi loyihaga tegishli ekanligini aniqlab batafsil hisobot tayyorlash (`0` ta nomsiz obyekt aniqlandi)
+
+## Mualliflik Huquqi, 10/10 Xavfsizlik va "Biotexnologiya yangi" Papka Qoidasi
+- [x] Sozlamalar va mualliflik huquqi modalida qat’iy litsenziya, xavfsizlik (SOP/PPE/Biohazard) standartlari va 10/10 himoya qoidalarini shakllantirish
+- [x] `sync_release.mjs` skriptini tekshirib, barcha fayl va snapshotlar faqat "Biotexnologiya yangi" papkasi (`1X_1fA8kg2Mpx6YW1NGrBoPHdjOcZ5Hxw`) doirasida ishlashini kafolatlash
+- [x] PROJECT_STATE.md va loyiha ko‘rsatmalariga qoidani yozib qo‘yish
+- [x] TypeScript, production build, Playwright testlari va sanitizatsiyalangan release sinxronizatsiyasini bajarish (`b6d91f2`)

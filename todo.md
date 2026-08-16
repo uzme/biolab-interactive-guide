@@ -52,4 +52,4 @@
 - [x] `Pure3DCarousel.tsx` da `.pure3d-carousel` tashqi wrapperini tiklash va rasm URL logikasini to‘g‘rilash
 - [x] TypeScript check va production build bajarish
 - [x] Playwright regressiya testlarini yangilash va o‘tkazish
-- [ ] GitHub va Google Drive ga sanitizatsiyalangan snapshotni sinxronlash
+- [x] GitHub va Google Drive ga sanitizatsiyalangan snapshotni sinxronlash (`1e6a4ca`, Drive file `1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT`)

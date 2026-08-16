@@ -167,8 +167,8 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 
 ## PDF eksport funksiyasi — 2026-08-16
 
-- [ ] Tanlangan qurilmaning 16 bo‘limli o‘quv konspektini toza PDF formatida generatsiya qiluvchi funksiyani yozish
-- [ ] DeviceViewer componentiga "PDF ga eksport qilish" tugmasini qo‘shish
-- [ ] Rasm shaffofligi va ishonchli manbalarni PDF hujjatiga kiritish
-- [ ] TypeScript va production build bilan testdan o‘tkazish
-- [ ] GitHub va Drive source snapshotini oxirgi metadata bilan yangilash
+- [x] Tanlangan qurilmaning 16 bo‘limli o‘quv konspektini toza PDF formatida generatsiya qiluvchi funksiyani yozish
+- [x] DeviceViewer componentiga "PDF eksport qilish" tugmasini qo‘shish
+- [x] Rasm shaffofligi va ishonchli manbalarni PDF hujjatiga kiritish
+- [x] TypeScript va production build bilan testdan o‘tkazish
+- [x] GitHub va Drive source snapshotini oxirgi metadata bilan yangilash

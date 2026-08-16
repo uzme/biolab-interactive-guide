@@ -109,7 +109,9 @@ export default function DeviceViewer({ device, onBack }: { device: Equipment; on
 
 <div class="meta">
   <div><strong>O‘quv tuzilmasi:</strong> 16 ta ketma-ket bo‘lim</div>
-  <div><strong>Rasm manbasi:</strong> ${isOfficialImage ? "Rasmiy mahsulot rasmi" : "Laboratoriya-realistik AI vizuali"}</div>
+  <div><strong>Rasm manbasi:</strong> ${isOfficialImage ? "Rasmiy ishlab chiqaruvchi yoki ishonchli distributor mahsulot fotosurati" : "BioLab uchun yaratilgan laboratoriya-realistik AI ko‘rgazma vizuali"}</div>
+  <div style="grid-column: span 2;"><strong>Litsenziya va shaffoflik:</strong> ${isOfficialImage ? "Mualliflik huquqi tegishli rasm egasida qoladi. Faqat o‘quv kontekstida ko‘rsatiladi." : "BioLab o‘quv ko‘rgazmasi sifatida yaratilgan. Asbobning rasmiy spetsifikatsiyasi o‘rnini bosa olmaydi."}</div>
+  ${verificationSource?.url ? `<div style="grid-column: span 2;"><strong>Asl manba havolasi:</strong> ${verificationSource.url}</div>` : ''}
 </div>
 
 ${sections.map(s => `

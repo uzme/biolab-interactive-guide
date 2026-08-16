@@ -118,3 +118,7 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 - Qurilma sahifasi uzun, lekin modulga bo‘lingan o‘quv konspekti sifatida ishlaydi.
 - Bo‘limlar professorona, sodda va o‘zbekcha sarlavhalar bilan ajratiladi.
 - Ishonchli manbalar sahifaning yakunida, alohida reference bo‘limida beriladi.
+
+## Ikki bosqichli avtomatlashtirilgan sinxronlash (Check & Publish)
+- [x] `sync_release.mjs` skriptiga `--check` rejimi qo‘shildi: faqat test, build va arxiv sanitizatsiyasini tekshiradi, yuklamaydi.
+- [x] Foydalanuvchi tasdig‘idan keyin `--publish` rejimi orqali GitHub `main` branch va Google Drive snapshotini duplikatsiz yangilash (`sync_release.mjs --publish` orqali ta'minlandi).

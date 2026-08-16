@@ -76,3 +76,7 @@ BioLab qurilma tafsilot sahifasiga (DeviceViewer) **“PDF eksport qilish”** t
 
 ## Sozlamalar va Copyright relizi sync holati — 2026-08-16
 Sozlamalar paneli, Copyright Notice, Foydalanish shartlari, ta’limiy cheklovlar, rasm litsenziyasi shaffofligi va texnik sinxronlash qoidalari `sync_release.mjs --publish` orqali tekshirilib yuborildi. GitHub `uzme/biolab-interactive-guide` `main` branchidagi reliz commiti `4d9d79a`; Google Drive’dagi mavjud `BioLab_Interactive_Guide_source.zip` (`1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT`) aynan o‘sha ID bo‘yicha duplikatsiyasiz yangilandi. Sanitizatsiyalangan source archive hajmi 309.9 KB bo‘ldi; maxfiy va runtime fayllar kiritilmadi.
+
+
+## Carousel va Qurilma Nomi Ostida Ko‘rsatish relizi sync holati — 2026-08-16
+Foydalanuvchi talabiga ko‘ra, tanlangan asbob-uskunalar uchun carousel va har bir kartada qurilma nomi, modeli hamda kategoriyasi rasm ostida yaqqol ko‘rinadigan tartib joriy qilindi. O‘zgarishlar `sync_release.mjs --publish` orqali to‘liq sinovdan o‘tkazilib yuborildi. GitHub `uzme/biolab-interactive-guide` `main` branchidagi reliz commiti `a745c69`; Google Drive’dagi mavjud `BioLab_Interactive_Guide_source.zip` (`1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT`) aynan o‘sha ID bo‘yicha duplikatsiyasiz yangilandi. Sanitizatsiyalangan source archive hajmi 310.1 KB; maxfiy va runtime fayllar kiritilmadi.

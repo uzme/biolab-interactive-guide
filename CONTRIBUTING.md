@@ -16,6 +16,8 @@ pnpm test
 pnpm build
 ```
 
+For a complete pre-submission review, use the [contribution checklist](./docs/contributing-checklist.md).
+
 ## Pull requests
 
 Keep pull requests focused, describe the user-facing result, and include screenshots for visual changes. Do not commit credentials, private data, generated dependency directories, or local environment files.

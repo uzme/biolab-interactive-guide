@@ -43,6 +43,7 @@ try {
   console.log("[4/4] Publishing to GitHub and Google Drive...");
   
   console.log(" -> Committing and pushing changes to GitHub (main)...");
+  execSync("git remote set-url origin https://github.com/uzme/biolab-interactive-guide.git", { stdio: "inherit" });
   execSync("git add -A && git commit -m 'chore: release update and automated sync publish' || true", { stdio: "inherit" });
   execSync("git push origin main", { stdio: "inherit" });
 

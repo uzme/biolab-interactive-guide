@@ -1,0 +1,22 @@
+{
+  "name": "BioLab — Biotexnologiya qurilmalari katalogi",
+  "short_name": "BioLab",
+  "description": "100 ta biotexnologiya qurilmasini 16 bo‘limli o‘quv dasturi orqali o‘rganish platformasi.",
+  "lang": "uz",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f1e8",
+  "theme_color": "#0b3941",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/manus-storage/biolab-logo_c6e5d846.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+

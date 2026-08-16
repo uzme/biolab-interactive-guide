@@ -53,3 +53,18 @@
 - [x] TypeScript check va production build bajarish
 - [x] Playwright regressiya testlarini yangilash va o‘tkazish
 - [x] GitHub va Google Drive ga sanitizatsiyalangan snapshotni sinxronlash (`1e6a4ca`, Drive file `1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT`)
+
+## PWA Offline O‘quv Rejimi va Kesh Boshqaruvi
+- [x] `public/manifest.webmanifest` faylini yaratish va `index.html` ga PWA meta teglarni qo‘shish
+- [x] `public/sw.js` (Service Worker) yaratish va offline kesh strategiyasini yozish
+- [x] `client/src/components/OfflineManager.tsx` orqali foydalanuvchiga offline paketni yuklab olish, kesh holatini ko‘rsatish va yangilash imkoniyatini berish
+- [x] Home.tsx va sarlavhaga offline boshqaruv tugmasi va status indikatorini ulash
+- [ ] TypeScript, production build, Playwright testlari va "Biotexnologiya yangi" Drive papkasiga sinxronlashni bajarish
+
+- [x] Service worker’da versionlangan build app-shell assetlarini (JS/CSS/font) cache qilish va offline reload oqimini test bilan tasdiqlash
+- [x] OfflineManager/Home header’da aniq online/offline status indikatorini ko‘rsatish va holat almashishini brauzer testida tekshirish
+
+> Yuqoridagi ikki band avvalgi PWA implementatsiyasi auditi davomida aniqlangan qo‘shimcha tuzatishlardir; mavjud bandlar tarix sifatida saqlanadi.
+
+- [x] Playwright testida service worker cache orqali haqiqiy offline reload va app shell tiklanishini assert qilish
+- [x] Playwright testida `data-offline-status` atributi va Onlayn → Offline holat almashishini assert qilish

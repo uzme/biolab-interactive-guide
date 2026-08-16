@@ -13,9 +13,31 @@ const assert = (condition, message) => {
 
 try {
   const desktop = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  const manifestResponse = await desktop.request.get(`${previewUrl}manifest.webmanifest`);
+  await assert(manifestResponse.ok(), "PWA manifest.webmanifest topilmadi.");
+  const manifest = await manifestResponse.json();
+  await assert(manifest.lang === "uz" && manifest.display === "standalone", "PWA manifest o‘zbekcha standalone rejimida emas.");
+  const serviceWorkerResponse = await desktop.request.get(`${previewUrl}sw.js`);
+  await assert(serviceWorkerResponse.ok(), "PWA service worker fayli topilmadi.");
+
   await desktop.goto(previewUrl, { waitUntil: "networkidle" });
   await desktop.evaluate(() => window.localStorage.clear());
   await desktop.reload({ waitUntil: "networkidle" });
+  await assert(await desktop.evaluate(async () => Boolean(await navigator.serviceWorker.ready)), "PWA service worker ro‘yxatdan o‘tmadi.");
+  const offlineStatus = desktop.locator("[data-offline-status]");
+  await assert(await offlineStatus.getAttribute("data-offline-status") === "online", "Onlayn status indikatori ko‘rinmadi.");
+  await assert(await desktop.getByRole("button", { name: "Offline paketni yuklash" }).isVisible(), "Offline paket boshqaruvi ko‘rinmadi.");
+
+  await desktop.context().setOffline(true);
+  await desktop.reload({ waitUntil: "domcontentloaded" });
+  await assert(await desktop.locator(".pure3d-carousel .scene").isVisible(), "Offline reloaddan keyin app shell carouseli tiklanmadi.");
+  await desktop.evaluate(() => window.dispatchEvent(new Event("offline")));
+  await desktop.waitForFunction(() => document.querySelector("[data-offline-status]")?.getAttribute("data-offline-status") === "offline");
+  await desktop.context().setOffline(false);
+  await desktop.evaluate(() => window.dispatchEvent(new Event("online")));
+  await desktop.waitForFunction(() => document.querySelector("[data-offline-status]")?.getAttribute("data-offline-status") === "online");
+  await desktop.reload({ waitUntil: "networkidle" });
+
   const carouselScene = desktop.locator(".pure3d-carousel .scene");
   await carouselScene.waitFor({ state: "visible" });
   await desktop.addStyleTag({ content: ".pure3d-carousel .a3d { animation-play-state: paused !important; }" });

@@ -73,3 +73,11 @@ Sizning ko‘rsatmangiz bo‘yicha butun Google Drive hisobi read-only metadata 
 - **Google Drive Snapshot**: `1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT` fayli **Biotexnologiya yangi / Loyiha 1** papkasi ichida muvaffaqiyatli yangilandi (`BioLab_Interactive_Guide_source.zip`).
 - **Testlar va Build**: `pnpm run check`, `pnpm run build`, `test_catalog_controls.mjs`, `test_device_viewer.mjs` to‘liq muvaffaqiyatli o‘tdi.
 - **Xavfsizlik va Kopirayt**: Sozlamalar modalida 10/10 himoya, SOP, PPE va Drive papka qoidalari qat’iy rasmiylashtirildi.
+
+## PWA Offline O‘quv Rejimi — 2026-08-16
+
+BioLab Interactive Guide uchun o‘zbekcha PWA manifesti (`manifest.webmanifest`), service worker (`sw.js`) va `OfflineManager` boshqaruvi joriy qilindi. Service worker app shell navigatsiyasini network-first usulida, JavaScript/CSS/font/manifest assetlarini versionlangan cache bilan stale-while-revalidate usulida, qurilma rasmlarini cache-first usulida boshqaradi. Foydalanuvchi sarlavhadagi tugma orqali offline o‘quv paketini yuklaydi yoki yangilaydi; paket holati va Onlayn/Offline status indikatori ko‘rsatiladi.
+
+Offline paket yoqilganda katalog, 100 ta qurilma, 16 bo‘limli o‘quv dosyesi, qidiruv/filtr, Saralanganlar va qurilma rasmlari internetsiz foydalanishga mo‘ljallangan. Login, GitHub va Google Drive publish kabi serverga bog‘liq operatsiyalar internet qaytganda bajariladi. Playwright testi manifest va service worker mavjudligini, service worker ready holatini, haqiqiy offline reloaddan keyin carousel app shell tiklanishini hamda `data-offline-status` Onlayn → Offline → Onlayn almashishini tasdiqladi. `pnpm run check`, production build va mavjud qurilma regressiya testlari muvaffaqiyatli o‘tdi. Buildda faqat mavjud katta chunk hajmi bo‘yicha optimizatsiya ogohlantirishi qoldi; kompilyatsiya xatosi aniqlanmadi.
+
+Sinxronlashdan oldingi holat: PWA kodi, testlar va metadata tayyor; keyingi `sync_release.mjs --publish` bajarilishida GitHub `main` hamda mavjud `Biotexnologiya yangi / Loyiha 1` snapshot fayli duplikatsiyasiz yangilanadi.

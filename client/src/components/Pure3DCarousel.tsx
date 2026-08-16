@@ -1,5 +1,5 @@
 import { useState, type CSSProperties } from "react";
-import { ChevronLeft, ChevronRight, FlaskConical } from "lucide-react";
+import { ChevronLeft, ChevronRight, FlaskConical, Heart } from "lucide-react";
 import { equipment, type Equipment } from "@/lib/equipmentData";
 import { equipmentImages } from "@/lib/equipmentImages";
 import { getImagePresentation } from "@/lib/equipmentImagePresentation";
@@ -12,9 +12,11 @@ type CarouselStyle = CSSProperties & {
 
 type Pure3DCarouselProps = {
   onSelectDevice: (device: Equipment) => void;
+  isBookmarked: (deviceId: string) => boolean;
+  onToggleBookmark: (deviceId: string) => void;
 };
 
-export default function Pure3DCarousel({ onSelectDevice }: Pure3DCarouselProps) {
+export default function Pure3DCarousel({ onSelectDevice, isBookmarked, onToggleBookmark }: Pure3DCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const pageSize = 12;
   const totalPages = Math.ceil(equipment.length / pageSize);
@@ -72,12 +74,20 @@ export default function Pure3DCarousel({ onSelectDevice }: Pure3DCarouselProps) 
               const isPriorityImage = currentIndex === 0 && index < 3;
 
               return (
-                <button
+                <div
                   key={device.id}
-                  type="button"
                   className="card group cursor-pointer"
                   style={{ "--i": index } as CarouselStyle}
+                  role="group"
+                  tabIndex={0}
                   onClick={() => onSelectDevice(device)}
+                  onKeyDown={(event) => {
+                    if (event.target !== event.currentTarget) return;
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      onSelectDevice(device);
+                    }
+                  }}
                   aria-label={`${device.name}, ${device.model}, o‘rganish`}
                 >
                   <span className="card-shell">
@@ -108,13 +118,26 @@ export default function Pure3DCarousel({ onSelectDevice }: Pure3DCarouselProps) 
                       )}
                       <span className="card-code">{device.id}</span>
                     </span>
+                    <button
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        onToggleBookmark(device.id);
+                      }}
+                      data-bookmark-button={device.id}
+                      aria-pressed={isBookmarked(device.id)}
+                      aria-label={isBookmarked(device.id) ? `${device.name} saralanganlardan olib tashlash` : `${device.name} saralanganlarga saqlash`}
+                      className={`absolute right-3 top-3 z-20 grid h-8 w-8 place-items-center rounded-full border shadow-sm backdrop-blur transition ${isBookmarked(device.id) ? "border-[#0d7774] bg-[#0d7774] text-white" : "border-white/80 bg-white/90 text-[#0d7774] hover:border-[#0d7774] hover:bg-[#e3f2e9]"}`}
+                    >
+                      <Heart size={14} fill={isBookmarked(device.id) ? "currentColor" : "none"} />
+                    </button>
                     <span className="card-caption">
                       <span className="card-category">{device.category}</span>
                       <span className="card-name">{device.name}</span>
                       <span className="card-model">{device.model}</span>
                     </span>
                   </span>
-                </button>
+                </div>
               );
             })}
           </div>

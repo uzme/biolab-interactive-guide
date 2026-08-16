@@ -32,3 +32,11 @@ TypeScript, production build, katalog regressiya testi va 16 bo‘limli DeviceVi
 ## Oldingi relizlar
 
 2026-08-16 dagi avvalgi relizlarda 100 ta qurilma katalogi, 16 bo‘limli modal o‘quv dosyesi, rasm manbasi/litsenziyasi bloki, PDF eksport, WebP optimizatsiyasi, qidiruv-filtrlar, sozlamalar paneli va sanitizatsiyalangan Drive snapshot tizimi joriy qilingan.
+
+## Brauzer Xotirasida Ishlaydigan Saralanganlar — 2026-08-16
+
+Katalog kartalari va original Pure CSS 3D Carousel ichiga yurakcha tugmasi qo‘shildi. Tanlangan qurilmalar faqat brauzerning `localStorage` xotirasida `biolab-guide:bookmarks:v1` kaliti orqali ID ro‘yxati sifatida saqlanadi; server yoki databasega yuborilmaydi. Saralanganlar filtri saqlangan qurilmalarni alohida ko‘rsatadi, hisoblagich mavjud, tanlovni bittalab olib tashlash va barcha filtrlarni tozalash mumkin. Sahifa yangilanganda tanlovlar qayta tiklanadi.
+
+`useBookmarks.ts`, `EquipmentCard.tsx`, `Pure3DCarousel.tsx`, `Pure3DCarousel.css`, `Home.tsx` va `test_device_viewer.mjs` yangilandi. TypeScript tekshiruvi, production build, katalog testi va qurilma/regressiya testi muvaffaqiyatli bajarildi. Carousel testida 3D transform sababli tugma uchun aniq `data-bookmark-button` selector va DOM click ishlatildi.
+
+Sinxronlashdan oldingi holat: kod va testlar tayyor; keyingi `sync_release.mjs --publish` bajarilishida GitHub hamda mavjud Google Drive snapshot yangilanadi.

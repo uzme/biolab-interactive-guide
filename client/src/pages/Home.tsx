@@ -3,13 +3,14 @@
   asymmetric left navigation, and a 16-section Uzbek learning curriculum for every instrument.
 */
 import { lazy, Suspense, useMemo, useState } from "react";
-import { ArrowUpRight, Beaker, BookOpen, ChevronRight, CircleHelp, FlaskConical, Grid2X2, LibraryBig, Menu, Microscope, Search, Settings2, Sparkles, X } from "lucide-react";
+import { ArrowUpRight, Beaker, BookOpen, ChevronRight, CircleHelp, FlaskConical, Grid2X2, Heart, LibraryBig, Menu, Microscope, Search, Settings2, Sparkles, X } from "lucide-react";
 import Pure3DCarousel from "@/components/Pure3DCarousel";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { equipment, categories, type Equipment } from "@/lib/equipmentData";
 import EquipmentCard from "@/components/EquipmentCard";
 import { toast } from "sonner";
+import { useBookmarks } from "@/hooks/useBookmarks";
 
 const DeviceViewer = lazy(() => import("@/components/DeviceViewer"));
 
@@ -55,15 +56,18 @@ export default function Home() {
   const [selectedDevice, setSelectedDevice] = useState<Equipment | null>(null);
   const [mobileNav, setMobileNav] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [bookmarksOnly, setBookmarksOnly] = useState(false);
+  const { bookmarkedIds, bookmarkedCount, isBookmarked, toggleBookmark, clearBookmarks } = useBookmarks();
 
   const categoryCounts = useMemo(() => categories.slice(1).map((category) => ({ name: category, count: equipment.filter((item) => item.category === category).length })), []);
   const filtered = useMemo(() => equipment.filter((item) => {
     const matchesCategory = activeCategory === "Barcha uskunalar" || item.category === activeCategory;
+    const matchesBookmark = !bookmarksOnly || bookmarkedIds.includes(item.id);
     const searchText = `${item.name} ${item.model} ${item.models} ${item.brands} ${item.category} ${item.description} ${item.purpose}`.toLowerCase();
     const modelText = `${item.model} ${item.models} ${item.brands}`.toLowerCase();
-    return matchesCategory && searchText.includes(query.trim().toLowerCase()) && modelText.includes(modelQuery.trim().toLowerCase());
-  }), [activeCategory, modelQuery, query]);
-  const hasActiveFilters = activeCategory !== "Barcha uskunalar" || Boolean(query.trim()) || Boolean(modelQuery.trim());
+    return matchesCategory && matchesBookmark && searchText.includes(query.trim().toLowerCase()) && modelText.includes(modelQuery.trim().toLowerCase());
+  }), [activeCategory, bookmarkedIds, bookmarksOnly, modelQuery, query]);
+  const hasActiveFilters = activeCategory !== "Barcha uskunalar" || Boolean(query.trim()) || Boolean(modelQuery.trim()) || bookmarksOnly;
   const orderedFiltered = useMemo(() => [...filtered].sort((first, second) => Number(first.id.replace("BIO-", "")) - Number(second.id.replace("BIO-", ""))), [filtered]);
   const visibleCategoryGroups = useMemo(() => {
     if (!hasActiveFilters) return [{ category: "Barcha uskunalar", devices: orderedFiltered }];
@@ -76,6 +80,7 @@ export default function Home() {
     setActiveCategory("Barcha uskunalar");
     setQuery("");
     setModelQuery("");
+    setBookmarksOnly(false);
   };
 
 
@@ -116,7 +121,7 @@ export default function Home() {
             <div className="tech-label rounded-full border border-[#b8d8ce] bg-white px-3 py-1.5 text-[#0b7772]">12 TA ASOSIY REKORD</div>
           </div>
           <div className="px-2 py-4 sm:px-6">
-            <Pure3DCarousel onSelectDevice={(device) => setSelectedDevice(device)} />
+            <Pure3DCarousel onSelectDevice={(device) => setSelectedDevice(device)} isBookmarked={isBookmarked} onToggleBookmark={toggleBookmark} />
           </div>
         </section>
 
@@ -124,7 +129,10 @@ export default function Home() {
           <div className="rounded-2xl border border-[#c9ded7] bg-[#f7fbfa] p-3 shadow-[0_10px_24px_rgba(31,87,80,0.06)] sm:p-4">
             <div className="mb-3 flex items-center justify-between gap-3">
               <div><div className="tech-label text-[#0b6663]">QIDIRUV VA FILTR</div><p className="mt-1 text-xs text-[#66847e]">Qurilma nomi, manufacturer yoki aniq model bo‘yicha izlang.</p></div>
-              {hasActiveFilters && <button type="button" onClick={clearFilters} className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-[#b7d9cd] bg-white px-2.5 py-1.5 text-[11px] font-bold text-[#0b7772] transition hover:border-[#0b7772]" aria-label="Barchasini tozalash"><X size={13} /> Barchasini tozalash</button>}
+              <div className="flex shrink-0 flex-wrap items-center justify-end gap-2">
+                <button type="button" onClick={() => setBookmarksOnly((current) => !current)} aria-pressed={bookmarksOnly} className={`inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-[11px] font-bold transition ${bookmarksOnly ? "border-[#0d7774] bg-[#0d7774] text-white" : "border-[#b7d9cd] bg-white text-[#0b7772] hover:border-[#0b7772]"}`}><Heart size={13} fill={bookmarksOnly ? "currentColor" : "none"} /> Saralanganlar <span className="rounded-full bg-black/10 px-1.5 py-0.5">{bookmarkedCount}</span></button>
+                {hasActiveFilters && <button type="button" onClick={clearFilters} className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-[#b7d9cd] bg-white px-2.5 py-1.5 text-[11px] font-bold text-[#0b7772] transition hover:border-[#0b7772]" aria-label="Barchasini tozalash"><X size={13} /> Barchasini tozalash</button>}
+              </div>
             </div>
             <div className="grid gap-2 md:grid-cols-[1.25fr_1fr_0.9fr]">
               <label className="relative block"><span className="sr-only">Qurilma yoki manufacturer qidirish</span><Search size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#67908a]" /><Input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Qurilma yoki manufacturer qidiring..." className="h-11 rounded-xl border-[#cbded8] bg-white pl-9 pr-9 text-sm text-[#173d42] placeholder:text-[#94aaa5]" />{query && <button type="button" onClick={() => setQuery("")} className="absolute right-2 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-md text-[#5d827c] transition hover:bg-[#e5f2ed] hover:text-[#0b7772]" aria-label="Qurilma qidiruvini bekor qilish"><X size={15} /></button>}</label>
@@ -137,7 +145,7 @@ export default function Home() {
         </section>
 
         <section className="mt-8" aria-live="polite"><div className="mb-4 flex items-center justify-between gap-3"><div><div className="eyebrow mb-1">LAB-01 / REKORD OQIMI</div><h2 className="display text-2xl font-bold text-[#173d42]">{activeCategory}</h2><p className="mt-1 text-sm text-[#78908c]">{filtered.length} ta qurilma topildi{hasActiveFilters ? " — faol filtrlar qo‘llanilgan" : ""}</p></div>{hasActiveFilters && <button onClick={clearFilters} className="text-xs font-bold text-[#0d7774] hover:underline">Barcha filtrlarni tozalash</button>}</div>
-          {filtered.length > 0 ? <div className="space-y-9">{visibleCategoryGroups.map((group, groupIndex) => { const Icon = categoryIcons[group.category] || Beaker; return <section key={group.category} className="relative"><div className="mb-4 flex items-end justify-between gap-4 border-y border-[#c9ddd6] bg-[#f1f8f5] px-4 py-3"><div className="flex min-w-0 items-center gap-3"><div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-[#b8d8ce] bg-white text-[#0b7772]"><Icon size={18} /></div><div><div className="tech-label text-[#0b7772]">MODUL {String(groupIndex + 1).padStart(2, "0")} / SOP KATALOGI</div><h3 className="display truncate text-xl font-bold tracking-[-0.035em] text-[#173d42]">{group.category}</h3></div></div><div className="hidden rounded-full border border-[#b8d8ce] bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#537972] sm:block">{group.devices.length} rekord</div></div><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{group.devices.map((device) => <EquipmentCard key={device.id} device={device} index={filtered.indexOf(device)} onOpen={setSelectedDevice} />)}</div></section>; })}</div> : <div className="rounded-[22px] border border-dashed border-[#b9d8cd] bg-[#ffffff] px-6 py-16 text-center"><Search size={28} className="mx-auto mb-4 text-[#70a298]" /><h3 className="display text-2xl font-bold">Qurilma topilmadi</h3><p className="mt-2 text-sm text-[#78908c]">Qidiruv so‘zini yoki kategoriyani o‘zgartirib ko‘ring.</p></div>}
+          {filtered.length > 0 ? <div className="space-y-9">{visibleCategoryGroups.map((group, groupIndex) => { const Icon = categoryIcons[group.category] || Beaker; return <section key={group.category} className="relative"><div className="mb-4 flex items-end justify-between gap-4 border-y border-[#c9ddd6] bg-[#f1f8f5] px-4 py-3"><div className="flex min-w-0 items-center gap-3"><div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-[#b8d8ce] bg-white text-[#0b7772]"><Icon size={18} /></div><div><div className="tech-label text-[#0b7772]">MODUL {String(groupIndex + 1).padStart(2, "0")} / SOP KATALOGI</div><h3 className="display truncate text-xl font-bold tracking-[-0.035em] text-[#173d42]">{group.category}</h3></div></div><div className="hidden rounded-full border border-[#b8d8ce] bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#537972] sm:block">{group.devices.length} rekord</div></div><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{group.devices.map((device) => <EquipmentCard key={device.id} device={device} index={filtered.indexOf(device)} onOpen={setSelectedDevice} isBookmarked={isBookmarked(device.id)} onToggleBookmark={toggleBookmark} />)}</div></section>; })}</div> : <div className="rounded-[22px] border border-dashed border-[#b9d8cd] bg-[#ffffff] px-6 py-16 text-center"><Search size={28} className="mx-auto mb-4 text-[#70a298]" /><h3 className="display text-2xl font-bold">Qurilma topilmadi</h3><p className="mt-2 text-sm text-[#78908c]">Qidiruv so‘zini yoki kategoriyani o‘zgartirib ko‘ring.</p></div>}
         </section>
       </div>
     </main>

@@ -22,3 +22,10 @@
 - [x] TypeScript va production build tekshiruvini bajarish
 - [x] Playwright regressiya testlarini o‘tkazish
 - [x] GitHub va Google Drive ga sanitizatsiyalangan snapshotni sinxronlash (`e761a2f`, Drive file `1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT`)
+
+## Brauzer Xotirasida Ishlaydigan "Saralanganlar" (Bookmarks) Funksiyasi
+- [x] localStorage orqali saqlanadigan saralangan qurilmalar ID ro‘yxatini state va hooklar orqali boshqarish
+- [x] Qurilma kartalari va Pure3DCarousel da yurakcha (bookmark) tugmasini qo‘shish
+- [x] Katalog filtrlarida "Saralanganlar" tugmasini yaratish va faqat saqlangan qurilmalarni ko‘rsatish
+- [x] Playwright testlariga saralanganlar funksiyasini qo‘shish
+- [ ] TypeScript va production build tekshiruvidan o‘tkazib GitHub va Google Drive ga sinxronlash

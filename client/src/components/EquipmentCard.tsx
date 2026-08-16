@@ -4,7 +4,7 @@
   category-specific scientific glyphs, deep teal structure, and mint only for active learning signals.
 */
 import { useState } from "react";
-import { ArrowUpRight, Beaker, BookOpenCheck, CircleDollarSign, Cpu, FlaskConical, Gauge, Grid2X2, ImageOff, LoaderCircle, Microscope, Settings2, Snowflake } from "lucide-react";
+import { ArrowUpRight, Beaker, BookOpenCheck, CircleDollarSign, Cpu, FlaskConical, Gauge, Grid2X2, Heart, ImageOff, LoaderCircle, Microscope, Settings2, Snowflake } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Equipment } from "@/lib/equipmentData";
 import { equipmentImages } from "@/lib/equipmentImages";
@@ -36,7 +36,7 @@ const categoryTone: Record<string, { icon: string; signal: string }> = {
   "Avtomatlashtirish": { icon: "border-[#cbd3da] bg-[#f0f3f5] text-[#536b78]", signal: "bg-[#536b78]" },
 };
 
-export default function EquipmentCard({ device, index, onOpen }: { device: Equipment; index: number; onOpen: (device: Equipment) => void }) {
+export default function EquipmentCard({ device, index, onOpen, isBookmarked, onToggleBookmark }: { device: Equipment; index: number; onOpen: (device: Equipment) => void; isBookmarked: boolean; onToggleBookmark: (deviceId: string) => void }) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
   const Icon = cardIcons[device.category] || FlaskConical;
@@ -62,6 +62,9 @@ export default function EquipmentCard({ device, index, onOpen }: { device: Equip
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-white/75 to-transparent" />
       <span className={`absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-white/75 bg-white/90 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-[0.12em] shadow-sm backdrop-blur ${tone.icon.split(" ").filter((className) => className.startsWith("text-")).join(" ")}`}><Icon size={12} />{imageLabel}</span>
       <span data-equipment-code className="absolute right-3 top-3 rounded-full border border-[#b7d4cc] bg-white/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#355b57] shadow-sm backdrop-blur">{imageKey}</span>
+      <button type="button" onClick={() => onToggleBookmark(device.id)} aria-pressed={isBookmarked} aria-label={isBookmarked ? `${device.name} saralanganlardan olib tashlash` : `${device.name} saralanganlarga saqlash`} className={`absolute right-3 bottom-3 z-30 grid h-9 w-9 place-items-center rounded-full border shadow-sm backdrop-blur transition ${isBookmarked ? "border-[#0d7774] bg-[#0d7774] text-white" : "border-white/80 bg-white/90 text-[#0d7774] hover:border-[#0d7774] hover:bg-[#e3f2e9]"}`}>
+        <Heart size={16} fill={isBookmarked ? "currentColor" : "none"} />
+      </button>
     </figure>
     <div className="flex flex-1 flex-col p-5">
       <div className="mb-3 flex items-center justify-between gap-2 rounded-lg border border-[#b9d5cd] bg-[#f0f8f5] px-2.5 py-2">

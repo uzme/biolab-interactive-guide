@@ -66,3 +66,9 @@ Fayl Drive’da yangi nusxa ochmasdan, aynan mavjud ID bo‘yicha almashtirildi.
 ## PDF Eksport Funksiyasi Qo‘shildi — 2026-08-16
 
 BioLab qurilma tafsilot sahifasiga (DeviceViewer) **“PDF eksport qilish”** tugmasi qo‘shildi. Bu funksiya tanlangan qurilmaning barcha 16 ta o‘quv bo‘limi matnini, original nomi, manufacturer/model ma’lumotlarini, rasm shaffofligi holatini, ishonchli manbalarni hamda xarid/import benchmarklarini toza, sahifalangan formatda tayyorlaydi va brauzerning chop etish/PDF sifatida saqlash oynasini ochadi. TypeScript tahlili, production build va barcha regressiya testlari muvaffaqiyatli yakunlandi.
+
+
+## Sozlamalar paneli va Mualliflik Huquqi — 2026-08-16
+- Sarlavhadagi Sozlamalar tugmasi (`Settings2`) ishga tushirildi va interaktiv modal panel qo‘shildi.
+- Modal ichida: Platforma maqsadi, Mualliflik Huquqi (Copyright © 2026 BioLab / Manus AI & Biotexnolog), Foydalanish shartlari va ta’limiy cheklovlar, Rasm litsenziyasi shaffofligi hamda Texnik Sinxronlash qoidalari batafsil yoritildi.
+- TypeScript, production build va testlar muvaffaqiyatli yakunlandi.

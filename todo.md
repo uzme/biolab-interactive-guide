@@ -172,3 +172,10 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 - [x] Rasm shaffofligi va ishonchli manbalarni PDF hujjatiga kiritish
 - [x] TypeScript va production build bilan testdan o‘tkazish
 - [x] GitHub va Drive source snapshotini oxirgi metadata bilan yangilash
+
+## Sozlamalar va Mualliflik Huquqi Sahifasi — 2026-08-16
+
+- [x] Asosiy sarlavhadagi "Sozlamalar" tugmasini ishlaydigan qilish (modal yoki drawer ochish)
+- [x] Platforma mualliflik huquqi, foydalanish shartlari va rasm litsenziyasi shaffofligi sahifasini qo‘shish
+- [x] TypeScript va production build bilan sinovdan o‘tkazish
+- [x] GitHub va Drive source snapshotini oxirgi metadata bilan yangilash

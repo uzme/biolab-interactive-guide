@@ -53,6 +53,7 @@ export default function Home() {
   const [modelQuery, setModelQuery] = useState("");
   const [selectedDevice, setSelectedDevice] = useState<Equipment | null>(null);
   const [mobileNav, setMobileNav] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   const categoryCounts = useMemo(() => categories.slice(1).map((category) => ({ name: category, count: equipment.filter((item) => item.category === category).length })), []);
   const filtered = useMemo(() => equipment.filter((item) => {
@@ -84,7 +85,7 @@ export default function Home() {
     <div className="hidden sm:block"><Sidebar activeCategory={activeCategory} onCategory={setActiveCategory} /></div>
     <main className="min-w-0 flex-1">
       <header className="border-b border-[#d6e3dc] bg-[#f7fbfa]/85 px-5 py-4 backdrop-blur-xl sm:px-8 lg:px-12">
-        <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4"><div className="flex items-center gap-3"><Button variant="ghost" size="icon" className="text-[#0d7774] sm:hidden" onClick={() => setMobileNav(true)} aria-label="Menyuni ochish"><Menu size={20} /></Button><div className="text-xs font-bold uppercase tracking-[0.16em] text-[#6d8b87]">BioLab / <span className="text-[#0d7774]">Katalog</span></div></div><div className="flex items-center gap-2"><span className="hidden rounded-full border border-[#cbded4] bg-[#ffffff] px-3 py-1.5 text-xs font-semibold text-[#597b75] sm:inline-flex"><span className="mr-2 h-2 w-2 rounded-full bg-[#16a085]" /> Onlayn ma’lumotlar bazasi</span><Button variant="ghost" size="icon" className="text-[#52716d]" aria-label="Sozlamalar" onClick={() => toast.info("Sozlamalar paneli hali qo‘shilmagan", { description: "Hozir katalog, qidiruv va 16 bo‘limli o‘quv oqimidan foydalanishingiz mumkin." })}><Settings2 size={18} /></Button></div></div>
+        <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4"><div className="flex items-center gap-3"><Button variant="ghost" size="icon" className="text-[#0d7774] sm:hidden" onClick={() => setMobileNav(true)} aria-label="Menyuni ochish"><Menu size={20} /></Button><div className="text-xs font-bold uppercase tracking-[0.16em] text-[#6d8b87]">BioLab / <span className="text-[#0d7774]">Katalog</span></div></div>          <div className="flex items-center gap-2"><span className="hidden rounded-full border border-[#cbded4] bg-[#ffffff] px-3 py-1.5 text-xs font-semibold text-[#597b75] sm:inline-flex"><span className="mr-2 h-2 w-2 rounded-full bg-[#16a085]" /> Onlayn ma’lumotlar bazasi</span><Button variant="ghost" size="icon" className="text-[#52716d]" aria-label="Sozlamalar va Mualliflik Huquqi" onClick={() => setSettingsOpen(true)}><Settings2 size={18} /></Button></div></div>
       </header>
 
       <div className="mx-auto max-w-[1500px] px-5 py-6 sm:px-8 sm:py-10 lg:px-12">
@@ -125,5 +126,42 @@ export default function Home() {
         </section>
       </div>
     </main>
+    {selectedDevice && <DeviceViewer device={selectedDevice} onBack={() => setSelectedDevice(null)} />}
+    {settingsOpen && <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#173d42]/40 p-4 backdrop-blur-md" onClick={() => setSettingsOpen(false)}>
+      <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-[28px] border border-[#d8e7e3] bg-white p-6 shadow-[0_24px_60px_rgba(28,71,67,0.2)] sm:p-8" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-center justify-between border-b border-[#e2ede8] pb-4">
+          <div className="flex items-center gap-3">
+            <span className="grid h-10 w-10 place-items-center rounded-xl bg-[#0d7774] text-white"><Settings2 size={20} /></span>
+            <div><div className="tech-label text-[#5b7c77]">BIO.LAB // TIZIM</div><h2 className="display text-xl font-bold text-[#173d42]">Sozlamalar va Mualliflik Huquqi</h2></div>
+          </div>
+          <button onClick={() => setSettingsOpen(false)} className="grid h-9 w-9 place-items-center rounded-full bg-[#f1f8f5] text-[#126a6a] hover:bg-[#e2ede8]" aria-label="Yopish"><X size={18} /></button>
+        </div>
+        <div className="mt-6 space-y-6 text-sm text-[#355853]">
+          <section className="rounded-2xl border border-[#d8e7e3] bg-[#f7fbfa] p-5">
+            <h3 className="font-bold text-[#173d42]">1. Platforma haqida va Maqsad</h3>
+            <p className="mt-2 leading-6 text-[#5b7c77]">BioLab Interactive Guide — 100 ta biotexnologiya qurilmasi uchun 16 bo‘limli chuqur o‘quv platformasi. Tizim ilmiy ma’lumotlarni tizimlashtirish, ishonchli o‘quv protokollari va laboratoriya xavfsizligini ta’minlash uchun ishlab chiqilgan.</p>
+          </section>
+          <section className="rounded-2xl border border-[#d8e7e3] bg-[#f7fbfa] p-5">
+            <h3 className="font-bold text-[#173d42]">2. Mualliflik huquqi va Kopirayt (Copyright Notice)</h3>
+            <p className="mt-2 leading-6 text-[#5b7c77]">© 2026 BioLab Interactive Guide / Manus AI & Biotexnolog. Barcha huquqlar himoyalangan. Platformaning kod bazasi, interfeys dizayni, 16 bo‘limli o‘quv konspektlari va tuzilmasi mualliflik huquqi qonunchiligi bilan muhofaza qilinadi. Uni ruxsatsiz ko‘chirish, tijoriy maqsadlarda tarqatish yoki o‘zgartirish taqiqlanadi.</p>
+          </section>
+          <section className="rounded-2xl border border-[#d8e7e3] bg-[#f7fbfa] p-5">
+            <h3 className="font-bold text-[#173d42]">3. Foydalanish shartlari va Ta’limiy cheklovlar</h3>
+            <p className="mt-2 leading-6 text-[#5b7c77]">Platformadan faqat ta’lim, tadqiqot va laboratoriya amaliyotini o‘rganish maqsadida foydalanish mumkin. Ma’lumotlarni o‘quv jarayonida qo‘llash mutlaqo erkin, biroq ularni ommaviy nashrlarda o‘zgarishsiz yoki mualliflik manbasini ko‘rsatmasdan tarqatish taqiqlanadi.</p>
+          </section>
+          <section className="rounded-2xl border border-[#d8e7e3] bg-[#f7fbfa] p-5">
+            <h3 className="font-bold text-[#173d42]">4. Rasm litsenziyasi va Shaffoflik siyosati</h3>
+            <p className="mt-2 leading-6 text-[#5b7c77]">Platformadagi rasmlar ikki turga bo‘linadi: ishlab chiqaruvchilarning rasmiy/distributor mahsulot fotosuratlari (ularning asl mualliflik huquqi tegishli kompaniyalarda qoladi va faqat o‘quv/identifikatsiya maqsadida ko‘rsatiladi) hamda o‘quv ko‘rgazmasi uchun yaratilgan laboratoriya-realistik AI vizuallari. Har bir qurilma sahifasida rasm shaffofligi bloki va manba havolasi mavjud.</p>
+          </section>
+          <section className="rounded-2xl border border-[#d8e7e3] bg-[#f7fbfa] p-5">
+            <h3 className="font-bold text-[#173d42]">5. Texnik Sinxronlash va Repozitoriy</h3>
+            <p className="mt-2 leading-6 text-[#5b7c77]">Loyiha kodi faqat rasmiy <code className="rounded bg-[#e2ede8] px-1.5 py-0.5 text-xs text-[#0d7774]">uzme/biolab-interactive-guide</code> GitHub repozitoriyining <code className="rounded bg-[#e2ede8] px-1.5 py-0.5 text-xs text-[#0d7774]">main</code> branchida va Google Drive’dagi yagona <code className="rounded bg-[#e2ede8] px-1.5 py-0.5 text-xs text-[#0d7774]">Biotexnologiya yangi / Loyiha 1</code> papkasida saqlanadi. Maxfiy tokenlar, env fayllar va build chiqindilari sinxronizatsiyadan qat’iy ravishda chetlatiladi.</p>
+          </section>
+        </div>
+        <div className="mt-8 flex justify-end border-t border-[#e2ede8] pt-4">
+          <Button onClick={() => setSettingsOpen(false)} className="bg-[#0d7774] text-white hover:bg-[#075e5c]">Tushunarli, yopish</Button>
+        </div>
+      </div>
+    </div>}
   </div>;
 }

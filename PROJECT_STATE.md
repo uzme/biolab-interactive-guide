@@ -27,6 +27,10 @@ Tekshirilgan manba kodlari va hujjatlar faqat yangi GitHub repository hamda Goog
 
 2026-08-16 auditida katalogdagi chalg‘ituvchi hisob xabari olib tashlandi, “Sozlamalar” tugmasiga aniq holat xabari qo‘shildi, qurilma tafsiloti regressiya testi yaratildi va o‘quv dosyesi lazy-loading orqali ajratildi. Shuningdek, mobil katalogning dastlabki uch kartasi uchun rasm preload/ustuvor yuklash qoidasi, keyingi kartalar uchun lazy-loading hamda rasm kutish yoki xatolik fallbacki qo‘shildi. Bu o‘zgarishlar `047b251` commit bilan GitHub `main` branchiga yuborildi va Drive’dagi mavjud `BioLab_Interactive_Guide_source.zip` snapshoti ayni fayl ID’sida duplikatsiz yangilandi.
 
+## Mobil rasm yuklanishi — qayta sinov
+
+2026-08-16 dagi qayta ko‘rikda birinchi uchta katalog kartasining mahsulot rasmlari sahifa tarkibida muvaffaqiyatli chiqdi va ular uchun “Rasm yuklanmoqda” yoki yuklash xatosi fallbacki ko‘rinmadi. Keyingi kartalarda esa lazy-loading sabab rasm kutish yozuvi vaqtincha chiqishi kuzatildi; u birinchi ekrandagi ustuvor kartalarga taalluqli emas. Yakuniy browser-regressiya tekshiruvi va production build natijasi checklistda qayd etiladi.
+
 ## Snapshot tarkibi
 
 Drive’dagi yagona arxiv: `BioLab_Interactive_Guide_source.zip`. U Git tomonidan kuzatilgan manba kodlari va hujjatlarni o‘z ichiga oladi hamda `node_modules`, build chiqindilari, maxfiy konfiguratsiyalar, loglar, lokal audit materiallari va runtime fayllarini o‘z ichiga olmaydi. Arxiv sanitizatsiya qoidasi bo‘yicha tekshirildi; uning nazorat yig‘indisi har sinxronlashda yangidan hisoblanadi.

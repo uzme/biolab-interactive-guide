@@ -141,3 +141,8 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 - [x] `sync_release.mjs --check` orqali sinxronlashdan oldingi test/build va snapshot sanitizatsiyasini tekshirish
 - [x] `sync_release.mjs --publish` orqali GitHub `main` va Drive’dagi mavjud snapshotni yangilash
 - [x] GitHub commit hamda Drive snapshot holatini tekshirib, metadata va checklistni yangilash
+
+## Mobil rasm preloadini qayta sinash
+- [x] Birinchi katalog kartalari rasm preloadi va fallback holatini mobil viewportda tekshirish
+- [x] Natijani checklistda qayd etish va foydalanuvchiga yetkazish
+- [x] Mobil preload qayta sinovi natijasini foydalanuvchiga O‘zbek tilida aniq hisobot qilib yuborish

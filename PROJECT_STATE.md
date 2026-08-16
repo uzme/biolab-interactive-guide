@@ -66,3 +66,10 @@ Sizning ko‘rsatmangiz bo‘yicha butun Google Drive hisobi read-only metadata 
 - **Mualliflik Huquqi va Xavfsizlik (10/10)**: Sozlamalar va kopirayt modalida platformaning intellektual mulk huquqlari (`© 2026 BioLab Interactive Guide / Manus AI & Biotexnolog`), xavfsizlik standartlari (PPE, SOP, bioxavfsizlik, favqulodda to‘xtatish tartibi) qat’iy belgilandi.
 - **Yagona Google Drive Papkasi Qoidasi**: Barcha loyiha fayllari, snapshotlar va arxivlar faqat yagona **Biotexnologiya yangi** asosiy Google Drive papkasi (`1X_1fA8kg2Mpx6YW1NGrBoPHdjOcZ5Hxw`) va uning `Loyiha 1` subpapkasi doirasida boshqariladi. Boshqa papkalarda BioLab fayllari yaratilmaydi va mavjud snapshotlar faqat shu papka ichida duplikatsiyasiz yangilanadi.
 - **Test va Build**: TypeScript check, production build va Playwright regressiya testlari to‘liq muvaffaqiyatli bajarildi. O‘zgarishlar GitHub va Drive’ga sinxronlandi.
+
+## Yakuniy Publish Natijasi — 2026-08-16
+
+- **Git Commit**: `fbe678f` (`uzme/biolab-interactive-guide` `main` branch)
+- **Google Drive Snapshot**: `1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT` fayli **Biotexnologiya yangi / Loyiha 1** papkasi ichida muvaffaqiyatli yangilandi (`BioLab_Interactive_Guide_source.zip`).
+- **Testlar va Build**: `pnpm run check`, `pnpm run build`, `test_catalog_controls.mjs`, `test_device_viewer.mjs` to‘liq muvaffaqiyatli o‘tdi.
+- **Xavfsizlik va Kopirayt**: Sozlamalar modalida 10/10 himoya, SOP, PPE va Drive papka qoidalari qat’iy rasmiylashtirildi.

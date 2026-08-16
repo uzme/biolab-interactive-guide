@@ -162,5 +162,5 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 
 ## Yakuniy metadata va source snapshot sync — 2026-08-16
 
-- [ ] Eng so‘nggi PROJECT_STATE.md metadata yangilanishini sync_release.mjs orqali tekshirish
-- [ ] GitHub main branch va mavjud Drive source snapshotini oxirgi metadata bilan yangilash
+- [x] Eng so‘nggi PROJECT_STATE.md metadata yangilanishini sync_release.mjs orqali tekshirish
+- [x] GitHub main branch va mavjud Drive source snapshotini oxirgi metadata bilan yangilash

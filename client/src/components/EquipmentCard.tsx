@@ -64,9 +64,16 @@ export default function EquipmentCard({ device, index, onOpen }: { device: Equip
       <span data-equipment-code className="absolute right-3 top-3 rounded-full border border-[#b7d4cc] bg-white/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#355b57] shadow-sm backdrop-blur">{imageKey}</span>
     </figure>
     <div className="flex flex-1 flex-col p-5">
-      <div className="mb-3 flex items-center justify-between gap-2 rounded-lg border border-[#b9d5cd] bg-[#f0f8f5] px-2.5 py-2"><span className="tech-label text-[#0b6663]">PROTOKOL REKORDI</span><span className="rounded border border-[#b3d9cc] bg-white px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-[0.12em] text-[#0b6663]">{recordCode}</span></div>
-      <div className="relative eyebrow mb-2">{device.category}</div>
-      <h3 className="relative display min-h-[58px] text-[1.35rem] font-bold leading-[1.08] tracking-[-0.035em] text-[#173d42]">{device.name}</h3>
+      <div className="mb-3 flex items-center justify-between gap-2 rounded-lg border border-[#b9d5cd] bg-[#f0f8f5] px-2.5 py-2">
+        <span className="tech-label text-[#0b6663]">PROTOKOL REKORDI</span>
+        <span className="rounded border border-[#b3d9cc] bg-white px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-[0.12em] text-[#0b6663]">{recordCode}</span>
+      </div>
+      <div className="relative eyebrow mb-1.5 text-[#0d9488] font-bold">{device.category}</div>
+      <h3 className="relative display min-h-[52px] text-[1.25rem] font-extrabold leading-[1.12] tracking-[-0.03em] text-[#173d42]">{device.name}</h3>
+      <div className="mt-1 flex items-center gap-2 rounded-md bg-[#edf7f4] px-2 py-1 text-[11px] font-bold text-[#0c7773]">
+        <span className="text-[#5b7c77]">Model:</span>
+        <span className="truncate">{device.model} ({device.brands || "Official"})</span>
+      </div>
       <div className="relative mt-3 overflow-hidden rounded-xl border border-[#b9d5cd] bg-[#f5faf8] text-[10px] font-bold uppercase tracking-[0.09em]">
         <div className="grid grid-cols-[1fr_auto] gap-2 border-b border-[#d6e6e0] px-3 py-2.5"><span className="flex min-w-0 items-center gap-1.5 truncate text-[#355e58]"><span className="shrink-0 rounded bg-[#dcefe8] px-1 py-0.5 text-[8px] text-[#39746a]">MODEL</span><span className="truncate">{device.model}</span></span><span className="rounded-sm bg-[#0b5358] px-1.5 py-0.5 text-white">16 qadam</span></div>
         <div className="flex items-center justify-between gap-2 px-3 py-2"><span className="flex min-w-0 items-center gap-1.5 truncate text-[#5f817c]"><BookOpenCheck size={12} className="shrink-0 text-[#0d9488]" /><span className="truncate">{device.brands || "Manual"}</span></span><span className="shrink-0 rounded border border-[#bce4d8] bg-[#e7f5ef] px-1.5 py-0.5 text-[#087a73]">{recordCode}</span></div>

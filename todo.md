@@ -183,3 +183,8 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 ## Sozlamalar va Copyright Relizini Sync Qilish — 2026-08-16
 - [x] Sozlamalar va copyright paneli qo‘shilgan holatni test va build orqali tekshirish
 - [x] GitHub `uzme/biolab-interactive-guide` `main` branchini va Google Drive dagi yagona snapshotlarni yangilash
+
+## Carousel va Qurilma Nomi Ostida Ko‘rsatish Relizi — 2026-08-16
+- [x] Featured equipment carousel va card nomlarini rasm ostida aniq joylashtirish
+- [x] TypeScript va production build tekshiruvi
+- [x] GitHub va Drive source snapshotini oxirgi metadata bilan yangilash

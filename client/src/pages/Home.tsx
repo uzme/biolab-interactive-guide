@@ -4,6 +4,9 @@
 */
 import { lazy, Suspense, useMemo, useState } from "react";
 import { ArrowUpRight, Beaker, BookOpen, ChevronRight, CircleHelp, FlaskConical, Grid2X2, LibraryBig, Menu, Microscope, Search, Settings2, Sparkles, X } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { equipmentImages } from "@/lib/equipmentImages";
+import { getImagePresentation } from "@/lib/equipmentImagePresentation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { equipment, categories, type Equipment } from "@/lib/equipmentData";
@@ -104,6 +107,53 @@ export default function Home() {
         </section>
 
         <section className="mt-8 grid gap-4 sm:grid-cols-3"><div className="rounded-2xl border border-[#d8e7e3] bg-[#ffffff] p-5"><div className="mb-4 flex items-center justify-between"><span className="eyebrow">Katalog hajmi</span><LibraryBig size={18} className="text-[#0d8a80]" /></div><div className="metric-number text-3xl font-bold text-[#173d42]">100 <span className="text-base font-medium text-[#76938d]">qurilma</span></div><div className="mt-2 text-xs text-[#74918b]">10 ta asosiy kategoriya bo‘yicha</div></div><div className="rounded-2xl border border-[#d8e7e3] bg-[#ffffff] p-5"><div className="mb-4 flex items-center justify-between"><span className="eyebrow">O‘quv formati</span><Sparkles size={18} className="text-[#0d8a80]" /></div><div className="metric-number text-3xl font-bold text-[#173d42]">16 <span className="text-base font-medium text-[#76938d]">bo‘lim</span></div><div className="mt-2 text-xs text-[#74918b]">Chuqur va ketma-ket o‘quv dasturi</div></div><div className="rounded-2xl border border-[#d8e7e3] bg-[#ffffff] p-5"><div className="mb-4 flex items-center justify-between"><span className="eyebrow">Til</span><BookOpen size={18} className="text-[#0d8a80]" /></div><div className="metric-number text-3xl font-bold text-[#173d42]">UZ <span className="text-base font-medium text-[#76938d]">o‘zbekcha</span></div><div className="mt-2 text-xs text-[#74918b]">Kasbiy, sodda va tushunarli</div></div></section>
+
+        <section className="mt-12">
+          <div className="mb-4 flex flex-col justify-between gap-3 md:flex-row md:items-end">
+            <div>
+              <div className="eyebrow mb-1 text-[#0d9488]">TANLANGAN USKUNALAR CAROUSELI</div>
+              <h2 className="display text-2xl font-bold text-[#173d42] sm:text-3xl">Asosiy qurilmalar va tezkor tanlov</h2>
+              <p className="mt-1 text-sm text-[#587872]">Rasmdan tashqari nomi va modeli bilan tez tanishib o‘rganishni boshlang.</p>
+            </div>
+            <div className="tech-label rounded-full border border-[#b8d8ce] bg-white px-3 py-1.5 text-[#0b7772]">12 TA ASOSIY REKORD</div>
+          </div>
+          <div className="px-6 py-4">
+            <Carousel opts={{ align: "start", loop: true }} className="w-full">
+              <CarouselContent className="-ml-4">
+                {equipment.slice(0, 12).map((device) => {
+                  const imageKey = `BIO-${String(device.number).padStart(3, "0")}`;
+                  const image = equipmentImages[imageKey];
+                  const imagePresentation = getImagePresentation(imageKey);
+                  return (
+                    <CarouselItem key={device.id} className="pl-4 sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
+                      <div onClick={() => setSelectedDevice(device)} className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-[20px] border border-[#ccdcd8] bg-white p-3 shadow-sm transition hover:border-[#0d9488] hover:shadow-md">
+                        <div className="relative h-40 w-full overflow-hidden rounded-xl border border-[#d9e9e5] bg-[#d6e7e2]">
+                          {image ? (
+                            <img src={image.url} alt={image.alt} className={`absolute inset-0 h-full w-full object-contain p-2 transition duration-300 group-hover:scale-105 ${imagePresentation.fit === "contain" ? "mix-blend-multiply drop-shadow-[0_6px_10px_rgba(21,66,68,0.18)]" : ""}`} style={{ objectPosition: imagePresentation.position }} />
+                          ) : (
+                            <div className="grid h-full w-full place-items-center text-[#52726d]"><FlaskConical size={24} /></div>
+                          )}
+                          <span className="absolute left-2 top-2 rounded-full border border-white/75 bg-white/90 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#0b6663]">{imageKey}</span>
+                        </div>
+                        <div className="mt-3 flex flex-1 flex-col">
+                          <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#0d9488]">{device.category}</span>
+                          <h3 className="display mt-1 text-sm font-extrabold leading-tight text-[#173d42] line-clamp-2">{device.name}</h3>
+                          <p className="mt-1 text-[11px] font-semibold text-[#5a7c76] truncate">Model: {device.model}</p>
+                          <div className="mt-3 flex items-center justify-between border-t border-[#e2ede8] pt-2">
+                            <span className="text-[10px] font-bold text-[#0c7773]">16 qadamli SOP</span>
+                            <span className="inline-flex items-center gap-1 text-xs font-bold text-[#0d9488] group-hover:underline">O‘rganish <ArrowUpRight size={13} /></span>
+                          </div>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  );
+                })}
+              </CarouselContent>
+              <CarouselPrevious className="-left-4 bg-white text-[#0b7772] border-[#b8d8ce] shadow-md hover:bg-[#f0f8f5]" />
+              <CarouselNext className="-right-4 bg-white text-[#0b7772] border-[#b8d8ce] shadow-md hover:bg-[#f0f8f5]" />
+            </Carousel>
+          </div>
+        </section>
 
         <section className="mt-12" id="catalog"><div className="mb-5 flex flex-col justify-between gap-4 md:flex-row md:items-end"><div><div className="eyebrow mb-2">Navigatsiya</div><h2 className="display text-3xl font-bold text-[#173d42] sm:text-4xl">Kategoriyalar</h2></div><div className="tech-label rounded-full border border-[#cbded4] bg-[#ffffff] px-3 py-2 text-[#51736d]">100 TA ILMIY REKORD</div></div>
           <div className="rounded-2xl border border-[#c9ded7] bg-[#f7fbfa] p-3 shadow-[0_10px_24px_rgba(31,87,80,0.06)] sm:p-4">

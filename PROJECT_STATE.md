@@ -72,3 +72,7 @@ BioLab qurilma tafsilot sahifasiga (DeviceViewer) **“PDF eksport qilish”** t
 - Sarlavhadagi Sozlamalar tugmasi (`Settings2`) ishga tushirildi va interaktiv modal panel qo‘shildi.
 - Modal ichida: Platforma maqsadi, Mualliflik Huquqi (Copyright © 2026 BioLab / Manus AI & Biotexnolog), Foydalanish shartlari va ta’limiy cheklovlar, Rasm litsenziyasi shaffofligi hamda Texnik Sinxronlash qoidalari batafsil yoritildi.
 - TypeScript, production build va testlar muvaffaqiyatli yakunlandi.
+
+
+## Sozlamalar va Copyright relizi sync holati — 2026-08-16
+Sozlamalar paneli, Copyright Notice, Foydalanish shartlari, ta’limiy cheklovlar, rasm litsenziyasi shaffofligi va texnik sinxronlash qoidalari `sync_release.mjs --publish` orqali tekshirilib yuborildi. GitHub `uzme/biolab-interactive-guide` `main` branchidagi reliz commiti `4d9d79a`; Google Drive’dagi mavjud `BioLab_Interactive_Guide_source.zip` (`1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT`) aynan o‘sha ID bo‘yicha duplikatsiyasiz yangilandi. Sanitizatsiyalangan source archive hajmi 309.9 KB bo‘ldi; maxfiy va runtime fayllar kiritilmadi.

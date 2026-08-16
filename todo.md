@@ -188,3 +188,9 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 - [x] Featured equipment carousel va card nomlarini rasm ostida aniq joylashtirish
 - [x] TypeScript va production build tekshiruvi
 - [x] GitHub va Drive source snapshotini oxirgi metadata bilan yangilash
+
+## Original Carousel va Tuzilmani Tiklash — 2026-08-16
+- [x] Yuborilgan ZIP ichidagi original CSS va HTML tuzilmasini o‘zgartirmasdan loyihaga kiritish
+- [x] Qurilma nomlarini original koddagi belgilangan joyga moslashtirish
+- [x] TypeScript va production build tekshiruvi
+- [x] GitHub va Drive source snapshotini oxirgi metadata bilan yangilash

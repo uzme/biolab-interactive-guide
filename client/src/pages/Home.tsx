@@ -4,9 +4,7 @@
 */
 import { lazy, Suspense, useMemo, useState } from "react";
 import { ArrowUpRight, Beaker, BookOpen, ChevronRight, CircleHelp, FlaskConical, Grid2X2, LibraryBig, Menu, Microscope, Search, Settings2, Sparkles, X } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { equipmentImages } from "@/lib/equipmentImages";
-import { getImagePresentation } from "@/lib/equipmentImagePresentation";
+import Pure3DCarousel from "@/components/Pure3DCarousel";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { equipment, categories, type Equipment } from "@/lib/equipmentData";
@@ -117,41 +115,8 @@ export default function Home() {
             </div>
             <div className="tech-label rounded-full border border-[#b8d8ce] bg-white px-3 py-1.5 text-[#0b7772]">12 TA ASOSIY REKORD</div>
           </div>
-          <div className="px-6 py-4">
-            <Carousel opts={{ align: "start", loop: true }} className="w-full">
-              <CarouselContent className="-ml-4">
-                {equipment.slice(0, 12).map((device) => {
-                  const imageKey = `BIO-${String(device.number).padStart(3, "0")}`;
-                  const image = equipmentImages[imageKey];
-                  const imagePresentation = getImagePresentation(imageKey);
-                  return (
-                    <CarouselItem key={device.id} className="pl-4 sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
-                      <div onClick={() => setSelectedDevice(device)} className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-[20px] border border-[#ccdcd8] bg-white p-3 shadow-sm transition hover:border-[#0d9488] hover:shadow-md">
-                        <div className="relative h-40 w-full overflow-hidden rounded-xl border border-[#d9e9e5] bg-[#d6e7e2]">
-                          {image ? (
-                            <img src={image.url} alt={image.alt} className={`absolute inset-0 h-full w-full object-contain p-2 transition duration-300 group-hover:scale-105 ${imagePresentation.fit === "contain" ? "mix-blend-multiply drop-shadow-[0_6px_10px_rgba(21,66,68,0.18)]" : ""}`} style={{ objectPosition: imagePresentation.position }} />
-                          ) : (
-                            <div className="grid h-full w-full place-items-center text-[#52726d]"><FlaskConical size={24} /></div>
-                          )}
-                          <span className="absolute left-2 top-2 rounded-full border border-white/75 bg-white/90 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#0b6663]">{imageKey}</span>
-                        </div>
-                        <div className="mt-3 flex flex-1 flex-col">
-                          <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#0d9488]">{device.category}</span>
-                          <h3 className="display mt-1 text-sm font-extrabold leading-tight text-[#173d42] line-clamp-2">{device.name}</h3>
-                          <p className="mt-1 text-[11px] font-semibold text-[#5a7c76] truncate">Model: {device.model}</p>
-                          <div className="mt-3 flex items-center justify-between border-t border-[#e2ede8] pt-2">
-                            <span className="text-[10px] font-bold text-[#0c7773]">16 qadamli SOP</span>
-                            <span className="inline-flex items-center gap-1 text-xs font-bold text-[#0d9488] group-hover:underline">O‘rganish <ArrowUpRight size={13} /></span>
-                          </div>
-                        </div>
-                      </div>
-                    </CarouselItem>
-                  );
-                })}
-              </CarouselContent>
-              <CarouselPrevious className="-left-4 bg-white text-[#0b7772] border-[#b8d8ce] shadow-md hover:bg-[#f0f8f5]" />
-              <CarouselNext className="-right-4 bg-white text-[#0b7772] border-[#b8d8ce] shadow-md hover:bg-[#f0f8f5]" />
-            </Carousel>
+          <div className="px-2 py-4 sm:px-6">
+            <Pure3DCarousel onSelectDevice={(device) => setSelectedDevice(device)} />
           </div>
         </section>
 

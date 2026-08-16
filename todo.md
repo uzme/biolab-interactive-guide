@@ -28,4 +28,4 @@
 - [x] Qurilma kartalari va Pure3DCarousel da yurakcha (bookmark) tugmasini qo‘shish
 - [x] Katalog filtrlarida "Saralanganlar" tugmasini yaratish va faqat saqlangan qurilmalarni ko‘rsatish
 - [x] Playwright testlariga saralanganlar funksiyasini qo‘shish
-- [ ] TypeScript va production build tekshiruvidan o‘tkazib GitHub va Google Drive ga sinxronlash
+- [x] TypeScript va production build tekshiruvidan o‘tkazib GitHub va Google Drive ga sinxronlash (`4ca6796`, Drive file `1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT`)

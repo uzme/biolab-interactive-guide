@@ -40,3 +40,9 @@ Katalog kartalari va original Pure CSS 3D Carousel ichiga yurakcha tugmasi qo‘
 `useBookmarks.ts`, `EquipmentCard.tsx`, `Pure3DCarousel.tsx`, `Pure3DCarousel.css`, `Home.tsx` va `test_device_viewer.mjs` yangilandi. TypeScript tekshiruvi, production build, katalog testi va qurilma/regressiya testi muvaffaqiyatli bajarildi. Carousel testida 3D transform sababli tugma uchun aniq `data-bookmark-button` selector va DOM click ishlatildi.
 
 Sinxronlashdan oldingi holat: kod va testlar tayyor; keyingi `sync_release.mjs --publish` bajarilishida GitHub hamda mavjud Google Drive snapshot yangilanadi.
+
+## Saralanganlar publish natijasi — 2026-08-16
+
+Saralanganlar relizi uchun TypeScript tekshiruvi, production build, katalog regressiya testi va DeviceViewer/mobil oqim testi `sync_release.mjs --publish` ichida qayta bajarilib muvaffaqiyatli yakunlandi. Sanitizatsiyalangan source arxivi 309.6 KB hajmda tayyorlandi; `.env`, tokenlar, kalitlar, parollar, `node_modules`, `dist`, loglar va vaqtinchalik debug fayllari kiritilmadi.
+
+GitHub `uzme/biolab-interactive-guide` repository’ning `main` branchiga `4ca6796` commit yuborildi. Google Drive’dagi mavjud `BioLab_Interactive_Guide_source.zip` snapshot fayli (`1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT`) joyida yangilandi; yangi duplicate fayl yaratilmadi.

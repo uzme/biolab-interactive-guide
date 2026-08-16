@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import React, { useState, useMemo, type CSSProperties } from "react";
 import { FlaskConical } from "lucide-react";
 import { equipment, type Equipment } from "@/lib/equipmentData";
 import { equipmentImages } from "@/lib/equipmentImages";
@@ -15,17 +15,44 @@ type Pure3DCarouselProps = {
 };
 
 export default function Pure3DCarousel({ onSelectDevice }: Pure3DCarouselProps) {
-  const items = equipment.slice(0, 12);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const pageSize = 12;
+  const totalPages = Math.ceil(equipment.length / pageSize);
 
-  if (!items.length) {
+  const paginatedItems = useMemo(() => {
+    const start = currentIndex * pageSize;
+    return equipment.slice(start, start + pageSize);
+  }, [currentIndex]);
+
+  if (!equipment.length) {
     return <div className="pure3d-carousel carousel-empty">Qurilmalar topilmadi.</div>;
   }
 
   return (
     <div className="pure3d-carousel" aria-label="Tanlangan qurilmalar carousel">
       <div className="scene">
-        <div className="a3d" style={{ "--n": items.length } as CarouselStyle}>
-          {items.map((device, index) => {
+        <div className="carousel-nav-controls flex items-center justify-between mb-4 px-4">
+          <button
+            type="button"
+            className="px-3 py-1.5 text-xs font-medium rounded-md bg-teal-900/40 text-teal-200 border border-teal-700/50 hover:bg-teal-800/60 transition-colors"
+            onClick={() => setCurrentIndex((prev: number) => (prev > 0 ? prev - 1 : totalPages - 1))}
+          >
+            ← Oldingi 12 ta
+          </button>
+          <span className="text-xs text-slate-300 font-medium">
+            Sahifa {currentIndex + 1} / {totalPages} (Jami {equipment.length} qurilma)
+          </span>
+          <button
+            type="button"
+            className="px-3 py-1.5 text-xs font-medium rounded-md bg-teal-900/40 text-teal-200 border border-teal-700/50 hover:bg-teal-800/60 transition-colors"
+            onClick={() => setCurrentIndex((prev: number) => (prev < totalPages - 1 ? prev + 1 : 0))}
+          >
+            Keyingi 12 ta →
+          </button>
+        </div>
+
+        <div className="a3d" style={{ "--n": paginatedItems.length } as CarouselStyle}>
+          {paginatedItems.map((device: Equipment, index: number) => {
             const imageKey = device.id;
             const image = equipmentImages[imageKey];
             const presentation = getImagePresentation(imageKey);

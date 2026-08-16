@@ -200,3 +200,13 @@ Platformaning ustuvor maqsadi — qurilmani chuqur va aniq o‘rganish. Hech qan
 - [x] Ortiqcha banner va o‘zboshimcha qismlarni olib tashlab, faqat original animatsiya va rasm ostida qurilma nomi slotini qoldirish
 - [x] TypeScript va production build tekshiruvi
 - [x] Foydalanuvchi tasdig‘i bilangina GitHub va Drive source snapshotini yangilash
+
+## 100 Qurilma Uchun Original 3D Carousel Kengaytirish — 2026-08-16
+- [x] Barcha 100 ta qurilmani original 3D carousel va card formatiga moslash
+- [x] Qurilma nomi, modeli va kategoriyasini rasm ostida 100 ta qurilma uchun to‘liq ko‘rsatish
+- [x] Mobil va desktop uchun qulay navigatsiya (paginatsiya yoki cheksiz oqim)
+- [x] TypeScript va production build tekshiruvi
+- [x] 100 ta carousel sahifasida nom/model/kategoriya bloklari barcha kartalarda ko‘rinishini kod va vizual audit bilan tasdiqlash
+- [x] 100-card carousel uchun mobil va desktop navigatsiyani brauzer testi yoki screenshot audit bilan tekshirish
+- [x] 100-card carousel o‘zgarishidan keyin regressiya test yoki kamida sahifalash oqimi testini qo‘shish
+- [x] 100-card carousel sahifalash navigatsiyasini test qiluvchi haqiqiy avtomatlashtirilgan tekshiruv qo‘shish

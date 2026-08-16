@@ -25,3 +25,9 @@ Tekshirilgan manba kodlari va hujjatlar faqat yangi GitHub repository hamda Goog
 
 ## Professional Pure CSS 3D Carousel Relizi — 2026-08-16
 Foydalanuvchi talabiga ko‘ra, yuborilgan original 3D carousel namunasi kodlari moslashtirilib o‘zgartirilmagan holda, to‘g‘ridan-to‘g‘ri Pure 3D Carousel komponenti sifatida BioLab katalogiga kiritildi. Har bir kartada qurilmaning o‘zbekcha nomi, modeli va kategoriyasi rasm ostida aniq ko‘rsatiladi. O‘zgarishlar `sync_release.mjs --publish` orqali to‘liq sinovdan o‘tkazilib yuborildi. GitHub `uzme/biolab-interactive-guide` `main` branchidagi reliz commiti `da244af`; Google Drive’dagi mavjud `BioLab_Interactive_Guide_source.zip` (`1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT`) aynan o‘sha ID bo‘yicha duplikatsiyasiz yangilandi.
+
+## 100-Card Pure 3D Carousel Kengaytmasi — 2026-08-16
+- Barcha 100 ta biotexnologiya qurilmasi original ZIP uslubidagi Pure 3D Carousel formatiga moslandi.
+- Har bir kartada rasm ostida qurilmaning o‘zbekcha nomi, modeli va kategoriyasi aniq ko‘rsatildi.
+- Sahifalash navigatsiyasi (`Oldingi 12 ta` / `Keyingi 12 ta`) qo‘shilib, barcha 100 ta qurilma qulay qamrab olindi.
+- TypeScript va production build muvaffaqiyatli yakunlandi.

@@ -45,7 +45,7 @@ function isExcluded(relativePath) {
   const parts = relativePath.split("/").filter(Boolean);
   if (parts.some((part) => EXCLUDED_DIRECTORIES.has(part))) return true;
   const filename = parts.at(-1) ?? "";
-  if (filename.startsWith(".env")) return true;
+  if (filename.startsWith(".env") && filename !== ".env.example") return true;
   return EXCLUDED_SUFFIXES.some((suffix) => filename.endsWith(suffix));
 }
 

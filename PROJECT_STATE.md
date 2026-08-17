@@ -6,14 +6,14 @@
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
 | Oxirgi tasdiqlangan web checkpoint | `49db349e` |
-| Verified application/source release | GitHub `uzme/second-brain` `main` continuity-audit release commit `31f15baf99d49612b1f898a78e9f57b6df486084`; independently verified Drive snapshot modified `2026-08-17T09:24:40.598Z` |
+| Verified application/source release | GitHub `uzme/second-brain` `main` final continuity-audit release commit `1f8730e596ab1f6932856be3c8601493c3d7568f`; independently verified Drive snapshot modified `2026-08-17T09:44:55.140Z` |
 | Ishlab chiqarish manzili | `https://biolabguide-fbcitqyf.manus.space` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Oxirgi tekshiruv | TypeScript check, production build, catalog/device/carousel regressions va sanitizatsiyalangan snapshot muvaffaqiyatli; Continuity Protocol cross-link auditida `DRIVE_INDEX.md`, `GITHUB_INDEX.md`, `RESTORATION_MAP.md` va `CONTINUITY_AUDIT.md` yaratildi |
+| Oxirgi tekshiruv | TypeScript check, production build, catalog/device/carousel regressions va sanitizatsiyalangan snapshot muvaffaqiyatli; 2026-08-17T09:45:03.305Z dagi post-sync `verify_continuity_docs.mjs` automated audit `READY_WITH_EXCEPTION` qaytardi |
 
 ## Protocol audit statusi
 
-`CONTINUITY_AUDIT.md` bo‘yicha application/build/sync qatlamlari PASS. Universal protocol qat’iy talabi bo‘lgan `.env.example` fayli system security policy sabab to‘g‘ridan-to‘g‘ri yaratilmagan; real secretlar secure environment’da qoladi va `SECRETS_REQUIRED.md` konfiguratsiya kontraktini beradi. Shu sababli yakuniy holat: **NOT READY / READY WITH EXCEPTION**. Dependabot vulnerabilities, katta build chunklari va pnpm legacy configuration alohida ochiq risk sifatida todo.md da saqlangan.
+`CONTINUITY_AUDIT.md` bo‘yicha application/build/sync qatlamlari PASS. 2026-08-17T09:38:10.326Z dagi `scripts/verify_continuity_docs.mjs` barcha 20 majburiy hujjatni, GitHub↔Drive cross-linklarini va state statusini tekshirib, `READY_WITH_EXCEPTION` natijasini berdi. Universal protocol qat’iy talabi bo‘lgan `.env.example` fayli system security policy sabab to‘g‘ridan-to‘g‘ri yaratilmagan; real secretlar secure environment’da qoladi va `SECRETS_REQUIRED.md` konfiguratsiya kontraktini beradi. Shu sababli yakuniy holat: **READY WITH EXCEPTION** — to‘liq `READY` emas. Lokal `pnpm audit`dagi advisories, GitHub Dependabot 403 permission cheklovi, dossier data chunk va CSS gradient warninglari alohida ochiq risk sifatida todo.md da saqlangan.
 
 ## Sinxronlash qoidasi
 
@@ -23,8 +23,8 @@ Tekshirilgan manba kodlari va hujjatlar faqat GitHub `uzme/second-brain` reposit
 
 | Manzil | Holat |
 |---|---|
-| GitHub — `uzme/second-brain` | `main` branchidagi `projects/biolab-guide` yo‘li; latest independently verified continuity-audit release `31f15baf99d49612b1f898a78e9f57b6df486084` |
-| Google Drive — Second Brain root (`1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`) | Mavjud `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh` snapshot `BioLab_Interactive_Guide_source.tar.gz` nomi bilan joyida yangilandi; independently verified modified `2026-08-17T09:24:40.598Z`, duplicate yaratilmagan |
+| GitHub — `uzme/second-brain` | `main` branchidagi `projects/biolab-guide` yo‘li; latest independently verified continuity-audit release `1f8730e596ab1f6932856be3c8601493c3d7568f` |
+| Google Drive — Second Brain root (`1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`) | Mavjud `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh` snapshot `BioLab_Interactive_Guide_source.tar.gz` nomi bilan joyida yangilandi; independently verified modified `2026-08-17T09:44:55.140Z`, duplicate yaratilmagan |
 | Eski `Biotexnologiya yangi / Loyiha 1` manzili | Oldingi relizlar tarixi sifatida saqlangan; joriy sync oqimi unga yozmaydi |
 
 ## Original Pure CSS 3D Carousel Yo‘nalishini Tiklash — 2026-08-16

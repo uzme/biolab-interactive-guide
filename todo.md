@@ -99,19 +99,31 @@
 - [x] Final sync va final `--check` natijasini checkpoint tavsifida commit/timestamp bilan qayd etish
 - [x] Protocol auditida missing `DRIVE_INDEX.md` va `RESTORATION_MAP.md` aniqlanib yaratildi
 - [x] Protocol talabidagi `GITHUB_INDEX.md` cross-link faylini yaratish va real URL/commit ma’lumotlari bilan to‘ldirish
-- [ ] Barcha majburiy GitHub hujjatlari va GitHub↔Drive cross-linklarini final verify qilish (`.env.example` majburiy fayli yo‘qligi sababli exception ochiq)
+- [x] Barcha majburiy GitHub hujjatlari va GitHub↔Drive cross-linklarini final verify qilish; `.env.example` system policy exceptioni `CONTINUITY_AUDIT.md`da qayd etildi
 - [x] PROJECT_MANIFEST.md dagi eski release, deployment va test tavsiflarini verified current state bilan moslashtirish
 - [x] PROJECT_MANIFEST.md va boshqa docs uchun production build/checkdan keyin canonical syncni qayta bajarish
 - [x] `.env.example` bo‘yicha protokol talabi uchun xavfsiz placeholder-template o‘rniga system security policy cheklovi va NOT READY/exception holati `CONTINUITY_AUDIT.md`, `PROJECT_STATE.md` va `CURRENT_STATE.md`da hujjatlashtirildi
-- [ ] GitHub Dependabot auditida qayd etilgan 7 critical, 48 high, 86 moderate va 9 low vulnerability bo‘yicha alohida dependency review o‘tkazish
-- [ ] Production builddagi 500 kB dan katta chunklar uchun code-splitting/dynamic import optimizatsiyasini rejalashtirish
-- [ ] `package.json` dagi eski `pnpm` konfiguratsiyasini pnpm 10 settings formatiga ko‘chirish
-- [ ] Majburiy hujjatlar auditi xulosasini `.env.example` holati bilan qayta tekshirib, shundan keyingina barcha majburiy hujjatlar bandini yopish
+- [x] GitHub Dependabot auditida qayd etilgan repository warninglari bo‘yicha dependency review: lokal `pnpm audit` 129 advisory (2 critical, 44 high, 74 moderate, 9 low) bilan hujjatlashtirildi; GitHub API 403 exceptioni qayd etildi
+- [x] Production builddagi katta chunklar uchun code-splitting boundarylari qo‘shildi; dossier data 731.06 kB intentional data chunk sifatida `CONTINUITY_AUDIT.md`da qayd etildi
+- [x] `package.json` dagi eski `pnpm` konfiguratsiyasini `pnpm-workspace.yaml` ga pnpm 10 settings formatida ko‘chirish
+- [x] Majburiy hujjatlar auditi `.env.example` holati bilan qayta tekshirildi; system policy exception sabab status `READY WITH EXCEPTION` sifatida yopildi
+- [x] `pnpm audit` lokal dependency auditini bajarib, topilmalarni severity va paket kesimida `CONTINUITY_AUDIT.md`ga hujjatlashtirish
+- [x] Dependabot API 403 permission exceptionini `CONTINUITY_AUDIT.md`da qayd etib, dependency review holatini aniq chegaralash
+- [x] Barcha majburiy GitHub hujjatlari va GitHub↔Drive cross-linklarini so‘nggi docs o‘zgarishlaridan keyin avtomatlashtirilgan final audit bilan tekshirish
+- [x] RESTORATION_MAP.md ga canonical GitHub URL va Second Brain Drive root ID ni qo‘shib automated auditni READY WITH EXCEPTION holatiga olib chiqish
+- [x] `.env.example` exceptioni bilan yakuniy majburiy hujjatlar xulosasini PROJECT_STATE.md va CURRENT_STATE.md da READY WITH EXCEPTION sifatida qayta qayd etish
 - [x] `CONTINUITY_AUDIT.md` orqali audit qamrovi, topilmalar, protocol exception va NOT READY sababini project arxiviga kiritish
 - [x] `CONTINUITY_AUDIT.md`, `PROJECT_STATE.md` va `CURRENT_STATE.md` dagi continuity audit o‘zgarishlarini canonical GitHub/Drive arxiviga publish qilish
 - [x] Publishdan keyin GitHub tree va Drive snapshot metadata orqali `CONTINUITY_AUDIT.md` arxivga kirganini alohida tasdiqlash
 - [x] PROJECT_STATE.md, CURRENT_STATE.md, DRIVE_INDEX.md va GITHUB_INDEX.md ni 31f15ba/2026-08-17T09:24:40.598Z verified archive holati bilan moslashtirish
+- [x] Automated `verify_continuity_docs.mjs` natijasini `CONTINUITY_AUDIT.md`, `PROJECT_STATE.md` va `CURRENT_STATE.md`da 2026-08-17T09:38:10.326Z bilan qayd etish
+- [x] Automated auditdan keyin bitta final canonical sync va publishsiz post-sync verificationni bajarish
 - [x] Final metadata update’dan keyin bitta publish va publishsiz check bilan checkpointga tayyor holatni tasdiqlash
+- [x] Final state/index/todo metadata o‘zgarishlarini canonical GitHub/Drive arxiviga yana bir marta sync qilish
+- [x] So‘nggi metadata syncdan keyin publishsiz `verify_continuity_docs.mjs` va `sync_release.mjs --check`ni bajarib checkpointga tayyorlikni tasdiqlash
+- [x] 2026-08-17T09:40:57.343Z automated auditdan keyin `node scripts/sync_release.mjs --publish` bilan canonical GitHub/Drive syncni bajarish
+- [x] Ushbu publishdan keyin `node scripts/sync_release.mjs --check` bilan post-sync verificationni tasdiqlash
+- [x] Final publish commit hash va Drive modified time ni PROJECT_STATE.md / CURRENT_STATE.md ga qayd etish
 - [x] README.md dagi eski CI/repository badge, TypeScript versiyasi va validation ko‘rsatmalarini current source-of-truth bilan moslashtirish
 - [x] ARCHITECTURE.md va CHANGELOG.md dagi eski Biotexnologiya yangi/uzme-biotech sync manzillarini tarixiy yoki current Second Brain oqimiga moslab tuzatish
 
@@ -139,3 +151,5 @@
 - [x] Local working tree modified holatini arxivlash va state hujjatlarida tushuntirish
 - [x] PROJECT_STATE.md va CURRENT_STATE.md dagi final audit hamda working-tree izohlarini GitHub/Drive arxiviga sync qilish
 - [x] Final syncdan keyin canonical commit va Drive modified time ni checkpoint uchun tasdiqlash
+- [x] So‘nggi todo exception statusi o‘zgarishini canonical GitHub/Drive snapshotiga sync qilish
+- [x] So‘nggi todo syncdan keyin publishsiz `verify_continuity_docs.mjs` va `sync_release.mjs --check`ni bajarish

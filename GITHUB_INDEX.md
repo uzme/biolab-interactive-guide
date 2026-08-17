@@ -6,7 +6,7 @@ Ushbu hujjat Google Drive’dagi canonical snapshotdan GitHub source va hujjatla
 
 | Project | Repository URL | Stable Branch | Stable Content Commit | Current Version | Last Synchronization |
 |---|---|---|---|---|---|
-| BioLab Interactive Guide | https://github.com/uzme/second-brain/tree/main/projects/biolab-guide | `main` | `31f15baf99d49612b1f898a78e9f57b6df486084` — independently verified continuity-audit release; later final bookkeeping sync is recorded in `PROJECT_STATE.md` and checkpoint | `1.0.0` | 2026-08-17; canonical Drive snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, independently verified modified `2026-08-17T09:24:40.598Z`, under root `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd` |
+| BioLab Interactive Guide | https://github.com/uzme/second-brain/tree/main/projects/biolab-guide | `main` | `1f8730e596ab1f6932856be3c8601493c3d7568f` — independently verified final continuity-audit release | `1.0.0` | 2026-08-17; canonical Drive snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, independently verified modified `2026-08-17T09:44:55.140Z`, under root `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd` |
 
 ## Important Documentation URLs
 

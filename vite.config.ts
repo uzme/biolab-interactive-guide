@@ -221,10 +221,13 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       output: {
-        manualChunks: {
-          react: ["react", "react-dom"],
-          motion: ["framer-motion"],
-          icons: ["lucide-react"],
+        manualChunks(id) {
+          if (id.includes("/client/src/lib/learningData")) return "learning-data";
+          if (id.includes("/client/src/lib/equipmentImages")) return "equipment-images";
+          if (id.includes("/node_modules/react/") || id.includes("/node_modules/react-dom/")) return "react";
+          if (id.includes("/node_modules/framer-motion/")) return "motion";
+          if (id.includes("/node_modules/lucide-react/")) return "icons";
+          return undefined;
         },
       },
     },

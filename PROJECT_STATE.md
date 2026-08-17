@@ -5,9 +5,9 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Web checkpoint | `a006659c` |
-| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`, commit `ad12bfa015f3f286b29cdeea3eefbca2eebd0963` |
-| Canonical Google Drive | **Biotexnologiya** root, ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`, file ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-17T10:42:32.799Z` |
+| Web checkpoint | `2e701fda` |
+| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`, commit `093e1da6ae0b6491368ac42c2cc8533f1f67d921` |
+| Canonical Google Drive | **Biotexnologiya** root, ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`, file ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-17T11:00:04.910Z` |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzili | `https://biolabguide-fbcitqyf.manus.space` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
@@ -25,16 +25,14 @@ Tekshirilgan kod va hujjatlar faqat GitHub `uzme/biolab-interactive-guide` repos
 
 | Manzil | Vazifasi |
 |---|---|
-| GitHub — `uzme/biolab-interactive-guide` | Source code, hujjatlar va tekshirilgan release tarixining yagona Git manbasi (`ad12bfa`) |
+| GitHub — `uzme/biolab-interactive-guide` | Source code, hujjatlar va tekshirilgan release tarixining yagona Git manbasi (`093e1da`) |
 | Google Drive — `Biotexnologiya` (`1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`) | Sanitizatsiyalangan source snapshotning yagona arxiv manzili (`1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`) |
 | `BioLab_Interactive_Guide_source.tar.gz` | GitHub source bilan moslashtiriladigan Drive snapshot nomi |
 
 ## Source-of-truth funksiyalar
 
 ### Original Pure CSS 3D Carousel
-
 Carousel geometriyasi `.pure3d-carousel`, `.scene`, `.a3d` va `.card` selectorlari bilan gorizontal 3D perspektivada saqlanadi. 100 ta qurilma 12 tadan sahifalanadi; qidiruv yoki filtr ishlatilmaganda katalog 1–100 tartibida ko‘rsatiladi.
 
-### Saralanganlar va offline rejim
-
-`localStorage` asosidagi saralanganlar, responsive o‘ng sidebar, o‘quv modal oynasi, PWA service worker va offline paket boshqaruvi joriy qilingan. Qurilma ma’lumotlari, 100 ta dosye va rasm metadata si source-of-truth sifatida saqlanadi.
+### Saralanganlar, eksport/import va offline rejim
+`localStorage` asosidagi saralanganlar, JSON eksport/import funksiyasi, responsive o‘ng sidebar, o‘quv modal oynasi, PWA service worker va offline paket boshqaruvi joriy qilingan. Qurilma ma’lumotlari, 100 ta dosye va rasm metadata si source-of-truth sifatida saqlanadi.

@@ -1,6 +1,7 @@
 import { useRef, type ChangeEvent } from "react";
 import { ArrowUpRight, BookOpen, Download, Heart, ImageOff, Trash2, Upload } from "lucide-react";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { toast } from "sonner";
 import type { Equipment } from "@/lib/equipmentData";
 import { equipmentImages } from "@/lib/equipmentImages";
 import { getImagePresentation } from "@/lib/equipmentImagePresentation";
@@ -33,7 +34,12 @@ export default function BookmarksSidebar({
     const file = event.target.files?.[0];
     event.target.value = "";
     if (!file) return;
-    await onImportBookmarks(file);
+    try {
+      await onImportBookmarks(file);
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Faylni import qilishda xatolik yuz berdi";
+      toast.error(message);
+    }
   };
 
   return (

@@ -9,7 +9,13 @@
 - [x] Sanitizatsiyalangan source snapshotni faqat Biotexnologiya Drive root papkasiga (`BioLab_Interactive_Guide_source.tar.gz`) va GitHub `uzme/biolab-interactive-guide` main branchining rootiga sinxronlash
 - [x] PROJECT_STATE.md, CURRENT_STATE.md, CONTINUITY_AUDIT.md, GITHUB_INDEX.md, DRIVE_INDEX.md, RESTORATION_MAP.md va REPRODUCTION.md hujjatlarini final commit va Drive snapshot ID bilan to‘liq yangilash
 - [x] CHECK READY va READY statusini automated audit orqali tasdiqlab, final checkpointni yaratish va productionga chiqarish
-- [ ] Learning-data uchun dynamic import / manualChunks orqali code-splitting joriy etish
-- [ ] Bookmarks sidebar uchun JSON formatida eksport va import funksiyalarini qo‘shish
-- [ ] Dependency security advisorylarini xavfsiz va regressiyasiz paket yangilanishlari orqali kamaytirish
-- [ ] Typecheck, production build, testlar va sanitizatsiyalangan canonical GitHub↔Drive release syncni bajarish
+- [x] Learning-data va purchase-data uchun dynamic import / code-splitting joriy etish (4 ta asinxron blok)
+- [x] Bookmarks sidebar uchun JSON formatida eksport va import funksiyalarini qo‘shish
+- [x] Bookmarks JSON import parseri uchun Vitest unit testlarini yozish va muvaffaqiyatli o‘tkazish
+- [x] Typecheck, production build, testlar va sanitizatsiyalangan canonical GitHub (`uzme/biolab-interactive-guide`, commit `093e1da`) ↔ Biotexnologiya Drive root (`1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`) release syncni bajarish
+
+## Dizayn audit va zamonaviy polish (2026-08-17)
+- [x] Mavjud BioLab visual tilini, Pure CSS 3D Carousel geometriyasini va eski dizayn elementlarini saqlagan holda desktop/mobil UI auditini bajarish
+- [x] Hero responsive spacingi va tipografiyasi, SOP spine, modul header hierarchy hamda mavjud reduced-motion/micro-interaction qoidalarini ehtiyotkorlik bilan polish qilish
+- [x] TypeScript check, production build, katalog/qurilma/carousel regressiya skriptlari va desktop/mobil screenshot verifikatsiyasini bajarish
+- [ ] Sanitizatsiyalangan dizayn release snapshotini faqat `uzme/biolab-interactive-guide` va `Biotexnologiya` Drive rootiga sync qilish

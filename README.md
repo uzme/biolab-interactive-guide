@@ -1,99 +1,52 @@
 # BioLab Interactive Guide
 
-[![CI](https://github.com/uzme/biolab-interactive-guide/actions/workflows/ci.yml/badge.svg)](https://github.com/uzme/biolab-interactive-guide/actions/workflows/ci.yml)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=20232A)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+BioLab Interactive Guide is a professional biotechnology learning platform featuring 100 devices across 10 categories, real-time search and filters, an original horizontal Pure CSS 3D carousel, and 16-stage learning dossiers for every instrument. The interface includes browser-based localStorage bookmarks, a responsive bookmarks sidebar, PWA offline capabilities, and verified equipment image licenses.
 
-**BioLab Interactive Guide** is an interactive learning platform for exploring **100 biotechnology devices** through a structured catalogue and device viewer experience.
+## Current Source of Truth
 
-## Preview
+The active canonical source repository is [`uzme/biolab-interactive-guide`](https://github.com/uzme/biolab-interactive-guide) on the `main` branch. Complete binary and sanitised application snapshots reside in the canonical Google Drive root folder **Biotexnologiya** (`1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`). Real credentials and secrets remain strictly in secure environment storage.
 
-![BioLab Interactive Guide preview](./docs/preview.webp)
+## Tech Stack
 
-The interface combines a searchable catalogue, category filters, equipment records, and a structured 16-step learning flow for each device.
+- **Frontend:** React 19, TypeScript, Vite 7, Tailwind CSS 4, shadcn/ui, Wouter.
+- **Backend:** Node.js 22, Express 4, tRPC 11, Drizzle ORM, MySQL/TiDB compatibility.
+- **PWA:** `manifest.webmanifest`, `sw.js`, `OfflineManager`.
+- **Testing:** TypeScript check, production build, and Playwright regression scripts.
+- **Package Manager:** pnpm.
 
-The project is designed to make technical biotechnology information easier to browse, understand, and use in an educational context.
+## Installation and Validation
 
-## Highlights
-
-- Structured catalogue of biotechnology devices.
-- Interactive device browsing and viewer flows.
-- Responsive web interface for desktop and mobile screens.
-- Type-safe frontend and server code.
-- Automated checks for catalogue controls and device viewer behaviour.
-
-## Tech stack
-
-- **Frontend:** React, TypeScript, Vite
-- **Backend:** Node.js, Express
-- **UI:** Tailwind CSS, Radix UI, Lucide React
-- **Validation and utilities:** Zod, Axios
-- **Tooling:** pnpm, TypeScript, Prettier, Playwright
-
-## Getting started
-
-### Prerequisites
-
-- Node.js 20 or newer
-- pnpm 10 or newer
-
-### Installation
+To run or validate the project locally:
 
 ```bash
-pnpm install
+pnpm install --frozen-lockfile
+pnpm run check
+pnpm build
+pnpm test
+node scripts/test_catalog_controls.mjs
+node scripts/test_device_viewer.mjs
 ```
 
-### Development
+Development server:
 
 ```bash
 pnpm dev
 ```
 
-### Validation
+Release validation and sanitisation:
 
 ```bash
-pnpm check
-pnpm test
+node scripts/sync_release.mjs --check
+node scripts/sync_release.mjs --publish
 ```
 
-### Production build
+`--check` validates integrity without publishing; `--publish` executes tests, builds, secret sanitisation checks, and synchronises the sanitised snapshot to GitHub and Google Drive. Snapshots exclude `.env*`, tokens, API keys, passwords, PATs, `node_modules`, `dist`, and runtime logs.
 
-```bash
-pnpm build
-pnpm start
-```
-
-## Project structure
+## Project Structure
 
 ```text
-client/       Frontend application
-components/   Shared UI components
-docs/         Project documentation
-server/       Server entry point and backend code
-scripts/      Automated project checks
-shared/       Shared types and utilities
+client/       React frontend, pages, components, hooks, and PWA integration
+server/       Express, tRPC, authentication, and database helpers
+scripts/      Release sync, verification, and regression test scripts
+drizzle/      Database schema and migrations
 ```
-
-## Quality checks
-
-The repository uses GitHub Actions to run type checking and a production build on every push to `main` and every pull request targeting `main`. The interactive browser checks remain available locally through the project test scripts.
-
-```bash
-pnpm check
-pnpm test
-pnpm build
-```
-
-## Status
-
-The project is under active development. Product notes and implementation progress are tracked in [`PROJECT_STATE.md`](./PROJECT_STATE.md) and [`todo.md`](./todo.md).
-
-## Contributing
-
-Suggestions and focused improvements are welcome. Please open an issue first for substantial changes so that the intended direction can be discussed before implementation.
-
-## License
-
-This project is released under the [MIT License](./LICENSE).

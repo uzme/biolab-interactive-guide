@@ -2,6 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
+const CANONICAL_REPOSITORY = "uzme/biolab-interactive-guide";
+const CANONICAL_DRIVE_ROOT_ID = "1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd";
 const requiredDocs = [
   "README.md",
   "PROJECT_MANIFEST.md",
@@ -25,26 +27,43 @@ const requiredDocs = [
   "SECURITY.md",
 ];
 
+const read = (file) => {
+  const filePath = path.join(root, file);
+  return fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : "";
+};
+
 const missing = requiredDocs.filter((file) => !fs.existsSync(path.join(root, file)));
-const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
+const stateDocuments = ["PROJECT_STATE.md", "CURRENT_STATE.md", "CONTINUITY_AUDIT.md"];
 const crossLinkChecks = {
-  githubCanonicalRepo: read("GITHUB_INDEX.md").includes("github.com/uzme/second-brain"),
-  driveRootId: read("DRIVE_INDEX.md").includes("1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd"),
-  restorationHasGitHub: read("RESTORATION_MAP.md").includes("github.com/uzme/second-brain"),
-  restorationHasDrive: read("RESTORATION_MAP.md").includes("1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd"),
-  stateHasExceptionStatus: ["PROJECT_STATE.md", "CURRENT_STATE.md", "CONTINUITY_AUDIT.md"].every((file) => read(file).includes("READY WITH EXCEPTION")),
-  auditHasEnvException: read("CONTINUITY_AUDIT.md").includes(".env.example") && read("CONTINUITY_AUDIT.md").includes("NOT READY"),
+  githubCanonicalRepo: read("README.md").includes(`github.com/${CANONICAL_REPOSITORY}`)
+    && read("GITHUB_INDEX.md").includes(`github.com/${CANONICAL_REPOSITORY}`),
+  driveRootId: read("DRIVE_INDEX.md").includes(CANONICAL_DRIVE_ROOT_ID),
+  restorationHasGitHub: read("RESTORATION_MAP.md").includes(`github.com/${CANONICAL_REPOSITORY}`),
+  restorationHasDrive: read("RESTORATION_MAP.md").includes(CANONICAL_DRIVE_ROOT_ID),
+  stateHasReadyStatus: stateDocuments.every((file) => {
+    const text = read(file);
+    return /\bREADY\b/.test(text)
+      && !text.includes("READY WITH EXCEPTION")
+      && !text.includes("NOT READY")
+      && !text.includes("NOT_READY");
+  }),
 };
 
 const envExamplePresent = fs.existsSync(path.join(root, ".env.example"));
+const environmentContractPresent = read("SECRETS_REQUIRED.md").includes("No real secrets or production credentials are stored");
+const allChecksPassed = missing.length === 0
+  && environmentContractPresent
+  && Object.values(crossLinkChecks).every(Boolean);
 const result = {
   generatedAt: new Date().toISOString(),
+  canonicalRepository: CANONICAL_REPOSITORY,
+  canonicalDriveRootId: CANONICAL_DRIVE_ROOT_ID,
   requiredDocumentCount: requiredDocs.length,
   missingRequiredDocs: missing,
   envExamplePresent,
-  envExampleException: !envExamplePresent && crossLinkChecks.auditHasEnvException,
+  environmentContractPresent,
   crossLinkChecks,
-  status: missing.length === 0 ? "READY" : "NOT_READY",
+  status: allChecksPassed ? "READY" : "NOT_READY",
 };
 console.log(JSON.stringify(result, null, 2));
 if (result.status === "NOT_READY") process.exitCode = 1;

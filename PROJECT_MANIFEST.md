@@ -1,38 +1,59 @@
 # BioLab Interactive Guide — Project Manifest
 
 ## Overview
-- **Project Name**: BioLab Interactive Guide
-- **Purpose**: Professional learning platform for 100 biotechnology devices with 3D carousel, 16-section deep learning dossiers, SOP checklists, PWA offline support, and automated GitHub/Google Drive synchronization.
-- **Current Version**: 1.0.0 (Release f721102)
-- **Status**: Production Ready / Fully Verified
-- **Language**: Uzbek (`uz`)
+
+BioLab Interactive Guide — 100 ta biotexnologiya qurilmasini 10 kategoriya va 16 bosqichli o‘quv dosyesi orqali o‘rgatuvchi, qidiruv/filtr, original horizontal Pure CSS 3D carousel, Saralanganlar, PWA offline rejimi va modelga asoslangan workflow talqinini birlashtirgan professional ta’lim platformasi.
+
+| Ko‘rsatkich | Joriy holat |
+|---|---|
+| Project name | BioLab Interactive Guide |
+| Current version | `1.0.0` |
+| Verified application/source release | GitHub `uzme/biolab-interactive-guide` `main` repository root; final commit recorded after release verification |
+| Deployment | Manus Autoscale Web Hosting — `https://biolabguide-fbcitqyf.manus.space` |
+| Language | Professional Uzbek (`uz`) |
+| Archive status | Sanitised canonical archive workflow verified; final archive commit and Drive modified time are recorded by each release run and state metadata |
 
 ## Technology Stack
-- **Frontend Framework**: React 19, TypeScript, Vite 7, Tailwind CSS 4, shadcn/ui, Wouter
-- **Backend Framework**: Express 4, Node.js (ESM), tRPC 11
-- **Database**: Drizzle ORM with MySQL/TiDB support
-- **Authentication**: Manus OAuth baked-in session cookies
-- **Storage**: S3 storage helper proxy (`storagePut`, `storageGet`)
-- **Deployment Platform**: Manus Autoscale Web Hosting / GitHub Pages & Drive Archive
-- **Package Manager**: pnpm
+
+- **Frontend:** React 19, TypeScript, Vite 7, Tailwind CSS 4, shadcn/ui, Wouter.
+- **Backend:** Node.js 22, Express 4, tRPC 11, Drizzle ORM, MySQL/TiDB compatibility.
+- **Authentication:** Manus OAuth session cookies.
+- **Storage:** S3 storage helpers and browser-side PWA cache where applicable.
+- **Testing:** TypeScript check, Vitest configuration, Playwright browser regression scripts.
+- **Package manager:** pnpm.
 
 ## Runtime & Environment
-- **Node.js Runtime**: v22.13.0
-- **Required Services**: Manus API Forge, MySQL/TiDB database, Google Drive API (`gws` CLI)
-- **Environment Variables**: See `.env.example` and `SECRETS_REQUIRED.md`
 
-## Available Scripts & Commands
-- **Install**: `pnpm install`
-- **Development**: `pnpm dev`
-- **Build**: `pnpm build`
-- **Type Check**: `pnpm check`
-- **Test (Vitest & Playwright)**: `pnpm test` && `node scripts/test_device_viewer.mjs`
-- **Release Automation**: `node scripts/sync_release.mjs [--check | --publish]`
+Required runtime services and environment contracts are documented in `SECRETS_REQUIRED.md`. Real secret values are supplied only through the secure environment; `.env*`, tokens, passwords, API keys, PATs and runtime outputs are excluded from GitHub and Drive snapshots. The repository intentionally contains no `.env` file or real secret value. The complete variable-name contract is maintained in `SECRETS_REQUIRED.md`; runtime values are injected only through the secure environment.
 
-## Directory & File Structure
-- `client/src/`: React frontend pages, components, hooks, and PWA integration (`manifest.webmanifest`, `sw.js`, `OfflineManager.tsx`)
-- `server/`: Express and tRPC backend routers, database helpers, and core plumbing
-- `drizzle/`: Database schema and migrations
-- `scripts/`: Automation scripts (`sync_release.mjs`, Playwright test suites)
-- `storage/`: S3 and media storage integration
-- `shared/`: Shared types and constants
+## Available Commands
+
+```bash
+pnpm install --frozen-lockfile --ignore-scripts
+pnpm run check
+pnpm build
+pnpm test
+node scripts/test_catalog_controls.mjs
+node scripts/test_device_viewer.mjs
+node scripts/sync_release.mjs --check
+node scripts/sync_release.mjs --publish
+```
+
+## Directory Structure
+
+```text
+client/       React frontend, pages, components, hooks, PWA integration
+server/       Express, tRPC, authentication and database helpers
+drizzle/      Schema and migration metadata
+scripts/      Regression tests and sanitised release automation
+shared/       Shared types and constants
+storage/      S3 storage helpers
+docs/         Project reference documentation, when present
+```
+
+## Canonical Archive
+
+- **GitHub:** `https://github.com/uzme/biolab-interactive-guide`, branch `main`, project path repository root.
+- **Google Drive:** Biotexnologiya root ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, file name `BioLab_Interactive_Guide_source.tar.gz`.
+- **Cross-links:** `DRIVE_INDEX.md`, `GITHUB_INDEX.md`, and `RESTORATION_MAP.md`.
+- **Excluded locations:** only the canonical `Biotexnologiya` root is used; `Kodlar`, `PUBG`, and `Skills` Drive folders are not modified.

@@ -1,16 +1,25 @@
-# BioLab Interactive Guide — Architecture Documentation
+# ARCHITECTURE.md — BioLab Interactive Guide System Architecture
 
 ## System Architecture
-BioLab Interactive Guide is structured as a full-stack web application built on a robust client-server architecture. The frontend is powered by React 19, Vite, and Tailwind CSS 4, providing an interactive, responsive user interface with a 3D animated carousel, 16-section deep learning dossiers, and PWA offline capabilities. The backend consists of an Express server running tRPC 11 endpoints, backed by Drizzle ORM and MySQL/TiDB storage.
+
+BioLab Interactive Guide is a professional biotechnology learning platform built with React 19, TypeScript, Vite 7, and Tailwind CSS 4. The frontend delivers an interactive equipment catalog, an original horizontal Pure CSS 3D carousel, 16-section learning dossiers, a bookmarks sidebar, and PWA offline capabilities. The backend relies on Express, tRPC 11, Drizzle ORM, and MySQL/TiDB database integration.
 
 ## Frontend Architecture
-The client application is organized into modular pages (`Home.tsx`, `NotFound.tsx`), reusable UI components (`Pure3DCarousel.tsx`, `EquipmentCard.tsx`, `DeviceViewer.tsx`, `BookmarksSidebar.tsx`, `OfflineManager.tsx`), custom hooks (`useBookmarks.ts`, `useOfflinePack.ts`), and context providers (`ThemeContext.tsx`). PWA support is integrated via `manifest.webmanifest` and `sw.js`, which handles network-first navigation, stale-while-revalidate asset caching, and cache-first device image loading.
 
-## Backend & API Architecture
-The server architecture leverages tRPC for end-to-end type-safe API contracts without manual REST boilerplate. Database queries and mutations are managed through Drizzle ORM query helpers in `server/db.ts`. Authentication and session management utilize Manus OAuth integration with secure HttpOnly cookies.
+`client/src/pages/Home.tsx` manages the catalog shell, search/filter controls, and learning modal triggers. `Pure3DCarousel.tsx` preserves the original `.pure3d-carousel`, `.scene`, `.a3d`, and `.card` 3D geometry. `DeviceViewer.tsx` renders the 16-stage learning dossier, `EquipmentCard.tsx` handles equipment metadata, `BookmarksSidebar.tsx` manages browser `localStorage` bookmarks, and `OfflineManager.tsx` provides PWA status and offline caching controls.
 
-## Data Flow & Storage
-User interactions trigger tRPC queries or mutations from React components. Bookmarks and offline preferences persist locally in browser `localStorage`. Device learning dossiers, SOP checklists, and specifications are loaded dynamically from structured TypeScript datasets. Media assets are optimized as WebP files and cached locally via Service Worker or served from secure S3 storage.
+## Backend, Data & Storage
+
+The server provides type-safe contracts via tRPC. Drizzle schema and migrations reside under `drizzle/`; production database records are never committed to version control. The equipment catalog and learning curriculum originate from structured TypeScript datasets. Media assets reside in S3 and Drive canonical folders.
+
+## PWA & Client Persistence
+
+`manifest.webmanifest` provides installable PWA metadata, while `sw.js` handles navigation and asset caching strategies. Bookmarks persist in browser `localStorage`. Offline status and package management are exposed through localized Uzbek UI components.
 
 ## Deployment & Synchronization Flow
-Automated synchronization is handled via `scripts/sync_release.mjs`. The workflow executes a two-step process: checking the build/test status (`--check`) and publishing sanitised source archives to GitHub (`uzme/biolab-interactive-guide` main branch) and Google Drive (`Biotexnologiya yangi / Loyiha 1` folder, updating `BioLab_Interactive_Guide_source.zip` without duplication).
+
+`node scripts/sync_release.mjs --check` validates typecheck, production build, catalog/device regression tests, and sanitisation fingerprints. `--publish` executes these checks and pushes a sanitised snapshot without secrets to the canonical GitHub repository `uzme/biolab-interactive-guide` on the `main` branch, as well as updating the canonical Google Drive root folder `Biotexnologiya` (`1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`).
+
+## Reproducibility Boundary
+
+Source code, schema, tests, and documentation reside on GitHub. Images, screenshots, PDFs, and large reference archives reside on Google Drive. Real credentials remain in secure environment storage. `DRIVE_INDEX.md`, `GITHUB_INDEX.md`, and `RESTORATION_MAP.md` cross-link these layers for seamless project restoration.

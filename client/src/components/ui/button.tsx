@@ -1,4 +1,5 @@
 import * as React from "react";
+import { LoaderCircle } from "lucide-react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
@@ -36,25 +37,61 @@ const buttonVariants = cva(
   }
 );
 
+type ButtonProps = React.ComponentProps<"button">
+  & VariantProps<typeof buttonVariants>
+  & {
+    asChild?: boolean;
+    loading?: boolean;
+    loadingLabel?: string;
+  };
+
 function Button({
   className,
   variant,
   size,
   asChild = false,
+  loading = false,
+  loadingLabel = "Yuklanmoqda…",
+  disabled,
+  children,
   ...props
-}: React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean;
-  }) {
+}: ButtonProps) {
   const Comp = asChild ? Slot : "button";
+  const [rippleActive, setRippleActive] = React.useState(false);
+  const interactiveProps = asChild
+    ? { "aria-busy": loading || undefined }
+    : { disabled: disabled || loading, "aria-busy": loading || undefined };
+  const handlePointerDown = (event: React.PointerEvent<HTMLButtonElement>) => {
+    if (!loading && !disabled) {
+      setRippleActive(false);
+      window.requestAnimationFrame(() => setRippleActive(true));
+      window.setTimeout(() => setRippleActive(false), 420);
+    }
+    props.onPointerDown?.(event);
+  };
 
   return (
     <Comp
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      data-loading={loading ? "true" : undefined}
+      data-ripple={rippleActive ? "active" : undefined}
+      className={cn("button-ripple", buttonVariants({ variant, size, className }))}
+      {...interactiveProps}
       {...props}
-    />
+      onPointerDown={handlePointerDown}
+    >
+      {loading && !asChild ? (
+        <>
+          <LoaderCircle className="animate-spin" aria-hidden="true" />
+          <span>{loadingLabel}</span>
+        </>
+      ) : (
+        children
+      )}
+    </Comp>
   );
 }
 
 export { Button, buttonVariants };
+export type { ButtonProps };
+

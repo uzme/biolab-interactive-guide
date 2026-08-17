@@ -59,7 +59,7 @@
 - [x] `public/sw.js` (Service Worker) yaratish va offline kesh strategiyasini yozish
 - [x] `client/src/components/OfflineManager.tsx` orqali foydalanuvchiga offline paketni yuklab olish, kesh holatini ko‘rsatish va yangilash imkoniyatini berish
 - [x] Home.tsx va sarlavhaga offline boshqaruv tugmasi va status indikatorini ulash
-- [x] TypeScript, production build, Playwright testlari va "Biotexnologiya yangi" Drive papkasiga sinxronlashni bajarish (`f721102`, Drive file `1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT`)
+- [ ] TypeScript, production build, Playwright testlari va "Biotexnologiya yangi" Drive papkasiga sinxronlashni bajarish
 
 - [x] Service worker’da versionlangan build app-shell assetlarini (JS/CSS/font) cache qilish va offline reload oqimini test bilan tasdiqlash
 - [x] OfflineManager/Home header’da aniq online/offline status indikatorini ko‘rsatish va holat almashishini brauzer testida tekshirish
@@ -68,3 +68,11 @@
 
 - [x] Playwright testida service worker cache orqali haqiqiy offline reload va app shell tiklanishini assert qilish
 - [x] Playwright testida `data-offline-status` atributi va Onlayn → Offline holat almashishini assert qilish
+
+## Master Protocol Reproduktibilitet va Hujjatlashtirish
+- [x] MANUS_PROJECT_REPRODUCIBILITY_GITHUB_ARCHIVE_MASTER_PROTOCOL.md protokolini o‘qib to‘liq audit qilish
+- [x] SOURCE_OF_TRUTH asosida `PROJECT_MANIFEST.md`, `ARCHITECTURE.md`, `DATABASE.md`, `REPRODUCTION.md`, `AI_HANDOFF.md`, `CURRENT_STATE.md`, `PROJECT_INVENTORY.md`, `DECISIONS.md`, `CHANGELOG.md`, `TROUBLESHOOTING.md`, `SECRETS_REQUIRED.md` hujjatlarini yaratish
+- [x] todo.md dagi barcha vazifalarni yangi tizim bilan birlashtirish va hech qanday funksiyani yo‘qotmaslik
+- [x] Secrets siyosatiga rioya qilgan holda kodni o‘zgartirmasdan saqlash
+- [ ] Build, typecheck, test va clean-clone reproducibility verificationni bajarish
+- [ ] READY / NOT READY hisoboti va sanitizatsiyalangan GitHub/Drive release sinxronizatsiyasini yakunlash

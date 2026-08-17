@@ -81,3 +81,9 @@ BioLab Interactive Guide uchun o‘zbekcha PWA manifesti (`manifest.webmanifest`
 Offline paket yoqilganda katalog, 100 ta qurilma, 16 bo‘limli o‘quv dosyesi, qidiruv/filtr, Saralanganlar va qurilma rasmlari internetsiz foydalanishga mo‘ljallangan. Login, GitHub va Google Drive publish kabi serverga bog‘liq operatsiyalar internet qaytganda bajariladi. Playwright testi manifest va service worker mavjudligini, service worker ready holatini, haqiqiy offline reloaddan keyin carousel app shell tiklanishini hamda `data-offline-status` Onlayn → Offline → Onlayn almashishini tasdiqladi. `pnpm run check`, production build va mavjud qurilma regressiya testlari muvaffaqiyatli o‘tdi. Buildda faqat mavjud katta chunk hajmi bo‘yicha optimizatsiya ogohlantirishi qoldi; kompilyatsiya xatosi aniqlanmadi.
 
 Sinxronlashdan oldingi holat: PWA kodi, testlar va metadata tayyor; keyingi `sync_release.mjs --publish` bajarilishida GitHub `main` hamda mavjud `Biotexnologiya yangi / Loyiha 1` snapshot fayli duplikatsiyasiz yangilanadi.
+
+## Master Protocol & Reproducibility Update (August 16, 2026)
+- **Protocol Applied**: MANUS_PROJECT_REPRODUCIBILITY_GITHUB_ARCHIVE_MASTER_PROTOCOL.md
+- **Documentation Suite Added**: `PROJECT_MANIFEST.md`, `ARCHITECTURE.md`, `DATABASE.md`, `REPRODUCTION.md`, `AI_HANDOFF.md`, `CURRENT_STATE.md`, `PROJECT_INVENTORY.md`, `DECISIONS.md`, `CHANGELOG.md`, `TROUBLESHOOTING.md`, `SECRETS_REQUIRED.md`.
+- **Verification**: TypeScript check (`pnpm check`), production build (`pnpm build`), Playwright browser regression test suite, and clean-clone verification passed successfully.
+- **Sync Status**: Published to GitHub (`uzme/biolab-interactive-guide` `main`, commit `b91c007`) and Google Drive (`Biotexnologiya yangi / Loyiha 1`, `BioLab_Interactive_Guide_source.zip`).

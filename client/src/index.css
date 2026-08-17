@@ -105,10 +105,14 @@ button { cursor: pointer; }
   .nav-link {
     display: flex; align-items: center; gap: 10px; width: 100%;
     padding: 10px 12px; border-radius: 11px; color: oklch(0.44 0.04 190);
-    text-decoration: none; transition: color 180ms var(--ease-out), background 180ms var(--ease-out), transform 180ms var(--ease-out);
+    text-decoration: none; transition: color 180ms var(--ease-out), background 180ms var(--ease-out), transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
   }
-  .nav-link:hover { color: var(--primary); background: oklch(0.9 0.04 173 / 0.6); transform: translateX(2px); }
-  .nav-link.active { color: var(--primary); background: oklch(0.86 0.07 174); font-weight: 700; }
+  .nav-link svg { transition: transform 180ms var(--ease-out), color 180ms var(--ease-out); }
+  .nav-link:hover { color: var(--primary); background: oklch(0.9 0.04 173 / 0.6); transform: translateX(2px); box-shadow: 0 6px 14px oklch(0.3 0.06 184 / 0.07); }
+  .nav-link:hover svg { transform: translateX(1px) scale(1.04); }
+  .nav-link:focus-visible { color: var(--primary); outline: none; box-shadow: 0 0 0 3px oklch(0.53 0.12 184 / 0.18), 0 6px 14px oklch(0.3 0.06 184 / 0.08); }
+  .nav-link:active { transform: translateX(1px) scale(.98); }
+  .nav-link.active { color: var(--primary); background: oklch(0.86 0.07 174); font-weight: 700; box-shadow: inset 3px 0 0 var(--primary); }
   .category-card { transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out), border-color 220ms var(--ease-out); }
   .category-card:hover { transform: translateY(-4px); box-shadow: 0 18px 35px oklch(0.33 0.06 184 / 0.11); border-color: oklch(0.63 0.12 178); }
   .equipment-card { transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out); }
@@ -120,8 +124,17 @@ button { cursor: pointer; }
   .scrollbar-thin::-webkit-scrollbar { width: 5px; height: 5px; }
   .scrollbar-thin::-webkit-scrollbar-thumb { background: oklch(0.72 0.07 178); border-radius: 999px; }
   .fade-in { animation: fade-in 420ms var(--ease-out) both; }
-  .page-transition { animation: page-enter 260ms var(--ease-out) both; }
-  .button-ripple { position: relative; isolation: isolate; overflow: hidden; }
+  .page-transition { animation: page-enter 260ms var(--ease-out) both; will-change: opacity, transform; }
+  .button-ripple { position: relative; isolation: isolate; overflow: hidden; transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out), background-color 180ms var(--ease-out), color 180ms var(--ease-out), border-color 180ms var(--ease-out); }
+  @media (hover: hover) and (pointer: fine) {
+    .button-ripple:hover:not(:disabled):not([data-loading="true"]):not([aria-disabled="true"]) { transform: translateY(-2px); box-shadow: 0 10px 22px oklch(0.3 0.06 184 / 0.12); }
+    .button-ripple:hover:not(:disabled):not([data-loading="true"]):not([aria-disabled="true"]) svg { transform: translateX(1px); }
+  }
+  .button-ripple:focus-visible { transform: translateY(-1px); box-shadow: 0 0 0 4px oklch(0.53 0.12 184 / 0.18), 0 8px 18px oklch(0.3 0.06 184 / 0.1); }
+  .button-ripple:active:not(:disabled):not([data-loading="true"]) { transform: translateY(0) scale(.97); }
+  .button-ripple svg { transition: transform 180ms var(--ease-out); }
+  .button-ripple[data-loading="true"] { cursor: wait; }
+  .button-ripple[data-loading="true"] svg { animation: button-icon-spin 780ms linear infinite; }
   .button-ripple::after { content: ""; position: absolute; z-index: -1; width: 18px; height: 18px; left: var(--ripple-x, 50%); top: var(--ripple-y, 50%); border-radius: 999px; background: oklch(1 0 0 / 0.28); opacity: 0; transform: translate(-50%, -50%) scale(0.2); pointer-events: none; }
   .button-ripple[data-ripple="active"]::after { animation: button-ripple 420ms var(--ease-out) both; }
   .filter-transition { position: relative; height: 3px; overflow: hidden; border-radius: 999px; background: oklch(0.86 0.04 178 / 0.55); }
@@ -196,6 +209,7 @@ button { cursor: pointer; }
   @keyframes loading-sweep { from { transform: translateX(-120%); } to { transform: translateX(280%); } }
   @keyframes loading-dot { 0%, 100% { transform: translateY(0); opacity: .45; } 50% { transform: translateY(-3px); opacity: 1; } }
   @keyframes button-ripple { 0% { opacity: .5; transform: translate(-50%, -50%) scale(.2); } 100% { opacity: 0; transform: translate(-50%, -50%) scale(11); } }
+  @keyframes button-icon-spin { to { transform: rotate(360deg); } }
   button:active:not(:disabled) { transform: scale(.97); }
   [data-loading="true"] { cursor: wait; }
 }

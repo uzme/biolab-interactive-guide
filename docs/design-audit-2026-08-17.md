@@ -21,3 +21,13 @@ Katalog 10 ta kategoriya bo‘yicha aniq modul sarlavhalariga ega bo‘ladi; har
 ## Polishdan keyingi verifikatsiya
 
 Desktop previewda hero sarlavhasi va right-side scientific record paneli bir-biriga to‘qnashmadi; yuqori header, sidebar va dark hero authority hierarchy saqlandi. Mobil previewda hero sarlavhasi bir oz ixchamlashdi, ikkala CTA ham viewport ichida ko‘rinadi va 16-step rail to‘liq o‘qiladi. Katalogdagi yangi SOP spine desktop/mobil uchun to‘rt bosqichli vizual anchor sifatida ishlaydi. TypeScript, production build, Vitest va katalog/device/carousel regressiya skriptlari muvaffaqiyatli o‘tdi.
+
+## Interaktivlik va loading polish verifikatsiyasi
+
+Umumiy Button komponentiga hoverda yengil ko‘tarilish, soyani kuchaytirish, ikonka siljishi, focus-visible halo, active bosilish va loading paytida cursor/ikonka animatsiyasi qo‘shildi. Hover faqat pointer qurilmalarda ishlaydi, shuning uchun touch ekranlarda keraksiz yopishib qolgan hover holati yuzaga kelmaydi. Routerdagi mavjud page-transition va progress-indicator saqlandi, yangi GPU-friendly transition bazasi bilan uyg‘unlashtirildi. `prefers-reduced-motion` qoidasi barcha yangi animatsiyalarni qisqartiradi.
+
+Desktop va mobil screenshot tekshiruvida hero, CTA tugmalari, header actions, sidebar va mobil bottom navigation layouti buzilmagani ko‘rildi. TypeScript check, production build, Vitest (4 test) va katalog/qurilma regressiya skriptlarida xatolik aniqlanmadi.
+
+### Navigatsiya interactionlari qayta tekshiruvi
+
+Yakuniy desktop screenshotda sidebarning faol bandida chap teal indikator, hover/focus uchun yumshoq soya va ikonka mikro-siljishi mavjud dizayn tiliga mos ko‘rindi; hero va ikkala CTA tugmasi joylashuvi o‘zgarmadi. Mobil screenshotda header actionlari, hero SOP rail, ikki CTA va bottom navigation uchun ajratilgan joy saqlanib qoldi. Touch viewport uchun hover media query bilan cheklangani sabab mobil layoutda yopishib qolgan hover holati kuzatilmadi.

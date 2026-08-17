@@ -5,9 +5,9 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Web checkpoint | `2e701fda` |
-| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`, commit `093e1da6ae0b6491368ac42c2cc8533f1f67d921` |
-| Canonical Google Drive | **Biotexnologiya** root, ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`, file ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-17T11:00:04.910Z` |
+| Web checkpoint | `1c2e6c7c` |
+| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`, commit `c2469340f9c9782daa851e6b7b234ad5d940acbc` |
+| Canonical Google Drive | **Biotexnologiya** root, ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`, file ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-17T11:30:20.816Z` |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzili | `https://biolabguide-fbcitqyf.manus.space` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
@@ -25,7 +25,7 @@ Tekshirilgan kod va hujjatlar faqat GitHub `uzme/biolab-interactive-guide` repos
 
 | Manzil | Vazifasi |
 |---|---|
-| GitHub — `uzme/biolab-interactive-guide` | Source code, hujjatlar va tekshirilgan release tarixining yagona Git manbasi (`093e1da`) |
+| GitHub — `uzme/biolab-interactive-guide` | Source code, hujjatlar va tekshirilgan release tarixining yagona Git manbasi (`c246934`) |
 | Google Drive — `Biotexnologiya` (`1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`) | Sanitizatsiyalangan source snapshotning yagona arxiv manzili (`1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`) |
 | `BioLab_Interactive_Guide_source.tar.gz` | GitHub source bilan moslashtiriladigan Drive snapshot nomi |
 

@@ -8,17 +8,17 @@ export type EquipmentImage = {
 
 export const equipmentImages: Record<string, EquipmentImage> = {
   "BIO-001": {
-    url: "/manus-storage/biolab-equipment-001-pcr_c5953119.jpg",
+    url: "/manus-storage/biolab-equipment-001-pcr_558491e4.jpg",
     alt: "PCR termotsiklerining laboratoriya-realistik ko‘rinishi",
     sourceType: "ai-representative",
   },
   "BIO-002": {
-    url: "/manus-storage/biolab-equipment-002-autoclave_fb2b1209.jpg",
+    url: "/manus-storage/biolab-equipment-002-autoclave_f3e20f72.jpg",
     alt: "Bug‘li sterilizator — avtoklavning laboratoriya-realistik ko‘rinishi",
     sourceType: "ai-representative",
   },
   "BIO-003": {
-    url: "/manus-storage/biolab-equipment-003-bsc_922ae195.jpg",
+    url: "/manus-storage/biolab-equipment-003-bsc_6692fdb2.jpg",
     alt: "II-sinf biologik xavfsizlik shkafining laboratoriya-realistik ko‘rinishi",
     sourceType: "ai-representative",
   },

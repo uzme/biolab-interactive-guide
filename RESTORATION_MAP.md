@@ -1,12 +1,16 @@
-# BioLab Interactive Guide — Restoration Map
+# BioLab Interactive Guide — Tiklash xaritasi
 
-Ushbu restoration map protokolda talab qilinganidek, har bir komponentning asosiy va ikkilamchi manbalarini hamda tiklash usulini aniq ko‘rsatadi.
+Ushbu tiklash xaritasi BioLabni GitHub manbasi va Drive’dagi tasdiqlangan snapshot orqali qayta tiklash tartibini belgilaydi.
 
-| Component | Primary Location | Secondary Reference | Restore Method |
+| Komponent | Asosiy manzil | Ikkilamchi reference | Tiklash usuli |
 |---|---|---|---|
-| Source code & Docs | [GitHub `uzme/biolab-interactive-guide` repository root](https://github.com/uzme/biolab-interactive-guide/tree/main) | Biotexnologiya Drive root `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`; verified snapshot `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh` | `gh repo clone` or extract the canonical Drive snapshot |
-| Database schema & Data | Local SQLite/TiDB schema in `drizzle/schema.ts` | `DATABASE.md` & Migrations | `pnpm db:push` or apply migration SQL |
-| Equipment Images & Assets | Current BioLab source references and managed static storage | Biotexnologiya Drive root `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd` | Restore only from the canonical project snapshot; historical asset vaults are read-only and not write destinations |
-| Secrets & Environment | Secure environment / Manus Secrets | `SECRETS_REQUIRED.md`; no real secret values are archived | Configure through managed secrets; never commit real values |
-| PWA & Service Worker | GitHub repository (`public/sw.js`, `public/manifest.webmanifest`) | Offline cached shell | Automatic registration upon static hosting deploy |
-| Dependencies | npm registry via `pnpm` | `pnpm-lock.yaml` | `pnpm install --frozen-lockfile --ignore-scripts` |
+| Source code va hujjatlar | [GitHub `uzme/biolab-interactive-guide` root](https://github.com/uzme/biolab-interactive-guide/tree/main) | `Biotexnologiya yangi / Loyiha 1` — `1X_1fA8kg2Mpx6YW1NGrBoPHdjOcZ5Hxw` ichidagi pointer ko‘rsatgan `biolab-sync-*.tar.gz` | `gh repo clone uzme/biolab-interactive-guide`; pointerdagi commitni checkout qiling yoki mos snapshotni extract qiling |
+| Snapshot holati | Drive’dagi `BIOLAB_CURRENT_SYNC_STATE.json` | GitHub `main` | Pointerdagi commit, snapshot ID va fingerprintni tekshiring |
+| Equipment images va assets | Joriy BioLab source references va managed static storage | `BioLab_Interactive_Guide_images.zip` tarixiy reference arxivi | Faqat pointer ko‘rsatgan joriy snapshot yoki manba kodidan tiklang; tarixiy asset vaultlarga yozmang |
+| PWA va service worker | GitHub repository (`public/sw.js`, `public/manifest.webmanifest`) | Offline cached shell | Static hosting deployda avtomatik ro‘yxatdan o‘tadi |
+| Dependencies | `pnpm-lock.yaml` orqali npm registry | GitHub repository | `pnpm install --frozen-lockfile` |
+| Secrets va environment | Xavfsiz runtime konfiguratsiyasi | `SECRETS_REQUIRED.md`; arxivda real qiymatlar yo‘q | Managed secret sozlamalari orqali alohida bering |
+
+Tiklash ketma-ketligi: yangi papkaga `main` branchni clone qiling, Drive pointeridan commit va snapshot IDni oling, kerakli commitni checkout qiling, so‘ng `pnpm install --frozen-lockfile`, `pnpm run check`, `pnpm run build` va browser regressiya testlarini bajaring. Zarur bo‘lsa pointer ko‘rsatgan sanitizatsiyalangan snapshotni olib, source bilan SHA-256 fingerprint bo‘yicha solishtiring.
+
+`.env*`, API kalit, token, parol va boshqa credentiallar snapshotda bo‘lmaydi. Ular faqat xavfsiz runtime konfiguratsiyasi orqali alohida beriladi.

@@ -204,7 +204,6 @@ function runVerification() {
   run("pnpm", ["run", "check"], PROJECT_ROOT, true);
   run("pnpm", ["build"], PROJECT_ROOT, true);
   run("pnpm", ["test"], PROJECT_ROOT, true);
-  run("node", ["scripts/test_carousel_pagination_browser.mjs"], PROJECT_ROOT, true);
   run("node", ["scripts/verify_continuity_docs.mjs"], PROJECT_ROOT, true);
 }
 

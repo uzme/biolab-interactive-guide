@@ -8,7 +8,7 @@ BioLab Interactive Guide — 100 ta biotexnologiya qurilmasini 10 kategoriya va 
 |---|---|
 | Project name | BioLab Interactive Guide |
 | Current version | `1.0.0` |
-| Verified application/source release | GitHub `uzme/second-brain` `main`, `projects/biolab-guide`, content commit `aaaa299894d0f80699f9cf5def9af0a80b40dde2` |
+| Verified application/source release | GitHub `uzme/biolab-interactive-guide` `main` repository root; final commit recorded after release verification |
 | Deployment | Manus Autoscale Web Hosting — `https://biolabguide-fbcitqyf.manus.space` |
 | Language | Professional Uzbek (`uz`) |
 | Archive status | Sanitised canonical archive workflow verified; final archive commit and Drive modified time are recorded by each release run and state metadata |
@@ -24,12 +24,12 @@ BioLab Interactive Guide — 100 ta biotexnologiya qurilmasini 10 kategoriya va 
 
 ## Runtime & Environment
 
-Required runtime services and environment contracts are documented in `SECRETS_REQUIRED.md`. Real secret values are supplied only through the secure environment; `.env*`, tokens, passwords, API keys, PATs and runtime outputs are excluded from GitHub and Drive snapshots. A committed `.env.example` is currently absent and is tracked as a documentation gap because secret configuration must not be edited through unsafe direct file operations.
+Required runtime services and environment contracts are documented in `SECRETS_REQUIRED.md`. Real secret values are supplied only through the secure environment; `.env*`, tokens, passwords, API keys, PATs and runtime outputs are excluded from GitHub and Drive snapshots. The repository intentionally contains no `.env` file or real secret value. The complete variable-name contract is maintained in `SECRETS_REQUIRED.md`; runtime values are injected only through the secure environment.
 
 ## Available Commands
 
 ```bash
-pnpm install --ignore-workspace --frozen-lockfile --ignore-scripts
+pnpm install --frozen-lockfile --ignore-scripts
 pnpm run check
 pnpm build
 pnpm test
@@ -53,7 +53,7 @@ docs/         Project reference documentation, when present
 
 ## Canonical Archive
 
-- **GitHub:** `https://github.com/uzme/second-brain`, branch `main`, project path `projects/biolab-guide`.
-- **Google Drive:** Second Brain root ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, file name `BioLab_Interactive_Guide_source.tar.gz`.
+- **GitHub:** `https://github.com/uzme/biolab-interactive-guide`, branch `main`, project path repository root.
+- **Google Drive:** Biotexnologiya root ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, file name `BioLab_Interactive_Guide_source.tar.gz`.
 - **Cross-links:** `DRIVE_INDEX.md`, `GITHUB_INDEX.md`, and `RESTORATION_MAP.md`.
-- **Excluded locations:** old `Biotexnologiya yangi / Loyiha 1` is historical only; `Kodlar`, `PUBG`, and `Skills` Drive folders are not modified.
+- **Excluded locations:** only the canonical `Biotexnologiya` root is used; `Kodlar`, `PUBG`, and `Skills` Drive folders are not modified.

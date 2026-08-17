@@ -1,4 +1,4 @@
-# BioLab Interactive Guide — GitHub Index
+# GITHUB_INDEX.md — Canonical GitHub Source & Cross-Link Map
 
 Ushbu hujjat Google Drive’dagi canonical snapshotdan GitHub source va hujjatlariga qaytish uchun ishlatiladigan cross-link xaritasidir. URL’lar real repository yo‘li va mavjud fayl nomlariga asoslangan; taxminiy yoki fake link ishlatilmaydi.
 
@@ -6,25 +6,25 @@ Ushbu hujjat Google Drive’dagi canonical snapshotdan GitHub source va hujjatla
 
 | Project | Repository URL | Stable Branch | Stable Content Commit | Current Version | Last Synchronization |
 |---|---|---|---|---|---|
-| BioLab Interactive Guide | https://github.com/uzme/second-brain/tree/main/projects/biolab-guide | `main` | `1f8730e596ab1f6932856be3c8601493c3d7568f` — independently verified final continuity-audit release | `1.0.0` | 2026-08-17; canonical Drive snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, independently verified modified `2026-08-17T09:44:55.140Z`, under root `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd` |
+| BioLab Interactive Guide | https://github.com/uzme/biolab-interactive-guide | `main` | `e29c0352f0f772593aa8f45f9738cc5dfcab0180` — verified release | `1.0.0` | 2026-08-17; canonical Drive snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, root `Biotexnologiya` (`1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`) |
 
 ## Important Documentation URLs
 
 | Document | URL |
 |---|---|
-| README | https://github.com/uzme/second-brain/blob/main/projects/biolab-guide/README.md |
-| Project Manifest | https://github.com/uzme/second-brain/blob/main/projects/biolab-guide/PROJECT_MANIFEST.md |
-| Project State | https://github.com/uzme/second-brain/blob/main/projects/biolab-guide/PROJECT_STATE.md |
-| Current State | https://github.com/uzme/second-brain/blob/main/projects/biolab-guide/CURRENT_STATE.md |
-| Architecture | https://github.com/uzme/second-brain/blob/main/projects/biolab-guide/ARCHITECTURE.md |
-| Reproduction | https://github.com/uzme/second-brain/blob/main/projects/biolab-guide/REPRODUCTION.md |
-| AI Handoff | https://github.com/uzme/second-brain/blob/main/projects/biolab-guide/AI_HANDOFF.md |
-| Secrets Required | https://github.com/uzme/second-brain/blob/main/projects/biolab-guide/SECRETS_REQUIRED.md |
-| Drive Index | https://github.com/uzme/second-brain/blob/main/projects/biolab-guide/DRIVE_INDEX.md |
-| Restoration Map | https://github.com/uzme/second-brain/blob/main/projects/biolab-guide/RESTORATION_MAP.md |
-| Changelog | https://github.com/uzme/second-brain/blob/main/projects/biolab-guide/CHANGELOG.md |
-| Todo | https://github.com/uzme/second-brain/blob/main/projects/biolab-guide/todo.md |
+| README | https://github.com/uzme/biolab-interactive-guide/blob/main/README.md |
+| Project Manifest | https://github.com/uzme/biolab-interactive-guide/blob/main/PROJECT_MANIFEST.md |
+| Project State | https://github.com/uzme/biolab-interactive-guide/blob/main/PROJECT_STATE.md |
+| Current State | https://github.com/uzme/biolab-interactive-guide/blob/main/CURRENT_STATE.md |
+| Architecture | https://github.com/uzme/biolab-interactive-guide/blob/main/ARCHITECTURE.md |
+| Reproduction | https://github.com/uzme/biolab-interactive-guide/blob/main/REPRODUCTION.md |
+| AI Handoff | https://github.com/uzme/biolab-interactive-guide/blob/main/AI_HANDOFF.md |
+| Secrets Required | https://github.com/uzme/biolab-interactive-guide/blob/main/SECRETS_REQUIRED.md |
+| Drive Index | https://github.com/uzme/biolab-interactive-guide/blob/main/DRIVE_INDEX.md |
+| Restoration Map | https://github.com/uzme/biolab-interactive-guide/blob/main/RESTORATION_MAP.md |
+| Changelog | https://github.com/uzme/biolab-interactive-guide/blob/main/CHANGELOG.md |
+| Todo | https://github.com/uzme/biolab-interactive-guide/blob/main/todo.md |
 
 ## Drive Backlink
 
-Canonical binary/source snapshot: `BioLab_Interactive_Guide_source.tar.gz`, Drive file ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, parent folder ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`. The Drive file itself should retain a pointer to this GitHub repository through the metadata and project documentation stored inside the archive.
+Canonical binary/source snapshot: `BioLab_Interactive_Guide_source.tar.gz`, Drive file ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, parent folder ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd` (`Biotexnologiya`). The Drive file itself should retain a pointer to this GitHub repository through the metadata and project documentation stored inside the archive.

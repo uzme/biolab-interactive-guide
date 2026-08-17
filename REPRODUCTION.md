@@ -1,25 +1,25 @@
 # BioLab Interactive Guide — Reproduction Guide
 
-This guide details how to reproduce the BioLab Interactive Guide from the canonical sanitised archive in the `uzme/second-brain` repository without relying on the original working directory or committed secrets.
+This guide details how to reproduce the BioLab Interactive Guide from the canonical sanitised archive in the `uzme/biolab-interactive-guide` repository without relying on the original working directory or committed secrets.
 
-## Step 1: Clone the Canonical Second Brain Repository
+## Step 1: Clone the Canonical Biotexnologiya Repository
 
 ```bash
-git clone https://github.com/uzme/second-brain.git
-cd second-brain/projects/biolab-guide
+git clone https://github.com/uzme/biolab-interactive-guide.git
+cd biolab-interactive-guide
 ```
 
-The BioLab project is stored under `projects/biolab-guide` in the Second Brain repository. The repository root is a pnpm workspace for a different application, so BioLab dependency installation must explicitly ignore the parent workspace.
+The BioLab project is the root of the `uzme/biolab-interactive-guide` repository. It has its own `package.json` and lockfile, so dependency installation runs directly from this repository root.
 
 ## Step 2: Install Runtime and Dependencies
 
-Ensure Node.js v22 or newer and pnpm are installed. Run the following command from `second-brain/projects/biolab-guide`:
+Ensure Node.js v22 or newer and pnpm are installed. Run the following command from `biolab-interactive-guide/biolab-interactive-guide`:
 
 ```bash
-pnpm install --ignore-workspace --frozen-lockfile --ignore-scripts
+pnpm install --frozen-lockfile --ignore-scripts
 ```
 
-The `--ignore-workspace` flag is required because the nested BioLab project has its own `package.json` and lockfile, while the parent Second Brain repository has a separate workspace configuration. The frozen lockfile ensures that dependency resolution is reproducible, and `--ignore-scripts` avoids executing arbitrary package lifecycle scripts during the initial audit install.
+The frozen lockfile ensures reproducible dependency resolution, and `--ignore-scripts` avoids executing arbitrary package lifecycle scripts during the initial audit install.
 
 ## Step 3: Configure Environment Without Committing Secrets
 
@@ -41,7 +41,7 @@ pnpm db:push
 
 ## Step 5: Run Deterministic Verification
 
-Run these commands from `second-brain/projects/biolab-guide`:
+Run these commands from `biolab-interactive-guide/biolab-interactive-guide`:
 
 ```bash
 pnpm run check
@@ -67,4 +67,4 @@ node scripts/sync_release.mjs --check
 node scripts/sync_release.mjs --publish
 ```
 
-The release script creates a sanitised archive, excludes `.env*`, `.git`, runtime logs, dependency folders, build outputs, and archive files, scans source text for common secret formats, pushes the verified BioLab source under `projects/biolab-guide` to `uzme/second-brain` `main`, and creates or updates the single BioLab snapshot inside the configured Second Brain Drive parent. It does not write to the former BioLab-specific Drive folder.
+The release script creates a sanitised archive, excludes `.env*`, `.git`, runtime logs, dependency folders, build outputs, and archive files, scans source text for common secret formats, pushes the verified BioLab source under `biolab-interactive-guide` to `uzme/biolab-interactive-guide` `main`, and creates or updates the single BioLab snapshot inside the configured Biotexnologiya Drive parent. It writes only to the canonical Biotexnologiya Drive root and never to unrelated Drive folders.

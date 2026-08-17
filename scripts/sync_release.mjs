@@ -5,10 +5,10 @@ import { tmpdir } from "node:os";
 import { dirname, join, relative, resolve } from "node:path";
 
 const PROJECT_ROOT = resolve(process.cwd());
-const SECOND_BRAIN_REPOSITORY = "uzme/second-brain";
-const SECOND_BRAIN_DRIVE_PARENT_ID = "1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd";
+const CANONICAL_GITHUB_REPOSITORY = "uzme/biolab-interactive-guide";
+const CANONICAL_DRIVE_ROOT_ID = "1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd"; // Biotexnologiya root folder ID
 const DRIVE_SNAPSHOT_NAME = "BioLab_Interactive_Guide_source.tar.gz";
-const GITHUB_PROJECT_PATH = "projects/biolab-guide";
+const GITHUB_PROJECT_PATH = ".";
 const mode = process.argv[2];
 
 const EXCLUDED_DIRECTORIES = new Set([
@@ -115,7 +115,7 @@ function createSanitizedArchive() {
 }
 
 function driveFilesByName() {
-  const query = `'${SECOND_BRAIN_DRIVE_PARENT_ID}' in parents and name = '${DRIVE_SNAPSHOT_NAME}' and trashed = false`;
+  const query = `'${CANONICAL_DRIVE_ROOT_ID}' in parents and name = '${DRIVE_SNAPSHOT_NAME}' and trashed = false`;
   const raw = run("gws", [
     "drive", "files", "list", "--params",
     JSON.stringify({ q: query, pageSize: 20, fields: "files(id,name,parents,size,modifiedTime,trashed)" }),
@@ -132,7 +132,7 @@ function verifyDriveFile(fileId) {
   const valid = metadata.name === DRIVE_SNAPSHOT_NAME
     && Number(metadata.size) > 0
     && Array.isArray(metadata.parents)
-    && metadata.parents.includes(SECOND_BRAIN_DRIVE_PARENT_ID)
+    && metadata.parents.includes(CANONICAL_DRIVE_ROOT_ID)
     && metadata.trashed === false;
   if (!valid) throw new Error("Drive post-upload tekshiruvi muvaffaqiyatsiz: nom, hajm, parent yoki trash holati noto‘g‘ri.");
   return metadata;
@@ -156,7 +156,7 @@ function uploadOrUpdateDrive(snapshotPath, sourceFingerprint) {
       "--json", JSON.stringify({
         name: DRIVE_SNAPSHOT_NAME,
         mimeType: "application/gzip",
-        parents: [SECOND_BRAIN_DRIVE_PARENT_ID],
+        parents: [CANONICAL_DRIVE_ROOT_ID],
         description,
       }), "--format", "json",
     ], dirname(snapshotPath));
@@ -166,7 +166,7 @@ function uploadOrUpdateDrive(snapshotPath, sourceFingerprint) {
   return verifyDriveFile(fileId);
 }
 
-function copyProjectToSecondBrain(destination) {
+function copyProjectToCanonicalRepository(destination) {
   cpSync(PROJECT_ROOT, destination, {
     recursive: true,
     filter: (source) => {
@@ -177,14 +177,15 @@ function copyProjectToSecondBrain(destination) {
 }
 
 function publishToGitHub() {
-  const temporaryDirectory = mkdtempSync(join(tmpdir(), "second-brain-github-"));
-  const repositoryPath = join(temporaryDirectory, "second-brain");
+  const temporaryDirectory = mkdtempSync(join(tmpdir(), "biolab-github-"));
+  const repositoryPath = join(temporaryDirectory, "biolab-interactive-guide");
   try {
-    run("gh", ["repo", "clone", SECOND_BRAIN_REPOSITORY, repositoryPath], PROJECT_ROOT, true);
-    const destination = join(repositoryPath, GITHUB_PROJECT_PATH);
-    rmSync(destination, { recursive: true, force: true });
-    copyProjectToSecondBrain(destination);
-    run("git", ["add", "--all", "--", GITHUB_PROJECT_PATH], repositoryPath);
+    run("gh", ["repo", "clone", CANONICAL_GITHUB_REPOSITORY, repositoryPath], PROJECT_ROOT, true);
+    for (const entry of readdirSync(repositoryPath)) {
+      if (entry !== ".git") rmSync(join(repositoryPath, entry), { recursive: true, force: true });
+    }
+    copyProjectToCanonicalRepository(repositoryPath);
+    run("git", ["add", "--all", "--", "."], repositoryPath);
     const staged = run("git", ["diff", "--cached", "--name-only"], repositoryPath);
     if (staged) {
       run("git", ["commit", "-m", "chore: update BioLab guide verified source"], repositoryPath, true);
@@ -204,6 +205,7 @@ function runVerification() {
   run("pnpm", ["build"], PROJECT_ROOT, true);
   run("pnpm", ["test"], PROJECT_ROOT, true);
   run("node", ["scripts/test_carousel_pagination_browser.mjs"], PROJECT_ROOT, true);
+  run("node", ["scripts/verify_continuity_docs.mjs"], PROJECT_ROOT, true);
 }
 
 if (mode !== "--check" && mode !== "--publish") {
@@ -223,17 +225,17 @@ try {
     process.exit(0);
   }
 
-  console.log("[3/4] Tekshirilgan BioLab kodi uzme/second-brain main branchiga yuborilmoqda...");
+  console.log("[3/4] Tekshirilgan BioLab kodi uzme/biolab-interactive-guide main branchiga yuborilmoqda...");
   const githubCommit = publishToGitHub();
   console.log(`[GitHub] ${githubCommit}`);
 
-  console.log("[4/4] Snapshot Second Brain asosiy Drive papkasiga yuklanmoqda yoki mavjud nusxa yangilanmoqda...");
+  console.log("[4/4] Snapshot Biotexnologiya asosiy Drive papkasiga yuklanmoqda yoki mavjud nusxa yangilanmoqda...");
   const driveFile = uploadOrUpdateDrive(archive.snapshotPath, archive.sourceFingerprint);
   console.log(JSON.stringify({
-    githubRepository: `https://github.com/${SECOND_BRAIN_REPOSITORY}`,
+    githubRepository: `https://github.com/${CANONICAL_GITHUB_REPOSITORY}`,
     githubProjectPath: GITHUB_PROJECT_PATH,
     githubCommit,
-    driveParentId: SECOND_BRAIN_DRIVE_PARENT_ID,
+    driveParentId: CANONICAL_DRIVE_ROOT_ID,
     driveFileId: driveFile.id,
     driveFileName: driveFile.name,
     driveModifiedTime: driveFile.modifiedTime,

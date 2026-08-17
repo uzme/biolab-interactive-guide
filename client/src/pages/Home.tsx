@@ -193,7 +193,7 @@ export default function Home() {
           </section>
           <section className="rounded-2xl border border-[#d8e7e3] bg-[#f7fbfa] p-5">
             <h3 className="font-bold text-[#173d42]">6. Texnik Sinxronlash va Google Drive Qoidasi</h3>
-            <p className="mt-2 leading-6 text-[#5b7c77]">Loyiha kodi faqat rasmiy <code className="rounded bg-[#e2ede8] px-1.5 py-0.5 text-xs text-[#0d7774]">uzme/biolab-interactive-guide</code> GitHub repozitoriyining <code className="rounded bg-[#e2ede8] px-1.5 py-0.5 text-xs text-[#0d7774]">main</code> branchida saqlanadi. Google Drive bo‘yicha esa **barcha fayllar, subpapkalar va snapshotlar faqat yagona "Biotexnologiya yangi" asosiy papkasi (va uning "Loyiha 1" subpapkasi) ichida yaratiladi va boshqariladi**. Boshqa Drive papkalariga BioLab fayllari chiqarilmaydi. Maxfiy tokenlar va env fayllar sinxronizatsiyadan qat’iy chetlatiladi.</p>
+            <p className="mt-2 leading-6 text-[#5b7c77]">Loyiha kodi faqat rasmiy <code className="rounded bg-[#e2ede8] px-1.5 py-0.5 text-xs text-[#0d7774]">uzme/biolab-interactive-guide</code> GitHub repozitoriyining <code className="rounded bg-[#e2ede8] px-1.5 py-0.5 text-xs text-[#0d7774]">main</code> branchida saqlanadi. Google Drive bo‘yicha barcha sanitizatsiyalangan fayllar, subpapkalar va snapshotlar faqat yagona "Biotexnologiya" root papkasi ichida yaratiladi va boshqariladi. Boshqa Drive papkalariga BioLab fayllari chiqarilmaydi. Maxfiy tokenlar va env fayllar sinxronizatsiyadan qat’iy chetlatiladi.</p>
           </section>
         </div>
         <div className="mt-8 flex justify-end border-t border-[#e2ede8] pt-4">

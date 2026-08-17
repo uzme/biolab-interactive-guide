@@ -6,8 +6,8 @@
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
 | Web checkpoint | `75bf2c56` |
-| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`, commit `928208ef3870dbbbeb22d2c1f0d311d8466ed4b1` |
-| Canonical Google Drive | **Biotexnologiya** root, ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`, file ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-17T11:46:17.330Z` |
+| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`, commit `2d2c7a560bfc9b8b9c5023edc3365f839697c408` |
+| Canonical Google Drive | **Biotexnologiya** root, ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`, file ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-17T12:06:47.316Z` |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzili | `https://biolabguide-fbcitqyf.manus.space` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |

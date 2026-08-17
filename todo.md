@@ -10,3 +10,7 @@
 - [x] Tugmalarga va navigatsiyaga zamonaviy hover, focus-visible, active va loading mikro-interaktivlik effektlarini joriy qilish
 - [x] GPU-friendly sahifa yuklanish transitionlari va `prefers-reduced-motion` qoidalarini qo‘shish
 - [x] Sanitizatsiyalangan release snapshotini canonical GitHub (`uzme/biolab-interactive-guide`, commit `c246934`) va Biotexnologiya Drive root papkasiga (`1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`) muvaffaqiyatli sync qilish
+
+## GitHub Repository File & Unused Code Audit
+- [x] GitHub main branch va lokal working tree inventorysini yig‘ish
+- [x] Runtime importlar va build scriptlar bo‘yicha fayl auditini bajarish

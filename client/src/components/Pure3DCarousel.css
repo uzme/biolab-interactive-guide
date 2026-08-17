@@ -5,9 +5,9 @@
 
 .pure3d-carousel .scene {
   overflow: hidden;
-  height: min(30em, 76vw);
-  min-height: 22rem;
-  perspective: 35em;
+  height: clamp(21.5rem, 38vw, 30rem);
+  min-height: 0;
+  perspective: clamp(28em, 4vw, 35em);
   mask: linear-gradient(90deg, #0000, red 20% 80%, #0000);
 }
 
@@ -25,7 +25,7 @@
 }
 
 .pure3d-carousel .card {
-  --w: 17.5em;
+  --w: clamp(12.5em, 24vw, 17.5em);
   grid-area: 1 / 1;
   width: var(--w);
   aspect-ratio: 7 / 10;
@@ -147,19 +147,24 @@
 
 @media (max-width: 640px) {
   .pure3d-carousel .scene {
-    height: 24rem;
-    min-height: 24rem;
+    height: clamp(21.5rem, 78vw, 24rem);
+    min-height: 21.5rem;
   }
 
   .pure3d-carousel .card {
-    --w: 14.5em;
+    --w: clamp(12.5em, 54vw, 14.5em);
   }
 }
 
 @media (max-width: 400px) {
+  .pure3d-carousel {
+    padding: 1rem;
+    border-radius: 1.5rem;
+  }
+
   .pure3d-carousel .scene {
-    height: 21.5rem;
-    min-height: 21.5rem;
+    height: 21rem;
+    min-height: 21rem;
   }
 
   .pure3d-carousel .card {

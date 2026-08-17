@@ -188,13 +188,13 @@ ${purchase ? `
       </div>
     </header>
 
-    <main className="mx-auto max-w-[1500px] px-5 py-7 sm:px-8 sm:py-10">
+    <main className="mx-auto max-w-[1500px] px-4 py-6 sm:px-8 sm:py-10 lg:px-10">
       <section className="border-b border-[#dbe9e5] pb-8">
         <div className="eyebrow mb-3">{device.category} / BIO-{String(device.number).padStart(3, "0")}</div>
-        <h1 className="display max-w-4xl text-4xl font-bold leading-[0.98] text-[#173d42] sm:text-6xl">{learning?.title || device.name}</h1>
+        <h1 className="display max-w-4xl text-[clamp(2.25rem,5vw,3.75rem)] font-bold leading-[0.98] text-[#173d42]">{learning?.title || device.name}</h1>
         {image && <figure className="relative mt-7 overflow-hidden rounded-[28px] border border-[#cfe3dd] bg-[#eaf5f2] shadow-[0_18px_42px_rgba(28,71,67,0.08)]">
           {imagePresentation.fit === "contain" && <img aria-hidden="true" src={image.url} alt="" className="absolute inset-0 h-[min(480px,58vw)] w-full scale-110 object-cover opacity-25 blur-2xl" style={{ objectPosition: imagePresentation.position }} />}
-          <img src={image.url} alt={image.alt} className={`relative h-[min(480px,58vw)] min-h-[250px] w-full ${imagePresentation.fit === "contain" ? "object-contain p-5" : "object-cover"}`} style={{ objectPosition: imagePresentation.position }} loading="eager" />
+          <img src={image.url} alt={image.alt} className={`relative h-[clamp(220px,58vw,480px)] min-h-[220px] w-full sm:min-h-[250px] ${imagePresentation.fit === "contain" ? "object-contain p-4 sm:p-5" : "object-cover"}`} style={{ objectPosition: imagePresentation.position }} loading="eager" />
           <figcaption className="flex flex-wrap items-center justify-between gap-2 border-t border-[#dceae5] bg-[#fbfefd] px-5 py-3 text-xs leading-5 text-[#66847e]">
             <span>{image.sourceType === "official" ? "Rasmiy mahsulot rasmi" : "Qurilma turining laboratoriya-realistik vizuali"}</span>
             <span className="font-bold uppercase tracking-[0.13em] text-[#0d7774]">O‘quv ko‘rgazmasi</span>
@@ -220,7 +220,7 @@ ${purchase ? `
 
       {isLoading && <section className="mt-8 rounded-[28px] border border-[#d8e7e3] bg-white p-8 text-center shadow-[0_16px_45px_rgba(28,71,67,0.05)]" role="status" aria-live="polite"><div className="mx-auto h-3 w-36 animate-pulse rounded-full bg-[#cfe5dc]" /><h2 className="display mt-5 text-2xl font-bold text-[#173d42]">O‘quv dosyesi yuklanmoqda…</h2><p className="mt-2 text-sm leading-6 text-[#68857f]">Faqat tanlangan qurilmaning o‘quv ma’lumotlari yuklanmoqda.</p><div className="loading-dots mx-auto mt-5 text-[#0d7774]" aria-hidden="true"><span /><span /><span /></div></section>}
       {loadError && !isLoading && !learning && <section className="mt-8 rounded-[28px] border border-[#edd8a5] bg-[#fff9e9] p-8 text-center" role="alert"><h2 className="display text-2xl font-bold text-[#6f5a26]">O‘quv dosyesi yuklanmadi</h2><p className="mt-2 text-sm leading-6 text-[#75612e]">Qurilma ma’lumotini qayta oching yoki keyinroq urinib ko‘ring.</p></section>}
-      {sections.length > 0 && <section className="mt-8 grid gap-6 lg:grid-cols-[300px_minmax(0,1fr)]">
+      {sections.length > 0 && <section className="mt-7 grid gap-5 sm:mt-8 sm:gap-6 lg:grid-cols-[minmax(240px,300px)_minmax(0,1fr)] lg:gap-8">
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <div className="rounded-[24px] border border-[#d8e7e3] bg-white p-4 shadow-[0_14px_40px_rgba(28,71,67,0.06)]">
             <div className="mb-4 px-2"><div className="flex items-center justify-between text-xs font-bold uppercase tracking-[0.16em] text-[#71918b]"><span>O‘quv progressi</span><span>{progress}%</span></div><div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[#e8f1ef]"><div className="h-full rounded-full bg-[#0d7774] transition-all duration-300" style={{ width: `${progress}%` }} /></div></div>
@@ -228,7 +228,7 @@ ${purchase ? `
           </div>
         </aside>
 
-        {activeSection && <article className="rounded-[28px] border border-[#d8e7e3] bg-white p-6 shadow-[0_16px_45px_rgba(28,71,67,0.06)] sm:p-9">
+        {activeSection && <article className="rounded-[28px] border border-[#d8e7e3] bg-white p-5 shadow-[0_16px_45px_rgba(28,71,67,0.06)] sm:p-9 lg:p-10">
           <div className="mb-7 border-b border-[#deebe7] pb-6"><div className="eyebrow mb-3">{String(activeSection.number).padStart(2, "0")} — O‘quv bo‘limi</div><div className="flex items-start gap-4"><span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-[#dff3eb] text-[#087a73]"><activeSection.icon size={22} /></span><div><h2 className="display text-3xl font-bold text-[#173d42]">{activeSection.title}</h2><p className="mt-1 text-sm text-[#6c8984]">{activeSection.subtitle}</p></div></div></div>
           {activeSection.id !== "sources" ? <SourceText value={activeSection.content} /> : <div className="space-y-4">{learning?.sources.map((source) => <div key={source.label} className="rounded-2xl border border-[#d9e8e3] bg-[#fbfefd] p-5"><div className="flex items-start justify-between gap-4"><div><h3 className="font-bold text-[#214d50]">{source.label}</h3><p className="mt-2 text-sm leading-6 text-[#56756f]">{source.note}</p></div>{source.url && <a href={source.url} target="_blank" rel="noreferrer" className="inline-flex shrink-0 items-center gap-1 rounded-lg border border-[#b9d8cd] px-3 py-2 text-xs font-bold text-[#0d7774] hover:bg-[#e3f2e9]">Ochish <ExternalLink size={14} /></a>}</div></div>)}</div>}
           <div className="mt-10 flex flex-wrap justify-between gap-3 border-t border-[#deebe7] pt-5"><Button variant="outline" className="border-[#b7d6ca] text-[#126a6a]" disabled={lessonIndex === 0} onClick={() => setLessonIndex((index) => index - 1)}>Oldingi bo‘lim</Button><Button className="bg-[#0d7774] text-white hover:bg-[#075e5c]" disabled={lessonIndex === sections.length - 1} onClick={() => setLessonIndex((index) => index + 1)}>Keyingi bo‘lim</Button></div>

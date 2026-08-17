@@ -18,4 +18,10 @@
 - [x] Mavjud BioLab visual tilini, Pure CSS 3D Carousel geometriyasini va eski dizayn elementlarini saqlagan holda desktop/mobil UI auditini bajarish
 - [x] Hero responsive spacingi va tipografiyasi, SOP spine, modul header hierarchy hamda mavjud reduced-motion/micro-interaction qoidalarini ehtiyotkorlik bilan polish qilish
 - [x] TypeScript check, production build, katalog/qurilma/carousel regressiya skriptlari va desktop/mobil screenshot verifikatsiyasini bajarish
-- [ ] Sanitizatsiyalangan dizayn release snapshotini faqat `uzme/biolab-interactive-guide` va `Biotexnologiya` Drive rootiga sync qilish
+- [x] Sanitizatsiyalangan dizayn release snapshotini faqat `uzme/biolab-interactive-guide` va `Biotexnologiya` Drive rootiga sync qilish
+
+## Interaktiv hover va page-loading animatsiyalari (2026-08-17)
+- [x] Umumiy Button va asosiy navigatsiya tugmalariga zamonaviy hover, focus-visible, active va loading holatlarini mavjud dizayn tilini saqlagan holda kuchaytirish
+- [x] Sahifa yuklanish/page transition animatsiyasini qisqa, GPU-friendly va `prefers-reduced-motion` bilan mos holga keltirish
+- [x] Typecheck, production build, Vitest, katalog/qurilma regressiya, reduced-motion CSS audit va desktop/mobil screenshot verifikatsiyasini bajarish
+- [ ] Sanitizatsiyalangan release snapshotini faqat `uzme/biolab-interactive-guide` va `Biotexnologiya` Drive rootiga sync qilish

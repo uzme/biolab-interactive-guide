@@ -36,29 +36,6 @@ const categoryTone: Record<string, { icon: string; signal: string }> = {
   "Avtomatlashtirish": { icon: "border-[#cbd3da] bg-[#f0f3f5] text-[#536b78]", signal: "bg-[#536b78]" },
 };
 
-const imageFallback = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
-  <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" fill="none">
-    <defs>
-      <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#dceee9"/>
-        <stop offset="1" stop-color="#bad8d0"/>
-      </linearGradient>
-      <linearGradient id="glass" x1="470" y1="150" x2="740" y2="620" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#f9fffd" stop-opacity=".96"/>
-        <stop offset="1" stop-color="#9ad2c6" stop-opacity=".8"/>
-      </linearGradient>
-    </defs>
-    <rect width="1200" height="760" fill="url(#bg)"/>
-    <path d="M0 572C216 482 349 671 561 573C765 480 943 498 1200 371V760H0V572Z" fill="#8bc4b7" fill-opacity=".32"/>
-    <path d="M549 145H651L628 363V518C628 571 585 614 532 614H515C462 614 419 571 419 518V363L396 145H498" stroke="#0d7774" stroke-width="30" stroke-linejoin="round"/>
-    <path d="M445 422H602V517C602 554 572 584 535 584H512C475 584 445 554 445 517V422Z" fill="url(#glass)"/>
-    <path d="M463 494C502 474 548 524 588 490V525C588 551 567 572 541 572H510C484 572 463 551 463 525V494Z" fill="#18a891" fill-opacity=".76"/>
-    <circle cx="798" cy="240" r="26" fill="#0d7774" fill-opacity=".18"/>
-    <circle cx="861" cy="315" r="14" fill="#0d7774" fill-opacity=".25"/>
-    <circle cx="339" cy="278" r="19" fill="#0d7774" fill-opacity=".16"/>
-  </svg>
-`)}`;
-
 export default function EquipmentCard({ device, index, onOpen, isBookmarked, onToggleBookmark }: { device: Equipment; index: number; onOpen: (device: Equipment) => void; isBookmarked: boolean; onToggleBookmark: (deviceId: string) => void }) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
@@ -67,7 +44,6 @@ export default function EquipmentCard({ device, index, onOpen, isBookmarked, onT
   const tone = categoryTone[device.category] || categoryTone["Molekulyar biologiya"];
   const imageKey = `BIO-${String(device.number).padStart(3, "0")}`;
   const image = equipmentImages[imageKey];
-  const [imageSrc, setImageSrc] = useState(image?.url ?? imageFallback);
   const imagePresentation = getImagePresentation(imageKey);
   const imageLabel = image?.sourceType === "official" ? "Mahsulot rasmi" : "O‘quv vizuali";
   const recordCode = `SOP-${String(device.number).padStart(3, "0")}`;
@@ -81,7 +57,7 @@ export default function EquipmentCard({ device, index, onOpen, isBookmarked, onT
         {!imageLoaded && !imageFailed && <div aria-hidden="true" className="absolute inset-0 z-20 grid place-items-center bg-[linear-gradient(115deg,rgba(214,231,226,.96),rgba(244,250,248,.96),rgba(214,231,226,.96))]">
           <div className="flex flex-col items-center gap-2 text-[#42716a]"><LoaderCircle size={22} className="animate-spin text-[#0d9488]" /><span className="text-[10px] font-bold uppercase tracking-[0.14em]">Rasm yuklanmoqda</span></div>
         </div>}
-        {imageFailed ? <div className="absolute inset-0 z-20 grid place-items-center bg-[#e5f1ee] p-5 text-center text-[#52726d]"><div><ImageOff className="mx-auto mb-2 text-[#0d9488]" size={24} /><p className="text-[10px] font-bold uppercase tracking-[0.12em]">Rasm vaqtincha ochilmadi</p><p className="mt-1 text-[10px]">Qayta yuklab ko‘ring</p></div></div> : <img src={imageSrc} alt={image.alt} loading={isPriorityImage ? "eager" : "lazy"} fetchPriority={isPriorityImage ? "high" : "auto"} decoding="async" onLoad={() => setImageLoaded(true)} onError={() => { if (imageSrc !== imageFallback) { setImageLoaded(false); setImageSrc(imageFallback); } else { setImageFailed(true); } }} className={`absolute inset-0 z-10 h-full w-full transition-[opacity,transform] duration-300 ${imageLoaded ? "opacity-100" : "opacity-0"} group-hover:scale-[1.02] ${imagePresentation.fit === "contain" ? "object-contain p-4 contrast-110 mix-blend-multiply drop-shadow-[0_10px_15px_rgba(21,66,68,0.22)] [-webkit-mask-image:radial-gradient(ellipse_92%_105%_at_center,black_52%,transparent_100%)] [mask-image:radial-gradient(ellipse_92%_105%_at_center,black_52%,transparent_100%)] sm:p-3" : "object-cover"}`} style={{ objectPosition: imagePresentation.position }} />}
+        {imageFailed ? <div className="absolute inset-0 z-20 grid place-items-center bg-[#e5f1ee] p-5 text-center text-[#52726d]"><div><ImageOff className="mx-auto mb-2 text-[#0d9488]" size={24} /><p className="text-[10px] font-bold uppercase tracking-[0.12em]">Rasm vaqtincha ochilmadi</p><p className="mt-1 text-[10px]">Qayta yuklab ko‘ring</p></div></div> : <img src={image.url} alt={image.alt} loading={isPriorityImage ? "eager" : "lazy"} fetchPriority={isPriorityImage ? "high" : "auto"} decoding="async" onLoad={() => setImageLoaded(true)} onError={() => setImageFailed(true)} className={`absolute inset-0 z-10 h-full w-full transition-[opacity,transform] duration-300 ${imageLoaded ? "opacity-100" : "opacity-0"} group-hover:scale-[1.02] ${imagePresentation.fit === "contain" ? "object-contain p-4 contrast-110 mix-blend-multiply drop-shadow-[0_10px_15px_rgba(21,66,68,0.22)] [-webkit-mask-image:radial-gradient(ellipse_92%_105%_at_center,black_52%,transparent_100%)] [mask-image:radial-gradient(ellipse_92%_105%_at_center,black_52%,transparent_100%)] sm:p-3" : "object-cover"}`} style={{ objectPosition: imagePresentation.position }} />}
       </> : <div className={`grid h-20 w-20 place-items-center rounded-2xl border soft-grid ${tone.icon}`}><Icon size={30} /></div>}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-white/75 to-transparent" />
       <span className={`absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-white/75 bg-white/90 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-[0.12em] shadow-sm backdrop-blur ${tone.icon.split(" ").filter((className) => className.startsWith("text-")).join(" ")}`}><Icon size={12} />{imageLabel}</span>

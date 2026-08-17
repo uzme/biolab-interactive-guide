@@ -53,12 +53,13 @@ export default function OfflineManager() {
         size="sm"
         className={`rounded-full border px-3 text-xs font-semibold ${isReady ? "border-[#b8dfd1] bg-[#f1fbf7] text-[#0d7773]" : "border-[#cbded4] bg-white text-[#597b75]"}`}
         onClick={handleDownload}
-        disabled={isDownloading}
+        loading={isDownloading}
+        loadingLabel={`Offline ${percent}%`}
         title={isReady ? "Offline paketni yangilash" : "Offline o‘quv paketini yuklash"}
         aria-label={isDownloading ? `Offline paket yuklanmoqda: ${percent}%` : isReady ? "Offline paketni yangilash" : "Offline paketni yuklash"}
       >
-        {isDownloading ? <RefreshCw size={14} className="animate-spin" /> : isReady ? <CheckCircle2 size={14} /> : <Download size={14} />}
-        <span className="hidden sm:inline">{isDownloading ? `Offline ${percent}%` : isReady ? "Offline tayyor" : "Offline paket"}</span>
+        {!isDownloading && (isReady ? <CheckCircle2 size={14} /> : <Download size={14} />)}
+        <span className="hidden sm:inline">{isReady ? "Offline tayyor" : "Offline paket"}</span>
       </Button>
       {isReady && (
         <Button variant="ghost" size="icon" className="h-8 w-8 text-[#78938d]" onClick={handleClear} title="Offline paketni tozalash" aria-label="Offline paketni tozalash">

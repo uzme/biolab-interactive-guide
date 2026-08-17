@@ -6,22 +6,22 @@
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
 | Oxirgi tasdiqlangan web checkpoint | `49db349e` |
-| Git commit | GitHub `main` branchidagi joriy carousel tuzatishi: `e761a2f` |
+| Verified application/source release | GitHub `uzme/second-brain` `main` content commit `aaaa299894d0f80699f9cf5def9af0a80b40dde2`; latest archive bookkeeping commit and timestamp are emitted by the final sync and recorded in the checkpoint |
 | Ishlab chiqarish manzili | `https://biolabguide-fbcitqyf.manus.space` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
 | Oxirgi tekshiruv | TypeScript tekshiruvi, production build, katalog, qurilma-tafsiloti va original carousel class regressiya testlari muvaffaqiyatli bajarildi |
 
 ## Sinxronlash qoidasi
 
-Tekshirilgan manba kodlari va hujjatlar faqat yangi GitHub repository hamda Google Drive’dagi **Biotexnologiya yangi / Loyiha 1** papkasiga yuboriladi. `node_modules`, `dist`, `.git`, `.env*`, loglar, vaqtinchalik audit materiallari, lokal rasm arxivlari va boshqa runtime chiqindilari snapshotga kiritilmaydi. Har bir foydalanuvchi tasdiqlagan yakuniy kod yoki hujjat o‘zgarishidan keyin mavjud snapshot yangilanadi; Drive’da parallel nusxalar yaratilmaydi.
+Tekshirilgan manba kodlari va hujjatlar faqat GitHub `uzme/second-brain` repository’sining `main` branchidagi `projects/biolab-guide` yo‘liga va Google Drive’dagi yagona Second Brain root papkasiga yuboriladi. Drive root ID: `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`. `node_modules`, `dist`, `.git`, `.env*`, loglar, vaqtinchalik audit materiallari, lokal rasm arxivlari va boshqa runtime chiqindilari snapshotga kiritilmaydi. Har bir muhim kod yoki hujjat o‘zgarishidan keyin test, production build, sanitizatsiya va mavjud snapshotni joyida yangilash bajariladi; parallel Drive nusxalar yaratilmaydi. `Kodlar`, `PUBG` va `Skills` papkalari daxlsiz hisoblanadi.
 
-## Rejalashtirilgan sinxronlash manzillari
+## Canonical sinxronlash manzillari
 
 | Manzil | Holat |
 |---|---|
-| GitHub — `uzme/biolab-interactive-guide` | Joriy carousel tuzatishi `main` branchiga `e761a2f` commit bilan yuborildi |
-| Google Drive — “Biotexnologiya yangi / Loyiha 1” (`1X_1fA8kg2Mpx6YW1NGrBoPHdjOcZ5Hxw`) | Mavjud `1t3nhJbGH2THfU5E17LRJ2P21bRkhVAnT` snapshot fayli joyida yangilanadi; parallel nusxa yaratilmaydi |
-| Google Drive — qayta foydalanish rasm arxivi | `1QuDHKjR8FuMz72en8wjOudrk1Quj0dqk` — `BioLab_Interactive_Guide_images.zip` alohida, maqsadli rasm arxivi sifatida saqlanadi |
+| GitHub — `uzme/second-brain` | BioLab manbasi `main` branchidagi `projects/biolab-guide` yo‘lida; latest archive bookkeeping commit final sync/checkpoint recordida ko‘rsatiladi |
+| Google Drive — Second Brain root (`1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`) | Mavjud `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh` snapshot fayli `BioLab_Interactive_Guide_source.tar.gz` nomi bilan joyida yangilanadi; yangi nusxa yaratilmaydi |
+| Eski `Biotexnologiya yangi / Loyiha 1` manzili | Oldingi relizlar tarixi sifatida saqlangan; joriy sync oqimi unga yozmaydi |
 
 ## Original Pure CSS 3D Carousel Yo‘nalishini Tiklash — 2026-08-16
 
@@ -64,7 +64,7 @@ Sizning ko‘rsatmangiz bo‘yicha butun Google Drive hisobi read-only metadata 
 ## Mualliflik Huquqi, 10/10 Xavfsizlik va "Biotexnologiya yangi" Papka Qoidasi — 2026-08-16
 
 - **Mualliflik Huquqi va Xavfsizlik (10/10)**: Sozlamalar va kopirayt modalida platformaning intellektual mulk huquqlari (`© 2026 BioLab Interactive Guide / Manus AI & Biotexnolog`), xavfsizlik standartlari (PPE, SOP, bioxavfsizlik, favqulodda to‘xtatish tartibi) qat’iy belgilandi.
-- **Yagona Google Drive Papkasi Qoidasi**: Barcha loyiha fayllari, snapshotlar va arxivlar faqat yagona **Biotexnologiya yangi** asosiy Google Drive papkasi (`1X_1fA8kg2Mpx6YW1NGrBoPHdjOcZ5Hxw`) va uning `Loyiha 1` subpapkasi doirasida boshqariladi. Boshqa papkalarda BioLab fayllari yaratilmaydi va mavjud snapshotlar faqat shu papka ichida duplikatsiyasiz yangilanadi.
+- **Yagona Google Drive Papkasi Qoidasi — tarixiy qayd**: Ushbu 2026-08-16 bandi avvalgi **Biotexnologiya yangi / Loyiha 1** oqimini hujjatlashtiradi. 2026-08-17 dan boshlab u superseded: joriy canonical joy Second Brain root ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`; boshqa papkalarga yozish taqiqlanadi.
 - **Test va Build**: TypeScript check, production build va Playwright regressiya testlari to‘liq muvaffaqiyatli bajarildi. O‘zgarishlar GitHub va Drive’ga sinxronlandi.
 
 ## Yakuniy Publish Natijasi — 2026-08-16
@@ -80,10 +80,38 @@ BioLab Interactive Guide uchun o‘zbekcha PWA manifesti (`manifest.webmanifest`
 
 Offline paket yoqilganda katalog, 100 ta qurilma, 16 bo‘limli o‘quv dosyesi, qidiruv/filtr, Saralanganlar va qurilma rasmlari internetsiz foydalanishga mo‘ljallangan. Login, GitHub va Google Drive publish kabi serverga bog‘liq operatsiyalar internet qaytganda bajariladi. Playwright testi manifest va service worker mavjudligini, service worker ready holatini, haqiqiy offline reloaddan keyin carousel app shell tiklanishini hamda `data-offline-status` Onlayn → Offline → Onlayn almashishini tasdiqladi. `pnpm run check`, production build va mavjud qurilma regressiya testlari muvaffaqiyatli o‘tdi. Buildda faqat mavjud katta chunk hajmi bo‘yicha optimizatsiya ogohlantirishi qoldi; kompilyatsiya xatosi aniqlanmadi.
 
-Sinxronlashdan oldingi holat: PWA kodi, testlar va metadata tayyor; keyingi `sync_release.mjs --publish` bajarilishida GitHub `main` hamda mavjud `Biotexnologiya yangi / Loyiha 1` snapshot fayli duplikatsiyasiz yangilanadi.
+Tarixiy qayd: PWA kodi, testlar va metadata keyingi publishga tayyor edi. Joriy oqimda PWA va keyingi o‘zgarishlar faqat `uzme/second-brain` hamda Second Brain root snapshotiga yuboriladi.
 
 ## Master Protocol & Reproducibility Update (August 16, 2026)
 - **Protocol Applied**: MANUS_PROJECT_REPRODUCIBILITY_GITHUB_ARCHIVE_MASTER_PROTOCOL.md
 - **Documentation Suite Added**: `PROJECT_MANIFEST.md`, `ARCHITECTURE.md`, `DATABASE.md`, `REPRODUCTION.md`, `AI_HANDOFF.md`, `CURRENT_STATE.md`, `PROJECT_INVENTORY.md`, `DECISIONS.md`, `CHANGELOG.md`, `TROUBLESHOOTING.md`, `SECRETS_REQUIRED.md`.
 - **Verification**: TypeScript check (`pnpm check`), production build (`pnpm build`), Playwright browser regression test suite, and clean-clone verification passed successfully.
-- **Sync Status**: Published to GitHub (`uzme/biolab-interactive-guide` `main`, commit `b91c007`) and Google Drive (`Biotexnologiya yangi / Loyiha 1`, `BioLab_Interactive_Guide_source.zip`).
+- **Sync Status — tarixiy qayd**: Ushbu band 2026-08-16 dagi eski `uzme/biolab-interactive-guide` va Biotexnologiya yangi oqimini qayd etadi; 2026-08-17 dan joriy manzillar Second Brain GitHub/Drive canonical oqimiga almashtirildi.
+
+## 2026-08-17 — Zamonaviy yuklanish animatsiyalari
+
+BioLab interfeysiga tugma ripple/spinner micro-interactionlari, loading holatlari, sahifa o‘tish progress chizig‘i, qidiruv/filtr transitionlari, modal fade-in/skeleton oqimlari va `prefers-reduced-motion` accessibility qoidalari qo‘shildi. OfflineManager umumiy loading holatlari bilan moslashtirildi. `useTransition` integratsiyasidan keyin Saralanganlar filtri regressiya testi barqaror kutish assertioni bilan tuzatildi.
+
+Tekshiruv: `pnpm run check`, `pnpm build` va Playwright regressiya testi muvaffaqiyatli. Production buildda ayrim bundle chunklari 500 kB dan katta ekani haqida mavjud optimizatsiya ogohlantirishi qayd etildi; bu buildni to‘xtatuvchi xato emas. Keyingi transition tuzatishlari va animatsiya relizi Second Brain canonical arxiviga yuborildi; eski manzil ushbu tarixiy qaydda qoladi.
+
+## 2026-08-17 — Transition Regression, Clean Clone va Second Brain Sync
+
+`useTransition` sababli katalog qidiruvi, filtrni tozalash, kategoriya tanlash va natija yo‘q holati assertionlarida yuzaga kelgan race conditionlar `scripts/test_catalog_controls.mjs` ichida transition yakunini kutadigan Playwright assertionlari bilan tuzatildi. Katalog, qurilma tafsiloti, 16-bo‘limli o‘quv oqimi, bookmark sidebar, mobil menyu va PWA service worker regressiya oqimlari qayta tekshirildi.
+
+`pnpm run check`, `pnpm build`, `pnpm test` hamda `node scripts/test_carousel_pagination_browser.mjs` muvaffaqiyatli o‘tdi. Second Brain clean clone ichida `pnpm install --ignore-workspace --frozen-lockfile --ignore-scripts`, `pnpm run check` va `pnpm build` ham muvaffaqiyatli yakunlandi. Builddagi katta chunk va CSS gradient syntax warninglari non-blocking holatda qoldi.
+
+Release sync oqimi yangi qoidaga moslashtirildi: sanitizatsiyalangan BioLab source `uzme/second-brain` repository `main` branchidagi `projects/biolab-guide` yo‘liga yuboriladi; snapshot esa faqat Second Brain Drive root ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd` ichidagi `BioLab_Interactive_Guide_source.tar.gz` fayliga yaratiladi yoki yangilanadi. `.env*`, token, API key, password, PAT, runtime log, dependency va build chiqindilari chiqarib tashlanadi.
+
+2026-08-17 08:16 UTC dagi verified publish natijasi: GitHub commit `c92f4819b1ca35bc80e97ee553f87d9e2582c2e0`; Drive snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`; source fingerprint `4be422599b40c26d7db7c142f986a62126b0695074a8b8d5c4f41a423f8b36be`. Ushbu nuqta reproducibility hujjatlari yangilanishidan oldingi release sifatida saqlandi; keyingi canonical arxivlash Second Brain root qoidasi bilan bajarildi.
+
+## 2026-08-17 — Reproducibility Documentation Finalized
+
+`REPRODUCTION.md`, `AI_HANDOFF.md` va `TROUBLESHOOTING.md` Second Brain nested clone oqimiga moslashtirildi. Hujjatlarda `pnpm install --ignore-workspace --frozen-lockfile --ignore-scripts` talabi, clean-clone verification, source-of-truth yo‘li, maxfiy ma’lumotlarni chiqarish qoidalari va yagona Drive parent ID aniq ko‘rsatildi. Eski `Biotexnologiya yangi / Loyiha 1` sync manzili amaldagi oqimdan olib tashlandi.
+
+Ushbu hujjat yangilanishlari uchun test, typecheck, production build, katalog/qurilma/browser regressiyalari, sanitizatsiya scan va GitHub/Drive publish muvaffaqiyatli bajarildi. Verified application/source content release: GitHub `uzme/second-brain` `main` commit `aaaa299894d0f80699f9cf5def9af0a80b40dde2`; source fingerprint `78ae6a0f0f7f3c06c3fb2972f16f4b224845dbcbf6b60fd16727942fa628753c`. Drive snapshot `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh` Second Brain rootida joylashgan. Latest archive bookkeeping commit va modified time final sync chiqishi hamda checkpoint tavsifida qayd etiladi; u application code yoki verified buildni o‘zgartirmaydi. READY holati publishsiz final `--check` bilan tasdiqlanadi.
+
+## Final Readiness Audit — 2026-08-17
+
+Oxirgi publishsiz `node scripts/sync_release.mjs --check` `CHECK READY` natijasini berdi: typecheck, production build, katalog/qurilma Playwright regressiyalari, carousel pagination tekshiruvi va secret-sanitizatsiya scan muvaffaqiyatli yakunlandi. Final archive syncning aniq GitHub commiti va Drive modified time checkpoint tavsifida qayd etiladi; Drive snapshot `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh` doimiy Second Brain root ID ostida qoladi.
+
+Auditdagi `git status --short` modifikatsiyalari ishchi loyiha manbasining release script tomonidan alohida temporary clone’ga sanitizatsiyalanib arxivlanishi bilan izohlanadi. `sync_release.mjs` original working tree’ga commit yoki reset qilmaydi; shu sababli local katalogdagi o‘zgarishlar yo‘qolmagan, verified GitHub/Drive arxiviga yuborilgan source bilan mos ravishda saqlanadi. Auditdan keyin faqat state/todo bookkeeping arxivlanadi; application code, carousel geometry va PWA oqimi o‘zgartirilmaydi.

@@ -33,23 +33,34 @@ const deviceSearch = page.getByPlaceholder("Qurilma yoki manufacturer qidiring..
 await deviceSearch.fill("PCR");
 assert((await page.locator("article.equipment-card").count()) > 0, "PCR qidiruvi natija bermadi.");
 await page.getByRole("button", { name: "Qurilma qidiruvini bekor qilish" }).click();
+await page.waitForFunction(() => document.querySelector('[placeholder="Qurilma yoki manufacturer qidiring..."]')?.value === "");
 assert(await deviceSearch.inputValue() === "", "Qurilma qidiruvi bekor qilinmadi.");
 
 const modelSearch = page.getByPlaceholder("Model: masalan, CFX96 yoki TSX");
 await modelSearch.fill("CFX96");
 assert((await page.locator("article.equipment-card").count()) > 0, "Model qidiruvi natija bermadi.");
 await page.getByRole("button", { name: "Model qidiruvini bekor qilish" }).click();
+await page.waitForFunction(() => document.querySelector('[placeholder="Model: masalan, CFX96 yoki TSX"]')?.value === "");
 assert(await modelSearch.inputValue() === "", "Model qidiruvi bekor qilinmadi.");
 
 const categorySelect = page.getByLabel("Kategoriya bo‘yicha filtr");
 await categorySelect.selectOption({ label: "Molekulyar biologiya" });
+await page.waitForFunction(() => document.querySelectorAll("article.equipment-card").length === 16);
 assert((await page.locator("article.equipment-card").count()) === 16, "Molekulyar biologiya filtri 16 ta kartani qaytarmadi.");
 await page.getByRole("button", { name: "Kategoriya filtrini bekor qilish" }).click();
+await page.waitForFunction(() => document.querySelector('[aria-label="Kategoriya bo‘yicha filtr"]')?.value === "Barcha uskunalar");
 assert(await categorySelect.inputValue() === "Barcha uskunalar", "Kategoriya filtri qayta tiklanmadi.");
 
 await deviceSearch.fill("mavjud-emas-tekshiruv");
+await page.getByText("Qurilma topilmadi").waitFor({ state: "visible" });
 assert(await page.getByText("Qurilma topilmadi").isVisible(), "Natija yo‘q holati ko‘rsatilmagan.");
 await page.getByRole("button", { name: "Barchasini tozalash" }).click();
+await page.waitForFunction(() => {
+  const device = document.querySelector('[placeholder="Qurilma yoki manufacturer qidiring..."]')?.value;
+  const model = document.querySelector('[placeholder="Model: masalan, CFX96 yoki TSX"]')?.value;
+  const category = document.querySelector('[aria-label="Kategoriya bo‘yicha filtr"]')?.value;
+  return device === "" && model === "" && category === "Barcha uskunalar";
+});
 assert(await deviceSearch.inputValue() === "" && await modelSearch.inputValue() === "" && await categorySelect.inputValue() === "Barcha uskunalar", "Umumiy tozalash barcha boshqaruvlarni qayta tiklamadi.");
 
 codes = await cardCodes();

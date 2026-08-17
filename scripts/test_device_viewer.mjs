@@ -26,7 +26,25 @@ try {
   await assert(await desktop.evaluate(async () => Boolean(await navigator.serviceWorker.ready)), "PWA service worker ro‘yxatdan o‘tmadi.");
   const offlineStatus = desktop.locator("[data-offline-status]");
   await assert(await offlineStatus.getAttribute("data-offline-status") === "online", "Onlayn status indikatori ko‘rinmadi.");
-  await assert(await desktop.getByRole("button", { name: "Offline paketni yuklash" }).isVisible(), "Offline paket boshqaruvi ko‘rinmadi.");
+  const offlinePackButton = desktop.getByRole("button", { name: "Offline paketni yuklash" });
+  await assert(await offlinePackButton.isVisible(), "Offline paket boshqaruvi ko‘rinmadi.");
+  await assert(await desktop.locator(".page-transition").count() === 1, "Sahifa transition qatlami topilmadi.");
+  await assert(await desktop.locator('[data-slot="button"]').count() > 0, "Global Button komponenti topilmadi.");
+  await offlinePackButton.click();
+  await desktop.locator('[data-slot="button"][data-loading="true"]').waitFor({ state: "visible", timeout: 5000 });
+  await assert(await desktop.locator('[data-slot="button"][data-loading="true"]').getAttribute("aria-busy") === "true", "Tugma loading holatida aria-busy=true bermadi.");
+  await desktop.waitForFunction(() => !document.querySelector('[data-slot="button"][data-loading="true"]'), null, { timeout: 30000 });
+  await desktop.emulateMedia({ reducedMotion: "reduce" });
+  const reducedMotionProgress = await desktop.evaluate(() => {
+    const progress = document.querySelector(".loading-progress");
+    if (!progress) return null;
+    const pseudo = window.getComputedStyle(progress, "::after");
+    return { animationName: pseudo.animationName, animationDuration: pseudo.animationDuration };
+  });
+  if (reducedMotionProgress) {
+    await assert(reducedMotionProgress.animationDuration === "0.01ms" || reducedMotionProgress.animationName === "none", "Reduced-motion rejimi loading animatsiyasini qisqartirmadi.");
+  }
+  await desktop.emulateMedia({ reducedMotion: "no-preference" });
 
   await desktop.context().setOffline(true);
   await desktop.reload({ waitUntil: "domcontentloaded" });
@@ -58,6 +76,7 @@ try {
   const catalogBookmark = desktop.locator("article.equipment-card").first().getByRole("button", { name: /saralanganlardan olib tashlash/ });
   await assert(await catalogBookmark.getAttribute("aria-pressed") === "true", "Saralangan qurilma brauzer xotirasidan qayta tiklanmadi.");
   await desktop.getByRole("button", { name: /^Saralanganlar 1$/ }).click();
+  await desktop.waitForFunction(() => document.querySelectorAll("article.equipment-card").length === 1);
   await assert(await desktop.locator("article.equipment-card").count() === 1, "Saralanganlar filtri faqat saqlangan qurilmani ko‘rsatmadi.");
   await catalogBookmark.click();
   await assert(await desktop.getByText("Qurilma topilmadi").isVisible(), "Saralangan qurilma o‘chirilgandan keyin bo‘sh holat ko‘rsatilmagan.");

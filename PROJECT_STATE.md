@@ -5,34 +5,28 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Web checkpoint | `1c2e6c7c` |
-| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`, commit `c2469340f9c9782daa851e6b7b234ad5d940acbc` |
-| Canonical Google Drive | **Biotexnologiya** root, ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`, file ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-17T11:30:20.816Z` |
+| Web checkpoint | `75bf2c56` |
+| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`, commit `928208ef3870dbbbeb22d2c1f0d311d8466ed4b1` |
+| Canonical Google Drive | **Biotexnologiya** root, ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`, file ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-17T11:46:17.330Z` |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzili | `https://biolabguide-fbcitqyf.manus.space` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
 | Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, sanitizatsiya va canonical docs audit muvaffaqiyatli; holat **READY** |
 
-## Protocol audit statusi
-
-`CONTINUITY_AUDIT.md` bo‘yicha application, build, sanitizatsiya va hujjat cross-link qatlamlari tekshirildi. `scripts/verify_continuity_docs.mjs` 20 ta majburiy hujjatni, canonical GitHub↔Drive bog‘lanishlarini va maxfiy ma’lumotlar kontraktini tekshiradi. Environment o‘zgaruvchilari nomlari `SECRETS_REQUIRED.md`da berilgan; haqiqiy qiymatlar repository yoki snapshotga kiritilmaydi. Yakuniy holat: **READY**.
+## Repository Structure (Tartiblangan papka tuzilmasi)
+- `client/` — React 19 frontend, shadcn/ui komponentlar, custom hooks (`useBookmarks`), PWA offline qo‘llab-quvvatlashi
+- `server/` — Express backend, tRPC routers va API integratsiyalari
+- `scripts/` — Avtomatlashtirilgan release va verify skriptlari
+  - `scripts/tests/` — Regressiya va brauzer testlari (`test_catalog_controls.mjs`, `test_device_viewer.mjs`, va boshqalar)
+  - `scripts/utils/` — Tooling va audit contact sheet skriptlari
+- `docs/` — Master protocol va restoration hujjatlari
+  - `docs/reports/` — Visual design auditi, repository file auditi va tarixiy loglar
+- `shared/` — Umumiy turlar va xatoliklar aniqlamalari
 
 ## Sinxronlash qoidasi
+Tekshirilgan kod va hujjatlar faqat GitHub `uzme/biolab-interactive-guide` repositorysining `main` branch rootiga va Google Drive’dagi yagona **Biotexnologiya** root papkasiga yuboriladi. Drive root ID: `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`. `.env` fayllari, tokenlar, API kalitlari va runtime chiqindilari snapshotga kiritilmaydi.
 
-Tekshirilgan kod va hujjatlar faqat GitHub `uzme/biolab-interactive-guide` repositorysining `main` branch rootiga va Google Drive’dagi yagona **Biotexnologiya** root papkasiga yuboriladi. Drive root ID: `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`. `.env` fayllari, tokenlar, API kalitlari, parollar, PATlar, service-role kalitlari, `node_modules`, `dist`, `.git`, loglar, runtime chiqindilari va boshqa vaqtinchalik materiallar snapshotga kiritilmaydi. Har bir muhim kod yoki hujjat o‘zgarishidan so‘ng check, production build, test, secret scan va sanitizatsiyalangan sync bajariladi. Parallel Drive snapshotlari yaratilmaydi. `Kodlar`, `PUBG` va `Skills` papkalari daxlsiz hisoblanadi.
 
-## Canonical manzillar
+## 2026-08-17 responsive release audit
 
-| Manzil | Vazifasi |
-|---|---|
-| GitHub — `uzme/biolab-interactive-guide` | Source code, hujjatlar va tekshirilgan release tarixining yagona Git manbasi (`c246934`) |
-| Google Drive — `Biotexnologiya` (`1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`) | Sanitizatsiyalangan source snapshotning yagona arxiv manzili (`1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`) |
-| `BioLab_Interactive_Guide_source.tar.gz` | GitHub source bilan moslashtiriladigan Drive snapshot nomi |
-
-## Source-of-truth funksiyalar
-
-### Original Pure CSS 3D Carousel
-Carousel geometriyasi `.pure3d-carousel`, `.scene`, `.a3d` va `.card` selectorlari bilan gorizontal 3D perspektivada saqlanadi. 100 ta qurilma 12 tadan sahifalanadi; qidiruv yoki filtr ishlatilmaganda katalog 1–100 tartibida ko‘rsatiladi.
-
-### Saralanganlar, eksport/import va offline rejim
-`localStorage` asosidagi saralanganlar, JSON eksport/import funksiyasi, responsive o‘ng sidebar, o‘quv modal oynasi, PWA service worker va offline paket boshqaruvi joriy qilingan. Qurilma ma’lumotlari, 100 ta dosye va rasm metadata si source-of-truth sifatida saqlanadi.
+Responsive layoutning 320/375 px mobil, 768 px planshet, 1280 px desktop va 1920 px TV viewportlari tekshirildi. Sidebar, mobil bottom navigation, dark hero, 16-qadamli SOP rail, katalog kartalari, Pure CSS 3D Carousel va DeviceViewer modalining o‘lchamlari hamda overflow holati verifikatsiya qilindi. TypeScript check, production build, katalog/device/carousel regressiya testlari va `verify_continuity_docs.mjs` auditi muvaffaqiyatli yakunlandi; continuity statusi `READY`. Faqat `.env.example` mavjud emasligi oldindan hujjatlashtirilgan system-security exception bo‘lib qoladi, haqiqiy maxfiy ma’lumotlar snapshotga kiritilmaydi.

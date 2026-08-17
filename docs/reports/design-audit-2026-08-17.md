@@ -31,3 +31,14 @@ Desktop va mobil screenshot tekshiruvida hero, CTA tugmalari, header actions, si
 ### Navigatsiya interactionlari qayta tekshiruvi
 
 Yakuniy desktop screenshotda sidebarning faol bandida chap teal indikator, hover/focus uchun yumshoq soya va ikonka mikro-siljishi mavjud dizayn tiliga mos ko‘rindi; hero va ikkala CTA tugmasi joylashuvi o‘zgarmadi. Mobil screenshotda header actionlari, hero SOP rail, ikki CTA va bottom navigation uchun ajratilgan joy saqlanib qoldi. Touch viewport uchun hover media query bilan cheklangani sabab mobil layoutda yopishib qolgan hover holati kuzatilmadi.
+
+## Responsive audit — 2026-08-17
+
+Desktop 1280 px viewportda mavjud sidebar, dark-teal hero, 16-qadam SOP rail va kartalar tizimi vizual jihatdan barqaror ko‘rindi. Keng ekranlar uchun asosiy nazorat nuqtalari kontentning haddan tashqari yoyilib ketmasligi, hero va katalogning bir xil max-width ichida qolishi hamda TV ko‘rinishida matn va kartalar juda kichrayib ketmasligidir.
+
+Telefon 390×844 viewportda top navigation compact holatga o‘tadi, hero ichidagi 16 qadam raili ikki qatorda o‘qiladigan bo‘ladi va CTA tugmalari touch uchun yetarli balandlikni saqlaydi. Keyingi responsive ishlar davomida hero sarlavhasi, rail, CTA va katalog kartalari orasidagi vertikal spacing, horizontal overflow, modal kengligi va 3D carousel touch-friendly holati alohida verifikatsiya qilinadi.
+
+
+### Responsive layout qayta tekshiruvi — 2026-08-17
+
+1280×720 desktop, 768×1024 planshet, 375×812 telefon, 320×740 tor telefon va 1920×1080 TV viewportlarida tekshirildi. Sidebar desktopda 250px, planshetda ixcham 76px va telefonda touch-friendly bottom navigation rejimida ishladi. Hero, 16-qadamli SOP rail, statistika kartalari va action tugmalari barcha viewportlarda konteyner ichida qoldi; 320px kenglikda sarlavha ko‘proq satrga bo‘lindi, ammo gorizontal overflow yoki kesilgan matn kuzatilmadi. Pure CSS 3D Carousel geometriyasi clamp asosidagi scene/card o‘lchamlari bilan moslashtirildi, original gorizontal aylanish va pagination mantig‘i saqlandi. DeviceViewer modalidagi rasm, ikki ustunli o‘quv layouti va sarlavha o‘lchami telefon/planshet uchun moslashtirildi. `prefers-reduced-motion` qoidalari saqlanib, animation va transitionlar qisqartiriladi.

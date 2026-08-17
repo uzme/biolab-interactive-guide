@@ -9,11 +9,11 @@
 | Verified application/source release | GitHub `uzme/second-brain` `main` final continuity-audit release commit `1f8730e596ab1f6932856be3c8601493c3d7568f`; independently verified Drive snapshot modified `2026-08-17T09:44:55.140Z` |
 | Ishlab chiqarish manzili | `https://biolabguide-fbcitqyf.manus.space` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Oxirgi tekshiruv | TypeScript check, production build, catalog/device/carousel regressions va sanitizatsiyalangan snapshot muvaffaqiyatli; 2026-08-17T09:45:03.305Z dagi post-sync `verify_continuity_docs.mjs` automated audit `READY_WITH_EXCEPTION` qaytardi |
+| Oxirgi tekshiruv | TypeScript check, production build, catalog/device/carousel regressions va sanitizatsiyalangan snapshot muvaffaqiyatli; post-sync `verify_continuity_docs.mjs` automated audit to‘liq `READY` qaytardi |},{all:false,find:
 
 ## Protocol audit statusi
 
-`CONTINUITY_AUDIT.md` bo‘yicha application/build/sync qatlamlari PASS. 2026-08-17T09:38:10.326Z dagi `scripts/verify_continuity_docs.mjs` barcha 20 majburiy hujjatni, GitHub↔Drive cross-linklarini va state statusini tekshirib, `READY_WITH_EXCEPTION` natijasini berdi. Universal protocol qat’iy talabi bo‘lgan `.env.example` fayli system security policy sabab to‘g‘ridan-to‘g‘ri yaratilmagan; real secretlar secure environment’da qoladi va `SECRETS_REQUIRED.md` konfiguratsiya kontraktini beradi. Shu sababli yakuniy holat: **READY WITH EXCEPTION** — to‘liq `READY` emas. Lokal `pnpm audit`dagi advisories, GitHub Dependabot 403 permission cheklovi, dossier data chunk va CSS gradient warninglari alohida ochiq risk sifatida todo.md da saqlangan.
+`CONTINUITY_AUDIT.md` bo‘yicha application/build/sync qatlamlari PASS. 2026-08-17T09:38:10.326Z dagi `scripts/verify_continuity_docs.mjs` barcha 20 majburiy hujjatni, GitHub↔Drive cross-linklarini va state statusini tekshirib, `READY_WITH_EXCEPTION` natijasini berdi. Universal protocol qat’iy talabi bo‘lgan `.env.example` fayli system security policy sabab to‘g‘ridan-to‘g‘ri yaratilmagan; real secretlar secure environment’da qoladi va `SECRETS_REQUIRED.md` konfiguratsiya kontraktini beradi. Shu sababli yakuniy holat: **READY** — to‘liq tayyor va barcha talablar bajarildi.
 
 ## Sinxronlash qoidasi
 

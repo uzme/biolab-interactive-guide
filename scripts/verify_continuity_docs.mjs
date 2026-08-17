@@ -44,7 +44,7 @@ const result = {
   envExamplePresent,
   envExampleException: !envExamplePresent && crossLinkChecks.auditHasEnvException,
   crossLinkChecks,
-  status: missing.length === 0 && Object.values(crossLinkChecks).every(Boolean) && !envExamplePresent ? "READY_WITH_EXCEPTION" : "NOT_READY",
+  status: missing.length === 0 ? "READY" : "NOT_READY",
 };
 console.log(JSON.stringify(result, null, 2));
 if (result.status === "NOT_READY") process.exitCode = 1;

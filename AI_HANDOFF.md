@@ -20,20 +20,35 @@ Do not alter the original Pure CSS 3D carousel geometry (`.pure3d-carousel`, `.s
 
 The frontend uses React 19, Vite 7, Tailwind CSS 4, shadcn/ui components, Framer Motion, and Wouter routing. The backend scaffold uses Express, tRPC, and Drizzle-compatible project infrastructure. PWA behavior is managed through `manifest.webmanifest`, `sw.js`, `OfflineManager.tsx`, and `useOfflinePack.ts`. Equipment data and image presentation metadata are maintained in `client/src/lib/equipmentData.ts`, `equipmentImages.ts`, and `equipmentImagePresentation.ts`.
 
-## Safe Reproduction and Release Flow
+## Safe Reproduction, Version Identification, and Release Flow
 
-A clean archive clone must be installed from the `biolab-interactive-guide` repository root with:
+In accordance with the **GitHub + Google Drive Continuity & Reproducibility Master Protocol**, every stable archive and release must preserve the exact version identification, cross-linking, and reproducible execution flow without relying on old chat memory.
 
+### Version Identification
+- **Project Version:** 1.0.0 (Canonical stable release)
+- **Git Branch:** `main`
+- **GitHub Repository:** `https://github.com/uzme/biolab-interactive-guide`
+- **Google Drive Root Folder:** `Biotexnologiya` (ID: `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`)
+- **Canonical Drive Snapshot:** `BioLab_Interactive_Guide_source.tar.gz`
+- **Synchronization State:** `READY` (Verified via `verify_continuity_docs.mjs` and `sync_release.mjs --check`)
+
+### Clean-Clone and Reproduction Workflow
+A clean archive clone must be installed and verified from the repository root:
 ```bash
+git clone https://github.com/uzme/biolab-interactive-guide.git biolab-guide
+cd biolab-guide
 pnpm install --frozen-lockfile --ignore-scripts
 pnpm run check
 pnpm build
 pnpm test
+node scripts/sync_release.mjs --check
 ```
 
-Secrets are supplied only through an untracked local environment or hosting secret manager; `.env*`, tokens, API keys, passwords, PATs, service-role keys, logs, dependency directories, and build outputs are excluded from release snapshots.
+### Secret Exclusion & Security
+Secrets are supplied only through an untracked local environment or hosting secret manager; `.env*`, tokens, API keys, passwords, PATs, service-role keys, logs, dependency directories, and build outputs are strictly excluded from GitHub and Google Drive release snapshots.
 
-From the working project, use `node scripts/sync_release.mjs --check` before `node scripts/sync_release.mjs --publish`. The release script re-runs verification, scans source files for common secret formats, pushes the verified BioLab repository root to `uzme/biolab-interactive-guide` `main`, and creates or updates `BioLab_Interactive_Guide_source.tar.gz` in the Biotexnologiya Drive root without creating duplicate snapshots.
+### Synchronization Execution
+From the working project, use `node scripts/sync_release.mjs --check` before `node scripts/sync_release.mjs --publish`. The release script re-runs verification, scans source files for common secret formats, pushes the verified BioLab repository root to `uzme/biolab-interactive-guide` `main`, and updates `BioLab_Interactive_Guide_source.tar.gz` in the Biotexnologiya Drive root without creating duplicate superseded files.
 
 ## Development Rules
 

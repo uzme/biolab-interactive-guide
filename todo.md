@@ -68,3 +68,11 @@
 
 - [x] Playwright testida service worker cache orqali haqiqiy offline reload va app shell tiklanishini assert qilish
 - [x] Playwright testida `data-offline-status` atributi va Onlayn → Offline holat almashishini assert qilish
+
+## Master Protocol Reproduktibilitet va Hujjatlashtirish
+- [x] MANUS_PROJECT_REPRODUCIBILITY_GITHUB_ARCHIVE_MASTER_PROTOCOL.md protokolini o‘qib to‘liq audit qilish
+- [x] SOURCE_OF_TRUTH asosida `PROJECT_MANIFEST.md`, `ARCHITECTURE.md`, `DATABASE.md`, `REPRODUCTION.md`, `AI_HANDOFF.md`, `CURRENT_STATE.md`, `PROJECT_INVENTORY.md`, `DECISIONS.md`, `CHANGELOG.md`, `TROUBLESHOOTING.md`, `SECRETS_REQUIRED.md` hujjatlarini yaratish
+- [x] todo.md dagi barcha vazifalarni yangi tizim bilan birlashtirish va hech qanday funksiyani yo‘qotmaslik
+- [x] Secrets siyosatiga rioya qilgan holda kodni o‘zgartirmasdan saqlash
+- [ ] Build, typecheck, test va clean-clone reproducibility verificationni bajarish
+- [ ] READY / NOT READY hisoboti va sanitizatsiyalangan GitHub/Drive release sinxronizatsiyasini yakunlash

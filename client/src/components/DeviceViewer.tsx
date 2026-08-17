@@ -2,7 +2,7 @@
   BioLab style: precise Uzbek scientific curriculum, cold laboratory canvas, clear reading rhythm.
   Content policy: model-specific settings are never invented; use official manuals and approved SOPs.
 */
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   AlertTriangle,
   ArrowLeft,
@@ -27,7 +27,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import type { Equipment } from "@/lib/equipmentData";
 import { equipmentImages } from "@/lib/equipmentImages";
 import { getImagePresentation } from "@/lib/equipmentImagePresentation";
-import { learningByNumber, purchaseByNumber } from "@/lib/learningData";
+import { loadLearningContent, loadPurchaseContent } from "@/lib/learningData";
+import type { LearningContent, PurchaseContent } from "@/lib/learningData";
 
 function SourceText({ value }: { value: string }) {
   const normalized = value.replace(/\*\*/g, "").replace(/^>\s?/gm, "").trim();
@@ -42,8 +43,39 @@ function SourceText({ value }: { value: string }) {
 
 export default function DeviceViewer({ device, onBack }: { device: Equipment; onBack: () => void }) {
   const [lessonIndex, setLessonIndex] = useState(0);
-  const learning = learningByNumber[device.number];
-  const purchase = purchaseByNumber[device.number];
+  const [learning, setLearning] = useState<LearningContent>();
+  const [purchase, setPurchase] = useState<PurchaseContent>();
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadError, setLoadError] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    setLessonIndex(0);
+    setIsLoading(true);
+    setLoadError(false);
+    setLearning(undefined);
+    setPurchase(undefined);
+
+    Promise.all([loadLearningContent(device.number), loadPurchaseContent(device.number)])
+      .then(([nextLearning, nextPurchase]) => {
+        if (cancelled) return;
+        setLearning(nextLearning);
+        setPurchase(nextPurchase);
+        setLoadError(!nextLearning);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setLoadError(true);
+      })
+      .finally(() => {
+        if (!cancelled) setIsLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [device.number]);
+
   const image = equipmentImages[device.id];
   const imagePresentation = getImagePresentation(device.id);
   const verificationSource = learning?.sources.find((source) => source.url);
@@ -151,7 +183,7 @@ ${purchase ? `
           >
             <Download size={15} /> PDF eksport qilish
           </button>
-          <div className="rounded-full border border-[#b7d6ca] bg-white px-3 py-1.5 text-xs font-bold text-[#126a6a]">{lessonIndex + 1} / 16</div>
+          <div className="rounded-full border border-[#b7d6ca] bg-white px-3 py-1.5 text-xs font-bold text-[#126a6a]">{learning ? `${lessonIndex + 1} / 16` : "Yuklanmoqda…"}</div>
         </div>
       </div>
     </header>
@@ -186,6 +218,8 @@ ${purchase ? `
         </div>
       </section>
 
+      {isLoading && <section className="mt-8 rounded-[28px] border border-[#d8e7e3] bg-white p-8 text-center shadow-[0_16px_45px_rgba(28,71,67,0.05)]" role="status" aria-live="polite"><div className="mx-auto h-3 w-36 animate-pulse rounded-full bg-[#cfe5dc]" /><h2 className="display mt-5 text-2xl font-bold text-[#173d42]">O‘quv dosyesi yuklanmoqda…</h2><p className="mt-2 text-sm leading-6 text-[#68857f]">Faqat tanlangan qurilmaning o‘quv ma’lumotlari yuklanmoqda.</p><div className="loading-dots mx-auto mt-5 text-[#0d7774]" aria-hidden="true"><span /><span /><span /></div></section>}
+      {loadError && !isLoading && !learning && <section className="mt-8 rounded-[28px] border border-[#edd8a5] bg-[#fff9e9] p-8 text-center" role="alert"><h2 className="display text-2xl font-bold text-[#6f5a26]">O‘quv dosyesi yuklanmadi</h2><p className="mt-2 text-sm leading-6 text-[#75612e]">Qurilma ma’lumotini qayta oching yoki keyinroq urinib ko‘ring.</p></section>}
       {sections.length > 0 && <section className="mt-8 grid gap-6 lg:grid-cols-[300px_minmax(0,1fr)]">
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <div className="rounded-[24px] border border-[#d8e7e3] bg-white p-4 shadow-[0_14px_40px_rgba(28,71,67,0.06)]">

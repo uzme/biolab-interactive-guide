@@ -1,8 +1,11 @@
-import { ArrowUpRight, BookOpen, Heart, ImageOff, Trash2 } from "lucide-react";
+import { useRef, type ChangeEvent } from "react";
+import { ArrowUpRight, BookOpen, Download, Heart, ImageOff, Trash2, Upload } from "lucide-react";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { toast } from "sonner";
 import type { Equipment } from "@/lib/equipmentData";
 import { equipmentImages } from "@/lib/equipmentImages";
 import { getImagePresentation } from "@/lib/equipmentImagePresentation";
+import type { BookmarkImportResult } from "@/hooks/useBookmarks";
 
 type BookmarksSidebarProps = {
   open: boolean;
@@ -11,6 +14,8 @@ type BookmarksSidebarProps = {
   onSelectDevice: (device: Equipment) => void;
   onToggleBookmark: (deviceId: string) => void;
   onClearBookmarks: () => void;
+  onExportBookmarks: () => void;
+  onImportBookmarks: (file: File) => Promise<BookmarkImportResult>;
 };
 
 export default function BookmarksSidebar({
@@ -20,7 +25,23 @@ export default function BookmarksSidebar({
   onSelectDevice,
   onToggleBookmark,
   onClearBookmarks,
+  onExportBookmarks,
+  onImportBookmarks,
 }: BookmarksSidebarProps) {
+  const importInputRef = useRef<HTMLInputElement>(null);
+
+  const handleImportChange = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (!file) return;
+    try {
+      await onImportBookmarks(file);
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Faylni import qilishda xatolik yuz berdi";
+      toast.error(message);
+    }
+  };
+
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent
@@ -45,20 +66,41 @@ export default function BookmarksSidebar({
               </div>
             </div>
           </div>
-          <div className="mt-4 flex items-center justify-between gap-3 rounded-xl border border-[#d4e6df] bg-[#edf7f4] px-3 py-2.5">
-            <div>
-              <div className="metric-number text-2xl font-bold text-[#0b6663]">{devices.length}</div>
-              <div className="text-[9px] font-bold uppercase tracking-[0.13em] text-[#6f8c86]">saqlangan rekord</div>
+          <div className="mt-4 rounded-xl border border-[#d4e6df] bg-[#edf7f4] px-3 py-2.5">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <div className="metric-number text-2xl font-bold text-[#0b6663]">{devices.length}</div>
+                <div className="text-[9px] font-bold uppercase tracking-[0.13em] text-[#6f8c86]">saqlangan rekord</div>
+              </div>
+              {devices.length > 0 && (
+                <button
+                  type="button"
+                  onClick={onClearBookmarks}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-[#c5ddd3] bg-white px-2.5 py-2 text-[11px] font-bold text-[#0d7774] transition hover:border-[#0d7774] hover:bg-[#e5f3ed]"
+                >
+                  <Trash2 size={13} /> Barchasini tozalash
+                </button>
+              )}
             </div>
-            {devices.length > 0 && (
+            <div className="mt-3 grid grid-cols-2 gap-2">
               <button
                 type="button"
-                onClick={onClearBookmarks}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-[#c5ddd3] bg-white px-2.5 py-2 text-[11px] font-bold text-[#0d7774] transition hover:border-[#0d7774] hover:bg-[#e5f3ed]"
+                onClick={onExportBookmarks}
+                disabled={devices.length === 0}
+                className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#b8d8ce] bg-white px-2.5 py-2 text-[11px] font-bold text-[#0d7774] transition hover:border-[#0d7774] hover:bg-[#e5f3ed] disabled:cursor-not-allowed disabled:opacity-45"
               >
-                <Trash2 size={13} /> Barchasini tozalash
+                <Download size={13} /> JSON eksport
               </button>
-            )}
+              <button
+                type="button"
+                onClick={() => importInputRef.current?.click()}
+                className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#b8d8ce] bg-white px-2.5 py-2 text-[11px] font-bold text-[#0d7774] transition hover:border-[#0d7774] hover:bg-[#e5f3ed]"
+              >
+                <Upload size={13} /> JSON import
+              </button>
+              <input ref={importInputRef} type="file" accept="application/json,.json" className="sr-only" onChange={handleImportChange} />
+            </div>
+            <p className="mt-2 text-[10px] leading-4 text-[#6f8c86]">Eksport fayli faqat qurilma IDlarini saqlaydi; maxfiy ma’lumot kiritilmaydi.</p>
           </div>
         </SheetHeader>
 

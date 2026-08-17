@@ -61,7 +61,13 @@ export default function Home() {
   const [bookmarksOpen, setBookmarksOpen] = useState(false);
   const [bookmarksOnly, setBookmarksOnly] = useState(false);
   const [isFilterPending, startFilterTransition] = useTransition();
-  const { bookmarkedIds, bookmarkedCount, isBookmarked, toggleBookmark, clearBookmarks } = useBookmarks();
+  const validDeviceIds = useMemo(() => new Set(equipment.map((device) => device.id)), []);
+  const { bookmarkedIds, bookmarkedCount, isBookmarked, toggleBookmark, clearBookmarks, exportBookmarks, importBookmarks } = useBookmarks(validDeviceIds);
+  const handleImportBookmarks = async (file: File) => {
+    const result = await importBookmarks(file);
+    toast.success(`${result.addedCount} ta qurilma import qilindi${result.ignoredCount ? `, ${result.ignoredCount} ta noma’lum ID e’tiborsiz qoldirildi` : ""}.`);
+    return result;
+  };
   const bookmarkedDevices = useMemo(() => bookmarkedIds.map((id) => equipment.find((device) => device.id === id)).filter((device): device is Equipment => Boolean(device)), [bookmarkedIds]);
 
   const categoryCounts = useMemo(() => categories.slice(1).map((category) => ({ name: category, count: equipment.filter((item) => item.category === category).length })), []);
@@ -159,7 +165,7 @@ export default function Home() {
         </section>
       </div>
     </main>
-    <BookmarksSidebar open={bookmarksOpen} onOpenChange={setBookmarksOpen} devices={bookmarkedDevices} onSelectDevice={setSelectedDevice} onToggleBookmark={toggleBookmark} onClearBookmarks={clearBookmarks} />
+    <BookmarksSidebar open={bookmarksOpen} onOpenChange={setBookmarksOpen} devices={bookmarkedDevices} onSelectDevice={setSelectedDevice} onToggleBookmark={toggleBookmark} onClearBookmarks={clearBookmarks} onExportBookmarks={exportBookmarks} onImportBookmarks={handleImportBookmarks} />
     {selectedDevice && <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#173d42]/60 p-2 backdrop-blur-md sm:p-6" onClick={() => setSelectedDevice(null)}><div className="relative max-h-[92vh] w-full max-w-6xl overflow-hidden rounded-[30px] border border-[#d8e7e3] bg-white shadow-[0_30px_90px_rgba(20,68,64,0.3)]" onClick={(e) => e.stopPropagation()}><Suspense fallback={<div className="grid min-h-96 place-items-center bg-[#f7fbfa] px-6 text-center text-[#173d42]"><div className="w-full max-w-md space-y-4"><div className="mx-auto h-3 w-28 animate-pulse rounded-full bg-[#cfe5dc]" /><div className="mx-auto h-8 w-3/4 animate-pulse rounded-xl bg-[#dcece6]" /><div className="mx-auto h-24 w-full animate-pulse rounded-2xl bg-[#e7f3ee]" /><div className="loading-dots mx-auto text-[#0d7774]" role="status" aria-label="Qurilmaning o‘quv dosyesi yuklanmoqda"><span /><span /><span /></div><p className="text-sm font-semibold text-[#587872]">Qurilmaning o‘quv dosyesi tayyorlanmoqda…</p></div></div>}><DeviceViewer device={selectedDevice} onBack={() => setSelectedDevice(null)} /></Suspense></div></div>}
     {settingsOpen && <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#173d42]/40 p-4 backdrop-blur-md" onClick={() => setSettingsOpen(false)}>
       <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-[28px] border border-[#d8e7e3] bg-white p-6 shadow-[0_24px_60px_rgba(28,71,67,0.2)] sm:p-8" onClick={(e) => e.stopPropagation()}>

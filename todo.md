@@ -9,3 +9,7 @@
 - [x] Sanitizatsiyalangan source snapshotni faqat Biotexnologiya Drive root papkasiga (`BioLab_Interactive_Guide_source.tar.gz`) va GitHub `uzme/biolab-interactive-guide` main branchining rootiga sinxronlash
 - [x] PROJECT_STATE.md, CURRENT_STATE.md, CONTINUITY_AUDIT.md, GITHUB_INDEX.md, DRIVE_INDEX.md, RESTORATION_MAP.md va REPRODUCTION.md hujjatlarini final commit va Drive snapshot ID bilan to‘liq yangilash
 - [x] CHECK READY va READY statusini automated audit orqali tasdiqlab, final checkpointni yaratish va productionga chiqarish
+- [ ] Learning-data uchun dynamic import / manualChunks orqali code-splitting joriy etish
+- [ ] Bookmarks sidebar uchun JSON formatida eksport va import funksiyalarini qo‘shish
+- [ ] Dependency security advisorylarini xavfsiz va regressiyasiz paket yangilanishlari orqali kamaytirish
+- [ ] Typecheck, production build, testlar va sanitizatsiyalangan canonical GitHub↔Drive release syncni bajarish

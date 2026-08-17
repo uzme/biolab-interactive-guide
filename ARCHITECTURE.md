@@ -1,16 +1,25 @@
 # BioLab Interactive Guide — Architecture Documentation
 
 ## System Architecture
-BioLab Interactive Guide is structured as a full-stack web application built on a robust client-server architecture. The frontend is powered by React 19, Vite, and Tailwind CSS 4, providing an interactive, responsive user interface with a 3D animated carousel, 16-section deep learning dossiers, and PWA offline capabilities. The backend consists of an Express server running tRPC 11 endpoints, backed by Drizzle ORM and MySQL/TiDB storage.
+
+BioLab Interactive Guide React 19, TypeScript, Vite 7 va Tailwind CSS 4 asosidagi full-stack web ilovadir. Frontend interaktiv katalog, original horizontal Pure CSS 3D carousel, 16 bo‘limli qurilma dosyesi, Saralanganlar sidebar’i va PWA offline holatini taqdim etadi. Backend Express, tRPC 11, Drizzle ORM va MySQL/TiDB compatibility qatlamidan foydalanadi.
 
 ## Frontend Architecture
-The client application is organized into modular pages (`Home.tsx`, `NotFound.tsx`), reusable UI components (`Pure3DCarousel.tsx`, `EquipmentCard.tsx`, `DeviceViewer.tsx`, `BookmarksSidebar.tsx`, `OfflineManager.tsx`), custom hooks (`useBookmarks.ts`, `useOfflinePack.ts`), and context providers (`ThemeContext.tsx`). PWA support is integrated via `manifest.webmanifest` and `sw.js`, which handles network-first navigation, stale-while-revalidate asset caching, and cache-first device image loading.
 
-## Backend & API Architecture
-The server architecture leverages tRPC for end-to-end type-safe API contracts without manual REST boilerplate. Database queries and mutations are managed through Drizzle ORM query helpers in `server/db.ts`. Authentication and session management utilize Manus OAuth integration with secure HttpOnly cookies.
+`client/src/pages/Home.tsx` katalog shell’ini, qidiruv/filtr boshqaruvlarini va o‘quv modaliga kirishni boshqaradi. `Pure3DCarousel.tsx` original `.pure3d-carousel`, `.scene`, `.a3d` va `.card` geometriyasini saqlaydi. `DeviceViewer.tsx` 16 bosqichli o‘quv dosyesini, `EquipmentCard.tsx` qurilma metadata sini, `BookmarksSidebar.tsx` browser localStorage asosidagi Saralanganlar oqimini, `OfflineManager.tsx` esa PWA holati va offline paket boshqaruvini ta’minlaydi.
 
-## Data Flow & Storage
-User interactions trigger tRPC queries or mutations from React components. Bookmarks and offline preferences persist locally in browser `localStorage`. Device learning dossiers, SOP checklists, and specifications are loaded dynamically from structured TypeScript datasets. Media assets are optimized as WebP files and cached locally via Service Worker or served from secure S3 storage.
+## Backend, Data & Storage
+
+Server tRPC orqali type-safe contractlarni taqdim etadi. Drizzle schema va migration metadata `drizzle/` ichida saqlanadi; production database ma’lumotlari arxivga kiritilmaydi. Qurilma katalogi va o‘quv mazmuni structured TypeScript datasetlaridan keladi. Media assetlar S3/Drive canonical manzillarida saqlanadi; runtime snapshotlar va katta binary fayllar source archive ichiga nazoratsiz ko‘chirilmaydi.
+
+## PWA & Client Persistence
+
+`manifest.webmanifest` installable app metadata sini, `sw.js` esa navigation/asset cache strategiyasini boshqaradi. Bookmarklar `localStorage`da qoladi va serverga yuborilmaydi. Offline status va paket holati foydalanuvchiga ko‘rinadigan Uzbek interfeys orqali beriladi.
 
 ## Deployment & Synchronization Flow
-Automated synchronization is handled via `scripts/sync_release.mjs`. The workflow executes a two-step process: checking the build/test status (`--check`) and publishing sanitised source archives to GitHub (`uzme/biolab-interactive-guide` main branch) and Google Drive (`Biotexnologiya yangi / Loyiha 1` folder, updating `BioLab_Interactive_Guide_source.zip` without duplication).
+
+`node scripts/sync_release.mjs --check` typecheck, production build, katalog/qurilma regressiya testlari va sanitizatsiya fingerprintini tekshiradi. `--publish` shu tekshiruvdan keyin maxfiy va runtime fayllarsiz snapshotni GitHub `uzme/second-brain` repository’sining `main/projects/biolab-guide` yo‘liga hamda Google Drive’dagi yagona Second Brain root ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd` ichidagi mavjud canonical snapshotga yuboradi. Eski `uzme/biolab-interactive-guide` va `Biotexnologiya yangi / Loyiha 1` manzillari faqat tarixiy qaydlar sifatida qoladi; joriy workflow ularga yozmaydi.
+
+## Reproducibility Boundary
+
+Source code, schema, tests va documentation GitHub’da; images, screenshots, PDFs, large archives va reference assets Drive’da; real credentials esa secure environment’da saqlanadi. `DRIVE_INDEX.md`, `GITHUB_INDEX.md` va `RESTORATION_MAP.md` uch qatlamni qayta tiklash uchun o‘zaro bog‘laydi.

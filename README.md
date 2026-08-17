@@ -1,99 +1,65 @@
 # BioLab Interactive Guide
 
-[![CI](https://github.com/uzme/biolab-interactive-guide/actions/workflows/ci.yml/badge.svg)](https://github.com/uzme/biolab-interactive-guide/actions/workflows/ci.yml)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=20232A)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+BioLab Interactive Guide — 100 ta biotexnologiya qurilmasini 10 kategoriya, qidiruv/filtr, original horizontal Pure CSS 3D carousel va 16 bosqichli o‘quv dosyesi orqali o‘rgatuvchi professional platforma. Interfeysda Saralanganlar browser xotirasi, responsive bookmarks sidebar, PWA offline holati va qurilma rasmi/litsenziya metadata si mavjud.
 
-**BioLab Interactive Guide** is an interactive learning platform for exploring **100 biotechnology devices** through a structured catalogue and device viewer experience.
+## Current Source of Truth
 
-## Preview
+Joriy tasdiqlangan source GitHub’dagi [`uzme/second-brain`](https://github.com/uzme/second-brain) repository’sining `main/projects/biolab-guide` yo‘lida saqlanadi. Katta binary/reference materiallar va sanitizatsiyalangan snapshotlar Google Drive’dagi yagona Second Brain root papkasida (`1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`) saqlanadi. Real secrets faqat secure environment’da bo‘ladi. Eski `uzme/biolab-interactive-guide` va `Biotexnologiya yangi / Loyiha 1` manzillari tarixiy, joriy sync manzili emas.
 
-![BioLab Interactive Guide preview](./docs/preview.webp)
+## Tech Stack
 
-The interface combines a searchable catalogue, category filters, equipment records, and a structured 16-step learning flow for each device.
+- **Frontend:** React 19, TypeScript, Vite 7, Tailwind CSS 4, shadcn/ui, Wouter.
+- **Backend:** Node.js 22, Express 4, tRPC 11, Drizzle ORM, MySQL/TiDB compatibility.
+- **PWA:** `manifest.webmanifest`, `sw.js`, `OfflineManager`.
+- **Testing:** TypeScript check, production build va Playwright regressiya skriptlari.
+- **Package manager:** pnpm.
 
-The project is designed to make technical biotechnology information easier to browse, understand, and use in an educational context.
+## Installation and Validation
 
-## Highlights
-
-- Structured catalogue of biotechnology devices.
-- Interactive device browsing and viewer flows.
-- Responsive web interface for desktop and mobile screens.
-- Type-safe frontend and server code.
-- Automated checks for catalogue controls and device viewer behaviour.
-
-## Tech stack
-
-- **Frontend:** React, TypeScript, Vite
-- **Backend:** Node.js, Express
-- **UI:** Tailwind CSS, Radix UI, Lucide React
-- **Validation and utilities:** Zod, Axios
-- **Tooling:** pnpm, TypeScript, Prettier, Playwright
-
-## Getting started
-
-### Prerequisites
-
-- Node.js 20 or newer
-- pnpm 10 or newer
-
-### Installation
+Nested project clean-clone uchun Second Brain monorepo workspace’ini noto‘g‘ri ishlatib yubormaslik maqsadida quyidagi buyruqlardan foydalaning:
 
 ```bash
-pnpm install
+cd projects/biolab-guide
+pnpm install --ignore-workspace --frozen-lockfile --ignore-scripts
+pnpm run check
+pnpm build
+pnpm test
+node scripts/test_catalog_controls.mjs
+node scripts/test_device_viewer.mjs
 ```
 
-### Development
+Development server:
 
 ```bash
 pnpm dev
 ```
 
-### Validation
+Release validation va sanitizatsiya:
 
 ```bash
-pnpm check
-pnpm test
+node scripts/sync_release.mjs --check
+node scripts/sync_release.mjs --publish
 ```
 
-### Production build
+`--check` upload bajarmaydi; `--publish` esa avval test, build va secret sanitizatsiyasini bajaradi. Snapshotga `.env*`, tokenlar, parollar, API kalitlari, PATlar, `node_modules`, `dist`, loglar va runtime chiqindilari kiritilmaydi.
 
-```bash
-pnpm build
-pnpm start
-```
-
-## Project structure
+## Project Structure
 
 ```text
-client/       Frontend application
-components/   Shared UI components
-docs/         Project documentation
-server/       Server entry point and backend code
-scripts/      Automated project checks
-shared/       Shared types and utilities
+client/       React frontend, pages, components, hooks and PWA integration
+server/       Express, tRPC, auth and database helpers
+drizzle/      Database schema and migration metadata
+scripts/      Release automation and browser regression tests
+shared/       Shared types and constants
+storage/      S3 storage helpers
 ```
 
-## Quality checks
+## Continuity Documentation
 
-The repository uses GitHub Actions to run type checking and a production build on every push to `main` and every pull request targeting `main`. The interactive browser checks remain available locally through the project test scripts.
+`PROJECT_MANIFEST.md`, `PROJECT_STATE.md`, `CURRENT_STATE.md`, `PROJECT_INVENTORY.md`, `ARCHITECTURE.md`, `DATABASE.md`, `REPRODUCTION.md`, `AI_HANDOFF.md`, `SECRETS_REQUIRED.md`, `TROUBLESHOOTING.md`, `DECISIONS.md`, `CHANGELOG.md`, `todo.md`, `DRIVE_INDEX.md`, `GITHUB_INDEX.md` va `RESTORATION_MAP.md` yangi AI/account orqali loyihani qayta tiklash uchun source-of-truth hujjatlarini tashkil qiladi.
 
-```bash
-pnpm check
-pnpm test
-pnpm build
-```
+`DRIVE_INDEX.md` canonical binary va snapshot manzillarini, `GITHUB_INDEX.md` esa Drive’dan GitHub source va muhim hujjatlarga qaytish URL’larini ko‘rsatadi. `RESTORATION_MAP.md` kod, database schema, assetlar va secure environment’ni tiklash usullarini belgilaydi.
 
 ## Status
 
-The project is under active development. Product notes and implementation progress are tracked in [`PROJECT_STATE.md`](./PROJECT_STATE.md) and [`todo.md`](./todo.md).
-
-## Contributing
-
-Suggestions and focused improvements are welcome. Please open an issue first for substantial changes so that the intended direction can be discussed before implementation.
-
-## License
-
-This project is released under the [MIT License](./LICENSE).
+Loyiha production’da `https://biolabguide-fbcitqyf.manus.space` manzilida ishlaydi. Joriy test/build holati va known limitations `CURRENT_STATE.md`, audit tarixi `PROJECT_STATE.md`, bajariladigan yoki kelajakdagi ishlar esa `todo.md` orqali yuritiladi.

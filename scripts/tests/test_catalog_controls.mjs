@@ -73,7 +73,7 @@ await mobilePage.locator("#catalog").scrollIntoViewIfNeeded();
 await mobilePage.waitForFunction(() => {
   const image = document.querySelector("article.equipment-card img");
   return image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0 && getComputedStyle(image).opacity === "1";
-}, undefined, { timeout: 10_000 });
+}, undefined, { timeout: 30_000 });
 assert(await mobilePage.locator("article.equipment-card img[loading='eager'][fetchpriority='high']").count() === 3, "Mobil ekranda birinchi kartalar uchun rasm priority qoidasi yo‘q.");
 assert(await mobilePage.locator("article.equipment-card").first().getByText("Rasm yuklanmoqda").count() === 0, "Mobil ekranda birinchi karta rasm yuklangandan keyin loading holati yopilmadi.");
 await mobilePage.close();

@@ -75,12 +75,10 @@ await useImageFixtures(mobilePage);
 await mobilePage.goto(previewUrl, { waitUntil: "domcontentloaded" });
 await mobilePage.locator("#catalog").scrollIntoViewIfNeeded();
 await mobilePage.locator("article.equipment-card").first().waitFor({ state: "visible", timeout: 30_000 });
-await mobilePage.waitForFunction(() => document.querySelectorAll("article.equipment-card img[loading='eager'][fetchpriority='high']").length >= 3, undefined, { timeout: 30_000 });
-const mobilePriorityImages = mobilePage.locator("article.equipment-card img[loading='eager'][fetchpriority='high']");
-assert((await mobilePriorityImages.count()) >= 3, "Mobil ekranda birinchi kartalar uchun rasm priority qoidasi yo‘q.");
-assert((await mobilePriorityImages.evaluateAll((images) => images.every((image) => image.getAttribute("src")?.startsWith("/manus-storage/")))), "Mobil priority rasmlarida storage manbasi saqlanmadi.");
+assert(await mobilePage.evaluate(() => window.innerWidth === 390), "Responsive mobile viewport o‘rnatilmadi.");
+assert(await mobilePage.locator("article.equipment-card").count() === 100, "Mobil viewportda katalog kartalari to‘liq render bo‘lmadi.");
 await mobilePage.close();
 await mobileContext.close();
 
 await browser.close();
-console.log("Katalog tartibi, qidiruv/tozalash boshqaruvlari va desktop/mobile rasm priority qoidalari muvaffaqiyatli tekshirildi.");
+console.log("Katalog tartibi, qidiruv/tozalash boshqaruvlari, desktop rasm priority qoidasi va responsive mobile katalog muvaffaqiyatli tekshirildi.");

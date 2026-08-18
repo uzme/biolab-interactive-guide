@@ -12,8 +12,15 @@ const assert = (condition, message) => {
   if (!condition) throw new Error(message);
 };
 
+const imageFixture = '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" fill="#d6e7e2"/><circle cx="32" cy="32" r="18" fill="#0d7774"/></svg>';
+const useImageFixtures = async (targetPage) => {
+  await targetPage.route("**/manus-storage/**", async (route) => {
+    await route.fulfill({ status: 200, contentType: "image/svg+xml", body: imageFixture });
+  });
+};
 const cardCodes = async () => page.locator("article.equipment-card [data-equipment-code]").allTextContents();
 
+await useImageFixtures(page);
 await page.goto(previewUrl, { waitUntil: "networkidle" });
 await page.locator("#catalog").scrollIntoViewIfNeeded();
 
@@ -68,6 +75,7 @@ codes = await cardCodes();
 assert(codes.length === 100 && codes[0] === "BIO-001" && codes.at(-1) === "BIO-100", "Tozalashdan keyin BIO-001–BIO-100 tartibi tiklanmadi.");
 
 const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true });
+await useImageFixtures(mobilePage);
 await mobilePage.goto(previewUrl, { waitUntil: "domcontentloaded" });
 await mobilePage.locator("#catalog").scrollIntoViewIfNeeded();
 await mobilePage.waitForFunction(() => {

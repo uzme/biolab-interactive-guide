@@ -6,7 +6,7 @@ BioLab Interactive Guide is a professional Uzbek-language learning platform for 
 
 ## Current Source of Truth
 
-The working project at `/home/ubuntu/biolab-guide` is the source of truth during development. The sanitised archival copy is stored at the root of the `uzme/biolab-interactive-guide` GitHub repository. The only Drive destination for release snapshots is the Biotexnologiya yangi root folder with ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`.
+The working project at `/home/ubuntu/biolab-guide` is the source of truth during development. The sanitised archival copy is stored at the root of the `uzme/biolab-interactive-guide` GitHub repository. The only Drive destination for release snapshots is the Biotexnologiya root folder with ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`.
 
 ## Current Verified State
 
@@ -14,7 +14,7 @@ The latest verified release includes the transition-safe catalog regression asse
 
 ## Do Not Change Without Explicit Requirement
 
-Do not alter the original Pure CSS 3D carousel geometry (`.pure3d-carousel`, `.scene`, `.a3d`, and `.card`) while fixing unrelated issues. Do not remove or reorder the 16 educational sections, change the science-first visual language, fabricate reviews or testimonials, or place assets and secrets in the source tree. Write release snapshots only to the single canonical Biotexnologiya yangi root folder; do not modify Kodlar, PUBG, Skills, or any unrelated Drive folder.
+Do not alter the original Pure CSS 3D carousel geometry (`.pure3d-carousel`, `.scene`, `.a3d`, and `.card`) while fixing unrelated issues. Do not remove or reorder the 16 educational sections, change the science-first visual language, fabricate reviews or testimonials, or place assets and secrets in the source tree. Write release snapshots only to the single canonical Biotexnologiya root folder; do not modify Kodlar, PUBG, Skills, or any unrelated Drive folder.
 
 ## Architecture
 
@@ -28,7 +28,7 @@ In accordance with the **GitHub + Google Drive Continuity & Reproducibility Mast
 - **Project Version:** 1.0.0 (Canonical stable release)
 - **Git Branch:** `main`
 - **GitHub Repository:** `https://github.com/uzme/biolab-interactive-guide`
-- **Google Drive Root Folder:** `Biotexnologiya` (ID: `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`)
+- **Google Drive Root Folder:** `Biotexnologiya` (ID: `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`)
 - **Canonical Drive Snapshot:** `BioLab_Interactive_Guide_source.tar.gz`
 - **Synchronization State:** `READY` (Verified via `verify_continuity_docs.mjs` and `sync_release.mjs --check`)
 
@@ -41,14 +41,14 @@ pnpm install --frozen-lockfile --ignore-scripts
 pnpm run check
 pnpm build
 pnpm test
-node scripts/sync_release.mjs --check
+node scripts/release/sync_release.mjs --check
 ```
 
 ### Secret Exclusion & Security
 Secrets are supplied only through an untracked local environment or hosting secret manager; `.env*`, tokens, API keys, passwords, PATs, service-role keys, logs, dependency directories, and build outputs are strictly excluded from GitHub and Google Drive release snapshots.
 
 ### Synchronization Execution
-From the working project, use `node scripts/sync_release.mjs --check` before `node scripts/sync_release.mjs --publish`. The release script re-runs verification, scans source files for common secret formats, pushes the verified BioLab repository root to `uzme/biolab-interactive-guide` `main`, and updates `BioLab_Interactive_Guide_source.tar.gz` in the Biotexnologiya yangi Drive root without creating duplicate superseded files.
+From the working project, use `node scripts/release/sync_release.mjs --check` before `node scripts/release/sync_release.mjs --publish`. The release script re-runs verification, scans source files for common secret formats, pushes the verified BioLab repository root to `uzme/biolab-interactive-guide` `main`, and updates `BioLab_Interactive_Guide_source.tar.gz` in the Biotexnologiya Drive root without creating duplicate superseded files.
 
 ## Development Rules
 

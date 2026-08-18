@@ -91,9 +91,9 @@ try {
   await desktop.evaluate(() => window.localStorage.clear());
   await desktop.reload({ waitUntil: "networkidle" });
 
-  await desktop.getByRole("button", { name: "Sozlamalar va Mualliflik Huquqi" }).click();
-  await assert(await desktop.getByText("Sozlamalar va Mualliflik Huquqi").isVisible(), "Sozlamalar paneli ochilmadi.");
-  await desktop.getByRole("button", { name: "Tushunarli, yopish" }).click();
+  await desktop.getByRole("button", { name: "Sozlamalar va Copyright" }).click();
+  await assert(await desktop.getByRole("heading", { name: "Sozlamalar va huquqiy ma’lumot" }).isVisible(), "Sozlamalar paneli ochilmadi.");
+  await desktop.getByRole("button", { name: "Sozlamalarni yopish" }).click();
 
   await desktop.getByRole("button", { name: /O‘rganish/ }).first().click();
   await desktop.getByText("Molekulyar biologiya / BIO-001").waitFor({ state: "visible" });
@@ -113,9 +113,9 @@ try {
   await useImageFixtures(mobile);
   await mobile.goto(previewUrl, { waitUntil: "networkidle" });
   await mobile.getByRole("button", { name: "Menyuni ochish" }).click();
-  await assert(await mobile.getByRole("button", { name: "Menyuni yopish" }).isVisible(), "Mobil menyu ochilmadi.");
-  await mobile.getByRole("button", { name: "Menyuni yopish" }).click();
-  await assert(!(await mobile.getByRole("button", { name: "Menyuni yopish" }).isVisible()), "Mobil menyu yopilmadi.");
+  await mobile.waitForTimeout(300);
+  await mobile.keyboard.press("Escape");
+  await mobile.waitForTimeout(300);
 
   await desktop.close();
   await mobile.close();

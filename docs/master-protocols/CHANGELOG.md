@@ -3,7 +3,7 @@
 ## [1.0.0] — 2026-08-17
 
 ### Verified
-- Canonical repository is confirmed as `uzme/biolab-interactive-guide`, and the canonical Google Drive root folder is confirmed as `Biotexnologiya` (`19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`).
+- Canonical repository is confirmed as `uzme/biolab-interactive-guide`, and the canonical Google Drive root folder is confirmed as `Biotexnologiya` (`1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`).
 - `useTransition` race conditions in catalog search, filter clearing, category selection, and empty-state handling were successfully stabilized with Playwright assertion synchronization.
 - TypeScript checks, production builds, catalog controls, DeviceViewer, 16-section learning dossiers, carousel/pagination, and mobile menu regression tests passed successfully.
 - PWA offline shell, service worker, loading/ripple animations, bookmarks sidebar, and original horizontal Pure CSS 3D carousel geometry were verified.

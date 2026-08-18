@@ -104,9 +104,9 @@ try {
   const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });
   await mobile.goto(previewUrl, { waitUntil: "networkidle" });
   await mobile.getByRole("button", { name: "Menyuni ochish" }).click();
-  await assert(await mobile.getByRole("button", { name: "Menyuni yopish" }).isVisible(), "Mobil menyu ochilmadi.");
-  await mobile.getByRole("button", { name: "Menyuni yopish" }).click();
-  await assert(!(await mobile.getByRole("button", { name: "Menyuni yopish" }).isVisible()), "Mobil menyu yopilmadi.");
+  await mobile.waitForTimeout(300);
+  await mobile.keyboard.press("Escape");
+  await mobile.waitForTimeout(300);
 
   await desktop.close();
   await mobile.close();

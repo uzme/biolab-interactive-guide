@@ -9,4 +9,4 @@
 - [x] Lokal clean-clone katalog regression failure’ini minimal asset-serving yoki test-compatible source fix bilan bartaraf etish; Modern Precision Biotech dizayni, Pure CSS 3D Carousel geometriyasi va mavjud funksiyalarni o‘zgartirmaslik
 - [x] Offline asset pack’ni remote fallback assetlar bilan ham regression timeout’siz yakunlanadigan qilib, PWA cache semantics va Uzbek status oqimini saqlagan holda tekshirish
 - [x] Post-publish GitHub commit, Drive snapshot modified time va source fingerprint metadata’sini continuity hujjatlarida live holat bilan bir xil qilish
-- [ ] Vercel production deployment uchun `dist/public` output directory va root static routingini konfiguratsiya qilish; mavjud source, dizayn va funksiyalarni o‘zgartirmaslik
+- [x] Vercel production deployment uchun `dist/public` output directory va root static routingini konfiguratsiya qilish; mavjud source, dizayn va funksiyalarni o‘zgartirmaslik

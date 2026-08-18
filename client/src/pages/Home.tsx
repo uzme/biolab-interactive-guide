@@ -107,7 +107,7 @@ export default function Home() {
 
   return <div className="shell">
     <Sheet open={mobileNav} onOpenChange={setMobileNav}>
-      <SheetContent side="left" className="w-[min(86vw,320px)] border-[#c8e2da] bg-[#f7fbfa] p-0 text-[#173d42] sm:hidden">
+      <SheetContent side="left" className="w-[min(86vw,320px)] min-w-0 overflow-hidden border-[#c8e2da] bg-[#f7fbfa] p-0 text-[#173d42] transition duration-250 sm:hidden">
         <SheetHeader className="sr-only">
           <SheetTitle>Mobil Navigatsiya</SheetTitle>
           <SheetDescription>Kategoriya va sozlamalar paneli</SheetDescription>
@@ -147,7 +147,7 @@ export default function Home() {
               aria-label="Saralanganlarni ochish"
             >
               <Heart size={16} fill={bookmarkedCount > 0 ? "currentColor" : "none"} className={bookmarkedCount > 0 ? "text-[#0d7774]" : "text-[#52716d]"} />
-              <span className="hidden sm:inline">Saralanganlar</span>
+              <span className="hidden lg:inline">Saralanganlar</span>
               {bookmarkedCount > 0 && <span className="grid h-5 min-w-5 place-items-center rounded-full bg-[#0d7774] px-1.5 text-[10px] font-bold text-white">{bookmarkedCount}</span>}
             </button>
             <button
@@ -157,7 +157,7 @@ export default function Home() {
               onClick={() => setFiltersOpen(true)}
             >
               <SlidersHorizontal size={16} className="text-[#0d7774]" />
-              <span className="hidden sm:inline">Filtrlar</span>
+              <span className="hidden lg:inline">Filtrlar</span>
             </button>
           </div>
         </div>
@@ -171,7 +171,7 @@ export default function Home() {
           <div className="relative min-h-[390px] max-w-3xl px-6 py-8 sm:min-h-[425px] sm:px-10 sm:py-14">
             <div className="mb-6 max-w-[790px] rounded-2xl border border-[#88d7c4]/35 bg-[#082f35]/75 p-3.5 shadow-[0_12px_28px_rgba(0,0,0,0.15)] backdrop-blur-sm sm:grid sm:grid-cols-[auto_1fr] sm:gap-4"><div className="mb-3 flex items-center justify-between border-b border-white/10 pb-3 sm:mb-0 sm:block sm:border-b-0 sm:border-r sm:pr-4 sm:pb-0"><div className="tech-label text-[#a8ead9]">LAB-01 / SOP RELSI</div><div className="metric-number mt-1 text-3xl font-bold tracking-[-0.06em] text-white">16 <span className="text-sm font-semibold tracking-normal text-[#9fe8d5]">QADAM</span></div><div className="mt-2 text-[9px] font-bold uppercase tracking-[0.14em] text-[#8edcca]">Asosiy o‘quv yo‘li</div></div><div><div className="mb-2 flex items-center justify-between gap-3"><span className="tech-label text-[#d7f7ed]">MANUAL-GA ASOSLANGAN O‘QUV OQIMI</span><span className="rounded-full border border-[#93dfcd]/20 bg-[#0b5358] px-2 py-1 text-[9px] font-bold uppercase tracking-[0.15em] text-[#d7f7ed]">Faol protokol</span></div><div className="grid grid-cols-8 gap-1.5 sm:grid-cols-[repeat(16,minmax(0,1fr))]">{curriculumSteps.map((step, index) => <div key={step} className={`rounded-md border px-1 py-1.5 text-center ${index === 0 || index === 4 || index === 8 || index === 15 ? "border-[#81e0c8] bg-[#1b746f] text-white" : "border-white/10 bg-white/[0.045] text-[#bae6d9]"}`}><span className="block text-[9px] font-bold tracking-tight">{step}</span><span className="mx-auto mt-1 block h-0.5 w-3 rounded-full bg-current opacity-70" /></div>)}</div><div className="mt-2 grid grid-cols-4 gap-2 text-[8px] font-bold uppercase tracking-[0.11em] text-[#bfeadd]"><span>01 Tushuncha</span><span>05 Prinsip</span><span>09 Workflow</span><span>16 Manual</span></div></div></div>
             <div className="eyebrow mb-4 text-[#9fe8d5]">BIO.LAB / QURILMA → SOP → TALQIN</div>
-            <h1 className="display max-w-[820px] text-[2.65rem] font-bold leading-[0.95] tracking-[-0.055em] text-[#f7f8ed] sm:text-7xl">Qurilmani <span className="text-[#7de0c2]">faqat ko‘rmang</span> — uni tartib bilan o‘rganing.</h1>
+            <h1 className="display max-w-[820px] text-[2.65rem] font-bold leading-[0.95] tracking-[-0.055em] text-[#f7f8ed] md:text-5xl lg:text-7xl">Qurilmani <span className="text-[#7de0c2]">faqat ko‘rmang</span> — uni tartib bilan o‘rganing.</h1>
             <p className="mt-4 max-w-2xl text-sm leading-6 text-[#c6e1d7] sm:mt-6 sm:text-base">100 ta biotexnologiya qurilmasi uchun ishlab chiqaruvchi/model ma’lumoti, real workflow, natijani talqin qilish va laboratoriya xavfsizligini bir joyga jamlaydigan tartibli o‘quv protokoli.</p>
             <div className="mt-5 flex flex-wrap gap-3 sm:mt-7"><Button className="bg-[#d9f0e5] text-[#075b5d] hover:bg-white" onClick={() => document.getElementById("catalog")?.scrollIntoView({ behavior: "smooth" })}>Katalog protokolini ochish <ArrowUpRight size={16} /></Button><Button variant="outline" className="border-white/30 bg-transparent text-white hover:bg-white/10" onClick={() => setSelectedDevice(equipment[0])}>O‘quv namunasini ochish <ChevronRight size={16} /></Button></div>
           </div>

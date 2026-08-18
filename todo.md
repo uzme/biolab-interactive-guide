@@ -14,3 +14,4 @@
 - [x] Mobil sidebar drawer ekrandan tashqariga chiqib ketishi va matn kesilishi xatosini Sheet yordamida mukammal hal qilish (`w-[min(86vw,320px)]`, `side="left"`)
 - [x] Typecheck, production build, Vitest va continuity verifikatsiyasidan o‘tkazish
 - [x] Mobil drawer fixidan so‘ng `node scripts/release/sync_release.mjs --publish` ni bajarib, yangi GitHub commit hash va Drive snapshot metadata (file ID, parent, modified time)ni release logda qayd etish
+- [x] Telefon, planshet, kompyuter va TV ekranlarida sidebar drawer va shell overflow xatolarini to‘liq tuzatish

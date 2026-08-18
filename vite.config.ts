@@ -150,6 +150,8 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
+const DEFAULT_STORAGE_FALLBACK_ORIGIN = "https://biolabguide-fbcitqyf.manus.space";
+
 function vitePluginStorageProxy(): Plugin {
   return {
     name: "manus-storage-proxy",
@@ -166,8 +168,10 @@ function vitePluginStorageProxy(): Plugin {
         const forgeKey = process.env.BUILT_IN_FORGE_API_KEY;
 
         if (!forgeBaseUrl || !forgeKey) {
-          res.writeHead(500, { "Content-Type": "text/plain" });
-          res.end("Storage proxy not configured");
+          const fallbackOrigin = (process.env.BIOLAB_ASSET_FALLBACK_ORIGIN || DEFAULT_STORAGE_FALLBACK_ORIGIN).replace(/\/+$/, "");
+          const fallbackUrl = new URL(`/manus-storage/${key}`, `${fallbackOrigin}/`);
+          res.writeHead(307, { Location: fallbackUrl.toString(), "Cache-Control": "no-store" });
+          res.end();
           return;
         }
 

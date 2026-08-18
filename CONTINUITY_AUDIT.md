@@ -9,7 +9,7 @@ Ushbu audit BioLab Interactive Guide loyihasining yagona GitHub repositorysi, ya
 | Qatlam | Tekshirilgan manzil | Natija |
 |---|---|---|
 | GitHub source | `https://github.com/uzme/biolab-interactive-guide`, `main`, repository root | PASS |
-| Google Drive archive | `Biotexnologiya` root, ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd` | PASS |
+| Google Drive archive | `Biotexnologiya` root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV` | PASS |
 | Snapshot | `BioLab_Interactive_Guide_source.tar.gz`, mavjud faylni joyida yangilash | PASS |
 | Cross-links | `GITHUB_INDEX.md`, `DRIVE_INDEX.md`, `RESTORATION_MAP.md` | PASS |
 | Required documents | 20 ta continuity hujjati va LICENSE/CONTRIBUTING/SECURITY | PASS |
@@ -17,11 +17,11 @@ Ushbu audit BioLab Interactive Guide loyihasining yagona GitHub repositorysi, ya
 
 ## Verification natijalari
 
-2026-08-17 dagi tekshiruvlarda `pnpm run check`, `pnpm build`, `pnpm test`, `scripts/tests/test_catalog_controls.mjs`, `scripts/tests/test_device_viewer.mjs` va `scripts/tests/test_carousel_pagination_browser.mjs` muvaffaqiyatli yakunlandi. `node scripts/release/verify_continuity_docs.mjs` barcha required document, canonical cross-link, state status va environment contract shartlarini `READY` deb qaytardi. `node scripts/release/sync_release.mjs --check` ham test, production build, browser regression, continuity audit va secret scan bosqichlarini muvaffaqiyatli bajarib, `CHECK READY` natijasini berdi.
+2026-08-17 dagi tekshiruvlarda `pnpm run check`, `pnpm build`, `pnpm test`, `scripts/test_catalog_controls.mjs`, `scripts/test_device_viewer.mjs` va `scripts/test_carousel_pagination_browser.mjs` muvaffaqiyatli yakunlandi. `node scripts/verify_continuity_docs.mjs` barcha required document, canonical cross-link, state status va environment contract shartlarini `READY` deb qaytardi. `node scripts/sync_release.mjs --check` ham test, production build, browser regression, continuity audit va secret scan bosqichlarini muvaffaqiyatli bajarib, `CHECK READY` natijasini berdi.
 
 ## Sanitizatsiya va xavfsizlik
 
-Release snapshot `.env` fayllari, tokenlar, API kalitlari, parollar, PATlar, service-role kalitlari, `node_modules`, `dist`, `.git`, loglar, runtime chiqindilari, vaqtinchalik kataloglar va arxivlarning o‘zini kiritmaydi. `scripts/release/sync_release.mjs` source fingerprint yaratishdan va publishdan oldin keng tarqalgan maxfiy qiymat formatlarini scan qiladi; topilma aniqlansa jarayon ataylab to‘xtaydi. Haqiqiy credential faqat managed secret environment orqali beriladi.
+Release snapshot `.env` fayllari, tokenlar, API kalitlari, parollar, PATlar, service-role kalitlari, `node_modules`, `dist`, `.git`, loglar, runtime chiqindilari, vaqtinchalik kataloglar va arxivlarning o‘zini kiritmaydi. `sync_release.mjs` source fingerprint yaratishdan va publishdan oldin keng tarqalgan maxfiy qiymat formatlarini scan qiladi; topilma aniqlansa jarayon ataylab to‘xtaydi. Haqiqiy credential faqat managed secret environment orqali beriladi.
 
 ## Reproduktibilitet
 
@@ -33,4 +33,4 @@ Production bundle ichidagi learning dossier ma’lumotlari 500 kB dan katta inte
 
 ## Status qarori
 
-Continuity auditning joriy holati: **READY**. Yakuniy publishdan keyin GitHub commit hash’i, Drive snapshot file ID si, modified time va source fingerprint `PROJECT_STATE.md`, `CURRENT_STATE.md`, `GITHUB_INDEX.md`, `DRIVE_INDEX.md` va ushbu hujjatda bir xil metadata sifatida qayd etiladi. Faqat canonical GitHub repository va Biotexnologiya root papkasi write destination hisoblanadi; boshqa Drive papkalari o‘zgartirilmaydi.
+Continuity auditning joriy holati: **READY**. Yakuniy publishdan keyin GitHub commit hash’i, Drive snapshot file ID si, modified time va source fingerprint `PROJECT_STATE.md`, `CURRENT_STATE.md`, `GITHUB_INDEX.md`, `DRIVE_INDEX.md` va ushbu hujjatda bir xil metadata sifatida qayd etiladi. Faqat canonical GitHub repository va Biotexnologiya yangi root papkasi write destination hisoblanadi; boshqa Drive papkalari o‘zgartirilmaydi.

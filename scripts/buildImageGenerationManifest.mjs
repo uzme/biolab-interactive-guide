@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const root = path.resolve(import.meta.dirname, "../..");
+const root = path.resolve(import.meta.dirname, "..");
 const sourcePath = path.join(root, "client/src/lib/equipmentData.ts");
 const outputPath = path.join(root, "docs/equipment-image-generation-manifest.json");
 const source = fs.readFileSync(sourcePath, "utf8");

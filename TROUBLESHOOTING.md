@@ -21,7 +21,7 @@ Build vaqtida katta JavaScript chunklari yoki CSS gradient yo‘nalishi bo‘yic
 
 ## 3. Transition Regressiya Testi Beqarorligi
 
-`useTransition` katalog filtri yoki qidiruv natijasini keyingi renderga qoldiradi. Playwright assertionini click yoki fill amali ortidan darhol bajarmang; kutilayotgan DOM holatini `waitForFunction`, `locator.waitFor` yoki aniq count assertion bilan kuting. `scripts/test_catalog_controls.mjs` ushbu qoidaga mos ravishda qidiruvni tozalash, kategoriya tanlash va natija yo‘q holatlarini transition yakunidan keyin tekshiradi.
+`useTransition` katalog filtri yoki qidiruv natijasini keyingi renderga qoldiradi. Playwright assertionini click yoki fill amali ortidan darhol bajarmang; kutilayotgan DOM holatini `waitForFunction`, `locator.waitFor` yoki aniq count assertion bilan kuting. `scripts/tests/test_catalog_controls.mjs` ushbu qoidaga mos ravishda qidiruvni tozalash, kategoriya tanlash va natija yo‘q holatlarini transition yakunidan keyin tekshiradi.
 
 ## 4. Service Worker yoki Offline Status Ishlamasligi
 
@@ -46,11 +46,11 @@ Brauzerda service worker ready holatiga kelgandan keyin Offline paketni yuklash 
 Release buyruqlari loyiha rootidan bajariladi:
 
 ```bash
-node scripts/sync_release.mjs --check
-node scripts/sync_release.mjs --publish
+node scripts/release/sync_release.mjs --check
+node scripts/release/sync_release.mjs --publish
 ```
 
-`gws` upload validatsiyasi snapshot fayli turgan katalogdan bajarilishini talab qiladi; `scripts/sync_release.mjs` buni avtomatik boshqaradi. `.env*`, tokenlar, API kalitlar, parollar, PATlar, runtime loglar, dependency va build kataloglari snapshotga kiritilmaydi. Snapshot nomi `BioLab_Interactive_Guide_source.tar.gz`; skript avval shu nomdagi mavjud faylni faqat Biotexnologiya root ichidan qidiradi va mavjud bo‘lsa yangilaydi.
+`gws` upload validatsiyasi snapshot fayli turgan katalogdan bajarilishini talab qiladi; `scripts/release/sync_release.mjs` buni avtomatik boshqaradi. `.env*`, tokenlar, API kalitlar, parollar, PATlar, runtime loglar, dependency va build kataloglari snapshotga kiritilmaydi. Snapshot nomi `BioLab_Interactive_Guide_source.tar.gz`; skript avval shu nomdagi mavjud faylni faqat Biotexnologiya root ichidan qidiradi va mavjud bo‘lsa yangilaydi.
 
 ## 6. GitHub Sync Xatosi
 

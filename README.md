@@ -23,8 +23,8 @@ pnpm install --frozen-lockfile
 pnpm run check
 pnpm build
 pnpm test
-node scripts/test_catalog_controls.mjs
-node scripts/test_device_viewer.mjs
+node scripts/tests/test_catalog_controls.mjs
+node scripts/tests/test_device_viewer.mjs
 ```
 
 Development server:
@@ -36,8 +36,8 @@ pnpm dev
 Release validation and sanitisation:
 
 ```bash
-node scripts/sync_release.mjs --check
-node scripts/sync_release.mjs --publish
+node scripts/release/sync_release.mjs --check
+node scripts/release/sync_release.mjs --publish
 ```
 
 `--check` validates integrity without publishing; `--publish` executes tests, builds, secret sanitisation checks, and synchronises the sanitised snapshot to GitHub and Google Drive. Snapshots exclude `.env*`, tokens, API keys, passwords, PATs, `node_modules`, `dist`, and runtime logs.
@@ -47,6 +47,6 @@ node scripts/sync_release.mjs --publish
 ```text
 client/       React frontend, pages, components, hooks, and PWA integration
 server/       Express, tRPC, authentication, and database helpers
-scripts/      Release sync, verification, and regression test scripts
+scripts/      Data import, release sync, verification, utilities, and regression tests
 drizzle/      Database schema and migrations
 ```

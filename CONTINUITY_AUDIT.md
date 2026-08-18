@@ -17,11 +17,11 @@ Ushbu audit BioLab Interactive Guide loyihasining yagona GitHub repositorysi, ya
 
 ## Verification natijalari
 
-2026-08-17 dagi tekshiruvlarda `pnpm run check`, `pnpm build`, `pnpm test`, `scripts/test_catalog_controls.mjs`, `scripts/test_device_viewer.mjs` va `scripts/test_carousel_pagination_browser.mjs` muvaffaqiyatli yakunlandi. `node scripts/verify_continuity_docs.mjs` barcha required document, canonical cross-link, state status va environment contract shartlarini `READY` deb qaytardi. `node scripts/sync_release.mjs --check` ham test, production build, browser regression, continuity audit va secret scan bosqichlarini muvaffaqiyatli bajarib, `CHECK READY` natijasini berdi.
+2026-08-17 dagi tekshiruvlarda `pnpm run check`, `pnpm build`, `pnpm test`, `scripts/tests/test_catalog_controls.mjs`, `scripts/tests/test_device_viewer.mjs` va `scripts/tests/test_carousel_pagination_browser.mjs` muvaffaqiyatli yakunlandi. `node scripts/release/verify_continuity_docs.mjs` barcha required document, canonical cross-link, state status va environment contract shartlarini `READY` deb qaytardi. `node scripts/release/sync_release.mjs --check` ham test, production build, browser regression, continuity audit va secret scan bosqichlarini muvaffaqiyatli bajarib, `CHECK READY` natijasini berdi.
 
 ## Sanitizatsiya va xavfsizlik
 
-Release snapshot `.env` fayllari, tokenlar, API kalitlari, parollar, PATlar, service-role kalitlari, `node_modules`, `dist`, `.git`, loglar, runtime chiqindilari, vaqtinchalik kataloglar va arxivlarning o‘zini kiritmaydi. `sync_release.mjs` source fingerprint yaratishdan va publishdan oldin keng tarqalgan maxfiy qiymat formatlarini scan qiladi; topilma aniqlansa jarayon ataylab to‘xtaydi. Haqiqiy credential faqat managed secret environment orqali beriladi.
+Release snapshot `.env` fayllari, tokenlar, API kalitlari, parollar, PATlar, service-role kalitlari, `node_modules`, `dist`, `.git`, loglar, runtime chiqindilari, vaqtinchalik kataloglar va arxivlarning o‘zini kiritmaydi. `scripts/release/sync_release.mjs` source fingerprint yaratishdan va publishdan oldin keng tarqalgan maxfiy qiymat formatlarini scan qiladi; topilma aniqlansa jarayon ataylab to‘xtaydi. Haqiqiy credential faqat managed secret environment orqali beriladi.
 
 ## Reproduktibilitet
 

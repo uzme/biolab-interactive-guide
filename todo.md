@@ -25,3 +25,7 @@
 - [x] SettingsDialog JSON import oqimini regressiya/end-to-end test bilan tasdiqlash: UI’da `1 ta xatcho‘p faol` counti, valid import, noma’lum ID filtering va invalid JSON error aniq tekshirildi
 - [x] Data-management bo‘limining to‘liq end-to-end verifikatsiyasini yakunlash: dublikat success toast bartaraf etilib, export/import/clear oqimi yagona toast va confirmation bilan qayta tasdiqlandi
 - [x] Rasm manbasi/litsenziya shaffofligi oqimini end-to-end tekshirish: DeviceViewer dagi foydalanuvchi ko‘radigan transparency card va sources bloklari test bilan tasdiqlandi
+- [ ] Google Drive root ID ziddiyatini (Second Brain `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd` vs Biotexnologiya yangi `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`) read-only `gws` orqali tekshirib, foydalanuvchi talabiga asosan to‘g‘ri canonical rootni aniqlash
+- [ ] Qolgan UI, Settings va SOP polish xatolarini to‘liq tuzatib, `pnpm run check`, `pnpm build`, `pnpm test` va `verify_continuity_docs.mjs` dan o‘tkazish
+- [ ] Tasdiqlangan canonical rootga sanitizatsiyalangan release snapshotini update qilish va GitHub `main` branchiga push qilish
+- [ ] Mobil sidebar drawer ekrandan tashqariga chiqib ketishi va matn kesilishi xatosini to‘g‘rilash (`left-0`, `w-80`, `max-w-[85vw]` va to‘g‘ri z-index bilan)

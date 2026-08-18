@@ -10,6 +10,7 @@ import CatalogFilterSheet from "@/components/CatalogFilterSheet";
 import SettingsDialog from "@/components/SettingsDialog";
 import OfflineManager from "@/components/OfflineManager";
 import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
 import { equipment, categories, type Equipment } from "@/lib/equipmentData";
 import EquipmentCard from "@/components/EquipmentCard";
@@ -105,8 +106,15 @@ export default function Home() {
 
 
   return <div className="shell">
-    {mobileNav && <div className="fixed inset-0 z-40 bg-[#173d42]/25 backdrop-blur-sm sm:hidden" onClick={() => setMobileNav(false)} />}
-    {mobileNav && <div className={`${mobileNav ? "translate-x-0" : "-translate-x-full"} fixed left-0 top-0 z-50 h-full w-[min(86vw,340px)] transition-transform duration-300 sm:hidden`}><Sidebar drawer activeCategory={activeCategory} onCategory={handleCategoryChange} onMobileClose={() => setMobileNav(false)} onOpenSettings={() => setSettingsOpen(true)} /><button className="absolute right-[-42px] top-5 grid h-9 w-9 place-items-center rounded-full bg-[#ffffff] text-[#0c7773] shadow" onClick={() => setMobileNav(false)} aria-label="Menyuni yopish"><X size={17} /></button></div>}
+    <Sheet open={mobileNav} onOpenChange={setMobileNav}>
+      <SheetContent side="left" className="w-[min(86vw,320px)] border-[#c8e2da] bg-[#f7fbfa] p-0 text-[#173d42] sm:hidden">
+        <SheetHeader className="sr-only">
+          <SheetTitle>Mobil Navigatsiya</SheetTitle>
+          <SheetDescription>Kategoriya va sozlamalar paneli</SheetDescription>
+        </SheetHeader>
+        <Sidebar drawer activeCategory={activeCategory} onCategory={handleCategoryChange} onMobileClose={() => setMobileNav(false)} onOpenSettings={() => setSettingsOpen(true)} />
+      </SheetContent>
+    </Sheet>
     <div className="hidden sm:block"><Sidebar activeCategory={activeCategory} onCategory={handleCategoryChange} onOpenSettings={() => setSettingsOpen(true)} /></div>
     <main className="min-w-0 flex-1">
       <header className="sticky top-0 z-30 border-b border-[#cce4dd] bg-[#f7fbfa]/95 px-4 py-3.5 backdrop-blur-xl sm:px-8 lg:px-12 shadow-[0_4px_20px_rgba(23,61,66,0.04)]">

@@ -1,7 +1,7 @@
 # BioLab Interactive Guide — Current State
 
 - **Version:** `1.0.0` — canonical repository alignment release
-- **Sana:** 17-avgust 2026
+- **Sana:** 18-avgust 2026
 - **Holat:** **READY**
 - **Build:** `pnpm build` muvaffaqiyatli yakunlandi
 - **Typecheck:** `pnpm run check` xatosiz yakunlandi
@@ -13,10 +13,11 @@
 - **Dependency audit:** advisorylar alohida remediation bosqichi sifatida hujjatlashtirilgan; bu migratsiyada ishlayotgan UI yoki 100 ta qurilma source-of-truth qayta yozilmaydi
 - **Completed features:** 100-device catalog, original horizontal Pure CSS 3D carousel, 16-section learning dossiers, PDF export, bookmarks, responsive right sidebar, PWA offline shell, loading/micro-interactions, transition-safe catalog controls va sanitised release workflow
 - **Incomplete features:** None
+- **Repository organization:** `scripts/data/`, `scripts/release/`, `scripts/tests/` va `scripts/utils/` papkalari; root-level script qoldig‘i yo‘q, barcha eski path reference’lar tozalangan
 - **Deployment:** Manus Autoscale Web Hosting — `https://biolabguide-fbcitqyf.manus.space`
-- **Canonical GitHub:** `https://github.com/uzme/biolab-interactive-guide`, `main`, commit `e29c0352f0f772593aa8f45f9738cc5dfcab0180`
-- **Canonical Drive:** `Biotexnologiya` root ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`, file ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-17T10:25:25.306Z`
-- **Canonical snapshot:** `BioLab_Interactive_Guide_source.tar.gz`
+- **Canonical GitHub:** `https://github.com/uzme/biolab-interactive-guide`, `main`, commit `4f1e057dc58d890aa52af03b757105cc30e0bbaf`
+- **Canonical Drive:** `Biotexnologiya` root ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`, file ID `14seIzgh0siDnIwR9ltYTFcvB60sip9K3`, modified `2026-08-18T16:40:31.055Z`; rootda bitta snapshot tasdiqlangan
+- **Canonical snapshot:** `BioLab_Interactive_Guide_source.tar.gz`; source fingerprint `c57bd0083f5d2ba752073558c7484da3f9ece3308c2027652e88d36d2a26a426`
 - **Database:** Schema va migration metadata repositorydagi `drizzle/` katalogida saqlanadi; destructive migration bajarilmagן
 
 ## Qat’iy saqlanadigan source-of-truth

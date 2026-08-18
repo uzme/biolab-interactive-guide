@@ -6,12 +6,12 @@
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
 | Web checkpoint | `75bf2c56` |
-| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; oxirgi verified responsive release sync holati quyida qayd etilgan |
-| Canonical Google Drive | **Biotexnologiya** root, ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`, snapshot file ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`; oxirgi verified responsive release sync holati quyida qayd etilgan |
+| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; latest verified commit `4f1e057dc58d890aa52af03b757105cc30e0bbaf` |
+| Canonical Google Drive | **Biotexnologiya** root, ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`, snapshot file ID `14seIzgh0siDnIwR9ltYTFcvB60sip9K3`, modified `2026-08-18T16:40:31.055Z` |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzili | `https://biolabguide-fbcitqyf.manus.space` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, sanitizatsiya va canonical docs audit muvaffaqiyatli; holat **READY** |
+| Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; holat **READY** |
 
 ## Repository Structure (Tartiblangan papka tuzilmasi)
 - `client/` — React 19 frontend, shadcn/ui komponentlar, custom hooks (`useBookmarks`), PWA offline qo‘llab-quvvatlashi
@@ -29,6 +29,10 @@
 ## Sinxronlash qoidasi
 Tekshirilgan kod va hujjatlar faqat GitHub `uzme/biolab-interactive-guide` repositorysining `main` branch rootiga va Google Drive’dagi yagona **Biotexnologiya** root papkasiga yuboriladi. Drive root ID: `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`. `.env` fayllari, tokenlar, API kalitlari va runtime chiqindilari snapshotga kiritilmaydi.
 
+
+## 2026-08-18 script organization release audit
+
+Root-level helper scripts `scripts/data/`, `scripts/release/`, `scripts/tests/` va `scripts/utils/` papkalariga ajratildi. `README.md`, `PROJECT_MANIFEST.md`, `REPRODUCTION.md`, `TROUBLESHOOTING.md`, `CONTINUITY_AUDIT.md`, `AI_HANDOFF.md`, `ARCHITECTURE.md`, `CURRENT_STATE.md`, `PROJECT_INVENTORY.md` va tarixiy audit qaydlaridagi command pathlar yangilandi. Eski script pathlar bo‘yicha yakuniy grep audit bo‘sh natija berdi. `pnpm run check`, production build, regressiya testlari va `pnpm run audit:continuity` muvaffaqiyatli o‘tdi. Sanitizatsiyalangan release fingerprint: `c57bd0083f5d2ba752073558c7484da3f9ece3308c2027652e88d36d2a26a426`. GitHub commit: `4f1e057dc58d890aa52af03b757105cc30e0bbaf`; Drive snapshot: `14seIzgh0siDnIwR9ltYTFcvB60sip9K3`; modified: `2026-08-18T16:40:31.055Z`; rootda snapshotlar soni: `1`.
 
 ## 2026-08-17 responsive release audit
 

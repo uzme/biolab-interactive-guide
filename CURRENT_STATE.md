@@ -1,7 +1,7 @@
 # BioLab Interactive Guide — Current State
 
 - **Version:** `1.0.0` — canonical repository alignment release
-- **Sana:** 17-avgust 2026
+- **Sana:** 18-avgust 2026
 - **Holat:** **READY**
 - **Build:** `pnpm build` muvaffaqiyatli yakunlandi
 - **Typecheck:** `pnpm run check` xatosiz yakunlandi
@@ -14,9 +14,10 @@
 - **Completed features:** 100-device catalog, original horizontal Pure CSS 3D carousel, 16-section learning dossiers, PDF export, bookmarks, responsive right sidebar, PWA offline shell, loading/micro-interactions, transition-safe catalog controls va sanitised release workflow
 - **Incomplete features:** None
 - **Deployment:** Manus Autoscale Web Hosting — `https://biolabguide-fbcitqyf.manus.space`
-- **Canonical GitHub:** `https://github.com/uzme/biolab-interactive-guide`, `main`, commit `e29c0352f0f772593aa8f45f9738cc5dfcab0180`
-- **Canonical Drive:** `Biotexnologiya` root ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, file ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-17T10:25:25.306Z`
+- **Canonical GitHub:** `https://github.com/uzme/biolab-interactive-guide`, `main`, commit `e70057880a93b85fa76815dc17b150d5c9f9a3d4`
+- **Canonical Drive:** `Biotexnologiya yangi` root ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, file ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-18T16:55:27.710Z`
 - **Canonical snapshot:** `BioLab_Interactive_Guide_source.tar.gz`
+- **Release source fingerprint:** `3d4d50b51a0170cff85913ca4fc2dace1eb42b483d6b1b5f96489733bc9712de`
 - **Database:** Schema va migration metadata repositorydagi `drizzle/` katalogida saqlanadi; destructive migration bajarilmagן
 
 ## Qat’iy saqlanadigan source-of-truth

@@ -8,3 +8,4 @@
 - [x] `Biotexnologiya yangi` (`19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`) papkasini canonical Drive root sifatida barcha continuity metadata va release konfiguratsiyasida tasdiqlash; mavjud `BioLab_Interactive_Guide_source.tar.gz` snapshotini duplicate yaratmasdan shu root bilan moslashtirish
 - [x] Lokal clean-clone katalog regression failure’ini minimal asset-serving yoki test-compatible source fix bilan bartaraf etish; Modern Precision Biotech dizayni, Pure CSS 3D Carousel geometriyasi va mavjud funksiyalarni o‘zgartirmaslik
 - [x] Offline asset pack’ni remote fallback assetlar bilan ham regression timeout’siz yakunlanadigan qilib, PWA cache semantics va Uzbek status oqimini saqlagan holda tekshirish
+- [ ] Post-publish GitHub commit, Drive snapshot modified time va source fingerprint metadata’sini continuity hujjatlarida live holat bilan bir xil qilish

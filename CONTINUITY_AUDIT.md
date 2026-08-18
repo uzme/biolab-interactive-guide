@@ -9,7 +9,7 @@ Ushbu audit BioLab Interactive Guide loyihasining yagona GitHub repositorysi, ya
 | Qatlam | Tekshirilgan manzil | Natija |
 |---|---|---|
 | GitHub source | `https://github.com/uzme/biolab-interactive-guide`, `main`, repository root | PASS |
-| Google Drive archive | `Biotexnologiya` root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV` | PASS |
+| Google Drive archive | `Biotexnologiya yangi` root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV` | PASS |
 | Snapshot | `BioLab_Interactive_Guide_source.tar.gz`, mavjud faylni joyida yangilash | PASS |
 | Cross-links | `GITHUB_INDEX.md`, `DRIVE_INDEX.md`, `RESTORATION_MAP.md` | PASS |
 | Required documents | 20 ta continuity hujjati va LICENSE/CONTRIBUTING/SECURITY | PASS |
@@ -17,7 +17,16 @@ Ushbu audit BioLab Interactive Guide loyihasining yagona GitHub repositorysi, ya
 
 ## Verification natijalari
 
-2026-08-17 dagi tekshiruvlarda `pnpm run check`, `pnpm build`, `pnpm test`, `scripts/test_catalog_controls.mjs`, `scripts/test_device_viewer.mjs` va `scripts/test_carousel_pagination_browser.mjs` muvaffaqiyatli yakunlandi. `node scripts/verify_continuity_docs.mjs` barcha required document, canonical cross-link, state status va environment contract shartlarini `READY` deb qaytardi. `node scripts/sync_release.mjs --check` ham test, production build, browser regression, continuity audit va secret scan bosqichlarini muvaffaqiyatli bajarib, `CHECK READY` natijasini berdi.
+2026-08-18 dagi verified release’da `pnpm run check`, `pnpm build`, `pnpm test` (katalog va DeviceViewer regressiyalari), `node scripts/verify_continuity_docs.mjs` va `node scripts/sync_release.mjs --check` muvaffaqiyatli yakunlandi. `scripts/tests/test_catalog_controls.mjs` va `scripts/tests/test_device_viewer.mjs` ham PASS qaytardi; sanitizatsiya secret scan’i topilmasiz tugadi. `scripts/test_carousel_pagination_browser.mjs` esa package script tarkibiga kirmaydigan alohida smoke test sifatida mavjud bo‘lsa, joriy release check’da asosiy regressiya qamrovi katalog va DeviceViewer testlari bilan bajarildi.
+
+## Verified release metadata
+
+| Ko‘rsatkich | Qiymat |
+|---|---|
+| GitHub `main` commit | `e70057880a93b85fa76815dc17b150d5c9f9a3d4` |
+| Drive snapshot file ID | `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh` |
+| Drive modified time | `2026-08-18T16:55:27.710Z` |
+| Source fingerprint | `3d4d50b51a0170cff85913ca4fc2dace1eb42b483d6b1b5f96489733bc9712de` |
 
 ## Sanitizatsiya va xavfsizlik
 

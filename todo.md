@@ -5,3 +5,5 @@
 - [x] Typecheck, production build va continuity auditi
 - [x] Canonical GitHub (`uzme/biolab-interactive-guide`, `main`) va Biotexnologiya Drive root papkasiga (`1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`) sanitizatsiyalangan responsive release sync qilish; oxirgi commit va Drive modified time release logida qayd etilgan
 - [x] Mobile (320/375px), tablet (768px), desktop (1280px) va TV (1920px) viewportlari uchun responsive layout, typography, 3D carousel va modal elementlarini moslashtirish; typecheck/build/regressiya va screenshot verifikatsiyasi bajarildi
+- [x] GitHub repositorydagi yordamchi skriptlarni funksiyasiga ko‘ra `scripts/data/`, `scripts/tests/`, `scripts/utils/` va `scripts/release/` papkalariga tartiblash; barcha chaqiruv yo‘llarini yangilab, eski pathlar bo‘yicha yakuniy grep audit, test/build va continuity audit bilan tasdiqlash
+- [ ] Tartiblangan script tuzilmasi va yangilangan hujjatlar uchun sanitizatsiyalangan GitHub `main` va Biotexnologiya Drive release snapshotini yangilash; commit, snapshot ID va modified time’ni metadata’da qayd etish

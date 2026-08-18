@@ -41,14 +41,14 @@ pnpm install --frozen-lockfile --ignore-scripts
 pnpm run check
 pnpm build
 pnpm test
-node scripts/sync_release.mjs --check
+node scripts/release/sync_release.mjs --check
 ```
 
 ### Secret Exclusion & Security
 Secrets are supplied only through an untracked local environment or hosting secret manager; `.env*`, tokens, API keys, passwords, PATs, service-role keys, logs, dependency directories, and build outputs are strictly excluded from GitHub and Google Drive release snapshots.
 
 ### Synchronization Execution
-From the working project, use `node scripts/sync_release.mjs --check` before `node scripts/sync_release.mjs --publish`. The release script re-runs verification, scans source files for common secret formats, pushes the verified BioLab repository root to `uzme/biolab-interactive-guide` `main`, and updates `BioLab_Interactive_Guide_source.tar.gz` in the Biotexnologiya Drive root without creating duplicate superseded files.
+From the working project, use `node scripts/release/sync_release.mjs --check` before `node scripts/release/sync_release.mjs --publish`. The release script re-runs verification, scans source files for common secret formats, pushes the verified BioLab repository root to `uzme/biolab-interactive-guide` `main`, and updates `BioLab_Interactive_Guide_source.tar.gz` in the Biotexnologiya Drive root without creating duplicate superseded files.
 
 ## Development Rules
 

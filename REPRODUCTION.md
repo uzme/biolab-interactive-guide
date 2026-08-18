@@ -49,11 +49,11 @@ pnpm build
 pnpm test
 ```
 
-The release workflow also runs `node scripts/test_carousel_pagination_browser.mjs` against the running development server and performs a secret scan before creating a snapshot. For a manual browser verification, start the server in a separate terminal:
+The release workflow also runs `node scripts/tests/test_carousel_pagination_browser.mjs` against the running development server and performs a secret scan before creating a snapshot. For a manual browser verification, start the server in a separate terminal:
 
 ```bash
 pnpm dev
-node scripts/test_device_viewer.mjs
+node scripts/tests/test_device_viewer.mjs
 ```
 
 The current clean-clone verification passed with the nested install command above, TypeScript check, and production build. The production build continues to report only non-blocking large-chunk and CSS gradient-syntax warnings; these warnings do not prevent compilation.
@@ -63,8 +63,8 @@ The current clean-clone verification passed with the nested install command abov
 From the original working project, after tests and production build pass, run:
 
 ```bash
-node scripts/sync_release.mjs --check
-node scripts/sync_release.mjs --publish
+node scripts/release/sync_release.mjs --check
+node scripts/release/sync_release.mjs --publish
 ```
 
 The release script creates a sanitised archive, excludes `.env*`, `.git`, runtime logs, dependency folders, build outputs, and archive files, scans source text for common secret formats, pushes the verified BioLab source under `biolab-interactive-guide` to `uzme/biolab-interactive-guide` `main`, and creates or updates the single BioLab snapshot inside the configured Biotexnologiya Drive parent. It writes only to the canonical Biotexnologiya Drive root and never to unrelated Drive folders.

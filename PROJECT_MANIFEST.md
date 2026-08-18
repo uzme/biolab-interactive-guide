@@ -33,10 +33,10 @@ pnpm install --frozen-lockfile --ignore-scripts
 pnpm run check
 pnpm build
 pnpm test
-node scripts/test_catalog_controls.mjs
-node scripts/test_device_viewer.mjs
-node scripts/sync_release.mjs --check
-node scripts/sync_release.mjs --publish
+node scripts/tests/test_catalog_controls.mjs
+node scripts/tests/test_device_viewer.mjs
+node scripts/release/sync_release.mjs --check
+node scripts/release/sync_release.mjs --publish
 ```
 
 ## Directory Structure
@@ -45,7 +45,7 @@ node scripts/sync_release.mjs --publish
 client/       React frontend, pages, components, hooks, PWA integration
 server/       Express, tRPC, authentication and database helpers
 drizzle/      Schema and migration metadata
-scripts/      Regression tests and sanitised release automation
+scripts/      Data import, regression tests, utilities, and release automation
 shared/       Shared types and constants
 storage/      S3 storage helpers
 docs/         Project reference documentation, when present

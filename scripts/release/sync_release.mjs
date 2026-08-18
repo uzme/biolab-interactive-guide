@@ -204,11 +204,11 @@ function runVerification() {
   run("pnpm", ["run", "check"], PROJECT_ROOT, true);
   run("pnpm", ["build"], PROJECT_ROOT, true);
   run("pnpm", ["test"], PROJECT_ROOT, true);
-  run("node", ["scripts/verify_continuity_docs.mjs"], PROJECT_ROOT, true);
+  run("node", ["scripts/release/verify_continuity_docs.mjs"], PROJECT_ROOT, true);
 }
 
 if (mode !== "--check" && mode !== "--publish") {
-  console.error("Foydalanish: node scripts/sync_release.mjs --check | --publish");
+  console.error("Foydalanish: node scripts/release/sync_release.mjs --check | --publish");
   process.exit(1);
 }
 

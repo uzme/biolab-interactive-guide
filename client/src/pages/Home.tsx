@@ -3,9 +3,11 @@
   asymmetric left navigation, and a 16-section Uzbek learning curriculum for every instrument.
 */
 import { lazy, Suspense, useMemo, useState, useTransition } from "react";
-import { ArrowUpRight, Beaker, BookOpen, ChevronRight, CircleHelp, FlaskConical, Grid2X2, Heart, LibraryBig, Menu, Microscope, Search, Settings2, Sparkles, X } from "lucide-react";
+import { ArrowUpRight, Beaker, BookOpen, ChevronRight, CircleHelp, FlaskConical, Grid2X2, Heart, LibraryBig, Menu, Microscope, Search, Settings2, SlidersHorizontal, Sparkles, X } from "lucide-react";
 import Pure3DCarousel from "@/components/Pure3DCarousel";
 import BookmarksSidebar from "@/components/BookmarksSidebar";
+import CatalogFilterSheet from "@/components/CatalogFilterSheet";
+import SettingsDialog from "@/components/SettingsDialog";
 import OfflineManager from "@/components/OfflineManager";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -34,8 +36,8 @@ const curriculumSteps = [
   "09", "10", "11", "12", "13", "14", "15", "16",
 ];
 
-function Sidebar({ activeCategory, onCategory, onMobileClose, onOpenSettings }: { activeCategory: string; onCategory: (category: string) => void; onMobileClose?: () => void; onOpenSettings?: () => void }) {
-  return <aside className="sidebar">
+function Sidebar({ activeCategory, onCategory, onMobileClose, onOpenSettings, drawer = false }: { activeCategory: string; onCategory: (category: string) => void; onMobileClose?: () => void; onOpenSettings?: () => void; drawer?: boolean }) {
+  return <aside className={`sidebar ${drawer ? "mobile-drawer" : ""}`}>
     <div className="mb-10 flex items-center gap-3 px-2">
       <div className="brand-mark relative grid h-12 w-12 place-items-center overflow-hidden rounded-[15px] border border-[#87d9cd]/55 bg-[#0a5358] shadow-[0_10px_24px_rgba(10,83,88,0.18)]"><img src="/manus-storage/biolab-logo_c6e5d846.png" alt="BioLab laboratoriya belgisi" className="h-8 w-8 object-contain" /><span className="absolute inset-x-2 bottom-1.5 h-px bg-[#86ead1]/70" /><span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-white bg-[#14b8a6]" /></div>
       <div className="sidebar-copy"><div className="display flex items-baseline gap-1 text-[22px] font-bold tracking-[-0.055em] text-[#173d42]">Bio<span className="text-[#0d9488]">Lab</span><span className="ml-1 text-[9px] tracking-normal text-[#86a39c]">/ LAB-01</span></div><div className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#5b7c77]">SOP o‘quv tizimi</div></div>
@@ -47,11 +49,11 @@ function Sidebar({ activeCategory, onCategory, onMobileClose, onOpenSettings }: 
         return <button key={category} onClick={() => { onCategory(category); onMobileClose?.(); }} className={`nav-link ${activeCategory === category ? "active" : ""}`} title={category}><Icon size={17} /><span className="nav-label text-left text-[13px]">{category}</span>{category !== "Barcha uskunalar" && <span className="nav-label ml-auto text-[11px] text-[#91a7a0]">{equipment.filter((item) => item.category === category).length}</span>}</button>;
       })}
     </nav>
-    <div className="sidebar-footer mt-auto px-2 pt-6">
-      <div className="sidebar-copy rounded-2xl bg-[#edf7f4] p-4 cursor-pointer hover:bg-[#e2ede8] transition shadow-sm" onClick={() => { onOpenSettings?.(); onMobileClose?.(); }}>
+      <div className="sidebar-footer mt-auto px-2 pt-6">
+      <button type="button" aria-label="Sozlamalar va Copyright" className="sidebar-copy w-full rounded-2xl border-0 bg-[#edf7f4] p-4 text-left cursor-pointer hover:bg-[#e2ede8] transition shadow-sm" onClick={() => { onOpenSettings?.(); onMobileClose?.(); }}>
         <div className="mb-2 flex items-center gap-2 text-[#0c7773]"><Settings2 size={15} /><span className="text-xs font-bold">Sozlamalar & Copyright</span></div>
         <p className="sidebar-footer-copy text-xs leading-5 text-[#537c76]">Mualliflik huquqi, litsenziya va tizim holati.</p>
-      </div>
+      </button>
     </div>
   </aside>;
 }
@@ -63,16 +65,13 @@ export default function Home() {
   const [selectedDevice, setSelectedDevice] = useState<Equipment | null>(null);
   const [mobileNav, setMobileNav] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const [bookmarksOpen, setBookmarksOpen] = useState(false);
   const [bookmarksOnly, setBookmarksOnly] = useState(false);
   const [isFilterPending, startFilterTransition] = useTransition();
   const validDeviceIds = useMemo(() => new Set(equipment.map((device) => device.id)), []);
   const { bookmarkedIds, bookmarkedCount, isBookmarked, toggleBookmark, clearBookmarks, exportBookmarks, importBookmarks } = useBookmarks(validDeviceIds);
-  const handleImportBookmarks = async (file: File) => {
-    const result = await importBookmarks(file);
-    toast.success(`${result.addedCount} ta qurilma import qilindi${result.ignoredCount ? `, ${result.ignoredCount} ta noma’lum ID e’tiborsiz qoldirildi` : ""}.`);
-    return result;
-  };
+  const handleImportBookmarks = async (file: File) => importBookmarks(file);
   const bookmarkedDevices = useMemo(() => bookmarkedIds.map((id) => equipment.find((device) => device.id === id)).filter((device): device is Equipment => Boolean(device)), [bookmarkedIds]);
 
   const categoryCounts = useMemo(() => categories.slice(1).map((category) => ({ name: category, count: equipment.filter((item) => item.category === category).length })), []);
@@ -107,11 +106,53 @@ export default function Home() {
 
   return <div className="shell">
     {mobileNav && <div className="fixed inset-0 z-40 bg-[#173d42]/25 backdrop-blur-sm sm:hidden" onClick={() => setMobileNav(false)} />}
-    {mobileNav && <div className={`${mobileNav ? "translate-x-0" : "-translate-x-full"} fixed left-0 top-0 z-50 h-full transition-transform duration-300 sm:hidden`}><Sidebar activeCategory={activeCategory} onCategory={handleCategoryChange} onMobileClose={() => setMobileNav(false)} onOpenSettings={() => setSettingsOpen(true)} /><button className="absolute right-[-42px] top-5 grid h-9 w-9 place-items-center rounded-full bg-[#ffffff] text-[#0c7773] shadow" onClick={() => setMobileNav(false)} aria-label="Menyuni yopish"><X size={17} /></button></div>}
+    {mobileNav && <div className={`${mobileNav ? "translate-x-0" : "-translate-x-full"} fixed left-0 top-0 z-50 h-full w-[min(86vw,340px)] transition-transform duration-300 sm:hidden`}><Sidebar drawer activeCategory={activeCategory} onCategory={handleCategoryChange} onMobileClose={() => setMobileNav(false)} onOpenSettings={() => setSettingsOpen(true)} /><button className="absolute right-[-42px] top-5 grid h-9 w-9 place-items-center rounded-full bg-[#ffffff] text-[#0c7773] shadow" onClick={() => setMobileNav(false)} aria-label="Menyuni yopish"><X size={17} /></button></div>}
     <div className="hidden sm:block"><Sidebar activeCategory={activeCategory} onCategory={handleCategoryChange} onOpenSettings={() => setSettingsOpen(true)} /></div>
     <main className="min-w-0 flex-1">
-      <header className="border-b border-[#d6e3dc] bg-[#f7fbfa]/85 px-5 py-4 backdrop-blur-xl sm:px-8 lg:px-12">
-        <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4"><div className="flex items-center gap-3"><Button variant="ghost" size="icon" className="text-[#0d7774] sm:hidden" onClick={() => setMobileNav(true)} aria-label="Menyuni ochish"><Menu size={20} /></Button><div className="text-xs font-bold uppercase tracking-[0.16em] text-[#6d8b87]">BioLab / <span className="text-[#0d7774]">Katalog</span></div></div>          <div className="flex items-center gap-2"><OfflineManager /><Button variant="ghost" size="icon" className="relative text-[#0d7774]" aria-label="Saralanganlarni ochish" onClick={() => setBookmarksOpen(true)}><Heart size={18} fill={bookmarkedCount > 0 ? "currentColor" : "none"} />{bookmarkedCount > 0 && <span className="absolute -right-0.5 -top-0.5 grid h-4 min-w-4 place-items-center rounded-full bg-[#0d7774] px-1 text-[9px] font-bold text-white">{bookmarkedCount}</span>}</Button><Button variant="ghost" size="icon" className="text-[#52716d]" aria-label="Sozlamalar va Mualliflik Huquqi" onClick={() => setSettingsOpen(true)}><Settings2 size={18} /></Button></div></div>
+      <header className="sticky top-0 z-30 border-b border-[#cce4dd] bg-[#f7fbfa]/95 px-4 py-3.5 backdrop-blur-xl sm:px-8 lg:px-12 shadow-[0_4px_20px_rgba(23,61,66,0.04)]">
+        <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setMobileNav(true)}
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-[#bce2d5] bg-white text-[#0d7774] shadow-sm transition hover:bg-[#edf7f4] sm:hidden"
+              aria-label="Menyuni ochish"
+            >
+              <Menu size={20} />
+            </button>
+            <div className="flex items-center gap-2">
+              <span className="grid h-8 w-8 place-items-center rounded-lg bg-[#0d7774] text-white shadow-sm sm:hidden">
+                <Beaker size={16} />
+              </span>
+              <div>
+                <div className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#6d8b87]">BioLab // Katalog</div>
+                <div className="text-xs font-bold text-[#173d42]">100 Qurilma & 16 SOP</div>
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <OfflineManager />
+            <button
+              type="button"
+              onClick={() => setBookmarksOpen(true)}
+              className="relative inline-flex items-center gap-1.5 rounded-xl border border-[#bce2d5] bg-white px-3 py-2 text-xs font-bold text-[#0d7774] shadow-sm transition hover:bg-[#edf7f4]"
+              aria-label="Saralanganlarni ochish"
+            >
+              <Heart size={16} fill={bookmarkedCount > 0 ? "currentColor" : "none"} className={bookmarkedCount > 0 ? "text-[#0d7774]" : "text-[#52716d]"} />
+              <span className="hidden sm:inline">Saralanganlar</span>
+              {bookmarkedCount > 0 && <span className="grid h-5 min-w-5 place-items-center rounded-full bg-[#0d7774] px-1.5 text-[10px] font-bold text-white">{bookmarkedCount}</span>}
+            </button>
+            <button
+              type="button"
+              className="inline-flex items-center gap-1.5 rounded-xl border border-[#bce2d5] bg-white px-3 py-2 text-xs font-bold text-[#173d42] shadow-sm transition hover:bg-[#edf7f4]"
+              aria-label="Kengaytirilgan katalog filtrlari"
+              onClick={() => setFiltersOpen(true)}
+            >
+              <SlidersHorizontal size={16} className="text-[#0d7774]" />
+              <span className="hidden sm:inline">Filtrlar</span>
+            </button>
+          </div>
+        </div>
       </header>
 
       <div className="mx-auto max-w-[1500px] px-5 py-6 sm:px-8 sm:py-10 lg:px-12">
@@ -172,45 +213,7 @@ export default function Home() {
     </main>
     <BookmarksSidebar open={bookmarksOpen} onOpenChange={setBookmarksOpen} devices={bookmarkedDevices} onSelectDevice={setSelectedDevice} onToggleBookmark={toggleBookmark} onClearBookmarks={clearBookmarks} onExportBookmarks={exportBookmarks} onImportBookmarks={handleImportBookmarks} />
     {selectedDevice && <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#173d42]/60 p-2 backdrop-blur-md sm:p-6" onClick={() => setSelectedDevice(null)}><div className="relative max-h-[92vh] w-full max-w-6xl overflow-hidden rounded-[30px] border border-[#d8e7e3] bg-white shadow-[0_30px_90px_rgba(20,68,64,0.3)]" onClick={(e) => e.stopPropagation()}><Suspense fallback={<div className="grid min-h-96 place-items-center bg-[#f7fbfa] px-6 text-center text-[#173d42]"><div className="w-full max-w-md space-y-4"><div className="mx-auto h-3 w-28 animate-pulse rounded-full bg-[#cfe5dc]" /><div className="mx-auto h-8 w-3/4 animate-pulse rounded-xl bg-[#dcece6]" /><div className="mx-auto h-24 w-full animate-pulse rounded-2xl bg-[#e7f3ee]" /><div className="loading-dots mx-auto text-[#0d7774]" role="status" aria-label="Qurilmaning o‘quv dosyesi yuklanmoqda"><span /><span /><span /></div><p className="text-sm font-semibold text-[#587872]">Qurilmaning o‘quv dosyesi tayyorlanmoqda…</p></div></div>}><DeviceViewer device={selectedDevice} onBack={() => setSelectedDevice(null)} /></Suspense></div></div>}
-    {settingsOpen && <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#173d42]/40 p-4 backdrop-blur-md" onClick={() => setSettingsOpen(false)}>
-      <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-[28px] border border-[#d8e7e3] bg-white p-6 shadow-[0_24px_60px_rgba(28,71,67,0.2)] sm:p-8" onClick={(e) => e.stopPropagation()}>
-        <div className="flex items-center justify-between border-b border-[#e2ede8] pb-4">
-          <div className="flex items-center gap-3">
-            <span className="grid h-10 w-10 place-items-center rounded-xl bg-[#0d7774] text-white"><Settings2 size={20} /></span>
-            <div><div className="tech-label text-[#5b7c77]">BIO.LAB // TIZIM</div><h2 className="display text-xl font-bold text-[#173d42]">Sozlamalar va Mualliflik Huquqi</h2></div>
-          </div>
-          <button onClick={() => setSettingsOpen(false)} className="grid h-9 w-9 place-items-center rounded-full bg-[#f1f8f5] text-[#126a6a] hover:bg-[#e2ede8]" aria-label="Yopish"><X size={18} /></button>
-        </div>
-        <div className="mt-6 space-y-6 text-sm text-[#355853]">
-          <section className="rounded-2xl border border-[#d8e7e3] bg-[#f7fbfa] p-5">
-            <h3 className="font-bold text-[#173d42]">1. Platforma haqida va Maqsad</h3>
-            <p className="mt-2 leading-6 text-[#5b7c77]">BioLab Interactive Guide — 100 ta biotexnologiya qurilmasi uchun 16 bo‘limli chuqur o‘quv platformasi. Tizim ilmiy ma’lumotlarni tizimlashtirish, ishonchli o‘quv protokollari va laboratoriya xavfsizligini ta’minlash uchun ishlab chiqilgan.</p>
-          </section>
-          <section className="rounded-2xl border border-[#d8e7e3] bg-[#f7fbfa] p-5">
-            <h3 className="font-bold text-[#173d42]">2. Mualliflik huquqi va Kopirayt (Copyright Notice)</h3>
-            <p className="mt-2 leading-6 text-[#5b7c77]">© 2026 BioLab Interactive Guide / Manus AI & Biotexnolog. Barcha huquqlar himoyalangan. Platformaning kod bazasi, interfeys dizayni, 16 bo‘limli o‘quv konspektlari va tuzilmasi mualliflik huquqi qonunchiligi bilan qat’iy muhofaza qilinadi. Uni ruxsatsiz ko‘chirish, tijoriy maqsadlarda tarqatish yoki o‘zgartirish taqiqlanadi.</p>
-          </section>
-          <section className="rounded-2xl border border-[#b6dcd1] bg-[#eef7f4] p-5">
-            <h3 className="font-bold text-[#0e6f67]">3. Xavfsizlik standartlari (10/10 Himoya va SOP)</h3>
-            <p className="mt-2 leading-6 text-[#245b53]">Laboratoriya amaliyotida 10/10 xavfsizlik qoidalariga rioya etiladi: har bir asbob uchun shaxsiy himoya vositalari (PPE), bioxavfsizlik talablari, favqulodda to‘xtatish tartibi va standart operatsion protseduralar (SOP) qat’iy ko‘rsatilgan. Hech qachon sinovdan o‘tmagan yoki tasdiqlanmagan reaktiv nisbatlari qo‘llanilmaydi.</p>
-          </section>
-          <section className="rounded-2xl border border-[#d8e7e3] bg-[#f7fbfa] p-5">
-            <h3 className="font-bold text-[#173d42]">3. Foydalanish shartlari va Ta’limiy cheklovlar</h3>
-            <p className="mt-2 leading-6 text-[#5b7c77]">Platformadan faqat ta’lim, tadqiqot va laboratoriya amaliyotini o‘rganish maqsadida foydalanish mumkin. Ma’lumotlarni o‘quv jarayonida qo‘llash mutlaqo erkin, biroq ularni ommaviy nashrlarda o‘zgarishsiz yoki mualliflik manbasini ko‘rsatmasdan tarqatish taqiqlanadi.</p>
-          </section>
-          <section className="rounded-2xl border border-[#d8e7e3] bg-[#f7fbfa] p-5">
-            <h3 className="font-bold text-[#173d42]">4. Rasm litsenziyasi va Shaffoflik siyosati</h3>
-            <p className="mt-2 leading-6 text-[#5b7c77]">Platformadagi rasmlar ikki turga bo‘linadi: ishlab chiqaruvchilarning rasmiy/distributor mahsulot fotosuratlari (ularning asl mualliflik huquqi tegishli kompaniyalarda qoladi va faqat o‘quv/identifikatsiya maqsadida ko‘rsatiladi) hamda o‘quv ko‘rgazmasi uchun yaratilgan laboratoriya-realistik AI vizuallari. Har bir qurilma sahifasida rasm shaffofligi bloki va manba havolasi mavjud.</p>
-          </section>
-          <section className="rounded-2xl border border-[#d8e7e3] bg-[#f7fbfa] p-5">
-            <h3 className="font-bold text-[#173d42]">6. Texnik Sinxronlash va Google Drive Qoidasi</h3>
-            <p className="mt-2 leading-6 text-[#5b7c77]">Loyiha kodi faqat rasmiy <code className="rounded bg-[#e2ede8] px-1.5 py-0.5 text-xs text-[#0d7774]">uzme/biolab-interactive-guide</code> GitHub repozitoriyining <code className="rounded bg-[#e2ede8] px-1.5 py-0.5 text-xs text-[#0d7774]">main</code> branchida saqlanadi. Google Drive bo‘yicha barcha sanitizatsiyalangan fayllar, subpapkalar va snapshotlar faqat yagona "Biotexnologiya" root papkasi ichida yaratiladi va boshqariladi. Boshqa Drive papkalariga BioLab fayllari chiqarilmaydi. Maxfiy tokenlar va env fayllar sinxronizatsiyadan qat’iy chetlatiladi.</p>
-          </section>
-        </div>
-        <div className="mt-8 flex justify-end border-t border-[#e2ede8] pt-4">
-          <Button onClick={() => setSettingsOpen(false)} className="bg-[#0d7774] text-white hover:bg-[#075e5c]">Tushunarli, yopish</Button>
-        </div>
-      </div>
-    </div>}
+    <CatalogFilterSheet open={filtersOpen} onOpenChange={setFiltersOpen} query={query} modelQuery={modelQuery} activeCategory={activeCategory} categories={categories} bookmarksOnly={bookmarksOnly} resultCount={filtered.length} bookmarkedCount={bookmarkedCount} hasActiveFilters={hasActiveFilters} onQueryChange={handleQueryChange} onModelQueryChange={handleModelQueryChange} onCategoryChange={handleCategoryChange} onBookmarksOnlyChange={handleBookmarksOnlyChange} onClearFilters={clearFilters} />
+    <SettingsDialog open={settingsOpen} onOpenChange={setSettingsOpen} bookmarkedCount={bookmarkedCount} onClearBookmarks={clearBookmarks} onExportBookmarks={exportBookmarks} onImportBookmarks={handleImportBookmarks} />
   </div>;
 }

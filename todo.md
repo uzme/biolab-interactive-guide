@@ -10,7 +10,18 @@
 - [x] Final PROJECT_STATE, CURRENT_STATE, GITHUB_INDEX va DRIVE_INDEX metadata yangilanishlarini tekshirib, sanitizatsiyalangan release sifatida GitHub `main` commit `350a56365ebf853b1ee5dd706f07af58b33b2bfc` va Biotexnologiya Drive snapshot `14seIzgh0siDnIwR9ltYTFcvB60sip9K3` (`2026-08-18T16:46:56.120Z`) ga yuborish
 - [x] Release metadata fayllaridagi commit/time driftini bartaraf etish uchun umumiy format o‘zgarishlarini final test, sanitizatsiya, GitHub va Drive publish bilan tasdiqlash; final publish commit `337fb1c83ed994446d914d7e6eaa8a9bdd0faaed`, Drive modified `2026-08-18T16:49:57.102Z`, fingerprint `91f4eece56738231418eb86ddfccf419f8d00915d824ebf626ee7e89cfa81d9c`
 - [x] GitHub repository rootidagi barcha protocol va audit hujjatlarini (`DATABASE.md`, `CONTINUITY_AUDIT.md` va boshqa 12 ta master protokol faylini) `docs/master-protocols/` katalogiga to‘liq ko‘chirish; `verify_continuity_docs.mjs` da pathlarni yangilab, continuity auditdan `READY` statusini olish
-- [ ] Headerdagi chap menyu (hamburger) va o‘ng filtr/sozlamalar tugmalarini to‘liq interaktiv va ishlaydigan qilish
-- [ ] Ilovaning to‘liq funksional "Sozlamalar va Mualliflik huquqi" (Settings & Copyright / Attribution) modal oynasini qo‘shish
-- [ ] Mobil va desktop interfeysdagi header, hero va katalog kartalarining dizaynini yanada zamonaviy, ixcham va biotexnologiya uslubiga moslab yangilash
+- [x] Headerdagi chap menyu (hamburger) va o‘ng filtr/sozlamalar tugmalarini to‘liq interaktiv va ishlaydigan qilish
+- [x] Ilovaning to‘liq funksional "Sozlamalar va Mualliflik huquqi" (Settings & Copyright / Attribution) modal oynasini qo‘shish
+- [x] Mobil va desktop interfeysdagi header, hero va katalog kartalarining dizaynini yanada zamonaviy, ixcham va biotexnologiya uslubiga moslab yangilash
 - [ ] Typecheck, production build, regressiya testlari va sanitizatsiyalangan GitHub–Drive release publishni bajarish
+- [x] Mobil screenshotda qizil bilan belgilangan header elementlarini (chapda menyu, o‘ngda filtr/sozlamalar drawer yoki modallari) to‘liq funksional qilish
+- [x] Sozlamalar sahifasida litsenziya, mualliflik huquqi (Copyright © 2026), rasm manbalari shaffofligi va ma'lumotlarni boshqarish elementlarini mukammal ishlashini ta'minlash
+- [x] Mobil va desktop interfeys uchun "Modern Precision Biotech" dizaynini yanada sayqallash, bo‘sh joylarni mazmunli ma'lumotlar bilan to‘ldirish
+- [ ] Typecheck, production build, Vitest va continuity verifikatsiyasidan so‘ng sanitizatsiyalangan release snapshotini GitHub va Biotexnologiya Drive papkasiga sinxronlash
+- [x] SettingsDialog ichidagi tema va kamroq animatsiya boshqaruvlarini real state oqimi bilan regressiya testida tasdiqlash; data-management uchun alohida pending bandlar saqlandi
+- [x] Copyright © 2026, litsenziya, rasm manbasi shaffofligi va data-management bo‘limlarining to‘liq production-quality end-to-end verifikatsiyasini yakunlash; yagona import success toast, clear confirmation, invalid JSON error va licensing transparency testlari tasdiqlandi
+- [ ] Modern Precision Biotech auditidagi qolgan polish: LAB-01 / 16-step SOP spine’ni kuchaytirish, kartalarni protocol-record ko‘rinishiga yaqinlashtirish va bo‘limlar orasidagi texnik ritmni oshirish
+- [x] UI screenshot auditi, typecheck/build/test va continuity audit bajarildi; final GitHub/Drive publish hamda qolgan SOP spine polish alohida pending bandlarda davom etadi
+- [x] SettingsDialog JSON import oqimini regressiya/end-to-end test bilan tasdiqlash: UI’da `1 ta xatcho‘p faol` counti, valid import, noma’lum ID filtering va invalid JSON error aniq tekshirildi
+- [x] Data-management bo‘limining to‘liq end-to-end verifikatsiyasini yakunlash: dublikat success toast bartaraf etilib, export/import/clear oqimi yagona toast va confirmation bilan qayta tasdiqlandi
+- [x] Rasm manbasi/litsenziya shaffofligi oqimini end-to-end tekshirish: DeviceViewer dagi foydalanuvchi ko‘radigan transparency card va sources bloklari test bilan tasdiqlandi

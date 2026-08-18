@@ -17,6 +17,55 @@ const cardCodes = async () => page.locator("article.equipment-card [data-equipme
 await page.goto(previewUrl, { waitUntil: "networkidle" });
 await page.locator("#catalog").scrollIntoViewIfNeeded();
 
+const filterTrigger = page.getByRole("button", { name: "Kengaytirilgan katalog filtrlari" });
+await filterTrigger.click();
+await page.getByRole("heading", { name: "Katalog filtrlari" }).waitFor();
+const drawerSearch = page.getByPlaceholder("Masalan, PCR yoki Bio-Rad");
+await drawerSearch.fill("PCR");
+assert((await page.locator("article.equipment-card").count()) > 0, "Filter drawer ichidagi qidiruv PCR natijasini bermadi.");
+await page.getByRole("button", { name: "Filtrni qo‘llash" }).click();
+await page.getByRole("button", { name: "Qurilma qidiruvini bekor qilish" }).click();
+await page.waitForFunction(() => document.querySelectorAll("article.equipment-card").length === 100);
+await page.getByRole("button", { name: "Sozlamalar va Copyright" }).click();
+await page.getByRole("heading", { name: "Sozlamalar va huquqiy ma’lumot" }).waitFor();
+assert(await page.getByText("Mualliflik huquqi va shaffoflik").isVisible(), "Sozlamalar dialogidagi copyright/shaffoflik bloki topilmadi.");
+assert(await page.getByText("Litsenziya va rasm manbasi shaffofligi").isVisible(), "Litsenziya va rasm manbasi bloki topilmadi.");
+assert(await page.getByText("© 2026 BioLab", { exact: true }).isVisible(), "Copyright yili ko‘rsatilmagan.");
+assert(await page.getByText("JSON eksport").isVisible() && await page.getByText("JSON import").isVisible(), "Xatcho‘p eksport/import boshqaruvlari topilmadi.");
+const themeToggle = page.getByRole("button", { name: "Rang mavzusini almashtirish" });
+await themeToggle.click();
+await page.waitForFunction(() => ["light", "dark"].includes(localStorage.getItem("theme") ?? ""));
+await themeToggle.click();
+const motionToggle = page.getByRole("switch", { name: "Kamroq animatsiyani almashtirish" });
+await motionToggle.click();
+await page.waitForFunction(() => localStorage.getItem("biolab-reduced-motion") === "true");
+await motionToggle.click();
+const clearBookmarksButton = page.getByRole("button", { name: "Xatcho‘plarni tozalash" });
+await clearBookmarksButton.click();
+await page.getByText("Saralangan qurilmalar ro‘yxati allaqachon bo‘sh.").waitFor();
+const downloadPromise = page.waitForEvent("download");
+await page.getByRole("button", { name: "JSON eksport" }).click();
+const download = await downloadPromise;
+assert(download.suggestedFilename().endsWith(".json"), "Xatcho‘p eksporti JSON fayl yaratmadi.");
+
+const bookmarkImportInput = page.locator('input[aria-label="Xatcho‘plar JSON faylini tanlash"]');
+await bookmarkImportInput.setInputFiles("scripts/tests/fixtures/bookmarks-import.json");
+const importSuccessMessage = "1 ta qurilma import qilindi, 1 ta noma’lum ID e’tiborsiz qoldirildi.";
+await page.getByText(importSuccessMessage, { exact: true }).waitFor();
+await page.getByText("1 ta xatcho‘p faol", { exact: true }).waitFor();
+await page.waitForFunction(() => JSON.parse(localStorage.getItem("biolab-guide:bookmarks:v1") ?? "[]").includes("BIO-001"));
+assert(await page.getByText(importSuccessMessage, { exact: true }).count() === 1, "Valid JSON import uchun dublikat success toast qoldi.");
+assert(await page.getByText("1 ta xatcho‘p faol", { exact: true }).isVisible(), "Importdan keyin SettingsDialog xatcho‘p counti yangilanmadi.");
+
+await bookmarkImportInput.setInputFiles({ name: "invalid-bookmarks.json", mimeType: "application/json", buffer: Buffer.from("{invalid-json") });
+await page.getByText("Xatcho‘plar faylini import qilib bo‘lmadi.").waitFor();
+assert(await page.getByText("Xatcho‘plar faylini import qilib bo‘lmadi.").isVisible(), "Invalid JSON import xatoligi ko‘rsatilmagan.");
+
+page.once("dialog", (dialog) => dialog.accept());
+await page.getByRole("button", { name: "Xatcho‘plarni tozalash" }).click();
+await page.getByText("Saralangan qurilmalar tozalandi.").waitFor();
+await page.getByRole("button", { name: "Sozlamalarni yopish" }).click();
+
 const priorityImages = page.locator("article.equipment-card img[loading='eager'][fetchpriority='high']");
 assert(await priorityImages.count() === 3, "Birinchi uchta karta rasmi ustuvor yuklanishga belgilanmadi.");
 await page.waitForFunction(() => {
@@ -68,6 +117,15 @@ assert(codes.length === 100 && codes[0] === "BIO-001" && codes.at(-1) === "BIO-1
 
 const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true });
 await mobilePage.goto(previewUrl, { waitUntil: "domcontentloaded" });
+await mobilePage.getByRole("button", { name: "Menyuni ochish" }).click();
+await mobilePage.getByRole("button", { name: "Sozlamalar va Copyright" }).click();
+await mobilePage.getByRole("heading", { name: "Sozlamalar va huquqiy ma’lumot" }).waitFor();
+await mobilePage.getByRole("button", { name: "Sozlamalarni yopish" }).click();
+await mobilePage.getByRole("button", { name: "Menyuni ochish" }).click();
+await mobilePage.locator("[aria-label='Menyuni yopish']").click();
+await mobilePage.getByRole("button", { name: "Kengaytirilgan katalog filtrlari" }).click();
+await mobilePage.getByRole("heading", { name: "Katalog filtrlari" }).waitFor();
+await mobilePage.getByRole("button", { name: "Filtrni qo‘llash" }).click();
 await mobilePage.locator("#catalog").scrollIntoViewIfNeeded();
 await mobilePage.waitForFunction(() => {
   const image = document.querySelector("article.equipment-card img");

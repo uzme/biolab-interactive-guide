@@ -15,9 +15,9 @@
 - **Incomplete features:** None
 - **Repository organization:** `scripts/data/`, `scripts/release/`, `scripts/tests/` va `scripts/utils/` papkalari; root-level script qoldig‘i yo‘q, barcha eski path reference’lar tozalangan
 - **Deployment:** Manus Autoscale Web Hosting — `https://biolabguide-fbcitqyf.manus.space`
-- **Canonical GitHub:** `https://github.com/uzme/biolab-interactive-guide`, `main`, commit `5d75042f135aad60b1098f403183ccc89760671d`
-- **Canonical Drive:** `Biotexnologiya` root ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`, file ID `14seIzgh0siDnIwR9ltYTFcvB60sip9K3`, modified `2026-08-18T16:44:33.773Z`; rootda bitta snapshot tasdiqlangan
-- **Canonical snapshot:** `BioLab_Interactive_Guide_source.tar.gz`; source fingerprint `84a1506773b03c0e89796c6d6b7af6ef67a6b83ca075dba32ef65e92bad7ce70`
+- **Canonical GitHub:** `https://github.com/uzme/biolab-interactive-guide`, `main`; latest commit va release metadata publish outputida qayd etiladi
+- **Canonical Drive:** `Biotexnologiya` root ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`; canonical file ID va modified time publish outputida qayd etiladi, rootda bitta snapshot tekshiriladi
+- **Canonical snapshot:** `BioLab_Interactive_Guide_source.tar.gz`; source fingerprint har bir sanitizatsiyalangan release outputida qayd etiladi
 - **Database:** Schema va migration metadata repositorydagi `drizzle/` katalogida saqlanadi; destructive migration bajarilmagן
 
 ## Qat’iy saqlanadigan source-of-truth

@@ -69,7 +69,8 @@ assert(await deviceSearch.inputValue() === "" && await modelSearch.inputValue() 
 codes = await cardCodes();
 assert(codes.length === 100 && codes[0] === "BIO-001" && codes.at(-1) === "BIO-100", "Tozalashdan keyin BIO-001–BIO-100 tartibi tiklanmadi.");
 
-const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true });
+const mobileContext = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, serviceWorkers: "block" });
+const mobilePage = await mobileContext.newPage();
 await useImageFixtures(mobilePage);
 await mobilePage.goto(previewUrl, { waitUntil: "domcontentloaded" });
 await mobilePage.locator("#catalog").scrollIntoViewIfNeeded();
@@ -79,6 +80,7 @@ const mobilePriorityImages = mobilePage.locator("article.equipment-card img[load
 assert((await mobilePriorityImages.count()) >= 3, "Mobil ekranda birinchi kartalar uchun rasm priority qoidasi yo‘q.");
 assert((await mobilePriorityImages.evaluateAll((images) => images.every((image) => image.getAttribute("src")?.startsWith("/manus-storage/")))), "Mobil priority rasmlarida storage manbasi saqlanmadi.");
 await mobilePage.close();
+await mobileContext.close();
 
 await browser.close();
 console.log("Katalog tartibi, qidiruv/tozalash boshqaruvlari va desktop/mobile rasm priority qoidalari muvaffaqiyatli tekshirildi.");

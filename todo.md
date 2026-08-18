@@ -10,3 +10,7 @@
 - [x] Final PROJECT_STATE, CURRENT_STATE, GITHUB_INDEX va DRIVE_INDEX metadata yangilanishlarini tekshirib, sanitizatsiyalangan release sifatida GitHub `main` commit `350a56365ebf853b1ee5dd706f07af58b33b2bfc` va Biotexnologiya Drive snapshot `14seIzgh0siDnIwR9ltYTFcvB60sip9K3` (`2026-08-18T16:46:56.120Z`) ga yuborish
 - [x] Release metadata fayllaridagi commit/time driftini bartaraf etish uchun umumiy format o‘zgarishlarini final test, sanitizatsiya, GitHub va Drive publish bilan tasdiqlash; final publish commit `337fb1c83ed994446d914d7e6eaa8a9bdd0faaed`, Drive modified `2026-08-18T16:49:57.102Z`, fingerprint `91f4eece56738231418eb86ddfccf419f8d00915d824ebf626ee7e89cfa81d9c`
 - [x] GitHub repository rootidagi barcha protocol va audit hujjatlarini (`DATABASE.md`, `CONTINUITY_AUDIT.md` va boshqa 12 ta master protokol faylini) `docs/master-protocols/` katalogiga to‘liq ko‘chirish; `verify_continuity_docs.mjs` da pathlarni yangilab, continuity auditdan `READY` statusini olish
+- [ ] Headerdagi chap menyu (hamburger) va o‘ng filtr/sozlamalar tugmalarini to‘liq interaktiv va ishlaydigan qilish
+- [ ] Ilovaning to‘liq funksional "Sozlamalar va Mualliflik huquqi" (Settings & Copyright / Attribution) modal oynasini qo‘shish
+- [ ] Mobil va desktop interfeysdagi header, hero va katalog kartalarining dizaynini yanada zamonaviy, ixcham va biotexnologiya uslubiga moslab yangilash
+- [ ] Typecheck, production build, regressiya testlari va sanitizatsiyalangan GitHub–Drive release publishni bajarish

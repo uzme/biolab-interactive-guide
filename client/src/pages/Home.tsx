@@ -34,7 +34,7 @@ const curriculumSteps = [
   "09", "10", "11", "12", "13", "14", "15", "16",
 ];
 
-function Sidebar({ activeCategory, onCategory, onMobileClose }: { activeCategory: string; onCategory: (category: string) => void; onMobileClose?: () => void }) {
+function Sidebar({ activeCategory, onCategory, onMobileClose, onOpenSettings }: { activeCategory: string; onCategory: (category: string) => void; onMobileClose?: () => void; onOpenSettings?: () => void }) {
   return <aside className="sidebar">
     <div className="mb-10 flex items-center gap-3 px-2">
       <div className="brand-mark relative grid h-12 w-12 place-items-center overflow-hidden rounded-[15px] border border-[#87d9cd]/55 bg-[#0a5358] shadow-[0_10px_24px_rgba(10,83,88,0.18)]"><img src="/manus-storage/biolab-logo_c6e5d846.png" alt="BioLab laboratoriya belgisi" className="h-8 w-8 object-contain" /><span className="absolute inset-x-2 bottom-1.5 h-px bg-[#86ead1]/70" /><span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-white bg-[#14b8a6]" /></div>
@@ -47,7 +47,12 @@ function Sidebar({ activeCategory, onCategory, onMobileClose }: { activeCategory
         return <button key={category} onClick={() => { onCategory(category); onMobileClose?.(); }} className={`nav-link ${activeCategory === category ? "active" : ""}`} title={category}><Icon size={17} /><span className="nav-label text-left text-[13px]">{category}</span>{category !== "Barcha uskunalar" && <span className="nav-label ml-auto text-[11px] text-[#91a7a0]">{equipment.filter((item) => item.category === category).length}</span>}</button>;
       })}
     </nav>
-    <div className="sidebar-footer mt-auto px-2 pt-6"><div className="sidebar-copy rounded-2xl bg-[#edf7f4] p-4"><div className="mb-2 flex items-center gap-2 text-[#0c7773]"><CircleHelp size={15} /><span className="text-xs font-bold">Yordam kerakmi?</span></div><p className="sidebar-footer-copy text-xs leading-5 text-[#537c76]">Qurilmani tanlang va o‘rganishni boshlang.</p></div></div>
+    <div className="sidebar-footer mt-auto px-2 pt-6">
+      <div className="sidebar-copy rounded-2xl bg-[#edf7f4] p-4 cursor-pointer hover:bg-[#e2ede8] transition shadow-sm" onClick={() => { onOpenSettings?.(); onMobileClose?.(); }}>
+        <div className="mb-2 flex items-center gap-2 text-[#0c7773]"><Settings2 size={15} /><span className="text-xs font-bold">Sozlamalar & Copyright</span></div>
+        <p className="sidebar-footer-copy text-xs leading-5 text-[#537c76]">Mualliflik huquqi, litsenziya va tizim holati.</p>
+      </div>
+    </div>
   </aside>;
 }
 
@@ -102,8 +107,8 @@ export default function Home() {
 
   return <div className="shell">
     {mobileNav && <div className="fixed inset-0 z-40 bg-[#173d42]/25 backdrop-blur-sm sm:hidden" onClick={() => setMobileNav(false)} />}
-    {mobileNav && <div className={`${mobileNav ? "translate-x-0" : "-translate-x-full"} fixed left-0 top-0 z-50 h-full transition-transform duration-300 sm:hidden`}><Sidebar activeCategory={activeCategory} onCategory={handleCategoryChange} onMobileClose={() => setMobileNav(false)} /><button className="absolute right-[-42px] top-5 grid h-9 w-9 place-items-center rounded-full bg-[#ffffff] text-[#0c7773] shadow" onClick={() => setMobileNav(false)} aria-label="Menyuni yopish"><X size={17} /></button></div>}
-    <div className="hidden sm:block"><Sidebar activeCategory={activeCategory} onCategory={handleCategoryChange} /></div>
+    {mobileNav && <div className={`${mobileNav ? "translate-x-0" : "-translate-x-full"} fixed left-0 top-0 z-50 h-full transition-transform duration-300 sm:hidden`}><Sidebar activeCategory={activeCategory} onCategory={handleCategoryChange} onMobileClose={() => setMobileNav(false)} onOpenSettings={() => setSettingsOpen(true)} /><button className="absolute right-[-42px] top-5 grid h-9 w-9 place-items-center rounded-full bg-[#ffffff] text-[#0c7773] shadow" onClick={() => setMobileNav(false)} aria-label="Menyuni yopish"><X size={17} /></button></div>}
+    <div className="hidden sm:block"><Sidebar activeCategory={activeCategory} onCategory={handleCategoryChange} onOpenSettings={() => setSettingsOpen(true)} /></div>
     <main className="min-w-0 flex-1">
       <header className="border-b border-[#d6e3dc] bg-[#f7fbfa]/85 px-5 py-4 backdrop-blur-xl sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4"><div className="flex items-center gap-3"><Button variant="ghost" size="icon" className="text-[#0d7774] sm:hidden" onClick={() => setMobileNav(true)} aria-label="Menyuni ochish"><Menu size={20} /></Button><div className="text-xs font-bold uppercase tracking-[0.16em] text-[#6d8b87]">BioLab / <span className="text-[#0d7774]">Katalog</span></div></div>          <div className="flex items-center gap-2"><OfflineManager /><Button variant="ghost" size="icon" className="relative text-[#0d7774]" aria-label="Saralanganlarni ochish" onClick={() => setBookmarksOpen(true)}><Heart size={18} fill={bookmarkedCount > 0 ? "currentColor" : "none"} />{bookmarkedCount > 0 && <span className="absolute -right-0.5 -top-0.5 grid h-4 min-w-4 place-items-center rounded-full bg-[#0d7774] px-1 text-[9px] font-bold text-white">{bookmarkedCount}</span>}</Button><Button variant="ghost" size="icon" className="text-[#52716d]" aria-label="Sozlamalar va Mualliflik Huquqi" onClick={() => setSettingsOpen(true)}><Settings2 size={18} /></Button></div></div>

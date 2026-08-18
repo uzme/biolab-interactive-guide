@@ -18,6 +18,7 @@ await page.goto(previewUrl, { waitUntil: "networkidle" });
 await page.locator("#catalog").scrollIntoViewIfNeeded();
 
 const priorityImages = page.locator("article.equipment-card img[loading='eager'][fetchpriority='high']");
+await page.waitForFunction(() => document.querySelectorAll("article.equipment-card img[loading='eager'][fetchpriority='high']").length === 3, undefined, { timeout: 10_000 });
 assert(await priorityImages.count() === 3, "Birinchi uchta karta rasmi ustuvor yuklanishga belgilanmadi.");
 await page.waitForFunction(() => {
   const image = document.querySelector("article.equipment-card img");

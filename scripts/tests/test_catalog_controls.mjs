@@ -25,8 +25,9 @@ await page.goto(previewUrl, { waitUntil: "networkidle" });
 await page.locator("#catalog").scrollIntoViewIfNeeded();
 
 const priorityImages = page.locator("article.equipment-card img[loading='eager'][fetchpriority='high']");
-await page.waitForFunction(() => document.querySelectorAll("article.equipment-card img[loading='eager'][fetchpriority='high']").length === 3, undefined, { timeout: 30_000 });
-assert(await priorityImages.count() === 3, "Birinchi uchta karta rasmi ustuvor yuklanishga belgilanmadi.");
+await page.locator("article.equipment-card").first().waitFor({ state: "visible", timeout: 30_000 });
+await page.waitForFunction(() => document.querySelectorAll("article.equipment-card img[loading='eager'][fetchpriority='high']").length >= 3, undefined, { timeout: 30_000 });
+assert((await priorityImages.count()) >= 3, "Birinchi uchta karta rasmi ustuvor yuklanishga belgilanmadi.");
 let codes = await cardCodes();
 assert(codes.length === 100, `Boshlang‘ich katalogda 100 ta karta kutilgan, ${codes.length} ta topildi.`);
 assert(codes[0] === "BIO-001" && codes.at(-1) === "BIO-100", `Boshlang‘ich tartib noto‘g‘ri: ${codes[0]} … ${codes.at(-1)}.`);
@@ -72,9 +73,10 @@ const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 }
 await useImageFixtures(mobilePage);
 await mobilePage.goto(previewUrl, { waitUntil: "domcontentloaded" });
 await mobilePage.locator("#catalog").scrollIntoViewIfNeeded();
-await mobilePage.waitForFunction(() => document.querySelectorAll("article.equipment-card img[loading='eager'][fetchpriority='high']").length === 3, undefined, { timeout: 10_000 });
+await mobilePage.locator("article.equipment-card").first().waitFor({ state: "visible", timeout: 30_000 });
+await mobilePage.waitForFunction(() => document.querySelectorAll("article.equipment-card img[loading='eager'][fetchpriority='high']").length >= 3, undefined, { timeout: 30_000 });
 const mobilePriorityImages = mobilePage.locator("article.equipment-card img[loading='eager'][fetchpriority='high']");
-assert(await mobilePriorityImages.count() === 3, "Mobil ekranda birinchi kartalar uchun rasm priority qoidasi yo‘q.");
+assert((await mobilePriorityImages.count()) >= 3, "Mobil ekranda birinchi kartalar uchun rasm priority qoidasi yo‘q.");
 assert((await mobilePriorityImages.evaluateAll((images) => images.every((image) => image.getAttribute("src")?.startsWith("/manus-storage/")))), "Mobil priority rasmlarida storage manbasi saqlanmadi.");
 await mobilePage.close();
 

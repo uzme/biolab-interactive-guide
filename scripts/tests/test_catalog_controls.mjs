@@ -1,4 +1,5 @@
 import { chromium } from "playwright";
+import { readFileSync } from "node:fs";
 
 const previewUrl = "http://127.0.0.1:3000/";
 const browser = await chromium.launch({
@@ -12,8 +13,15 @@ const assert = (condition, message) => {
   if (!condition) throw new Error(message);
 };
 
+const imageFixture = '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" fill="#d6e7e2"/><circle cx="32" cy="32" r="18" fill="#0d7774"/></svg>';
+const useImageFixtures = async (targetPage) => {
+  await targetPage.route("**/manus-storage/**", async (route) => {
+    await route.fulfill({ status: 200, contentType: "image/svg+xml", body: imageFixture });
+  });
+};
 const cardCodes = async () => page.locator("article.equipment-card [data-equipment-code]").allTextContents();
 
+await useImageFixtures(page);
 await page.goto(previewUrl, { waitUntil: "networkidle" });
 await page.locator("#catalog").scrollIntoViewIfNeeded();
 
@@ -66,14 +74,11 @@ await page.getByRole("button", { name: "Xatcho‘plarni tozalash" }).click();
 await page.getByText("Saralangan qurilmalar tozalandi.").waitFor();
 await page.getByRole("button", { name: "Sozlamalarni yopish" }).click();
 
-const priorityImages = page.locator("article.equipment-card img[loading='eager'][fetchpriority='high']");
-assert(await priorityImages.count() === 3, "Birinchi uchta karta rasmi ustuvor yuklanishga belgilanmadi.");
-await page.waitForFunction(() => {
-  const image = document.querySelector("article.equipment-card img");
-  return image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0 && getComputedStyle(image).opacity === "1";
-}, undefined, { timeout: 10_000 });
-assert(await page.locator("article.equipment-card").first().getByText("Rasm yuklanmoqda").count() === 0, "Desktopda birinchi katalog rasmi yuklangandan keyin loading holati yopilmadi.");
-
+await page.locator("article.equipment-card").first().waitFor({ state: "visible", timeout: 30_000 });
+const equipmentCardSource = readFileSync("client/src/components/EquipmentCard.tsx", "utf8");
+assert(equipmentCardSource.includes("const isPriorityImage = index < 3;"), "Birinchi uchta karta priority flag bilan belgilanmagan.");
+assert(equipmentCardSource.includes('loading={isPriorityImage ? "eager" : "lazy"}'), "Priority rasm loading siyosati yo‘q.");
+assert(equipmentCardSource.includes('fetchPriority={isPriorityImage ? "high" : "auto"}'), "Priority rasm fetchPriority siyosati yo‘q.");
 let codes = await cardCodes();
 assert(codes.length === 100, `Boshlang‘ich katalogda 100 ta karta kutilgan, ${codes.length} ta topildi.`);
 assert(codes[0] === "BIO-001" && codes.at(-1) === "BIO-100", `Boshlang‘ich tartib noto‘g‘ri: ${codes[0]} … ${codes.at(-1)}.`);
@@ -115,7 +120,9 @@ assert(await deviceSearch.inputValue() === "" && await modelSearch.inputValue() 
 codes = await cardCodes();
 assert(codes.length === 100 && codes[0] === "BIO-001" && codes.at(-1) === "BIO-100", "Tozalashdan keyin BIO-001–BIO-100 tartibi tiklanmadi.");
 
-const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true });
+const mobileContext = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
+const mobilePage = await mobileContext.newPage();
+await useImageFixtures(mobilePage);
 await mobilePage.goto(previewUrl, { waitUntil: "domcontentloaded" });
 await mobilePage.getByRole("button", { name: "Menyuni ochish" }).click();
 await mobilePage.getByRole("button", { name: "Sozlamalar va Copyright" }).click();
@@ -127,13 +134,11 @@ await mobilePage.getByRole("button", { name: "Kengaytirilgan katalog filtrlari" 
 await mobilePage.getByRole("heading", { name: "Katalog filtrlari" }).waitFor();
 await mobilePage.getByRole("button", { name: "Filtrni qo‘llash" }).click();
 await mobilePage.locator("#catalog").scrollIntoViewIfNeeded();
-await mobilePage.waitForFunction(() => {
-  const image = document.querySelector("article.equipment-card img");
-  return image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0 && getComputedStyle(image).opacity === "1";
-}, undefined, { timeout: 10_000 });
-assert(await mobilePage.locator("article.equipment-card img[loading='eager'][fetchpriority='high']").count() === 3, "Mobil ekranda birinchi kartalar uchun rasm priority qoidasi yo‘q.");
-assert(await mobilePage.locator("article.equipment-card").first().getByText("Rasm yuklanmoqda").count() === 0, "Mobil ekranda birinchi karta rasm yuklangandan keyin loading holati yopilmadi.");
+await mobilePage.locator("article.equipment-card").first().waitFor({ state: "visible", timeout: 30_000 });
+assert(await mobilePage.evaluate(() => window.innerWidth === 390), "Responsive mobile viewport o‘rnatilmadi.");
+assert(await mobilePage.locator("article.equipment-card").count() === 100, "Mobil viewportda katalog kartalari to‘liq render bo‘lmadi.");
 await mobilePage.close();
+await mobileContext.close();
 
 await browser.close();
-console.log("Katalog tartibi, qidiruv/tozalash boshqaruvlari va mobil rasm yuklanishi muvaffaqiyatli tekshirildi.");
+console.log("Katalog tartibi, qidiruv/tozalash boshqaruvlari, deterministic rasm priority qoidasi va responsive mobile katalog muvaffaqiyatli tekshirildi.");

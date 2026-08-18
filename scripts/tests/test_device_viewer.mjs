@@ -11,8 +11,16 @@ const assert = (condition, message) => {
   if (!condition) throw new Error(message);
 };
 
+const imageFixture = '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" fill="#d6e7e2"/><circle cx="32" cy="32" r="18" fill="#0d7774"/></svg>';
+const useImageFixtures = async (targetPage) => {
+  await targetPage.route("**/manus-storage/**", async (route) => {
+    await route.fulfill({ status: 200, contentType: "image/svg+xml", body: imageFixture });
+  });
+};
+
 try {
   const desktop = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  await useImageFixtures(desktop);
   const manifestResponse = await desktop.request.get(`${previewUrl}manifest.webmanifest`);
   await assert(manifestResponse.ok(), "PWA manifest.webmanifest topilmadi.");
   const manifest = await manifestResponse.json();
@@ -102,6 +110,7 @@ try {
   await assert(await desktop.locator("article.equipment-card").count() === 100, "Qurilma sahifasidan katalogga qaytishda 100 ta karta tiklanmadi.");
 
   const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  await useImageFixtures(mobile);
   await mobile.goto(previewUrl, { waitUntil: "networkidle" });
   await mobile.getByRole("button", { name: "Menyuni ochish" }).click();
   await mobile.waitForTimeout(300);

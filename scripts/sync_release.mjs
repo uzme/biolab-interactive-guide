@@ -6,7 +6,7 @@ import { dirname, join, relative, resolve } from "node:path";
 
 const PROJECT_ROOT = resolve(process.cwd());
 const CANONICAL_GITHUB_REPOSITORY = "uzme/biolab-interactive-guide";
-const CANONICAL_DRIVE_ROOT_ID = "1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd"; // Biotexnologiya root folder ID
+const CANONICAL_DRIVE_ROOT_ID = "19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV"; // Biotexnologiya yangi root folder ID
 const DRIVE_SNAPSHOT_NAME = "BioLab_Interactive_Guide_source.tar.gz";
 const GITHUB_PROJECT_PATH = ".";
 const mode = process.argv[2];
@@ -204,11 +204,11 @@ function runVerification() {
   run("pnpm", ["run", "check"], PROJECT_ROOT, true);
   run("pnpm", ["build"], PROJECT_ROOT, true);
   run("pnpm", ["test"], PROJECT_ROOT, true);
-  run("node", ["scripts/release/verify_continuity_docs.mjs"], PROJECT_ROOT, true);
+  run("node", ["scripts/verify_continuity_docs.mjs"], PROJECT_ROOT, true);
 }
 
 if (mode !== "--check" && mode !== "--publish") {
-  console.error("Foydalanish: node scripts/release/sync_release.mjs --check | --publish");
+  console.error("Foydalanish: node scripts/sync_release.mjs --check | --publish");
   process.exit(1);
 }
 
@@ -228,7 +228,7 @@ try {
   const githubCommit = publishToGitHub();
   console.log(`[GitHub] ${githubCommit}`);
 
-  console.log("[4/4] Snapshot Biotexnologiya asosiy Drive papkasiga yuklanmoqda yoki mavjud nusxa yangilanmoqda...");
+  console.log("[4/4] Snapshot Biotexnologiya yangi asosiy Drive papkasiga yuklanmoqda yoki mavjud nusxa yangilanmoqda...");
   const driveFile = uploadOrUpdateDrive(archive.snapshotPath, archive.sourceFingerprint);
   console.log(JSON.stringify({
     githubRepository: `https://github.com/${CANONICAL_GITHUB_REPOSITORY}`,

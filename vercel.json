@@ -1,0 +1,12 @@
+{
+  "framework": "vite",
+  "installCommand": "pnpm install --frozen-lockfile --ignore-scripts",
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist/public",
+  "rewrites": [
+    {
+      "source": "/manus-storage/:path*",
+      "destination": "https://biolabguide-fbcitqyf.manus.space/manus-storage/:path*"
+    }
+  ]
+}

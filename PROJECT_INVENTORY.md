@@ -13,10 +13,5 @@
 - `client/src/hooks/useOfflinePack.ts`: Service worker and offline cache management hook.
 - `client/public/manifest.webmanifest`: PWA web manifest.
 - `client/public/sw.js`: Service worker caching strategy.
-- `scripts/release/sync_release.mjs`: Automated build, test, sanitization, and GitHub/Google Drive synchronization script.
-- `scripts/tests/test_device_viewer.mjs`: Playwright browser regression test suite.
-- `scripts/data/`: Learning/purchase data import tooling.
-- `scripts/tests/`: Browser and visual regression tooling.
-- `scripts/utils/`: Image planning and audit utilities.
-- `scripts/release/`: Continuity verification, sanitization, and GitHub/Drive release tooling.
-- `scripts/README.md`: Script directory contract and command reference.
+- `scripts/sync_release.mjs`: Automated build, test, and GitHub/Google Drive synchronization script.
+- `scripts/test_device_viewer.mjs`: Playwright browser regression test suite.

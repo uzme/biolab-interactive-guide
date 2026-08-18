@@ -6,18 +6,18 @@
 - **Build:** `pnpm build` muvaffaqiyatli yakunlandi
 - **Typecheck:** `pnpm run check` xatosiz yakunlandi
 - **Testlar:** `pnpm test`, katalog/qurilma browser regressiyalari va carousel pagination browser tekshiruvi muvaffaqiyatli
-- **Continuity audit:** `node scripts/release/verify_continuity_docs.mjs` 20 ta required document va canonical cross-linklarni `READY` deb tasdiqladi
+- **Continuity audit:** `node scripts/verify_continuity_docs.mjs` 20 ta required document va canonical cross-linklarni `READY` deb tasdiqladi
 - **Sanitizatsiya:** `.env`, tokenlar, API kalitlari, parollar, PATlar, service-role kalitlari, loglar, `node_modules`, `dist` va runtime chiqindilari snapshotdan chiqariladi
 - **Clean-clone:** root-level `uzme/biolab-interactive-guide` clone uchun `pnpm install --frozen-lockfile --ignore-scripts`, check va build muvaffaqiyatli bajarildi
 - **Known non-blocking warnings:** learning dossier data chunki 500 kB dan katta; buildda mavjud CSS gradient yo‘nalishi bo‘yicha warninglar bor. Ular build yoki runtimeni to‘xtatmaydi.
 - **Dependency audit:** advisorylar alohida remediation bosqichi sifatida hujjatlashtirilgan; bu migratsiyada ishlayotgan UI yoki 100 ta qurilma source-of-truth qayta yozilmaydi
 - **Completed features:** 100-device catalog, original horizontal Pure CSS 3D carousel, 16-section learning dossiers, PDF export, bookmarks, responsive right sidebar, PWA offline shell, loading/micro-interactions, transition-safe catalog controls va sanitised release workflow
 - **Incomplete features:** None
-- **Repository organization:** `scripts/data/`, `scripts/release/`, `scripts/tests/` va `scripts/utils/` papkalari; root-level script qoldig‘i yo‘q, barcha eski path reference’lar tozalangan
 - **Deployment:** Manus Autoscale Web Hosting — `https://biolabguide-fbcitqyf.manus.space`
-- **Canonical GitHub:** `https://github.com/uzme/biolab-interactive-guide`, `main`; latest commit va release metadata publish outputida qayd etiladi
-- **Canonical Drive:** `Biotexnologiya` root ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`; canonical file ID va modified time publish outputida qayd etiladi, rootda bitta snapshot tekshiriladi
-- **Canonical snapshot:** `BioLab_Interactive_Guide_source.tar.gz`; source fingerprint har bir sanitizatsiyalangan release outputida qayd etiladi
+- **Canonical GitHub:** `https://github.com/uzme/biolab-interactive-guide`, `main`, commit `e70057880a93b85fa76815dc17b150d5c9f9a3d4`
+- **Canonical Drive:** `Biotexnologiya yangi` root ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, file ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-18T16:55:27.710Z`
+- **Canonical snapshot:** `BioLab_Interactive_Guide_source.tar.gz`
+- **Release source fingerprint:** `3d4d50b51a0170cff85913ca4fc2dace1eb42b483d6b1b5f96489733bc9712de`
 - **Database:** Schema va migration metadata repositorydagi `drizzle/` katalogida saqlanadi; destructive migration bajarilmagן
 
 ## Qat’iy saqlanadigan source-of-truth
@@ -26,4 +26,4 @@
 
 ## Sinxronlash tartibi
 
-Har bir muhim o‘zgarishdan so‘ng `pnpm run check`, `pnpm build`, `pnpm test`, browser regressiya va `node scripts/release/sync_release.mjs --check` bajariladi. Faqat tekshiruvlar muvaffaqiyatli bo‘lganda `node scripts/release/sync_release.mjs --publish` ishlatiladi. Publish GitHub `main` branch rootini va Biotexnologiya rootidagi mavjud snapshotni joyida yangilaydi; duplicate arxiv yaratilmaydi.
+Har bir muhim o‘zgarishdan so‘ng `pnpm run check`, `pnpm build`, `pnpm test`, browser regressiya va `node scripts/sync_release.mjs --check` bajariladi. Faqat tekshiruvlar muvaffaqiyatli bo‘lganda `node scripts/sync_release.mjs --publish` ishlatiladi. Publish GitHub `main` branch rootini va Biotexnologiya yangi rootidagi mavjud snapshotni joyida yangilaydi; duplicate arxiv yaratilmaydi.

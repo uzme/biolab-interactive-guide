@@ -42,3 +42,7 @@ Telefon 390×844 viewportda top navigation compact holatga o‘tadi, hero ichida
 ### Responsive layout qayta tekshiruvi — 2026-08-17
 
 1280×720 desktop, 768×1024 planshet, 375×812 telefon, 320×740 tor telefon va 1920×1080 TV viewportlarida tekshirildi. Sidebar desktopda 250px, planshetda ixcham 76px va telefonda touch-friendly bottom navigation rejimida ishladi. Hero, 16-qadamli SOP rail, statistika kartalari va action tugmalari barcha viewportlarda konteyner ichida qoldi; 320px kenglikda sarlavha ko‘proq satrga bo‘lindi, ammo gorizontal overflow yoki kesilgan matn kuzatilmadi. Pure CSS 3D Carousel geometriyasi clamp asosidagi scene/card o‘lchamlari bilan moslashtirildi, original gorizontal aylanish va pagination mantig‘i saqlandi. DeviceViewer modalidagi rasm, ikki ustunli o‘quv layouti va sarlavha o‘lchami telefon/planshet uchun moslashtirildi. `prefers-reduced-motion` qoidalari saqlanib, animation va transitionlar qisqartiriladi.
+
+### UI redesign visual audit — 2026-08-18
+
+390×844 mobil viewportda modern compact header, menyu, xatcho‘plar, offline va filter boshqaruvlari ko‘rindi; hero SOP rail, 16 qadam, 100 qurilma izohi va CTA lar overflow qilmasdan joylashdi. 1280×720 desktop viewportda persistent sidebar, `Sozlamalar & Copyright` kartasi, yuqori action bar, LAB-01/16-step SOP spine va ilmiy rekord paneli ko‘rindi. Qizil bilan ko‘rsatilgan mobil boshqaruvlar mazmunli interaktiv tugmalarga ulangan. Testlar interaktiv drawer/settings oqimini ham qamrab oldi.

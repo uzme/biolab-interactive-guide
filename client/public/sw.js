@@ -30,33 +30,26 @@ function notifyClient(client, message) {
 async function downloadOfflinePack(urls, client) {
   const uniqueUrls = [...new Set(urls.filter((url) => typeof url === "string" && url.startsWith("/")))];
   const cache = await caches.open(IMAGE_CACHE);
-  let nextIndex = 0;
   let completed = 0;
   let failed = 0;
-  const workerCount = Math.min(6, uniqueUrls.length);
 
-  const worker = async () => {
-    while (nextIndex < uniqueUrls.length) {
-      const url = uniqueUrls[nextIndex++];
-      try {
-        const response = await fetch(new Request(url, { cache: "reload" }));
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        await cache.put(url, response.clone());
-      } catch {
-        failed += 1;
-      } finally {
-        completed += 1;
-        notifyClient(client, {
-          type: "OFFLINE_PACK_PROGRESS",
-          completed,
-          total: uniqueUrls.length,
-          failed,
-        });
-      }
+  for (const url of uniqueUrls) {
+    try {
+      const response = await fetch(new Request(url, { cache: "reload" }));
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      await cache.put(url, response.clone());
+    } catch {
+      failed += 1;
+    } finally {
+      completed += 1;
+      notifyClient(client, {
+        type: "OFFLINE_PACK_PROGRESS",
+        completed,
+        total: uniqueUrls.length,
+        failed,
+      });
     }
-  };
-
-  await Promise.all(Array.from({ length: workerCount }, worker));
+  }
 
   notifyClient(client, {
     type: "OFFLINE_PACK_COMPLETE",

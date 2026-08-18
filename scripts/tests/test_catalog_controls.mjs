@@ -69,7 +69,7 @@ assert(await deviceSearch.inputValue() === "" && await modelSearch.inputValue() 
 codes = await cardCodes();
 assert(codes.length === 100 && codes[0] === "BIO-001" && codes.at(-1) === "BIO-100", "Tozalashdan keyin BIO-001–BIO-100 tartibi tiklanmadi.");
 
-const mobileContext = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, serviceWorkers: "block" });
+const mobileContext = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
 const mobilePage = await mobileContext.newPage();
 await useImageFixtures(mobilePage);
 await mobilePage.goto(previewUrl, { waitUntil: "domcontentloaded" });

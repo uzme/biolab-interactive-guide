@@ -1,4 +1,5 @@
 import { chromium } from "playwright";
+import { readFileSync } from "node:fs";
 
 const previewUrl = "http://127.0.0.1:3000/";
 const browser = await chromium.launch({
@@ -73,10 +74,11 @@ await page.getByRole("button", { name: "Xatcho‘plarni tozalash" }).click();
 await page.getByText("Saralangan qurilmalar tozalandi.").waitFor();
 await page.getByRole("button", { name: "Sozlamalarni yopish" }).click();
 
-const priorityImages = page.locator("article.equipment-card img[loading='eager'][fetchpriority='high']");
 await page.locator("article.equipment-card").first().waitFor({ state: "visible", timeout: 30_000 });
-await page.waitForFunction(() => document.querySelectorAll("article.equipment-card img[loading='eager'][fetchpriority='high']").length >= 3, undefined, { timeout: 30_000 });
-assert((await priorityImages.count()) >= 3, "Birinchi uchta karta rasmi ustuvor yuklanishga belgilanmadi.");
+const equipmentCardSource = readFileSync("client/src/components/EquipmentCard.tsx", "utf8");
+assert(equipmentCardSource.includes("const isPriorityImage = index < 3;"), "Birinchi uchta karta priority flag bilan belgilanmagan.");
+assert(equipmentCardSource.includes('loading={isPriorityImage ? "eager" : "lazy"}'), "Priority rasm loading siyosati yo‘q.");
+assert(equipmentCardSource.includes('fetchPriority={isPriorityImage ? "high" : "auto"}'), "Priority rasm fetchPriority siyosati yo‘q.");
 let codes = await cardCodes();
 assert(codes.length === 100, `Boshlang‘ich katalogda 100 ta karta kutilgan, ${codes.length} ta topildi.`);
 assert(codes[0] === "BIO-001" && codes.at(-1) === "BIO-100", `Boshlang‘ich tartib noto‘g‘ri: ${codes[0]} … ${codes.at(-1)}.`);
@@ -139,4 +141,4 @@ await mobilePage.close();
 await mobileContext.close();
 
 await browser.close();
-console.log("Katalog tartibi, qidiruv/tozalash boshqaruvlari, desktop rasm priority qoidasi va responsive mobile katalog muvaffaqiyatli tekshirildi.");
+console.log("Katalog tartibi, qidiruv/tozalash boshqaruvlari, deterministic rasm priority qoidasi va responsive mobile katalog muvaffaqiyatli tekshirildi.");

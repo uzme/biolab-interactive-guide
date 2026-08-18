@@ -6,7 +6,7 @@ Ushbu hujjat Google Drive’dagi canonical snapshotdan GitHub source va hujjatla
 
 | Project | Repository URL | Stable Branch | Stable Content Commit | Current Version | Last Synchronization |
 |---|---|---|---|---|---|
-| BioLab Interactive Guide | https://github.com/uzme/biolab-interactive-guide | `main` | `4f1e057dc58d890aa52af03b757105cc30e0bbaf` — verified organized-source release | `1.0.0` | 2026-08-18 16:40 UTC; canonical Drive snapshot ID `14seIzgh0siDnIwR9ltYTFcvB60sip9K3`, modified `2026-08-18T16:40:31.055Z`, root `Biotexnologiya` (`1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`) |
+| BioLab Interactive Guide | https://github.com/uzme/biolab-interactive-guide | `main` | `5d75042f135aad60b1098f403183ccc89760671d` — verified organized-source release | `1.0.0` | 2026-08-18 16:44 UTC; canonical Drive snapshot ID `14seIzgh0siDnIwR9ltYTFcvB60sip9K3`, modified `2026-08-18T16:44:33.773Z`, root `Biotexnologiya` (`1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`) |
 
 ## Important Documentation URLs
 
@@ -27,4 +27,4 @@ Ushbu hujjat Google Drive’dagi canonical snapshotdan GitHub source va hujjatla
 
 ## Drive Backlink
 
-Canonical binary/source snapshot: `BioLab_Interactive_Guide_source.tar.gz`, Drive file ID `14seIzgh0siDnIwR9ltYTFcvB60sip9K3`, modified `2026-08-18T16:40:31.055Z`, parent folder ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd` (`Biotexnologiya`). The Drive file itself should retain a pointer to this GitHub repository through the metadata and project documentation stored inside the archive.
+Canonical binary/source snapshot: `BioLab_Interactive_Guide_source.tar.gz`, Drive file ID `14seIzgh0siDnIwR9ltYTFcvB60sip9K3`, modified `2026-08-18T16:44:33.773Z`, parent folder ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd` (`Biotexnologiya`). The Drive file itself should retain a pointer to this GitHub repository through the metadata and project documentation stored inside the archive.

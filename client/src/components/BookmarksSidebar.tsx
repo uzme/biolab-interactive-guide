@@ -4,7 +4,7 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "
 import { toast } from "sonner";
 import type { Equipment } from "@/lib/equipmentData";
 import { equipmentImages } from "@/lib/equipmentImages";
-import { getImagePresentation } from "@/lib/equipmentImagePresentation";
+import { getImageBackgroundProfile, getImagePresentation } from "@/lib/equipmentImagePresentation";
 import type { BookmarkImportResult } from "@/hooks/useBookmarks";
 
 type BookmarksSidebarProps = {
@@ -123,6 +123,7 @@ export default function BookmarksSidebar({
               {devices.map((device) => {
                 const image = equipmentImages[device.id];
                 const presentation = getImagePresentation(device.id);
+                const imageBackgroundProfile = getImageBackgroundProfile(device.id);
                 return (
                   <article
                     key={device.id}
@@ -139,12 +140,12 @@ export default function BookmarksSidebar({
                         className="flex min-w-0 flex-1 items-center gap-3 text-left outline-none focus-visible:ring-2 focus-visible:ring-[#0d7774] focus-visible:ring-offset-2"
                         aria-label={`${device.name} tafsilotlarini ochish`}
                       >
-                        <span className="grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-xl border border-[#dbeae5] bg-[#eef7f3]">
+                        <span data-image-profile={imageBackgroundProfile} className={`grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-xl border border-[#dbeae5] ${imageBackgroundProfile === "paper" ? "bg-[#f8fbfa] dark:bg-[#edf4ef]" : imageBackgroundProfile === "ink" ? "bg-[#0a2728] dark:bg-[#061b1c]" : "bg-[#eef7f3] dark:bg-[#102e2e]"}`}>
                           {image ? (
                             <img
                               src={image.url}
                               alt={image.alt}
-                              className={`h-full w-full ${presentation.fit === "contain" ? "object-contain p-1.5 mix-blend-multiply" : "object-cover"}`}
+                              className={`h-full w-full ${presentation.fit === "cover" ? "object-cover" : imageBackgroundProfile === "paper" ? "object-contain p-0" : imageBackgroundProfile === "ink" ? "object-contain p-1 brightness-110 contrast-110" : "object-contain p-1.5 mix-blend-multiply"}`}
                               style={{ objectPosition: presentation.position }}
                               loading="lazy"
                             />

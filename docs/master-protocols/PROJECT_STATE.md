@@ -45,3 +45,7 @@ Katalogdagi **100 / 100** qurilma mobil karta rasm oynasi avtomatik capture va p
 ## 2026-08-19 hero vizual va loading performance optimizatsiyasi
 
 Foydalanuvchi tanlagan katta, markazlangan laboratoriya-hero standardiga o‘tkazish uchun dastlabki **15 ta** oq fonli qurilma vizuali qayta yaratildi va media registryga ulandi. Ushbu rasmlar 63.79 MiB dan 0.78 MiB gacha (**98.8%** qisqartirilgan) WebP assetlarga almashtirildi. Katalog birinchi sakkizta ehtimoliy media so‘rovini render bilan bir vaqtda warmup qiladi; birinchi uchta karta esa HTML preload orqali yuqori tarmoq ustuvorligida yuklanadi. Loading audit dastlabki ekranda 20 ta media so‘rovi, 3 ta yuqori ustuvor preload va 6 ta tayyor rasmni tasdiqladi. Qolgan hero-vizuallar uchun media yaratish kunlik limiti tiklanishini kutayotgan ish ochiq qoladi; shu vaqtgacha barcha 100 ta mavjud rasmning `object-fit`, fon va dark-mode presentation profillari barqaror ishlaydi.
+
+## 2026-08-19 boshqa akkaunt continuation paketi
+
+Hero-vizual ishini boshqa akkauntdagi agent ham aniq va xavfsiz davom ettirishi uchun `HERO_VISUAL_CONTINUATION_HANDOFF.md` hamda `HERO_VISUAL_CONTINUATION_PROMPT.md` yaratildi. Paket yangi hero rasm ulangan 15 ta qurilma IDsi, reference `BIO-001`, qolgan 84 ta ID navbati, asset storage tartibi, WebP optimizatsiyasi, media profil yangilash qadamlari, majburiy test/release oqimi va secrets-free sync qoidalarini qamrab oladi. U shuningdek yangi Drive papka yoki duplicate snapshot yaratishni taqiqlaydi.

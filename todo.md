@@ -23,3 +23,5 @@
 - [ ] 100 ta qurilma rasmini foydalanuvchi namunasidagi katta, markazlangan hero sifati darajasiga moslash va yuklanish tezligini priority, prefetch hamda lazy-load strategiyasi bilan oshirish
 - [x] Dastlabki 15 ta laboratoriya-hero vizualini WebP formatiga o‘tkazish va birinchi katalog rasmlarini preload hamda warmup bilan tezlashtirish
 - [ ] Kunlik rasm yaratish limiti tiklangach qolgan oq fonli qurilmalar uchun professional laboratoriya-hero vizuallarini agent tomonidan batchlarda yaratib ulash
+- [x] Yaratilgan 15 ta hero-vizual va qolgan 84 ta qurilma uchun aniq ID, asset mapping, sifat qoidalari va davom ettirish ketma-ketligini handoff hujjatida qayd etish
+- [x] Boshqa akkauntdagi agent uchun BioLab hero-vizual ishini xavfsiz davom ettirish promptini yaratish va canonical GitHub–Drive snapshotga sinxronlash

@@ -85,9 +85,24 @@ export default function SettingsDialog({ open, onOpenChange, bookmarkedCount, on
             </section>
           </div>
 
-          <section className="mt-4 rounded-2xl border border-[#b6dcd1] bg-[#eef7f4] p-5">
-            <div className="flex items-start gap-3"><ShieldCheck size={20} className="mt-0.5 shrink-0 text-[#0e6f67]" /><div><h3 className="font-bold text-[#0e6f67]">Mualliflik huquqi va shaffoflik</h3><p className="mt-2 text-sm leading-6 text-[#245b53]">© 2026 BioLab Interactive Guide / Biotexnolog. Platforma interfeysi, kod tuzilmasi va o‘quv oqimi himoyalangan. Qurilma tasvirlarining mualliflik huquqi esa tegishli ishlab chiqaruvchi, distributor yoki litsenziya egasiga tegishli; har bir qurilma dosyesida rasm manbasi va litsenziya holati alohida ko‘rsatiladi.</p></div></div>
-            <div className="mt-4 grid gap-2 sm:grid-cols-3"><div className="rounded-xl border border-[#b9d9cf] bg-white/70 p-3"><div className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#0d7774]">Muallif</div><div className="mt-1 text-sm font-bold text-[#173d42]">Biotexnolog / BioLab</div></div><div className="rounded-xl border border-[#b9d9cf] bg-white/70 p-3"><div className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#0d7774]">Rejim</div><div className="mt-1 text-sm font-bold text-[#173d42]">Offline-first</div></div><div className="rounded-xl border border-[#b9d9cf] bg-white/70 p-3"><div className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#0d7774]">Tarkib</div><div className="mt-1 text-sm font-bold text-[#173d42]">100 qurilma / 16 SOP</div></div></div>
+          <section className="mt-4 rounded-2xl border border-[#b6dcd1] bg-[#eef7f4] p-5" aria-label="Qat'iy mualliflik huquqi va yuridik himoya">
+            <div className="flex items-start gap-3">
+              <ShieldCheck size={22} className="mt-0.5 shrink-0 text-[#0e6f67]" />
+              <div>
+                <h3 className="text-base font-bold text-[#0e6f67]">Qat’iy Mualliflik Huquqi va Intellektual Mulk Himoyasi (Copyright & Legal Enforcement)</h3>
+                <p className="mt-2 text-sm leading-6 text-[#245b53]">
+                  © 2026 BioLab Interactive Guide / Biotexnolog. Barcha huquqlar himoyalangan. Ushbu platformaning dasturiy kodi, interfeys arxitekturasi, 16 bosqichli SOP o‘quv oqimi, ma’lumotlar bazasi va dizayn tuzilmasi O‘zbekiston Respublikasining intellektual mulk qonunchiligi va xalqaro konvensiyalarga asosan qat’iy himoyalangan. Ruxsatsiz ko‘chirish, tarqatish, tijoriy maqsadlarda foydalanish yoki boshqa platformalarga to‘liq/qisman nusxalash qonunan taqiqlanadi va javobgarlikka sabab bo‘ladi.
+                </p>
+                <div className="mt-3 rounded-xl border border-[#a2d3c2] bg-white/80 p-3.5 text-xs leading-5 text-[#1b4b45]">
+                  <strong>Huquqiy ogohlantirish:</strong> Qurilma rasmlari va xarakteristikalari o‘quv va tadqiqot maqsadida tahlil qilinadi. Har bir uskuna bo‘yicha asl manufacturer va model huquqlari o‘z egalarida saqlanadi. Har qanday suiste’mol yoki ruxsatsiz klonlash holatlari avtomatik ravishda aniqlanib, tegishli choralarga asos bo‘ladi.
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 grid gap-2 sm:grid-cols-3">
+              <div className="rounded-xl border border-[#b9d9cf] bg-white/80 p-3"><div className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#0d7774]">Muallif va Egasi</div><div className="mt-1 text-sm font-bold text-[#173d42]">Biotexnolog / BioLab</div></div>
+              <div className="rounded-xl border border-[#b9d9cf] bg-white/80 p-3"><div className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#0d7774]">Yuridik himoya</div><div className="mt-1 text-sm font-bold text-[#173d42]">Qat’iy (Strict Enforcement)</div></div>
+              <div className="rounded-xl border border-[#b9d9cf] bg-white/80 p-3"><div className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#0d7774]">Repozitoriy</div><div className="mt-1 text-sm font-bold text-[#173d42]">uzme/biolab-interactive-guide</div></div>
+            </div>
           </section>
 
           <section className="mt-4 rounded-2xl border border-[#cfe4db] bg-white p-5" data-settings-licensing>

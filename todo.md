@@ -20,3 +20,6 @@
 - [x] Mualliflik huquqi (Copyright & Intellectual Property Protection) tizimini qat’iy yuridik bildirishnoma, texnik himoya cheklovlari va SettingsDialog orqali to‘liq boshqaruv bilan mustahkamlash
 - [x] PDF eksport va o‘quv konspektlariga qat’iy mualliflik huquqi, yuridik ogohlantirish va eksklyuziv egalik metadata’larini avtomatik kiritish (texnik himoya qatlami)
 - [x] 100 ta qurilma rasmini avtomatik audit qilish; object-fit, position, oq fon, letterboxing va dark-mode kontrast muammolarini ommaviy moslash
+- [ ] 100 ta qurilma rasmini foydalanuvchi namunasidagi katta, markazlangan hero sifati darajasiga moslash va yuklanish tezligini priority, prefetch hamda lazy-load strategiyasi bilan oshirish
+- [x] Dastlabki 15 ta laboratoriya-hero vizualini WebP formatiga o‘tkazish va birinchi katalog rasmlarini preload hamda warmup bilan tezlashtirish
+- [ ] Kunlik rasm yaratish limiti tiklangach qolgan oq fonli qurilmalar uchun professional laboratoriya-hero vizuallarini agent tomonidan batchlarda yaratib ulash

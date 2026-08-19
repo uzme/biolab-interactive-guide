@@ -28,7 +28,7 @@ await page.getByRole("button", { name: "Qurilma qidiruvini bekor qilish" }).clic
 await page.waitForFunction(() => document.querySelectorAll("article.equipment-card").length === 100);
 await page.getByRole("button", { name: "Sozlamalar va Copyright" }).click();
 await page.getByRole("heading", { name: "Sozlamalar va huquqiy ma’lumot" }).waitFor();
-assert(await page.getByText("Mualliflik huquqi va shaffoflik").isVisible(), "Sozlamalar dialogidagi copyright/shaffoflik bloki topilmadi.");
+assert(await page.getByText("Qat’iy Mualliflik Huquqi va Intellektual Mulk Himoyasi").isVisible(), "Sozlamalar dialogidagi copyright/shaffoflik bloki topilmadi.");
 assert(await page.getByText("Litsenziya va rasm manbasi shaffofligi").isVisible(), "Litsenziya va rasm manbasi bloki topilmadi.");
 assert(await page.getByText("© 2026 BioLab", { exact: true }).isVisible(), "Copyright yili ko‘rsatilmagan.");
 assert(await page.getByText("JSON eksport").isVisible() && await page.getByText("JSON import").isVisible(), "Xatcho‘p eksport/import boshqaruvlari topilmadi.");

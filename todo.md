@@ -17,3 +17,5 @@
 - [x] Telefon, planshet, kompyuter va TV ekranlarida sidebar drawer va shell overflow xatolarini to‘liq tuzatish
 - [x] Kechki vaqtda va katta TV ekranlarida foydalanish uchun qorong‘i rejim (dark mode) va theme toggle funksiyasini qo‘shish
 - [x] Dark mode persistence, contrast va mobile overflow auditini `scripts/tests/dark_mode_audit.mjs` orqali tekshirish
+- [x] Mualliflik huquqi (Copyright & Intellectual Property Protection) tizimini qat’iy yuridik bildirishnoma, texnik himoya cheklovlari va SettingsDialog orqali to‘liq boshqaruv bilan mustahkamlash
+- [x] PDF eksport va o‘quv konspektlariga qat’iy mualliflik huquqi, yuridik ogohlantirish va eksklyuziv egalik metadata’larini avtomatik kiritish (texnik himoya qatlami)

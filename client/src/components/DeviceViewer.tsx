@@ -163,7 +163,7 @@ ${purchase ? `
 ` : ''}
 
 <div class="footer">
-  <span>BioLab Interactive Guide — Professional Bioteknologiya Qurilmalari O‘quv Platformasi</span>
+  <span>© 2026 BioLab Interactive Guide / Biotexnolog. Barcha huquqlar himoyalangan. Ruxsatsiz ko‘chirish va tarqatish taqiqlanadi.</span>
   <span>Sahifa: O‘quv Konspekti (PDF eksport)</span>
 </div>
 <script>window.print();</script>

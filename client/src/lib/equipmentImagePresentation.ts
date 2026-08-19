@@ -13,7 +13,13 @@ export type ImagePresentation = {
 // PCR kartasi foydalanuvchi tasdiqlagan kadr nisbatini saqlaydi. Qolgan
 // qurilmalarda asosiy mahsulot hech qachon kesilmasligi uchun `contain`
 // ishlatiladi; karta oynasi xiralashtirilgan fon qatlami bilan to‘liq qoplanadi.
-const coverFrameIds = new Set(["BIO-001"]);
+const coverFrameIds = new Set([
+  "BIO-001", "BIO-016", "BIO-017", "BIO-018", "BIO-019", "BIO-020",
+  "BIO-021", "BIO-022", "BIO-024", "BIO-025", "BIO-027", "BIO-028", "BIO-029",
+  "BIO-031", "BIO-033", "BIO-035",
+]);
+
+const laboratoryHeroIds = new Set(coverFrameIds);
 
 const tunedPositions: Partial<Record<string, string>> = {
   "BIO-017": "62% 50%",
@@ -46,5 +52,5 @@ export function getImagePresentation(id: string): ImagePresentation {
  * yoki noto‘g‘ri blend effektini yo‘qotadi.
  */
 export function getImageBackgroundProfile(id: string): ImageBackgroundProfile {
-  return imageBackgroundProfiles[id] ?? "laboratory";
+  return laboratoryHeroIds.has(id) ? "laboratory" : imageBackgroundProfiles[id] ?? "laboratory";
 }

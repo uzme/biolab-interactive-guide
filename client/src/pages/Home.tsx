@@ -2,7 +2,7 @@
   BioLab design reminder: Modern Precision Biotech — cold laboratory canvas, deep teal authority,
   asymmetric left navigation, and a 16-section Uzbek learning curriculum for every instrument.
 */
-import { lazy, Suspense, useMemo, useState, useTransition } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState, useTransition } from "react";
 import { ArrowUpRight, Beaker, BookOpen, ChevronRight, CircleHelp, FlaskConical, Grid2X2, Heart, LibraryBig, Menu, Microscope, Moon, Search, Settings2, SlidersHorizontal, Sparkles, Sun, X } from "lucide-react";
 import Pure3DCarousel from "@/components/Pure3DCarousel";
 import BookmarksSidebar from "@/components/BookmarksSidebar";
@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
 import { equipment, categories, type Equipment } from "@/lib/equipmentData";
+import { equipmentImages } from "@/lib/equipmentImages";
 import EquipmentCard from "@/components/EquipmentCard";
 import { toast } from "sonner";
 import { useBookmarks } from "@/hooks/useBookmarks";
@@ -94,6 +95,22 @@ export default function Home() {
       devices: orderedFiltered.filter((device) => device.category === category),
     })).filter((group) => group.devices.length > 0);
   }, [hasActiveFilters, orderedFiltered]);
+  const nextImageUrls = useMemo(() => orderedFiltered.slice(0, 8)
+    .map((device) => equipmentImages[`BIO-${String(device.number).padStart(3, "0")}`]?.url)
+    .filter((url): url is string => Boolean(url)), [orderedFiltered]);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      nextImageUrls.forEach((url, index) => {
+        const image = new Image();
+        image.decoding = "async";
+        image.fetchPriority = index < 5 ? "high" : "auto";
+        image.src = url;
+      });
+    }, 0);
+
+    return () => window.clearTimeout(timer);
+  }, [nextImageUrls]);
   const handleCategoryChange = (category: string) => startFilterTransition(() => setActiveCategory(category));
   const handleQueryChange = (value: string) => startFilterTransition(() => setQuery(value));
   const handleModelQueryChange = (value: string) => startFilterTransition(() => setModelQuery(value));

@@ -3,7 +3,7 @@
   asymmetric left navigation, and a 16-section Uzbek learning curriculum for every instrument.
 */
 import { lazy, Suspense, useMemo, useState, useTransition } from "react";
-import { ArrowUpRight, Beaker, BookOpen, ChevronRight, CircleHelp, FlaskConical, Grid2X2, Heart, LibraryBig, Menu, Microscope, Search, Settings2, SlidersHorizontal, Sparkles, X } from "lucide-react";
+import { ArrowUpRight, Beaker, BookOpen, ChevronRight, CircleHelp, FlaskConical, Grid2X2, Heart, LibraryBig, Menu, Microscope, Moon, Search, Settings2, SlidersHorizontal, Sparkles, Sun, X } from "lucide-react";
 import Pure3DCarousel from "@/components/Pure3DCarousel";
 import BookmarksSidebar from "@/components/BookmarksSidebar";
 import CatalogFilterSheet from "@/components/CatalogFilterSheet";
@@ -16,6 +16,7 @@ import { equipment, categories, type Equipment } from "@/lib/equipmentData";
 import EquipmentCard from "@/components/EquipmentCard";
 import { toast } from "sonner";
 import { useBookmarks } from "@/hooks/useBookmarks";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const DeviceViewer = lazy(() => import("@/components/DeviceViewer"));
 
@@ -70,6 +71,7 @@ export default function Home() {
   const [bookmarksOpen, setBookmarksOpen] = useState(false);
   const [bookmarksOnly, setBookmarksOnly] = useState(false);
   const [isFilterPending, startFilterTransition] = useTransition();
+  const { theme, toggleTheme } = useTheme();
   const validDeviceIds = useMemo(() => new Set(equipment.map((device) => device.id)), []);
   const { bookmarkedIds, bookmarkedCount, isBookmarked, toggleBookmark, clearBookmarks, exportBookmarks, importBookmarks } = useBookmarks(validDeviceIds);
   const handleImportBookmarks = async (file: File) => importBookmarks(file);
@@ -140,6 +142,16 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-2">
             <OfflineManager />
+            <button
+              type="button"
+              onClick={() => toggleTheme?.()}
+              className="inline-flex items-center gap-1.5 rounded-xl border border-[#bce2d5] bg-white px-3 py-2 text-xs font-bold text-[#173d42] shadow-sm transition hover:bg-[#edf7f4]"
+              aria-label={theme === "dark" ? "Yorug‘ rejimga o‘tish" : "Qorong‘i rejimga o‘tish"}
+              title={theme === "dark" ? "Yorug‘ rejim" : "Qorong‘i rejim"}
+            >
+              {theme === "dark" ? <Sun size={16} className="text-[#f3c969]" /> : <Moon size={16} className="text-[#0d7774]" />}
+              <span className="hidden xl:inline">{theme === "dark" ? "Yorug‘" : "Qorong‘i"}</span>
+            </button>
             <button
               type="button"
               onClick={() => setBookmarksOpen(true)}

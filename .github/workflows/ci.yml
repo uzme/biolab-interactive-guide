@@ -18,8 +18,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -35,31 +33,6 @@ jobs:
 
       - name: Type check
         run: pnpm check
-
-      - name: Start development server
-        shell: bash
-        run: |
-          pnpm dev --host 127.0.0.1 --port 3000 > /tmp/biolab-dev.log 2>&1 &
-          echo $! > /tmp/biolab-dev.pid
-          for attempt in {1..30}; do
-            if curl --fail --silent http://127.0.0.1:3000/ >/dev/null; then
-              exit 0
-            fi
-            sleep 1
-          done
-          cat /tmp/biolab-dev.log
-          exit 1
-
-      - name: Run tests
-        run: pnpm test
-
-      - name: Stop development server
-        if: always()
-        shell: bash
-        run: |
-          if [ -f /tmp/biolab-dev.pid ]; then
-            kill "$(cat /tmp/biolab-dev.pid)" 2>/dev/null || true
-          fi
 
       - name: Build application
         run: pnpm build

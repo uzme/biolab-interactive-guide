@@ -65,6 +65,32 @@
   mix-blend-mode: multiply;
 }
 
+.pure3d-carousel .card-media[data-image-profile="paper"] {
+  background: #f8fbfa;
+}
+
+.pure3d-carousel .card-media[data-image-profile="paper"] img {
+  padding: 0;
+  mix-blend-mode: normal;
+}
+
+.pure3d-carousel .card-media[data-image-profile="ink"] {
+  background: #0a2728;
+}
+
+.pure3d-carousel .card-media[data-image-profile="ink"] img {
+  padding: 0.25rem;
+  mix-blend-mode: normal;
+}
+
+.dark .pure3d-carousel .card-media[data-image-profile="paper"] {
+  background: #edf4ef;
+}
+
+.dark .pure3d-carousel .card-media[data-image-profile="ink"] {
+  background: #061b1c;
+}
+
 .pure3d-carousel .card-caption {
   display: grid;
   gap: 0.18rem;

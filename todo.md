@@ -19,3 +19,4 @@
 - [x] Dark mode persistence, contrast va mobile overflow auditini `scripts/tests/dark_mode_audit.mjs` orqali tekshirish
 - [x] Mualliflik huquqi (Copyright & Intellectual Property Protection) tizimini qat’iy yuridik bildirishnoma, texnik himoya cheklovlari va SettingsDialog orqali to‘liq boshqaruv bilan mustahkamlash
 - [x] PDF eksport va o‘quv konspektlariga qat’iy mualliflik huquqi, yuridik ogohlantirish va eksklyuziv egalik metadata’larini avtomatik kiritish (texnik himoya qatlami)
+- [x] 100 ta qurilma rasmini avtomatik audit qilish; object-fit, position, oq fon, letterboxing va dark-mode kontrast muammolarini ommaviy moslash

@@ -26,7 +26,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import type { Equipment } from "@/lib/equipmentData";
 import { equipmentImages } from "@/lib/equipmentImages";
-import { getImagePresentation } from "@/lib/equipmentImagePresentation";
+import { getImageBackgroundProfile, getImagePresentation } from "@/lib/equipmentImagePresentation";
 import { loadLearningContent, loadPurchaseContent } from "@/lib/learningData";
 import type { LearningContent, PurchaseContent } from "@/lib/learningData";
 
@@ -78,6 +78,7 @@ export default function DeviceViewer({ device, onBack }: { device: Equipment; on
 
   const image = equipmentImages[device.id];
   const imagePresentation = getImagePresentation(device.id);
+  const imageBackgroundProfile = getImageBackgroundProfile(device.id);
   const verificationSource = learning?.sources.find((source) => source.url);
   const isOfficialImage = image?.sourceType === "official";
 
@@ -192,9 +193,9 @@ ${purchase ? `
       <section className="border-b border-[#dbe9e5] pb-8">
         <div className="eyebrow mb-3">{device.category} / BIO-{String(device.number).padStart(3, "0")}</div>
         <h1 className="display max-w-4xl text-[clamp(2.25rem,5vw,3.75rem)] font-bold leading-[0.98] text-[#173d42]">{learning?.title || device.name}</h1>
-        {image && <figure className="relative mt-7 overflow-hidden rounded-[28px] border border-[#cfe3dd] bg-[#eaf5f2] shadow-[0_18px_42px_rgba(28,71,67,0.08)]">
-          {imagePresentation.fit === "contain" && <img aria-hidden="true" src={image.url} alt="" className="absolute inset-0 h-[min(480px,58vw)] w-full scale-110 object-cover opacity-25 blur-2xl" style={{ objectPosition: imagePresentation.position }} />}
-          <img src={image.url} alt={image.alt} className={`relative h-[clamp(220px,58vw,480px)] min-h-[220px] w-full sm:min-h-[250px] ${imagePresentation.fit === "contain" ? "object-contain p-4 sm:p-5" : "object-cover"}`} style={{ objectPosition: imagePresentation.position }} loading="eager" />
+        {image && <figure data-image-profile={imageBackgroundProfile} className={`relative mt-7 overflow-hidden rounded-[28px] border border-[#cfe3dd] shadow-[0_18px_42px_rgba(28,71,67,0.08)] ${imageBackgroundProfile === "paper" ? "bg-[#f8fbfa] dark:bg-[#edf4ef]" : imageBackgroundProfile === "ink" ? "bg-[#0a2728] dark:bg-[#061b1c]" : "bg-[#eaf5f2] dark:bg-[#102e2e]"}`}>
+          {imagePresentation.fit === "contain" && imageBackgroundProfile === "laboratory" && <img aria-hidden="true" src={image.url} alt="" className="absolute inset-0 h-[min(480px,58vw)] w-full scale-110 object-cover opacity-25 blur-2xl" style={{ objectPosition: imagePresentation.position }} />}
+          <img src={image.url} alt={image.alt} className={`relative h-[clamp(220px,58vw,480px)] min-h-[220px] w-full sm:min-h-[250px] ${imagePresentation.fit === "cover" ? "object-cover" : imageBackgroundProfile === "paper" ? "object-contain p-0" : imageBackgroundProfile === "ink" ? "object-contain p-3 brightness-110 contrast-110 sm:p-4" : "object-contain p-4 sm:p-5"}`} style={{ objectPosition: imagePresentation.position }} loading="eager" />
           <figcaption className="flex flex-wrap items-center justify-between gap-2 border-t border-[#dceae5] bg-[#fbfefd] px-5 py-3 text-xs leading-5 text-[#66847e]">
             <span>{image.sourceType === "official" ? "Rasmiy mahsulot rasmi" : "Qurilma turining laboratoriya-realistik vizuali"}</span>
             <span className="font-bold uppercase tracking-[0.13em] text-[#0d7774]">O‘quv ko‘rgazmasi</span>

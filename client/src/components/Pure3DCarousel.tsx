@@ -2,7 +2,7 @@ import { useState, type CSSProperties } from "react";
 import { ChevronLeft, ChevronRight, FlaskConical, Heart } from "lucide-react";
 import { equipment, type Equipment } from "@/lib/equipmentData";
 import { equipmentImages } from "@/lib/equipmentImages";
-import { getImagePresentation } from "@/lib/equipmentImagePresentation";
+import { getImageBackgroundProfile, getImagePresentation } from "@/lib/equipmentImagePresentation";
 import "./Pure3DCarousel.css";
 
 type CarouselStyle = CSSProperties & {
@@ -68,6 +68,7 @@ export default function Pure3DCarousel({ onSelectDevice, isBookmarked, onToggleB
             {pageEquipment.map((device, index) => {
               const image = equipmentImages[device.id];
               const imagePresentation = getImagePresentation(device.id);
+              const imageBackgroundProfile = getImageBackgroundProfile(device.id);
               const isPriorityImage = currentIndex === 0 && index < 3;
               const bookmarked = isBookmarked(device.id);
 
@@ -89,10 +90,10 @@ export default function Pure3DCarousel({ onSelectDevice, isBookmarked, onToggleB
                   aria-label={`${device.name}, ${device.model}, o‘rganish`}
                 >
                   <span className="card-shell">
-                    <span className="card-media">
+                    <span className="card-media" data-image-profile={imageBackgroundProfile}>
                       {image ? (
                         <>
-                          {imagePresentation.fit === "contain" && (
+                          {imagePresentation.fit === "contain" && imageBackgroundProfile === "laboratory" && (
                             <img
                               aria-hidden="true"
                               src={image.url}
@@ -104,7 +105,7 @@ export default function Pure3DCarousel({ onSelectDevice, isBookmarked, onToggleB
                           <img
                             src={image.url}
                             alt={image.alt}
-                            className={`relative h-full w-full ${imagePresentation.fit === "contain" ? "object-contain p-2" : "object-cover"}`}
+                            className={`relative h-full w-full ${imagePresentation.fit === "cover" ? "object-cover" : imageBackgroundProfile === "paper" ? "object-contain p-0" : imageBackgroundProfile === "ink" ? "object-contain p-1 brightness-110 contrast-110" : "object-contain p-2"}`}
                             style={{ objectPosition: imagePresentation.position }}
                             loading={isPriorityImage ? "eager" : "lazy"}
                           />

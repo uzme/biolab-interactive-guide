@@ -1,3 +1,5 @@
+import { imageBackgroundProfiles, type ImageBackgroundProfile } from "@/lib/imagePresentationProfiles";
+
 /*
   BioLab visual reminder: Modern Precision Biotech — every device must remain
   recognizable, centered, and clearly legible in its dedicated image window.
@@ -35,4 +37,14 @@ export function getImagePresentation(id: string): ImagePresentation {
     fit: coverFrameIds.has(id) ? "cover" : "contain",
     position: tunedPositions[id] ?? "50% 50%",
   };
+}
+
+/**
+ * Audit qilingan manba rasm foniga mos media surface tanlaydi.
+ * `laboratory` umumiy teal studio fonidir; `paper` va `ink` oq/qorong‘i
+ * raster fonni ataylab to‘liq media oynasiga qo‘shib, ichki rectangle
+ * yoki noto‘g‘ri blend effektini yo‘qotadi.
+ */
+export function getImageBackgroundProfile(id: string): ImageBackgroundProfile {
+  return imageBackgroundProfiles[id] ?? "laboratory";
 }

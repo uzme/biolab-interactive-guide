@@ -49,3 +49,7 @@ Foydalanuvchi tanlagan katta, markazlangan laboratoriya-hero standardiga o‘tka
 ## 2026-08-19 boshqa akkaunt continuation paketi
 
 Hero-vizual ishini boshqa akkauntdagi agent ham aniq va xavfsiz davom ettirishi uchun `HERO_VISUAL_CONTINUATION_HANDOFF.md` hamda `HERO_VISUAL_CONTINUATION_PROMPT.md` yaratildi. Paket yangi hero rasm ulangan 15 ta qurilma IDsi, reference `BIO-001`, qolgan 84 ta ID navbati, asset storage tartibi, WebP optimizatsiyasi, media profil yangilash qadamlari, majburiy test/release oqimi va secrets-free sync qoidalarini qamrab oladi. U shuningdek yangi Drive papka yoki duplicate snapshot yaratishni taqiqlaydi.
+
+## 2026-08-19 image-only handoff aniqlashtirishi
+
+Continuation prompt qayta yozildi: boshqa akkauntdagi agentning roli **faqat** matnsiz, 16:9, kamida 1600×900 px, `BIO-NNN.webp` nomli hero-vizual rasmlarni 5–10 tadan batch qilib mavjud canonical Drive rootga yuklash bilan cheklanadi. U kod, image URL registry, presentation profil, test/build, GitHub push yoki release jarayoniga tegmaydi. ZIP batch hamda ID ro‘yxati kelgach, asosiy loyiha agenti sifat, crop, kontrast, WebP storage, bog‘lash, test, production build va canonical GitHub–Drive release ishlarini bajaradi. Handoff IDlari amaldagi `equipmentImages.ts` registrysi bilan tekshirildi: tayyor 15 ta hero ID — `BIO-016`–`BIO-022`, `BIO-024`, `BIO-025`, `BIO-027`–`BIO-029`, `BIO-031`, `BIO-033`, `BIO-035`; yaratiladigan 84 ta ID esa `BIO-002`–`BIO-015`, `BIO-023`, `BIO-026`, `BIO-030`, `BIO-032`, `BIO-034`, `BIO-036`–`BIO-100`.

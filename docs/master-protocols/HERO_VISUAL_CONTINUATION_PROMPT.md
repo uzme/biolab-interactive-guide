@@ -1,15 +1,46 @@
-# BioLab Hero Visual Continuation Prompt
+# BioLab — Image-Only Handoff Prompt
 
-Quyidagi promptni boshqa akkauntdagi yangi agentga to‘liq yuboring:
+Quyidagi matnni **boshqa akkauntdagi agentga** aynan yuboring.
 
-> BioLab Interactive Guide loyihasini **mavjud ishlayotgan holatini buzmasdan** davom ettiring. Avval quyidagi fayllarni to‘liq o‘qing: `docs/master-protocols/HERO_VISUAL_CONTINUATION_HANDOFF.md`, `docs/master-protocols/PROJECT_STATE.md`, `todo.md`, `client/src/lib/equipmentImages.ts`, `client/src/lib/equipmentImagePresentation.ts`, `client/src/lib/imagePresentationProfiles.ts`.
+> ## Vazifa va rol chegarasi
 >
-> Loyiha maqsadi: 100 ta qurilma kartasining barchasini foydalanuvchi tasdiqlagan BioLab laboratoriya-hero standardiga yaqinlashtirish. Qurilma katta, markazda, 16:9 kadrda, zamonaviy laboratoriya muhitida va dark mode’da aniq ko‘rinsin. Oqartirilgan ichki rectangle, letterboxing, noto‘g‘ri crop, qo‘l/odam, watermark, matn va soxta logo bo‘lmasin.
+> Sizning yagona vazifangiz BioLab Interactive Guide uchun **faqat hero-vizual rasm fayllarini yaratish va yuklash**dir. Siz kod yozmaysiz, mavjud kodni o‘zgartirmaysiz, GitHub `main` branchiga hech narsa push qilmaysiz, test/build/release bajarmaysiz va hech qanday Drive papkasi yaratmaysiz. Rasmlarni loyihaga ulash, crop yoki kontrast xatolarini tuzatish, WebP storage’ga yuklash, test/build hamda GitHub–Drive release ishlarini asosiy loyiha agenti bajaradi.
 >
-> Hozir yangi hero rasm ulangan IDlar: `BIO-016`–`BIO-022`, `BIO-024`, `BIO-025`, `BIO-027`–`BIO-029`, `BIO-031`, `BIO-033`, `BIO-035`. `BIO-001` qabul qilingan hero reference. Qolgan hero navbati: `BIO-002`–`BIO-015`, `BIO-023`, `BIO-026`, `BIO-030`, `BIO-032`, `BIO-034`, `BIO-036`–`BIO-100`.
+> ## Rasm standarti
 >
-> Qolgan qurilmalarni beshtalik batchlarda yarating. Har bir rasm original, matnsiz, 16:9, kamida 1600×900 bo‘lsin. Faylni `/home/ubuntu/webdev-static-assets/` ichiga saqlang, WebP’ga optimallashtiring, `manus-upload-file --webdev` orqali storage’ga yuklang. Keyin `equipmentImages.ts` da URL’ni almashtiring; `sourceType` qiymatini `ai-representative` qiling; `equipmentImagePresentation.ts` dagi `coverFrameIds` ga IDni qo‘shing. Har bir rasm o‘quvga mo‘ljallangan reprezentativ vizual ekanini saqlang; uni rasmiy manufacturer fotosi deb ko‘rsatmang.
+> Har rasm bitta biotexnologik laboratoriya qurilmasini ko‘rsatsin. Qurilma kadrning markazida **katta va to‘liq ko‘rinadigan** bo‘lsin; uslub `IMG_7610.PNG` namunasi kabi professional, qorong‘i va nazoratli laboratoriya muhiti bo‘lsin. Kompozitsiya sof va o‘quvga yo‘naltirilgan bo‘lsin.
 >
-> Har batchdan keyin `pnpm test`, `pnpm run check`, `pnpm run build`, `node scripts/tests/audit_image_loading.mjs`, `node scripts/tests/capture_mobile_card_renders.mjs`, `pnpm run audit:continuity` va `pnpm run release:check` ni bajaring. Mobil light/dark renderini ko‘rib chiqing. Test yoki visual audit muvaffaqiyatsiz bo‘lsa, release qilmang.
+> Quyidagilar qat’iyan taqiqlanadi: odam yoki qo‘l, operator, matn, watermark, izoh, soxta logo, UI overlay, kichik/tarqoq qurilma, oq ichki to‘rtburchak fon, letterboxing, buzilgan perspektiva, kesilgan asosiy qurilma yoki boshqa asosiy qurilma.
 >
-> `.env`, token, API key, parol va runtime loglarni GitHub yoki Drive’ga kiritmang. Har muhim batchdan keyin `todo.md` va `PROJECT_STATE.md` ni yangilang. Faqat yakuniy tekshiruvlardan keyin `pnpm run release:publish` bilan GitHub `uzme/biolab-interactive-guide` `main` branchiga va mavjud canonical Drive snapshotiga sinxronlang. Yangi Drive papkasi yoki duplicate yaratmang.
+> Rasm **16:9**, kamida **1600×900 px**, matnsiz va original bo‘lsin. Qurilmaning shakli hamda asosiy modullari ilmiy jihatdan tanib bo‘ladigan darajada realistik tasvirlansin. Bu rasm reprezentativ o‘quv vizuali; uni rasmiy manufacturer fotosi sifatida tasvirlamang.
+>
+> ## Fayl nomi va format
+>
+> Har rasmni aniq `BIO-NNN.webp` formatida nomlang. Masalan, 2-qurilma uchun `BIO-002.webp`. PNG/JPEG qoldirmang; faqat WebP fayl yuboring.
+>
+> ## Qaysi rasmlar kerak
+>
+> Quyidagi IDlar allaqachon tayyor, ularni yaratmang: `BIO-016`–`BIO-022`, `BIO-024`, `BIO-025`, `BIO-027`–`BIO-029`, `BIO-031`, `BIO-033`, `BIO-035`.
+>
+> Yaratiladigan navbat: `BIO-002`–`BIO-015`, `BIO-023`, `BIO-026`, `BIO-030`, `BIO-032`, `BIO-034`, `BIO-036`–`BIO-100`.
+>
+> Qaysi ID qaysi qurilmaga tegishli ekanini bilish uchun faqat shu faylni o‘qing: `docs/master-protocols/HERO_VISUAL_CONTINUATION_HANDOFF.md`. Undagi qurilma nomi va maqsadidan foydalaning. Nomi noaniq bo‘lsa, rasm yaratmang; ID va savolni alohida ro‘yxatda qayd eting.
+>
+> ## Yetkazib berish tartibi
+>
+> Rasmlarni 5–10 tadan batch qilib tayyorlang. Har batch uchun faqat WebP fayllarni bitta ZIP arxivga joylang: `BioLab_hero_assets_batch_01.zip`, `BioLab_hero_assets_batch_02.zip` va hokazo.
+>
+> Yangi Drive papka, yangi repository yoki yangi loyiha yaratmang. Faqat mavjud canonical Google Drive root — **Biotexnologiya yangi** (`1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`) — ichiga bitta ZIP batchni yuklang va uning Drive linki hamda ichidagi IDlar ro‘yxatini asosiy loyiha agentiga yuboring. Kod fayllari, `.env`, token, parol, API key yoki runtime loglarni yuklamang.
+>
+> ## Har batch yakunida yuboriladigan qisqa hisobot
+>
+> Quyidagi formatdan foydalaning:
+>
+> ```text
+> Batch: 01
+> Drive ZIP linki: <link>
+> Fayllar: BIO-002.webp, BIO-003.webp, BIO-004.webp, BIO-005.webp, BIO-006.webp
+> Qolgan/aniqlashtirish kerak: <bo‘lsa yozing, bo‘lmasa “yo‘q”>
+> ```
+>
+> ZIP kelgach, asosiy loyiha agenti rasmlarni tekshiradi, kerak bo‘lsa sizga aniq xato va qayta yaratish tavsiyasini beradi. **Siz loyihadagi kodga, image URL xaritasiga, presentation profiliga, testlarga va release jarayoniga tegmaysiz.**

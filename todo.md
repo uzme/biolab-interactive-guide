@@ -25,3 +25,4 @@
 - [ ] Kunlik rasm yaratish limiti tiklangach qolgan oq fonli qurilmalar uchun professional laboratoriya-hero vizuallarini agent tomonidan batchlarda yaratib ulash
 - [x] Yaratilgan 15 ta hero-vizual va qolgan 84 ta qurilma uchun aniq ID, asset mapping, sifat qoidalari va davom ettirish ketma-ketligini handoff hujjatida qayd etish
 - [x] Boshqa akkauntdagi agent uchun BioLab hero-vizual ishini xavfsiz davom ettirish promptini yaratish va canonical GitHub–Drive snapshotga sinxronlash
+- [x] Boshqa akkaunt faqat rasm yaratib yuklaydigan, kod va release ishlarini esa loyiha agentiga qoldiradigan image-only handoff promptini moslashtirish

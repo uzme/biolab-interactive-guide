@@ -1,0 +1,317 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-20T07:38:17.682Z",
+  "purpose": "BioLab qabul qilingan hero-vizuallarini recovery uchun aniqlash; barcha fayl baytlari canonical Drive arxivida, runtime nusxalari project asset storage’da saqlanadi.",
+  "canonicalDriveRoot": {
+    "name": "Biotexnologiya yangi",
+    "id": "19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV"
+  },
+  "recoveryArchive": {
+    "name": "BioLab_Hero_Assets_Recovery.tar.gz",
+    "contents": [
+      "assets/*.webp",
+      "hero-asset-recovery-manifest.json"
+    ],
+    "updatePolicy": "Mavjud Drive fayli o‘rnida yangilanadi; duplicate arxiv yaratilmaydi."
+  },
+  "acceptedHeroAssetCount": 33,
+  "assets": [
+    {
+      "id": "BIO-002",
+      "assetFilename": "biolab-equipment-002-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-002-hero_3dfe5ee9.webp",
+      "alt": "Bug‘li sterilizator — avtoklavning laboratoriya-hero o‘quv vizuali",
+      "bytes": 345520,
+      "sha256": "c850ccc8894e9dcda5fc92832d2396d4f4b705c89376807dfa9a8e93f810fe32",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-003",
+      "assetFilename": "biolab-equipment-003-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-003-hero_f8dbd003.webp",
+      "alt": "II-sinf biologik xavfsizlik shkafining laboratoriya-hero o‘quv vizuali",
+      "bytes": 368926,
+      "sha256": "67977b2f2ce341c5403abf45567d8e37cebad77aaa9f0bb7a069c2bfa865c1fb",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-004",
+      "assetFilename": "biolab-equipment-004-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-004-hero_c5b21e98.webp",
+      "alt": "Sovutiladigan laboratoriya sentrifugasining laboratoriya-hero o‘quv vizuali",
+      "bytes": 343052,
+      "sha256": "1bd1dae5beaae027be14dcd9f04bf8152812ef5e0fcefad929100e5cdc90180a",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-005",
+      "assetFilename": "biolab-equipment-005-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-005-hero_c27144b5.webp",
+      "alt": "Mikrohajmli UV-Vis spektrofotometrning laboratoriya-hero o‘quv vizuali",
+      "bytes": 77528,
+      "sha256": "8d725eb005be654e0ef8a6d90119211b2b7ed493b14813f3fa1e2d8027241a7a",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-007",
+      "assetFilename": "biolab-equipment-007-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-007-hero_66600028.webp",
+      "alt": "HPLC tizimining laboratoriya-hero o‘quv vizuali",
+      "bytes": 377814,
+      "sha256": "b0be41272ca75865c96c23258642227e8ee9b95aab2d4b7de9c4839caffd12f7",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-009",
+      "assetFilename": "biolab-equipment-009-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-009-hero_17a4b3b0.webp",
+      "alt": "Gel elektroforez tizimining laboratoriya-hero o‘quv vizuali",
+      "bytes": 411710,
+      "sha256": "e0b1bd18c47120ab4f200f41f737ae2d379974abfc5dd399d8547ba878508940",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-011",
+      "assetFilename": "biolab-equipment-011-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-011-hero_46e35169.webp",
+      "alt": "Mikroplanshet o‘quvchining laboratoriya-hero o‘quv vizuali",
+      "bytes": 430628,
+      "sha256": "3908a35aa33ed81d45b0c8701006b6d19f6532e9ccb9f59d0318866cf21c5d57",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-012",
+      "assetFilename": "biolab-equipment-012-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-012-hero_02a3b165.webp",
+      "alt": "Lyuminometrning laboratoriya-hero o‘quv vizuali",
+      "bytes": 382282,
+      "sha256": "6d9797b0cb1c742d14e581ca0d4d901df4f3f9af68c3a294d28301719d3ec417",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-013",
+      "assetFilename": "biolab-equipment-013-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-013-hero_8fd448d3.webp",
+      "alt": "Flotsitometrning laboratoriya-hero o‘quv vizuali",
+      "bytes": 314710,
+      "sha256": "9d27ca998fd4b25a0c06184cb870533882d153c5fb21cc7bf26f0faf006c3c7c",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-014",
+      "assetFilename": "biolab-equipment-014-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-014-hero_cba49d4b.webp",
+      "alt": "Konfokalli mikroskopning laboratoriya-hero o‘quv vizuali",
+      "bytes": 367700,
+      "sha256": "59b03bf6b6c949148ee116e9e2cc3e8fbba62b8f3aed4195e7631fa63e340fc8",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-015",
+      "assetFilename": "biolab-equipment-015-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-015-hero_2559a9b1.webp",
+      "alt": "Teskari faza mikroskopining laboratoriya-hero o‘quv vizuali",
+      "bytes": 327558,
+      "sha256": "d629e23701fc1ec50e67cc709e8c9e1cd59e7742664bcee81a5cf42c5b49559d",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-016",
+      "assetFilename": "biolab-equipment-016-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-016-hero_a30aa6a1.webp",
+      "alt": "CO2 inkubatorining laboratoriya-realistik o‘quv vizuali",
+      "bytes": 35638,
+      "sha256": "0950d6ee0fab446963b0351ccd3a13c84f5cb259ede842ecf6424d172f83ed45",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-017",
+      "assetFilename": "biolab-equipment-017-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-017-hero_0d62cfcc.webp",
+      "alt": "Ultra-past haroratli laboratoriya muzlatgichining laboratoriya-realistik o‘quv vizuali",
+      "bytes": 44420,
+      "sha256": "7b408d57f8d0384df19727b8dfde62de039b75d851929dda4581dd12a208aeae",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-018",
+      "assetFilename": "biolab-equipment-018-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-018-hero_ab9c0ff5.webp",
+      "alt": "Laboratoriya liyofilizatorining laboratoriya-realistik o‘quv vizuali",
+      "bytes": 67964,
+      "sha256": "bdeb7d4201daabbbc029b0cfb37abe957e3f56f063ff4924f45b450555a95493",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-019",
+      "assetFilename": "biolab-equipment-019-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-019-hero_26cdcff4.webp",
+      "alt": "Ultratovushli homogenizatorning laboratoriya-realistik o‘quv vizuali",
+      "bytes": 56486,
+      "sha256": "f09a03fdfec9baea1d9b1e97efa78329069165a6741d8d7c6079631836abd78a",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-020",
+      "assetFilename": "biolab-equipment-020-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-020-hero_343e7ffe.webp",
+      "alt": "Qizdiruvchi plitali magnit aralashtirgichning laboratoriya-realistik o‘quv vizuali",
+      "bytes": 59174,
+      "sha256": "708f0bbe8c8c8556c07b4fdbfadf36f2d08e41267634862a21e4079ec40ca9c7",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-021",
+      "assetFilename": "biolab-equipment-021-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-021-hero_ca697f12.webp",
+      "alt": "pH-metrning laboratoriya-realistik o‘quv vizuali",
+      "bytes": 63106,
+      "sha256": "9075c567309631590ae0b171275be7ed36c40ffaeff3639990f0a868dc23e558",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-022",
+      "assetFilename": "biolab-equipment-022-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-022-hero_768239c8.webp",
+      "alt": "Analitik tarozining laboratoriya-realistik o‘quv vizuali",
+      "bytes": 71504,
+      "sha256": "8ad637be46181b6191077f289e5fdcba77545535ce4f8606ee8781acfadc7f6f",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-023",
+      "assetFilename": "biolab-equipment-023-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-023-hero_d1a4beed.webp",
+      "alt": "Laboratoriya termostatining laboratoriya-hero o‘quv vizuali",
+      "bytes": 351208,
+      "sha256": "04541310305ab4a09771095dab96dd7507b18c944887517a4737ed4e816846ca",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-024",
+      "assetFilename": "biolab-equipment-024-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-024-hero_1188caf3.webp",
+      "alt": "Suyuq azot Dewar idishining laboratoriya-realistik o‘quv vizuali",
+      "bytes": 56528,
+      "sha256": "fd50d9f6fb1b99a79db4167aefee0180e6e6dfa09633904ca1892bd9258e0df5",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-025",
+      "assetFilename": "biolab-equipment-025-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-025-hero_a7a73916.webp",
+      "alt": "Mikrosentrifuganing laboratoriya-realistik o‘quv vizuali",
+      "bytes": 55570,
+      "sha256": "d25242723879ff200413ca328cdba994e0c7b142dae09d95aa66d5911eebeeb0",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-026",
+      "assetFilename": "biolab-equipment-026-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-026-hero_2906c43e.webp",
+      "alt": "Vorteks aralashtirgichning laboratoriya-hero o‘quv vizuali",
+      "bytes": 386634,
+      "sha256": "d78c2c1812cf1e70c24d3824fc090216de3c7cbf6a9a60dd263474de9e9e7bdf",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-027",
+      "assetFilename": "biolab-equipment-027-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-027-hero_0d74d20e.webp",
+      "alt": "Dispenserli avtomatik pipetkaning laboratoriya-realistik o‘quv vizuali",
+      "bytes": 52812,
+      "sha256": "66199581ea43dcd53f1b1d35e4997d6ac03fa2312b57b18a9af847bab02e4714",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-028",
+      "assetFilename": "biolab-equipment-028-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-028-hero_70faebff.webp",
+      "alt": "Multikanalli pipetkaning laboratoriya-realistik o‘quv vizuali",
+      "bytes": 51252,
+      "sha256": "815dbe87683e623d7baa2922c44b9d078875707b22c61fad9f7062c8aebb18e7",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-029",
+      "assetFilename": "biolab-equipment-029-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-029-hero_13ae1e35.webp",
+      "alt": "Qo‘lda PCR termotsiklerining laboratoriya-realistik o‘quv vizuali",
+      "bytes": 47564,
+      "sha256": "a8ae4ea56241126bc02e2db62614542fadbd258c1cb4b7ecb8d7081b34a9985b",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-030",
+      "assetFilename": "biolab-equipment-030-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-030-hero_83b6e823.webp",
+      "alt": "Real-time PCR qurilmasining laboratoriya-hero o‘quv vizuali",
+      "bytes": 366588,
+      "sha256": "d019b5cdbe0dcd5b132c21426d1f0fe59f09a61342c1087e37897d232260d97e",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-031",
+      "assetFilename": "biolab-equipment-031-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-031-hero_2f60d58e.webp",
+      "alt": "Kapillyar elektroforez bioanalizatorining laboratoriya-realistik o‘quv vizuali",
+      "bytes": 56204,
+      "sha256": "058313905c896ad045b4a1637a2cd9177f6e6ae29b538f3c147986ec648582cf",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-032",
+      "assetFilename": "biolab-equipment-032-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-032-hero_8a0bde95.webp",
+      "alt": "DNK sekvenatorining laboratoriya-hero o‘quv vizuali",
+      "bytes": 375784,
+      "sha256": "3fe104a7fd97f9987ae7f90fd808aeee62efc13b9e1768e3679edc8f8e10811f",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-033",
+      "assetFilename": "biolab-equipment-033-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-033-hero_77dfa533.webp",
+      "alt": "Xemiluminessent tahlilchining laboratoriya-realistik o‘quv vizuali",
+      "bytes": 53618,
+      "sha256": "18f15f8b2e94dc58410b01578a9e28293c86de956d18fd7f2c5176882664c07a",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-035",
+      "assetFilename": "biolab-equipment-035-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-035-hero_500ea4ea.webp",
+      "alt": "ICP-MS spektrometrining laboratoriya-realistik o‘quv vizuali",
+      "bytes": 47690,
+      "sha256": "ef3e3e8871a52e9fdbb460b08fa49178b53feae85758bb3d1d8986f28fdef4f3",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-036",
+      "assetFilename": "biolab-equipment-036-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-036-hero_288f352f.webp",
+      "alt": "Karl Fischer titratorining laboratoriya-hero o‘quv vizuali",
+      "bytes": 322394,
+      "sha256": "a9c0d9e722e2d61a5bfe6fe3101e5173ad568e6870ab2ead83bb58d798927f8e",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-037",
+      "assetFilename": "biolab-equipment-037-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-037-hero_39b34321.webp",
+      "alt": "Viskozimetrning laboratoriya-hero o‘quv vizuali",
+      "bytes": 380170,
+      "sha256": "83739604bd0d67a7280c011c8f2745f7631517578401728c1d6bab7e30cebed7",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-040",
+      "assetFilename": "biolab-equipment-040-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-040-hero_4587a574.webp",
+      "alt": "Skanerlovchi elektron mikroskopning laboratoriya-hero o‘quv vizuali",
+      "bytes": 303910,
+      "sha256": "2904905fb4cb09c1d00abae553820226c72508cd9319cbb9af809903aa53e0d3",
+      "contentType": "image/webp"
+    }
+  ]
+}

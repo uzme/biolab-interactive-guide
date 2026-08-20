@@ -35,7 +35,7 @@
 - [x] BioLab canonical Drive rootini `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV` ga release skripti va continuity hujjatlarida almashtirib, `1ZWf…XQxQd` Second Brain rootiga har qanday BioLab syncni to‘xtatish
 - [x] Canonical Drive root `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV` ga moslangan holatda `node scripts/release/sync_release.mjs --publish` ni bajarish va GitHub commit hamda Drive snapshot metadata’larini qayd etish
 - [x] Batch 01–03 qabul qilingan hero-vizuallari ulangan release natijasini `PROJECT_STATE.md` va release metadata’da tasdiqlash
-- [ ] Gemini orqali `BIO-005`, `BIO-006`, `BIO-008`, `BIO-010`, `BIO-034`, `BIO-038`, `BIO-039` uchun individual brief asosida hero-vizual yaratish, audit qilish va faqat PASS rasmlarni ulash
-- [ ] Gemini quota bloklangan paytda Higgsfield orqali yetti qayta yaratiladigan qurilma uchun professional hero-vizual yaratish imkoniyati va limitlarini tekshirish
+- [ ] Gemini orqali `BIO-006`, `BIO-008`, `BIO-010`, `BIO-034`, `BIO-038`, `BIO-039` uchun individual brief asosida hero-vizual yaratish, audit qilish va faqat PASS rasmlarni ulash
+- [x] Gemini quota bloklangan paytda Higgsfield orqali yetti qayta yaratiladigan qurilma uchun professional hero-vizual yaratish imkoniyati va limitlarini tekshirish
 - [ ] Foydalanuvchi yuborgan har bir hero-vizual batchidan so‘ng PASS/FAIL IDlarini qayd etib, faqat qolgan qurilmalar navbatini yangilab yetkazish
 - [x] Qabul qilingan `BIO-005` spektrofotometr hero-vizualini WebP optimizatsiyasi, asset storage va registry ulanishidan o‘tkazish

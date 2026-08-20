@@ -7,7 +7,7 @@
 | Web loyiha | BioLab Interactive Guide |
 | Web checkpoint | `75bf2c56` |
 | Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; latest verified commit va synchronization metadata har bir release outputida qayd etiladi |
-| Canonical Google Drive | **Biotexnologiya** root, ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`; canonical snapshot file ID va modified time har bir release outputida qayd etiladi |
+| Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot file ID va modified time har bir release outputida qayd etiladi |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzili | `https://biolabguide-fbcitqyf.manus.space` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
@@ -27,7 +27,7 @@
 - `shared/` — Umumiy turlar va xatoliklar aniqlamalari
 
 ## Sinxronlash qoidasi
-Tekshirilgan kod va hujjatlar faqat GitHub `uzme/biolab-interactive-guide` repositorysining `main` branch rootiga va Google Drive’dagi yagona **Biotexnologiya** root papkasiga yuboriladi. Drive root ID: `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`. `.env` fayllari, tokenlar, API kalitlari va runtime chiqindilari snapshotga kiritilmaydi.
+Tekshirilgan kod va hujjatlar faqat GitHub `uzme/biolab-interactive-guide` repositorysining `main` branch rootiga va Google Drive’dagi yagona **Biotexnologiya yangi** BioLab root papkasiga yuboriladi. Drive root ID: `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`. `Second Brain` root BioLab release manzili emas. `.env` fayllari, tokenlar, API kalitlari va runtime chiqindilari snapshotga kiritilmaydi.
 
 
 ## 2026-08-18 script organization release audit
@@ -53,3 +53,13 @@ Hero-vizual ishini boshqa akkauntdagi agent ham aniq va xavfsiz davom ettirishi 
 ## 2026-08-19 image-only handoff aniqlashtirishi
 
 Continuation prompt qayta yozildi: boshqa akkauntdagi agentning roli **faqat** matnsiz, 16:9, kamida 1600×900 px, `BIO-NNN.webp` nomli hero-vizual rasmlarni 5–10 tadan batch qilib mavjud canonical Drive rootga yuklash bilan cheklanadi. U kod, image URL registry, presentation profil, test/build, GitHub push yoki release jarayoniga tegmaydi. ZIP batch hamda ID ro‘yxati kelgach, asosiy loyiha agenti sifat, crop, kontrast, WebP storage, bog‘lash, test, production build va canonical GitHub–Drive release ishlarini bajaradi. Handoff IDlari amaldagi `equipmentImages.ts` registrysi bilan tekshirildi: tayyor 15 ta hero ID — `BIO-016`–`BIO-022`, `BIO-024`, `BIO-025`, `BIO-027`–`BIO-029`, `BIO-031`, `BIO-033`, `BIO-035`; yaratiladigan 84 ta ID esa `BIO-002`–`BIO-015`, `BIO-023`, `BIO-026`, `BIO-030`, `BIO-032`, `BIO-034`, `BIO-036`–`BIO-100`.
+
+## 2026-08-20 Drive root va hero batch auditi
+
+Drive metadata va fayl inventari BioLabning yagona canonical rootini **Biotexnologiya yangi** (`19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`) sifatida tasdiqladi: unda `BioLab_Interactive_Guide_source.tar.gz`, beshta hero batch va Biotexnologiya qurilma auditlari mavjud. Avvalgi `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd` root esa `Second Brain` loyihasiga tegishli ekanligi aniqlandi; BioLab release skriptlari va continuity hujjatlari unga yozmaydigan qilib tuzatildi.
+
+`BioLab_hero_assets_batch_01.zip`–`05.zip` ichidagi 24 ta WebP rasm auditidan keyin 17 ta mos hero-vizual media registryga laboratoriya presentation profili bilan ulandi: `BIO-002`, `003`, `004`, `007`, `009`, `011`–`015`, `023`, `026`, `030`, `032`, `036`, `037`, `040`. `BIO-005`, `006`, `008`, `010`, `034`, `038`, `039` noto‘g‘ri qurilma sinfiga o‘xshagani uchun registriga kiritilmadi va qayta yaratish navbatida qoldi. Batafsil qarorlar: `docs/reports/hero-batch-audit-2026-08-20.md`.
+
+## 2026-08-20 verified canonical release
+
+Canonical Drive root tuzatishi va 17 ta qabul qilingan hero-vizual uchun `pnpm run check`, production build, Vitest, katalog hamda DeviceViewer regressiya testlari va continuity audit muvaffaqiyatli yakunlandi. Sanitizatsiyalangan release GitHub `uzme/biolab-interactive-guide` `main` branchiga `de9eea4287e5f85a4b959e5bd01bc42e38f7e1d1` commit bilan yuborildi. Canonical Drive snapshot `BioLab_Interactive_Guide_source.tar.gz` mavjud `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh` fayli joyida yangilandi; parent `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, modified time `2026-08-20T06:24:25.426Z`, source fingerprint `d273b32f213065204bde5f49e5a059b05401eb21dfd56546f06ed63da0e21f95`. Holat: **READY**.

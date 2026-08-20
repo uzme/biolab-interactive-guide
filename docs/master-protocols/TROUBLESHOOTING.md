@@ -40,7 +40,7 @@ Brauzerda service worker ready holatiga kelgandan keyin Offline paketni yuklash 
 `gws` CLI autentifikatsiyasi va Drive parent ID ni tekshiring. Amaldagi yagona destination:
 
 ```text
-1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd
+19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV
 ```
 
 Release buyruqlari loyiha rootidan bajariladi:
@@ -50,7 +50,7 @@ node scripts/release/sync_release.mjs --check
 node scripts/release/sync_release.mjs --publish
 ```
 
-`gws` upload validatsiyasi snapshot fayli turgan katalogdan bajarilishini talab qiladi; `scripts/release/sync_release.mjs` buni avtomatik boshqaradi. `.env*`, tokenlar, API kalitlar, parollar, PATlar, runtime loglar, dependency va build kataloglari snapshotga kiritilmaydi. Snapshot nomi `BioLab_Interactive_Guide_source.tar.gz`; skript avval shu nomdagi mavjud faylni faqat Biotexnologiya root ichidan qidiradi va mavjud bo‘lsa yangilaydi.
+`gws` upload validatsiyasi snapshot fayli turgan katalogdan bajarilishini talab qiladi; `scripts/release/sync_release.mjs` buni avtomatik boshqaradi. `.env*`, tokenlar, API kalitlar, parollar, PATlar, runtime loglar, dependency va build kataloglari snapshotga kiritilmaydi. Snapshot nomi `BioLab_Interactive_Guide_source.tar.gz`; skript avval shu nomdagi mavjud faylni faqat `Biotexnologiya yangi` BioLab root ichidan qidiradi va mavjud bo‘lsa yangilaydi.
 
 ## 6. GitHub Sync Xatosi
 

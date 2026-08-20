@@ -28,3 +28,7 @@ Aniqlashtirish kerak bo‘lgan IDlar: <bo‘lsa yozing, bo‘lmasa yo‘q>
 ```
 
 > Asosiy agent ZIP’ni ochib, qurilma sinfi, rasm sifati, markazlashuv, kontrast va WebP texnik parametrlarini audit qiladi. Faqat **PASS** bo‘lgan tasvirlar katalog registryga ulanadi; noto‘g‘ri rasm uchun qayta yaratish briefi qaytariladi.
+
+## Qabul qilingandan keyingi saqlash qoidasi
+
+PASS rasm asset storage va registryga ulangach, asosiy agent unga mos `BIO-NNN` manifest yozuvini yaratadi. So‘ng `BioLab_Hero_Assets_Recovery.tar.gz` nomli mavjud canonical Drive arxivi qayta paketlanib **o‘sha bitta Drive fayli o‘rnida** yangilanadi. Arxivda qabul qilingan barcha WebP asset va checksumli recovery manifest bo‘ladi; bu uchinchi tomon chat fayliga yoki vaqtinchalik lokal papkaga tayanib qolmaslik uchun kerak.

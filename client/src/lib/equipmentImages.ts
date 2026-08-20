@@ -28,8 +28,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "ai-representative",
   },
   "BIO-005": {
-    url: "/manus-storage/biolab-equipment-005-spectrophotometer_0bc8b921.webp",
-    alt: "Mikrohajmli UV-Vis spektrofotometrning laboratoriya-realistik ko‘rinishi",
+    url: "/manus-storage/biolab-equipment-005-hero_c27144b5.webp",
+    alt: "Mikrohajmli UV-Vis spektrofotometrning laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-006": {

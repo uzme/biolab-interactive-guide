@@ -31,4 +31,18 @@ describe("qurilma rasm presentation profillari", () => {
       expect(presentation.position).toMatch(/^\d+% \d+%$/);
     }
   });
+
+  it("qabul qilingan qorong‘i laboratoriya hero-vizuallarini cover va laboratory profilida ochadi", () => {
+    const acceptedHeroIds = [
+      "BIO-002", "BIO-003", "BIO-004", "BIO-007", "BIO-009", "BIO-011", "BIO-012",
+      "BIO-013", "BIO-014", "BIO-015", "BIO-023", "BIO-026", "BIO-030", "BIO-032",
+      "BIO-036", "BIO-037", "BIO-040",
+    ];
+
+    for (const id of acceptedHeroIds) {
+      expect(getImagePresentation(id).fit).toBe("cover");
+      expect(getImageBackgroundProfile(id)).toBe("laboratory");
+      expect(equipmentImages[id].url).toContain("-hero_");
+    }
+  });
 });

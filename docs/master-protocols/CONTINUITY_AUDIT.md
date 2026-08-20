@@ -9,7 +9,7 @@ Ushbu audit BioLab Interactive Guide loyihasining yagona GitHub repositorysi, ya
 | Qatlam | Tekshirilgan manzil | Natija |
 |---|---|---|
 | GitHub source | `https://github.com/uzme/biolab-interactive-guide`, `main`, repository root | PASS |
-| Google Drive archive | `Biotexnologiya` root, ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd` | PASS |
+| Google Drive archive | `Biotexnologiya yangi` BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV` | PASS |
 | Snapshot | `BioLab_Interactive_Guide_source.tar.gz`, mavjud faylni joyida yangilash | PASS |
 | Cross-links | `GITHUB_INDEX.md`, `DRIVE_INDEX.md`, `RESTORATION_MAP.md` | PASS |
 | Required documents | 20 ta continuity hujjati va LICENSE/CONTRIBUTING/SECURITY | PASS |
@@ -33,4 +33,4 @@ Production bundle ichidagi learning dossier ma’lumotlari 500 kB dan katta inte
 
 ## Status qarori
 
-Continuity auditning joriy holati: **READY**. Yakuniy publishdan keyin GitHub commit hash’i, Drive snapshot file ID si, modified time va source fingerprint `PROJECT_STATE.md`, `CURRENT_STATE.md`, `GITHUB_INDEX.md`, `DRIVE_INDEX.md` va ushbu hujjatda bir xil metadata sifatida qayd etiladi. Faqat canonical GitHub repository va Biotexnologiya root papkasi write destination hisoblanadi; boshqa Drive papkalari o‘zgartirilmaydi.
+Continuity auditning joriy holati: **READY**. Yakuniy publishdan keyin GitHub commit hash’i, Drive snapshot file ID si, modified time va source fingerprint `PROJECT_STATE.md`, `CURRENT_STATE.md`, `GITHUB_INDEX.md`, `DRIVE_INDEX.md` va ushbu hujjatda bir xil metadata sifatida qayd etiladi. Faqat canonical GitHub repository va `Biotexnologiya yangi` BioLab root papkasi write destination hisoblanadi; `Second Brain` va boshqa Drive papkalari o‘zgartirilmaydi.

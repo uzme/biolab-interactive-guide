@@ -16,7 +16,7 @@
 - **Repository organization:** `scripts/data/`, `scripts/release/`, `scripts/tests/` va `scripts/utils/` papkalari; root-level script qoldig‘i yo‘q, barcha eski path reference’lar tozalangan
 - **Deployment:** Manus Autoscale Web Hosting — `https://biolabguide-fbcitqyf.manus.space`
 - **Canonical GitHub:** `https://github.com/uzme/biolab-interactive-guide`, `main`; latest commit va release metadata publish outputida qayd etiladi
-- **Canonical Drive:** `Biotexnologiya` root ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`; canonical file ID va modified time publish outputida qayd etiladi, rootda bitta snapshot tekshiriladi
+- **Canonical Drive:** `Biotexnologiya yangi` BioLab root ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical file ID va modified time publish outputida qayd etiladi, rootda bitta snapshot tekshiriladi. `Second Brain` root BioLabga tegishli emas va write destination bo‘la olmaydi
 - **Canonical snapshot:** `BioLab_Interactive_Guide_source.tar.gz`; source fingerprint har bir sanitizatsiyalangan release outputida qayd etiladi
 - **Database:** Schema va migration metadata repositorydagi `drizzle/` katalogida saqlanadi; destructive migration bajarilmagן
 
@@ -26,4 +26,4 @@
 
 ## Sinxronlash tartibi
 
-Har bir muhim o‘zgarishdan so‘ng `pnpm run check`, `pnpm build`, `pnpm test`, browser regressiya va `node scripts/release/sync_release.mjs --check` bajariladi. Faqat tekshiruvlar muvaffaqiyatli bo‘lganda `node scripts/release/sync_release.mjs --publish` ishlatiladi. Publish GitHub `main` branch rootini va Biotexnologiya rootidagi mavjud snapshotni joyida yangilaydi; duplicate arxiv yaratilmaydi.
+Har bir muhim o‘zgarishdan so‘ng `pnpm run check`, `pnpm build`, `pnpm test`, browser regressiya va `node scripts/release/sync_release.mjs --check` bajariladi. Faqat tekshiruvlar muvaffaqiyatli bo‘lganda `node scripts/release/sync_release.mjs --publish` ishlatiladi. Publish GitHub `main` branch rootini va `Biotexnologiya yangi` BioLab rootidagi mavjud snapshotni joyida yangilaydi; duplicate arxiv yaratilmaydi.

@@ -6,7 +6,7 @@ BioLab Interactive Guide is a professional Uzbek-language learning platform for 
 
 ## Current Source of Truth
 
-The working project at `/home/ubuntu/biolab-guide` is the source of truth during development. The sanitised archival copy is stored at the root of the `uzme/biolab-interactive-guide` GitHub repository. The only Drive destination for release snapshots is the Biotexnologiya root folder with ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`.
+The working project at `/home/ubuntu/biolab-guide` is the source of truth during development. The sanitised archival copy is stored at the root of the `uzme/biolab-interactive-guide` GitHub repository. The only Drive destination for release snapshots is the BioLab **Biotexnologiya yangi** root folder with ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`. The separate `Second Brain` root is never a BioLab write destination.
 
 ## Current Verified State
 
@@ -28,7 +28,7 @@ In accordance with the **GitHub + Google Drive Continuity & Reproducibility Mast
 - **Project Version:** 1.0.0 (Canonical stable release)
 - **Git Branch:** `main`
 - **GitHub Repository:** `https://github.com/uzme/biolab-interactive-guide`
-- **Google Drive Root Folder:** `Biotexnologiya` (ID: `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`)
+- **Google Drive Root Folder:** `Biotexnologiya yangi` (ID: `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`)
 - **Canonical Drive Snapshot:** `BioLab_Interactive_Guide_source.tar.gz`
 - **Synchronization State:** `READY` (Verified via `verify_continuity_docs.mjs` and `sync_release.mjs --check`)
 

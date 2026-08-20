@@ -13,18 +13,18 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "ai-representative",
   },
   "BIO-002": {
-    url: "/manus-storage/biolab-equipment-002-autoclave_fb2b1209.jpg",
-    alt: "Bug‘li sterilizator — avtoklavning laboratoriya-realistik ko‘rinishi",
+    url: "/manus-storage/biolab-equipment-002-hero_3dfe5ee9.webp",
+    alt: "Bug‘li sterilizator — avtoklavning laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-003": {
-    url: "/manus-storage/biolab-equipment-003-bsc_922ae195.jpg",
-    alt: "II-sinf biologik xavfsizlik shkafining laboratoriya-realistik ko‘rinishi",
+    url: "/manus-storage/biolab-equipment-003-hero_f8dbd003.webp",
+    alt: "II-sinf biologik xavfsizlik shkafining laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-004": {
-    url: "/manus-storage/biolab-equipment-004-centrifuge_cdc5c2ff.webp",
-    alt: "Sovutiladigan laboratoriya sentrifugasining laboratoriya-realistik ko‘rinishi",
+    url: "/manus-storage/biolab-equipment-004-hero_c5b21e98.webp",
+    alt: "Sovutiladigan laboratoriya sentrifugasining laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-005": {
@@ -38,8 +38,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "ai-representative",
   },
   "BIO-007": {
-    url: "/manus-storage/biolab-equipment-007_623417f4.webp",
-    alt: "HPLC tizimining laboratoriya-realistik ko‘rinishi",
+    url: "/manus-storage/biolab-equipment-007-hero_66600028.webp",
+    alt: "HPLC tizimining laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-008": {
@@ -48,8 +48,8 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "ai-representative",
   },
   "BIO-009": {
-    url: "/manus-storage/biolab-equipment-009_b27ecfc1.webp",
-    alt: "Gel elektroforez tizimining laboratoriya-realistik ko‘rinishi",
+    url: "/manus-storage/biolab-equipment-009-hero_17a4b3b0.webp",
+    alt: "Gel elektroforez tizimining laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-010": {
@@ -58,28 +58,28 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "ai-representative",
   },
   "BIO-011": {
-    url: "/manus-storage/biolab-equipment-011_3ab8a8b2.webp",
-    alt: "Mikroplanshet o‘quvchining laboratoriya-realistik ko‘rinishi",
+    url: "/manus-storage/biolab-equipment-011-hero_46e35169.webp",
+    alt: "Mikroplanshet o‘quvchining laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-012": {
-    url: "/manus-storage/biolab-equipment-012_a7f96a6f.webp",
-    alt: "Lyuminometrning laboratoriya-realistik ko‘rinishi",
+    url: "/manus-storage/biolab-equipment-012-hero_02a3b165.webp",
+    alt: "Lyuminometrning laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-013": {
-    url: "/manus-storage/biolab-equipment-013_af260068.webp",
-    alt: "Flotsitometrning laboratoriya-realistik ko‘rinishi",
+    url: "/manus-storage/biolab-equipment-013-hero_8fd448d3.webp",
+    alt: "Flotsitometrning laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-014": {
-    url: "/manus-storage/biolab-equipment-014_748d5ea5.webp",
-    alt: "Konfokalli mikroskopning laboratoriya-realistik ko‘rinishi",
+    url: "/manus-storage/biolab-equipment-014-hero_cba49d4b.webp",
+    alt: "Konfokalli mikroskopning laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-015": {
-    url: "/manus-storage/biolab-equipment-015_9aed3afb.webp",
-    alt: "Teskari faza mikroskopining laboratoriya-realistik ko‘rinishi",
+    url: "/manus-storage/biolab-equipment-015-hero_2559a9b1.webp",
+    alt: "Teskari faza mikroskopining laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-016": {
@@ -118,9 +118,9 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "ai-representative",
   },
   "BIO-023": {
-    url: "/manus-storage/biolab-equipment-023-memmert-in260-full_f4a1df57.webp",
-    alt: "Memmert IN260 laboratoriya termostatining rasmiy mahsulot rasmi",
-    sourceType: "official",
+    url: "/manus-storage/biolab-equipment-023-hero_d1a4beed.webp",
+    alt: "Laboratoriya termostatining laboratoriya-hero o‘quv vizuali",
+    sourceType: "ai-representative",
   },
   "BIO-024": {
     url: "/manus-storage/biolab-equipment-024-hero_1188caf3.webp",
@@ -133,9 +133,9 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "ai-representative",
   },
   "BIO-026": {
-    url: "/manus-storage/biolab-equipment-026-vortex-genie-full-clean_4fc2776f.webp",
-    alt: "To‘liq ko‘rinadigan Scientific Industries Vortex-Genie 2 vorteks aralashtirgichining mahsulot rasmi",
-    sourceType: "official",
+    url: "/manus-storage/biolab-equipment-026-hero_2906c43e.webp",
+    alt: "Vorteks aralashtirgichning laboratoriya-hero o‘quv vizuali",
+    sourceType: "ai-representative",
   },
   "BIO-027": {
     url: "/manus-storage/biolab-equipment-027-hero_0d74d20e.webp",
@@ -153,9 +153,9 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "ai-representative",
   },
   "BIO-030": {
-    url: "/manus-storage/biolab-equipment-030-roche-lightcycler-480-ii_b1f63e42.webp",
-    alt: "Roche LightCycler 480 Instrument II qPCR qurilmasining rasmiy mahsulot rasmi",
-    sourceType: "official",
+    url: "/manus-storage/biolab-equipment-030-hero_83b6e823.webp",
+    alt: "Real-time PCR qurilmasining laboratoriya-hero o‘quv vizuali",
+    sourceType: "ai-representative",
   },
   "BIO-031": {
     url: "/manus-storage/biolab-equipment-031-hero_2f60d58e.webp",
@@ -163,9 +163,9 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "ai-representative",
   },
   "BIO-032": {
-    url: "/manus-storage/biolab-equipment-032-illumina-miseq_3d41885d.webp",
-    alt: "Illumina MiSeq DNK sekvenatorining rasmiy mahsulot rasmi",
-    sourceType: "official",
+    url: "/manus-storage/biolab-equipment-032-hero_8a0bde95.webp",
+    alt: "DNK sekvenatorining laboratoriya-hero o‘quv vizuali",
+    sourceType: "ai-representative",
   },
   "BIO-033": {
     url: "/manus-storage/biolab-equipment-033-hero_77dfa533.webp",
@@ -183,14 +183,14 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "ai-representative",
   },
   "BIO-036": {
-    url: "/manus-storage/biolab-equipment-036-mettler-toledo-v30s_c36917ff.webp",
-    alt: "Mettler Toledo V30S Karl Fischer titratorining mahsulot rasmi",
-    sourceType: "official",
+    url: "/manus-storage/biolab-equipment-036-hero_288f352f.webp",
+    alt: "Karl Fischer titratorining laboratoriya-hero o‘quv vizuali",
+    sourceType: "ai-representative",
   },
   "BIO-037": {
-    url: "/manus-storage/biolab-equipment-037-brookfield-dv2t_672a32f6.webp",
-    alt: "Brookfield DV2T raqamli viskozimetrining mahsulot rasmi",
-    sourceType: "official",
+    url: "/manus-storage/biolab-equipment-037-hero_39b34321.webp",
+    alt: "Viskozimetrning laboratoriya-hero o‘quv vizuali",
+    sourceType: "ai-representative",
   },
   "BIO-038": {
     url: "/manus-storage/biolab-equipment-038-refractometer-clean_d08efe52.webp",
@@ -203,9 +203,9 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     sourceType: "official",
   },
   "BIO-040": {
-    url: "/manus-storage/biolab-equipment-040-jeol-jsm-it800_bd2e8a26.webp",
-    alt: "JEOL JSM-IT800 skanerlovchi elektron mikroskopining mahsulot rasmi",
-    sourceType: "official",
+    url: "/manus-storage/biolab-equipment-040-hero_4587a574.webp",
+    alt: "Skanerlovchi elektron mikroskopning laboratoriya-hero o‘quv vizuali",
+    sourceType: "ai-representative",
   },
   "BIO-041": {
     url: "/manus-storage/biolab-equipment-041-millipore-stericup_620cc907.webp",

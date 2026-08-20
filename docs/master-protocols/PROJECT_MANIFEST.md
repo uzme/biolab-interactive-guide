@@ -54,6 +54,6 @@ docs/         Project reference documentation, when present
 ## Canonical Archive
 
 - **GitHub:** `https://github.com/uzme/biolab-interactive-guide`, branch `main`, project path repository root.
-- **Google Drive:** Biotexnologiya root ID `1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, file name `BioLab_Interactive_Guide_source.tar.gz`.
+- **Google Drive:** BioLab `Biotexnologiya yangi` root ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, file name `BioLab_Interactive_Guide_source.tar.gz`.
 - **Cross-links:** `DRIVE_INDEX.md`, `GITHUB_INDEX.md`, and `RESTORATION_MAP.md`.
-- **Excluded locations:** only the canonical `Biotexnologiya` root is used; `Kodlar`, `PUBG`, and `Skills` Drive folders are not modified.
+- **Excluded locations:** only the canonical `Biotexnologiya yangi` BioLab root is used; `Second Brain`, `Kodlar`, `PUBG`, and `Skills` Drive folders are not modified.

@@ -30,7 +30,7 @@ Quyidagi matnni **boshqa akkauntdagi agentga** aynan yuboring.
 >
 > Rasmlarni 5–10 tadan batch qilib tayyorlang. Har batch uchun faqat WebP fayllarni bitta ZIP arxivga joylang: `BioLab_hero_assets_batch_01.zip`, `BioLab_hero_assets_batch_02.zip` va hokazo.
 >
-> Yangi Drive papka, yangi repository yoki yangi loyiha yaratmang. Faqat mavjud canonical Google Drive root — **Biotexnologiya yangi** (`1ZWf2MrB1FDN1PmcX9-e1sHrbx4X2QxQd`) — ichiga bitta ZIP batchni yuklang va uning Drive linki hamda ichidagi IDlar ro‘yxatini asosiy loyiha agentiga yuboring. Kod fayllari, `.env`, token, parol, API key yoki runtime loglarni yuklamang.
+> Yangi Drive papka, yangi repository yoki yangi loyiha yaratmang. Faqat mavjud canonical Google Drive root — **Biotexnologiya yangi** (`19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`) — ichiga bitta ZIP batchni yuklang va uning Drive linki hamda ichidagi IDlar ro‘yxatini asosiy loyiha agentiga yuboring. Kod fayllari, `.env`, token, parol, API key yoki runtime loglarni yuklamang.
 >
 > ## Har batch yakunida yuboriladigan qisqa hisobot
 >

@@ -228,7 +228,7 @@ try {
   const githubCommit = publishToGitHub();
   console.log(`[GitHub] ${githubCommit}`);
 
-  console.log("[4/4] Snapshot Biotexnologiya asosiy Drive papkasiga yuklanmoqda yoki mavjud nusxa yangilanmoqda...");
+  console.log("[4/4] Snapshot Biotexnologiya yangi BioLab Drive papkasiga yuklanmoqda yoki mavjud nusxa yangilanmoqda...");
   const driveFile = uploadOrUpdateDrive(archive.snapshotPath, archive.sourceFingerprint);
   console.log(JSON.stringify({
     githubRepository: `https://github.com/${CANONICAL_GITHUB_REPOSITORY}`,

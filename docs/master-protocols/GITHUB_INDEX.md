@@ -6,7 +6,7 @@ Ushbu hujjat Google Drive’dagi canonical snapshotdan GitHub source va hujjatla
 
 | Project | Repository URL | Stable Branch | Stable Content Commit | Current Version | Last Synchronization |
 |---|---|---|---|---|---|
-| BioLab Interactive Guide | https://github.com/uzme/biolab-interactive-guide | `main` | Latest verified commit release outputida qayd etiladi | `1.0.0` | Canonical Drive snapshot ID va modified time har bir release outputida qayd etiladi; root `Biotexnologiya yangi` (`19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`) |
+| BioLab Interactive Guide | https://github.com/uzme/biolab-interactive-guide | `main` | `de9eea4287e5f85a4b959e5bd01bc42e38f7e1d1` | `1.0.1` | Snapshot `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh` 2026-08-20T06:24:25.426Z da yangilandi; root `Biotexnologiya yangi` (`19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`) |
 
 ## Important Documentation URLs
 

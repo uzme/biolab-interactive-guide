@@ -32,6 +32,6 @@
 - [x] Sifat auditidan o‘tgan 17 ta Drive hero-vizualni (`BIO-002`, `003`, `004`, `007`, `009`, `011`–`015`, `023`, `026`, `030`, `032`, `036`, `037`, `040`) asset registrysiga xavfsiz ulash
 - [ ] Qurilma sinfiga mos kelmagan 7 ta Drive hero-vizual (`BIO-005`, `006`, `008`, `010`, `034`, `038`, `039`) uchun qayta yaratish briefini tayyorlash va noto‘g‘ri rasmni registriga kiritmaslik
 - [x] BioLab va Second Brain fayllari aralashmasligi uchun `1ZWf…XQxQd` hamda `19um…orhV` Drive rootlarining loyiha ownership dalillarini solishtirish va BioLab release manzilini yakuniy tasdiqlash
-- [ ] BioLab canonical Drive rootini `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV` ga release skripti va continuity hujjatlarida almashtirib, `1ZWf…XQxQd` Second Brain rootiga har qanday BioLab syncni to‘xtatish
-- [ ] Canonical Drive root `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV` ga moslangan holatda `node scripts/release/sync_release.mjs --publish` ni bajarish va GitHub commit hamda Drive snapshot metadata’larini qayd etish
-- [ ] Batch 01–03 qabul qilingan hero-vizuallari ulangan release natijasini `PROJECT_STATE.md` va release metadata’da tasdiqlash
+- [x] BioLab canonical Drive rootini `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV` ga release skripti va continuity hujjatlarida almashtirib, `1ZWf…XQxQd` Second Brain rootiga har qanday BioLab syncni to‘xtatish
+- [x] Canonical Drive root `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV` ga moslangan holatda `node scripts/release/sync_release.mjs --publish` ni bajarish va GitHub commit hamda Drive snapshot metadata’larini qayd etish
+- [x] Batch 01–03 qabul qilingan hero-vizuallari ulangan release natijasini `PROJECT_STATE.md` va release metadata’da tasdiqlash

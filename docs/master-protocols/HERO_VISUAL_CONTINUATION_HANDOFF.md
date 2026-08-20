@@ -4,15 +4,17 @@
 
 BioLab katalogida **100 ta qurilma** mavjud va ular to‘liq saqlanadi. Ushbu ishning maqsadi har bir qurilmaning katalog kartasida foydalanuvchi tasdiqlagan **laboratoriya-hero** ko‘rinishini berishdir: qurilma katta va markazda, 16:9 media oynasini estetik egallagan, laboratoriya muhiti bilan uyg‘un va qorong‘i rejimda ham aniq ko‘rinadigan bo‘lishi kerak.
 
-Hozircha barcha 100 ta rasmning `object-fit`, fon va dark-mode kontrasti avtomatik audit qilingan. Quyidagi **15 ta** qurilma yangi laboratoriya-hero vizualiga o‘tkazilgan va yengil WebP asset sifatida productionga ulangan:
+Hozircha barcha 100 ta rasmning `object-fit`, fon va dark-mode kontrasti avtomatik audit qilingan. Avvalgi 15 ta va yangi batchdan qabul qilingan 17 ta qurilma laboratoriya-hero vizualiga o‘tkazilgan; ular yengil WebP asset sifatida productionga ulangan.
 
 | Holat | Qurilma IDlari | Ko‘rsatish qoidasi |
 |---|---|---|
-| Yangi hero vizual ulangan | `BIO-016`–`BIO-022`, `BIO-024`, `BIO-025`, `BIO-027`–`BIO-029`, `BIO-031`, `BIO-033`, `BIO-035` | `cover`, laboratoriya foni, markazlangan hero framing |
+| Avvalgi hero vizual ulangan | `BIO-016`–`BIO-022`, `BIO-024`, `BIO-025`, `BIO-027`–`BIO-029`, `BIO-031`, `BIO-033`, `BIO-035` | `cover`, laboratoriya foni, markazlangan hero framing |
 | Foydalanuvchi tasdiqlagan avvalgi hero reference | `BIO-001` | `cover`, laboratoriya foni |
-| Hero-vizual qayta yaratish navbatida | `BIO-002`–`BIO-015`, `BIO-023`, `BIO-026`, `BIO-030`, `BIO-032`, `BIO-034`, `BIO-036`–`BIO-100` | Jami 84 ta yangi hero asset talab qilinadi |
+| 2026-08-20 batchidan qabul qilingan hero vizual | `BIO-002`, `BIO-003`, `BIO-004`, `BIO-007`, `BIO-009`, `BIO-011`–`BIO-015`, `BIO-023`, `BIO-026`, `BIO-030`, `BIO-032`, `BIO-036`, `BIO-037`, `BIO-040` | `cover`, qorong‘i teal laboratoriya foni, markazlangan hero framing |
+| Qayta yaratilishi majburiy | `BIO-005`, `BIO-006`, `BIO-008`, `BIO-010`, `BIO-034`, `BIO-038`, `BIO-039` | Avvalgi rasm qurilma sinfiga mos emas; `HERO_VISUAL_REGENERATION_BRIEF.md` bo‘yicha yaratiladi |
+| Hero-vizual yaratish navbatida | Qolgan 60 ta hero-standardga o‘tmagan qurilma | Qayta yaratish majburiy bo‘lgan yetti IDdan tashqari navbat |
 
-> `BIO-001` avvaldan laboratoriya-hero standarti uchun qabul qilingan reference hisoblanadi. Yangi 15 asset bilan birgalikda hero-standarddagi kartalar soni 16 ta; qayta yaratilishi kerak bo‘lgan navbat 84 ta qurilmadan iborat.
+> `BIO-001` avvaldan laboratoriya-hero standarti uchun qabul qilingan reference hisoblanadi. Hozir hero-standarddagi kartalar soni **33 ta**: reference `BIO-001`, avvalgi 15 ta va yangi qabul qilingan 17 ta asset. Hero-standardga o‘tishi kerak bo‘lgan qurilmalar soni **67 ta**, shundan 7 tasi qayta yaratish briefi bilan ajratilgan.
 
 ## Muhim fayllar
 
@@ -29,16 +31,20 @@ Hozircha barcha 100 ta rasmning `object-fit`, fon va dark-mode kontrasti avtomat
 | `scripts/tests/audit_image_loading.mjs` | Rasm yuklanish prioriteti va so‘rovlarini o‘lchaydi |
 | `scripts/tests/capture_mobile_card_renders.mjs` | Mobil kartalarning 100 ta render capture’ini yaratadi |
 | `docs/reports/image-presentation-audit-final.md` | Avvalgi visual audit natijalari |
+| `docs/reports/hero-batch-audit-2026-08-20.md` | 24 ta kelgan hero assetning PASS/FAIL qarori |
+| `docs/master-protocols/HERO_VISUAL_REGENERATION_BRIEF.md` | Yetti noto‘g‘ri hero-vizual uchun individual qayta yaratish promptlari |
+| `docs/master-protocols/HERO_VISUAL_BATCH_SUBMISSION_TEMPLATE.md` | Tashqi agent yuboradigan ZIP batch, fayl nomi va Drive linki uchun qat’iy topshirish shabloni |
 
-## Qolgan 84 hero vizual uchun qat’iy standart
+## Qolgan 67 hero vizual uchun qat’iy standart
 
-Har bir yangi rasm **original, matnsiz, 16:9, 1600×900 yoki undan katta** bo‘lsin. Qurilma media oynasining markazida, umumiy kadrning taxminan 60–80 foizini egallagan holda ko‘rinsin. Fon zamonaviy, toza, och-ko‘k yoki neytral biotexnologiya laboratoriyasi bo‘lsin. Odamlar, qo‘llar, logotiplar, watermark, alohida yozuv va soxta model belgilari bo‘lmasin. Qurilma haqiqiy laboratoriya instrumenti turiga mos, lekin uydirma manufacturer logotipisiz tasvirlansin.
+Har bir yangi rasm **original, matnsiz, 16:9, 1600×900 yoki undan katta** bo‘lsin. Qurilma media oynasining markazida, umumiy kadrning taxminan 60–80 foizini egallagan holda ko‘rinsin. Fon foydalanuvchi tasdiqlagan namuna kabi qorong‘i, zamonaviy teal/cyan biotexnologiya laboratoriyasi bo‘lsin. Odamlar, qo‘llar, logotiplar, watermark, alohida yozuv va soxta model belgilari bo‘lmasin. Qurilma haqiqiy laboratoriya instrumenti turiga mos, lekin uydirma manufacturer logotipisiz tasvirlansin.
 
 AI tasvirining maqsadi **o‘quv uchun reprezentativ vizual** bo‘lib, uni rasmiy manufacturer mahsulot fotosi deb ko‘rsatish mumkin emas. `equipmentImages.ts` ichida bunday rasm uchun `sourceType: "ai-representative"` qoladi va alt matnda “laboratoriya-realistik o‘quv vizuali” ifodasi ishlatiladi.
 
 ## Har bir batch uchun bajariladigan tartib
 
-1. Avval navbatdagi beshta `BIO-` ID uchun `equipmentData.ts` dan qurilma turi va model mazmunini o‘qing.
+1. Tashqi rasm yaratuvchi agent faqat `HERO_VISUAL_BATCH_SUBMISSION_TEMPLATE.md` bo‘yicha ZIP batch va Drive linkini yuboradi; u loyiha kodi yoki asset registrysiga tegmaydi.
+2. Asosiy loyiha agenti avval navbatdagi beshta `BIO-` ID uchun `equipmentData.ts` dan qurilma turi va model mazmunini o‘qiydi.
 2. Yuqoridagi standartga mos, **bir xil fon tili va kamera burchagi** bilan beshta original hero rasm yarating.
 3. Rasm fayllarini `/home/ubuntu/webdev-static-assets/` ichida `biolab-equipment-XXX-hero.jpg` nomida saqlang. Assetlarni loyiha katalogi ichiga qo‘ymang.
 4. `scripts/data/optimize_hero_assets.py` bilan WebP nusxasini yarating. Maqsad — ko‘rish sifati saqlangan holda har bir rasmni yengil assetga aylantirish.

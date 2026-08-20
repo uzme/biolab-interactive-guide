@@ -40,3 +40,4 @@
 - [ ] Foydalanuvchi yuborgan har bir hero-vizual batchidan so‘ng PASS/FAIL IDlarini qayd etib, faqat qolgan qurilmalar navbatini yangilab yetkazish
 - [x] Qabul qilingan `BIO-005` spektrofotometr hero-vizualini WebP optimizatsiyasi, asset storage va registry ulanishidan o‘tkazish
 - [x] PASS hero-vizuallar uchun manba fayl, optimallashtirilgan WebP, asset URL va checksumni qayd etuvchi recovery manifest yaratish hamda yagona canonical Drive arxivini sinovdan o‘tkazish
+- [x] Mobil telefonda “Qurilmani o‘rganish” detail oynasi faqat fon-blur ko‘rinib, o‘quv kontenti ko‘rinmay qolishi xatosini barcha qurilma kartalari uchun tuzatish va regressiya bilan tekshirish

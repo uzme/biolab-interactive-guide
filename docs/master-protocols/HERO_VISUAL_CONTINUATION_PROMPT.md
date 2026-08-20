@@ -20,9 +20,9 @@ Quyidagi matnni **boshqa akkauntdagi agentga** aynan yuboring.
 >
 > ## Qaysi rasmlar kerak
 >
-> Quyidagi IDlar allaqachon tayyor, ularni yaratmang: `BIO-016`–`BIO-022`, `BIO-024`, `BIO-025`, `BIO-027`–`BIO-029`, `BIO-031`, `BIO-033`, `BIO-035`.
+> Quyidagi IDlar allaqachon hero-standardda tayyor, ularni yaratmang: `BIO-001`–`BIO-004`, `BIO-007`, `BIO-009`, `BIO-011`–`BIO-033`, `BIO-035`–`BIO-037`, `BIO-040`.
 >
-> Yaratiladigan navbat: `BIO-002`–`BIO-015`, `BIO-023`, `BIO-026`, `BIO-030`, `BIO-032`, `BIO-034`, `BIO-036`–`BIO-100`.
+> Qayta yaratilishi majburiy bo‘lgan IDlar: `BIO-005`, `BIO-006`, `BIO-008`, `BIO-010`, `BIO-034`, `BIO-038`, `BIO-039`. Bu yetti ID uchun faqat `HERO_VISUAL_REGENERATION_BRIEF.md` dagi individual promptdan foydalaning. Qolgan yaratish navbati: `BIO-041`–`BIO-100`.
 >
 > Qaysi ID qaysi qurilmaga tegishli ekanini bilish uchun faqat shu faylni o‘qing: `docs/master-protocols/HERO_VISUAL_CONTINUATION_HANDOFF.md`. Undagi qurilma nomi va maqsadidan foydalaning. Nomi noaniq bo‘lsa, rasm yaratmang; ID va savolni alohida ro‘yxatda qayd eting.
 >
@@ -34,7 +34,7 @@ Quyidagi matnni **boshqa akkauntdagi agentga** aynan yuboring.
 >
 > ## Har batch yakunida yuboriladigan qisqa hisobot
 >
-> Quyidagi formatdan foydalaning:
+> Quyidagi formatdan foydalaning; to‘liq nazorat qoidasi `HERO_VISUAL_BATCH_SUBMISSION_TEMPLATE.md` faylida berilgan:
 >
 > ```text
 > Batch: 01

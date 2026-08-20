@@ -26,11 +26,11 @@
 - [x] Yaratilgan 15 ta hero-vizual va qolgan 84 ta qurilma uchun aniq ID, asset mapping, sifat qoidalari va davom ettirish ketma-ketligini handoff hujjatida qayd etish
 - [x] Boshqa akkauntdagi agent uchun BioLab hero-vizual ishini xavfsiz davom ettirish promptini yaratish va canonical GitHub–Drive snapshotga sinxronlash
 - [x] Boshqa akkaunt faqat rasm yaratib yuklaydigan, kod va release ishlarini esa loyiha agentiga qoldiradigan image-only handoff promptini moslashtirish
-- [ ] BioLab hero-vizual ishida Gemini integratsiyasi mavjudligini tekshirish va kerak bo‘lsa foydalanuvchi tasdiqlaydigan xavfsiz ulash oqimini tayyorlash
+- [x] BioLab hero-vizual ishida Gemini integratsiyasi mavjudligini tekshirish va kerak bo‘lsa foydalanuvchi tasdiqlaydigan xavfsiz ulash oqimini tayyorlash
 - [x] Canonical Drive’dagi Batch 01–03 (`BIO-002`–`BIO-015`) hero-vizuallarini tekshirish, sifatli fayllarni media registryga ulash va verified release qilish
 - [x] Yuborilgan handoffdagi yangi Drive root (`19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`) va Batch 01–05 (`BIO-002`–`BIO-040` tanlangan 24 asset) metadata/tarkibini canonical loyiha qoidalari bilan mosligini tekshirish
 - [x] Sifat auditidan o‘tgan 17 ta Drive hero-vizualni (`BIO-002`, `003`, `004`, `007`, `009`, `011`–`015`, `023`, `026`, `030`, `032`, `036`, `037`, `040`) asset registrysiga xavfsiz ulash
-- [ ] Qurilma sinfiga mos kelmagan 7 ta Drive hero-vizual (`BIO-005`, `006`, `008`, `010`, `034`, `038`, `039`) uchun qayta yaratish briefini tayyorlash va noto‘g‘ri rasmni registriga kiritmaslik
+- [x] Qurilma sinfiga mos kelmagan 7 ta Drive hero-vizual (`BIO-005`, `006`, `008`, `010`, `034`, `038`, `039`) uchun qayta yaratish briefini tayyorlash va noto‘g‘ri rasmni registriga kiritmaslik
 - [x] BioLab va Second Brain fayllari aralashmasligi uchun `1ZWf…XQxQd` hamda `19um…orhV` Drive rootlarining loyiha ownership dalillarini solishtirish va BioLab release manzilini yakuniy tasdiqlash
 - [x] BioLab canonical Drive rootini `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV` ga release skripti va continuity hujjatlarida almashtirib, `1ZWf…XQxQd` Second Brain rootiga har qanday BioLab syncni to‘xtatish
 - [x] Canonical Drive root `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV` ga moslangan holatda `node scripts/release/sync_release.mjs --publish` ni bajarish va GitHub commit hamda Drive snapshot metadata’larini qayd etish

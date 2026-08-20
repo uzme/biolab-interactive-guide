@@ -63,3 +63,9 @@ Drive metadata va fayl inventari BioLabning yagona canonical rootini **Biotexnol
 ## 2026-08-20 verified canonical release
 
 Canonical Drive root tuzatishi va 17 ta qabul qilingan hero-vizual uchun `pnpm run check`, production build, Vitest, katalog hamda DeviceViewer regressiya testlari va continuity audit muvaffaqiyatli yakunlandi. Sanitizatsiyalangan release GitHub `uzme/biolab-interactive-guide` `main` branchiga `de9eea4287e5f85a4b959e5bd01bc42e38f7e1d1` commit bilan yuborildi. Canonical Drive snapshot `BioLab_Interactive_Guide_source.tar.gz` mavjud `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh` fayli joyida yangilandi; parent `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, modified time `2026-08-20T06:24:25.426Z`, source fingerprint `d273b32f213065204bde5f49e5a059b05401eb21dfd56546f06ed63da0e21f95`. Holat: **READY**.
+
+## 2026-08-20 keyingi hero batchlariga tayyorgarlik
+
+Google Gemini connectori foydalanuvchi tasdig‘i bilan faollashtirildi; ulanish holati `enabled: true` va autentifikatsiya kaliti connector konfiguratsiyasida shifrlangan holda saqlanadi. Keyingi rasm batchlari uchun `HERO_VISUAL_BATCH_SUBMISSION_TEMPLATE.md` yaratildi. U faqat canonical **Biotexnologiya yangi** rootiga yuboriladigan `BIO-NNN.webp` fayllari, ZIP nomi va to‘liq Drive linkini talab qiladi; rasm yaratadigan tashqi agentga kod, registry, test yoki release huquqi berilmaydi.
+
+Joriy hero-standard qamrovi 33 ta kartaga yetdi. Qolgan 67 ta qurilmaning ichida `BIO-005`, `BIO-006`, `BIO-008`, `BIO-010`, `BIO-034`, `BIO-038`, `BIO-039` uchun individual qayta yaratish briefi tayyor; qolgan 60 ta qurilma keyingi batchlar navbatida. `pnpm test`, `pnpm run check` va production build ushbu hujjat yangilanishlaridan keyin muvaffaqiyatli yakunlandi.

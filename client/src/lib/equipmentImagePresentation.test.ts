@@ -34,7 +34,7 @@ describe("qurilma rasm presentation profillari", () => {
 
   it("qabul qilingan qorong‘i laboratoriya hero-vizuallarini cover va laboratory profilida ochadi", () => {
     const acceptedHeroIds = [
-      "BIO-002", "BIO-003", "BIO-004", "BIO-007", "BIO-009", "BIO-011", "BIO-012",
+      "BIO-002", "BIO-003", "BIO-004", "BIO-005", "BIO-007", "BIO-009", "BIO-011", "BIO-012",
       "BIO-013", "BIO-014", "BIO-015", "BIO-023", "BIO-026", "BIO-030", "BIO-032",
       "BIO-036", "BIO-037", "BIO-040",
     ];

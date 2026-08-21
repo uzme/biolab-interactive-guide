@@ -19,7 +19,8 @@
 - **Canonical Drive:** `Biotexnologiya yangi` BioLab root ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical file ID va modified time publish outputida qayd etiladi, rootda bitta snapshot tekshiriladi. `Second Brain` root BioLabga tegishli emas va write destination bo‘la olmaydi
 - **Canonical snapshot:** `BioLab_Interactive_Guide_source.tar.gz`; source fingerprint har bir sanitizatsiyalangan release outputida qayd etiladi
 - **Hero source correction:** `BIO-041.webp` canonical `BioLab_hero_assets_batch_13.zip` ichidan tasdiqlandi; 2560×1440 WebP, SHA-256 `fcf69a9e93eb91fb8f0bdcb217e612e93f2ff76c27a98e8cb0f1c832f8c43799`. Recovery archive (`1s6Uhum2PxA1RWzVP1VDHAj12-AhZdT08`) 100 ta hero asset bilan o‘rnida yangilandi.
-- **Latest verified release:** GitHub `cd3997285c45280397e3e95f507cb0e5b20fa54e`; Drive file `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-21T09:57:19.982Z`, fingerprint `4bdc775283ffba6cbbb3d8013cb8c382128a621b84cc7a7a0f2e7567759c6fdf`.
+- **Hero asset mirror:** `Biotexnologiya yangi/BioLab_Hero_Assets_By_Batch` — Drive ID `1i3CwBud6QOyWMlEyitXSFm4vD_5jd9ar`; 100 batch, 100 checksum-verified WebP, rootda `BATCH_INDEX.md` va manifest mavjud.
+- **Latest verified release:** GitHub `addda2f24ae250b2be1a77c15475ac45d4932326`; Drive source file `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-21T10:09:55.203Z`, fingerprint `22d4bcf3e0fde001b252fdea298349410df7c3cdf3e36860c1b37fc73276567d`.
 - **Database:** Schema va migration metadata repositorydagi `drizzle/` katalogida saqlanadi; destructive migration bajarilmagן
 
 ## Qat’iy saqlanadigan source-of-truth

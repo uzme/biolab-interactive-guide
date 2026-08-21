@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-20T07:38:17.682Z",
+  "generatedAt": "2026-08-21T09:29:12.099Z",
   "purpose": "BioLab qabul qilingan hero-vizuallarini recovery uchun aniqlash; barcha fayl baytlari canonical Drive arxivida, runtime nusxalari project asset storage’da saqlanadi.",
   "canonicalDriveRoot": {
     "name": "Biotexnologiya yangi",
@@ -14,12 +14,24 @@
     ],
     "updatePolicy": "Mavjud Drive fayli o‘rnida yangilanadi; duplicate arxiv yaratilmaydi."
   },
-  "acceptedHeroAssetCount": 33,
+  "acceptedHeroAssetCount": 99,
+  "blockedHeroIds": [
+    "BIO-041"
+  ],
   "assets": [
+    {
+      "id": "BIO-001",
+      "assetFilename": "biolab-equipment-001-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-001-hero_9a1dfc9a.webp",
+      "alt": "PCR termotsiklerining laboratoriya-realistik ko‘rinishi",
+      "bytes": 448188,
+      "sha256": "1fd19b238e11557b660bff6c881f59cb30a13d42f535403fd66fde93543e3eba",
+      "contentType": "image/webp"
+    },
     {
       "id": "BIO-002",
       "assetFilename": "biolab-equipment-002-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-002-hero_3dfe5ee9.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-002-hero_9c40bd3b.webp",
       "alt": "Bug‘li sterilizator — avtoklavning laboratoriya-hero o‘quv vizuali",
       "bytes": 345520,
       "sha256": "c850ccc8894e9dcda5fc92832d2396d4f4b705c89376807dfa9a8e93f810fe32",
@@ -28,7 +40,7 @@
     {
       "id": "BIO-003",
       "assetFilename": "biolab-equipment-003-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-003-hero_f8dbd003.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-003-hero_cde6549f.webp",
       "alt": "II-sinf biologik xavfsizlik shkafining laboratoriya-hero o‘quv vizuali",
       "bytes": 368926,
       "sha256": "67977b2f2ce341c5403abf45567d8e37cebad77aaa9f0bb7a069c2bfa865c1fb",
@@ -37,7 +49,7 @@
     {
       "id": "BIO-004",
       "assetFilename": "biolab-equipment-004-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-004-hero_c5b21e98.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-004-hero_4066a7b2.webp",
       "alt": "Sovutiladigan laboratoriya sentrifugasining laboratoriya-hero o‘quv vizuali",
       "bytes": 343052,
       "sha256": "1bd1dae5beaae027be14dcd9f04bf8152812ef5e0fcefad929100e5cdc90180a",
@@ -46,34 +58,61 @@
     {
       "id": "BIO-005",
       "assetFilename": "biolab-equipment-005-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-005-hero_c27144b5.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-005-hero_b5acc186.webp",
       "alt": "Mikrohajmli UV-Vis spektrofotometrning laboratoriya-hero o‘quv vizuali",
-      "bytes": 77528,
-      "sha256": "8d725eb005be654e0ef8a6d90119211b2b7ed493b14813f3fa1e2d8027241a7a",
+      "bytes": 362732,
+      "sha256": "338eb472a3a9b03fa8d7925a1bf7885862abeeb2fe8f1e2857bc90501286e86c",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-006",
+      "assetFilename": "biolab-equipment-006-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-006-hero_58d800ef.webp",
+      "alt": "Gaz xromatografining laboratoriya-realistik ko‘rinishi",
+      "bytes": 311404,
+      "sha256": "46c7c9299b360a635349e40f46f52e043934ea1d32b2408e53690e8d92f78eea",
       "contentType": "image/webp"
     },
     {
       "id": "BIO-007",
       "assetFilename": "biolab-equipment-007-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-007-hero_66600028.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-007-hero_dd143088.webp",
       "alt": "HPLC tizimining laboratoriya-hero o‘quv vizuali",
       "bytes": 377814,
       "sha256": "b0be41272ca75865c96c23258642227e8ee9b95aab2d4b7de9c4839caffd12f7",
       "contentType": "image/webp"
     },
     {
+      "id": "BIO-008",
+      "assetFilename": "biolab-equipment-008-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-008-hero_948cc4ee.webp",
+      "alt": "LC-MS/MS platformasining laboratoriya-realistik ko‘rinishi",
+      "bytes": 354594,
+      "sha256": "6031de97523165bf898f05dfa310a6902ffe8818385da5bf695631e9bb80cea6",
+      "contentType": "image/webp"
+    },
+    {
       "id": "BIO-009",
       "assetFilename": "biolab-equipment-009-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-009-hero_17a4b3b0.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-009-hero_62d2538d.webp",
       "alt": "Gel elektroforez tizimining laboratoriya-hero o‘quv vizuali",
       "bytes": 411710,
       "sha256": "e0b1bd18c47120ab4f200f41f737ae2d379974abfc5dd399d8547ba878508940",
       "contentType": "image/webp"
     },
     {
+      "id": "BIO-010",
+      "assetFilename": "biolab-equipment-010-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-010-hero_f3a8e01a.webp",
+      "alt": "Western blot tasvirlash tizimining laboratoriya-realistik ko‘rinishi",
+      "bytes": 303848,
+      "sha256": "3b35ce83b01e26f11f9c538794afee36ebc6d601b1b6daa58cc231cf614163b1",
+      "contentType": "image/webp"
+    },
+    {
       "id": "BIO-011",
       "assetFilename": "biolab-equipment-011-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-011-hero_46e35169.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-011-hero_9151fb6b.webp",
       "alt": "Mikroplanshet o‘quvchining laboratoriya-hero o‘quv vizuali",
       "bytes": 430628,
       "sha256": "3908a35aa33ed81d45b0c8701006b6d19f6532e9ccb9f59d0318866cf21c5d57",
@@ -82,7 +121,7 @@
     {
       "id": "BIO-012",
       "assetFilename": "biolab-equipment-012-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-012-hero_02a3b165.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-012-hero_8639f050.webp",
       "alt": "Lyuminometrning laboratoriya-hero o‘quv vizuali",
       "bytes": 382282,
       "sha256": "6d9797b0cb1c742d14e581ca0d4d901df4f3f9af68c3a294d28301719d3ec417",
@@ -91,7 +130,7 @@
     {
       "id": "BIO-013",
       "assetFilename": "biolab-equipment-013-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-013-hero_8fd448d3.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-013-hero_80851981.webp",
       "alt": "Flotsitometrning laboratoriya-hero o‘quv vizuali",
       "bytes": 314710,
       "sha256": "9d27ca998fd4b25a0c06184cb870533882d153c5fb21cc7bf26f0faf006c3c7c",
@@ -100,7 +139,7 @@
     {
       "id": "BIO-014",
       "assetFilename": "biolab-equipment-014-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-014-hero_cba49d4b.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-014-hero_a8890eb8.webp",
       "alt": "Konfokalli mikroskopning laboratoriya-hero o‘quv vizuali",
       "bytes": 367700,
       "sha256": "59b03bf6b6c949148ee116e9e2cc3e8fbba62b8f3aed4195e7631fa63e340fc8",
@@ -109,7 +148,7 @@
     {
       "id": "BIO-015",
       "assetFilename": "biolab-equipment-015-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-015-hero_2559a9b1.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-015-hero_9cd73275.webp",
       "alt": "Teskari faza mikroskopining laboratoriya-hero o‘quv vizuali",
       "bytes": 327558,
       "sha256": "d629e23701fc1ec50e67cc709e8c9e1cd59e7742664bcee81a5cf42c5b49559d",
@@ -181,7 +220,7 @@
     {
       "id": "BIO-023",
       "assetFilename": "biolab-equipment-023-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-023-hero_d1a4beed.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-023-hero_a8b52d77.webp",
       "alt": "Laboratoriya termostatining laboratoriya-hero o‘quv vizuali",
       "bytes": 351208,
       "sha256": "04541310305ab4a09771095dab96dd7507b18c944887517a4737ed4e816846ca",
@@ -208,7 +247,7 @@
     {
       "id": "BIO-026",
       "assetFilename": "biolab-equipment-026-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-026-hero_2906c43e.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-026-hero_26b9851d.webp",
       "alt": "Vorteks aralashtirgichning laboratoriya-hero o‘quv vizuali",
       "bytes": 386634,
       "sha256": "d78c2c1812cf1e70c24d3824fc090216de3c7cbf6a9a60dd263474de9e9e7bdf",
@@ -244,7 +283,7 @@
     {
       "id": "BIO-030",
       "assetFilename": "biolab-equipment-030-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-030-hero_83b6e823.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-030-hero_73c4ee6b.webp",
       "alt": "Real-time PCR qurilmasining laboratoriya-hero o‘quv vizuali",
       "bytes": 366588,
       "sha256": "d019b5cdbe0dcd5b132c21426d1f0fe59f09a61342c1087e37897d232260d97e",
@@ -262,7 +301,7 @@
     {
       "id": "BIO-032",
       "assetFilename": "biolab-equipment-032-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-032-hero_8a0bde95.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-032-hero_a9164e55.webp",
       "alt": "DNK sekvenatorining laboratoriya-hero o‘quv vizuali",
       "bytes": 375784,
       "sha256": "3fe104a7fd97f9987ae7f90fd808aeee62efc13b9e1768e3679edc8f8e10811f",
@@ -278,6 +317,15 @@
       "contentType": "image/webp"
     },
     {
+      "id": "BIO-034",
+      "assetFilename": "biolab-equipment-034-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-034-hero_9e65598d.webp",
+      "alt": "PerkinElmer PinAAcle 900T atom-absorbsion spektrometrining mahsulot rasmi",
+      "bytes": 393714,
+      "sha256": "ebf4b6ed358beef2349a2747c14bfee5195d7d42f372033733bad2ed6fe74d15",
+      "contentType": "image/webp"
+    },
+    {
       "id": "BIO-035",
       "assetFilename": "biolab-equipment-035-hero.webp",
       "assetUrl": "/manus-storage/biolab-equipment-035-hero_500ea4ea.webp",
@@ -289,7 +337,7 @@
     {
       "id": "BIO-036",
       "assetFilename": "biolab-equipment-036-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-036-hero_288f352f.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-036-hero_1c272adf.webp",
       "alt": "Karl Fischer titratorining laboratoriya-hero o‘quv vizuali",
       "bytes": 322394,
       "sha256": "a9c0d9e722e2d61a5bfe6fe3101e5173ad568e6870ab2ead83bb58d798927f8e",
@@ -298,19 +346,568 @@
     {
       "id": "BIO-037",
       "assetFilename": "biolab-equipment-037-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-037-hero_39b34321.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-037-hero_273066b5.webp",
       "alt": "Viskozimetrning laboratoriya-hero o‘quv vizuali",
       "bytes": 380170,
       "sha256": "83739604bd0d67a7280c011c8f2745f7631517578401728c1d6bab7e30cebed7",
       "contentType": "image/webp"
     },
     {
+      "id": "BIO-038",
+      "assetFilename": "biolab-equipment-038-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-038-hero_e8fb7998.webp",
+      "alt": "MISCO Palm Abbe Digital refraktometrining oq fondagi sof mahsulot rasmi",
+      "bytes": 429224,
+      "sha256": "dc288319c9c12d1973fb17c4f9ead3b80856cf47ebc3a18800d7a97d3837a141",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-039",
+      "assetFilename": "biolab-equipment-039-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-039-hero_9855df3c.webp",
+      "alt": "Nikon ECLIPSE Ti2-E lyuminestsent mikroskopining rasmiy mahsulot rasmi",
+      "bytes": 445900,
+      "sha256": "2824b6149a7fc1d616e3d9378fcfb17df300896b4e7fc090cb4abb43808ca141",
+      "contentType": "image/webp"
+    },
+    {
       "id": "BIO-040",
       "assetFilename": "biolab-equipment-040-hero.webp",
-      "assetUrl": "/manus-storage/biolab-equipment-040-hero_4587a574.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-040-hero_a773b4b9.webp",
       "alt": "Skanerlovchi elektron mikroskopning laboratoriya-hero o‘quv vizuali",
       "bytes": 303910,
       "sha256": "2904905fb4cb09c1d00abae553820226c72508cd9319cbb9af809903aa53e0d3",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-042",
+      "assetFilename": "biolab-equipment-042-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-042-hero_4c482ecc.webp",
+      "alt": "Eppendorf Innova 44R inkubator shakerining mahsulot rasmi",
+      "bytes": 451008,
+      "sha256": "47de31b6d9627c2c37619c4e9cfc82f98a13902f3d21a9e51e96a68dd3f79e4f",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-043",
+      "assetFilename": "biolab-equipment-043-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-043-hero_5c77b518.webp",
+      "alt": "Sartorius BIOSTAT B bioreaktorining oq fondagi sof mahsulot rasmi",
+      "bytes": 460896,
+      "sha256": "68ff0c225e2d55c48aca3e88950d24250d28938ba4234198096a45322440aec4",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-044",
+      "assetFilename": "biolab-equipment-044-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-044-hero_020aa09a.webp",
+      "alt": "Hach DR3900 laboratoriya VIS spektrofotometrining rasmiy mahsulot rasmi",
+      "bytes": 400298,
+      "sha256": "a5f7bfdd5c3ada66e26af1b268f15c652e71e00509452686699fc81d7ab64cfa",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-045",
+      "assetFilename": "biolab-equipment-045-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-045-hero_8e44d2c4.webp",
+      "alt": "BioTek ELx50 mikroplanshet yuvgichining oq fondagi sof mahsulot rasmi",
+      "bytes": 402080,
+      "sha256": "e66dd8ece43f6960dcfb3876e0ae009b122b8dd96c2309a0a759463f2f0284e9",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-046",
+      "assetFilename": "biolab-equipment-046-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-046-hero_8adab974.webp",
+      "alt": "Vaisala GMP252 CO2 probining rasmiy mahsulot rasmi",
+      "bytes": 341618,
+      "sha256": "87aca5dcd4ab530771255516e5f3e8e1f9eb66f41140baac547af26eb3153e82",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-047",
+      "assetFilename": "biolab-equipment-047-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-047-hero_fb09e9c8.webp",
+      "alt": "Harvard Apparatus PHD ULTRA shpritsli nasosining mahsulot rasmi",
+      "bytes": 409106,
+      "sha256": "130094d7c615e11edef683e8e6a0a5699c000c280ef6c5748017857cd73da542",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-048",
+      "assetFilename": "biolab-equipment-048-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-048-hero_09688605.webp",
+      "alt": "Watson-Marlow 630Di peristaltik nasosining mahsulot rasmi",
+      "bytes": 392952,
+      "sha256": "2e4569f630f768529cd6d92514190663fad5ffe7cae195aeb933569db398cbd7",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-049",
+      "assetFilename": "biolab-equipment-049-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-049-hero_e9381e08.webp",
+      "alt": "Bio-Rad Gel Doc XR gel hujjatlashtirish tizimining mahsulot rasmi",
+      "bytes": 362372,
+      "sha256": "f10e46e7e6fc28edece974f40869afab99f1ff18caf35cd6e276aaaa2f85fb74",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-050",
+      "assetFilename": "biolab-equipment-050-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-050-hero_560736c4.webp",
+      "alt": "Supelco SPME Fiber Assembly namuna olish moslamasining mahsulot rasmi",
+      "bytes": 360526,
+      "sha256": "747b6839ee3246bc17825abb90645eb24b6a9ae3fc42e472694f2f5f8a157a98",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-051",
+      "assetFilename": "biolab-equipment-051-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-051-hero_2e75cafe.webp",
+      "alt": "Milli-Q IQ 7000 laboratoriya suvni tozalash tizimining mahsulot rasmi",
+      "bytes": 225914,
+      "sha256": "07c944d23e304ee6ba3ce99dc59a954138c9ccfb58c85a6f555bec166a9c0f33",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-052",
+      "assetFilename": "biolab-equipment-052-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-052-hero_e746b6d2.webp",
+      "alt": "Eppendorf ThermoMixer C qurilmasining qo‘lsiz mahsulot rasmi",
+      "bytes": 337240,
+      "sha256": "aa89147fa0ff90b174510f171c07276f704ae63b6cb564b919ccf4eef65c3ad6",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-053",
+      "assetFilename": "biolab-equipment-053-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-053-hero_0ca57936.webp",
+      "alt": "Waters Oasis HLB 3 cc SPE cartridge mahsulot rasmi",
+      "bytes": 302386,
+      "sha256": "eac872822891d9b4a1835f6c478372237a8fe02db2c56327871c5582692882a1",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-054",
+      "assetFilename": "biolab-equipment-054-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-054-hero_3202fa9f.webp",
+      "alt": "Bio-Rad Mini-PROTEAN Tetra SDS-PAGE tizimining komplekt mahsulot rasmi",
+      "bytes": 363514,
+      "sha256": "d8e3bdac44f43744f46b4e645601ccf4c52eb4a4b283bd45fbb9ca8d8f79dbb1",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-055",
+      "assetFilename": "biolab-equipment-055-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-055-hero_d17778a5.webp",
+      "alt": "Bio-Rad PROTEAN IEF Cell tizimining to‘liq mahsulot rasmi",
+      "bytes": 425416,
+      "sha256": "1fcddde946eabd12efe4fe8b34a62074d4e1fdc9f5915f88588cd0973bb25f1e",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-056",
+      "assetFilename": "biolab-equipment-056-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-056-hero_9971c019.webp",
+      "alt": "Cytiva ÄKTA pure FPLC oqsil tozalash tizimining to‘liq mahsulot rasmi",
+      "bytes": 352276,
+      "sha256": "0549aaeb40fc156b72f6130ffd3bdb99d2a470aa867e776a6e191fc4b9040632",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-057",
+      "assetFilename": "biolab-equipment-057-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-057-hero_35ce6f7a.webp",
+      "alt": "Amersham ImageQuant 800 xemiluminessent deteksiya tizimining to‘liq mahsulot rasmi",
+      "bytes": 299004,
+      "sha256": "d8115d61e63632cb6730328e966063e995d56bd360dc8410928c8e931378d8e0",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-058",
+      "assetFilename": "biolab-equipment-058-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-058-hero_91e458fe.webp",
+      "alt": "Bruker AVANCE NEO 400 MHz NMR tizimining studio mahsulot rasmi",
+      "bytes": 406622,
+      "sha256": "eadf9ec0d4bca08bb20645e6d6914f93a2de6f79f09915a592de84cbb6d7c607",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-059",
+      "assetFilename": "biolab-equipment-059-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-059-hero_f542ddcc.webp",
+      "alt": "Bruker ALPHA II FTIR spektrometrining mahsulot rasmi",
+      "bytes": 350770,
+      "sha256": "0b92605c547850b986a6b32939a30185b242bf0b6ac506a2de64846031e0a871",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-060",
+      "assetFilename": "biolab-equipment-060-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-060-hero_e7f79374.webp",
+      "alt": "Renishaw inVia Raman mikroskopining rasmiy mahsulot rasmi",
+      "bytes": 331658,
+      "sha256": "c65d2b367af754df4bc17d6580da7de360bea4d7c642aded3466ba5e8b73d8ad",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-061",
+      "assetFilename": "biolab-equipment-061-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-061-hero_7bdff638.webp",
+      "alt": "Leica RM2255 mikroto‘mining oq fondagi sof mahsulot rasmi",
+      "bytes": 303858,
+      "sha256": "6df815b44de8865975a647f3ecc30fd71a601b66e2aa64215a156ce2e46548b9",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-062",
+      "assetFilename": "biolab-equipment-062-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-062-hero_a829306b.webp",
+      "alt": "Leica CM3050 S kriostatining mahsulot rasmi",
+      "bytes": 287200,
+      "sha256": "4cfac03cf33ed3703af2d1a93211282f6f4c6cff903b83b9d51250423b7bf7a2",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-063",
+      "assetFilename": "biolab-equipment-063-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-063-hero_5f55c7fa.webp",
+      "alt": "Leica BOND-III avtomatik immuno-xistokimyo stantsiyasining mahsulot rasmi",
+      "bytes": 281008,
+      "sha256": "c8d3aba9b76a81b2a7f788db5f0eb99e2ffab065c53eed688004174c93c42859",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-064",
+      "assetFilename": "biolab-equipment-064-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-064-hero_fc79836c.webp",
+      "alt": "Sakura Tissue-Tek Prisma Plus qurilmasining oq fondagi sof mahsulot rasmi",
+      "bytes": 317308,
+      "sha256": "ac7f6680cc4abdf85c12a07d799e75850ff6b750ecd29fd3c7ab1ee56c25e40d",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-065",
+      "assetFilename": "biolab-equipment-065-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-065-hero_b354befe.webp",
+      "alt": "Eppendorf TransferMan 4r mikroinjeksiya tizimining mahsulot rasmi",
+      "bytes": 321768,
+      "sha256": "e75547339d6acd4499c49e765800f09da654cead21847910215e4b7ccd4a35d0",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-066",
+      "assetFilename": "biolab-equipment-066-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-066-hero_d86af39b.webp",
+      "alt": "Bio-Rad Gene Pulser Xcell elektroporatsiya tizimining mahsulot rasmi",
+      "bytes": 267538,
+      "sha256": "d62f31c9cf8b9c8f1caa68ac5a1400b07a4abfe5ad5eb3df80dadb7c44018c23",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-067",
+      "assetFilename": "biolab-equipment-067-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-067-hero_fce11a84.webp",
+      "alt": "CELLINK BIO X6 bioprinterining rasmiy mahsulot rasmi",
+      "bytes": 302532,
+      "sha256": "d7938c4fe221f59c55ed1da5d7fe84fdf947b38a9c2331a1b3a1fbd78fda486d",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-068",
+      "assetFilename": "biolab-equipment-068-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-068-hero_df1999ec.webp",
+      "alt": "BÜCHI Nano Spray Dryer B-90 HP mikro-kapsulalash qurilmasining mahsulot rasmi",
+      "bytes": 273860,
+      "sha256": "8b327cbc24b3a09f4bea43727ca14a17c7072180b040518c8d59ae17fa9464c2",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-069",
+      "assetFilename": "biolab-equipment-069-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-069-hero_11c2beb2.webp",
+      "alt": "Malvern Panalytical Zetasizer Ultra DLS tahlilchisining mahsulot rasmi",
+      "bytes": 227838,
+      "sha256": "64b247d62364ba4bcfcca4bf6ee3e7b133ef14d0d6436e36a7b12a1b02ae32ab",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-070",
+      "assetFilename": "biolab-equipment-070-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-070-hero_aaf0cbe0.webp",
+      "alt": "SD Biosensor STANDARD F lateral flow o‘quvchi tizimining mahsulot rasmi",
+      "bytes": 260630,
+      "sha256": "c2a9cff3ce43835acf220f15d2b4c23b40dbc9d89c5d3c9dd7d551038da7ec9a",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-071",
+      "assetFilename": "biolab-equipment-071-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-071-hero_8cb5191e.webp",
+      "alt": "Bruker MALDI Biotyper Microflex LT/SH massa spektrometrining mahsulot rasmi",
+      "bytes": 485066,
+      "sha256": "0312ea252d0ee997a9fbb4a9fa97e5a9f3f3c7320dca590b398903744f408405",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-072",
+      "assetFilename": "biolab-equipment-072-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-072-hero_e7ef8e75.webp",
+      "alt": "ImpediMed SFB7 bioimpedans tahlilchisining mahsulot rasmi",
+      "bytes": 538204,
+      "sha256": "50c1074e155181e6ebad41e42b6601d7e88d442688d456d06df2e68a9765533a",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-073",
+      "assetFilename": "biolab-equipment-073-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-073-hero_9e8b735c.webp",
+      "alt": "TA Instruments DSC 250 termal tahlil qurilmasining mahsulot rasmi",
+      "bytes": 663106,
+      "sha256": "0c908bf5ed494bd1431c97001811d54aa00bed4b64656cbd7adad0e0b34eaf2b",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-074",
+      "assetFilename": "biolab-equipment-074-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-074-hero_20f3cc5f.webp",
+      "alt": "BÜCHI Rotavapor R-300 rotary evaporatorining mahsulot rasmi",
+      "bytes": 514414,
+      "sha256": "1e073a839bebff90483e80d18547f68b130b40ca31ca841aed0307ec69241bb5",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-075",
+      "assetFilename": "biolab-equipment-075-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-075-hero_48318d54.webp",
+      "alt": "Elmasonic S60H ultratovushli vanna-sonikatorining mahsulot rasmi",
+      "bytes": 458120,
+      "sha256": "af61411537df946df1fe72b685950ea39d2651cc16718c0dfb4bd89a06c8e990",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-076",
+      "assetFilename": "biolab-equipment-076-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-076-hero_c9597430.webp",
+      "alt": "INTEGRA MEDIACLAVE 30 muhit tayyorlash stantsiyasining sof mahsulot rasmi",
+      "bytes": 534260,
+      "sha256": "283807ed1dd718ae74d0004104074cf0a6233464f2149aab7926502227229db2",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-077",
+      "assetFilename": "biolab-equipment-077-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-077-hero_1df38db5.webp",
+      "alt": "Interscience Scan 500 koloniya sanagichining mahsulot rasmi",
+      "bytes": 454682,
+      "sha256": "d5e70044bf9592a6046f5dcac0bdcd390899149d7664abef7c2d0f4339c06408",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-078",
+      "assetFilename": "biolab-equipment-078-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-078-hero_2a8d7e05.webp",
+      "alt": "Seward Stomacher 400 Circulator qopchali homogenizatorining mahsulot rasmi",
+      "bytes": 485724,
+      "sha256": "afe57316675a59c699f3060154ff19792957d4d1778cff5d66aebefa1f5c1e61",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-079",
+      "assetFilename": "biolab-equipment-079-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-079-hero_1fde0fdc.webp",
+      "alt": "Molecular Devices SpectraMax i3x qurilmasining sof mahsulot rasmi",
+      "bytes": 489740,
+      "sha256": "3e0b04af78ec804cffb34ceb194b8a81fde48781d08a0360352f822c1073c95b",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-080",
+      "assetFilename": "biolab-equipment-080-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-080-hero_03d85083.webp",
+      "alt": "Beckman Coulter PA 800 Plus tizimining oq fondagi sof mahsulot rasmi",
+      "bytes": 411392,
+      "sha256": "b1c7b4126f1b085eb56c3be15abf72b2c1446e054a17295401733dd12f53f5c4",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-081",
+      "assetFilename": "biolab-equipment-081-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-081-hero_808e4a49.webp",
+      "alt": "Cytiva Biacore T200 SPR biosensorining sof mahsulot rasmi",
+      "bytes": 457674,
+      "sha256": "a9d063f17c1ea0791f804cfbbac6aabaaf01afc9e5958c07f84688dd52333d21",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-082",
+      "assetFilename": "biolab-equipment-082-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-082-hero_f1310595.webp",
+      "alt": "Fluidigm Biomark HD mikrofluidik chip tizimining mahsulot rasmi",
+      "bytes": 535868,
+      "sha256": "3b621f0cc50a85dc24d1b638ad431cd4edaaeac8a46e070ec68b845c56428330",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-083",
+      "assetFilename": "biolab-equipment-083-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-083-hero_1d224119.webp",
+      "alt": "Mettler Toledo InPro 6800i erigan kislorod sensorining mahsulot rasmi",
+      "bytes": 415886,
+      "sha256": "eeab4abfebb62a8a42991ced548eedb421cc9ae4a90294859dc88b2dfab0d01d",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-084",
+      "assetFilename": "biolab-equipment-084-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-084-hero_6bdb4945.webp",
+      "alt": "Planer Kryo 560-16 kriokonservatsiya tizimining sof mahsulot rasmi",
+      "bytes": 515588,
+      "sha256": "ee808fd165ccbbde18fed1a720e71ac86930cd7de3f7dde4399a1ba6383738c6",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-085",
+      "assetFilename": "biolab-equipment-085-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-085-hero_d0135e72.webp",
+      "alt": "TA Instruments TGA 550 termogravimetrik tahlilchisining mahsulot rasmi",
+      "bytes": 356716,
+      "sha256": "43df30ad95f91499c263bab0fe2570e20f0ff6d42c207891c55d5bd2d786b9b5",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-086",
+      "assetFilename": "biolab-equipment-086-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-086-hero_1d781941.webp",
+      "alt": "Metrohm 910 PSTAT mini elektrokimyoviy analizatorining mahsulot rasmi",
+      "bytes": 434330,
+      "sha256": "0385185c8b17bdedb1ec74b97d136447b35b319790f0cd641f62daf00835a170",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-087",
+      "assetFilename": "biolab-equipment-087-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-087-hero_d5da34f4.webp",
+      "alt": "Hamilton STAR kombinatorial kimyo liquid handler robotining mahsulot rasmi",
+      "bytes": 549778,
+      "sha256": "ce32d549798a3321674a3ed5c2e33f3924067c06ea749f59e4563da4d0f8319c",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-088",
+      "assetFilename": "biolab-equipment-088-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-088-hero_853ad2cd.webp",
+      "alt": "Hach DR6000 suv sifati spektrofotometrining mahsulot rasmi",
+      "bytes": 515154,
+      "sha256": "b81eac982d235a0ae4aca3e8ab0b19eca50d74560249ec9092b7219f0f8203a8",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-089",
+      "assetFilename": "biolab-equipment-089-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-089-hero_2df15365.webp",
+      "alt": "Metrohm Mira M-3 qo‘l Raman spektrometrining mahsulot rasmi",
+      "bytes": 523454,
+      "sha256": "627dd2f637042dbecf2f38217bae9aa44052cbd76104e4137954f3b921a3575c",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-090",
+      "assetFilename": "biolab-equipment-090-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-090-hero_1e7b8957.webp",
+      "alt": "bioMérieux VITEK 2 XL antibiotik sezuvchanlik tahlilchisining mahsulot rasmi",
+      "bytes": 335322,
+      "sha256": "f6ec4e4e3e3556ae7d0c60eb40a9923bd6cd09424f2b26ab639f2942862c6cb5",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-091",
+      "assetFilename": "biolab-equipment-091-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-091-hero_b63677a2.webp",
+      "alt": "Bio-Rad QX200 Droplet Digital PCR tizimining mahsulot rasmi",
+      "bytes": 268644,
+      "sha256": "14bd58f5730f0aed0bdde8001f40f90f4094755fbfa3c43c39468e7706172306",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-092",
+      "assetFilename": "biolab-equipment-092-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-092-hero_f77a5d97.webp",
+      "alt": "To‘liq ko‘rinadigan Beckman Coulter Biomek i7 Hybrid CRISPR workflow avtomatlashtirish ish stantsiyasi mahsulot rasmi",
+      "bytes": 280158,
+      "sha256": "1497a21da365c3f61405a10f530b4e8b15deeb4cca718241cb5bf9aa4d4b1975",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-093",
+      "assetFilename": "biolab-equipment-093-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-093-hero_2233fb93.webp",
+      "alt": "Lonza 4D-Nucleofector X Unit elektroporatorining mahsulot rasmi",
+      "bytes": 211792,
+      "sha256": "613e020588239beb744a756a59017ec9dd39d41eea7241226c7d244e6f81c6c5",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-094",
+      "assetFilename": "biolab-equipment-094-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-094-hero_5bcfe274.webp",
+      "alt": "Bio-Rad TC20 avtomatik hujayra sanagichining oq fondagi sof mahsulot rasmi",
+      "bytes": 242284,
+      "sha256": "4e523332e6ecd8645feacb761ffa125c10ad68a7c9a566d04418e41fb97afdc6",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-095",
+      "assetFilename": "biolab-equipment-095-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-095-hero_54a86b02.webp",
+      "alt": "Bio-Rad NGC xromatografiya tizimining oq fondagi mahsulot rasmi",
+      "bytes": 260854,
+      "sha256": "82da42afb74d499ad19e2c02e94c6c17c4a421298f6953ddbe58b09de228a819",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-096",
+      "assetFilename": "biolab-equipment-096-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-096-hero_f8b1ce75.webp",
+      "alt": "To‘liq ko‘rinadigan BioComp Gradient Master 108 qurilmasining mahsulot rasmi",
+      "bytes": 276764,
+      "sha256": "9b29a0ad023200c3eabca17be7a02734b8c83934a3f0647e9fc386cf1081d88f",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-097",
+      "assetFilename": "biolab-equipment-097-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-097-hero_b2335e47.webp",
+      "alt": "Beckman Coulter Optima XPN-90 preparativ ultrasentrifugasining mahsulot rasmi",
+      "bytes": 237446,
+      "sha256": "0b23d5e30be45b27c4d175615d9cbcedb5839016a7da173b36c23e60932c5af6",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-098",
+      "assetFilename": "biolab-equipment-098-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-098-hero_d8f3c192.webp",
+      "alt": "Lenovo ThinkStation P620 bioinformatik ish stantsiyasining mahsulot rasmi",
+      "bytes": 244744,
+      "sha256": "543e239cd8ff8b9df5c30223a5853e68b0efe6769db368c3c1dcd85ccd21ec2d",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-099",
+      "assetFilename": "biolab-equipment-099-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-099-hero_bf308188.webp",
+      "alt": "Inson jigari S9 fraksiyasi asosidagi ksenobiotik metabolizm to‘plamining mahsulot rasmi",
+      "bytes": 261978,
+      "sha256": "52413f40f02cb736278f24bcebb67e6e2cdc2cebb452af2effe985c432b2dd4c",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-100",
+      "assetFilename": "biolab-equipment-100-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-100-hero_960b5b87.webp",
+      "alt": "BioSurface Technologies CDC biofilm reaktorining mahsulot rasmi",
+      "bytes": 292620,
+      "sha256": "55512fab5cf65f376ab30f809d1e86681b81d32fa62c0579e1e2b62328187477",
       "contentType": "image/webp"
     }
   ]

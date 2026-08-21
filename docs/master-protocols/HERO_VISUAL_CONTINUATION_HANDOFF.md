@@ -1,5 +1,19 @@
 # BioLab Hero Visual Continuation Handoff
 
+## 2026-08-21 authoritative joriy holat — avval o‘qing
+
+Quyidagi eski 33/100 va 67 ta qolgan qamrov yozuvlari **tarixiy kontekst** bo‘lib, keyingi ishlar uchun manba emas. Canonical `Biotexnologiya yangi` Drive rootidagi mavjud ZIP batchlar read-only auditdan o‘tkazildi: 76 ta ZIP integrity tekshiruvdan o‘tdi, 85 ta noyob `2560×1440` WebP aniqlandi va keyingi authoritative duplicate variantlar tanlandi. Auditdan o‘tgan 84 ta yangi WebP hamda avvalgi 15 ta qabul qilingan hero bilan katalogda **99 / 100** qurilma `cover` + `laboratory` profilida ishlaydi.
+
+| Joriy holat | Qamrov | Amal |
+|---|---:|---|
+| Production hero-standard | 99 ta `BIO-` ID | Qo‘shimcha ish talab qilinmaydi; mavjud registry URL va WebP assetlarni almashtirmang. |
+| Ochiq bloklovchi | `BIO-041` | Faqat Batch 15 ichidagi authoritative final replacement olinib, integrity va model mosligi auditidan o‘tgach ulang. |
+| Qabul qilinmagan manba | `BioLab_hero_assets_batch_15.zip` | Canonical root inventarida mavjud emas; taxminiy yoki boshqa qurilmaga tegishli rasm bilan almashtirmang. |
+
+`BIO-006`, `BIO-008`, `BIO-010`, `BIO-034`, `BIO-038` va `BIO-039` uchun avvalgi qayta yaratish navbati canonical batchlardagi keyingi authoritative variantlar bilan yopilgan. Duplicate tanlovi: `006 → Batch 06`, `008 → 07`, `010 → 08`, `034 → 09`, `038 → 10`, `039 → 11`, `046 → 24`, `047 → 25`, `048 → 26`, `049 → 27`.
+
+> Hozirgi yagona rasm vazifasi `BIO-041` uchun `BioLab_hero_assets_batch_15.zip` manbasini qayta tiklash yoki aynan shu faylning Drive ID sini berishdir. Manba kelguncha ilovadagi mavjud fallback rasmini saqlang.
+
 ## Maqsad va joriy holat
 
 BioLab katalogida **100 ta qurilma** mavjud va ular to‘liq saqlanadi. Ushbu ishning maqsadi har bir qurilmaning katalog kartasida foydalanuvchi tasdiqlagan **laboratoriya-hero** ko‘rinishini berishdir: qurilma katta va markazda, 16:9 media oynasini estetik egallagan, laboratoriya muhiti bilan uyg‘un va qorong‘i rejimda ham aniq ko‘rinadigan bo‘lishi kerak.

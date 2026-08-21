@@ -51,3 +51,7 @@
 - [x] Tartibli recovery arxivini 100 asset restore/integrity sinovidan o‘tkazib, mavjud Drive recovery fayli o‘rnida duplikatsiz yangilash
 - [x] Canonical Biotexnologiya yangi rootida faqat BioLab hero rasmlari uchun `BioLab_Hero_Assets_By_Batch` subpapkasini yaratish
 - [x] Recovery arxividan checksum bilan tasdiqlangan 100 rasmni Batch 001–100 papkalariga Drive’da joylash va mirror qamrovini tekshirish
+- [x] Eski `BioLab_hero_assets_batch_*.zip` manba batchlari bilan yangi `BioLab_Hero_Assets_By_Batch` mirrorini checksum bo‘yicha solishtirib, tarixiy va authoritative variantlarni ajratish
+- [x] Eski ZIP batchlari uchun checksum auditiga asoslangan saqlash yoki qaytariladigan arxivlash ro‘yxatini tayyorlash va foydalanuvchi tasdiqlagan qarorni qo‘llash
+- [x] Recovery arxividagi eng yangi 100 hero rasm uchun `Batch-NNN__BIO-NNN__qurilma-nomi.zip` formatida 100 ta yakuniy tarixiy ZIP batch yaratish
+- [x] Yakuniy 100 ZIP batchni canonical Drive’dagi bitta History subpapkasiga joylash va eski 76 xom ZIPni qaytariladigan tarzda Chiqindiga ko‘chirish

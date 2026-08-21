@@ -75,3 +75,4 @@
 - [ ] iPhone-simulatsiya va productionda detail ochilishi hamda boshlang‘ich scroll pozitsiyasini smoke-test bilan tasdiqlash
 - [ ] Live production URLda iPhone Safari emulyatsiyasi orqali DeviceViewer scroll resetini boshlang‘ich 1-bo‘limdan ochilishi bilan tasdiqlash
 - [ ] Live productionda BIO-001, BIO-026, BIO-051 va BIO-076 uchun learning/purchase mustaqil yuklanishi hamda error-recovery oqimini smoke-test qilish
+- [x] Purchase loader xatosi simulyatsiyasida DeviceViewer 16-bo‘limli o‘quv oynani ochishini alohida unit yoki component regression bilan tasdiqlash

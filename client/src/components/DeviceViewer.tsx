@@ -109,7 +109,7 @@ export default function DeviceViewer({ device, onBack }: { device: Equipment; on
     { value: "support", title: "Servis, sarf materiallari va TCO", content: `${purchase.service}\n\n${purchase.spares}\n\n${purchase.tco}\n\n${purchase.redFlags}\n\n${purchase.finalStatus}` },
   ] : [];
 
-  return <div className="min-h-screen bg-[#f7fbfa] text-[#173d42]">
+  return <div data-device-viewer className="min-h-full bg-[#f7fbfa] text-[#173d42]">
     <header className="sticky top-0 z-30 border-b border-[#d8e7e3] bg-[#f7fbfa]/95 px-5 py-4 backdrop-blur-xl sm:px-8">
       <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4">
         <button onClick={onBack} className="flex items-center gap-2 text-sm font-bold text-[#126a6a] transition hover:gap-3"><ArrowLeft size={17} /> Barcha uskunalar</button>

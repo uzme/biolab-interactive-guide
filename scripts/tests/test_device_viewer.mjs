@@ -103,6 +103,31 @@ try {
 
   const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });
   await mobile.goto(previewUrl, { waitUntil: "networkidle" });
+  await mobile.getByRole("button", { name: "O‘rganish" }).first().click();
+  const mobileModal = mobile.locator("[data-device-modal]");
+  await mobileModal.waitFor({ state: "visible" });
+  await mobile.locator("[data-device-viewer]").waitFor({ state: "visible" });
+  await mobile.getByText("Molekulyar biologiya / BIO-001").waitFor({ state: "visible" });
+  await assert(await mobileModal.getAttribute("role") === "dialog", "Mobil detail oynasi dialog semantikasini bermadi.");
+  await assert(await mobileModal.getAttribute("aria-modal") === "true", "Mobil detail oynasi modal semantikasini bermadi.");
+  const mobileModalMetrics = await mobileModal.evaluate((element) => {
+    const viewer = element.querySelector("[data-device-viewer]");
+    const viewerRect = viewer?.getBoundingClientRect();
+    return {
+      height: element.getBoundingClientRect().height,
+      overflowY: window.getComputedStyle(element).overflowY,
+      viewportHeight: window.innerHeight,
+      viewerHeight: viewerRect?.height ?? 0,
+      viewerTop: viewerRect?.top ?? Number.POSITIVE_INFINITY,
+      viewerBackground: viewer ? window.getComputedStyle(viewer).backgroundColor : "",
+    };
+  });
+  await assert(mobileModalMetrics.height >= mobileModalMetrics.viewportHeight - 2, "Mobil detail oynasi ekran qoplamini to‘liq egallamadi.");
+  await assert(mobileModalMetrics.overflowY === "auto", "Mobil detail oynasiga xavfsiz vertikal overflow berilmadi.");
+  await assert(mobileModalMetrics.viewerHeight > 0 && mobileModalMetrics.viewerTop < mobileModalMetrics.viewportHeight, "Mobil detail kontenti fon-blur ostida ko‘rinmay qoldi.");
+  await assert(mobileModalMetrics.viewerBackground === "rgb(247, 251, 250)", "Mobil detail kontenti kutilgan o‘quv fonida render bo‘lmadi.");
+  await mobile.getByRole("button", { name: "Barcha uskunalar" }).click();
+  await mobileModal.waitFor({ state: "hidden" });
   await mobile.getByRole("button", { name: "Menyuni ochish" }).click();
   await mobile.waitForTimeout(300);
   await mobile.keyboard.press("Escape");

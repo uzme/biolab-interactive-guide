@@ -10,6 +10,9 @@
 ### Changed
 - Katalogning boshlang‘ich hero yuklanishida dublikat JavaScript warmup olib tashlandi; filtrlangan natijalarning dastlabki to‘rtta rasmi faqat browser bo‘sh vaqtida prefetch qilinadi.
 - Hero continuation, regeneration va tashqi image-only handoff hujjatlari 100/100 yakuniy holatga moslashtirildi; ortiqcha hero rasm yaratish navbati bekor qilindi.
+- Bosh sahifa va katalog yagona **precision-biotech** vizual tizimiga o‘tkazildi: sovuq teal laboratoriya sahnasi, kalibrlangan grid, kuchaytirilgan LAB-01 o‘quv raili, aniq modul ajratgichlari hamda ierarxik tipografiya qo‘llandi; o‘quv ma’lumotlari o‘zgartirilmadi.
+- Gorizontal 3D karusel yangi vizual tilga bog‘landi: sahifa navbatlari, previous/next, pause/continue boshqaruvlari, karta chuqurligi va responsive sahna birlashtirildi; vertikal karusel ishlatilmaydi.
+- `prefers-reduced-motion` hamda foydalanuvchining “Kamroq animatsiya” tanlovi tugma, modal, drawer, katalog va karusel transitionlarini o‘chiradigan qilib kuchaytirildi.
 
 ### Corrected
 - “Qurilmani o‘rganish” detail oynasida eski PWA keshidan keladigan modul-versiya nomuvofiqligi bartaraf etildi: yangi service worker aktivlashganda sahifa o‘zini yangilaydi, script/style fayllari onlayn holatda tarmoqdan birinchi olinadi, cache versiyasi yangilandi.
@@ -19,6 +22,7 @@
 - DeviceViewer E2E testi har asinxron detail blokida 16 bo‘lim navigationi tayyor bo‘lishini kutadi; production smoke-testda offline round-trip ixtiyoriy ajratildi, local regressiyada esa saqlanib qoldi.
 - “O‘rganish” bosilganda detail modalning tashqi overlay va ichki viewer scroll konteynerlari paintdan oldin yuqoriga qaytariladi; shu sabab avvalgi pastdagi bo‘limda ochilib qolmaydi.
 - DeviceViewer regressiyasi modalni qasddan pastga scroll qilib, keyingi qurilma ochilganda desktop va mobil holatda `scrollTop = 0` ekanini tekshiradi.
+- Planshet `768px` viewportida LAB-01 qadamlarining zichlashib qolishi bartaraf etildi: rail `8×2` gridga o‘tadi, 16 raqamning tartibi hamda kamida `24px` qadam maydoni browser regressiyada tekshiriladi.
 
 ## [1.0.1] — 2026-08-20
 

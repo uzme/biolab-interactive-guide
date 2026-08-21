@@ -60,3 +60,13 @@
 - [x] BIO-001, BIO-026, BIO-051 va BIO-076 smoke-testida xarid ma’lumotlari bloki va kamida bitta accordion bo‘limi yuklanganini tekshirish
 - [x] PWA cache tuzatishini productionga publish qilib, production desktop va mobil detail regressiyasini tasdiqlash
 - [x] “O‘rganish” bosilganda DeviceViewer detail oynasini har safar yuqori boshlang‘ich scroll pozitsiyasidan ochish va mobil/desktop regressiya bilan tekshirish
+- [x] Ma’lumotlar tuzilmasiga tegmasdan BioLab bosh sahifasini yagona professional precision-biotech vizual tizimiga qayta ishlash
+- [x] Gorizontal karuselni asosiy dizayn bilan uyg‘unlashtirish, karta o‘tishlari va boshqaruvini yaxshilash; vertikal karuselga o‘tmaslik
+- [x] Tugma, modal, katalog va karusel uchun reduced-motion qo‘llab-quvvatlovchi yengil animatsiyalarni qo‘shish
+- [x] Telefon, planshet, desktop va katta ekranlarda yangi dizaynning vizual auditi, regression va production sinovini bajarish
+- [x] Tugma, modal, katalog va gorizontal karusel bo‘yicha `prefers-reduced-motion` fallbacklarini kod hamda regressiya bilan aniq tasdiqlash
+- [x] Yangi dizaynni tablet (768px) va katta ekran/TV (1920px) viewportlarida vizual auditdan o‘tkazish
+- [ ] Dizayn releaseini productionga chiqarib, live URLda homepage va gorizontal karusel smoke-testini bajarish
+- [x] Planshet kengligida LAB-01 SOP rail qadamlarining zichlashib ketishini oldini olib, o‘qilishini vizual regressiya bilan tasdiqlash
+- [x] Planshet viewportida LAB-01 rail 8×2 grid va qadam raqamlarining o‘qilishini avtomatlashtirilgan regression assertioni bilan tasdiqlash
+- [x] 768px va 1920px uchun qabul mezonlari hamda yakuniy audit natijasini release hujjatlarida aniq qayd etish

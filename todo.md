@@ -79,3 +79,5 @@
 - [x] Recovery dalili unit regressionda, production smoke-testi esa faqat success-pathda ekanini PROJECT_STATE/CHANGELOGda aniq qayta tasdiqlash
 - [x] Recovery dalili unit regressiondan, production smoke-testi esa success-pathdan iborat ekanini CHANGELOGda yozish va tekshirish
 - [x] Purchase loader xatosi simulyatsiyasida DeviceViewer 16-bo‘limli o‘quv oynani ochishini alohida unit yoki component regression bilan tasdiqlash
+
+- [x] Drive recovery mirroridagi 100 ta WebP assetni local deploy-safe public registryga ulash, missing image fallback va birinchi uchta karta priority smoke-testini regressiyasiz tiklash

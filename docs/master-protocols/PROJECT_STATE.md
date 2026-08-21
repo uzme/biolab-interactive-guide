@@ -163,3 +163,11 @@ Detail ma’lumotlari uchun `Promise.allSettled` qo‘llanadi: purchase block xa
 Yangi production checkpointidan keyin `https://biolabguide-fbcitqyf.manus.space/` URLida cache-bypass query bilan, iPhone Safari user-agent, touch va 390×844 viewport emulyatsiyasida final smoke-test bajarildi. `BIO-001`, `BIO-026`, `BIO-051` va `BIO-076` to‘rtta dinamik blokdan detail oynasi ochildi, 16 bo‘lim hamda xarid bo‘limlari yuklandi, modal avval pastga surilib yopilgach keyingi ochilish 1-bo‘limdan boshlandi. Holat: **READY / production PASS**.
 
 Xatolikdan tiklanish dalili productionda sun’iy nosozlik kiritish orqali emas, alohida unit regression orqali berildi: purchase promise `reject` qilinganda `resolveDeviceContent` learning natijani va 16-bo‘limli o‘quv oqimini saqlaydi, purchase esa xavfsiz bo‘sh holatga tushadi. Ushbu test **PASS**; production smoke-test esa faqat real success-path yuklanishini tasdiqlaydi.
+
+## 2026-08-22 canonical 100 hero asset deploy integration
+
+Canonical `Biotexnologiya yangi` Drive recovery mirroridan checksum bilan tekshirilgan 100 ta `BIO-NNN.webp` loyiha ichidagi `client/public/biolab-drive-assets/` deploy-safe public storage papkasiga ko‘chirildi. `client/src/lib/auditedHeroImageUrls.ts` endi BIO-001–BIO-100 uchun stable local `/biolab-drive-assets/BIO-NNN.webp` URLlarini ishlatadi; runtime’da `/manus-storage` proxyga bog‘liqlik olib tashlandi. Shu sabab avval 500 qaytarayotgan missing image holati yopildi va birinchi uchta katalog rasmi `loading="eager"` + `fetchPriority="high"` bilan real DOMda tasdiqlandi.
+
+Presentation regression expectationi eski 85 ta URL qamrovidan yangi authoritative 100 ta asset qamroviga yangilandi. Drive recovery auditdagi 15 ta checksum-verified `1440×810` legacy asset `legacyAcceptedHeroIds` sifatida saqlanadi; qolgan 85 ta asset `2560×1440` hero-standardga mos.
+
+Yakuniy validation natijasi: TypeScript check **PASS**, production build **PASS**, Vitest 3 file / 11 test **PASS**, desktop katalog/filter/bookmark/priority smoke-test **PASS**, DeviceViewer va mobil menu/image smoke-test **PASS**, `pnpm release:check` continuity/sanitizatsiya audit **READY**. Buildda faqat mavjud analytics environment placeholder ogohlantirishlari qoldi; ular failure emas. Hozirgi working tree GitHub/Drive publishdan oldingi verified integration holatida.

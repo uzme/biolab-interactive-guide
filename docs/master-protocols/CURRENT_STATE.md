@@ -11,7 +11,7 @@
 - **Clean-clone:** root-level `uzme/biolab-interactive-guide` clone uchun `pnpm install --frozen-lockfile --ignore-scripts`, check va build muvaffaqiyatli bajarildi
 - **Known non-blocking warnings:** learning dossier data chunki 500 kB dan katta; buildda mavjud CSS gradient yo‘nalishi bo‘yicha warninglar bor. Ular build yoki runtimeni to‘xtatmaydi.
 - **Dependency audit:** advisorylar alohida remediation bosqichi sifatida hujjatlashtirilgan; bu migratsiyada ishlayotgan UI yoki 100 ta qurilma source-of-truth qayta yozilmaydi
-- **Completed features:** 100-device catalog, 100/100 qorong‘i laboratoriya hero-vizual, original horizontal Pure CSS 3D carousel, 16-section learning dossiers, PDF export, bookmarks, responsive right sidebar, PWA offline shell, loading/micro-interactions, transition-safe catalog controls va sanitised release workflow
+- **Completed features:** 100-device catalog, 100/100 qorong‘i laboratoriya hero-vizual, professional precision-biotech visual system, LAB-01 16-qadamli hero rail, original gorizontal Pure CSS 3D carousel, 16-section learning dossiers, PDF export, bookmarks, responsive right sidebar, PWA offline shell, reduced-motion-safe micro-interactions, transition-safe catalog controls va sanitised release workflow
 - **Incomplete features:** None
 - **Repository organization:** `scripts/data/`, `scripts/release/`, `scripts/tests/` va `scripts/utils/` papkalari; root-level script qoldig‘i yo‘q, barcha eski path reference’lar tozalangan
 - **Deployment:** Manus Autoscale Web Hosting — `https://biolabguide-fbcitqyf.manus.space`
@@ -26,7 +26,7 @@
 
 ## Qat’iy saqlanadigan source-of-truth
 
-3D carousel geometriyasi, 100 ta qurilma ma’lumotlari, 16 bosqichli o‘quv dosyelari, rasm metadata si va foydalanuvchi oqimlari o‘zgartirilmagan. Repository rootdan tashqaridagi Drive papkalariga, jumladan `Kodlar`, `PUBG` va `Skills` papkalariga yozilmaydi.
+3D carousel geometriyasi (gorizontal o‘q), 100 ta qurilma ma’lumotlari, 16 bosqichli o‘quv dosyelari, rasm metadata si va foydalanuvchi oqimlari o‘zgartirilmagan. Yangi dizayn `390×844`, `768×1024`, `1280×900` va `1920×1080` qabul viewportlarida tekshirildi; planshetda LAB-01 rail 8×2 qadam tarmog‘i bilan o‘qiladi. Repository rootdan tashqaridagi Drive papkalariga, jumladan `Kodlar`, `PUBG` va `Skills` papkalariga yozilmaydi.
 
 ## Sinxronlash tartibi
 

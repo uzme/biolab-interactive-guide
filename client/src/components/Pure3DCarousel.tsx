@@ -1,5 +1,5 @@
 import { useState, type CSSProperties } from "react";
-import { ChevronLeft, ChevronRight, FlaskConical, Heart } from "lucide-react";
+import { ChevronLeft, ChevronRight, FlaskConical, Heart, Pause, Play } from "lucide-react";
 import { equipment, type Equipment } from "@/lib/equipmentData";
 import { equipmentImages } from "@/lib/equipmentImages";
 import { getImageBackgroundProfile, getImagePresentation } from "@/lib/equipmentImagePresentation";
@@ -18,24 +18,27 @@ type Pure3DCarouselProps = {
 
 export default function Pure3DCarousel({ onSelectDevice, isBookmarked, onToggleBookmark }: Pure3DCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const pageSize = 12;
   const totalPages = Math.ceil(equipment.length / pageSize);
   const pageEquipment = equipment.slice(currentIndex * pageSize, (currentIndex + 1) * pageSize);
 
   return (
     <section
-      className="pure3d-carousel my-8 rounded-[32px] border border-[#d3e5df] bg-gradient-to-b from-[#f7fcfb] to-[#edf7f4] p-6 shadow-[0_20px_50px_rgba(28,71,67,0.06)] sm:p-10"
+      className="pure3d-carousel my-8 p-5 sm:p-8 lg:p-10"
       aria-label="Asosiy qurilmalar 3D carouseli"
+      data-carousel-axis="horizontal"
+      data-carousel-motion={isPaused ? "paused" : "running"}
     >
       <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
         <div>
-          <div className="eyebrow mb-2">Original 3D Carousel Arxitekturasi</div>
-          <h2 className="display text-3xl font-bold text-[#173d42]">Asosiy Biotexnologiya Qurilmalari</h2>
-          <p className="mt-1 text-sm text-[#62827d]">
-            Har bir qurilma original namuna geometriyasidagi aylanuvchi halqada ko‘rsatiladi.
+          <div className="carousel-kicker">TANLANGAN QURILMALAR / INTERAKTIV SAHNA</div>
+          <h2 className="display carousel-title">Laboratoriya qurilmalari orbitasi</h2>
+          <p className="carousel-description">
+            Kartalarni gorizontal orbitada ko‘ring, xohlagan qurilmani tanlang va uning SOP darsiga kiring.
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="carousel-controls flex items-center gap-2">
           <button
             type="button"
             onClick={() => setCurrentIndex((page) => Math.max(0, page - 1))}
@@ -46,8 +49,8 @@ export default function Pure3DCarousel({ onSelectDevice, isBookmarked, onToggleB
           >
             <ChevronLeft size={20} />
           </button>
-          <span className="rounded-xl border border-[#b8d8cc] bg-white px-4 py-2 text-xs font-bold text-[#173d42]" aria-live="polite">
-            Sahifa {currentIndex + 1} / {totalPages}
+          <span className="carousel-page" aria-live="polite">
+            <span>TO‘PLAM</span> {currentIndex + 1} <i /> {totalPages}
           </span>
           <button
             type="button"
@@ -59,12 +62,22 @@ export default function Pure3DCarousel({ onSelectDevice, isBookmarked, onToggleB
           >
             <ChevronRight size={20} />
           </button>
+          <button
+            type="button"
+            onClick={() => setIsPaused((value) => !value)}
+            className="carousel-motion-toggle"
+            aria-pressed={isPaused}
+            aria-label={isPaused ? "Gorizontal aylanishni davom ettirish" : "Gorizontal aylanishni to‘xtatish"}
+            title={isPaused ? "Aylanishni davom ettirish" : "Aylanishni to‘xtatish"}
+          >
+            {isPaused ? <Play size={16} /> : <Pause size={16} />}
+          </button>
         </div>
       </div>
 
       {pageEquipment.length > 0 ? (
-        <div className="scene" aria-live="polite">
-          <div className="a3d" style={{ "--n": pageEquipment.length } as CarouselStyle}>
+        <div className="scene" aria-live="polite" data-carousel-scene>
+          <div className={`a3d ${isPaused ? "is-paused" : ""}`} style={{ "--n": pageEquipment.length } as CarouselStyle}>
             {pageEquipment.map((device, index) => {
               const image = equipmentImages[device.id];
               const imagePresentation = getImagePresentation(device.id);

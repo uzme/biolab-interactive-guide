@@ -15,6 +15,19 @@ const assert = (condition, message) => {
 const cardCodes = async () => page.locator("article.equipment-card [data-equipment-code]").allTextContents();
 
 await page.goto(previewUrl, { waitUntil: "networkidle" });
+const carousel = page.locator("section.pure3d-carousel");
+await carousel.waitFor();
+assert(await carousel.getAttribute("data-carousel-axis") === "horizontal", "Karusel gorizontal o‘q sifatida belgilanmagan.");
+assert(await carousel.locator("[data-carousel-scene]").count() === 1, "Karuselning gorizontal sahnasi topilmadi.");
+assert(await carousel.locator(".a3d .card").count() === 12, "Birinchi gorizontal karusel to‘plamida 12 ta karta kutilgan.");
+await page.getByRole("button", { name: "Keyingi carousel sahifasi" }).click();
+await page.getByText("TO‘PLAM", { exact: true }).waitFor();
+assert((await carousel.locator(".carousel-page").innerText()).includes("2"), "Karuselning keyingi gorizontal to‘plamiga o‘tish ishlamadi.");
+const carouselMotionToggle = page.getByRole("button", { name: "Gorizontal aylanishni to‘xtatish" });
+await carouselMotionToggle.click();
+assert(await carousel.getAttribute("data-carousel-motion") === "paused", "Karusel aylanishi pause holatiga o‘tmadi.");
+await page.getByRole("button", { name: "Gorizontal aylanishni davom ettirish" }).click();
+assert(await carousel.getAttribute("data-carousel-motion") === "running", "Karusel aylanishi davom ettirilmadi.");
 await page.locator("#catalog").scrollIntoViewIfNeeded();
 
 const filterTrigger = page.getByRole("button", { name: "Kengaytirilgan katalog filtrlari" });
@@ -39,6 +52,9 @@ await themeToggle.click();
 const motionToggle = page.getByRole("switch", { name: "Kamroq animatsiyani almashtirish" });
 await motionToggle.click();
 await page.waitForFunction(() => localStorage.getItem("biolab-reduced-motion") === "true");
+assert(await page.locator("html").evaluate((html) => html.classList.contains("reduce-motion")), "Foydalanuvchi tanlagan kam-harakat klassi HTMLga qo‘llanmadi.");
+const userReducedMotionDuration = await page.locator("section.pure3d-carousel .card-shell").first().evaluate((card) => getComputedStyle(card).transitionDuration);
+assert(Number.parseFloat(userReducedMotionDuration) <= 0.00001, `Foydalanuvchi kam-harakat rejimida karusel transitioni o‘chmadi: ${userReducedMotionDuration}`);
 await motionToggle.click();
 const clearBookmarksButton = page.getByRole("button", { name: "Xatcho‘plarni tozalash" });
 await clearBookmarksButton.click();
@@ -117,7 +133,34 @@ codes = await cardCodes();
 assert(codes.length === 100 && codes[0] === "BIO-001" && codes.at(-1) === "BIO-100", "Tozalashdan keyin BIO-001–BIO-100 tartibi tiklanmadi.");
 
 const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true });
+
+const tabletPage = await browser.newPage({ viewport: { width: 768, height: 1024 } });
+await tabletPage.goto(previewUrl, { waitUntil: "domcontentloaded" });
+const tabletSopRail = tabletPage.locator(".hero-sop-track");
+await tabletSopRail.waitFor();
+const tabletSopLayout = await tabletSopRail.evaluate((rail) => {
+  const steps = [...rail.children];
+  const positions = steps.map((step) => {
+    const rect = step.getBoundingClientRect();
+    return { top: Math.round(rect.top), width: Math.round(rect.width), text: step.textContent?.trim() ?? "" };
+  });
+  return {
+    columns: getComputedStyle(rail).gridTemplateColumns.trim().split(/\s+/).length,
+    rows: new Set(positions.map((step) => step.top)).size,
+    minimumWidth: Math.min(...positions.map((step) => step.width)),
+    labels: positions.map((step) => step.text),
+  };
+});
+assert(tabletSopLayout.columns === 8 && tabletSopLayout.rows === 2, `Planshetda LAB-01 rail 8×2 grid bo‘lmadi: ${tabletSopLayout.columns}×${tabletSopLayout.rows}`);
+assert(tabletSopLayout.minimumWidth >= 24, `Planshetda LAB-01 qadamlar juda tor: ${tabletSopLayout.minimumWidth}px`);
+assert(tabletSopLayout.labels.length === 16 && tabletSopLayout.labels[0] === "01" && tabletSopLayout.labels.at(-1) === "16", "Planshetda LAB-01 raqamli qadamlari to‘liq yoki tartibli ko‘rinmadi.");
+await tabletPage.close();
+
 await mobilePage.goto(previewUrl, { waitUntil: "domcontentloaded" });
+const mobileCarousel = mobilePage.locator("section.pure3d-carousel");
+await mobileCarousel.waitFor();
+assert(await mobileCarousel.getAttribute("data-carousel-axis") === "horizontal", "Mobil ekranda karusel gorizontal o‘qini yo‘qotdi.");
+assert(await mobileCarousel.locator("[data-carousel-scene]").count() === 1, "Mobil karusel sahnasi topilmadi.");
 await mobilePage.getByRole("button", { name: "Menyuni ochish" }).click();
 await mobilePage.getByRole("button", { name: "Sozlamalar va Copyright" }).click();
 await mobilePage.getByRole("heading", { name: "Sozlamalar va huquqiy ma’lumot" }).waitFor();
@@ -135,6 +178,28 @@ await mobilePage.waitForFunction(() => {
 assert(await mobilePage.locator("article.equipment-card img[loading='eager'][fetchpriority='high']").count() === 3, "Mobil ekranda birinchi kartalar uchun rasm priority qoidasi yo‘q.");
 assert(await mobilePage.locator("article.equipment-card").first().getByText("Rasm yuklanmoqda").count() === 0, "Mobil ekranda birinchi karta rasm yuklangandan keyin loading holati yopilmadi.");
 await mobilePage.close();
+
+const reducedMotionPage = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+await reducedMotionPage.emulateMedia({ reducedMotion: "reduce" });
+await reducedMotionPage.goto(previewUrl, { waitUntil: "domcontentloaded" });
+await reducedMotionPage.locator("section.pure3d-carousel").waitFor();
+const motionDurations = await reducedMotionPage.evaluate(() => {
+  const selectors = [
+    "button",
+    ".module-header",
+    ".pure3d-carousel .card-shell",
+  ];
+  return selectors.map((selector) => {
+    const element = document.querySelector(selector);
+    return element ? getComputedStyle(element).transitionDuration : "missing";
+  });
+});
+assert(motionDurations.every((duration) => duration === "0s"), `Reduced-motion transitionlari o‘chmadi: ${motionDurations.join(", ")}`);
+await reducedMotionPage.getByRole("button", { name: "O‘quv namunasini ochish" }).click();
+await reducedMotionPage.locator("[data-device-modal]").waitFor();
+const modalTransitionDuration = await reducedMotionPage.locator("[data-device-modal]").evaluate((modal) => getComputedStyle(modal).transitionDuration);
+assert(modalTransitionDuration === "0s", "Reduced-motion rejimida detail modal transitioni o‘chmadi.");
+await reducedMotionPage.close();
 
 await browser.close();
 console.log("Katalog tartibi, qidiruv/tozalash boshqaruvlari va mobil rasm yuklanishi muvaffaqiyatli tekshirildi.");

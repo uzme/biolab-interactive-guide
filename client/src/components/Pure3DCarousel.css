@@ -1,51 +1,202 @@
-.pure3d-carousel .scene,
-.pure3d-carousel .a3d {
-  display: grid;
+.pure3d-carousel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid oklch(0.82 0.05 184 / 0.72);
+  border-radius: clamp(1.65rem, 3vw, 2.45rem);
+  background:
+    radial-gradient(circle at 50% 72%, oklch(0.82 0.12 177 / 0.5), transparent 34%),
+    linear-gradient(135deg, oklch(0.985 0.009 190), oklch(0.94 0.035 184));
+  box-shadow: 0 28px 60px oklch(0.25 0.07 190 / 0.1), inset 0 1px 0 oklch(1 0 0 / 0.8);
+}
+
+.pure3d-carousel::before,
+.pure3d-carousel::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+}
+
+.pure3d-carousel::before {
+  inset: 0;
+  opacity: 0.42;
+  background-image:
+    linear-gradient(oklch(0.38 0.09 188 / 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.38 0.09 188 / 0.09) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: linear-gradient(180deg, black, transparent 72%);
+}
+
+.pure3d-carousel::after {
+  right: -9rem;
+  top: -11rem;
+  width: 28rem;
+  aspect-ratio: 1;
+  border: 1px solid oklch(0.56 0.13 178 / 0.26);
+  border-radius: 999px;
+  box-shadow: 0 0 0 3.5rem oklch(0.56 0.13 178 / 0.06), 0 0 0 7rem oklch(0.56 0.13 178 / 0.035);
+}
+
+.pure3d-carousel .carousel-kicker {
+  color: oklch(0.42 0.11 185);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+}
+
+.pure3d-carousel .carousel-title {
+  margin-top: 0.35rem;
+  color: oklch(0.24 0.055 193);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.08;
+}
+
+.pure3d-carousel .carousel-description {
+  max-width: 38rem;
+  margin-top: 0.45rem;
+  color: oklch(0.46 0.045 190);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.pure3d-carousel .carousel-controls button,
+.pure3d-carousel .carousel-page {
+  display: inline-flex;
+  height: 2.7rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid oklch(0.77 0.07 182 / 0.9);
+  background: oklch(0.995 0.004 190 / 0.82);
+  color: oklch(0.32 0.09 186);
+  box-shadow: 0 0.45rem 1.1rem oklch(0.28 0.07 188 / 0.08);
+  backdrop-filter: blur(10px);
+  transition: transform 160ms var(--ease-out), background-color 160ms var(--ease-out), border-color 160ms var(--ease-out), box-shadow 160ms var(--ease-out), color 160ms var(--ease-out);
+}
+
+.pure3d-carousel .carousel-controls button {
+  width: 2.7rem;
+  border-radius: 0.9rem;
+}
+
+.pure3d-carousel .carousel-controls button:hover:not(:disabled) {
+  border-color: oklch(0.53 0.13 180);
+  background: oklch(0.91 0.07 178);
+  transform: translateY(-2px);
+  box-shadow: 0 0.7rem 1.4rem oklch(0.28 0.09 188 / 0.13);
+}
+
+.pure3d-carousel .carousel-controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.pure3d-carousel .carousel-page {
+  gap: 0.45rem;
+  padding: 0 0.8rem;
+  border-radius: 0.9rem;
+  color: oklch(0.29 0.06 190);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.pure3d-carousel .carousel-page span {
+  color: oklch(0.49 0.06 187);
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+}
+
+.pure3d-carousel .carousel-page i {
+  width: 3px;
+  height: 3px;
+  border-radius: 999px;
+  background: oklch(0.58 0.12 178);
+}
+
+.pure3d-carousel .carousel-motion-toggle {
+  margin-left: 0.2rem;
 }
 
 .pure3d-carousel .scene {
-  overflow: hidden;
-  height: clamp(21.5rem, 38vw, 30rem);
+  position: relative;
+  display: grid;
   min-height: 0;
-  perspective: clamp(28em, 4vw, 35em);
-  mask: linear-gradient(90deg, #0000, red 20% 80%, #0000);
+  height: clamp(25rem, 42vw, 33rem);
+  overflow: hidden;
+  place-items: center;
+  perspective: clamp(52rem, 90vw, 84rem);
+  mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+}
+
+.pure3d-carousel .scene::before {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 50%;
+  width: min(54rem, 92%);
+  height: 4.5rem;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, oklch(0.24 0.075 190 / 0.22), transparent 68%);
+  content: "";
+  filter: blur(8px);
+  transform: translateX(-50%);
 }
 
 .pure3d-carousel .a3d {
+  display: grid;
   place-self: center;
   --ba: calc(1turn / var(--n));
   transform-style: preserve-3d;
-  animation: pure3d-ry 32s linear infinite;
+  animation: pure3d-ry 42s linear infinite;
+  will-change: transform;
 }
 
 @keyframes pure3d-ry {
-  to {
-    rotate: y 1turn;
-  }
+  to { rotate: y 1turn; }
+}
+
+.pure3d-carousel .a3d.is-paused,
+.pure3d-carousel[data-carousel-motion="paused"] .a3d,
+.pure3d-carousel .scene:hover .a3d,
+.pure3d-carousel .scene:focus-within .a3d {
+  animation-play-state: paused;
 }
 
 .pure3d-carousel .card {
-  --w: clamp(12.5em, 24vw, 17.5em);
+  --w: clamp(13.5em, 22vw, 17.5em);
+  position: relative;
   grid-area: 1 / 1;
   width: var(--w);
-  aspect-ratio: 7 / 10;
+  aspect-ratio: 4 / 5;
   border: 0;
   border-radius: 1.5em;
   backface-visibility: hidden;
-  transform: rotatey(calc(var(--i) * var(--ba))) translatez(calc(-1 * (0.5 * var(--w) + 0.5em) / tan(0.5 * var(--ba))));
+  transform: rotateY(calc(var(--i) * var(--ba))) translateZ(calc(-1 * (0.5 * var(--w) + 0.55em) / tan(0.5 * var(--ba))));
 }
 
 .pure3d-carousel .card-shell {
   position: relative;
   display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
   height: 100%;
-  padding: 0.75rem;
+  grid-template-rows: minmax(0, 1fr) auto;
   overflow: hidden;
+  padding: 0.7rem;
+  border: 1px solid oklch(1 0 0 / 0.88);
   border-radius: inherit;
-  background: #fff;
-  box-shadow: 0 1rem 2rem rgb(14 78 78 / 16%);
+  background: linear-gradient(145deg, oklch(0.995 0.004 190), oklch(0.94 0.022 188));
+  box-shadow: 0 1.1rem 2.3rem oklch(0.23 0.06 190 / 0.22), inset 0 1px 0 oklch(1 0 0 / 0.92);
   text-align: left;
+  transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out), border-color 180ms var(--ease-out);
+}
+
+.pure3d-carousel .card:hover .card-shell,
+.pure3d-carousel .card:focus-visible .card-shell {
+  border-color: oklch(0.65 0.12 177);
+  box-shadow: 0 1.45rem 2.8rem oklch(0.23 0.08 190 / 0.3), inset 0 1px 0 oklch(1 0 0 / 0.9);
+  transform: translateY(-0.25rem) scale(1.015);
 }
 
 .pure3d-carousel .card-media {
@@ -53,7 +204,16 @@
   min-height: 0;
   overflow: hidden;
   border-radius: 1em;
-  background: #f0f8f5;
+  background: oklch(0.93 0.035 181);
+}
+
+.pure3d-carousel .card-media::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 36%;
+  background: linear-gradient(transparent, oklch(0.18 0.04 190 / 0.23));
+  content: "";
+  pointer-events: none;
 }
 
 .pure3d-carousel .card-media img {
@@ -61,40 +221,19 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 0.5rem;
+  padding: 0.25rem;
   mix-blend-mode: multiply;
 }
 
-.pure3d-carousel .card-media[data-image-profile="paper"] {
-  background: #f8fbfa;
-}
-
-.pure3d-carousel .card-media[data-image-profile="paper"] img {
-  padding: 0;
-  mix-blend-mode: normal;
-}
-
-.pure3d-carousel .card-media[data-image-profile="ink"] {
-  background: #0a2728;
-}
-
-.pure3d-carousel .card-media[data-image-profile="ink"] img {
-  padding: 0.25rem;
-  mix-blend-mode: normal;
-}
-
-.dark .pure3d-carousel .card-media[data-image-profile="paper"] {
-  background: #edf4ef;
-}
-
-.dark .pure3d-carousel .card-media[data-image-profile="ink"] {
-  background: #061b1c;
-}
+.pure3d-carousel .card-media[data-image-profile="paper"] { background: oklch(0.975 0.006 190); }
+.pure3d-carousel .card-media[data-image-profile="paper"] img { padding: 0; mix-blend-mode: normal; }
+.pure3d-carousel .card-media[data-image-profile="ink"] { background: oklch(0.19 0.03 195); }
+.pure3d-carousel .card-media[data-image-profile="ink"] img { padding: 0.25rem; mix-blend-mode: normal; }
 
 .pure3d-carousel .card-caption {
   display: grid;
   gap: 0.18rem;
-  padding: 0.75rem 0.15rem 0.15rem;
+  padding: 0.7rem 0.2rem 0.1rem;
 }
 
 .pure3d-carousel .card-category,
@@ -106,101 +245,77 @@
 }
 
 .pure3d-carousel .card-category {
-  color: #0d9488;
-  font-size: 0.58rem;
+  color: oklch(0.42 0.12 182);
+  font-size: 0.56rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .pure3d-carousel .card-name {
-  margin: 0;
   overflow: hidden;
-  color: #173d42;
-  font-family: var(--font-display, inherit);
-  font-size: 0.86rem;
+  color: oklch(0.24 0.06 192);
+  font-family: var(--font-display, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.94rem;
   font-weight: 800;
   line-height: 1.15;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.pure3d-carousel .card-model {
-  color: #5a7c76;
-  font-size: 0.64rem;
-  font-weight: 700;
-}
+.pure3d-carousel .card-model { color: oklch(0.48 0.04 190); font-size: 0.63rem; font-weight: 700; }
 
 .pure3d-carousel .card-code {
   position: absolute;
   top: 0.55rem;
   left: 0.55rem;
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.35rem;
-  background: rgb(255 255 255 / 90%);
-  color: #0b6663;
-  font-size: 0.56rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  box-shadow: 0 0.2rem 0.5rem rgb(14 78 78 / 12%);
+  z-index: 2;
+  padding: 0.24rem 0.46rem;
+  border: 1px solid oklch(1 0 0 / 0.65);
+  border-radius: 0.48rem;
+  background: oklch(0.99 0.004 190 / 0.84);
+  color: oklch(0.33 0.08 188);
+  font-size: 0.55rem;
+  font-weight: 850;
+  letter-spacing: 0.07em;
+  box-shadow: 0 0.25rem 0.75rem oklch(0.22 0.06 190 / 0.14);
+  backdrop-filter: blur(8px);
 }
 
-.pure3d-carousel .card:focus-visible {
-  outline: 3px solid #0d9488;
-  outline-offset: 0.35rem;
-}
+.pure3d-carousel .card:focus-visible { outline: 3px solid oklch(0.55 0.13 180); outline-offset: 0.35rem; }
+.pure3d-carousel .carousel-empty { display: grid; min-height: 22rem; place-items: center; color: oklch(0.46 0.04 190); }
 
-.pure3d-carousel .card:hover .card-shell {
-  box-shadow: 0 1.25rem 2.3rem rgb(14 78 78 / 22%);
+.dark .pure3d-carousel {
+  border-color: oklch(0.39 0.07 182 / 0.9);
+  background: radial-gradient(circle at 50% 75%, oklch(0.42 0.11 177 / 0.22), transparent 36%), linear-gradient(135deg, oklch(0.2 0.035 195), oklch(0.24 0.055 187));
+  box-shadow: 0 28px 60px oklch(0.04 0.02 195 / 0.38), inset 0 1px 0 oklch(0.64 0.06 180 / 0.12);
 }
-
-.pure3d-carousel .a3d:hover {
-  animation-play-state: paused;
-}
-
-.pure3d-carousel .carousel-empty {
-  display: grid;
-  min-height: 22rem;
-  place-items: center;
-  color: #5a7c76;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pure3d-carousel .a3d {
-    animation-duration: 128s;
-  }
-}
+.dark .pure3d-carousel .carousel-kicker { color: oklch(0.77 0.13 175); }
+.dark .pure3d-carousel .carousel-title { color: oklch(0.94 0.02 180); }
+.dark .pure3d-carousel .carousel-description { color: oklch(0.72 0.04 184); }
+.dark .pure3d-carousel .carousel-controls button,
+.dark .pure3d-carousel .carousel-page { border-color: oklch(0.43 0.065 185); background: oklch(0.22 0.035 195 / 0.82); color: oklch(0.82 0.12 175); }
+.dark .pure3d-carousel .carousel-page span { color: oklch(0.68 0.05 183); }
+.dark .pure3d-carousel .card-shell { border-color: oklch(0.45 0.055 185); background: linear-gradient(145deg, oklch(0.24 0.04 195), oklch(0.2 0.03 195)); }
+.dark .pure3d-carousel .card-name { color: oklch(0.93 0.02 180); }
+.dark .pure3d-carousel .card-model { color: oklch(0.71 0.04 183); }
+.dark .pure3d-carousel .card-code { border-color: oklch(0.52 0.06 180 / 0.6); background: oklch(0.19 0.03 195 / 0.85); color: oklch(0.82 0.12 175); }
+.dark .pure3d-carousel .card-media[data-image-profile="paper"] { background: oklch(0.9 0.015 185); }
 
 @media (max-width: 640px) {
-  .pure3d-carousel .scene {
-    height: clamp(21.5rem, 78vw, 24rem);
-    min-height: 21.5rem;
-  }
-
-  .pure3d-carousel .card {
-    --w: clamp(12.5em, 54vw, 14.5em);
-  }
+  .pure3d-carousel .carousel-controls { width: 100%; justify-content: space-between; }
+  .pure3d-carousel .scene { height: clamp(22rem, 88vw, 25rem); perspective: 48rem; }
+  .pure3d-carousel .card { --w: clamp(12.75em, 60vw, 15em); }
+  .pure3d-carousel .carousel-description { font-size: 0.8rem; }
 }
 
 @media (max-width: 400px) {
-  .pure3d-carousel {
-    padding: 1rem;
-    border-radius: 1.5rem;
-  }
-
-  .pure3d-carousel .scene {
-    height: 21rem;
-    min-height: 21rem;
-  }
-
-  .pure3d-carousel .card {
-    --w: 12.5em;
-  }
+  .pure3d-carousel .carousel-page { padding-inline: 0.55rem; }
+  .pure3d-carousel .carousel-page span { display: none; }
+  .pure3d-carousel .card { --w: 12.4em; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pure3d-carousel .a3d {
-    animation-play-state: paused;
-  }
+  .pure3d-carousel .a3d { animation-play-state: paused; }
+  .pure3d-carousel .card-shell { transition: none; }
 }
-/* Original sample CSS: .scene/.a3d 35em perspective, y-axis 32s rotation, 7/10 cards. */

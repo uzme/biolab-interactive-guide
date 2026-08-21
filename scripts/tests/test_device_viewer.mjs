@@ -1,7 +1,10 @@
 import { chromium } from "playwright";
 
-const previewUrl = new URL(process.env.BIOLAB_TEST_URL || "http://127.0.0.1:3000/").toString();
+const previewUrlObject = new URL(process.env.BIOLAB_TEST_URL || "http://127.0.0.1:3000/");
+const previewUrl = previewUrlObject.toString();
+const previewOrigin = previewUrlObject.origin;
 const shouldDownloadOfflinePack = process.env.BIOLAB_SKIP_OFFLINE_PACK !== "true";
+const shouldTestOfflineRoundTrip = process.env.BIOLAB_SKIP_OFFLINE_ROUNDTRIP !== "true";
 const browser = await chromium.launch({
   headless: true,
   executablePath: "/usr/bin/chromium",
@@ -14,14 +17,20 @@ const assert = (condition, message) => {
 
 try {
   const desktop = await browser.newPage({ viewport: { width: 1280, height: 900 } });
-  const manifestResponse = await desktop.request.get(`${previewUrl}manifest.webmanifest`);
+  const runtimeErrors = [];
+  desktop.on("pageerror", (error) => runtimeErrors.push(`pageerror: ${error.message}`));
+  desktop.on("console", (message) => {
+    if (message.type() === "error") runtimeErrors.push(`console: ${message.text()}`);
+  });
+  desktop.on("requestfailed", (request) => runtimeErrors.push(`requestfailed: ${request.url()} :: ${request.failure()?.errorText || "unknown"}`));
+  const manifestResponse = await desktop.request.get(`${previewOrigin}/manifest.webmanifest`);
   await assert(manifestResponse.ok(), "PWA manifest.webmanifest topilmadi.");
   const manifest = await manifestResponse.json();
   await assert(manifest.lang === "uz" && manifest.display === "standalone", "PWA manifest o‘zbekcha standalone rejimida emas.");
-  const serviceWorkerResponse = await desktop.request.get(`${previewUrl}sw.js`);
+  const serviceWorkerResponse = await desktop.request.get(`${previewOrigin}/sw.js`);
   await assert(serviceWorkerResponse.ok(), "PWA service worker fayli topilmadi.");
 
-  await desktop.goto(previewUrl, { waitUntil: "networkidle" });
+  await desktop.goto(previewUrl, { waitUntil: "domcontentloaded" });
   await desktop.evaluate(() => window.localStorage.clear());
   await desktop.reload({ waitUntil: "domcontentloaded" });
   await assert(await desktop.evaluate(async () => Boolean(await navigator.serviceWorker.ready)), "PWA service worker ro‘yxatdan o‘tmadi.");
@@ -49,15 +58,17 @@ try {
   }
   await desktop.emulateMedia({ reducedMotion: "no-preference" });
 
-  await desktop.context().setOffline(true);
-  await desktop.reload({ waitUntil: "domcontentloaded" });
-  await assert(await desktop.locator(".pure3d-carousel .scene").isVisible(), "Offline reloaddan keyin app shell carouseli tiklanmadi.");
-  await desktop.evaluate(() => window.dispatchEvent(new Event("offline")));
-  await desktop.waitForFunction(() => document.querySelector("[data-offline-status]")?.getAttribute("data-offline-status") === "offline");
-  await desktop.context().setOffline(false);
-  await desktop.evaluate(() => window.dispatchEvent(new Event("online")));
-  await desktop.waitForFunction(() => document.querySelector("[data-offline-status]")?.getAttribute("data-offline-status") === "online");
-  await desktop.reload({ waitUntil: "domcontentloaded" });
+  if (shouldTestOfflineRoundTrip) {
+    await desktop.context().setOffline(true);
+    await desktop.reload({ waitUntil: "domcontentloaded" });
+    await assert(await desktop.locator(".pure3d-carousel .scene").isVisible(), "Offline reloaddan keyin app shell carouseli tiklanmadi.");
+    await desktop.evaluate(() => window.dispatchEvent(new Event("offline")));
+    await desktop.waitForFunction(() => document.querySelector("[data-offline-status]")?.getAttribute("data-offline-status") === "offline");
+    await desktop.context().setOffline(false);
+    await desktop.evaluate(() => window.dispatchEvent(new Event("online")));
+    await desktop.waitForFunction(() => document.querySelector("[data-offline-status]")?.getAttribute("data-offline-status") === "online");
+    await desktop.reload({ waitUntil: "domcontentloaded" });
+  }
 
   const carouselScene = desktop.locator(".pure3d-carousel .scene");
   await carouselScene.waitFor({ state: "visible" });
@@ -105,7 +116,8 @@ try {
     await assert(await desktop.getByRole("heading", { name: "Manba va foydalanish holati" }).isVisible(), `${id} rasm manbasi va foydalanish shaffofligi bloki ko‘rinmadi.`);
 
     const learningNavigation = desktop.getByRole("navigation", { name: "16 bo‘limli o‘quv dasturi" });
-    await assert(await learningNavigation.getByRole("button").count() === 16, `${id} qurilmasida 16 ta o‘quv bo‘limi ko‘rsatilmagan.`);
+    await desktop.waitForFunction(() => document.querySelectorAll('nav[aria-label="16 bo‘limli o‘quv dasturi"] button').length === 16, null, { timeout: 30_000 });
+    await assert(await learningNavigation.getByRole("button").count() === 16, `${id} qurilmasida 16 ta o‘quv bo‘limi ko‘rsatilmagan. Runtime: ${runtimeErrors.join(" | ") || "xato qayd etilmadi"}`);
     await learningNavigation.getByRole("button", { name: /Ishonchli o‘quv manbalari/ }).click();
     await assert(await desktop.getByRole("heading", { name: "Ishonchli o‘quv manbalari" }).isVisible(), `${id} 16-bo‘limdagi manbalar ochilmadi.`);
 

@@ -4,8 +4,13 @@ import "./index.css";
 
 if ("serviceWorker" in navigator && window.isSecureContext) {
   window.addEventListener("load", () => {
+    let hadServiceWorkerController = Boolean(navigator.serviceWorker.controller);
     let reloadedForNewWorker = false;
     navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (!hadServiceWorkerController) {
+        hadServiceWorkerController = true;
+        return;
+      }
       if (reloadedForNewWorker) return;
       reloadedForNewWorker = true;
       window.location.reload();

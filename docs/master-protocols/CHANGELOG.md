@@ -15,6 +15,8 @@
 - “Qurilmani o‘rganish” detail oynasida eski PWA keshidan keladigan modul-versiya nomuvofiqligi bartaraf etildi: yangi service worker aktivlashganda sahifa o‘zini yangilaydi, script/style fayllari onlayn holatda tarmoqdan birinchi olinadi, cache versiyasi yangilandi.
 - Agar brauzerning juda eski offline keshi o‘quv ma’lumotlari bloklarini yuklay olmasa, detail oynasi foydalanuvchiga “Yangilash va qayta ochish” amali bilan faqat BioLab offline keshini tozalab, ma’lumotlarni tiklash imkonini beradi.
 - Production bundleda `learningDataBlock1`–`4` fayllarini bitta chunkga majburan birlashtirgan qoida olib tashlandi; har bir o‘quv blok endi alohida dynamic module sifatida yuklanadi.
+- Birinchi service worker o‘rnatilishida ortiqcha sahifa refreshining oldi olindi; auto-refresh endi faqat avvaldan controller mavjud bo‘lgan yangilanish holatida ishlaydi.
+- DeviceViewer E2E testi har asinxron detail blokida 16 bo‘lim navigationi tayyor bo‘lishini kutadi; production smoke-testda offline round-trip ixtiyoriy ajratildi, local regressiyada esa saqlanib qoldi.
 
 ## [1.0.1] — 2026-08-20
 

@@ -78,7 +78,8 @@ const manifest = {
   },
   recoveryArchive: {
     name: "BioLab_Hero_Assets_Recovery.tar.gz",
-    contents: ["assets/*.webp", "hero-asset-recovery-manifest.json"],
+    contents: ["BATCHES/Batch-NNN__BIO-NNN__qurilma-nomi/BIO-NNN.webp", "BATCH_INDEX.md", "hero-asset-recovery-manifest.json"],
+    organization: "Bitta batch = bitta qurilma; Batch 001 dan Batch 100 gacha uzluksiz tartib.",
     updatePolicy: "Mavjud Drive fayli o‘rnida yangilanadi; duplicate arxiv yaratilmaydi.",
   },
   acceptedHeroAssetCount: assets.length,

@@ -151,3 +151,9 @@ Ma’lumotlar, 100 ta qurilma mappingi va 16 bo‘limli SOP tarkibi o‘zgartiri
 `prefers-reduced-motion` hamda Sozlamalardagi “Kamroq animatsiya” tanlovi tugma, modal, drawer, katalog va karusel harakatlarini o‘chiradi. Browser regressiyasi `768×1024`da LAB-01 railning 16 raqami bilan `8×2` grid, kamida 24 px qadam kengligi va tartibli `01`–`16` etiketlarini tekshiradi. Mobil, planshet, desktop va `1920×1080` katta ekran auditida hero, rail, katalog va gorizontal sahna qabul qilindi; `pnpm check`, katalog/DeviceViewer browser regressiyalari hamda production build **PASS**.
 
 Production smoke-test `https://biolabguide-fbcitqyf.manus.space/` manzilida cache-bypass query va izolyatsiyalangan offline flags bilan yakuniy qayta bajarildi. Bosh sahifa, katalog tartibi, qidiruv/tozalash, yangi gorizontal karusel bosqaruvlari hamda mobil rasm yuklanishi **PASS**. Holat: **READY**.
+
+## 2026-08-21 iPhone detail boshlang‘ich holati va 100 qurilma yuklanishi
+
+Foydalanuvchi yuborgan iPhone Safari skrinshoti detail oynasi “Xarid va foydalanish xarajatlari” qismidan ochilib qolayotganini ko‘rsatdi. Sabab mobil overlay va ichki viewerning ichma-ich scroll konteynerlari edi. Mobil rejimda ichki viewer `overflow-y-visible` qilindi, tashqi modal yagona vertikal scroll egasi bo‘ldi. Detail ochilishida hamda ma’lumotlar renderi tugagach `scrollTop` va `scrollLeft` qat’iy nolga o‘rnatiladi; iOS kechikkan renderi uchun 80 ms ikkinchi reset ishlaydi.
+
+Detail ma’lumotlari uchun `Promise.allSettled` qo‘llanadi: purchase block xatosi learning blockni to‘sib qo‘ymaydi. `learningData.test.ts` 100 ta `BIO-001`–`BIO-100` uchun learning va purchase ma’lumotlari mavjudligini tekshiradi. iPhone Safari user-agent, touch va 390×844 viewport emulyatsiyasida detail pastga surilib yopilgach keyingi qurilma qayta ochildi; modal yuqoridan ochilishi **PASS**. Standart test to‘plami: Vitest 10/10, katalog regressiyasi, DeviceViewer regressiyasi, TypeScript va production build **PASS**.

@@ -2,7 +2,7 @@
   BioLab design reminder: Modern Precision Biotech — cold laboratory canvas, deep teal authority,
   asymmetric left navigation, and a 16-section Uzbek learning curriculum for every instrument.
 */
-import { lazy, Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState, useTransition } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useTransition } from "react";
 import { ArrowUpRight, Beaker, BookOpen, ChevronRight, CircleHelp, FlaskConical, Grid2X2, Heart, LibraryBig, Menu, Microscope, Moon, Search, Settings2, SlidersHorizontal, Sparkles, Sun, X } from "lucide-react";
 import Pure3DCarousel from "@/components/Pure3DCarousel";
 import BookmarksSidebar from "@/components/BookmarksSidebar";
@@ -15,11 +15,10 @@ import { Input } from "@/components/ui/input";
 import { equipment, categories, type Equipment } from "@/lib/equipmentData";
 import { equipmentImages } from "@/lib/equipmentImages";
 import EquipmentCard from "@/components/EquipmentCard";
+import DeviceViewer from "@/components/DeviceViewer";
 import { toast } from "sonner";
 import { useBookmarks } from "@/hooks/useBookmarks";
 import { useTheme } from "@/contexts/ThemeContext";
-
-const DeviceViewer = lazy(() => import("@/components/DeviceViewer"));
 
 const categoryIcons: Record<string, typeof FlaskConical> = {
   "Molekulyar biologiya": FlaskConical,
@@ -74,6 +73,15 @@ export default function Home() {
   const [isFilterPending, startFilterTransition] = useTransition();
   const deviceModalScrollRef = useRef<HTMLDivElement>(null);
   const deviceViewerScrollRef = useRef<HTMLDivElement>(null);
+  const resetDeviceViewerScroll = useCallback(() => {
+    [deviceModalScrollRef.current, deviceViewerScrollRef.current].forEach((container) => {
+      if (!container) return;
+      container.style.scrollBehavior = "auto";
+      container.scrollTop = 0;
+      container.scrollLeft = 0;
+      container.scrollTo(0, 0);
+    });
+  }, []);
   const { theme, toggleTheme } = useTheme();
   const validDeviceIds = useMemo(() => new Set(equipment.map((device) => device.id)), []);
   const { bookmarkedIds, bookmarkedCount, isBookmarked, toggleBookmark, clearBookmarks, exportBookmarks, importBookmarks } = useBookmarks(validDeviceIds);
@@ -135,16 +143,16 @@ export default function Home() {
 
   useLayoutEffect(() => {
     if (!selectedDevice) return;
-
-    const resetDeviceViewerScroll = () => {
-      deviceModalScrollRef.current?.scrollTo({ top: 0, left: 0, behavior: "auto" });
-      deviceViewerScrollRef.current?.scrollTo({ top: 0, left: 0, behavior: "auto" });
-    };
-
     resetDeviceViewerScroll();
     const animationFrame = window.requestAnimationFrame(resetDeviceViewerScroll);
-    return () => window.cancelAnimationFrame(animationFrame);
-  }, [selectedDevice?.id]);
+    // iOS Safari asinxron rasm va modul renderidan keyin scroll holatini qayta tiklashi mumkin.
+    // Qisqa ikkinchi reset faqat yangi detail ochilishida ishlaydi.
+    const settleTimer = window.setTimeout(resetDeviceViewerScroll, 80);
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      window.clearTimeout(settleTimer);
+    };
+  }, [resetDeviceViewerScroll, selectedDevice?.id]);
   const handleCategoryChange = (category: string) => startFilterTransition(() => setActiveCategory(category));
   const handleQueryChange = (value: string) => startFilterTransition(() => setQuery(value));
   const handleModelQueryChange = (value: string) => startFilterTransition(() => setModelQuery(value));
@@ -283,7 +291,7 @@ export default function Home() {
       </div>
     </main>
     <BookmarksSidebar open={bookmarksOpen} onOpenChange={setBookmarksOpen} devices={bookmarkedDevices} onSelectDevice={setSelectedDevice} onToggleBookmark={toggleBookmark} onClearBookmarks={clearBookmarks} onExportBookmarks={exportBookmarks} onImportBookmarks={handleImportBookmarks} />
-    {selectedDevice && <div ref={deviceModalScrollRef} data-device-modal role="dialog" aria-modal="true" aria-label={`${selectedDevice.name} o‘quv dosyesi`} className="fixed inset-0 z-[80] overflow-y-auto overscroll-contain bg-[#173d42]/60 px-2 py-2 backdrop-blur-md sm:flex sm:items-center sm:justify-center sm:p-6" onClick={() => setSelectedDevice(null)}><div ref={deviceViewerScrollRef} className="relative min-h-[calc(100dvh-1rem)] w-full overflow-y-auto overscroll-contain rounded-[24px] border border-[#d8e7e3] bg-white shadow-[0_30px_90px_rgba(20,68,64,0.3)] sm:min-h-0 sm:max-h-[92vh] sm:max-w-6xl sm:rounded-[30px]" onClick={(e) => e.stopPropagation()}><Suspense fallback={<div className="grid min-h-[calc(100dvh-1rem)] place-items-center bg-[#f7fbfa] px-6 text-center text-[#173d42] sm:min-h-96"><div className="w-full max-w-md space-y-4"><div className="mx-auto h-3 w-28 animate-pulse rounded-full bg-[#cfe5dc]" /><div className="mx-auto h-8 w-3/4 animate-pulse rounded-xl bg-[#dcece6]" /><div className="mx-auto h-24 w-full animate-pulse rounded-2xl bg-[#e7f3ee]" /><div className="loading-dots mx-auto text-[#0d7774]" role="status" aria-label="Qurilmaning o‘quv dosyesi yuklanmoqda"><span /><span /><span /></div><p className="text-sm font-semibold text-[#587872]">Qurilmaning o‘quv dosyesi tayyorlanmoqda…</p></div></div>}><DeviceViewer device={selectedDevice} onBack={() => setSelectedDevice(null)} /></Suspense></div></div>}
+    {selectedDevice && <div ref={deviceModalScrollRef} data-device-modal role="dialog" aria-modal="true" aria-label={`${selectedDevice.name} o‘quv dosyesi`} className="fixed inset-0 z-[80] overflow-y-auto overscroll-contain bg-[#173d42]/60 px-2 py-2 backdrop-blur-md sm:flex sm:items-center sm:justify-center sm:p-6" onClick={() => setSelectedDevice(null)}><div ref={deviceViewerScrollRef} className="relative min-h-[calc(100dvh-1rem)] w-full overflow-y-visible overscroll-contain rounded-[24px] border border-[#d8e7e3] bg-white shadow-[0_30px_90px_rgba(20,68,64,0.3)] sm:min-h-0 sm:max-h-[92vh] sm:max-w-6xl sm:overflow-y-auto sm:rounded-[30px]" onClick={(e) => e.stopPropagation()}><DeviceViewer key={selectedDevice.id} device={selectedDevice} onBack={() => setSelectedDevice(null)} onReady={resetDeviceViewerScroll} /></div></div>}
     <CatalogFilterSheet open={filtersOpen} onOpenChange={setFiltersOpen} query={query} modelQuery={modelQuery} activeCategory={activeCategory} categories={categories} bookmarksOnly={bookmarksOnly} resultCount={filtered.length} bookmarkedCount={bookmarkedCount} hasActiveFilters={hasActiveFilters} onQueryChange={handleQueryChange} onModelQueryChange={handleModelQueryChange} onCategoryChange={handleCategoryChange} onBookmarksOnlyChange={handleBookmarksOnlyChange} onClearFilters={clearFilters} />
     <SettingsDialog open={settingsOpen} onOpenChange={setSettingsOpen} bookmarkedCount={bookmarkedCount} onClearBookmarks={clearBookmarks} onExportBookmarks={exportBookmarks} onImportBookmarks={handleImportBookmarks} />
   </div>;

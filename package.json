@@ -9,7 +9,7 @@
     "start": "NODE_ENV=production node dist/index.js",
     "preview": "vite preview --host",
     "check": "tsc --noEmit",
-    "test": "vitest run src/lib/equipmentImagePresentation.test.ts && node scripts/tests/test_catalog_controls.mjs && node scripts/tests/test_device_viewer.mjs",
+    "test": "vitest run && node scripts/tests/test_catalog_controls.mjs && node scripts/tests/test_device_viewer.mjs",
     "format": "prettier --write .",
     "audit:continuity": "node scripts/release/verify_continuity_docs.mjs",
     "release:check": "node scripts/release/sync_release.mjs --check",

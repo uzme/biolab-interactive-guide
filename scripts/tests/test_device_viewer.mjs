@@ -140,7 +140,14 @@ try {
     await assert(await desktop.locator("article.equipment-card").count() === 100, `${id} qurilmasidan katalogga qaytishda 100 ta karta tiklanmadi.`);
   }
 
-  const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  const iphoneContext = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    deviceScaleFactor: 3,
+    isMobile: true,
+    hasTouch: true,
+    userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 17_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Mobile/15E148 Safari/604.1",
+  });
+  const mobile = await iphoneContext.newPage();
   await mobile.goto(previewUrl, { waitUntil: "networkidle" });
   await mobile.getByRole("button", { name: "O‘rganish" }).first().click();
   const mobileModal = mobile.locator("[data-device-modal]");
@@ -168,6 +175,21 @@ try {
   await assert(mobileModalMetrics.viewerHeight > 0 && mobileModalMetrics.viewerTop < mobileModalMetrics.viewportHeight, "Mobil detail kontenti fon-blur ostida ko‘rinmay qoldi.");
   await assert(mobileModalMetrics.viewerBackground === "rgb(247, 251, 250)", "Mobil detail kontenti kutilgan o‘quv fonida render bo‘lmadi.");
   await assert(mobileModalMetrics.modalScrollTop <= 1 && mobileModalMetrics.viewerScrollTop <= 1, "Mobil detail oynasi yuqoridan emas, avvalgi scroll holatidan ochildi.");
+  await mobileModal.evaluate((element) => {
+    element.scrollTop = element.scrollHeight;
+    element.firstElementChild?.scrollTo(0, element.firstElementChild.scrollHeight);
+  });
+  await mobile.getByRole("button", { name: "Barcha uskunalar" }).click();
+  await mobileModal.waitFor({ state: "hidden" });
+  await mobile.getByRole("button", { name: "O‘rganish" }).nth(1).click();
+  await mobileModal.waitFor({ state: "visible" });
+  await mobile.locator("[data-device-viewer]").waitFor({ state: "visible" });
+  await mobile.waitForTimeout(150);
+  const reopenedMobileScroll = await mobileModal.evaluate((element) => ({
+    modalScrollTop: element.scrollTop,
+    viewerScrollTop: element.firstElementChild?.scrollTop ?? -1,
+  }));
+  await assert(reopenedMobileScroll.modalScrollTop <= 1 && reopenedMobileScroll.viewerScrollTop <= 1, "iPhone Safari uslubidagi qayta ochilishda detail avvalgi Xarid bo‘limidan boshlandi.");
   await mobile.getByRole("button", { name: "Barcha uskunalar" }).click();
   await mobileModal.waitFor({ state: "hidden" });
   await mobile.getByRole("button", { name: "Menyuni ochish" }).click();
@@ -177,6 +199,7 @@ try {
 
   await desktop.close();
   await mobile.close();
+  await iphoneContext.close();
   console.log("Qurilma tafsiloti, rasm shaffofligi, 16-bo‘limli o‘quv oqimi va mobil menyu muvaffaqiyatli tekshirildi.");
 } finally {
   await browser.close();

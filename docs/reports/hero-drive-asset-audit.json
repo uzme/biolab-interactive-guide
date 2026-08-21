@@ -1,0 +1,2325 @@
+{
+  "generatedAt": "2026-08-21T09:13:38.417Z",
+  "driveRemote": "manus_google_drive:Biotexnologiya yangi",
+  "readOnly": true,
+  "expectedBatchRange": "01–77",
+  "batchCount": 76,
+  "missingBatchNumbers": [
+    15
+  ],
+  "assetCount": 95,
+  "uniqueAssetCount": 85,
+  "missingAssetIds": [
+    "BIO-016",
+    "BIO-017",
+    "BIO-018",
+    "BIO-019",
+    "BIO-020",
+    "BIO-021",
+    "BIO-022",
+    "BIO-024",
+    "BIO-025",
+    "BIO-027",
+    "BIO-028",
+    "BIO-029",
+    "BIO-031",
+    "BIO-033",
+    "BIO-035"
+  ],
+  "duplicateAssetIds": [
+    "BIO-006",
+    "BIO-008",
+    "BIO-010",
+    "BIO-034",
+    "BIO-038",
+    "BIO-039",
+    "BIO-046",
+    "BIO-047",
+    "BIO-048",
+    "BIO-049"
+  ],
+  "assetOccurrences": {
+    "BIO-001": [
+      12
+    ],
+    "BIO-002": [
+      1
+    ],
+    "BIO-003": [
+      1
+    ],
+    "BIO-004": [
+      1
+    ],
+    "BIO-005": [
+      1
+    ],
+    "BIO-006": [
+      1,
+      6
+    ],
+    "BIO-007": [
+      2
+    ],
+    "BIO-008": [
+      2,
+      7
+    ],
+    "BIO-009": [
+      2
+    ],
+    "BIO-010": [
+      2,
+      8
+    ],
+    "BIO-011": [
+      2
+    ],
+    "BIO-012": [
+      3
+    ],
+    "BIO-013": [
+      3
+    ],
+    "BIO-014": [
+      3
+    ],
+    "BIO-015": [
+      3
+    ],
+    "BIO-023": [
+      4
+    ],
+    "BIO-026": [
+      4
+    ],
+    "BIO-030": [
+      4
+    ],
+    "BIO-032": [
+      4
+    ],
+    "BIO-034": [
+      4,
+      9
+    ],
+    "BIO-036": [
+      5
+    ],
+    "BIO-037": [
+      5
+    ],
+    "BIO-038": [
+      5,
+      10
+    ],
+    "BIO-039": [
+      5,
+      11
+    ],
+    "BIO-040": [
+      5
+    ],
+    "BIO-041": [
+      13
+    ],
+    "BIO-042": [
+      14
+    ],
+    "BIO-043": [
+      16
+    ],
+    "BIO-044": [
+      17
+    ],
+    "BIO-045": [
+      18
+    ],
+    "BIO-046": [
+      19,
+      24
+    ],
+    "BIO-047": [
+      20,
+      25
+    ],
+    "BIO-048": [
+      21,
+      26
+    ],
+    "BIO-049": [
+      22,
+      27
+    ],
+    "BIO-050": [
+      23
+    ],
+    "BIO-051": [
+      28
+    ],
+    "BIO-052": [
+      29
+    ],
+    "BIO-053": [
+      30
+    ],
+    "BIO-054": [
+      31
+    ],
+    "BIO-055": [
+      32
+    ],
+    "BIO-056": [
+      33
+    ],
+    "BIO-057": [
+      34
+    ],
+    "BIO-058": [
+      35
+    ],
+    "BIO-059": [
+      36
+    ],
+    "BIO-060": [
+      37
+    ],
+    "BIO-061": [
+      38
+    ],
+    "BIO-062": [
+      39
+    ],
+    "BIO-063": [
+      40
+    ],
+    "BIO-064": [
+      41
+    ],
+    "BIO-065": [
+      42
+    ],
+    "BIO-066": [
+      43
+    ],
+    "BIO-067": [
+      44
+    ],
+    "BIO-068": [
+      45
+    ],
+    "BIO-069": [
+      46
+    ],
+    "BIO-070": [
+      47
+    ],
+    "BIO-071": [
+      48
+    ],
+    "BIO-072": [
+      49
+    ],
+    "BIO-073": [
+      50
+    ],
+    "BIO-074": [
+      51
+    ],
+    "BIO-075": [
+      52
+    ],
+    "BIO-076": [
+      53
+    ],
+    "BIO-077": [
+      54
+    ],
+    "BIO-078": [
+      55
+    ],
+    "BIO-079": [
+      56
+    ],
+    "BIO-080": [
+      57
+    ],
+    "BIO-081": [
+      58
+    ],
+    "BIO-082": [
+      59
+    ],
+    "BIO-083": [
+      60
+    ],
+    "BIO-084": [
+      61
+    ],
+    "BIO-085": [
+      62
+    ],
+    "BIO-086": [
+      63
+    ],
+    "BIO-087": [
+      64
+    ],
+    "BIO-088": [
+      65
+    ],
+    "BIO-089": [
+      66
+    ],
+    "BIO-090": [
+      67
+    ],
+    "BIO-091": [
+      68
+    ],
+    "BIO-092": [
+      69
+    ],
+    "BIO-093": [
+      70
+    ],
+    "BIO-094": [
+      71
+    ],
+    "BIO-095": [
+      72
+    ],
+    "BIO-096": [
+      73
+    ],
+    "BIO-097": [
+      74
+    ],
+    "BIO-098": [
+      75
+    ],
+    "BIO-099": [
+      76
+    ],
+    "BIO-100": [
+      77
+    ]
+  },
+  "allZipIntegrityPassed": true,
+  "batches": [
+    {
+      "batch": 1,
+      "driveFileId": "1Gy0SAj7LSEzrr98aKEjij3bwIjRxh59B",
+      "name": "BioLab_hero_assets_batch_01.zip",
+      "modifiedTime": "2026-08-19T10:13:00.264Z",
+      "size": 1747937,
+      "sha256": "52c87473ce4853cf1ddc8f3918b1c6d8d12210263a0b55d1a1fa7996335e0f8b",
+      "members": [
+        "BIO-002.webp",
+        "BIO-003.webp",
+        "BIO-004.webp",
+        "BIO-005.webp",
+        "BIO-006.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-002.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-003.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-004.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-005.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-006.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 2,
+      "driveFileId": "1ixCL6MRMcqc9FuKcK7kdj1q3wz1rjO2Q",
+      "name": "BioLab_hero_assets_batch_02.zip",
+      "modifiedTime": "2026-08-19T10:14:48.746Z",
+      "size": 1932186,
+      "sha256": "636dea5bf50b1b87e5981a17b27fc0b9a212bbb34bdc1fd6463f5be23c91557a",
+      "members": [
+        "BIO-007.webp",
+        "BIO-008.webp",
+        "BIO-009.webp",
+        "BIO-010.webp",
+        "BIO-011.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-007.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-008.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-009.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-010.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-011.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 3,
+      "driveFileId": "1kGsgbI7Sx6mlieknT9J1Bb0MwmdgScKi",
+      "name": "BioLab_hero_assets_batch_03.zip",
+      "modifiedTime": "2026-08-19T10:16:25.366Z",
+      "size": 1393107,
+      "sha256": "2c7d8b5ed7e0a1b00376e7b05086370874a013557fc51bcd7e587284fa5f41b4",
+      "members": [
+        "BIO-012.webp",
+        "BIO-013.webp",
+        "BIO-014.webp",
+        "BIO-015.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-012.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-013.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-014.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-015.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 4,
+      "driveFileId": "11kwKy296M5bzq3YKhp_Ur0-WhRqlzWby",
+      "name": "BioLab_hero_assets_batch_04.zip",
+      "modifiedTime": "2026-08-20T05:18:51.925Z",
+      "size": 1845625,
+      "sha256": "1e8cb7c63c87a4adea561dc684abccc8157002e8f4aec04d6f5bf4c0dce7c8fa",
+      "members": [
+        "BIO-023.webp",
+        "BIO-026.webp",
+        "BIO-030.webp",
+        "BIO-032.webp",
+        "BIO-034.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-023.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-026.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-030.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-032.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-034.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 5,
+      "driveFileId": "15xiGZaF1XXBnLkZ7YFks296BByw7Juny",
+      "name": "BioLab_hero_assets_batch_05.zip",
+      "modifiedTime": "2026-08-20T05:21:35.507Z",
+      "size": 1843917,
+      "sha256": "f4c31355abb7621cbafaf4790260dee378f14b1c7961fa8623bdab20ceef4270",
+      "members": [
+        "BIO-036.webp",
+        "BIO-037.webp",
+        "BIO-038.webp",
+        "BIO-039.webp",
+        "BIO-040.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-036.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-037.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-038.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-039.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        },
+        {
+          "member": "BIO-040.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 6,
+      "driveFileId": "1_5MLUq1yU-tVYN5n9PSHMc1mayDNC0ZY",
+      "name": "BioLab_hero_assets_batch_06.zip",
+      "modifiedTime": "2026-08-20T09:08:46.464Z",
+      "size": 311621,
+      "sha256": "ae12c51c22cdbcbff88a521d94510f4c7d05ae5cc433458a11984f433723e87c",
+      "members": [
+        "BIO-006.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-006.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 7,
+      "driveFileId": "1YI6VStSTPGlEHFHIAJk2ur_d6pjsd2eI",
+      "name": "BioLab_hero_assets_batch_07.zip",
+      "modifiedTime": "2026-08-20T09:16:27.719Z",
+      "size": 354826,
+      "sha256": "ed1f36a9c688ba3afad3131fbc0b848477e8880c33f6aa6da8f6802e3bbe7d6f",
+      "members": [
+        "BIO-008.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-008.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 8,
+      "driveFileId": "1rNKJcZdWRn8jQCfc-tx4q4cbcB2HQ37T",
+      "name": "BioLab_hero_assets_batch_08.zip",
+      "modifiedTime": "2026-08-20T09:26:41.243Z",
+      "size": 304065,
+      "sha256": "df5b954e912f62af0551fc3bc2106d9cb2fa1de981aed43759c759f3851fca59",
+      "members": [
+        "BIO-010.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-010.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 9,
+      "driveFileId": "1B37BNFR09Kf1CbMQiEIcFvun7zeuu6Nc",
+      "name": "BioLab_hero_assets_batch_09.zip",
+      "modifiedTime": "2026-08-20T09:42:28.708Z",
+      "size": 393961,
+      "sha256": "545316f149d72745c1980e75ce8f76346f2fa4a7bbaf8f0eca9aed687545fc19",
+      "members": [
+        "BIO-034.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-034.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 10,
+      "driveFileId": "1htgmByFVf3unokxCI-JYuoiSTAE8uWn2",
+      "name": "BioLab_hero_assets_batch_10.zip",
+      "modifiedTime": "2026-08-20T09:48:13.672Z",
+      "size": 429481,
+      "sha256": "310b4f4e0cc650c32e0505c8a71554089485d1b98c5fe1021f708770fd934f53",
+      "members": [
+        "BIO-038.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-038.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 11,
+      "driveFileId": "1lRaKaeihd70rjkvxqOb6aWeK_bTmDYPd",
+      "name": "BioLab_hero_assets_batch_11.zip",
+      "modifiedTime": "2026-08-20T10:00:55.405Z",
+      "size": 446162,
+      "sha256": "35aa05ab4ea725dc6cc0c134f82e49b771dd12c511df11a7e8a99dc6f9c25f18",
+      "members": [
+        "BIO-039.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-039.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 12,
+      "driveFileId": "1z7M5gBts8MKwN8U8A5mpS2Qdo6gNtqDd",
+      "name": "BioLab_hero_assets_batch_12.zip",
+      "modifiedTime": "2026-08-20T10:12:55.676Z",
+      "size": 448450,
+      "sha256": "9c1499130e2aef56651d7b921db6ca4f9a96394b9e5bf72b8396c34179805b5d",
+      "members": [
+        "BIO-001.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-001.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 13,
+      "driveFileId": "1M36q6bPdK87rTCtuIirV7LIUJUkr2v_4",
+      "name": "BioLab_hero_assets_batch_13.zip",
+      "modifiedTime": "2026-08-20T10:50:42.598Z",
+      "size": 430651,
+      "sha256": "9dca02e62b7b334f8effad079526b201dd9bbc4e406c166242cddef7cc5d9b2c",
+      "members": [
+        "BIO-041.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-041.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 14,
+      "driveFileId": "13TGlu-uJ-BkRRGX5TmXbtSI4XSKXUGJj",
+      "name": "BioLab_hero_assets_batch_14.zip",
+      "modifiedTime": "2026-08-20T10:39:20.132Z",
+      "size": 451270,
+      "sha256": "adc3adc11a5fa32b9a75707776f43aae2798deccc03e0c59576f3536af774f05",
+      "members": [
+        "BIO-042.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-042.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 16,
+      "driveFileId": "1muBF_qcrZCioPnSpGGgT995lMfFXG7J5",
+      "name": "BioLab_hero_assets_batch_16.zip",
+      "modifiedTime": "2026-08-20T10:57:35.026Z",
+      "size": 461163,
+      "sha256": "47246047dbc4dd04c3e82240029ced12367617c1b1cefb14238e4141a5a28eaa",
+      "members": [
+        "BIO-043.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-043.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 17,
+      "driveFileId": "1josX6ASJYDFZFgbgDtf9_MNWCT77A1Jl",
+      "name": "BioLab_hero_assets_batch_17.zip",
+      "modifiedTime": "2026-08-20T11:03:15.278Z",
+      "size": 400545,
+      "sha256": "b7ede06c5c652dabe38f5d6f304b48df1ba29e1de647b007fbc6c8c048bb22ad",
+      "members": [
+        "BIO-044.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-044.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 18,
+      "driveFileId": "1YyNKKQbaOniroXDwKiiMPn7jZhuDr3Rt",
+      "name": "BioLab_hero_assets_batch_18.zip",
+      "modifiedTime": "2026-08-20T11:08:15.245Z",
+      "size": 402327,
+      "sha256": "130f76581476d7a3d11ca87229b5cdc670c30a510b49a1f37bff05c9adc435e7",
+      "members": [
+        "BIO-045.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-045.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 19,
+      "driveFileId": "1WmVuuKdUuV6HCa1nDmqpUkaCgAdDQM5O",
+      "name": "BioLab_hero_assets_batch_19.zip",
+      "modifiedTime": "2026-08-20T11:12:46.403Z",
+      "size": 484368,
+      "sha256": "57790669c694357108569c33ecc8b4e7c01e3ac5a6e6e11a19452957311b22cb",
+      "members": [
+        "BIO-046.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-046.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 20,
+      "driveFileId": "1dmw2svgHoUpHl-_lIymAeqxLRfYd_Mz-",
+      "name": "BioLab_hero_assets_batch_20.zip",
+      "modifiedTime": "2026-08-20T11:32:05.610Z",
+      "size": 421558,
+      "sha256": "e130c3d968952f2e31f48e2163ab2987d1bea7383b4004a4c83190cb26e7780f",
+      "members": [
+        "BIO-047.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-047.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 21,
+      "driveFileId": "1x56lZY8dxtKl9tV5qQjf_oIWAe4AbQR2",
+      "name": "BioLab_hero_assets_batch_21.zip",
+      "modifiedTime": "2026-08-20T11:42:37.897Z",
+      "size": 453102,
+      "sha256": "2f9094087f893495d99e9d1663c7957e782d495f1a88d36d3605166c1d80be1b",
+      "members": [
+        "BIO-048.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-048.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 22,
+      "driveFileId": "17da4AH_le2J4PuL29Tm2XAG1mY5dsWRg",
+      "name": "BioLab_hero_assets_batch_22.zip",
+      "modifiedTime": "2026-08-20T11:56:32.294Z",
+      "size": 284562,
+      "sha256": "9837bc889926c488023fb63f80baf9d4444a34c6a29b1aaf8867062dc8e33dc6",
+      "members": [
+        "BIO-049.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-049.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 23,
+      "driveFileId": "1qjh7JzA0EWGXe51E_IMkqAPoKCzfBVP9",
+      "name": "BioLab_hero_assets_batch_23.zip",
+      "modifiedTime": "2026-08-20T12:00:04.312Z",
+      "size": 360758,
+      "sha256": "ef2fcf66dceec26dd43c18b2a47a3a97de71fe9d9d0aeefa8df6655d435e4d1c",
+      "members": [
+        "BIO-050.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-050.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 24,
+      "driveFileId": "1s0VXoxXL9lOG84yV2cZc84uok464Ydo0",
+      "name": "BioLab_hero_assets_batch_24.zip",
+      "modifiedTime": "2026-08-20T12:16:15.632Z",
+      "size": 341845,
+      "sha256": "89fd0b7291f566e46cedeaad33083d15cebb38e0dffedc057af90a0e052ff74b",
+      "members": [
+        "BIO-046.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-046.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 25,
+      "driveFileId": "14gUbu9T4YXTn5rMZSXXrLAdGGxHZRdzP",
+      "name": "BioLab_hero_assets_batch_25.zip",
+      "modifiedTime": "2026-08-20T12:19:43.889Z",
+      "size": 409353,
+      "sha256": "58770fd2791cc0c6c14ec16b52eec7dd7461d68eb7d0f9529bd362e625dd98ba",
+      "members": [
+        "BIO-047.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-047.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 26,
+      "driveFileId": "1ESQ69PjEMiT0PLBdCcDRaaVeSKRvVXEH",
+      "name": "BioLab_hero_assets_batch_26.zip",
+      "modifiedTime": "2026-08-20T12:23:30.684Z",
+      "size": 393194,
+      "sha256": "829f08ab109d6ccb41e58757c1527f8c0a84e22c033aacfc2679c0fd05c627cd",
+      "members": [
+        "BIO-048.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-048.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 27,
+      "driveFileId": "11cYawJvLI_TmMwXeunuRHW391M9GB03V",
+      "name": "BioLab_hero_assets_batch_27.zip",
+      "modifiedTime": "2026-08-20T12:34:39.834Z",
+      "size": 362609,
+      "sha256": "9fdea5bedf493c4db23606b9a61b690be6e6f7b9257bc0d50afaa47c458a476b",
+      "members": [
+        "BIO-049.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-049.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 28,
+      "driveFileId": "1bRyEw_oJq1vnoociVnw3KHhvqfICb_Hd",
+      "name": "BioLab_hero_assets_batch_28.zip",
+      "modifiedTime": "2026-08-20T12:38:57.233Z",
+      "size": 226106,
+      "sha256": "9d53b2339b2b45c8bff827e9befc9949034c476755d59facee760bfba7549239",
+      "members": [
+        "BIO-051.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-051.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 29,
+      "driveFileId": "1YpRYrw7kHxwFiNXQ09YL3zj_E7ujQ3oN",
+      "name": "BioLab_hero_assets_batch_29.zip",
+      "modifiedTime": "2026-08-20T12:41:47.937Z",
+      "size": 337467,
+      "sha256": "19ae65307202cbee2f188b25c87b631aae821b069ca4804a3d71108ecf0bd555",
+      "members": [
+        "BIO-052.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-052.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 30,
+      "driveFileId": "1rWTEtIIJYhWIPaLa7qKAtzjWE_6VcwH6",
+      "name": "BioLab_hero_assets_batch_30.zip",
+      "modifiedTime": "2026-08-20T12:45:04.169Z",
+      "size": 302603,
+      "sha256": "7383b9686a02602fbcabfbcdaac62a4e483968057546320bff44cc3bf05cd6d2",
+      "members": [
+        "BIO-053.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-053.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 31,
+      "driveFileId": "1ztLvY57MtY5mBH5GM7WvMRqSEJOTGQbl",
+      "name": "BioLab_hero_assets_batch_31.zip",
+      "modifiedTime": "2026-08-20T13:30:22.614Z",
+      "size": 363751,
+      "sha256": "364f361675767107ae18a5b2895b10804a9c1b689353ded56f6c93428ca41e89",
+      "members": [
+        "BIO-054.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-054.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 32,
+      "driveFileId": "1Lfrl0H-wCj9YPmaKpIBpiG_VXFrH5a_3",
+      "name": "BioLab_hero_assets_batch_32.zip",
+      "modifiedTime": "2026-08-20T13:33:51.338Z",
+      "size": 425668,
+      "sha256": "4cb2dcb82b90749174c79dbc2917de119d21284349e9c68c68a1d929e3fb8ffb",
+      "members": [
+        "BIO-055.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-055.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 33,
+      "driveFileId": "1YKfAHZgesuLiNhKThCZHSniQzyMqoMBW",
+      "name": "BioLab_hero_assets_batch_33.zip",
+      "modifiedTime": "2026-08-20T13:38:24.957Z",
+      "size": 352508,
+      "sha256": "93fca391aecf6e6e7721d06a851d5f3aaee43a5b28e8a69d5e7d6202f83fbe81",
+      "members": [
+        "BIO-056.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-056.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 34,
+      "driveFileId": "1X3J1ZxE0JDCbfFqbvfEX3qSdBS3EFbjL",
+      "name": "BioLab_hero_assets_batch_34.zip",
+      "modifiedTime": "2026-08-20T13:41:08.746Z",
+      "size": 299221,
+      "sha256": "1f3112826271227adae11e8f791773eddce3e6953a5c90bd0097ba409d8863a3",
+      "members": [
+        "BIO-057.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-057.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 35,
+      "driveFileId": "1xC1qmYQwJffa34aRx4mes51zyYVjKO5K",
+      "name": "BioLab_hero_assets_batch_35.zip",
+      "modifiedTime": "2026-08-20T13:44:20.720Z",
+      "size": 406869,
+      "sha256": "a7a0f5b69ceaa482becf2e59f693c00758a36d8b9643919f85cec534c6e6e297",
+      "members": [
+        "BIO-058.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-058.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 36,
+      "driveFileId": "1MEaYYC9hsxUYp-0U4bKQK1afEoudwZQ0",
+      "name": "BioLab_hero_assets_batch_36.zip",
+      "modifiedTime": "2026-08-20T13:47:14.126Z",
+      "size": 351002,
+      "sha256": "cbc171018e87d66ee88f82266dcc9744229eec2ad9ca18d85702d441e118cc30",
+      "members": [
+        "BIO-059.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-059.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 37,
+      "driveFileId": "1QxXbkU6RZ-YF1ofb_lLRdv490EH5tgO1",
+      "name": "BioLab_hero_assets_batch_37.zip",
+      "modifiedTime": "2026-08-20T13:50:16.504Z",
+      "size": 331885,
+      "sha256": "08335a84678e13b8819a6c2fa2a6d6de86ab5f035ed0a1cb0ae6055c8e4d30c0",
+      "members": [
+        "BIO-060.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-060.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 38,
+      "driveFileId": "1UjuNnIsEPPLcGO_DbByslnwo90KpdiBB",
+      "name": "BioLab_hero_assets_batch_38.zip",
+      "modifiedTime": "2026-08-20T14:01:23.287Z",
+      "size": 304075,
+      "sha256": "d388ef6cb322aaf3a291f84fce3550ba350a2253ef1ab0eb7cfa95f328b55b36",
+      "members": [
+        "BIO-061.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-061.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 39,
+      "driveFileId": "1sOHEEJhr89GRTlVdvumzwRUhZ3EOf4PN",
+      "name": "BioLab_hero_assets_batch_39.zip",
+      "modifiedTime": "2026-08-20T14:08:07.490Z",
+      "size": 287412,
+      "sha256": "bbefad454bcd1b7420ac85bbec3cf42badb60a87e15cc52bfbe79d513a9d4bc9",
+      "members": [
+        "BIO-062.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-062.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 40,
+      "driveFileId": "1GE-GUputYU7uo2Du4aQynoxLH5sKQejy",
+      "name": "BioLab_hero_assets_batch_40.zip",
+      "modifiedTime": "2026-08-20T14:13:33.907Z",
+      "size": 281220,
+      "sha256": "dfd25e6e59083513676770ebe138829e7aa31858bdaf341a7a2f3e4d19af3417",
+      "members": [
+        "BIO-063.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-063.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 41,
+      "driveFileId": "1a8dz-LJkGCre6aa2G-xrb0RAuUGpEIKi",
+      "name": "BioLab_hero_assets_batch_41.zip",
+      "modifiedTime": "2026-08-20T14:39:45.753Z",
+      "size": 317530,
+      "sha256": "39c4f271be3a532ba0d27a2433862f5e49143ef5fcb73d209d1f435b28c79936",
+      "members": [
+        "BIO-064.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-064.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 42,
+      "driveFileId": "1y0TvlnmdzHZbTUP6H0t--a6BGBkY09Ix",
+      "name": "BioLab_hero_assets_batch_42.zip",
+      "modifiedTime": "2026-08-20T14:44:44.792Z",
+      "size": 321990,
+      "sha256": "1fe912589fef0a9bb76e1ec87a43f33e6ac29c73bbe4eaadd563480f53e6d585",
+      "members": [
+        "BIO-065.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-065.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 43,
+      "driveFileId": "11V8fsWa0zLFZVeHeCJRZj_vKwtN36pc_",
+      "name": "BioLab_hero_assets_batch_43.zip",
+      "modifiedTime": "2026-08-20T14:49:01.477Z",
+      "size": 267745,
+      "sha256": "56aef61efb25de49f958577e6315ee47bf786829436bd90ea22fb4a0de3442eb",
+      "members": [
+        "BIO-066.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-066.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 44,
+      "driveFileId": "1HDabkDsXhfb0n4Arur5MpjyO4ntZyfU2",
+      "name": "BioLab_hero_assets_batch_44.zip",
+      "modifiedTime": "2026-08-20T14:55:41.869Z",
+      "size": 302749,
+      "sha256": "7e8b7c3a696764aa015bb181cc3752bd6d3da4d0d856bcd675a4ef643c5ef950",
+      "members": [
+        "BIO-067.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-067.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 45,
+      "driveFileId": "13tdvmrvJd9jUuZHDGH9WkwzG0Bm6VfQy",
+      "name": "BioLab_hero_assets_batch_45.zip",
+      "modifiedTime": "2026-08-20T14:59:17.829Z",
+      "size": 274067,
+      "sha256": "f00093985b1da59e82f64f17d6b9a596991b235bb0f4d495ba3dc8fcb7233165",
+      "members": [
+        "BIO-068.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-068.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 46,
+      "driveFileId": "1k-skfnF05i1tjwx5q7E6XatEldvXkfpe",
+      "name": "BioLab_hero_assets_batch_46.zip",
+      "modifiedTime": "2026-08-20T15:06:17.102Z",
+      "size": 228030,
+      "sha256": "66ef710b19f42d8d95809f04df26b2854e3c3b41f60f0fb99f75813de05f64be",
+      "members": [
+        "BIO-069.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-069.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 47,
+      "driveFileId": "1EFCjNx4dSjaj1OoaEM3W9mmVv73FIuBO",
+      "name": "BioLab_hero_assets_batch_47.zip",
+      "modifiedTime": "2026-08-20T15:12:41.130Z",
+      "size": 260832,
+      "sha256": "945094c470d45545c27eb888039b5b6c885f8cbdcd92cfd394dcaecc3ee82d64",
+      "members": [
+        "BIO-070.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-070.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 48,
+      "driveFileId": "1UJyVmKfj8GvB5XVzQJanRmIjEIPO7EUx",
+      "name": "BioLab_hero_assets_batch_48.zip",
+      "modifiedTime": "2026-08-21T04:51:31.196Z",
+      "size": 485338,
+      "sha256": "3091ecad0545dfea9a369968a6c2cafea4efc5ff9051c178d8e6c7d8bd566b91",
+      "members": [
+        "BIO-071.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-071.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 49,
+      "driveFileId": "1JmgYrKA7CzDcuEfVLZEQq7LP62N8cN8L",
+      "name": "BioLab_hero_assets_batch_49.zip",
+      "modifiedTime": "2026-08-21T04:54:21.776Z",
+      "size": 538491,
+      "sha256": "d14098aa3683069564cb4a5fa66675e5b301f5c7c3592759df5da22d02bfb616",
+      "members": [
+        "BIO-072.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-072.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 50,
+      "driveFileId": "1Vv9ywh-keDxLVjooQNEcuiL9XHLBvjuE",
+      "name": "BioLab_hero_assets_batch_50.zip",
+      "modifiedTime": "2026-08-21T04:57:20.474Z",
+      "size": 663433,
+      "sha256": "0dac52db0076d6baacde600458820d03e9080a00617f77bccdcd7a50648a96ca",
+      "members": [
+        "BIO-073.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-073.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 51,
+      "driveFileId": "1Rrx_U4u6iBw0kHmcfggzzH_1AlxU9hNi",
+      "name": "BioLab_hero_assets_batch_51.zip",
+      "modifiedTime": "2026-08-21T05:03:20.618Z",
+      "size": 514696,
+      "sha256": "a49ea7557e5a588891eb4d1b2937a547185a806d38ddeb90796b69d73e7da02b",
+      "members": [
+        "BIO-074.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-074.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 52,
+      "driveFileId": "1isSanu2JsF2V3n6Mj4ubRljaZln01vbW",
+      "name": "BioLab_hero_assets_batch_52.zip",
+      "modifiedTime": "2026-08-21T05:05:57.806Z",
+      "size": 458382,
+      "sha256": "4477c6bf411777b2d1b984d2d9af23af9e870407ccb577543611bc4623be83f1",
+      "members": [
+        "BIO-075.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-075.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 53,
+      "driveFileId": "1WQzGnQRKIVn31sAoZPorMxCTgPAslitL",
+      "name": "BioLab_hero_assets_batch_53.zip",
+      "modifiedTime": "2026-08-21T05:09:10.542Z",
+      "size": 534547,
+      "sha256": "57ad15b7c1c840a5edf4677eea820870eda330718551f744d0119d19ef7de39a",
+      "members": [
+        "BIO-076.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-076.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 54,
+      "driveFileId": "1-Goqh8MTNcIYDwo60Tt8A3aHTAbC0TsD",
+      "name": "BioLab_hero_assets_batch_54.zip",
+      "modifiedTime": "2026-08-21T05:11:45.858Z",
+      "size": 454944,
+      "sha256": "8bc967ab42aafc1933b2927f32a1b560d3d2a3f716fcc453bd0291ad68240a52",
+      "members": [
+        "BIO-077.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-077.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 55,
+      "driveFileId": "1ad-wr5DqAAa8F0rwOxjcFR9JmqBtUDRJ",
+      "name": "BioLab_hero_assets_batch_55.zip",
+      "modifiedTime": "2026-08-21T05:14:28.309Z",
+      "size": 485996,
+      "sha256": "9ed0be1632e854814ffb3fbf439bea99ac344a281f311184ae08dc9fb956619e",
+      "members": [
+        "BIO-078.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-078.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 56,
+      "driveFileId": "1B-nb2WyWC3apYn4K1tQpj9DFyl7Kqa7q",
+      "name": "BioLab_hero_assets_batch_56.zip",
+      "modifiedTime": "2026-08-21T05:17:02.481Z",
+      "size": 490012,
+      "sha256": "93d35636870f5a2fc924ce48ac0dea674ecd1a0c4e1d5bd0f79354f274a2da4f",
+      "members": [
+        "BIO-079.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-079.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 57,
+      "driveFileId": "1Mquiqi_IlSGEoSv1BBvLHi5YP0HzQwbW",
+      "name": "BioLab_hero_assets_batch_57.zip",
+      "modifiedTime": "2026-08-21T05:25:24.040Z",
+      "size": 411644,
+      "sha256": "3bbfdda6cf206cfd5f3256498c1fea372a5b757ffbeea310894e6e1d32af00d2",
+      "members": [
+        "BIO-080.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-080.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 58,
+      "driveFileId": "18cteduqfXFd9HeU-MRrlhgESOWP4TOuM",
+      "name": "BioLab_hero_assets_batch_58.zip",
+      "modifiedTime": "2026-08-21T05:28:35.405Z",
+      "size": 457936,
+      "sha256": "d4ea27c25c140c0492242df28f172a720c89eec33b804a34fc97016ca49f578f",
+      "members": [
+        "BIO-081.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-081.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 59,
+      "driveFileId": "1uxrchHiqEmZQ_un67ufY96bNKecCbFYh",
+      "name": "BioLab_hero_assets_batch_59.zip",
+      "modifiedTime": "2026-08-21T05:33:53.256Z",
+      "size": 536155,
+      "sha256": "07866bedc2a12919d37b4e299a7a33075bbfa78fc6433af785a1f8f81184a2ed",
+      "members": [
+        "BIO-082.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-082.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 60,
+      "driveFileId": "1Bu3DfM7mPN6V43mQz15S446XwpGjYn0o",
+      "name": "BioLab_hero_assets_batch_60.zip",
+      "modifiedTime": "2026-08-21T05:39:17.993Z",
+      "size": 416138,
+      "sha256": "5836cbd97dd78895422bf4d2354d3472d869e78541419587569fe8685a3ed6e0",
+      "members": [
+        "BIO-083.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-083.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 61,
+      "driveFileId": "1idmJ8Fy_cBrxoiwzFG9OcM55IxFavzYf",
+      "name": "BioLab_hero_assets_batch_61.zip",
+      "modifiedTime": "2026-08-21T05:41:32.827Z",
+      "size": 515870,
+      "sha256": "7e27a279fbefcef5ba854acdd7b33975d801db23e4972b7e5023d65bd9bba272",
+      "members": [
+        "BIO-084.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-084.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 62,
+      "driveFileId": "1eYE3aHVfMQ7EFubRP7CGySW0nxLbxqux",
+      "name": "BioLab_hero_assets_batch_62.zip",
+      "modifiedTime": "2026-08-21T05:44:24.358Z",
+      "size": 356948,
+      "sha256": "9f9187f67064c8446e8a24a954485af2e8b7766abcaeb73a33b09938b8b15b92",
+      "members": [
+        "BIO-085.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-085.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 63,
+      "driveFileId": "1D9Di-hMexs6UZ5e62dqBZNh-n7VvOstY",
+      "name": "BioLab_hero_assets_batch_63.zip",
+      "modifiedTime": "2026-08-21T05:47:23.903Z",
+      "size": 434587,
+      "sha256": "fe7d8796a07f6d88441e2343efe47483b4fe8cd147851c661a7b76c0002af0c0",
+      "members": [
+        "BIO-086.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-086.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 64,
+      "driveFileId": "1moO383sEdJX6eO1ZOgpQG2eSYF-cS6nE",
+      "name": "BioLab_hero_assets_batch_64.zip",
+      "modifiedTime": "2026-08-21T05:50:13.434Z",
+      "size": 550070,
+      "sha256": "3c656ffdad124d05d33bfa4bf67801482517d224221a0e2c1c3b5be3c6c58e3e",
+      "members": [
+        "BIO-087.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-087.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 65,
+      "driveFileId": "12PEN1ZNmDyrmubwxbD5bTQLVPcon6P8p",
+      "name": "BioLab_hero_assets_batch_65.zip",
+      "modifiedTime": "2026-08-21T05:51:42.815Z",
+      "size": 515436,
+      "sha256": "a93daf11304acdb25be670d0135f143959edb28bdefa995c8218ddc1bc1b7503",
+      "members": [
+        "BIO-088.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-088.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 66,
+      "driveFileId": "1IizUShnfXBnqTGiNbAUxBkWCEmJKnmMk",
+      "name": "BioLab_hero_assets_batch_66.zip",
+      "modifiedTime": "2026-08-21T05:53:10.498Z",
+      "size": 523736,
+      "sha256": "56e51dc738dbd26f4c5c85dc5cb9040ddb469e5cddcda2f021cc1ceeb428bd93",
+      "members": [
+        "BIO-089.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-089.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 67,
+      "driveFileId": "17rZloSoUZw-rSydjsk5eKuer_hdOViNi",
+      "name": "BioLab_hero_assets_batch_67.zip",
+      "modifiedTime": "2026-08-21T05:54:47.562Z",
+      "size": 335549,
+      "sha256": "a0e664309dd90997410cbcd52cae4d18f877170972747bdbbcbc6fee9d9c2cd4",
+      "members": [
+        "BIO-090.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-090.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 68,
+      "driveFileId": "1mpUYI5CRtWgQ_Gl51nNvZ2TkIbb0FwDZ",
+      "name": "BioLab_hero_assets_batch_68.zip",
+      "modifiedTime": "2026-08-21T06:18:49.772Z",
+      "size": 268851,
+      "sha256": "04c1bc9e1cce7e8337c45747e27206d9a339398d95e28349e5df52dceb41412a",
+      "members": [
+        "BIO-091.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-091.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 69,
+      "driveFileId": "1GgUMRTFIPSrWIBl-Z4wmlzLWDEeu7XTz",
+      "name": "BioLab_hero_assets_batch_69.zip",
+      "modifiedTime": "2026-08-21T06:26:54.069Z",
+      "size": 280370,
+      "sha256": "c88b233213a93541a89b89d6478d03365029b48ff38277723acdc767748090cc",
+      "members": [
+        "BIO-092.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-092.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 70,
+      "driveFileId": "1N_X36NVCtcC-lMbftMIJwZONO562Zy8y",
+      "name": "BioLab_hero_assets_batch_70.zip",
+      "modifiedTime": "2026-08-21T06:31:30.041Z",
+      "size": 211979,
+      "sha256": "031ec2e284b1c647ee4cfbb4b509bbdea2b39b5c8dd0112b2941a5a36069b5a9",
+      "members": [
+        "BIO-093.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-093.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 71,
+      "driveFileId": "1ewOxLHoSWTFSZZxdzcWzvxAnXZYP64Yy",
+      "name": "BioLab_hero_assets_batch_71.zip",
+      "modifiedTime": "2026-08-21T06:38:10.466Z",
+      "size": 242481,
+      "sha256": "621e05490b30f97bea11a90c64b7cc33697069350306c2e0ba0a1ce184a2b3e6",
+      "members": [
+        "BIO-094.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-094.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 72,
+      "driveFileId": "1-CtZTZha6zWc40c6SULYhQLDVg6CmHP5",
+      "name": "BioLab_hero_assets_batch_72.zip",
+      "modifiedTime": "2026-08-21T06:43:02.340Z",
+      "size": 261056,
+      "sha256": "b298533751b515822ba3d65f6964f9a4540f18b18e91694d2951dfff546508b5",
+      "members": [
+        "BIO-095.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-095.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 73,
+      "driveFileId": "1WzesZIeg35lRHZ9NJ4nUBK5Z71PvRw-R",
+      "name": "BioLab_hero_assets_batch_73.zip",
+      "modifiedTime": "2026-08-21T06:50:41.447Z",
+      "size": 276971,
+      "sha256": "5ec848160476c6d9687083882b2dcf62cd521cb9b239b4adeac7fe5fdf1f7bd8",
+      "members": [
+        "BIO-096.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-096.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 74,
+      "driveFileId": "1HEMJsdVClqRKWJKww25c16aBCyzbxJNL",
+      "name": "BioLab_hero_assets_batch_74.zip",
+      "modifiedTime": "2026-08-21T06:54:13.774Z",
+      "size": 237643,
+      "sha256": "66dfd818933b08aa3adea4196a7437d355c6d0c1fd1f01c88bf56ae41bc84577",
+      "members": [
+        "BIO-097.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-097.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 75,
+      "driveFileId": "12iysN5gS7YqD9EUviEeS8rl8ZFs2lOx1",
+      "name": "BioLab_hero_assets_batch_75.zip",
+      "modifiedTime": "2026-08-21T07:12:28.809Z",
+      "size": 244941,
+      "sha256": "227d2170f7fb5136b15a00110f548b8837640eb873b0a01b9e0329dccf50f372",
+      "members": [
+        "BIO-098.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-098.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 76,
+      "driveFileId": "1sFoF_FbXBiqYTbYGQHaXrqjjCfHW2Icx",
+      "name": "BioLab_hero_assets_batch_76.zip",
+      "modifiedTime": "2026-08-21T07:16:44.916Z",
+      "size": 262180,
+      "sha256": "8571acbb721a78d3b8f01a15f6af218e443c17837ad32df2fa500f85c54d2151",
+      "members": [
+        "BIO-099.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-099.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    },
+    {
+      "batch": 77,
+      "driveFileId": "1hc9ubdwToueFHzelPSpZSWqxgipHdxOA",
+      "name": "BioLab_hero_assets_batch_77.zip",
+      "modifiedTime": "2026-08-21T07:19:36.997Z",
+      "size": 292832,
+      "sha256": "92fb0f0fbf92c4a8de53d71d44848a6a1f992e00ac8d6b1ad1edaf98729c8dcf",
+      "members": [
+        "BIO-100.webp"
+      ],
+      "assets": [
+        {
+          "member": "BIO-100.webp",
+          "validName": true,
+          "dimensions": {
+            "width": 2560,
+            "height": 1440
+          },
+          "validDimensions": true
+        }
+      ],
+      "noUnexpectedFiles": true,
+      "zipPass": true
+    }
+  ]
+}

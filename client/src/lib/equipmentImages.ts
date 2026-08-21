@@ -1,3 +1,5 @@
+import { auditedHeroImageUrls } from "./auditedHeroImageUrls";
+
 // BioLab image registry — realistik AI assets are linked to the canonical equipment id.
 // 3D/2D visualizers are intentionally not used; these images provide a readable study-page header.
 export type EquipmentImage = {
@@ -6,34 +8,34 @@ export type EquipmentImage = {
   sourceType: "ai-representative" | "official";
 };
 
-export const equipmentImages: Record<string, EquipmentImage> = {
+const baseEquipmentImages: Record<string, EquipmentImage> = {
   "BIO-001": {
-    url: "/images/biolab-catalog-hero_fallback.webp",
+    url: "/manus-storage/biolab-equipment-001-pcr_c5953119.jpg",
     alt: "PCR termotsiklerining laboratoriya-realistik ko‘rinishi",
     sourceType: "ai-representative",
   },
   "BIO-002": {
-    url: "/images/biolab-catalog-hero_fallback.webp",
+    url: "/manus-storage/biolab-equipment-002-hero_3dfe5ee9.webp",
     alt: "Bug‘li sterilizator — avtoklavning laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-003": {
-    url: "/images/biolab-catalog-hero_fallback.webp",
+    url: "/manus-storage/biolab-equipment-003-hero_f8dbd003.webp",
     alt: "II-sinf biologik xavfsizlik shkafining laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-004": {
-    url: "/images/biolab-catalog-hero_fallback.webp",
+    url: "/manus-storage/biolab-equipment-004-hero_c5b21e98.webp",
     alt: "Sovutiladigan laboratoriya sentrifugasining laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-005": {
-    url: "/images/biolab-catalog-hero_fallback.webp",
+    url: "/manus-storage/biolab-equipment-005-hero_c27144b5.webp",
     alt: "Mikrohajmli UV-Vis spektrofotometrning laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-006": {
-    url: "/images/biolab-catalog-hero_fallback.webp",
+    url: "/manus-storage/biolab-equipment-006_5decbb4b.webp",
     alt: "Gaz xromatografining laboratoriya-realistik ko‘rinishi",
     sourceType: "ai-representative",
   },
@@ -507,4 +509,17 @@ export const equipmentImages: Record<string, EquipmentImage> = {
     alt: "BioSurface Technologies CDC biofilm reaktorining mahsulot rasmi",
     sourceType: "official",
   },
+};
+
+// Drive auditidan o'tgan 84 ta WebP hero URL avvalgi rasmiysifat metadata sini
+// almashtiradi. Alt matn mavjud qurilma nomi va tavsifini saqlaydi; manba turi
+// esa foydalanuvchi ko'radigan shaffoflik blokida AI-representative bo'lib chiqadi.
+export const equipmentImages: Record<string, EquipmentImage> = {
+  ...baseEquipmentImages,
+  ...Object.fromEntries(
+    Object.entries(auditedHeroImageUrls).map(([id, url]) => [
+      id,
+      { ...baseEquipmentImages[id], url, sourceType: "ai-representative" as const },
+    ]),
+  ),
 };

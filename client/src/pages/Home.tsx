@@ -95,18 +95,6 @@ export default function Home() {
       devices: orderedFiltered.filter((device) => device.category === category),
     })).filter((group) => group.devices.length > 0);
   }, [hasActiveFilters, orderedFiltered]);
-  const imagePriorityIndexByDeviceId = useMemo(() => {
-    const priorityIndexes = new Map<string, number>();
-    let imageIndex = 0;
-    orderedFiltered.forEach((device) => {
-      const imageKey = `BIO-${String(device.number).padStart(3, "0")}`;
-      if (equipmentImages[imageKey]?.url) {
-        priorityIndexes.set(device.id, imageIndex);
-        imageIndex += 1;
-      }
-    });
-    return priorityIndexes;
-  }, [orderedFiltered]);
   const nextImageUrls = useMemo(() => orderedFiltered.slice(0, 8)
     .map((device) => equipmentImages[`BIO-${String(device.number).padStart(3, "0")}`]?.url)
     .filter((url): url is string => Boolean(url)), [orderedFiltered]);
@@ -256,7 +244,7 @@ export default function Home() {
         </section>
 
         <section className="mt-8" aria-live="polite"><div className="mb-4 flex items-center justify-between gap-3"><div><div className="eyebrow mb-1">LAB-01 / REKORD OQIMI</div><h2 className="display text-2xl font-bold text-[#173d42]">{activeCategory}</h2><p className="mt-1 text-sm text-[#78908c]">{filtered.length} ta qurilma topildi{hasActiveFilters ? " — faol filtrlar qo‘llanilgan" : ""}</p></div>{hasActiveFilters && <button onClick={clearFilters} className="text-xs font-bold text-[#0d7774] hover:underline">Barcha filtrlarni tozalash</button>}</div>
-          {filtered.length > 0 ? <div className="space-y-9">{visibleCategoryGroups.map((group, groupIndex) => { const Icon = categoryIcons[group.category] || Beaker; return <section key={group.category} className="relative"><div className="module-header mb-4 flex items-end justify-between gap-4 border-y border-[#c9ddd6] bg-[#f1f8f5] px-4 py-3"><div className="flex min-w-0 items-center gap-3"><div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-[#b8d8ce] bg-white text-[#0b7772]"><Icon size={18} /></div><div><div className="tech-label text-[#0b7772]">MODUL {String(groupIndex + 1).padStart(2, "0")} / SOP KATALOGI</div><h3 className="display truncate text-xl font-bold tracking-[-0.035em] text-[#173d42]">{group.category}</h3></div></div><div className="hidden rounded-full border border-[#b8d8ce] bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#537972] sm:block">{group.devices.length} rekord</div></div><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{group.devices.map((device) => <EquipmentCard key={device.id} device={device} index={orderedFiltered.indexOf(device)} imagePriorityIndex={imagePriorityIndexByDeviceId.get(device.id)} onOpen={setSelectedDevice} isBookmarked={isBookmarked(device.id)} onToggleBookmark={toggleBookmark} />)}</div></section>; })}</div> : <div className="rounded-[22px] border border-dashed border-[#b9d8cd] bg-[#ffffff] px-6 py-16 text-center"><Search size={28} className="mx-auto mb-4 text-[#70a298]" /><h3 className="display text-2xl font-bold">Qurilma topilmadi</h3><p className="mt-2 text-sm text-[#78908c]">Qidiruv so‘zini yoki kategoriyani o‘zgartirib ko‘ring.</p></div>}
+          {filtered.length > 0 ? <div className="space-y-9">{visibleCategoryGroups.map((group, groupIndex) => { const Icon = categoryIcons[group.category] || Beaker; return <section key={group.category} className="relative"><div className="module-header mb-4 flex items-end justify-between gap-4 border-y border-[#c9ddd6] bg-[#f1f8f5] px-4 py-3"><div className="flex min-w-0 items-center gap-3"><div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-[#b8d8ce] bg-white text-[#0b7772]"><Icon size={18} /></div><div><div className="tech-label text-[#0b7772]">MODUL {String(groupIndex + 1).padStart(2, "0")} / SOP KATALOGI</div><h3 className="display truncate text-xl font-bold tracking-[-0.035em] text-[#173d42]">{group.category}</h3></div></div><div className="hidden rounded-full border border-[#b8d8ce] bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#537972] sm:block">{group.devices.length} rekord</div></div><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{group.devices.map((device) => <EquipmentCard key={device.id} device={device} index={filtered.indexOf(device)} onOpen={setSelectedDevice} isBookmarked={isBookmarked(device.id)} onToggleBookmark={toggleBookmark} />)}</div></section>; })}</div> : <div className="rounded-[22px] border border-dashed border-[#b9d8cd] bg-[#ffffff] px-6 py-16 text-center"><Search size={28} className="mx-auto mb-4 text-[#70a298]" /><h3 className="display text-2xl font-bold">Qurilma topilmadi</h3><p className="mt-2 text-sm text-[#78908c]">Qidiruv so‘zini yoki kategoriyani o‘zgartirib ko‘ring.</p></div>}
         </section>
       </div>
     </main>

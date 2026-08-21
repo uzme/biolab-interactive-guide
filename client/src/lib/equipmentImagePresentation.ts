@@ -1,4 +1,5 @@
 import { imageBackgroundProfiles, type ImageBackgroundProfile } from "@/lib/imagePresentationProfiles";
+import { auditedHeroImageUrls, legacyAcceptedHeroIds } from "./auditedHeroImageUrls";
 
 /*
   BioLab visual reminder: Modern Precision Biotech — every device must remain
@@ -13,13 +14,7 @@ export type ImagePresentation = {
 // PCR kartasi foydalanuvchi tasdiqlagan kadr nisbatini saqlaydi. Qolgan
 // qurilmalarda asosiy mahsulot hech qachon kesilmasligi uchun `contain`
 // ishlatiladi; karta oynasi xiralashtirilgan fon qatlami bilan to‘liq qoplanadi.
-const coverFrameIds = new Set([
-  "BIO-001", "BIO-002", "BIO-003", "BIO-004", "BIO-005", "BIO-007", "BIO-009", "BIO-011",
-  "BIO-012", "BIO-013", "BIO-014", "BIO-015", "BIO-016", "BIO-017", "BIO-018", "BIO-019", "BIO-020",
-  "BIO-021", "BIO-022", "BIO-024", "BIO-025", "BIO-027", "BIO-028", "BIO-029",
-  "BIO-030", "BIO-031", "BIO-032", "BIO-033", "BIO-035", "BIO-036", "BIO-037", "BIO-040",
-  "BIO-023", "BIO-026",
-]);
+const coverFrameIds = new Set([...legacyAcceptedHeroIds, ...Object.keys(auditedHeroImageUrls)]);
 
 const laboratoryHeroIds = new Set(coverFrameIds);
 

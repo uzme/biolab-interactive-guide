@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { equipmentImages } from "./equipmentImages";
+import { auditedHeroImageUrls } from "./auditedHeroImageUrls";
 import {
   getImageBackgroundProfile,
   getImagePresentation,
@@ -32,17 +33,21 @@ describe("qurilma rasm presentation profillari", () => {
     }
   });
 
-  it("qabul qilingan qorong‘i laboratoriya hero-vizuallarini cover va laboratory profilida ochadi", () => {
-    const acceptedHeroIds = [
-      "BIO-002", "BIO-003", "BIO-004", "BIO-005", "BIO-007", "BIO-009", "BIO-011", "BIO-012",
-      "BIO-013", "BIO-014", "BIO-015", "BIO-023", "BIO-026", "BIO-030", "BIO-032",
-      "BIO-036", "BIO-037", "BIO-040",
-    ];
+  it("auditdan o‘tgan 84 ta yangi hero-vizualni cover, laboratory va AI shaffofligi bilan ochadi", () => {
+    const acceptedHeroIds = Object.keys(auditedHeroImageUrls);
+    expect(acceptedHeroIds).toHaveLength(84);
 
     for (const id of acceptedHeroIds) {
       expect(getImagePresentation(id).fit).toBe("cover");
       expect(getImageBackgroundProfile(id)).toBe("laboratory");
+      expect(equipmentImages[id].url).toBe(auditedHeroImageUrls[id]);
       expect(equipmentImages[id].url).toContain("-hero_");
+      expect(equipmentImages[id].sourceType).toBe("ai-representative");
     }
+  });
+
+  it("oldingi tekshirilgan herolar bilan BIO-041 tashqarisida 99 ta cover profili saqlanadi", () => {
+    const nonHeroIds = deviceIds.filter((id) => getImagePresentation(id).fit !== "cover");
+    expect(nonHeroIds).toEqual(["BIO-041"]);
   });
 });

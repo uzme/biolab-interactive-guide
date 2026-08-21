@@ -66,7 +66,7 @@
 - [x] Telefon, planshet, desktop va katta ekranlarda yangi dizaynning vizual auditi, regression va production sinovini bajarish
 - [x] Tugma, modal, katalog va gorizontal karusel bo‘yicha `prefers-reduced-motion` fallbacklarini kod hamda regressiya bilan aniq tasdiqlash
 - [x] Yangi dizaynni tablet (768px) va katta ekran/TV (1920px) viewportlarida vizual auditdan o‘tkazish
-- [ ] Dizayn releaseini productionga chiqarib, live URLda homepage va gorizontal karusel smoke-testini bajarish
+- [x] Dizayn releaseini productionga chiqarib, live URLda homepage va gorizontal karusel smoke-testini bajarish
 - [x] Planshet kengligida LAB-01 SOP rail qadamlarining zichlashib ketishini oldini olib, o‘qilishini vizual regressiya bilan tasdiqlash
 - [x] Planshet viewportida LAB-01 rail 8×2 grid va qadam raqamlarining o‘qilishini avtomatlashtirilgan regression assertioni bilan tasdiqlash
 - [x] 768px va 1920px uchun qabul mezonlari hamda yakuniy audit natijasini release hujjatlarida aniq qayd etish

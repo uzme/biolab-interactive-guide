@@ -18,13 +18,11 @@ Quyidagi matnni **boshqa akkauntdagi agentga** aynan yuboring.
 >
 > Har rasmni aniq `BIO-NNN.webp` formatida nomlang. Masalan, 2-qurilma uchun `BIO-002.webp`. PNG/JPEG qoldirmang; faqat WebP fayl yuboring.
 >
-> ## Qaysi rasmlar kerak
+> ## Joriy rasm holati
 >
-> Quyidagi IDlar allaqachon hero-standardda tayyor, ularni yaratmang: `BIO-001`–`BIO-004`, `BIO-007`, `BIO-009`, `BIO-011`–`BIO-033`, `BIO-035`–`BIO-037`, `BIO-040`.
+> Barcha `BIO-001`–`BIO-100` IDlari hero-standardda tayyor. Hozir rasm yaratmang, ZIP batch yubormang va mavjud assetlarni almashtirmang. Ushbu prompt faqat kelajakda asosiy loyiha agenti aniq IDlar uchun yangi hero-vizual so‘rasa ishlatiladi.
 >
-> Qayta yaratilishi majburiy bo‘lgan IDlar: `BIO-005`, `BIO-006`, `BIO-008`, `BIO-010`, `BIO-034`, `BIO-038`, `BIO-039`. Bu yetti ID uchun faqat `HERO_VISUAL_REGENERATION_BRIEF.md` dagi individual promptdan foydalaning. Qolgan yaratish navbati: `BIO-041`–`BIO-100`.
->
-> Qaysi ID qaysi qurilmaga tegishli ekanini bilish uchun faqat shu faylni o‘qing: `docs/master-protocols/HERO_VISUAL_CONTINUATION_HANDOFF.md`. Undagi qurilma nomi va maqsadidan foydalaning. Nomi noaniq bo‘lsa, rasm yaratmang; ID va savolni alohida ro‘yxatda qayd eting.
+> Qaysi ID qaysi qurilmaga tegishli ekanini bilish uchun faqat `docs/master-protocols/HERO_VISUAL_CONTINUATION_HANDOFF.md` faylini o‘qing. Yangi topshiriq aniq bo‘lmasa, rasm yaratmang.
 >
 > ## Yetkazib berish tartibi
 >

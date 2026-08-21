@@ -9,7 +9,7 @@ Read-only Drive auditida 76 ta ZIP fayl ochildi; barcha arxivlar integrity teksh
 | BIO-001–005, BIO-007, BIO-009, BIO-011–015 | Qurilma markazda, matnsiz, qorong‘i teal laboratoriya fonida hamda katalog hero maqsadiga mos ko‘rinadi. | Noyob final asset sifatida qabul qilishga tayyor. |
 | BIO-006, BIO-008, BIO-010, BIO-034, BIO-038, BIO-039 | Birinchi batch variantlari ilmiy sinf yoki instrument detalini yetarli aniq ko‘rsatmaydi; ularga Drive’da keyingi duplicate variantlar bor. | Batch 06–11 final variantlarini alohida contact sheetda solishtirish shart. |
 | BIO-023, BIO-026, BIO-030, BIO-032, BIO-036, BIO-037, BIO-040–045, BIO-050–055 | Kompozitsiya, markazlashuv va qurilma sinfi o‘quv hero mezoniga mos ko‘rinadi. | Model nomi bilan metadata auditdan keyin qabul qilishga tayyor. |
-| BIO-041 | Ko‘rinadigan Batch 13 varianti vakuum filtrga o‘xshaydi, biroq handoff uni superseded deb belgilaydi. | Missing Batch 15 authoritative replacement kelmaguncha aktivga ulanmaydi. |
+| BIO-041 | Batch 13 varianti Millipore Stericup Quick Release sinfidagi steril vakuumli filtrlash tizimini matnsiz, markazlangan qorong‘i laboratoriya hero kompozitsiyasida aniq ko‘rsatadi. ZIP integrity, WebP format va 2560×1440 o‘lcham tekshiruvlari ham PASS. | Authoritative final asset sifatida qabul qilindi; storage, registry va recovery manifestga ulanadi. |
 | BIO-046–049 | Ko‘rinadigan ilk variantlar mavjud; har birining Drive’da keyingi duplicate varianti bor. | Batch 24–27 variantlari bilan parallel solishtirish talab qilinadi. |
 
 > Bu qaydlar faqat ishchi vizual auditdir. Aktiv mappingga faqat yakuniy variantlar tanlanib, model nomi va regression bilan tekshirilgandan keyin kiritiladi.
@@ -30,10 +30,14 @@ BIO-056–095 qamrovida kompozitsiya bir xil professional qorong‘i-teal labora
 
 BIO-096–100 assetlari ham standartdan chiqmaydi: uskunalar markazda, qorong‘i-teal laboratoriya fonida, matnsiz va 16:9 formatda berilgan. BIO-098 kompyuter ish stansiyasini to‘liq kompozitsiyada ko‘rsatadi; uning sahifadagi o‘quv metadata bilan mosligi mapping integratsiyasidan oldin ustuvor tekshiruvga kiritiladi. BIO-096, BIO-097, BIO-099 va BIO-100 asosiy laboratoriya uskuna sinfini o‘qiladigan miqyosda tasvirlaydi.
 
-> Yakuniy natija: mavjud 85 ta noyob assetda umumiy vizual standart **PASS**. Ammo 15 ta BIO-ID va authoritative Batch 15 Drive manbasida yo‘q; shu sabab 100/100 integratsiya uchun hali yetarli input mavjud emas.
+> Yakuniy natija: mavjud 85 ta noyob assetda umumiy vizual standart **PASS**. Batchda bo‘lmagan 15 ID uchun avvalgi auditdan o‘tgan hero assetlar saqlanadi; `BIO-041` esa Batch 13 dan tasdiqlandi. Shu sabab 100/100 integratsiya uchun yetarli input mavjud.
 
 ## 2026-08-21 — Duplicate variantlar solishtiruvi
 
 Duplicate variantlar yonma-yon ko‘rildi. Quyidagi keyingi batchlar instrument sinfini aniqroq ko‘rsatadi va aktiv variant sifatida tanlandi: `BIO-006 → Batch 06`, `BIO-008 → Batch 07`, `BIO-010 → Batch 08`, `BIO-034 → Batch 09`, `BIO-038 → Batch 10`, `BIO-039 → Batch 11`, `BIO-046 → Batch 24`, `BIO-047 → Batch 25`, `BIO-048 → Batch 26`, `BIO-049 → Batch 27`. Oldingi versiyalar faqat audit izchilligi uchun canonical Drive’da saqlanadi va loyiha mappingiga ulanmaydi.
 
 > Ayniqsa BIO-006, BIO-008, BIO-010, BIO-034, BIO-038, BIO-039 hamda BIO-046–049 uchun keyingi batchlar avvalgi noto‘g‘ri yoki noaniq qurilma sinfini tegishli gaz xromatografi, LC-MS/MS, Western-blot tasvirlash, atom-absorbsion spektrometriya, refraktometriya, lyuminestsent mikroskopiya, CO₂ o‘lchovi, shpritsli nasos, peristaltik nasos va gel-dokumentatsiya konfiguratsiyasi bilan almashtiradi.
+
+## 2026-08-21 — BIO-041 source correction
+
+Avvalgi Batch 15 bloklovchisi noto‘g‘ri batch-raqami taxminiga asoslangan edi. Read-only inventory `BIO-041.webp`ning `BioLab_hero_assets_batch_13.zip` ichida ekanini ko‘rsatdi. Arxiv testi PASS, WebP metadata `2560×1440`, fayl SHA-256 `fcf69a9e93eb91fb8f0bdcb217e612e93f2ff76c27a98e8cb0f1c832f8c43799`. Tasvir Stericup turidagi steril vakuum filtratsiya tizimiga model jihatidan mos; kompozitsiya markazlangan, matnsiz va qorong‘i-teal laboratoriya standartiga muvofiq. Qaror: **PASS — authoritative Batch 13 final asset**.

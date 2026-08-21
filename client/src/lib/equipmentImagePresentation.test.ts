@@ -33,9 +33,9 @@ describe("qurilma rasm presentation profillari", () => {
     }
   });
 
-  it("auditdan o‘tgan 84 ta yangi hero-vizualni cover, laboratory va AI shaffofligi bilan ochadi", () => {
+  it("auditdan o‘tgan 85 ta yangi hero-vizualni cover, laboratory va AI shaffofligi bilan ochadi", () => {
     const acceptedHeroIds = Object.keys(auditedHeroImageUrls);
-    expect(acceptedHeroIds).toHaveLength(84);
+    expect(acceptedHeroIds).toHaveLength(85);
 
     for (const id of acceptedHeroIds) {
       expect(getImagePresentation(id).fit).toBe("cover");
@@ -46,8 +46,8 @@ describe("qurilma rasm presentation profillari", () => {
     }
   });
 
-  it("oldingi tekshirilgan herolar bilan BIO-041 tashqarisida 99 ta cover profili saqlanadi", () => {
+  it("oldingi tekshirilgan herolar bilan 100 ta cover profili saqlanadi", () => {
     const nonHeroIds = deviceIds.filter((id) => getImagePresentation(id).fit !== "cover");
-    expect(nonHeroIds).toEqual(["BIO-041"]);
+    expect(nonHeroIds).toEqual([]);
   });
 });

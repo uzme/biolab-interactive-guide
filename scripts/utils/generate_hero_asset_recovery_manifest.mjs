@@ -82,7 +82,7 @@ const manifest = {
     updatePolicy: "Mavjud Drive fayli o‘rnida yangilanadi; duplicate arxiv yaratilmaydi.",
   },
   acceptedHeroAssetCount: assets.length,
-  blockedHeroIds: ["BIO-041"],
+  blockedHeroIds: [],
   assets,
 };
 

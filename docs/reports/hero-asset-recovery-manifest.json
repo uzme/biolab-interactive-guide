@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-21T09:29:12.099Z",
+  "generatedAt": "2026-08-21T09:50:32.188Z",
   "purpose": "BioLab qabul qilingan hero-vizuallarini recovery uchun aniqlash; barcha fayl baytlari canonical Drive arxivida, runtime nusxalari project asset storage’da saqlanadi.",
   "canonicalDriveRoot": {
     "name": "Biotexnologiya yangi",
@@ -14,10 +14,8 @@
     ],
     "updatePolicy": "Mavjud Drive fayli o‘rnida yangilanadi; duplicate arxiv yaratilmaydi."
   },
-  "acceptedHeroAssetCount": 99,
-  "blockedHeroIds": [
-    "BIO-041"
-  ],
+  "acceptedHeroAssetCount": 100,
+  "blockedHeroIds": [],
   "assets": [
     {
       "id": "BIO-001",
@@ -377,6 +375,15 @@
       "alt": "Skanerlovchi elektron mikroskopning laboratoriya-hero o‘quv vizuali",
       "bytes": 303910,
       "sha256": "2904905fb4cb09c1d00abae553820226c72508cd9319cbb9af809903aa53e0d3",
+      "contentType": "image/webp"
+    },
+    {
+      "id": "BIO-041",
+      "assetFilename": "biolab-equipment-041-hero.webp",
+      "assetUrl": "/manus-storage/biolab-equipment-041-hero_bf1f69ba.webp",
+      "alt": "MilliporeSigma Stericup Quick Release steril vakuumli filtrlash tizimining mahsulot rasmi",
+      "bytes": 430394,
+      "sha256": "fcf69a9e93eb91fb8f0bdcb217e612e93f2ff76c27a98e8cb0f1c832f8c43799",
       "contentType": "image/webp"
     },
     {

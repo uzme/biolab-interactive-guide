@@ -84,4 +84,4 @@
 
 - [x] Vercel production konfiguratsiyasini Vite `dist/public` outputiga moslash, `server/index.ts` source kodi serve bo‘lishini yopish va production URL smoke-testini o‘tkazish
 
-- [ ] BioLab Interactive Guide’ı GitHub `main` kaynaklı kalıcı Vercel production sitesi olarak doğrulamak, canonical public URLyi smoke-test etmek ve deployment durumunu raporlamak
+- [x] BioLab Interactive Guide’ı GitHub `main` kaynaklı kalıcı Vercel production sitesi olarak doğrulamak, canonical public URLyi smoke-test etmek ve deployment durumunu raporlamak

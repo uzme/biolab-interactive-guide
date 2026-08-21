@@ -41,6 +41,20 @@ function SourceText({ value }: { value: string }) {
   })}</div>;
 }
 
+async function refreshLearningWorkspace() {
+  if ("caches" in window) {
+    const cacheKeys = await caches.keys();
+    await Promise.all(cacheKeys.filter((key) => key.startsWith("biolab-offline-")).map((key) => caches.delete(key)));
+  }
+
+  if ("serviceWorker" in navigator) {
+    const registrations = await navigator.serviceWorker.getRegistrations();
+    await Promise.all(registrations.map((registration) => registration.unregister()));
+  }
+
+  window.location.reload();
+}
+
 export default function DeviceViewer({ device, onBack }: { device: Equipment; onBack: () => void }) {
   const [lessonIndex, setLessonIndex] = useState(0);
   const [learning, setLearning] = useState<LearningContent>();
@@ -220,7 +234,7 @@ ${purchase ? `
       </section>
 
       {isLoading && <section className="mt-8 rounded-[28px] border border-[#d8e7e3] bg-white p-8 text-center shadow-[0_16px_45px_rgba(28,71,67,0.05)]" role="status" aria-live="polite"><div className="mx-auto h-3 w-36 animate-pulse rounded-full bg-[#cfe5dc]" /><h2 className="display mt-5 text-2xl font-bold text-[#173d42]">O‘quv dosyesi yuklanmoqda…</h2><p className="mt-2 text-sm leading-6 text-[#68857f]">Faqat tanlangan qurilmaning o‘quv ma’lumotlari yuklanmoqda.</p><div className="loading-dots mx-auto mt-5 text-[#0d7774]" aria-hidden="true"><span /><span /><span /></div></section>}
-      {loadError && !isLoading && !learning && <section className="mt-8 rounded-[28px] border border-[#edd8a5] bg-[#fff9e9] p-8 text-center" role="alert"><h2 className="display text-2xl font-bold text-[#6f5a26]">O‘quv dosyesi yuklanmadi</h2><p className="mt-2 text-sm leading-6 text-[#75612e]">Qurilma ma’lumotini qayta oching yoki keyinroq urinib ko‘ring.</p></section>}
+      {loadError && !isLoading && !learning && <section className="mt-8 rounded-[28px] border border-[#edd8a5] bg-[#fff9e9] p-8 text-center" role="alert"><h2 className="display text-2xl font-bold text-[#6f5a26]">O‘quv dosyesi yuklanmadi</h2><p className="mt-2 text-sm leading-6 text-[#75612e]">Eski offline kesh yangilangan o‘quv fayllari bilan mos kelmagan bo‘lishi mumkin. Quyidagi amal faqat BioLab offline keshini yangilaydi, saralanganlaringiz esa brauzer xotirasida saqlanadi.</p><Button type="button" className="mt-5 bg-[#0d7774] text-white hover:bg-[#075e5c]" onClick={() => void refreshLearningWorkspace()}>Yangilash va qayta ochish</Button></section>}
       {sections.length > 0 && <section className="mt-7 grid gap-5 sm:mt-8 sm:gap-6 lg:grid-cols-[minmax(240px,300px)_minmax(0,1fr)] lg:gap-8">
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <div className="rounded-[24px] border border-[#d8e7e3] bg-white p-4 shadow-[0_14px_40px_rgba(28,71,67,0.06)]">

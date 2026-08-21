@@ -4,9 +4,19 @@ import "./index.css";
 
 if ("serviceWorker" in navigator && window.isSecureContext) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/sw.js", { scope: "/" }).catch((error) => {
-      console.warn("BioLab offline rejimi ishga tushmadi:", error);
+    let reloadedForNewWorker = false;
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (reloadedForNewWorker) return;
+      reloadedForNewWorker = true;
+      window.location.reload();
     });
+
+    navigator.serviceWorker
+      .register("/sw.js", { scope: "/" })
+      .then((registration) => registration.update())
+      .catch((error) => {
+        console.warn("BioLab offline rejimi ishga tushmadi:", error);
+      });
   });
 }
 

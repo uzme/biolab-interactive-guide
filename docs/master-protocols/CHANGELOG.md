@@ -17,6 +17,8 @@
 - Production bundleda `learningDataBlock1`–`4` fayllarini bitta chunkga majburan birlashtirgan qoida olib tashlandi; har bir o‘quv blok endi alohida dynamic module sifatida yuklanadi.
 - Birinchi service worker o‘rnatilishida ortiqcha sahifa refreshining oldi olindi; auto-refresh endi faqat avvaldan controller mavjud bo‘lgan yangilanish holatida ishlaydi.
 - DeviceViewer E2E testi har asinxron detail blokida 16 bo‘lim navigationi tayyor bo‘lishini kutadi; production smoke-testda offline round-trip ixtiyoriy ajratildi, local regressiyada esa saqlanib qoldi.
+- “O‘rganish” bosilganda detail modalning tashqi overlay va ichki viewer scroll konteynerlari paintdan oldin yuqoriga qaytariladi; shu sabab avvalgi pastdagi bo‘limda ochilib qolmaydi.
+- DeviceViewer regressiyasi modalni qasddan pastga scroll qilib, keyingi qurilma ochilganda desktop va mobil holatda `scrollTop = 0` ekanini tekshiradi.
 
 ## [1.0.1] — 2026-08-20
 

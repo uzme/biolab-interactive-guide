@@ -20,7 +20,7 @@
 - **Canonical snapshot:** `BioLab_Interactive_Guide_source.tar.gz`; source fingerprint har bir sanitizatsiyalangan release outputida qayd etiladi
 - **Hero source correction:** `BIO-041.webp` canonical `BioLab_hero_assets_batch_13.zip` ichidan tasdiqlandi; 2560×1440 WebP, SHA-256 `fcf69a9e93eb91fb8f0bdcb217e612e93f2ff76c27a98e8cb0f1c832f8c43799`. Recovery archive (`1s6Uhum2PxA1RWzVP1VDHAj12-AhZdT08`) 100 ta hero asset bilan o‘rnida yangilandi.
 - **Hero asset mirror:** `Biotexnologiya yangi/BioLab_Hero_Assets_By_Batch` — Drive ID `1i3CwBud6QOyWMlEyitXSFm4vD_5jd9ar`; 100 batch, 100 checksum-verified WebP, rootda `BATCH_INDEX.md` va manifest mavjud.
-- **Latest verified release:** GitHub `addda2f24ae250b2be1a77c15475ac45d4932326`; Drive source file `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-21T10:09:55.203Z`, fingerprint `22d4bcf3e0fde001b252fdea298349410df7c3cdf3e36860c1b37fc73276567d`.
+- **Latest verified release:** GitHub `c914814c588d6f38baa90ff5d494530f1e570156`; Drive source file `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-21T10:18:29.386Z`, fingerprint `eef0fed3baca62ddfaeadd2e22e781692822adb7d6864e3930c998a684aa03be`.
 - **Database:** Schema va migration metadata repositorydagi `drizzle/` katalogida saqlanadi; destructive migration bajarilmagן
 
 ## Qat’iy saqlanadigan source-of-truth

@@ -1,4 +1,4 @@
-const CACHE_VERSION = "biolab-offline-v1";
+const CACHE_VERSION = "biolab-offline-v2";
 const APP_CACHE = `${CACHE_VERSION}-app`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
 const APP_SHELL = ["/", "/manifest.webmanifest"];
@@ -100,6 +100,17 @@ async function staleWhileRevalidate(request) {
   return cached || networkResponse;
 }
 
+async function networkFirstAsset(request) {
+  const cache = await caches.open(APP_CACHE);
+  try {
+    const response = await fetch(request);
+    if (response.ok) await cache.put(request, response.clone());
+    return response;
+  } catch {
+    return (await cache.match(request)) || (await caches.match(request)) || Response.error();
+  }
+}
+
 async function networkFirstNavigation(request) {
   try {
     const response = await fetch(request);
@@ -129,6 +140,6 @@ self.addEventListener("fetch", (event) => {
   }
 
   if (["script", "style", "font", "manifest"].includes(request.destination)) {
-    event.respondWith(staleWhileRevalidate(request));
+    event.respondWith(networkFirstAsset(request));
   }
 });

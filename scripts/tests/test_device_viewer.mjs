@@ -1,6 +1,7 @@
 import { chromium } from "playwright";
 
-const previewUrl = "http://127.0.0.1:3000/";
+const previewUrl = new URL(process.env.BIOLAB_TEST_URL || "http://127.0.0.1:3000/").toString();
+const shouldDownloadOfflinePack = process.env.BIOLAB_SKIP_OFFLINE_PACK !== "true";
 const browser = await chromium.launch({
   headless: true,
   executablePath: "/usr/bin/chromium",
@@ -30,10 +31,12 @@ try {
   await assert(await offlinePackButton.isVisible(), "Offline paket boshqaruvi ko‘rinmadi.");
   await assert(await desktop.locator(".page-transition").count() === 1, "Sahifa transition qatlami topilmadi.");
   await assert(await desktop.locator('[data-slot="button"]').count() > 0, "Global Button komponenti topilmadi.");
-  await offlinePackButton.click();
-  await desktop.locator('[data-slot="button"][data-loading="true"]').waitFor({ state: "visible", timeout: 5000 });
-  await assert(await desktop.locator('[data-slot="button"][data-loading="true"]').getAttribute("aria-busy") === "true", "Tugma loading holatida aria-busy=true bermadi.");
-  await desktop.waitForFunction(() => !document.querySelector('[data-slot="button"][data-loading="true"]'), null, { timeout: 30000 });
+  if (shouldDownloadOfflinePack) {
+    await offlinePackButton.click();
+    await desktop.locator('[data-slot="button"][data-loading="true"]').waitFor({ state: "visible", timeout: 5000 });
+    await assert(await desktop.locator('[data-slot="button"][data-loading="true"]').getAttribute("aria-busy") === "true", "Tugma loading holatida aria-busy=true bermadi.");
+    await desktop.waitForFunction(() => !document.querySelector('[data-slot="button"][data-loading="true"]'), null, { timeout: 30000 });
+  }
   await desktop.emulateMedia({ reducedMotion: "reduce" });
   const reducedMotionProgress = await desktop.evaluate(() => {
     const progress = document.querySelector(".loading-progress");
@@ -87,19 +90,33 @@ try {
   await assert(await desktop.getByRole("heading", { name: "Sozlamalar va huquqiy ma’lumot" }).isVisible(), "Sozlamalar paneli ochilmadi.");
   await desktop.getByRole("button", { name: "Sozlamalarni yopish" }).click();
 
-  await desktop.getByRole("button", { name: /O‘rganish/ }).first().click();
-  await desktop.getByText("Molekulyar biologiya / BIO-001").waitFor({ state: "visible" });
-  await assert(await desktop.getByText("Molekulyar biologiya / BIO-001").isVisible(), "BIO-001 qurilma sahifasi ochilmadi.");
-  await desktop.getByRole("heading", { name: "Manba va foydalanish holati" }).waitFor({ state: "visible" });
-  await assert(await desktop.getByRole("heading", { name: "Manba va foydalanish holati" }).isVisible(), "Rasm manbasi va foydalanish shaffofligi bloki ko‘rinmadi.");
+  const learningBlockSmokeCases = [
+    { cardIndex: 0, id: "BIO-001" },
+    { cardIndex: 25, id: "BIO-026" },
+    { cardIndex: 50, id: "BIO-051" },
+    { cardIndex: 75, id: "BIO-076" },
+  ];
 
-  const learningNavigation = desktop.getByRole("navigation", { name: "16 bo‘limli o‘quv dasturi" });
-  await assert(await learningNavigation.getByRole("button").count() === 16, "Qurilma sahifasida 16 ta o‘quv bo‘limi ko‘rsatilmagan.");
-  await learningNavigation.getByRole("button", { name: /Ishonchli o‘quv manbalari/ }).click();
-  await assert(await desktop.getByRole("heading", { name: "Ishonchli o‘quv manbalari" }).isVisible(), "16-bo‘limdagi manbalar bo‘limi ochilmadi.");
+  for (const { cardIndex, id } of learningBlockSmokeCases) {
+    const card = desktop.locator("article.equipment-card").nth(cardIndex);
+    await card.getByRole("button", { name: /O‘rganish/ }).click();
+    await desktop.locator("[data-device-viewer]").waitFor({ state: "visible" });
+    await desktop.getByRole("heading", { name: "Manba va foydalanish holati" }).waitFor({ state: "visible" });
+    await assert(await desktop.getByRole("heading", { name: "Manba va foydalanish holati" }).isVisible(), `${id} rasm manbasi va foydalanish shaffofligi bloki ko‘rinmadi.`);
 
-  await desktop.locator("header button:has-text('Barcha uskunalar')").click();
-  await assert(await desktop.locator("article.equipment-card").count() === 100, "Qurilma sahifasidan katalogga qaytishda 100 ta karta tiklanmadi.");
+    const learningNavigation = desktop.getByRole("navigation", { name: "16 bo‘limli o‘quv dasturi" });
+    await assert(await learningNavigation.getByRole("button").count() === 16, `${id} qurilmasida 16 ta o‘quv bo‘limi ko‘rsatilmagan.`);
+    await learningNavigation.getByRole("button", { name: /Ishonchli o‘quv manbalari/ }).click();
+    await assert(await desktop.getByRole("heading", { name: "Ishonchli o‘quv manbalari" }).isVisible(), `${id} 16-bo‘limdagi manbalar ochilmadi.`);
+
+    await desktop.getByRole("heading", { name: "Xarid va foydalanish xarajatlari" }).waitFor({ state: "visible" });
+    const priceAccordion = desktop.getByRole("button", { name: "Narx benchmarki va dalili" });
+    await priceAccordion.click();
+    await desktop.getByText(/^Manba:/).waitFor({ state: "visible" });
+
+    await desktop.locator("header button:has-text('Barcha uskunalar')").click();
+    await assert(await desktop.locator("article.equipment-card").count() === 100, `${id} qurilmasidan katalogga qaytishda 100 ta karta tiklanmadi.`);
+  }
 
   const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });
   await mobile.goto(previewUrl, { waitUntil: "networkidle" });

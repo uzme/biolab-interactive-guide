@@ -11,6 +11,10 @@
 - Katalogning boshlang‘ich hero yuklanishida dublikat JavaScript warmup olib tashlandi; filtrlangan natijalarning dastlabki to‘rtta rasmi faqat browser bo‘sh vaqtida prefetch qilinadi.
 - Hero continuation, regeneration va tashqi image-only handoff hujjatlari 100/100 yakuniy holatga moslashtirildi; ortiqcha hero rasm yaratish navbati bekor qilindi.
 
+### Corrected
+- “Qurilmani o‘rganish” detail oynasida eski PWA keshidan keladigan modul-versiya nomuvofiqligi bartaraf etildi: yangi service worker aktivlashganda sahifa o‘zini yangilaydi, script/style fayllari onlayn holatda tarmoqdan birinchi olinadi, cache versiyasi yangilandi.
+- Agar brauzerning juda eski offline keshi o‘quv ma’lumotlari bloklarini yuklay olmasa, detail oynasi foydalanuvchiga “Yangilash va qayta ochish” amali bilan faqat BioLab offline keshini tozalab, ma’lumotlarni tiklash imkonini beradi.
+
 ## [1.0.1] — 2026-08-20
 
 ### Corrected

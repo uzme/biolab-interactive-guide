@@ -55,3 +55,7 @@
 - [x] Eski ZIP batchlari uchun checksum auditiga asoslangan saqlash yoki qaytariladigan arxivlash ro‘yxatini tayyorlash va foydalanuvchi tasdiqlagan qarorni qo‘llash
 - [x] Recovery arxividagi eng yangi 100 hero rasm uchun `Batch-NNN__BIO-NNN__qurilma-nomi.zip` formatida 100 ta yakuniy tarixiy ZIP batch yaratish
 - [x] Yakuniy 100 ZIP batchni canonical Drive’dagi bitta History subpapkasiga joylash va eski 76 xom ZIPni qaytariladigan tarzda Chiqindiga ko‘chirish
+- [x] Barcha qurilmadagi “Qurilmani o‘rganish” detail oynasida ko‘rinayotgan umumiy xatoni qayta hosil qilish, tuzatish va mobil/desktop regressiya bilan tekshirish
+- [x] BIO-001, BIO-026, BIO-051 va BIO-076 orqali barcha to‘rtta dinamik o‘quv/purchase blokining detail yuklanishini smoke-test bilan tekshirish
+- [x] BIO-001, BIO-026, BIO-051 va BIO-076 smoke-testida xarid ma’lumotlari bloki va kamida bitta accordion bo‘limi yuklanganini tekshirish
+- [ ] PWA cache tuzatishini productionga publish qilib, production desktop va mobil detail regressiyasini tasdiqlash

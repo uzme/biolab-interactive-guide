@@ -47,3 +47,5 @@
 - [x] Hero-asset integration releaseini canonical GitHub va Drive snapshotiga sanitizatsiyalangan holda sinxronlash (`cd39972`, snapshot `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`)
 - [x] BIO-041 uchun authoritative final replacement manbasini aniqlash: oldingi Batch 15 taxmini xato edi, tasdiqlangan `BIO-041.webp` canonical Batch 13 ichida topildi
 - [x] Batch 13 dagi `BIO-041.webp`ni integrity va vizual auditdan o‘tkazib, authoritative PASS sifatida hero registry hamda recovery arxiviga ulash
+- [x] 100 ta hero rasmni `Batch-NNN__BIO-NNN__qurilma-nomi` tartibida yagona canonical recovery arxiviga qayta joylash va checksum manifestini saqlash
+- [x] Tartibli recovery arxivini 100 asset restore/integrity sinovidan o‘tkazib, mavjud Drive recovery fayli o‘rnida duplikatsiz yangilash

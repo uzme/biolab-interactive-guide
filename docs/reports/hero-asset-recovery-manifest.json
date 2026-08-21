@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-21T09:50:32.188Z",
+  "generatedAt": "2026-08-21T10:05:01.614Z",
   "purpose": "BioLab qabul qilingan hero-vizuallarini recovery uchun aniqlash; barcha fayl baytlari canonical Drive arxivida, runtime nusxalari project asset storage’da saqlanadi.",
   "canonicalDriveRoot": {
     "name": "Biotexnologiya yangi",
@@ -9,9 +9,11 @@
   "recoveryArchive": {
     "name": "BioLab_Hero_Assets_Recovery.tar.gz",
     "contents": [
-      "assets/*.webp",
+      "BATCHES/Batch-NNN__BIO-NNN__qurilma-nomi/BIO-NNN.webp",
+      "BATCH_INDEX.md",
       "hero-asset-recovery-manifest.json"
     ],
+    "organization": "Bitta batch = bitta qurilma; Batch 001 dan Batch 100 gacha uzluksiz tartib.",
     "updatePolicy": "Mavjud Drive fayli o‘rnida yangilanadi; duplicate arxiv yaratilmaydi."
   },
   "acceptedHeroAssetCount": 100,

@@ -60,3 +60,28 @@ export async function loadPurchaseContent(number: number): Promise<PurchaseConte
       return undefined;
   }
 }
+
+export type DeviceContentLoadResult = {
+  learning: LearningContent | undefined;
+  purchase: PurchaseContent | undefined;
+  learningLoadFailed: boolean;
+};
+
+/**
+ * O‘quv dosyesi va xarid ma’lumotlarini bir-biridan mustaqil yakunlaydi.
+ * Xarid benchmarki yuklanmasa ham operator o‘quv oqimi ochiq qoladi.
+ */
+export async function resolveDeviceContent(
+  learningTask: Promise<LearningContent | undefined>,
+  purchaseTask: Promise<PurchaseContent | undefined>,
+): Promise<DeviceContentLoadResult> {
+  const [learningResult, purchaseResult] = await Promise.allSettled([learningTask, purchaseTask]);
+  const learning = learningResult.status === "fulfilled" ? learningResult.value : undefined;
+  const purchase = purchaseResult.status === "fulfilled" ? purchaseResult.value : undefined;
+
+  return {
+    learning,
+    purchase,
+    learningLoadFailed: !learning,
+  };
+}

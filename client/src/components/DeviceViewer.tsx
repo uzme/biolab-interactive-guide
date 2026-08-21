@@ -27,7 +27,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import type { Equipment } from "@/lib/equipmentData";
 import { equipmentImages } from "@/lib/equipmentImages";
 import { getImageBackgroundProfile, getImagePresentation } from "@/lib/equipmentImagePresentation";
-import { loadLearningContent, loadPurchaseContent } from "@/lib/learningData";
+import { loadLearningContent, loadPurchaseContent, resolveDeviceContent } from "@/lib/learningData";
 import type { LearningContent, PurchaseContent } from "@/lib/learningData";
 
 function SourceText({ value }: { value: string }) {
@@ -70,14 +70,12 @@ export default function DeviceViewer({ device, onBack, onReady }: { device: Equi
     setLearning(undefined);
     setPurchase(undefined);
 
-    Promise.allSettled([loadLearningContent(device.number), loadPurchaseContent(device.number)])
-      .then(([learningResult, purchaseResult]) => {
+    resolveDeviceContent(loadLearningContent(device.number), loadPurchaseContent(device.number))
+      .then(({ learning: nextLearning, purchase: nextPurchase, learningLoadFailed }) => {
         if (cancelled) return;
-        const nextLearning = learningResult.status === "fulfilled" ? learningResult.value : undefined;
-        const nextPurchase = purchaseResult.status === "fulfilled" ? purchaseResult.value : undefined;
         setLearning(nextLearning);
         setPurchase(nextPurchase);
-        setLoadError(!nextLearning);
+        setLoadError(learningLoadFailed);
       })
       .catch(() => {
         if (cancelled) return;

@@ -25,6 +25,7 @@
 - Planshet `768px` viewportida LAB-01 qadamlarining zichlashib qolishi bartaraf etildi: rail `8×2` gridga o‘tadi, 16 raqamning tartibi hamda kamida `24px` qadam maydoni browser regressiyada tekshiriladi.
 - iPhone Safari’da detail oynaning avvalgi “Xarid” bo‘limidan ochilib qolishi bartaraf etildi: mobilga bitta scroll konteyner qoldirildi, yangi qurilma ochilganda reset paintdan oldin, keyingi frame’da va iOS renderi barqarorlashgach takrorlanadi.
 - DeviceViewer endi o‘quv va xarid bloklarini mustaqil yuklaydi; xarid ma’lumotidagi alohida muammo o‘quv dosyesi va 16 bo‘lim ochilishini to‘sib qo‘ymaydi. 100 ta BIO detail uchun dinamik ma’lumotlar unit test bilan qamrab olindi.
+- Purchase-loader recovery dalili alohida unit regression orqali tekshirildi: purchase promise rad etilganda `resolveDeviceContent` 16-bo‘limli learning dosyesini saqlaydi. Production smoke-test ataylab nosozlik kiritmaydi va faqat real learning/purchase success-path yuklanishini tasdiqlaydi.
 
 ## [1.0.1] — 2026-08-20
 

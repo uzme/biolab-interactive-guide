@@ -222,7 +222,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes("/client/src/lib/learningData")) return "learning-data";
+          if (id.endsWith("/client/src/lib/learningData.ts")) return "learning-data";
           if (id.includes("/client/src/lib/equipmentImages")) return "equipment-images";
           if (id.includes("/node_modules/react/") || id.includes("/node_modules/react-dom/")) return "react";
           if (id.includes("/node_modules/framer-motion/")) return "motion";

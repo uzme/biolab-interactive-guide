@@ -14,6 +14,7 @@
 ### Corrected
 - “Qurilmani o‘rganish” detail oynasida eski PWA keshidan keladigan modul-versiya nomuvofiqligi bartaraf etildi: yangi service worker aktivlashganda sahifa o‘zini yangilaydi, script/style fayllari onlayn holatda tarmoqdan birinchi olinadi, cache versiyasi yangilandi.
 - Agar brauzerning juda eski offline keshi o‘quv ma’lumotlari bloklarini yuklay olmasa, detail oynasi foydalanuvchiga “Yangilash va qayta ochish” amali bilan faqat BioLab offline keshini tozalab, ma’lumotlarni tiklash imkonini beradi.
+- Production bundleda `learningDataBlock1`–`4` fayllarini bitta chunkga majburan birlashtirgan qoida olib tashlandi; har bir o‘quv blok endi alohida dynamic module sifatida yuklanadi.
 
 ## [1.0.1] — 2026-08-20
 

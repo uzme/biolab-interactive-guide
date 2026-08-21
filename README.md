@@ -2,6 +2,8 @@
 
 BioLab Interactive Guide is a professional biotechnology learning platform featuring 100 devices across 10 categories, real-time search and filters, an original horizontal Pure CSS 3D carousel, and 16-stage learning dossiers for every instrument. The interface includes browser-based localStorage bookmarks, a responsive bookmarks sidebar, PWA offline capabilities, and verified equipment image licenses.
 
+> **Portfolio case study:** see [docs/CASE_STUDY.md](./docs/CASE_STUDY.md) for the product intent, system boundaries, validation strategy, and release evidence.
+
 ## Current Source of Truth
 
 The active canonical source repository is [`uzme/biolab-interactive-guide`](https://github.com/uzme/biolab-interactive-guide) on the `main` branch. Complete binary and sanitised application snapshots reside in the canonical Google Drive root folder **Biotexnologiya yangi** (`19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`). The separate **Second Brain** Drive root is not a BioLab write destination. Real credentials and secrets remain strictly in secure environment storage.

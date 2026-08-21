@@ -8,32 +8,32 @@ export type EquipmentImage = {
 
 export const equipmentImages: Record<string, EquipmentImage> = {
   "BIO-001": {
-    url: "/manus-storage/biolab-equipment-001-pcr_c5953119.jpg",
+    url: "/images/biolab-catalog-hero_fallback.webp",
     alt: "PCR termotsiklerining laboratoriya-realistik ko‘rinishi",
     sourceType: "ai-representative",
   },
   "BIO-002": {
-    url: "/manus-storage/biolab-equipment-002-hero_3dfe5ee9.webp",
+    url: "/images/biolab-catalog-hero_fallback.webp",
     alt: "Bug‘li sterilizator — avtoklavning laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-003": {
-    url: "/manus-storage/biolab-equipment-003-hero_f8dbd003.webp",
+    url: "/images/biolab-catalog-hero_fallback.webp",
     alt: "II-sinf biologik xavfsizlik shkafining laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-004": {
-    url: "/manus-storage/biolab-equipment-004-hero_c5b21e98.webp",
+    url: "/images/biolab-catalog-hero_fallback.webp",
     alt: "Sovutiladigan laboratoriya sentrifugasining laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-005": {
-    url: "/manus-storage/biolab-equipment-005-hero_c27144b5.webp",
+    url: "/images/biolab-catalog-hero_fallback.webp",
     alt: "Mikrohajmli UV-Vis spektrofotometrning laboratoriya-hero o‘quv vizuali",
     sourceType: "ai-representative",
   },
   "BIO-006": {
-    url: "/manus-storage/biolab-equipment-006_5decbb4b.webp",
+    url: "/images/biolab-catalog-hero_fallback.webp",
     alt: "Gaz xromatografining laboratoriya-realistik ko‘rinishi",
     sourceType: "ai-representative",
   },

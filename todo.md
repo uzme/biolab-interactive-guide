@@ -44,6 +44,6 @@
 - [x] Canonical Biotexnologiya yangi Drive rootidagi 100 ta hero ZIP batchini read-only inventar, aktiv variant va ZIP integrity auditi orqali tasdiqlash (76 ZIP / 85 noyob asset; Batch 15 va 15 BIO-ID mavjud emasligi qayd etildi)
 - [x] 100/100 hero rolloutini yakunlash: BIO-041 Batch 13 authoritative WebP integrity va vizual PASSdan keyin storage, `equipmentImages.ts` registry hamda recovery arxiviga ulandi
 - [x] 100 ta qurilmaning rasm URL registrysi, model mosligi audit qarori, modal/katalog yuklanishi va regressiya oqimlarini tekshirish (100 hero)
-- [x] Hero-asset integration releaseini canonical GitHub va Drive snapshotiga sanitizatsiyalangan holda sinxronlash (`26a28fa`, snapshot `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`)
+- [x] Hero-asset integration releaseini canonical GitHub va Drive snapshotiga sanitizatsiyalangan holda sinxronlash (`cd39972`, snapshot `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`)
 - [x] BIO-041 uchun authoritative final replacement manbasini aniqlash: oldingi Batch 15 taxmini xato edi, tasdiqlangan `BIO-041.webp` canonical Batch 13 ichida topildi
 - [x] Batch 13 dagi `BIO-041.webp`ni integrity va vizual auditdan o‘tkazib, authoritative PASS sifatida hero registry hamda recovery arxiviga ulash

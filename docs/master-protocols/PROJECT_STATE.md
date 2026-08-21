@@ -141,3 +141,5 @@ Yakuniy production verifikatsiyasi yangi deploydan keyin qayta bajarildi va **PA
 ## 2026-08-21 DeviceViewer boshlang‘ich scroll pozitsiyasi
 
 Foydalanuvchi bildirgan holat — “O‘rganish” detail oynasining pastki qismdan ochilishi — modal overlay hamda uning ichki viewer konteynerining scroll holati bilan bog‘liq edi. `Home.tsx`da ikkala konteynerga ref berildi va tanlangan qurilma o‘zgarganda `useLayoutEffect` orqali `scrollTop = 0` paintdan oldin majburan o‘rnatildi. Regression test modalni pastga surib yopadi, keyingi detail ochilganda desktop va mobil oqimlarda yuqori pozitsiyani tekshiradi. TypeScript, Vitest/Playwright va production build **PASS**; production deploydan keyingi smoke-test navbatda.
+
+Production deploydan keyingi smoke-test `https://biolabguide-fbcitqyf.manus.space/` manzilida `BIOLAB_SKIP_OFFLINE_PACK=true` va `BIOLAB_SKIP_OFFLINE_ROUND_TRIP=true` izolyatsiya rejimida qayta bajarildi va **PASS**. Desktop hamda mobil detail oqimlari, to‘rtta dinamik o‘quv blok, modalning yuqoridan boshlanishi va katalogga qaytish tekshirildi. Holat: **READY**.

@@ -1,5 +1,7 @@
 # BioLab Hero Visual — Qayta Yaratish Briefi
 
+> **2026-08-21 holati:** Quyidagi yetti prompt tarixiy reference sifatida saqlanadi. `BIO-005`, `BIO-006`, `BIO-008`, `BIO-010`, `BIO-034`, `BIO-038` va `BIO-039` canonical batchlarning audited authoritative variantlari bilan production registryda allaqachon qoplangan. Ular uchun yangi rasm yaratmang va mavjud assetni almashtirmang. Hozirgi yagona ochiq asset vazifasi `BIO-041` uchun mavjud bo‘lmagan `BioLab_hero_assets_batch_15.zip` manbasini tiklashdir; aniq manba kelmaguncha fallback saqlanadi.
+
 ## Vazifa
 
 Quyidagi yetti rasm avvalgi batchda qurilma sinfiga mos bo‘lmagani sababli **registriga ulanmagan**. Har bir yangi fayl matnsiz, `BIO-NNN.webp` nomida, kamida **1600×900 px**, 16:9 nisbatda bo‘lishi kerak. Rasmda faqat bitta asosiy qurilma katta va markazda ko‘rinsin; kamera burchagi old tomondan yoki yengil uch chorak burchakdan bo‘lsin.

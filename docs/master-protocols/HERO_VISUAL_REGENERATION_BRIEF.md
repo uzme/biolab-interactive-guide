@@ -1,6 +1,6 @@
 # BioLab Hero Visual — Qayta Yaratish Briefi
 
-> **2026-08-21 holati:** Quyidagi yetti prompt tarixiy reference sifatida saqlanadi. `BIO-005`, `BIO-006`, `BIO-008`, `BIO-010`, `BIO-034`, `BIO-038` va `BIO-039` canonical batchlarning audited authoritative variantlari bilan production registryda allaqachon qoplangan. Ular uchun yangi rasm yaratmang va mavjud assetni almashtirmang. Hozirgi yagona ochiq asset vazifasi `BIO-041` uchun mavjud bo‘lmagan `BioLab_hero_assets_batch_15.zip` manbasini tiklashdir; aniq manba kelmaguncha fallback saqlanadi.
+> **2026-08-21 yakuniy holati:** Quyidagi yetti prompt tarixiy reference sifatida saqlanadi. `BIO-005`, `BIO-006`, `BIO-008`, `BIO-010`, `BIO-034`, `BIO-038` va `BIO-039` canonical batchlarning audited authoritative variantlari bilan production registryda allaqachon qoplangan. `BIO-041` ham canonical `BioLab_hero_assets_batch_13.zip` ichidan topildi, PASS auditdan o‘tdi va production hero registryga ulandi. Ular uchun yangi rasm yaratmang va mavjud assetni almashtirmang; joriy hero qamrovi **100 / 100**.
 
 ## Vazifa
 

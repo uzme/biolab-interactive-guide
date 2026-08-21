@@ -20,9 +20,9 @@
 - [x] Mualliflik huquqi (Copyright & Intellectual Property Protection) tizimini qat’iy yuridik bildirishnoma, texnik himoya cheklovlari va SettingsDialog orqali to‘liq boshqaruv bilan mustahkamlash
 - [x] PDF eksport va o‘quv konspektlariga qat’iy mualliflik huquqi, yuridik ogohlantirish va eksklyuziv egalik metadata’larini avtomatik kiritish (texnik himoya qatlami)
 - [x] 100 ta qurilma rasmini avtomatik audit qilish; object-fit, position, oq fon, letterboxing va dark-mode kontrast muammolarini ommaviy moslash
-- [ ] 100 ta qurilma rasmini foydalanuvchi namunasidagi katta, markazlangan hero sifati darajasiga moslash va yuklanish tezligini priority, prefetch hamda lazy-load strategiyasi bilan oshirish
+- [x] 100 ta qurilma rasmini foydalanuvchi namunasidagi katta, markazlangan hero sifati darajasiga moslash va yuklanish tezligini priority, prefetch hamda lazy-load strategiyasi bilan oshirish (100/100; BIO-041 Batch 13 authoritative asset bilan yakunlandi)
 - [x] Dastlabki 15 ta laboratoriya-hero vizualini WebP formatiga o‘tkazish va birinchi katalog rasmlarini preload hamda warmup bilan tezlashtirish
-- [ ] Kunlik rasm yaratish limiti tiklangach qolgan oq fonli qurilmalar uchun professional laboratoriya-hero vizuallarini agent tomonidan batchlarda yaratib ulash
+- [x] Qolgan oq fonli qurilmalar uchun professional laboratoriya-hero vizuallarini authoritative canonical batchlar orqali audit qilib ulash; qo‘shimcha rasm yaratish talab qilinmadi
 - [x] Yaratilgan 15 ta hero-vizual va qolgan 84 ta qurilma uchun aniq ID, asset mapping, sifat qoidalari va davom ettirish ketma-ketligini handoff hujjatida qayd etish
 - [x] Boshqa akkauntdagi agent uchun BioLab hero-vizual ishini xavfsiz davom ettirish promptini yaratish va canonical GitHub–Drive snapshotga sinxronlash
 - [x] Boshqa akkaunt faqat rasm yaratib yuklaydigan, kod va release ishlarini esa loyiha agentiga qoldiradigan image-only handoff promptini moslashtirish
@@ -37,12 +37,13 @@
 - [x] Batch 01–03 qabul qilingan hero-vizuallari ulangan release natijasini `PROJECT_STATE.md` va release metadata’da tasdiqlash
 - [x] `BIO-006`, `BIO-008`, `BIO-010`, `BIO-034`, `BIO-038`, `BIO-039` uchun qayta yaratish navbatini yopish: Gemini individual oqimi o‘rniga canonical batchlardagi audited authoritative variantlar tanlanib registryga ulandi
 - [x] Gemini quota bloklangan paytda Higgsfield orqali yetti qayta yaratiladigan qurilma uchun professional hero-vizual yaratish imkoniyati va limitlarini tekshirish
-- [x] Joriy canonical hero batch uchun PASS/FAIL va authoritative variant tanlovlarini audit hisobotida qayd etib, continuation navbatini BIO-041 yagona bloklovchisiga yangilash
+- [x] Joriy canonical hero batch uchun PASS/FAIL va authoritative variant tanlovlarini audit hisobotida qayd etish; dastlabki BIO-041 bloklovchisi keyinchalik Batch 13 manbasi bilan yopildi
 - [x] Qabul qilingan `BIO-005` spektrofotometr hero-vizualini WebP optimizatsiyasi, asset storage va registry ulanishidan o‘tkazish
 - [x] PASS hero-vizuallar uchun manba fayl, optimallashtirilgan WebP, asset URL va checksumni qayd etuvchi recovery manifest yaratish hamda yagona canonical Drive arxivini sinovdan o‘tkazish
 - [x] Mobil telefonda “Qurilmani o‘rganish” detail oynasi faqat fon-blur ko‘rinib, o‘quv kontenti ko‘rinmay qolishi xatosini barcha qurilma kartalari uchun tuzatish va regressiya bilan tekshirish
 - [x] Canonical Biotexnologiya yangi Drive rootidagi 100 ta hero ZIP batchini read-only inventar, aktiv variant va ZIP integrity auditi orqali tasdiqlash (76 ZIP / 85 noyob asset; Batch 15 va 15 BIO-ID mavjud emasligi qayd etildi)
-- [ ] 100/100 hero rolloutini yakunlash: 99 ta tasdiqlangan asset project storage hamda `equipmentImages.ts` registryga ulandi; BIO-041 authoritative Batch 15 kelgach uni hero WebP sifatida ulash qolgan
-- [x] 100 ta qurilmaning rasm URL registrysi, model mosligi audit qarori, modal/katalog yuklanishi va regressiya oqimlarini tekshirish (99 hero + BIO-041 fallback)
-- [x] Hero-asset integration releaseini canonical GitHub va Drive snapshotiga sanitizatsiyalangan holda sinxronlash (`26a28fa`, snapshot `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`)
-- [ ] BIO-041 uchun authoritative final replacementni ko‘rsatadigan BioLab hero batch 15 ZIP manbasini canonical Drive rootda tiklash yoki aniq Drive ID bilan tasdiqlash
+- [x] 100/100 hero rolloutini yakunlash: BIO-041 Batch 13 authoritative WebP integrity va vizual PASSdan keyin storage, `equipmentImages.ts` registry hamda recovery arxiviga ulandi
+- [x] 100 ta qurilmaning rasm URL registrysi, model mosligi audit qarori, modal/katalog yuklanishi va regressiya oqimlarini tekshirish (100 hero)
+- [x] Hero-asset integration releaseini canonical GitHub va Drive snapshotiga sanitizatsiyalangan holda sinxronlash (`cd39972`, snapshot `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`)
+- [x] BIO-041 uchun authoritative final replacement manbasini aniqlash: oldingi Batch 15 taxmini xato edi, tasdiqlangan `BIO-041.webp` canonical Batch 13 ichida topildi
+- [x] Batch 13 dagi `BIO-041.webp`ni integrity va vizual auditdan o‘tkazib, authoritative PASS sifatida hero registry hamda recovery arxiviga ulash

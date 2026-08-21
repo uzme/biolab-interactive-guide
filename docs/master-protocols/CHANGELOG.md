@@ -1,5 +1,16 @@
 # CHANGELOG — BioLab Interactive Guide
 
+## [1.1.0] — 2026-08-21
+
+### Added
+- Canonical Drive auditidan o‘tgan hero-vizuallar bilan katalogning barcha `BIO-001`–`BIO-100` qurilmalari qorong‘i laboratoriya `cover` hero profiliga o‘tkazildi.
+- `BIO-041.webp` canonical `BioLab_hero_assets_batch_13.zip` ichidan topildi, integrity va visual/model auditdan PASS oldi hamda deploy-safe registryga ulandi.
+- Recovery manifest va yagona `BioLab_Hero_Assets_Recovery.tar.gz` arxivi 100 ta qabul qilingan hero asset checksumlari bilan o‘rnida yangilandi.
+
+### Changed
+- Katalogning boshlang‘ich hero yuklanishida dublikat JavaScript warmup olib tashlandi; filtrlangan natijalarning dastlabki to‘rtta rasmi faqat browser bo‘sh vaqtida prefetch qilinadi.
+- Hero continuation, regeneration va tashqi image-only handoff hujjatlari 100/100 yakuniy holatga moslashtirildi; ortiqcha hero rasm yaratish navbati bekor qilindi.
+
 ## [1.0.1] — 2026-08-20
 
 ### Corrected

@@ -81,6 +81,7 @@ assert(codes[0] === "BIO-001" && codes.at(-1) === "BIO-100", `Boshlang‘ich tar
 const deviceSearch = page.getByPlaceholder("Qurilma yoki manufacturer qidiring...");
 await deviceSearch.fill("PCR");
 assert((await page.locator("article.equipment-card").count()) > 0, "PCR qidiruvi natija bermadi.");
+assert(await page.locator("article.equipment-card img[loading='eager'][fetchpriority='high']").count() === 3, "Filtrlangan natijalarda birinchi uchta hero rasmi ustuvor yuklanishga belgilanmadi.");
 await page.getByRole("button", { name: "Qurilma qidiruvini bekor qilish" }).click();
 await page.waitForFunction(() => document.querySelector('[placeholder="Qurilma yoki manufacturer qidiring..."]')?.value === "");
 assert(await deviceSearch.inputValue() === "", "Qurilma qidiruvi bekor qilinmadi.");

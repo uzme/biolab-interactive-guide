@@ -511,7 +511,7 @@ const baseEquipmentImages: Record<string, EquipmentImage> = {
   },
 };
 
-// Drive auditidan o'tgan 84 ta WebP hero URL avvalgi rasmiysifat metadata sini
+// Drive auditidan o'tgan 85 ta WebP hero URL avvalgi rasmiysifat metadata sini
 // almashtiradi. Alt matn mavjud qurilma nomi va tavsifini saqlaydi; manba turi
 // esa foydalanuvchi ko'radigan shaffoflik blokida AI-representative bo'lib chiqadi.
 export const equipmentImages: Record<string, EquipmentImage> = {

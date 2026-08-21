@@ -2,19 +2,19 @@
 
 ## 2026-08-21 authoritative joriy holat — avval o‘qing
 
-Quyidagi eski 33/100 va 67 ta qolgan qamrov yozuvlari **tarixiy kontekst** bo‘lib, keyingi ishlar uchun manba emas. Canonical `Biotexnologiya yangi` Drive rootidagi mavjud ZIP batchlar read-only auditdan o‘tkazildi: 76 ta ZIP integrity tekshiruvdan o‘tdi, 85 ta noyob `2560×1440` WebP aniqlandi va keyingi authoritative duplicate variantlar tanlandi. Auditdan o‘tgan 84 ta yangi WebP hamda avvalgi 15 ta qabul qilingan hero bilan katalogda **99 / 100** qurilma `cover` + `laboratory` profilida ishlaydi.
+Quyidagi eski 33/100 va 67 ta qolgan qamrov yozuvlari **tarixiy kontekst** bo‘lib, keyingi ishlar uchun manba emas. Canonical `Biotexnologiya yangi` Drive rootidagi mavjud ZIP batchlar read-only auditdan o‘tkazildi: 76 ta ZIP integrity tekshiruvdan o‘tdi, 85 ta noyob `2560×1440` WebP aniqlandi va keyingi authoritative duplicate variantlar tanlandi. Batch 13 ichidagi `BIO-041.webp` ham integrity, model mosligi va visual standartdan **PASS** oldi. Auditdan o‘tgan 85 ta yangi WebP hamda avvalgi 15 ta qabul qilingan hero bilan katalogda **100 / 100** qurilma `cover` + `laboratory` profilida ishlaydi.
 
 | Joriy holat | Qamrov | Amal |
 |---|---:|---|
-| Production hero-standard | 99 ta `BIO-` ID | Qo‘shimcha ish talab qilinmaydi; mavjud registry URL va WebP assetlarni almashtirmang. |
-| Ochiq bloklovchi | `BIO-041` | Faqat Batch 15 ichidagi authoritative final replacement olinib, integrity va model mosligi auditidan o‘tgach ulang. |
-| Qabul qilinmagan manba | `BioLab_hero_assets_batch_15.zip` | Canonical root inventarida mavjud emas; taxminiy yoki boshqa qurilmaga tegishli rasm bilan almashtirmang. |
+| Production hero-standard | Barcha 100 ta `BIO-` ID | Qo‘shimcha hero yaratish talab qilinmaydi; mavjud registry URL va WebP assetlarni almashtirmang. |
+| BIO-041 authoritative manbasi | `BioLab_hero_assets_batch_13.zip` → `BIO-041.webp` | Stericup turidagi steril vakuum filtrlash tizimi, 2560×1440 WebP; integrity va visual audit PASS. |
+| Ochiq rasm bloklovchisi | Yo‘q | Yangi rasm faqat kelajakda asosiy loyiha agenti aniq so‘raganda yaratiladi. |
 
 `BIO-006`, `BIO-008`, `BIO-010`, `BIO-034`, `BIO-038` va `BIO-039` uchun avvalgi qayta yaratish navbati canonical batchlardagi keyingi authoritative variantlar bilan yopilgan. Duplicate tanlovi: `006 → Batch 06`, `008 → 07`, `010 → 08`, `034 → 09`, `038 → 10`, `039 → 11`, `046 → 24`, `047 → 25`, `048 → 26`, `049 → 27`.
 
-> Hozirgi yagona rasm vazifasi `BIO-041` uchun `BioLab_hero_assets_batch_15.zip` manbasini qayta tiklash yoki aynan shu faylning Drive ID sini berishdir. Manba kelguncha ilovadagi mavjud fallback rasmini saqlang.
+> Hozirgi hero-vizual vazifasi yopilgan. Batch 15 bo‘yicha oldingi talab bekor qilindi: BIO-041 ning authoritative manbasi Batch 13 ichida tasdiqlandi.
 
-## Maqsad va joriy holat
+## Tarixiy 2026-08-20 ish konteksti — operatsion manba emas
 
 BioLab katalogida **100 ta qurilma** mavjud va ular to‘liq saqlanadi. Ushbu ishning maqsadi har bir qurilmaning katalog kartasida foydalanuvchi tasdiqlagan **laboratoriya-hero** ko‘rinishini berishdir: qurilma katta va markazda, 16:9 media oynasini estetik egallagan, laboratoriya muhiti bilan uyg‘un va qorong‘i rejimda ham aniq ko‘rinadigan bo‘lishi kerak.
 
@@ -49,7 +49,7 @@ Hozircha barcha 100 ta rasmning `object-fit`, fon va dark-mode kontrasti avtomat
 | `docs/master-protocols/HERO_VISUAL_REGENERATION_BRIEF.md` | Yetti noto‘g‘ri hero-vizual uchun individual qayta yaratish promptlari |
 | `docs/master-protocols/HERO_VISUAL_BATCH_SUBMISSION_TEMPLATE.md` | Tashqi agent yuboradigan ZIP batch, fayl nomi va Drive linki uchun qat’iy topshirish shabloni |
 
-## Qolgan 67 hero vizual uchun qat’iy standart
+## Tarixiy hero yaratish standarti
 
 Har bir yangi rasm **original, matnsiz, 16:9, 1600×900 yoki undan katta** bo‘lsin. Qurilma media oynasining markazida, umumiy kadrning taxminan 60–80 foizini egallagan holda ko‘rinsin. Fon foydalanuvchi tasdiqlagan namuna kabi qorong‘i, zamonaviy teal/cyan biotexnologiya laboratoriyasi bo‘lsin. Odamlar, qo‘llar, logotiplar, watermark, alohida yozuv va soxta model belgilari bo‘lmasin. Qurilma haqiqiy laboratoriya instrumenti turiga mos, lekin uydirma manufacturer logotipisiz tasvirlansin.
 
@@ -70,7 +70,7 @@ AI tasvirining maqsadi **o‘quv uchun reprezentativ vizual** bo‘lib, uni rasm
 
 ## Tez yuklash qoidasi
 
-Yaratilgan 15 hero asset WebP formatiga o‘tkazilgach umumiy hajm **63.79 MiB dan 0.78 MiB gacha** qisqardi. Shu sababli yangi assetlar ham avval WebP’ga optimallashtirilishi shart. Birinchi ekrandagi kartalar preload va warmup bilan tezroq yuklanadi; keyingi kartalar esa foydalanuvchi skroll qilganda lazy-load bo‘lib qoladi. Barcha 100 ta rasmni birdaniga eager yuklamang — bu mobil tarmoqni sekinlashtiradi.
+Yaratilgan hero assetlar WebP formatida saqlanadi. Birinchi uchta karta `fetchPriority="high"` bilan, dastlabki olti karta `eager` bilan yuklanadi; qolgan kartalar `lazy` bo‘lib qoladi. Filtr yoki qidiruvdan keyin faqat dastlabki to‘rtta yangi natija browser bo‘sh vaqtida prefetch qilinadi. Barcha 100 ta rasmni birdaniga eager yuklamang — bu mobil tarmoqni sekinlashtiradi.
 
 ## Majburiy tekshiruvlar
 

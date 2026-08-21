@@ -1,5 +1,5 @@
 // Canonical Drive hero batchlari auditidan o'tgan, deploy-safe WebP URLlar.
-// BIO-041 ataylab bu ro'yxatda emas: authoritative Batch 15 replacement hali mavjud emas.
+// BIO-041 authoritative final varianti Batch 13 ichidan tasdiqlangan.
 export const auditedHeroImageUrls: Record<string, string> = {
   "BIO-001": "/manus-storage/biolab-equipment-001-hero_9a1dfc9a.webp",
   "BIO-002": "/manus-storage/biolab-equipment-002-hero_9c40bd3b.webp",
@@ -26,6 +26,7 @@ export const auditedHeroImageUrls: Record<string, string> = {
   "BIO-038": "/manus-storage/biolab-equipment-038-hero_e8fb7998.webp",
   "BIO-039": "/manus-storage/biolab-equipment-039-hero_9855df3c.webp",
   "BIO-040": "/manus-storage/biolab-equipment-040-hero_a773b4b9.webp",
+  "BIO-041": "/manus-storage/biolab-equipment-041-hero_bf1f69ba.webp",
   "BIO-042": "/manus-storage/biolab-equipment-042-hero_4c482ecc.webp",
   "BIO-043": "/manus-storage/biolab-equipment-043-hero_5c77b518.webp",
   "BIO-044": "/manus-storage/biolab-equipment-044-hero_020aa09a.webp",
@@ -88,7 +89,7 @@ export const auditedHeroImageUrls: Record<string, string> = {
 };
 
 // Batch topshirig'ida yangi fayli yo'q, ammo avvalgi auditdan o'tgan hero versiyasi
-// saqlanadigan qurilmalar. BIO-041 ataylab kiritilmagan.
+// saqlanadigan qurilmalar.
 export const legacyAcceptedHeroIds = [
   "BIO-016", "BIO-017", "BIO-018", "BIO-019", "BIO-020", "BIO-021", "BIO-022",
   "BIO-024", "BIO-025", "BIO-027", "BIO-028", "BIO-029", "BIO-031", "BIO-033", "BIO-035",

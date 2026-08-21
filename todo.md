@@ -72,7 +72,10 @@
 - [x] 768px va 1920px uchun qabul mezonlari hamda yakuniy audit natijasini release hujjatlarida aniq qayd etish
 - [x] iPhone Safari’da “O‘rganish” detail oynasi har gal 1-bo‘lim va yuqori qismdan boshlanishini qat’iy reset bilan ta’minlash
 - [x] Ayrim qurilmalarda DeviceViewer ochilmay qolishi uchun dinamik ma’lumot bloklari, PWA cache va xatolik holatlarini qayta hosil qilib bartaraf etish
-- [ ] iPhone-simulatsiya va productionda detail ochilishi hamda boshlang‘ich scroll pozitsiyasini smoke-test bilan tasdiqlash
-- [ ] Live production URLda iPhone Safari emulyatsiyasi orqali DeviceViewer scroll resetini boshlang‘ich 1-bo‘limdan ochilishi bilan tasdiqlash
-- [ ] Live productionda BIO-001, BIO-026, BIO-051 va BIO-076 uchun learning/purchase mustaqil yuklanishi hamda error-recovery oqimini smoke-test qilish
+- [x] iPhone-simulatsiya va productionda detail ochilishi hamda boshlang‘ich scroll pozitsiyasini smoke-test bilan tasdiqlash
+- [x] Live production URLda iPhone Safari emulyatsiyasi orqali DeviceViewer scroll resetini boshlang‘ich 1-bo‘limdan ochilishi bilan tasdiqlash
+- [x] Live productionda BIO-001, BIO-026, BIO-051 va BIO-076 uchun learning/purchase mustaqil yuklanishini smoke-test qilish
+- [x] Purchase loader xatosidan tiklanish oqimini component/unit regressionda aniq ajratib hujjatlashtirish; productionda xatolikni sun’iy hosil qilmaslik
+- [x] Recovery dalili unit regressionda, production smoke-testi esa faqat success-pathda ekanini PROJECT_STATE/CHANGELOGda aniq qayta tasdiqlash
+- [x] Recovery dalili unit regressiondan, production smoke-testi esa success-pathdan iborat ekanini CHANGELOGda yozish va tekshirish
 - [x] Purchase loader xatosi simulyatsiyasida DeviceViewer 16-bo‘limli o‘quv oynani ochishini alohida unit yoki component regression bilan tasdiqlash

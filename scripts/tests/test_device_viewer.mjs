@@ -23,7 +23,7 @@ try {
 
   await desktop.goto(previewUrl, { waitUntil: "networkidle" });
   await desktop.evaluate(() => window.localStorage.clear());
-  await desktop.reload({ waitUntil: "networkidle" });
+  await desktop.reload({ waitUntil: "domcontentloaded" });
   await assert(await desktop.evaluate(async () => Boolean(await navigator.serviceWorker.ready)), "PWA service worker ro‘yxatdan o‘tmadi.");
   const offlineStatus = desktop.locator("[data-offline-status]");
   await assert(await offlineStatus.getAttribute("data-offline-status") === "online", "Onlayn status indikatori ko‘rinmadi.");
@@ -57,7 +57,7 @@ try {
   await desktop.context().setOffline(false);
   await desktop.evaluate(() => window.dispatchEvent(new Event("online")));
   await desktop.waitForFunction(() => document.querySelector("[data-offline-status]")?.getAttribute("data-offline-status") === "online");
-  await desktop.reload({ waitUntil: "networkidle" });
+  await desktop.reload({ waitUntil: "domcontentloaded" });
 
   const carouselScene = desktop.locator(".pure3d-carousel .scene");
   await carouselScene.waitFor({ state: "visible" });
@@ -68,7 +68,7 @@ try {
   const carouselBookmark = desktop.locator('.pure3d-carousel .card').first().locator('[data-bookmark-button]');
   await carouselBookmark.dispatchEvent("click");
   await assert(await carouselBookmark.getAttribute("aria-pressed") === "true", "Carousel qurilmasi saralanganlarga saqlanmadi.");
-  await desktop.reload({ waitUntil: "networkidle" });
+  await desktop.reload({ waitUntil: "domcontentloaded" });
   const bookmarksSidebar = desktop.locator("[data-bookmarks-sidebar]");
   await desktop.getByRole("button", { name: "Saralanganlarni ochish" }).click();
   await assert(await bookmarksSidebar.isVisible(), "Saralanganlar o‘ng yon paneli ochilmadi.");
@@ -84,7 +84,7 @@ try {
   await catalogBookmark.click();
   await assert(await desktop.getByText("Qurilma topilmadi").isVisible(), "Saralangan qurilma o‘chirilgandan keyin bo‘sh holat ko‘rsatilmagan.");
   await desktop.evaluate(() => window.localStorage.clear());
-  await desktop.reload({ waitUntil: "networkidle" });
+  await desktop.reload({ waitUntil: "domcontentloaded" });
 
   await desktop.getByRole("button", { name: "Sozlamalar va Copyright" }).click();
   await assert(await desktop.getByRole("heading", { name: "Sozlamalar va huquqiy ma’lumot" }).isVisible(), "Sozlamalar paneli ochilmadi.");

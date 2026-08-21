@@ -202,8 +202,8 @@ importers:
         specifier: ^1.62.1
         version: 1.62.1
       pnpm:
-        specifier: ^10.15.1
-        version: 10.18.1
+        specifier: ^10.34.4
+        version: 10.34.4
       postcss:
         specifier: ^8.5.26
         version: 8.5.26
@@ -3079,8 +3079,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  pnpm@10.18.1:
-    resolution: {integrity: sha512-d6iEoWXLui2NHBnjtIgO7m0vyr0Nh5Eh4oIZa4AEI1HV6zygk1+lmdodxRJlzGiBatK93Sot5eqf35KtvsfNNA==}
+  pnpm@10.34.4:
+    resolution: {integrity: sha512-h2i+VSAK4/Iia2Un/Momh+FLxOXxLXchoPJdo99HkVF3BYZI20F3uvNIEg+guidS2NjZP2vq8f5krhjajelhrw==}
     engines: {node: '>=18.12'}
     hasBin: true
 
@@ -6760,7 +6760,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.2
 
-  pnpm@10.18.1: {}
+  pnpm@10.34.4: {}
 
   points-on-curve@0.2.0: {}
 

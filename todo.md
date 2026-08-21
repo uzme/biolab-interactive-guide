@@ -20,7 +20,7 @@
 - [x] Mualliflik huquqi (Copyright & Intellectual Property Protection) tizimini qat’iy yuridik bildirishnoma, texnik himoya cheklovlari va SettingsDialog orqali to‘liq boshqaruv bilan mustahkamlash
 - [x] PDF eksport va o‘quv konspektlariga qat’iy mualliflik huquqi, yuridik ogohlantirish va eksklyuziv egalik metadata’larini avtomatik kiritish (texnik himoya qatlami)
 - [x] 100 ta qurilma rasmini avtomatik audit qilish; object-fit, position, oq fon, letterboxing va dark-mode kontrast muammolarini ommaviy moslash
-- [ ] 100 ta qurilma rasmini foydalanuvchi namunasidagi katta, markazlangan hero sifati darajasiga moslash va yuklanish tezligini priority, prefetch hamda lazy-load strategiyasi bilan oshirish
+- [ ] 100 ta qurilma rasmini foydalanuvchi namunasidagi katta, markazlangan hero sifati darajasiga moslash va yuklanish tezligini priority, prefetch hamda lazy-load strategiyasi bilan oshirish (99 ta hero asset uchun yakunlandi; BIO-041 Batch 15 kelgach qamrov 100/100 bo‘ladi)
 - [x] Dastlabki 15 ta laboratoriya-hero vizualini WebP formatiga o‘tkazish va birinchi katalog rasmlarini preload hamda warmup bilan tezlashtirish
 - [ ] Kunlik rasm yaratish limiti tiklangach qolgan oq fonli qurilmalar uchun professional laboratoriya-hero vizuallarini agent tomonidan batchlarda yaratib ulash
 - [x] Yaratilgan 15 ta hero-vizual va qolgan 84 ta qurilma uchun aniq ID, asset mapping, sifat qoidalari va davom ettirish ketma-ketligini handoff hujjatida qayd etish

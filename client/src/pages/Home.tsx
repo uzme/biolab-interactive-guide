@@ -95,22 +95,41 @@ export default function Home() {
       devices: orderedFiltered.filter((device) => device.category === category),
     })).filter((group) => group.devices.length > 0);
   }, [hasActiveFilters, orderedFiltered]);
-  const nextImageUrls = useMemo(() => orderedFiltered.slice(0, 8)
+  const nextImageUrls = useMemo(() => orderedFiltered.slice(0, 4)
     .map((device) => equipmentImages[`BIO-${String(device.number).padStart(3, "0")}`]?.url)
     .filter((url): url is string => Boolean(url)), [orderedFiltered]);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => {
-      nextImageUrls.forEach((url, index) => {
+    // Dastlabki katalog kartalarining o‘zida eager/high prioritet bor. Qo‘shimcha
+    // Image warmup faqat foydalanuvchi filter yoki qidiruv natijasini o‘zgartirganda
+    // idle vaqtda ishlaydi — mobil tarmoqda bir xil rasm uchun takroriy so‘rov bermaydi.
+    if (!hasActiveFilters || document.visibilityState !== "visible") return;
+
+    const warmup = () => {
+      nextImageUrls.forEach((url) => {
         const image = new Image();
         image.decoding = "async";
-        image.fetchPriority = index < 5 ? "high" : "auto";
+        image.fetchPriority = "auto";
         image.src = url;
       });
-    }, 0);
+    };
 
-    return () => window.clearTimeout(timer);
-  }, [nextImageUrls]);
+    const idleWindow = window as unknown as {
+      requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+      cancelIdleCallback?: (handle: number) => void;
+    };
+    const idleHandle = idleWindow.requestIdleCallback
+      ? idleWindow.requestIdleCallback(warmup, { timeout: 800 })
+      : window.setTimeout(warmup, 180);
+
+    return () => {
+      if (typeof idleWindow.cancelIdleCallback === "function" && typeof idleWindow.requestIdleCallback === "function") {
+        idleWindow.cancelIdleCallback(idleHandle);
+      } else {
+        window.clearTimeout(idleHandle);
+      }
+    };
+  }, [hasActiveFilters, nextImageUrls]);
   const handleCategoryChange = (category: string) => startFilterTransition(() => setActiveCategory(category));
   const handleQueryChange = (value: string) => startFilterTransition(() => setQuery(value));
   const handleModelQueryChange = (value: string) => startFilterTransition(() => setModelQuery(value));

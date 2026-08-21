@@ -55,7 +55,7 @@ async function refreshLearningWorkspace() {
   window.location.reload();
 }
 
-export default function DeviceViewer({ device, onBack }: { device: Equipment; onBack: () => void }) {
+export default function DeviceViewer({ device, onBack, onReady }: { device: Equipment; onBack: () => void; onReady?: () => void }) {
   const [lessonIndex, setLessonIndex] = useState(0);
   const [learning, setLearning] = useState<LearningContent>();
   const [purchase, setPurchase] = useState<PurchaseContent>();
@@ -70,9 +70,11 @@ export default function DeviceViewer({ device, onBack }: { device: Equipment; on
     setLearning(undefined);
     setPurchase(undefined);
 
-    Promise.all([loadLearningContent(device.number), loadPurchaseContent(device.number)])
-      .then(([nextLearning, nextPurchase]) => {
+    Promise.allSettled([loadLearningContent(device.number), loadPurchaseContent(device.number)])
+      .then(([learningResult, purchaseResult]) => {
         if (cancelled) return;
+        const nextLearning = learningResult.status === "fulfilled" ? learningResult.value : undefined;
+        const nextPurchase = purchaseResult.status === "fulfilled" ? purchaseResult.value : undefined;
         setLearning(nextLearning);
         setPurchase(nextPurchase);
         setLoadError(!nextLearning);
@@ -89,6 +91,12 @@ export default function DeviceViewer({ device, onBack }: { device: Equipment; on
       cancelled = true;
     };
   }, [device.number]);
+
+  useEffect(() => {
+    if (isLoading) return;
+    const frame = window.requestAnimationFrame(() => onReady?.());
+    return () => window.cancelAnimationFrame(frame);
+  }, [device.id, isLoading, onReady]);
 
   const image = equipmentImages[device.id];
   const imagePresentation = getImagePresentation(device.id);

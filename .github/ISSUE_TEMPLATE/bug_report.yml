@@ -1,0 +1,38 @@
+name: Bug report
+description: BioLab katalogi yoki interface muammosi haqida xabar bering.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Xabar uchun rahmat. Muammoni qayta tiklash mumkin bo‘lishi uchun quyidagilarni to‘ldiring.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Muammo tavsifi
+      description: Nima noto‘g‘ri ishladi?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Qayta tiklash qadamlari
+      placeholder: "1. …\n2. …\n3. …"
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Kutilgan va amaldagi natija
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Muhit
+      description: Qurilma, brauzer va operatsion tizimni yozing.
+  - type: textarea
+    id: context
+    attributes:
+      label: Qo‘shimcha ma’lumot
+      description: Screenshot, katalog IDsi yoki console xatosini qo‘shing. Maxfiy ma’lumotlarni kiritmang.

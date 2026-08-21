@@ -81,3 +81,5 @@
 - [x] Purchase loader xatosi simulyatsiyasida DeviceViewer 16-bo‘limli o‘quv oynani ochishini alohida unit yoki component regression bilan tasdiqlash
 
 - [x] Drive recovery mirroridagi 100 ta WebP assetni local deploy-safe public registryga ulash, missing image fallback va birinchi uchta karta priority smoke-testini regressiyasiz tiklash
+
+- [ ] Vercel production konfiguratsiyasini Vite `dist/public` outputiga moslash, `server/index.ts` source kodi serve bo‘lishini yopish va production URL smoke-testini o‘tkazish

@@ -36,7 +36,7 @@ const categoryTone: Record<string, { icon: string; signal: string }> = {
   "Avtomatlashtirish": { icon: "border-[#cbd3da] bg-[#f0f3f5] text-[#536b78]", signal: "bg-[#536b78]" },
 };
 
-export default function EquipmentCard({ device, index, onOpen, isBookmarked, onToggleBookmark }: { device: Equipment; index: number; onOpen: (device: Equipment) => void; isBookmarked: boolean; onToggleBookmark: (deviceId: string) => void }) {
+export default function EquipmentCard({ device, index, imagePriorityIndex = index, onOpen, isBookmarked, onToggleBookmark }: { device: Equipment; index: number; imagePriorityIndex?: number; onOpen: (device: Equipment) => void; isBookmarked: boolean; onToggleBookmark: (deviceId: string) => void }) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
   const Icon = cardIcons[device.category] || FlaskConical;
@@ -48,8 +48,8 @@ export default function EquipmentCard({ device, index, onOpen, isBookmarked, onT
   const imageBackgroundProfile = getImageBackgroundProfile(imageKey);
   const imageLabel = image?.sourceType === "official" ? "Mahsulot rasmi" : "O‘quv vizuali";
   const recordCode = `SOP-${String(device.number).padStart(3, "0")}`;
-  const isInitialViewportImage = index < 3;
-  const shouldEagerLoad = index < 6;
+  const isInitialViewportImage = imagePriorityIndex < 3;
+  const shouldEagerLoad = imagePriorityIndex < 6;
 
   const imageSurface = imageBackgroundProfile === "paper"
     ? "bg-[#f8fbfa] dark:bg-[#eaf2ee]"
@@ -66,7 +66,7 @@ export default function EquipmentCard({ device, index, onOpen, isBookmarked, onT
 
   return <article className="equipment-card group relative flex h-full flex-col overflow-hidden rounded-[22px] border border-[#ccdcd8] bg-[#ffffff] shadow-[0_7px_18px_rgba(23,61,66,0.025)]" style={{ animationDelay: `${Math.min(index, 7) * 35}ms` }}>
     <div className={`absolute inset-x-0 top-0 h-1 ${tone.signal}`} />
-    <figure data-image-profile={imageBackgroundProfile} aria-busy={Boolean(image && !imageLoaded && !imageFailed)} className={`relative grid h-52 place-items-center overflow-hidden border-b border-[#d9e9e5] ${imageSurface} sm:h-48`}>
+    <figure data-image-profile={imageBackgroundProfile} data-priority-index={imagePriorityIndex} aria-busy={Boolean(image && !imageLoaded && !imageFailed)} className={`relative grid h-52 place-items-center overflow-hidden border-b border-[#d9e9e5] ${imageSurface} sm:h-48`}>
       {image ? <>
         {imagePresentation.fit === "contain" && imageBackgroundProfile === "laboratory" && <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(240,249,247,0.82),rgba(204,225,219,0.72)_65%,rgba(180,209,201,0.72))]" />}
         {!imageLoaded && !imageFailed && <div aria-hidden="true" className={`absolute inset-0 z-20 grid place-items-center ${imageSurface}`}>

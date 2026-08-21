@@ -1,0 +1,1690 @@
+{
+  "generatedAt": "2026-08-21T10:30:29.517Z",
+  "purpose": "Eski source ZIP batchlarining yakuniy 100 hero mirror bilan SHA-256 moslik auditi.",
+  "summary": {
+    "legacyZipCount": 76,
+    "legacyAssetOccurrences": 95,
+    "finalAssetCount": 100,
+    "occurrencesMatchingFinal": 85,
+    "occurrencesSuperseded": 10,
+    "finalIdsAbsentFromLegacyZips": [
+      "BIO-016",
+      "BIO-017",
+      "BIO-018",
+      "BIO-019",
+      "BIO-020",
+      "BIO-021",
+      "BIO-022",
+      "BIO-024",
+      "BIO-025",
+      "BIO-027",
+      "BIO-028",
+      "BIO-029",
+      "BIO-031",
+      "BIO-033",
+      "BIO-035"
+    ],
+    "finalIdsWithSupersededVariant": [
+      "BIO-006",
+      "BIO-008",
+      "BIO-010",
+      "BIO-034",
+      "BIO-038",
+      "BIO-039",
+      "BIO-046",
+      "BIO-047",
+      "BIO-048",
+      "BIO-049"
+    ],
+    "allLegacyZipsContainOnlyFinal": false
+  },
+  "zipSummary": [
+    {
+      "batch": 1,
+      "zipName": "BioLab_hero_assets_batch_01.zip",
+      "assetCount": 5,
+      "matchingCount": 4,
+      "supersededCount": 1,
+      "status": "mixed",
+      "assetIds": [
+        "BIO-002",
+        "BIO-003",
+        "BIO-004",
+        "BIO-005",
+        "BIO-006"
+      ]
+    },
+    {
+      "batch": 2,
+      "zipName": "BioLab_hero_assets_batch_02.zip",
+      "assetCount": 5,
+      "matchingCount": 3,
+      "supersededCount": 2,
+      "status": "mixed",
+      "assetIds": [
+        "BIO-007",
+        "BIO-008",
+        "BIO-009",
+        "BIO-010",
+        "BIO-011"
+      ]
+    },
+    {
+      "batch": 3,
+      "zipName": "BioLab_hero_assets_batch_03.zip",
+      "assetCount": 4,
+      "matchingCount": 4,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-012",
+        "BIO-013",
+        "BIO-014",
+        "BIO-015"
+      ]
+    },
+    {
+      "batch": 4,
+      "zipName": "BioLab_hero_assets_batch_04.zip",
+      "assetCount": 5,
+      "matchingCount": 4,
+      "supersededCount": 1,
+      "status": "mixed",
+      "assetIds": [
+        "BIO-023",
+        "BIO-026",
+        "BIO-030",
+        "BIO-032",
+        "BIO-034"
+      ]
+    },
+    {
+      "batch": 5,
+      "zipName": "BioLab_hero_assets_batch_05.zip",
+      "assetCount": 5,
+      "matchingCount": 3,
+      "supersededCount": 2,
+      "status": "mixed",
+      "assetIds": [
+        "BIO-036",
+        "BIO-037",
+        "BIO-038",
+        "BIO-039",
+        "BIO-040"
+      ]
+    },
+    {
+      "batch": 6,
+      "zipName": "BioLab_hero_assets_batch_06.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-006"
+      ]
+    },
+    {
+      "batch": 7,
+      "zipName": "BioLab_hero_assets_batch_07.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-008"
+      ]
+    },
+    {
+      "batch": 8,
+      "zipName": "BioLab_hero_assets_batch_08.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-010"
+      ]
+    },
+    {
+      "batch": 9,
+      "zipName": "BioLab_hero_assets_batch_09.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-034"
+      ]
+    },
+    {
+      "batch": 10,
+      "zipName": "BioLab_hero_assets_batch_10.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-038"
+      ]
+    },
+    {
+      "batch": 11,
+      "zipName": "BioLab_hero_assets_batch_11.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-039"
+      ]
+    },
+    {
+      "batch": 12,
+      "zipName": "BioLab_hero_assets_batch_12.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-001"
+      ]
+    },
+    {
+      "batch": 13,
+      "zipName": "BioLab_hero_assets_batch_13.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-041"
+      ]
+    },
+    {
+      "batch": 14,
+      "zipName": "BioLab_hero_assets_batch_14.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-042"
+      ]
+    },
+    {
+      "batch": 16,
+      "zipName": "BioLab_hero_assets_batch_16.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-043"
+      ]
+    },
+    {
+      "batch": 17,
+      "zipName": "BioLab_hero_assets_batch_17.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-044"
+      ]
+    },
+    {
+      "batch": 18,
+      "zipName": "BioLab_hero_assets_batch_18.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-045"
+      ]
+    },
+    {
+      "batch": 19,
+      "zipName": "BioLab_hero_assets_batch_19.zip",
+      "assetCount": 1,
+      "matchingCount": 0,
+      "supersededCount": 1,
+      "status": "superseded-only",
+      "assetIds": [
+        "BIO-046"
+      ]
+    },
+    {
+      "batch": 20,
+      "zipName": "BioLab_hero_assets_batch_20.zip",
+      "assetCount": 1,
+      "matchingCount": 0,
+      "supersededCount": 1,
+      "status": "superseded-only",
+      "assetIds": [
+        "BIO-047"
+      ]
+    },
+    {
+      "batch": 21,
+      "zipName": "BioLab_hero_assets_batch_21.zip",
+      "assetCount": 1,
+      "matchingCount": 0,
+      "supersededCount": 1,
+      "status": "superseded-only",
+      "assetIds": [
+        "BIO-048"
+      ]
+    },
+    {
+      "batch": 22,
+      "zipName": "BioLab_hero_assets_batch_22.zip",
+      "assetCount": 1,
+      "matchingCount": 0,
+      "supersededCount": 1,
+      "status": "superseded-only",
+      "assetIds": [
+        "BIO-049"
+      ]
+    },
+    {
+      "batch": 23,
+      "zipName": "BioLab_hero_assets_batch_23.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-050"
+      ]
+    },
+    {
+      "batch": 24,
+      "zipName": "BioLab_hero_assets_batch_24.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-046"
+      ]
+    },
+    {
+      "batch": 25,
+      "zipName": "BioLab_hero_assets_batch_25.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-047"
+      ]
+    },
+    {
+      "batch": 26,
+      "zipName": "BioLab_hero_assets_batch_26.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-048"
+      ]
+    },
+    {
+      "batch": 27,
+      "zipName": "BioLab_hero_assets_batch_27.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-049"
+      ]
+    },
+    {
+      "batch": 28,
+      "zipName": "BioLab_hero_assets_batch_28.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-051"
+      ]
+    },
+    {
+      "batch": 29,
+      "zipName": "BioLab_hero_assets_batch_29.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-052"
+      ]
+    },
+    {
+      "batch": 30,
+      "zipName": "BioLab_hero_assets_batch_30.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-053"
+      ]
+    },
+    {
+      "batch": 31,
+      "zipName": "BioLab_hero_assets_batch_31.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-054"
+      ]
+    },
+    {
+      "batch": 32,
+      "zipName": "BioLab_hero_assets_batch_32.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-055"
+      ]
+    },
+    {
+      "batch": 33,
+      "zipName": "BioLab_hero_assets_batch_33.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-056"
+      ]
+    },
+    {
+      "batch": 34,
+      "zipName": "BioLab_hero_assets_batch_34.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-057"
+      ]
+    },
+    {
+      "batch": 35,
+      "zipName": "BioLab_hero_assets_batch_35.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-058"
+      ]
+    },
+    {
+      "batch": 36,
+      "zipName": "BioLab_hero_assets_batch_36.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-059"
+      ]
+    },
+    {
+      "batch": 37,
+      "zipName": "BioLab_hero_assets_batch_37.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-060"
+      ]
+    },
+    {
+      "batch": 38,
+      "zipName": "BioLab_hero_assets_batch_38.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-061"
+      ]
+    },
+    {
+      "batch": 39,
+      "zipName": "BioLab_hero_assets_batch_39.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-062"
+      ]
+    },
+    {
+      "batch": 40,
+      "zipName": "BioLab_hero_assets_batch_40.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-063"
+      ]
+    },
+    {
+      "batch": 41,
+      "zipName": "BioLab_hero_assets_batch_41.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-064"
+      ]
+    },
+    {
+      "batch": 42,
+      "zipName": "BioLab_hero_assets_batch_42.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-065"
+      ]
+    },
+    {
+      "batch": 43,
+      "zipName": "BioLab_hero_assets_batch_43.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-066"
+      ]
+    },
+    {
+      "batch": 44,
+      "zipName": "BioLab_hero_assets_batch_44.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-067"
+      ]
+    },
+    {
+      "batch": 45,
+      "zipName": "BioLab_hero_assets_batch_45.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-068"
+      ]
+    },
+    {
+      "batch": 46,
+      "zipName": "BioLab_hero_assets_batch_46.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-069"
+      ]
+    },
+    {
+      "batch": 47,
+      "zipName": "BioLab_hero_assets_batch_47.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-070"
+      ]
+    },
+    {
+      "batch": 48,
+      "zipName": "BioLab_hero_assets_batch_48.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-071"
+      ]
+    },
+    {
+      "batch": 49,
+      "zipName": "BioLab_hero_assets_batch_49.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-072"
+      ]
+    },
+    {
+      "batch": 50,
+      "zipName": "BioLab_hero_assets_batch_50.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-073"
+      ]
+    },
+    {
+      "batch": 51,
+      "zipName": "BioLab_hero_assets_batch_51.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-074"
+      ]
+    },
+    {
+      "batch": 52,
+      "zipName": "BioLab_hero_assets_batch_52.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-075"
+      ]
+    },
+    {
+      "batch": 53,
+      "zipName": "BioLab_hero_assets_batch_53.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-076"
+      ]
+    },
+    {
+      "batch": 54,
+      "zipName": "BioLab_hero_assets_batch_54.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-077"
+      ]
+    },
+    {
+      "batch": 55,
+      "zipName": "BioLab_hero_assets_batch_55.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-078"
+      ]
+    },
+    {
+      "batch": 56,
+      "zipName": "BioLab_hero_assets_batch_56.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-079"
+      ]
+    },
+    {
+      "batch": 57,
+      "zipName": "BioLab_hero_assets_batch_57.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-080"
+      ]
+    },
+    {
+      "batch": 58,
+      "zipName": "BioLab_hero_assets_batch_58.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-081"
+      ]
+    },
+    {
+      "batch": 59,
+      "zipName": "BioLab_hero_assets_batch_59.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-082"
+      ]
+    },
+    {
+      "batch": 60,
+      "zipName": "BioLab_hero_assets_batch_60.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-083"
+      ]
+    },
+    {
+      "batch": 61,
+      "zipName": "BioLab_hero_assets_batch_61.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-084"
+      ]
+    },
+    {
+      "batch": 62,
+      "zipName": "BioLab_hero_assets_batch_62.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-085"
+      ]
+    },
+    {
+      "batch": 63,
+      "zipName": "BioLab_hero_assets_batch_63.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-086"
+      ]
+    },
+    {
+      "batch": 64,
+      "zipName": "BioLab_hero_assets_batch_64.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-087"
+      ]
+    },
+    {
+      "batch": 65,
+      "zipName": "BioLab_hero_assets_batch_65.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-088"
+      ]
+    },
+    {
+      "batch": 66,
+      "zipName": "BioLab_hero_assets_batch_66.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-089"
+      ]
+    },
+    {
+      "batch": 67,
+      "zipName": "BioLab_hero_assets_batch_67.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-090"
+      ]
+    },
+    {
+      "batch": 68,
+      "zipName": "BioLab_hero_assets_batch_68.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-091"
+      ]
+    },
+    {
+      "batch": 69,
+      "zipName": "BioLab_hero_assets_batch_69.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-092"
+      ]
+    },
+    {
+      "batch": 70,
+      "zipName": "BioLab_hero_assets_batch_70.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-093"
+      ]
+    },
+    {
+      "batch": 71,
+      "zipName": "BioLab_hero_assets_batch_71.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-094"
+      ]
+    },
+    {
+      "batch": 72,
+      "zipName": "BioLab_hero_assets_batch_72.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-095"
+      ]
+    },
+    {
+      "batch": 73,
+      "zipName": "BioLab_hero_assets_batch_73.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-096"
+      ]
+    },
+    {
+      "batch": 74,
+      "zipName": "BioLab_hero_assets_batch_74.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-097"
+      ]
+    },
+    {
+      "batch": 75,
+      "zipName": "BioLab_hero_assets_batch_75.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-098"
+      ]
+    },
+    {
+      "batch": 76,
+      "zipName": "BioLab_hero_assets_batch_76.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-099"
+      ]
+    },
+    {
+      "batch": 77,
+      "zipName": "BioLab_hero_assets_batch_77.zip",
+      "assetCount": 1,
+      "matchingCount": 1,
+      "supersededCount": 0,
+      "status": "all-final",
+      "assetIds": [
+        "BIO-100"
+      ]
+    }
+  ],
+  "idComparison": {
+    "BIO-001": {
+      "finalSha256": "1fd19b238e11557b660bff6c881f59cb30a13d42f535403fd66fde93543e3eba",
+      "matchingBatches": [
+        12
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-002": {
+      "finalSha256": "c850ccc8894e9dcda5fc92832d2396d4f4b705c89376807dfa9a8e93f810fe32",
+      "matchingBatches": [
+        1
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-003": {
+      "finalSha256": "67977b2f2ce341c5403abf45567d8e37cebad77aaa9f0bb7a069c2bfa865c1fb",
+      "matchingBatches": [
+        1
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-004": {
+      "finalSha256": "1bd1dae5beaae027be14dcd9f04bf8152812ef5e0fcefad929100e5cdc90180a",
+      "matchingBatches": [
+        1
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-005": {
+      "finalSha256": "338eb472a3a9b03fa8d7925a1bf7885862abeeb2fe8f1e2857bc90501286e86c",
+      "matchingBatches": [
+        1
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-006": {
+      "finalSha256": "46c7c9299b360a635349e40f46f52e043934ea1d32b2408e53690e8d92f78eea",
+      "matchingBatches": [
+        6
+      ],
+      "supersededBatches": [
+        1
+      ],
+      "absentFromLegacyZips": false
+    },
+    "BIO-007": {
+      "finalSha256": "b0be41272ca75865c96c23258642227e8ee9b95aab2d4b7de9c4839caffd12f7",
+      "matchingBatches": [
+        2
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-008": {
+      "finalSha256": "6031de97523165bf898f05dfa310a6902ffe8818385da5bf695631e9bb80cea6",
+      "matchingBatches": [
+        7
+      ],
+      "supersededBatches": [
+        2
+      ],
+      "absentFromLegacyZips": false
+    },
+    "BIO-009": {
+      "finalSha256": "e0b1bd18c47120ab4f200f41f737ae2d379974abfc5dd399d8547ba878508940",
+      "matchingBatches": [
+        2
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-010": {
+      "finalSha256": "3b35ce83b01e26f11f9c538794afee36ebc6d601b1b6daa58cc231cf614163b1",
+      "matchingBatches": [
+        8
+      ],
+      "supersededBatches": [
+        2
+      ],
+      "absentFromLegacyZips": false
+    },
+    "BIO-011": {
+      "finalSha256": "3908a35aa33ed81d45b0c8701006b6d19f6532e9ccb9f59d0318866cf21c5d57",
+      "matchingBatches": [
+        2
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-012": {
+      "finalSha256": "6d9797b0cb1c742d14e581ca0d4d901df4f3f9af68c3a294d28301719d3ec417",
+      "matchingBatches": [
+        3
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-013": {
+      "finalSha256": "9d27ca998fd4b25a0c06184cb870533882d153c5fb21cc7bf26f0faf006c3c7c",
+      "matchingBatches": [
+        3
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-014": {
+      "finalSha256": "59b03bf6b6c949148ee116e9e2cc3e8fbba62b8f3aed4195e7631fa63e340fc8",
+      "matchingBatches": [
+        3
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-015": {
+      "finalSha256": "d629e23701fc1ec50e67cc709e8c9e1cd59e7742664bcee81a5cf42c5b49559d",
+      "matchingBatches": [
+        3
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-016": {
+      "finalSha256": "0950d6ee0fab446963b0351ccd3a13c84f5cb259ede842ecf6424d172f83ed45",
+      "matchingBatches": [],
+      "supersededBatches": [],
+      "absentFromLegacyZips": true
+    },
+    "BIO-017": {
+      "finalSha256": "7b408d57f8d0384df19727b8dfde62de039b75d851929dda4581dd12a208aeae",
+      "matchingBatches": [],
+      "supersededBatches": [],
+      "absentFromLegacyZips": true
+    },
+    "BIO-018": {
+      "finalSha256": "bdeb7d4201daabbbc029b0cfb37abe957e3f56f063ff4924f45b450555a95493",
+      "matchingBatches": [],
+      "supersededBatches": [],
+      "absentFromLegacyZips": true
+    },
+    "BIO-019": {
+      "finalSha256": "f09a03fdfec9baea1d9b1e97efa78329069165a6741d8d7c6079631836abd78a",
+      "matchingBatches": [],
+      "supersededBatches": [],
+      "absentFromLegacyZips": true
+    },
+    "BIO-020": {
+      "finalSha256": "708f0bbe8c8c8556c07b4fdbfadf36f2d08e41267634862a21e4079ec40ca9c7",
+      "matchingBatches": [],
+      "supersededBatches": [],
+      "absentFromLegacyZips": true
+    },
+    "BIO-021": {
+      "finalSha256": "9075c567309631590ae0b171275be7ed36c40ffaeff3639990f0a868dc23e558",
+      "matchingBatches": [],
+      "supersededBatches": [],
+      "absentFromLegacyZips": true
+    },
+    "BIO-022": {
+      "finalSha256": "8ad637be46181b6191077f289e5fdcba77545535ce4f8606ee8781acfadc7f6f",
+      "matchingBatches": [],
+      "supersededBatches": [],
+      "absentFromLegacyZips": true
+    },
+    "BIO-023": {
+      "finalSha256": "04541310305ab4a09771095dab96dd7507b18c944887517a4737ed4e816846ca",
+      "matchingBatches": [
+        4
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-024": {
+      "finalSha256": "fd50d9f6fb1b99a79db4167aefee0180e6e6dfa09633904ca1892bd9258e0df5",
+      "matchingBatches": [],
+      "supersededBatches": [],
+      "absentFromLegacyZips": true
+    },
+    "BIO-025": {
+      "finalSha256": "d25242723879ff200413ca328cdba994e0c7b142dae09d95aa66d5911eebeeb0",
+      "matchingBatches": [],
+      "supersededBatches": [],
+      "absentFromLegacyZips": true
+    },
+    "BIO-026": {
+      "finalSha256": "d78c2c1812cf1e70c24d3824fc090216de3c7cbf6a9a60dd263474de9e9e7bdf",
+      "matchingBatches": [
+        4
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-027": {
+      "finalSha256": "66199581ea43dcd53f1b1d35e4997d6ac03fa2312b57b18a9af847bab02e4714",
+      "matchingBatches": [],
+      "supersededBatches": [],
+      "absentFromLegacyZips": true
+    },
+    "BIO-028": {
+      "finalSha256": "815dbe87683e623d7baa2922c44b9d078875707b22c61fad9f7062c8aebb18e7",
+      "matchingBatches": [],
+      "supersededBatches": [],
+      "absentFromLegacyZips": true
+    },
+    "BIO-029": {
+      "finalSha256": "a8ae4ea56241126bc02e2db62614542fadbd258c1cb4b7ecb8d7081b34a9985b",
+      "matchingBatches": [],
+      "supersededBatches": [],
+      "absentFromLegacyZips": true
+    },
+    "BIO-030": {
+      "finalSha256": "d019b5cdbe0dcd5b132c21426d1f0fe59f09a61342c1087e37897d232260d97e",
+      "matchingBatches": [
+        4
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-031": {
+      "finalSha256": "058313905c896ad045b4a1637a2cd9177f6e6ae29b538f3c147986ec648582cf",
+      "matchingBatches": [],
+      "supersededBatches": [],
+      "absentFromLegacyZips": true
+    },
+    "BIO-032": {
+      "finalSha256": "3fe104a7fd97f9987ae7f90fd808aeee62efc13b9e1768e3679edc8f8e10811f",
+      "matchingBatches": [
+        4
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-033": {
+      "finalSha256": "18f15f8b2e94dc58410b01578a9e28293c86de956d18fd7f2c5176882664c07a",
+      "matchingBatches": [],
+      "supersededBatches": [],
+      "absentFromLegacyZips": true
+    },
+    "BIO-034": {
+      "finalSha256": "ebf4b6ed358beef2349a2747c14bfee5195d7d42f372033733bad2ed6fe74d15",
+      "matchingBatches": [
+        9
+      ],
+      "supersededBatches": [
+        4
+      ],
+      "absentFromLegacyZips": false
+    },
+    "BIO-035": {
+      "finalSha256": "ef3e3e8871a52e9fdbb460b08fa49178b53feae85758bb3d1d8986f28fdef4f3",
+      "matchingBatches": [],
+      "supersededBatches": [],
+      "absentFromLegacyZips": true
+    },
+    "BIO-036": {
+      "finalSha256": "a9c0d9e722e2d61a5bfe6fe3101e5173ad568e6870ab2ead83bb58d798927f8e",
+      "matchingBatches": [
+        5
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-037": {
+      "finalSha256": "83739604bd0d67a7280c011c8f2745f7631517578401728c1d6bab7e30cebed7",
+      "matchingBatches": [
+        5
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-038": {
+      "finalSha256": "dc288319c9c12d1973fb17c4f9ead3b80856cf47ebc3a18800d7a97d3837a141",
+      "matchingBatches": [
+        10
+      ],
+      "supersededBatches": [
+        5
+      ],
+      "absentFromLegacyZips": false
+    },
+    "BIO-039": {
+      "finalSha256": "2824b6149a7fc1d616e3d9378fcfb17df300896b4e7fc090cb4abb43808ca141",
+      "matchingBatches": [
+        11
+      ],
+      "supersededBatches": [
+        5
+      ],
+      "absentFromLegacyZips": false
+    },
+    "BIO-040": {
+      "finalSha256": "2904905fb4cb09c1d00abae553820226c72508cd9319cbb9af809903aa53e0d3",
+      "matchingBatches": [
+        5
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-041": {
+      "finalSha256": "fcf69a9e93eb91fb8f0bdcb217e612e93f2ff76c27a98e8cb0f1c832f8c43799",
+      "matchingBatches": [
+        13
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-042": {
+      "finalSha256": "47de31b6d9627c2c37619c4e9cfc82f98a13902f3d21a9e51e96a68dd3f79e4f",
+      "matchingBatches": [
+        14
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-043": {
+      "finalSha256": "68ff0c225e2d55c48aca3e88950d24250d28938ba4234198096a45322440aec4",
+      "matchingBatches": [
+        16
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-044": {
+      "finalSha256": "a5f7bfdd5c3ada66e26af1b268f15c652e71e00509452686699fc81d7ab64cfa",
+      "matchingBatches": [
+        17
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-045": {
+      "finalSha256": "e66dd8ece43f6960dcfb3876e0ae009b122b8dd96c2309a0a759463f2f0284e9",
+      "matchingBatches": [
+        18
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-046": {
+      "finalSha256": "87aca5dcd4ab530771255516e5f3e8e1f9eb66f41140baac547af26eb3153e82",
+      "matchingBatches": [
+        24
+      ],
+      "supersededBatches": [
+        19
+      ],
+      "absentFromLegacyZips": false
+    },
+    "BIO-047": {
+      "finalSha256": "130094d7c615e11edef683e8e6a0a5699c000c280ef6c5748017857cd73da542",
+      "matchingBatches": [
+        25
+      ],
+      "supersededBatches": [
+        20
+      ],
+      "absentFromLegacyZips": false
+    },
+    "BIO-048": {
+      "finalSha256": "2e4569f630f768529cd6d92514190663fad5ffe7cae195aeb933569db398cbd7",
+      "matchingBatches": [
+        26
+      ],
+      "supersededBatches": [
+        21
+      ],
+      "absentFromLegacyZips": false
+    },
+    "BIO-049": {
+      "finalSha256": "f10e46e7e6fc28edece974f40869afab99f1ff18caf35cd6e276aaaa2f85fb74",
+      "matchingBatches": [
+        27
+      ],
+      "supersededBatches": [
+        22
+      ],
+      "absentFromLegacyZips": false
+    },
+    "BIO-050": {
+      "finalSha256": "747b6839ee3246bc17825abb90645eb24b6a9ae3fc42e472694f2f5f8a157a98",
+      "matchingBatches": [
+        23
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-051": {
+      "finalSha256": "07c944d23e304ee6ba3ce99dc59a954138c9ccfb58c85a6f555bec166a9c0f33",
+      "matchingBatches": [
+        28
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-052": {
+      "finalSha256": "aa89147fa0ff90b174510f171c07276f704ae63b6cb564b919ccf4eef65c3ad6",
+      "matchingBatches": [
+        29
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-053": {
+      "finalSha256": "eac872822891d9b4a1835f6c478372237a8fe02db2c56327871c5582692882a1",
+      "matchingBatches": [
+        30
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-054": {
+      "finalSha256": "d8e3bdac44f43744f46b4e645601ccf4c52eb4a4b283bd45fbb9ca8d8f79dbb1",
+      "matchingBatches": [
+        31
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-055": {
+      "finalSha256": "1fcddde946eabd12efe4fe8b34a62074d4e1fdc9f5915f88588cd0973bb25f1e",
+      "matchingBatches": [
+        32
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-056": {
+      "finalSha256": "0549aaeb40fc156b72f6130ffd3bdb99d2a470aa867e776a6e191fc4b9040632",
+      "matchingBatches": [
+        33
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-057": {
+      "finalSha256": "d8115d61e63632cb6730328e966063e995d56bd360dc8410928c8e931378d8e0",
+      "matchingBatches": [
+        34
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-058": {
+      "finalSha256": "eadf9ec0d4bca08bb20645e6d6914f93a2de6f79f09915a592de84cbb6d7c607",
+      "matchingBatches": [
+        35
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-059": {
+      "finalSha256": "0b92605c547850b986a6b32939a30185b242bf0b6ac506a2de64846031e0a871",
+      "matchingBatches": [
+        36
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-060": {
+      "finalSha256": "c65d2b367af754df4bc17d6580da7de360bea4d7c642aded3466ba5e8b73d8ad",
+      "matchingBatches": [
+        37
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-061": {
+      "finalSha256": "6df815b44de8865975a647f3ecc30fd71a601b66e2aa64215a156ce2e46548b9",
+      "matchingBatches": [
+        38
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-062": {
+      "finalSha256": "4cfac03cf33ed3703af2d1a93211282f6f4c6cff903b83b9d51250423b7bf7a2",
+      "matchingBatches": [
+        39
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-063": {
+      "finalSha256": "c8d3aba9b76a81b2a7f788db5f0eb99e2ffab065c53eed688004174c93c42859",
+      "matchingBatches": [
+        40
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-064": {
+      "finalSha256": "ac7f6680cc4abdf85c12a07d799e75850ff6b750ecd29fd3c7ab1ee56c25e40d",
+      "matchingBatches": [
+        41
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-065": {
+      "finalSha256": "e75547339d6acd4499c49e765800f09da654cead21847910215e4b7ccd4a35d0",
+      "matchingBatches": [
+        42
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-066": {
+      "finalSha256": "d62f31c9cf8b9c8f1caa68ac5a1400b07a4abfe5ad5eb3df80dadb7c44018c23",
+      "matchingBatches": [
+        43
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-067": {
+      "finalSha256": "d7938c4fe221f59c55ed1da5d7fe84fdf947b38a9c2331a1b3a1fbd78fda486d",
+      "matchingBatches": [
+        44
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-068": {
+      "finalSha256": "8b327cbc24b3a09f4bea43727ca14a17c7072180b040518c8d59ae17fa9464c2",
+      "matchingBatches": [
+        45
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-069": {
+      "finalSha256": "64b247d62364ba4bcfcca4bf6ee3e7b133ef14d0d6436e36a7b12a1b02ae32ab",
+      "matchingBatches": [
+        46
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-070": {
+      "finalSha256": "c2a9cff3ce43835acf220f15d2b4c23b40dbc9d89c5d3c9dd7d551038da7ec9a",
+      "matchingBatches": [
+        47
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-071": {
+      "finalSha256": "0312ea252d0ee997a9fbb4a9fa97e5a9f3f3c7320dca590b398903744f408405",
+      "matchingBatches": [
+        48
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-072": {
+      "finalSha256": "50c1074e155181e6ebad41e42b6601d7e88d442688d456d06df2e68a9765533a",
+      "matchingBatches": [
+        49
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-073": {
+      "finalSha256": "0c908bf5ed494bd1431c97001811d54aa00bed4b64656cbd7adad0e0b34eaf2b",
+      "matchingBatches": [
+        50
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-074": {
+      "finalSha256": "1e073a839bebff90483e80d18547f68b130b40ca31ca841aed0307ec69241bb5",
+      "matchingBatches": [
+        51
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-075": {
+      "finalSha256": "af61411537df946df1fe72b685950ea39d2651cc16718c0dfb4bd89a06c8e990",
+      "matchingBatches": [
+        52
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-076": {
+      "finalSha256": "283807ed1dd718ae74d0004104074cf0a6233464f2149aab7926502227229db2",
+      "matchingBatches": [
+        53
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-077": {
+      "finalSha256": "d5e70044bf9592a6046f5dcac0bdcd390899149d7664abef7c2d0f4339c06408",
+      "matchingBatches": [
+        54
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-078": {
+      "finalSha256": "afe57316675a59c699f3060154ff19792957d4d1778cff5d66aebefa1f5c1e61",
+      "matchingBatches": [
+        55
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-079": {
+      "finalSha256": "3e0b04af78ec804cffb34ceb194b8a81fde48781d08a0360352f822c1073c95b",
+      "matchingBatches": [
+        56
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-080": {
+      "finalSha256": "b1c7b4126f1b085eb56c3be15abf72b2c1446e054a17295401733dd12f53f5c4",
+      "matchingBatches": [
+        57
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-081": {
+      "finalSha256": "a9d063f17c1ea0791f804cfbbac6aabaaf01afc9e5958c07f84688dd52333d21",
+      "matchingBatches": [
+        58
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-082": {
+      "finalSha256": "3b621f0cc50a85dc24d1b638ad431cd4edaaeac8a46e070ec68b845c56428330",
+      "matchingBatches": [
+        59
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-083": {
+      "finalSha256": "eeab4abfebb62a8a42991ced548eedb421cc9ae4a90294859dc88b2dfab0d01d",
+      "matchingBatches": [
+        60
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-084": {
+      "finalSha256": "ee808fd165ccbbde18fed1a720e71ac86930cd7de3f7dde4399a1ba6383738c6",
+      "matchingBatches": [
+        61
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-085": {
+      "finalSha256": "43df30ad95f91499c263bab0fe2570e20f0ff6d42c207891c55d5bd2d786b9b5",
+      "matchingBatches": [
+        62
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-086": {
+      "finalSha256": "0385185c8b17bdedb1ec74b97d136447b35b319790f0cd641f62daf00835a170",
+      "matchingBatches": [
+        63
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-087": {
+      "finalSha256": "ce32d549798a3321674a3ed5c2e33f3924067c06ea749f59e4563da4d0f8319c",
+      "matchingBatches": [
+        64
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-088": {
+      "finalSha256": "b81eac982d235a0ae4aca3e8ab0b19eca50d74560249ec9092b7219f0f8203a8",
+      "matchingBatches": [
+        65
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-089": {
+      "finalSha256": "627dd2f637042dbecf2f38217bae9aa44052cbd76104e4137954f3b921a3575c",
+      "matchingBatches": [
+        66
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-090": {
+      "finalSha256": "f6ec4e4e3e3556ae7d0c60eb40a9923bd6cd09424f2b26ab639f2942862c6cb5",
+      "matchingBatches": [
+        67
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-091": {
+      "finalSha256": "14bd58f5730f0aed0bdde8001f40f90f4094755fbfa3c43c39468e7706172306",
+      "matchingBatches": [
+        68
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-092": {
+      "finalSha256": "1497a21da365c3f61405a10f530b4e8b15deeb4cca718241cb5bf9aa4d4b1975",
+      "matchingBatches": [
+        69
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-093": {
+      "finalSha256": "613e020588239beb744a756a59017ec9dd39d41eea7241226c7d244e6f81c6c5",
+      "matchingBatches": [
+        70
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-094": {
+      "finalSha256": "4e523332e6ecd8645feacb761ffa125c10ad68a7c9a566d04418e41fb97afdc6",
+      "matchingBatches": [
+        71
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-095": {
+      "finalSha256": "82da42afb74d499ad19e2c02e94c6c17c4a421298f6953ddbe58b09de228a819",
+      "matchingBatches": [
+        72
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-096": {
+      "finalSha256": "9b29a0ad023200c3eabca17be7a02734b8c83934a3f0647e9fc386cf1081d88f",
+      "matchingBatches": [
+        73
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-097": {
+      "finalSha256": "0b23d5e30be45b27c4d175615d9cbcedb5839016a7da173b36c23e60932c5af6",
+      "matchingBatches": [
+        74
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-098": {
+      "finalSha256": "543e239cd8ff8b9df5c30223a5853e68b0efe6769db368c3c1dcd85ccd21ec2d",
+      "matchingBatches": [
+        75
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-099": {
+      "finalSha256": "52413f40f02cb736278f24bcebb67e6e2cdc2cebb452af2effe985c432b2dd4c",
+      "matchingBatches": [
+        76
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    },
+    "BIO-100": {
+      "finalSha256": "55512fab5cf65f376ab30f809d1e86681b81d32fa62c0579e1e2b62328187477",
+      "matchingBatches": [
+        77
+      ],
+      "supersededBatches": [],
+      "absentFromLegacyZips": false
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-21T09:13:38.417Z",
+  "generatedAt": "2026-08-21T10:29:46.643Z",
   "driveRemote": "manus_google_drive:Biotexnologiya yangi",
   "readOnly": true,
   "expectedBatchRange": "01–77",
@@ -329,6 +329,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "c850ccc8894e9dcda5fc92832d2396d4f4b705c89376807dfa9a8e93f810fe32",
           "validDimensions": true
         },
         {
@@ -338,6 +339,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "67977b2f2ce341c5403abf45567d8e37cebad77aaa9f0bb7a069c2bfa865c1fb",
           "validDimensions": true
         },
         {
@@ -347,6 +349,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "1bd1dae5beaae027be14dcd9f04bf8152812ef5e0fcefad929100e5cdc90180a",
           "validDimensions": true
         },
         {
@@ -356,6 +359,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "338eb472a3a9b03fa8d7925a1bf7885862abeeb2fe8f1e2857bc90501286e86c",
           "validDimensions": true
         },
         {
@@ -365,6 +369,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "4b2e2f2f00929e287641ee758c42e31cebdbcdb7fd8f4351bbe4c63358171ede",
           "validDimensions": true
         }
       ],
@@ -393,6 +398,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "b0be41272ca75865c96c23258642227e8ee9b95aab2d4b7de9c4839caffd12f7",
           "validDimensions": true
         },
         {
@@ -402,6 +408,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "232cf846794c92d6b230d3c7a1dafd23809a61b8646949d339909191411c1ae9",
           "validDimensions": true
         },
         {
@@ -411,6 +418,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "e0b1bd18c47120ab4f200f41f737ae2d379974abfc5dd399d8547ba878508940",
           "validDimensions": true
         },
         {
@@ -420,6 +428,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "353bea71aa142b1e6e6cba523524ac9f2154f4d487a264056ec7cbb172c1f326",
           "validDimensions": true
         },
         {
@@ -429,6 +438,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "3908a35aa33ed81d45b0c8701006b6d19f6532e9ccb9f59d0318866cf21c5d57",
           "validDimensions": true
         }
       ],
@@ -456,6 +466,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "6d9797b0cb1c742d14e581ca0d4d901df4f3f9af68c3a294d28301719d3ec417",
           "validDimensions": true
         },
         {
@@ -465,6 +476,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "9d27ca998fd4b25a0c06184cb870533882d153c5fb21cc7bf26f0faf006c3c7c",
           "validDimensions": true
         },
         {
@@ -474,6 +486,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "59b03bf6b6c949148ee116e9e2cc3e8fbba62b8f3aed4195e7631fa63e340fc8",
           "validDimensions": true
         },
         {
@@ -483,6 +496,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "d629e23701fc1ec50e67cc709e8c9e1cd59e7742664bcee81a5cf42c5b49559d",
           "validDimensions": true
         }
       ],
@@ -511,6 +525,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "04541310305ab4a09771095dab96dd7507b18c944887517a4737ed4e816846ca",
           "validDimensions": true
         },
         {
@@ -520,6 +535,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "d78c2c1812cf1e70c24d3824fc090216de3c7cbf6a9a60dd263474de9e9e7bdf",
           "validDimensions": true
         },
         {
@@ -529,6 +545,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "d019b5cdbe0dcd5b132c21426d1f0fe59f09a61342c1087e37897d232260d97e",
           "validDimensions": true
         },
         {
@@ -538,6 +555,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "3fe104a7fd97f9987ae7f90fd808aeee62efc13b9e1768e3679edc8f8e10811f",
           "validDimensions": true
         },
         {
@@ -547,6 +565,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "fda4135016523dca96e96c26701584f8dd1853fc73817c10c43be63725f009d8",
           "validDimensions": true
         }
       ],
@@ -575,6 +594,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "a9c0d9e722e2d61a5bfe6fe3101e5173ad568e6870ab2ead83bb58d798927f8e",
           "validDimensions": true
         },
         {
@@ -584,6 +604,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "83739604bd0d67a7280c011c8f2745f7631517578401728c1d6bab7e30cebed7",
           "validDimensions": true
         },
         {
@@ -593,6 +614,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "84f6e3df8e3359b11f97ecc76b88a34f69e1f67b5d798bd0f17a24a671925b47",
           "validDimensions": true
         },
         {
@@ -602,6 +624,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "5fed00297f418a56cca9e1140236c2f69a4a086385d52a5aef7017cfb274f694",
           "validDimensions": true
         },
         {
@@ -611,6 +634,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "2904905fb4cb09c1d00abae553820226c72508cd9319cbb9af809903aa53e0d3",
           "validDimensions": true
         }
       ],
@@ -635,6 +659,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "46c7c9299b360a635349e40f46f52e043934ea1d32b2408e53690e8d92f78eea",
           "validDimensions": true
         }
       ],
@@ -659,6 +684,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "6031de97523165bf898f05dfa310a6902ffe8818385da5bf695631e9bb80cea6",
           "validDimensions": true
         }
       ],
@@ -683,6 +709,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "3b35ce83b01e26f11f9c538794afee36ebc6d601b1b6daa58cc231cf614163b1",
           "validDimensions": true
         }
       ],
@@ -707,6 +734,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "ebf4b6ed358beef2349a2747c14bfee5195d7d42f372033733bad2ed6fe74d15",
           "validDimensions": true
         }
       ],
@@ -731,6 +759,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "dc288319c9c12d1973fb17c4f9ead3b80856cf47ebc3a18800d7a97d3837a141",
           "validDimensions": true
         }
       ],
@@ -755,6 +784,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "2824b6149a7fc1d616e3d9378fcfb17df300896b4e7fc090cb4abb43808ca141",
           "validDimensions": true
         }
       ],
@@ -779,6 +809,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "1fd19b238e11557b660bff6c881f59cb30a13d42f535403fd66fde93543e3eba",
           "validDimensions": true
         }
       ],
@@ -803,6 +834,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "fcf69a9e93eb91fb8f0bdcb217e612e93f2ff76c27a98e8cb0f1c832f8c43799",
           "validDimensions": true
         }
       ],
@@ -827,6 +859,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "47de31b6d9627c2c37619c4e9cfc82f98a13902f3d21a9e51e96a68dd3f79e4f",
           "validDimensions": true
         }
       ],
@@ -851,6 +884,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "68ff0c225e2d55c48aca3e88950d24250d28938ba4234198096a45322440aec4",
           "validDimensions": true
         }
       ],
@@ -875,6 +909,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "a5f7bfdd5c3ada66e26af1b268f15c652e71e00509452686699fc81d7ab64cfa",
           "validDimensions": true
         }
       ],
@@ -899,6 +934,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "e66dd8ece43f6960dcfb3876e0ae009b122b8dd96c2309a0a759463f2f0284e9",
           "validDimensions": true
         }
       ],
@@ -923,6 +959,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "29d427e7a6f478cd4d35bafbe33b5f8eec4d3b2bdc78f091ad5ef4f402ca83bd",
           "validDimensions": true
         }
       ],
@@ -947,6 +984,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "fcb2f052424a237b7cf7ba7b2055592f52ab353a59b75d416eb04d9e6732007c",
           "validDimensions": true
         }
       ],
@@ -971,6 +1009,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "e73efc922ed413e910f92d3bd0e26420a4ec77c1d7fa74667e237e5648238bc7",
           "validDimensions": true
         }
       ],
@@ -995,6 +1034,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "79333eb0d9b22896a7abb02d04bd5b131e84a5b9b7360cd27b0478fc7ac8b272",
           "validDimensions": true
         }
       ],
@@ -1019,6 +1059,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "747b6839ee3246bc17825abb90645eb24b6a9ae3fc42e472694f2f5f8a157a98",
           "validDimensions": true
         }
       ],
@@ -1043,6 +1084,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "87aca5dcd4ab530771255516e5f3e8e1f9eb66f41140baac547af26eb3153e82",
           "validDimensions": true
         }
       ],
@@ -1067,6 +1109,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "130094d7c615e11edef683e8e6a0a5699c000c280ef6c5748017857cd73da542",
           "validDimensions": true
         }
       ],
@@ -1091,6 +1134,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "2e4569f630f768529cd6d92514190663fad5ffe7cae195aeb933569db398cbd7",
           "validDimensions": true
         }
       ],
@@ -1115,6 +1159,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "f10e46e7e6fc28edece974f40869afab99f1ff18caf35cd6e276aaaa2f85fb74",
           "validDimensions": true
         }
       ],
@@ -1139,6 +1184,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "07c944d23e304ee6ba3ce99dc59a954138c9ccfb58c85a6f555bec166a9c0f33",
           "validDimensions": true
         }
       ],
@@ -1163,6 +1209,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "aa89147fa0ff90b174510f171c07276f704ae63b6cb564b919ccf4eef65c3ad6",
           "validDimensions": true
         }
       ],
@@ -1187,6 +1234,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "eac872822891d9b4a1835f6c478372237a8fe02db2c56327871c5582692882a1",
           "validDimensions": true
         }
       ],
@@ -1211,6 +1259,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "d8e3bdac44f43744f46b4e645601ccf4c52eb4a4b283bd45fbb9ca8d8f79dbb1",
           "validDimensions": true
         }
       ],
@@ -1235,6 +1284,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "1fcddde946eabd12efe4fe8b34a62074d4e1fdc9f5915f88588cd0973bb25f1e",
           "validDimensions": true
         }
       ],
@@ -1259,6 +1309,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "0549aaeb40fc156b72f6130ffd3bdb99d2a470aa867e776a6e191fc4b9040632",
           "validDimensions": true
         }
       ],
@@ -1283,6 +1334,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "d8115d61e63632cb6730328e966063e995d56bd360dc8410928c8e931378d8e0",
           "validDimensions": true
         }
       ],
@@ -1307,6 +1359,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "eadf9ec0d4bca08bb20645e6d6914f93a2de6f79f09915a592de84cbb6d7c607",
           "validDimensions": true
         }
       ],
@@ -1331,6 +1384,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "0b92605c547850b986a6b32939a30185b242bf0b6ac506a2de64846031e0a871",
           "validDimensions": true
         }
       ],
@@ -1355,6 +1409,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "c65d2b367af754df4bc17d6580da7de360bea4d7c642aded3466ba5e8b73d8ad",
           "validDimensions": true
         }
       ],
@@ -1379,6 +1434,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "6df815b44de8865975a647f3ecc30fd71a601b66e2aa64215a156ce2e46548b9",
           "validDimensions": true
         }
       ],
@@ -1403,6 +1459,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "4cfac03cf33ed3703af2d1a93211282f6f4c6cff903b83b9d51250423b7bf7a2",
           "validDimensions": true
         }
       ],
@@ -1427,6 +1484,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "c8d3aba9b76a81b2a7f788db5f0eb99e2ffab065c53eed688004174c93c42859",
           "validDimensions": true
         }
       ],
@@ -1451,6 +1509,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "ac7f6680cc4abdf85c12a07d799e75850ff6b750ecd29fd3c7ab1ee56c25e40d",
           "validDimensions": true
         }
       ],
@@ -1475,6 +1534,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "e75547339d6acd4499c49e765800f09da654cead21847910215e4b7ccd4a35d0",
           "validDimensions": true
         }
       ],
@@ -1499,6 +1559,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "d62f31c9cf8b9c8f1caa68ac5a1400b07a4abfe5ad5eb3df80dadb7c44018c23",
           "validDimensions": true
         }
       ],
@@ -1523,6 +1584,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "d7938c4fe221f59c55ed1da5d7fe84fdf947b38a9c2331a1b3a1fbd78fda486d",
           "validDimensions": true
         }
       ],
@@ -1547,6 +1609,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "8b327cbc24b3a09f4bea43727ca14a17c7072180b040518c8d59ae17fa9464c2",
           "validDimensions": true
         }
       ],
@@ -1571,6 +1634,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "64b247d62364ba4bcfcca4bf6ee3e7b133ef14d0d6436e36a7b12a1b02ae32ab",
           "validDimensions": true
         }
       ],
@@ -1595,6 +1659,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "c2a9cff3ce43835acf220f15d2b4c23b40dbc9d89c5d3c9dd7d551038da7ec9a",
           "validDimensions": true
         }
       ],
@@ -1619,6 +1684,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "0312ea252d0ee997a9fbb4a9fa97e5a9f3f3c7320dca590b398903744f408405",
           "validDimensions": true
         }
       ],
@@ -1643,6 +1709,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "50c1074e155181e6ebad41e42b6601d7e88d442688d456d06df2e68a9765533a",
           "validDimensions": true
         }
       ],
@@ -1667,6 +1734,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "0c908bf5ed494bd1431c97001811d54aa00bed4b64656cbd7adad0e0b34eaf2b",
           "validDimensions": true
         }
       ],
@@ -1691,6 +1759,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "1e073a839bebff90483e80d18547f68b130b40ca31ca841aed0307ec69241bb5",
           "validDimensions": true
         }
       ],
@@ -1715,6 +1784,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "af61411537df946df1fe72b685950ea39d2651cc16718c0dfb4bd89a06c8e990",
           "validDimensions": true
         }
       ],
@@ -1739,6 +1809,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "283807ed1dd718ae74d0004104074cf0a6233464f2149aab7926502227229db2",
           "validDimensions": true
         }
       ],
@@ -1763,6 +1834,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "d5e70044bf9592a6046f5dcac0bdcd390899149d7664abef7c2d0f4339c06408",
           "validDimensions": true
         }
       ],
@@ -1787,6 +1859,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "afe57316675a59c699f3060154ff19792957d4d1778cff5d66aebefa1f5c1e61",
           "validDimensions": true
         }
       ],
@@ -1811,6 +1884,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "3e0b04af78ec804cffb34ceb194b8a81fde48781d08a0360352f822c1073c95b",
           "validDimensions": true
         }
       ],
@@ -1835,6 +1909,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "b1c7b4126f1b085eb56c3be15abf72b2c1446e054a17295401733dd12f53f5c4",
           "validDimensions": true
         }
       ],
@@ -1859,6 +1934,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "a9d063f17c1ea0791f804cfbbac6aabaaf01afc9e5958c07f84688dd52333d21",
           "validDimensions": true
         }
       ],
@@ -1883,6 +1959,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "3b621f0cc50a85dc24d1b638ad431cd4edaaeac8a46e070ec68b845c56428330",
           "validDimensions": true
         }
       ],
@@ -1907,6 +1984,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "eeab4abfebb62a8a42991ced548eedb421cc9ae4a90294859dc88b2dfab0d01d",
           "validDimensions": true
         }
       ],
@@ -1931,6 +2009,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "ee808fd165ccbbde18fed1a720e71ac86930cd7de3f7dde4399a1ba6383738c6",
           "validDimensions": true
         }
       ],
@@ -1955,6 +2034,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "43df30ad95f91499c263bab0fe2570e20f0ff6d42c207891c55d5bd2d786b9b5",
           "validDimensions": true
         }
       ],
@@ -1979,6 +2059,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "0385185c8b17bdedb1ec74b97d136447b35b319790f0cd641f62daf00835a170",
           "validDimensions": true
         }
       ],
@@ -2003,6 +2084,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "ce32d549798a3321674a3ed5c2e33f3924067c06ea749f59e4563da4d0f8319c",
           "validDimensions": true
         }
       ],
@@ -2027,6 +2109,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "b81eac982d235a0ae4aca3e8ab0b19eca50d74560249ec9092b7219f0f8203a8",
           "validDimensions": true
         }
       ],
@@ -2051,6 +2134,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "627dd2f637042dbecf2f38217bae9aa44052cbd76104e4137954f3b921a3575c",
           "validDimensions": true
         }
       ],
@@ -2075,6 +2159,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "f6ec4e4e3e3556ae7d0c60eb40a9923bd6cd09424f2b26ab639f2942862c6cb5",
           "validDimensions": true
         }
       ],
@@ -2099,6 +2184,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "14bd58f5730f0aed0bdde8001f40f90f4094755fbfa3c43c39468e7706172306",
           "validDimensions": true
         }
       ],
@@ -2123,6 +2209,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "1497a21da365c3f61405a10f530b4e8b15deeb4cca718241cb5bf9aa4d4b1975",
           "validDimensions": true
         }
       ],
@@ -2147,6 +2234,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "613e020588239beb744a756a59017ec9dd39d41eea7241226c7d244e6f81c6c5",
           "validDimensions": true
         }
       ],
@@ -2171,6 +2259,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "4e523332e6ecd8645feacb761ffa125c10ad68a7c9a566d04418e41fb97afdc6",
           "validDimensions": true
         }
       ],
@@ -2195,6 +2284,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "82da42afb74d499ad19e2c02e94c6c17c4a421298f6953ddbe58b09de228a819",
           "validDimensions": true
         }
       ],
@@ -2219,6 +2309,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "9b29a0ad023200c3eabca17be7a02734b8c83934a3f0647e9fc386cf1081d88f",
           "validDimensions": true
         }
       ],
@@ -2243,6 +2334,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "0b23d5e30be45b27c4d175615d9cbcedb5839016a7da173b36c23e60932c5af6",
           "validDimensions": true
         }
       ],
@@ -2267,6 +2359,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "543e239cd8ff8b9df5c30223a5853e68b0efe6769db368c3c1dcd85ccd21ec2d",
           "validDimensions": true
         }
       ],
@@ -2291,6 +2384,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "52413f40f02cb736278f24bcebb67e6e2cdc2cebb452af2effe985c432b2dd4c",
           "validDimensions": true
         }
       ],
@@ -2315,6 +2409,7 @@
             "width": 2560,
             "height": 1440
           },
+          "sha256": "55512fab5cf65f376ab30f809d1e86681b81d32fa62c0579e1e2b62328187477",
           "validDimensions": true
         }
       ],

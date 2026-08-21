@@ -1,4 +1,5 @@
 import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { basename, join } from "node:path";
 
@@ -47,6 +48,10 @@ function readWebpSize(buffer) {
   throw new Error("WebP o‘lcham chunki topilmadi");
 }
 
+function sha256(buffer) {
+  return createHash("sha256").update(buffer).digest("hex");
+}
+
 function downloadAndAudit(file) {
   const archivePath = join(WORK_ROOT, file.Name);
   const extractDir = join(WORK_ROOT, `extract-${batchNumber(file.Name)}`);
@@ -64,11 +69,13 @@ function downloadAndAudit(file) {
     if (!isWebp || !existsSync(memberPath)) {
       return { member, validName: isWebp, dimensions: null, validDimensions: false };
     }
-    const dimensions = readWebpSize(readFileSync(memberPath));
+    const bytes = readFileSync(memberPath);
+    const dimensions = readWebpSize(bytes);
     return {
       member,
       validName: true,
       dimensions,
+      sha256: sha256(bytes),
       validDimensions: dimensions.width === 2560 && dimensions.height === 1440,
     };
   });

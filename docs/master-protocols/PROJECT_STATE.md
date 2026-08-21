@@ -115,3 +115,9 @@ Foydalanuvchi so‘rovi bilan canonical `Biotexnologiya yangi` rooti ichida faqa
 Rasmlar canonical recovery arxividan (`1s6Uhum2PxA1RWzVP1VDHAj12-AhZdT08`) ajratildi. Mirror Drive’dan qayta yuklanib, 100 batch, 100 WebP va barcha manifest SHA-256 qiymatlari bo‘yicha mustaqil restore testi **PASS** bo‘ldi. Mirrorda 102 obyekt (100 rasm + 2 ta indeks/manifest), jami `32,611,543` bayt mavjud. Boshqa loyiha fayllari yoki rasmlari bu subpapkaga kiritilmadi.
 
 Mirror hujjatlari va generatorlari GitHub `uzme/biolab-interactive-guide` `main` branchiga `c914814c588d6f38baa90ff5d494530f1e570156` commit bilan yuborildi. Sanitizatsiyalangan source snapshot mavjud Drive fayli o‘rnida yangilandi: file ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, parent `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, modified `2026-08-21T10:18:29.386Z`, fingerprint `eef0fed3baca62ddfaeadd2e22e781692822adb7d6864e3930c998a684aa03be`.
+
+## 2026-08-21 yakuniy tarixiy ZIP batchlar
+
+Yangi `BioLab_Historical_Final_Hero_ZIPs` subpapkasi (Drive ID `19dpcDupgvEXS5JnznEUW0-lbagewubGE`) final 100 rasmni `Batch-001__BIO-001__qurilma-nomi.zip` dan `Batch-100__BIO-100__qurilma-nomi.zip`gacha alohida ZIPlar shaklida saqlaydi. Yetishmagan 15 ta rasm ham canonical recovery arxividagi yakuniy nusxadan to‘ldirildi. ZIP integriteti, ichki rasm nomi va manifest SHA-256 qiymatlari 100 / 100 **PASS**; uploaddan keyingi `rclone check --checksum` 103 faylda farq topmadi.
+
+Eski rootdagi 76 ta `BioLab_hero_assets_batch_*.zip` xom manba batchi yangi final to‘plam tasdiqlangach Google Drive Chiqindisiga qaytariladigan tarzda ko‘chirildi; rootda bunday ZIP qolmadi. Ular doimiy o‘chirilmagan, lekin platforma uchun kerak emas. To‘liq qoida va manzil: `docs/master-protocols/FINAL_HERO_HISTORY_ZIPS.md`.

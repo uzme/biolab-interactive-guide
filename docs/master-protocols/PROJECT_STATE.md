@@ -137,3 +137,7 @@ Production URLdagi yangi browser kontekstida `BIO-026` testida muammo yana qayta
 Production smoke-test `https://biolabguide-fbcitqyf.manus.space/` manzilida yangi browser kontekstida o‘tdi: `BIO-001`, `BIO-026`, `BIO-051` va `BIO-076` uchun 16 ta o‘quv bo‘limi, manbalar, xarid accordionlari, katalogga qaytish va mobil oqim **PASS**. Production smoke-test faqat detail oqimini izolyatsiya qilish uchun offline paket hamda offline round-tripni chetlab o‘tdi; to‘liq offline round-trip local regressiyada alohida **PASS**. Birinchi service worker o‘rnatilishi endi bekorchi reload bermaydi, mavjud worker yangilanganda esa faqat bir marta yangilanadi.
 
 Yakuniy production verifikatsiyasi yangi deploydan keyin qayta bajarildi va **PASS**: desktop hamda mobil oqimda `BIO-001`, `BIO-026`, `BIO-051`, `BIO-076` detail oynalari 16 bo‘lim, rasm manbasi, xarid accordionlari va qaytish navigatsiyasini muvaffaqiyatli yukladi. Holat: **READY**.
+
+## 2026-08-21 DeviceViewer boshlang‘ich scroll pozitsiyasi
+
+Foydalanuvchi bildirgan holat — “O‘rganish” detail oynasining pastki qismdan ochilishi — modal overlay hamda uning ichki viewer konteynerining scroll holati bilan bog‘liq edi. `Home.tsx`da ikkala konteynerga ref berildi va tanlangan qurilma o‘zgarganda `useLayoutEffect` orqali `scrollTop = 0` paintdan oldin majburan o‘rnatildi. Regression test modalni pastga surib yopadi, keyingi detail ochilganda desktop va mobil oqimlarda yuqori pozitsiyani tekshiradi. TypeScript, Vitest/Playwright va production build **PASS**; production deploydan keyingi smoke-test navbatda.

@@ -114,6 +114,11 @@ try {
     await desktop.locator("[data-device-viewer]").waitFor({ state: "visible" });
     await desktop.getByRole("heading", { name: "Manba va foydalanish holati" }).waitFor({ state: "visible" });
     await assert(await desktop.getByRole("heading", { name: "Manba va foydalanish holati" }).isVisible(), `${id} rasm manbasi va foydalanish shaffofligi bloki ko‘rinmadi.`);
+    const desktopScrollState = await desktop.locator("[data-device-modal]").evaluate((modal) => ({
+      modalScrollTop: modal.scrollTop,
+      viewerScrollTop: modal.firstElementChild?.scrollTop ?? -1,
+    }));
+    await assert(desktopScrollState.modalScrollTop <= 1 && desktopScrollState.viewerScrollTop <= 1, `${id} detail oynasi yuqoridan emas, avvalgi scroll holatidan ochildi.`);
 
     const learningNavigation = desktop.getByRole("navigation", { name: "16 bo‘limli o‘quv dasturi" });
     await desktop.waitForFunction(() => document.querySelectorAll('nav[aria-label="16 bo‘limli o‘quv dasturi"] button').length === 16, null, { timeout: 30_000 });
@@ -125,6 +130,11 @@ try {
     const priceAccordion = desktop.getByRole("button", { name: "Narx benchmarki va dalili" });
     await priceAccordion.click();
     await desktop.getByText(/^Manba:/).waitFor({ state: "visible" });
+    await desktop.locator("[data-device-modal]").evaluate((modal) => {
+      modal.scrollTop = modal.scrollHeight;
+      const viewer = modal.firstElementChild;
+      if (viewer) viewer.scrollTop = viewer.scrollHeight;
+    });
 
     await desktop.locator("header button:has-text('Barcha uskunalar')").click();
     await assert(await desktop.locator("article.equipment-card").count() === 100, `${id} qurilmasidan katalogga qaytishda 100 ta karta tiklanmadi.`);
@@ -149,12 +159,15 @@ try {
       viewerHeight: viewerRect?.height ?? 0,
       viewerTop: viewerRect?.top ?? Number.POSITIVE_INFINITY,
       viewerBackground: viewer ? window.getComputedStyle(viewer).backgroundColor : "",
+      modalScrollTop: element.scrollTop,
+      viewerScrollTop: element.firstElementChild?.scrollTop ?? -1,
     };
   });
   await assert(mobileModalMetrics.height >= mobileModalMetrics.viewportHeight - 2, "Mobil detail oynasi ekran qoplamini to‘liq egallamadi.");
   await assert(mobileModalMetrics.overflowY === "auto", "Mobil detail oynasiga xavfsiz vertikal overflow berilmadi.");
   await assert(mobileModalMetrics.viewerHeight > 0 && mobileModalMetrics.viewerTop < mobileModalMetrics.viewportHeight, "Mobil detail kontenti fon-blur ostida ko‘rinmay qoldi.");
   await assert(mobileModalMetrics.viewerBackground === "rgb(247, 251, 250)", "Mobil detail kontenti kutilgan o‘quv fonida render bo‘lmadi.");
+  await assert(mobileModalMetrics.modalScrollTop <= 1 && mobileModalMetrics.viewerScrollTop <= 1, "Mobil detail oynasi yuqoridan emas, avvalgi scroll holatidan ochildi.");
   await mobile.getByRole("button", { name: "Barcha uskunalar" }).click();
   await mobileModal.waitFor({ state: "hidden" });
   await mobile.getByRole("button", { name: "Menyuni ochish" }).click();

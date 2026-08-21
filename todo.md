@@ -59,3 +59,4 @@
 - [x] BIO-001, BIO-026, BIO-051 va BIO-076 orqali barcha to‘rtta dinamik o‘quv/purchase blokining detail yuklanishini smoke-test bilan tekshirish
 - [x] BIO-001, BIO-026, BIO-051 va BIO-076 smoke-testida xarid ma’lumotlari bloki va kamida bitta accordion bo‘limi yuklanganini tekshirish
 - [x] PWA cache tuzatishini productionga publish qilib, production desktop va mobil detail regressiyasini tasdiqlash
+- [ ] “O‘rganish” bosilganda DeviceViewer detail oynasini har safar yuqori boshlang‘ich scroll pozitsiyasidan ochish va mobil/desktop regressiya bilan tekshirish

@@ -26,6 +26,7 @@
 - iPhone Safari’da detail oynaning avvalgi “Xarid” bo‘limidan ochilib qolishi bartaraf etildi: mobilga bitta scroll konteyner qoldirildi, yangi qurilma ochilganda reset paintdan oldin, keyingi frame’da va iOS renderi barqarorlashgach takrorlanadi.
 - DeviceViewer endi o‘quv va xarid bloklarini mustaqil yuklaydi; xarid ma’lumotidagi alohida muammo o‘quv dosyesi va 16 bo‘lim ochilishini to‘sib qo‘ymaydi. 100 ta BIO detail uchun dinamik ma’lumotlar unit test bilan qamrab olindi.
 - Purchase-loader recovery dalili alohida unit regression orqali tekshirildi: purchase promise rad etilganda `resolveDeviceContent` 16-bo‘limli learning dosyesini saqlaydi. Production smoke-test ataylab nosozlik kiritmaydi va faqat real learning/purchase success-path yuklanishini tasdiqlaydi.
+- Foydalanuvchi tasdig‘i bilan eski Vercel `biolab-interactive-guide` Git avtomatik deploy bog‘lanishi uzildi. Uchta tarixiy Vercel aliasi canonical emas deb belgilandi; post-check Git bog‘lanishi qaytmaganini tasdiqladi. Tiklash va production uchun faqat GitHub `main` hamda Manus manzili ishlatiladi.
 
 ## [1.0.1] — 2026-08-20
 

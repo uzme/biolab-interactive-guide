@@ -79,3 +79,11 @@
 - [x] Recovery dalili unit regressionda, production smoke-testi esa faqat success-pathda ekanini PROJECT_STATE/CHANGELOGda aniq qayta tasdiqlash
 - [x] Recovery dalili unit regressiondan, production smoke-testi esa success-pathdan iborat ekanini CHANGELOGda yozish va tekshirish
 - [x] Purchase loader xatosi simulyatsiyasida DeviceViewer 16-bo‘limli o‘quv oynani ochishini alohida unit yoki component regression bilan tasdiqlash
+- [x] Tiklash hujjatlari, GitHub metadata va konfiguratsiyadagi barcha `vercel.app`/`vercel.com` manzillarni inventarizatsiya qilish
+- [x] BioLab uchun canonical production URLni yagona manba sifatida qayd etib, eskirgan Vercel linklarini tiklash oqimidan chiqarish
+- [x] Yangi tiklash yo‘riqnomasini real canonical URL va repository bilan tekshirib, GitHub hamda Drive snapshotiga sinxronlash
+- [x] Foydalanuvchi tasdiqlagan Vercel `biolab-interactive-guide` loyihasining GitHub avtomatik deploy integratsiyasini uzish
+- [x] Git integratsiyasi uzilgach, yangi Vercel deploy yaratilmasligini va Manus canonical URL ishlashini tekshirish
+- [x] `vercel.app`/`vercel.com` manzillari bo‘yicha fayl, metadata va konfiguratsiya joylarini bitta inventory hisobotida qayd etish
+- [x] Vercel Git disconnect tasdig‘ini PROJECT_STATE, CHANGELOG va release metadatasida saqlash
+- [x] Vercel post-check orqali Git bog‘lanishi yo‘qligini hamda disconnectdan keyin yangi auto-deploy yaratilmaganini tasdiqlash

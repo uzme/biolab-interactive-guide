@@ -3,6 +3,7 @@
   asymmetric left navigation, and a 16-section Uzbek learning curriculum for every instrument.
 */
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useTransition } from "react";
+import { createPortal } from "react-dom";
 import { ArrowUpRight, Beaker, BookOpen, ChevronRight, CircleHelp, FlaskConical, Grid2X2, Heart, LibraryBig, Menu, Microscope, Moon, Search, Settings2, SlidersHorizontal, Sparkles, Sun, X } from "lucide-react";
 import Pure3DCarousel from "@/components/Pure3DCarousel";
 import BookmarksSidebar from "@/components/BookmarksSidebar";
@@ -153,6 +154,15 @@ export default function Home() {
       window.clearTimeout(settleTimer);
     };
   }, [resetDeviceViewerScroll, selectedDevice?.id]);
+
+  useEffect(() => {
+    if (!selectedDevice) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [selectedDevice]);
   const handleCategoryChange = (category: string) => startFilterTransition(() => setActiveCategory(category));
   const handleQueryChange = (value: string) => startFilterTransition(() => setQuery(value));
   const handleModelQueryChange = (value: string) => startFilterTransition(() => setModelQuery(value));
@@ -291,7 +301,18 @@ export default function Home() {
       </div>
     </main>
     <BookmarksSidebar open={bookmarksOpen} onOpenChange={setBookmarksOpen} devices={bookmarkedDevices} onSelectDevice={setSelectedDevice} onToggleBookmark={toggleBookmark} onClearBookmarks={clearBookmarks} onExportBookmarks={exportBookmarks} onImportBookmarks={handleImportBookmarks} />
-    {selectedDevice && <div ref={deviceModalScrollRef} data-device-modal role="dialog" aria-modal="true" aria-label={`${selectedDevice.name} o‘quv dosyesi`} className="fixed inset-0 z-[80] overflow-y-auto overscroll-contain bg-[#173d42]/60 px-2 py-2 backdrop-blur-md sm:flex sm:items-center sm:justify-center sm:p-6" onClick={() => setSelectedDevice(null)}><div ref={deviceViewerScrollRef} className="relative min-h-[calc(100dvh-1rem)] w-full overflow-y-visible overscroll-contain rounded-[24px] border border-[#d8e7e3] bg-white shadow-[0_30px_90px_rgba(20,68,64,0.3)] sm:min-h-0 sm:max-h-[92vh] sm:max-w-6xl sm:overflow-y-auto sm:rounded-[30px]" onClick={(e) => e.stopPropagation()}><DeviceViewer key={selectedDevice.id} device={selectedDevice} onBack={() => setSelectedDevice(null)} onReady={resetDeviceViewerScroll} /></div></div>}
+    {selectedDevice && typeof document !== "undefined" && createPortal(
+      <div data-device-modal role="dialog" aria-modal="true" aria-label={`${selectedDevice.name} o‘quv dosyesi`} className="fixed inset-0 z-[100] flex h-[100vh] h-[100dvh] min-h-[100svh] items-stretch justify-center overflow-hidden bg-[#173d42]/60 p-0 backdrop-blur-md sm:items-center sm:p-6" onClick={() => setSelectedDevice(null)}>
+        <div data-device-modal-panel className="relative flex h-full min-h-0 w-full flex-col overflow-hidden border-[#d8e7e3] bg-[#f7fbfa] shadow-[0_30px_90px_rgba(20,68,64,0.3)] sm:h-auto sm:max-h-[92dvh] sm:max-w-6xl sm:rounded-[30px] sm:border" onClick={(event) => event.stopPropagation()}>
+          <div ref={deviceModalScrollRef} className="min-h-0 flex-1 overflow-y-auto overscroll-contain [-webkit-overflow-scrolling:touch]">
+            <div ref={deviceViewerScrollRef} className="min-h-full w-full">
+              <DeviceViewer key={selectedDevice.id} device={selectedDevice} onBack={() => setSelectedDevice(null)} onReady={resetDeviceViewerScroll} />
+            </div>
+          </div>
+        </div>
+      </div>,
+      document.body,
+    )}
     <CatalogFilterSheet open={filtersOpen} onOpenChange={setFiltersOpen} query={query} modelQuery={modelQuery} activeCategory={activeCategory} categories={categories} bookmarksOnly={bookmarksOnly} resultCount={filtered.length} bookmarkedCount={bookmarkedCount} hasActiveFilters={hasActiveFilters} onQueryChange={handleQueryChange} onModelQueryChange={handleModelQueryChange} onCategoryChange={handleCategoryChange} onBookmarksOnlyChange={handleBookmarksOnlyChange} onClearFilters={clearFilters} />
     <SettingsDialog open={settingsOpen} onOpenChange={setSettingsOpen} bookmarkedCount={bookmarkedCount} onClearBookmarks={clearBookmarks} onExportBookmarks={exportBookmarks} onImportBookmarks={handleImportBookmarks} />
   </div>;

@@ -87,3 +87,9 @@
 - [x] `vercel.app`/`vercel.com` manzillari bo‘yicha fayl, metadata va konfiguratsiya joylarini bitta inventory hisobotida qayd etish
 - [x] Vercel Git disconnect tasdig‘ini PROJECT_STATE, CHANGELOG va release metadatasida saqlash
 - [x] Vercel post-check orqali Git bog‘lanishi yo‘qligini hamda disconnectdan keyin yangi auto-deploy yaratilmaganini tasdiqlash
+- [x] Foydalanuvchi tasdiqlagan eski Vercel `biolab-interactive-guide` loyihasini va uchta aliasini butunlay o‘chirish
+- [x] Vercel loyihasi o‘chirilgach, uchta tarixiy alias ishlamasligini hamda canonical Manus URL ishlashini tekshirish
+- [x] Vercel o‘chirilishi holatini canonical hujjatlar, GitHub va Drive snapshotida qayd etish
+- [x] Read-only Vercel API orqali `biolab-interactive-guide` loyihasi endi topilmasligini qat’iy tasdiqlash
+- [x] Uchta tarixiy Vercel aliasini alohida tekshirib, barchasi ishlamasligini va canonical Manus URL ishlashini qayd etish
+- [ ] Qat’iy post-delete dalili yozilgach, GitHub commit va canonical Drive snapshot metadata sini yakuniy release oqimida tasdiqlash

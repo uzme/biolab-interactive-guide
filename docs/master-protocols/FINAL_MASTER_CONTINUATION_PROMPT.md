@@ -14,7 +14,7 @@ Men BioLab Interactive Guide loyihasining mavjud, ishlayotgan source-of-truth ve
 - Canonical snapshot name: BioLab_Interactive_Guide_source.tar.gz
 - Existing canonical snapshot file ID: 1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh
 - Canonical production URL: https://biolabguide-fbcitqyf.manus.space/
-- Hosting policy: faqat Manus Autoscale production manzilidan foydalaning. Vercel’dagi `biolab-interactive-guide*.vercel.app` manzillari bu tiklash oqimi uchun canonical emas; ularga production yoki source-of-truth deb tayanmang.
+- Hosting policy: faqat Manus Autoscale production manzilidan foydalaning. Eski Vercel `biolab-interactive-guide` loyihasi butunlay o‘chirilgan; uning uchta `biolab-interactive-guide*.vercel.app` aliasi `404` qaytaradi. Ularni production, preview, restore yoki source-of-truth sifatida ishlatmang.
 
 ### QAT’IY SAQLANADIGAN FUNKSIYALAR
 

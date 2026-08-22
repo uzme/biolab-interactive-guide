@@ -13,19 +13,13 @@
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
 | Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; holat **READY** |
 
-## 2026-08-22 Vercel alias audit va canonical hosting qoidasi
+## 2026-08-22 Vercel butunlay o‘chirildi va canonical hosting qoidasi
 
-Vercel hisobidagi `biolab-interactive-guide` loyihasi (`prj_rqrqaYGGjeUZO5NvuTM6tViLCHwh`) GitHub repository bilan bog‘langan bo‘lib, avtomatik uchta alias yaratadi: `biolab-interactive-guide.vercel.app`, `biolab-interactive-guide-bahroms-projects-fade24c3.vercel.app` va `biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app`. Auditda ushbu loyiha so‘nggi production deployi GitHub `main`dagi `67ab7554489dafff249dac473390449dd2d38ea0` Dependabot commitidan yig‘ilgani aniqlandi; bu BioLab canonical working release bilan mos kelmaydi.
+Vercel’dagi avvalgi `biolab-interactive-guide` loyihasi tarixan `uzme/biolab-interactive-guide` repositorysi bilan bog‘langan va uchta alias yaratgan edi: `biolab-interactive-guide.vercel.app`, `biolab-interactive-guide-bahroms-projects-fade24c3.vercel.app` hamda `biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app`. Avval foydalanuvchi tasdig‘i bilan Git integratsiyasi uzildi; undan keyingi ikki haqiqiy `main` pushdan keyin Vercel deployment history’da `0` ta yangi deploy qaytdi.
 
-BioLab uchun yagona canonical live manzil: `https://biolabguide-fbcitqyf.manus.space/`. Vercel aliaslari production, tiklash yoki source-of-truth sifatida ishlatilmaydi. Boshqa akkauntdagi tiklash prompti shu qoidaga yangilandi. Vercel Git integratsiyasini uzish yoki loyihani o‘chirish alohida hosting-konfiguratsiya amali bo‘lgani uchun foydalanuvchi tasdiqisiz bajarilmaydi.
+Keyingi aniq tasdiq bilan eski Vercel loyihasining o‘zi ham butunlay o‘chirildi. Read-only Vercel API orqali `biolab-interactive-guide` slugiga yuborilgan so‘rov `404 Not Found` qaytardi. Mustaqil HTTP tekshiruvi uchala tarixiy alias uchun `404`, `https://biolabguide-fbcitqyf.manus.space/` uchun esa `200` holatini qayd etdi.
 
-Foydalanuvchi tasdig‘idan keyin Vercel Settings → Git ichidan `uzme/biolab-interactive-guide` bog‘lanishi uzildi. Vercel tasdiqi: **“Disconnected Git Repository successfully.”** Loyiha o‘chirilmadi: uning uchta eski aliasi tarixiy manzil bo‘lib qolishi mumkin, biroq GitHub `main`ga kelgusi pushlar endi u yerda avtomatik deploy yaratmaydi. Uzishdan keyin canonical Manus URL browserda qayta ochildi; katalog, qidiruv, gorizontal karusel va detail kirish nuqtalari ishladi. Boshqa akkaunt tiklash oqimi faqat `uzme/biolab-interactive-guide` `main` va `https://biolabguide-fbcitqyf.manus.space/` manzilidan foydalanadi.
-
-Read-only Vercel post-checkda loyiha qaytdi, lekin `gitRepository` yoki ekvivalent Git bog‘lanish maydoni yo‘q edi. Uchtala Vercel manzili tarixiy `domains` qiymati sifatida qoldi; tashqi loyiha `live: false` holatida. Post-check va to‘liq manba ro‘yxati `docs/reports/VERCEL_HOSTING_LINK_INVENTORY.md`da saqlangan.
-
-Disconnectdan keyin canonical GitHub `main`ga `c70ea2b2867f1f1c11d49ffb12eae49ae048335a` release push qilindi. Vercel deployment history read-only so‘rovi disconnect timestampidan keyin **0 ta deployment** qaytardi. Demak bu real GitHub push yangi Vercel auto-deploy yaratmagan; canonical Manus manzili yagona live release yo‘li bo‘lib qoldi.
-
-Keyingi documentation release push (`482697af65930714914c4474d91bc9b1c217b549`)dan so‘ng ham Vercel deployment history read-only so‘rovida `0` natija qaytdi. Bu ikkinchi real `main` push ham uzilgan Git bog‘lanishini qayta faollashtirmaganini tasdiqlaydi.
+BioLab uchun yagona canonical live manzil: `https://biolabguide-fbcitqyf.manus.space/`. Vercel aliaslari, Vercel deployi va Vercel restore targeti mavjud emas. Boshqa akkauntdagi tiklash oqimi faqat `https://github.com/uzme/biolab-interactive-guide` repositorysining `main` branchidan hamda yuqoridagi canonical Manus manzilidan foydalanadi. Batafsil post-delete dalili `docs/reports/VERCEL_HOSTING_LINK_INVENTORY.md`da saqlangan.
 
 ## Repository Structure (Tartiblangan papka tuzilmasi)
 - `client/` — React 19 frontend, shadcn/ui komponentlar, custom hooks (`useBookmarks`), PWA offline qo‘llab-quvvatlashi

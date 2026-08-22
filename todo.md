@@ -93,3 +93,8 @@
 - [x] Read-only Vercel API orqali `biolab-interactive-guide` loyihasi endi topilmasligini qat’iy tasdiqlash
 - [x] Uchta tarixiy Vercel aliasini alohida tekshirib, barchasi ishlamasligini va canonical Manus URL ishlashini qayd etish
 - [x] Qat’iy post-delete dalili yozilgach, GitHub commit va canonical Drive snapshot metadata sini yakuniy release oqimida tasdiqlash
+- [x] BIO-001–BIO-100 uchun “O‘rganish” detail oqimini avtomatlashtirilgan auditdan o‘tkazish: detail ochilishi, 16 bo‘lim, loading/error holati, scroll reset va mobil/desktop mosligi
+- [x] BIO-001–BIO-100 detail auditida 16 bo‘lim kontenti va mobil scroll/reset tekshiruvlarini 100/100 qamrovda isbotlash
+- [x] To‘rtta dinamik learning blokining har birida yuklanish UI ko‘rinishi va 16-bo‘lim kontentiga muvaffaqiyatli o‘tishini browser regressionida tekshirish
+- [x] O‘quv loaderi xato berganda foydalanuvchiga ko‘rinadigan recovery UI va xarid loaderi xatosida o‘quv dosyesi saqlanishi regressionlarini tekshirish
+- [ ] Detail auditida aniqlangan har bir xatoni regressiya testi bilan tuzatish, productionda qayta tekshirish va canonical GitHub–Drive releaseiga sinxronlash

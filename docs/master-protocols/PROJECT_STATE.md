@@ -13,6 +13,14 @@
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
 | Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; holat **READY** |
 
+## 2026-08-22 100/100 “O‘rganish” detail audit
+
+BIO-001–BIO-100 detail oqimi desktop va iPhone Safari 390×844 emulyatsiyasida avtomatlashtirilgan tekshirildi. Har bir qurilma uchun modal ochilishi, yuqoridan scroll reset, 16 bo‘limli navigatsiya, birinchi o‘quv bo‘limi va 16-bo‘limdagi manbalar ko‘rinishi tasdiqlandi. `learningData.test.ts` esa har 100 qurilmaning 16 bo‘lim tarkibiga xizmat qiladigan barcha majburiy o‘quv maydonlari hamda manbalarini bo‘sh emasligini tekshiradi.
+
+Loader recovery qamrovi alohida browser regression bilan kengaytirildi: learning bloki sun’iy xato qaytarganda foydalanuvchi `O‘quv dosyesi yuklanmadi` hamda `Yangilash va qayta ochish` tugmasini ko‘radi; purchase bloki xato qaytarganda esa 16 bo‘limli o‘quv dosyesi ochiq qoladi. Offline reload assertioni app shell tiklanishini kutadigan qilib barqarorlashtirildi. Ma’lumotlar tarkibi va UI funksionalligi o‘zgartirilmagan; faqat audit/test qamrovi kengaytirildi.
+
+TypeScript check, production build, lokal to‘liq test zanjiri va canonical Manus production URL’da 100/100 detail audit muvaffaqiyatli yakunlandi. Holat: **READY**.
+
 ## 2026-08-22 yakuniy Vercel post-delete release sync
 
 `node scripts/release/sync_release.mjs --publish` typecheck, production build, Vitest, katalog/DeviceViewer browser regressiyalari, continuity audit va secret-sanitizatsiyani muvaffaqiyatli tugatdi. Sanitizatsiyalangan source fingerprint: `9d2716739a85f6bf1f6bf59e5cc8d6e34967e68ed0981de1019b30661d4435c4`.

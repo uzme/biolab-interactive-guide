@@ -61,7 +61,9 @@ try {
   if (shouldTestOfflineRoundTrip) {
     await desktop.context().setOffline(true);
     await desktop.reload({ waitUntil: "domcontentloaded" });
-    await assert(await desktop.locator(".pure3d-carousel .scene").isVisible(), "Offline reloaddan keyin app shell carouseli tiklanmadi.");
+    const offlineCarouselScene = desktop.locator(".pure3d-carousel .scene");
+    await offlineCarouselScene.waitFor({ state: "visible", timeout: 15_000 });
+    await assert(await offlineCarouselScene.isVisible(), "Offline reloaddan keyin app shell carouseli tiklanmadi.");
     await desktop.evaluate(() => window.dispatchEvent(new Event("offline")));
     await desktop.waitForFunction(() => document.querySelector("[data-offline-status]")?.getAttribute("data-offline-status") === "offline");
     await desktop.context().setOffline(false);

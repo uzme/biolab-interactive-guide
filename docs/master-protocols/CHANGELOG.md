@@ -27,6 +27,7 @@
 - DeviceViewer endi o‘quv va xarid bloklarini mustaqil yuklaydi; xarid ma’lumotidagi alohida muammo o‘quv dosyesi va 16 bo‘lim ochilishini to‘sib qo‘ymaydi. 100 ta BIO detail uchun dinamik ma’lumotlar unit test bilan qamrab olindi.
 - Purchase-loader recovery dalili alohida unit regression orqali tekshirildi: purchase promise rad etilganda `resolveDeviceContent` 16-bo‘limli learning dosyesini saqlaydi. Production smoke-test ataylab nosozlik kiritmaydi va faqat real learning/purchase success-path yuklanishini tasdiqlaydi.
 - Foydalanuvchi tasdig‘i bilan eski Vercel `biolab-interactive-guide` Git avtomatik deploy bog‘lanishi uzildi. Uchta tarixiy Vercel aliasi canonical emas deb belgilandi; post-check Git bog‘lanishi qaytmaganini tasdiqladi. Tiklash va production uchun faqat GitHub `main` hamda Manus manzili ishlatiladi.
+- Foydalanuvchining alohida keyingi tasdig‘i bilan eski Vercel `biolab-interactive-guide` loyihasi butunlay o‘chirildi. Read-only loyiha so‘rovi `404 Not Found`, uchta tarixiy aliasning barchasi `404`, canonical Manus production manzili esa `200` qaytardi.
 
 ## [1.0.1] — 2026-08-20
 

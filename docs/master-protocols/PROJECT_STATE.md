@@ -13,6 +13,12 @@
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
 | Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; holat **READY** |
 
+## 2026-08-22 yakuniy Vercel post-delete release sync
+
+`node scripts/release/sync_release.mjs --publish` typecheck, production build, Vitest, katalog/DeviceViewer browser regressiyalari, continuity audit va secret-sanitizatsiyani muvaffaqiyatli tugatdi. Sanitizatsiyalangan source fingerprint: `9d2716739a85f6bf1f6bf59e5cc8d6e34967e68ed0981de1019b30661d4435c4`.
+
+Tekshirilgan kod GitHub `uzme/biolab-interactive-guide` `main` branchiga `790c81404427f7bc05e1c11030c18bc66c2f642d` commit bilan yuborildi. Mavjud canonical Drive snapshoti duplicate yaratmasdan o‘rnida yangilandi: `BioLab_Interactive_Guide_source.tar.gz`, file ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, parent `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, modified `2026-08-22T03:45:53.993Z`. Holat: **READY**.
+
 ## 2026-08-22 Vercel butunlay o‘chirildi va canonical hosting qoidasi
 
 Vercel’dagi avvalgi `biolab-interactive-guide` loyihasi tarixan `uzme/biolab-interactive-guide` repositorysi bilan bog‘langan va uchta alias yaratgan edi: `biolab-interactive-guide.vercel.app`, `biolab-interactive-guide-bahroms-projects-fade24c3.vercel.app` hamda `biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app`. Avval foydalanuvchi tasdig‘i bilan Git integratsiyasi uzildi; undan keyingi ikki haqiqiy `main` pushdan keyin Vercel deployment history’da `0` ta yangi deploy qaytdi.

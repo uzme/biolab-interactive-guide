@@ -92,4 +92,4 @@
 - [x] Vercel o‘chirilishi holatini canonical hujjatlar, GitHub va Drive snapshotida qayd etish
 - [x] Read-only Vercel API orqali `biolab-interactive-guide` loyihasi endi topilmasligini qat’iy tasdiqlash
 - [x] Uchta tarixiy Vercel aliasini alohida tekshirib, barchasi ishlamasligini va canonical Manus URL ishlashini qayd etish
-- [ ] Qat’iy post-delete dalili yozilgach, GitHub commit va canonical Drive snapshot metadata sini yakuniy release oqimida tasdiqlash
+- [x] Qat’iy post-delete dalili yozilgach, GitHub commit va canonical Drive snapshot metadata sini yakuniy release oqimida tasdiqlash

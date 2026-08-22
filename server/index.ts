@@ -29,8 +29,7 @@ async function startServer() {
 
   // Handle client-side routing - serve index.html for all routes.
   // This file-system access is rate-limited to avoid abuse of the fallback route.
-  app.use(spaFallbackLimiter);
-  app.get("*", (_req, res) => {
+  app.get("*", spaFallbackLimiter, (_req, res) => {
     res.sendFile(path.join(staticPath, "index.html"));
   });
 

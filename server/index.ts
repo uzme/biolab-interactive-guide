@@ -1,24 +1,23 @@
 import express from "express";
 import rateLimit from "express-rate-limit";
-import { readFile } from "fs/promises";
+import { readFileSync } from "fs";
 import { createServer } from "http";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const staticPath =
+  process.env.NODE_ENV === "production"
+    ? path.resolve(__dirname, "public")
+    : path.resolve(__dirname, "..", "dist", "public");
+const fallbackDocument = readFileSync(path.join(staticPath, "index.html"), "utf8");
 
 async function startServer() {
   const app = express();
   const server = createServer(app);
 
   // Serve static files from dist/public in production
-  const staticPath =
-    process.env.NODE_ENV === "production"
-      ? path.resolve(__dirname, "public")
-      : path.resolve(__dirname, "..", "dist", "public");
-  const fallbackDocument = await readFile(path.join(staticPath, "index.html"), "utf8");
-
   app.use(express.static(staticPath));
 
   // Protect the file-system backed SPA fallback without limiting static assets.

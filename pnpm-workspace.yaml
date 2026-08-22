@@ -8,4 +8,5 @@ overrides:
   lodash: 4.18.0
   lodash-es: 4.18.0
   path-to-regexp: 0.1.13
+  rollup: 4.59.0
   tailwindcss>nanoid: 3.3.7

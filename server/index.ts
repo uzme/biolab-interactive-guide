@@ -1,4 +1,5 @@
 import express from "express";
+import { rateLimit } from "express-rate-limit";
 import { createServer } from "http";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -18,7 +19,17 @@ async function startServer() {
 
   app.use(express.static(staticPath));
 
-  // Handle client-side routing - serve index.html for all routes
+  // Protect the file-system backed SPA fallback without limiting static assets.
+  const spaFallbackLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: 100,
+    standardHeaders: "draft-7",
+    legacyHeaders: false,
+  });
+
+  // Handle client-side routing - serve index.html for all routes.
+  // This file-system access is rate-limited to avoid abuse of the fallback route.
+  app.use(spaFallbackLimiter);
   app.get("*", (_req, res) => {
     res.sendFile(path.join(staticPath, "index.html"));
   });

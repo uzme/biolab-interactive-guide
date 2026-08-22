@@ -25,6 +25,8 @@ Read-only Vercel post-checkda loyiha qaytdi, lekin `gitRepository` yoki ekvivale
 
 Disconnectdan keyin canonical GitHub `main`ga `c70ea2b2867f1f1c11d49ffb12eae49ae048335a` release push qilindi. Vercel deployment history read-only so‘rovi disconnect timestampidan keyin **0 ta deployment** qaytardi. Demak bu real GitHub push yangi Vercel auto-deploy yaratmagan; canonical Manus manzili yagona live release yo‘li bo‘lib qoldi.
 
+Keyingi documentation release push (`482697af65930714914c4474d91bc9b1c217b549`)dan so‘ng ham Vercel deployment history read-only so‘rovida `0` natija qaytdi. Bu ikkinchi real `main` push ham uzilgan Git bog‘lanishini qayta faollashtirmaganini tasdiqlaydi.
+
 ## Repository Structure (Tartiblangan papka tuzilmasi)
 - `client/` — React 19 frontend, shadcn/ui komponentlar, custom hooks (`useBookmarks`), PWA offline qo‘llab-quvvatlashi
 - `server/` — Express backend, tRPC routers va API integratsiyalari

@@ -24,6 +24,15 @@ const assert = (condition, message) => {
   if (!condition) throw new Error(message);
 };
 
+const isAmplitudeRequest = requestUrl => {
+  try {
+    const { hostname } = new URL(requestUrl);
+    return hostname === "amplitude.com" || hostname.endsWith(".amplitude.com");
+  } catch {
+    return false;
+  }
+};
+
 const browser = await chromium.launch({
   headless: true,
   executablePath: "/usr/bin/chromium",
@@ -38,7 +47,7 @@ try {
     if (message.type() === "error") runtimeErrors.push(`console: ${message.text()}`);
   });
   page.on("requestfailed", (request) => {
-    if (!request.url().includes("amplitude.com")) {
+    if (!isAmplitudeRequest(request.url())) {
       runtimeErrors.push(`requestfailed: ${request.url()} :: ${request.failure()?.errorText || "unknown"}`);
     }
   });

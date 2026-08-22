@@ -1,6 +1,8 @@
 import * as React from "react";
 import * as RechartsPrimitive from "recharts";
-import type { DefaultLegendContentProps, TooltipContentProps } from "recharts";
+import type { DefaultLegendContentProps } from "recharts";
+import type { TooltipProps as RechartsTooltipProps } from "recharts/types/component/Tooltip";
+import type { NameType, ValueType } from "recharts/types/component/DefaultTooltipContent";
 
 import { cn } from "@/lib/utils";
 
@@ -103,6 +105,8 @@ ${colorConfig
 
 const ChartTooltip = RechartsPrimitive.Tooltip;
 
+type ChartTooltipContentProps = RechartsTooltipProps<ValueType, NameType>;
+
 function ChartTooltipContent({
   active,
   payload,
@@ -117,7 +121,7 @@ function ChartTooltipContent({
   color,
   nameKey,
   labelKey,
-}: TooltipContentProps &
+}: ChartTooltipContentProps &
   React.ComponentProps<"div"> & {
     hideLabel?: boolean;
     hideIndicator?: boolean;

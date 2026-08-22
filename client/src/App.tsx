@@ -29,7 +29,7 @@ function TransitionShell() {
   }, [location]);
 
   return (
-    <div key={location} className="page-transition min-h-screen">
+    <div className="page-transition min-h-screen">
       {isNavigating && <div className="loading-progress" role="progressbar" aria-label="Sahifa yuklanmoqda" />}
       <Router />
     </div>

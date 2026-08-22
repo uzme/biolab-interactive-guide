@@ -13,6 +13,16 @@
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
 | Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; holat **READY** |
 
+## 2026-08-22 Real mobil “blur-only” DeviceViewer tuzatishi
+
+Foydalanuvchining real mobil brauzer skrinshoti “O‘rganish” bosilganda faqat backdrop-blur qatlamining ko‘rinib, o‘quv dosyesi paneli viewportdan tashqarida yoki yopiq stacking contextda qolayotganini ko‘rsatdi. Ildiz sabab DeviceViewer modalining `page-transition` animatsion sahifa konteyneri ichida render qilinishi edi: bu konteyner `transform` qo‘llagani uchun real iOS brauzerida `position: fixed` modalning viewportga biriktirilishi buzilishi mumkin edi.
+
+Modal `createPortal(..., document.body)` bilan sahifa animatsiyasi kontekstidan chiqarildi. Yangi modal overlay mustaqil `100vh`/`100dvh`/`100svh` viewportiga, yuqori z-indexga, blurdan ajratilgan oq panelga va bitta aniq ichki scroll konteyneriga ega. “O‘rganish” tugmasidagi hodisa tarqalishi to‘xtatildi, route transition wrapperdagi qayta mount xavfi olib tashlandi. 16 bo‘limli o‘quv tarkibi o‘zgarmadi.
+
+Yangi browser regression iPhone 390×844 viewportida portalning `document.body` ostida ekanini, oq panel va DeviceViewer kontenti blur qatlamidan yuqorida o‘lchamli ko‘rinishini, panel ichki kontenti scroll qilinishini tekshiradi. TypeScript, production build, Vitest, katalog/DeviceViewer, portal modal hamda BIO-001–BIO-100 desktop-mobil detail auditlari lokal muhitda muvaffaqiyatli o‘tdi. Canonical production sinxronlashi navbatda.
+
+Canonical release tasdiqlandi: GitHub `main` commit `cf146ae4308b2da0c55beac0e8f2043f3fbc09e3`; sanitizatsiyalangan source fingerprint `f5867af2d2268c48c0e8f3d0dcba8515bf0e8e4305e5df0f3473f6979444a500`; Drive snapshot `BioLab_Interactive_Guide_source.tar.gz`, ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, parent `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, modified `2026-08-22T06:52:21.535Z`, transport `gws`. Holat: **READY**.
+
 ## 2026-08-22 100/100 “O‘rganish” detail audit
 
 BIO-001–BIO-100 detail oqimi desktop va iPhone Safari 390×844 emulyatsiyasida avtomatlashtirilgan tekshirildi. Har bir qurilma uchun modal ochilishi, yuqoridan scroll reset, 16 bo‘limli navigatsiya, birinchi o‘quv bo‘limi va 16-bo‘limdagi manbalar ko‘rinishi tasdiqlandi. `learningData.test.ts` esa har 100 qurilmaning 16 bo‘lim tarkibiga xizmat qiladigan barcha majburiy o‘quv maydonlari hamda manbalarini bo‘sh emasligini tekshiradi.

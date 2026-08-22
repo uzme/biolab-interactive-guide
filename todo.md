@@ -99,3 +99,6 @@
 - [x] O‘quv loaderi xato berganda foydalanuvchiga ko‘rinadigan recovery UI va xarid loaderi xatosida o‘quv dosyesi saqlanishi regressionlarini tekshirish
 - [x] Detail auditida aniqlangan har bir xatoni regressiya testi bilan tuzatish, productionda qayta tekshirish va canonical GitHub–Drive releaseiga sinxronlash
 - [x] GWS OAuth xatosida mavjud canonical Drive snapshotini duplicate yaratmasdan rclone fallback bilan yangilashni release skriptida avtomatlashtirish va regression orqali tekshirish
+- [x] Real mobil brauzerda “O‘rganish” bosilganda faqat fon-blur ko‘rinib, DeviceViewer kontenti chiqmasligi xatosining stacking, viewport va scroll ildiz sababini aniqlash
+- [x] Mobil DeviceViewer modalini kontent qatlamini har doim ko‘rinadigan va amalda scroll qilinadigan qilish uchun tuzatish hamda blur-only regressionini qo‘shish
+- [x] Tuzatishni realistik iPhone viewportlarda, productionda va barcha canonical release tekshiruvlarida tasdiqlab GitHub–Drive snapshotiga sinxronlash

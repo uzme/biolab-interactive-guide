@@ -160,26 +160,30 @@ try {
   await assert(await mobileModal.getAttribute("aria-modal") === "true", "Mobil detail oynasi modal semantikasini bermadi.");
   const mobileModalMetrics = await mobileModal.evaluate((element) => {
     const viewer = element.querySelector("[data-device-viewer]");
+    const panel = element.querySelector("[data-device-modal-panel]");
+    const scrollContainer = panel?.firstElementChild;
     const viewerRect = viewer?.getBoundingClientRect();
     return {
       height: element.getBoundingClientRect().height,
-      overflowY: window.getComputedStyle(element).overflowY,
+      overlayOverflowY: window.getComputedStyle(element).overflowY,
+      scrollOverflowY: scrollContainer ? window.getComputedStyle(scrollContainer).overflowY : "",
       viewportHeight: window.innerHeight,
       viewerHeight: viewerRect?.height ?? 0,
       viewerTop: viewerRect?.top ?? Number.POSITIVE_INFINITY,
       viewerBackground: viewer ? window.getComputedStyle(viewer).backgroundColor : "",
-      modalScrollTop: element.scrollTop,
-      viewerScrollTop: element.firstElementChild?.scrollTop ?? -1,
+      modalScrollTop: scrollContainer?.scrollTop ?? -1,
+      viewerScrollTop: scrollContainer?.scrollTop ?? -1,
     };
   });
   await assert(mobileModalMetrics.height >= mobileModalMetrics.viewportHeight - 2, "Mobil detail oynasi ekran qoplamini to‘liq egallamadi.");
-  await assert(mobileModalMetrics.overflowY === "auto", "Mobil detail oynasiga xavfsiz vertikal overflow berilmadi.");
+  await assert(mobileModalMetrics.overlayOverflowY === "hidden" && mobileModalMetrics.scrollOverflowY === "auto", `Mobil detail oynasida alohida xavfsiz vertikal scroll konteyneri yo‘q (overlay: ${mobileModalMetrics.overlayOverflowY}; kontent: ${mobileModalMetrics.scrollOverflowY}).`);
   await assert(mobileModalMetrics.viewerHeight > 0 && mobileModalMetrics.viewerTop < mobileModalMetrics.viewportHeight, "Mobil detail kontenti fon-blur ostida ko‘rinmay qoldi.");
   await assert(mobileModalMetrics.viewerBackground === "rgb(247, 251, 250)", "Mobil detail kontenti kutilgan o‘quv fonida render bo‘lmadi.");
   await assert(mobileModalMetrics.modalScrollTop <= 1 && mobileModalMetrics.viewerScrollTop <= 1, "Mobil detail oynasi yuqoridan emas, avvalgi scroll holatidan ochildi.");
   await mobileModal.evaluate((element) => {
-    element.scrollTop = element.scrollHeight;
-    element.firstElementChild?.scrollTo(0, element.firstElementChild.scrollHeight);
+    const panel = element.querySelector("[data-device-modal-panel]");
+    const scrollContainer = panel?.firstElementChild;
+    scrollContainer?.scrollTo(0, scrollContainer.scrollHeight);
   });
   await mobile.getByRole("button", { name: "Barcha uskunalar" }).click();
   await mobileModal.waitFor({ state: "hidden" });

@@ -122,15 +122,20 @@ try {
     await mobile.waitForFunction((sectionCount) => document.querySelectorAll('nav[aria-label="16 bo‘limli o‘quv dasturi"] button').length === sectionCount, expectedSections.length, { timeout: 30_000 });
     await assert(await modal.getAttribute("role") === "dialog" && await modal.getAttribute("aria-modal") === "true", `${deviceId}: mobil modal semantikasi noto‘g‘ri.`);
     await assert(!await mobile.getByRole("heading", { name: "O‘quv dosyesi yuklanmadi" }).isVisible().catch(() => false), `${deviceId}: mobil o‘quv dosyesi yuklanmadi.`);
-    const metrics = await modal.evaluate((element) => ({
-      modalScrollTop: element.scrollTop,
-      viewerScrollTop: element.firstElementChild?.scrollTop ?? -1,
-      modalHeight: element.getBoundingClientRect().height,
-      viewportHeight: window.innerHeight,
-      overflowY: window.getComputedStyle(element).overflowY,
-    }));
+    const metrics = await modal.evaluate((element) => {
+      const panel = element.querySelector("[data-device-modal-panel]");
+      const scrollContainer = panel?.firstElementChild;
+      return {
+        modalScrollTop: scrollContainer?.scrollTop ?? -1,
+        viewerScrollTop: scrollContainer?.scrollTop ?? -1,
+        modalHeight: element.getBoundingClientRect().height,
+        viewportHeight: window.innerHeight,
+        overlayOverflowY: window.getComputedStyle(element).overflowY,
+        scrollOverflowY: scrollContainer ? window.getComputedStyle(scrollContainer).overflowY : "",
+      };
+    });
     await assert(metrics.modalScrollTop <= 1 && metrics.viewerScrollTop <= 1, `${deviceId}: mobil detail yuqoridan ochilmadi.`);
-    await assert(metrics.modalHeight >= metrics.viewportHeight - 2 && metrics.overflowY === "auto", `${deviceId}: mobil detail scroll konteyneri noto‘g‘ri.`);
+    await assert(metrics.modalHeight >= metrics.viewportHeight - 2 && metrics.overlayOverflowY === "hidden" && metrics.scrollOverflowY === "auto", `${deviceId}: mobil detail scroll konteyneri noto‘g‘ri.`);
     await viewer.getByRole("button", { name: "Barcha uskunalar", exact: true }).click();
     await modal.waitFor({ state: "hidden" });
   }

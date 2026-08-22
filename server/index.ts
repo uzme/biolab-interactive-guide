@@ -18,8 +18,8 @@ async function startServer() {
 
   app.use(express.static(staticPath));
 
-  // Express 5 requires a named wildcard; this form includes the root SPA route.
-  app.get("/{*splat}", (_req, res) => {
+  // Handle client-side routing - serve index.html for all routes
+  app.get("*", (_req, res) => {
     res.sendFile(path.join(staticPath, "index.html"));
   });
 

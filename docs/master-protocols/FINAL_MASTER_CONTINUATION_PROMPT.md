@@ -13,7 +13,8 @@ Men BioLab Interactive Guide loyihasining mavjud, ishlayotgan source-of-truth ve
 - Google Drive canonical root ID: 19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV
 - Canonical snapshot name: BioLab_Interactive_Guide_source.tar.gz
 - Existing canonical snapshot file ID: 1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh
-- Permanent production URL: https://biolab-interactive-guide.vercel.app/
+- Canonical production URL: https://biolabguide-fbcitqyf.manus.space/
+- Hosting policy: faqat Manus Autoscale production manzilidan foydalaning. Vercel’dagi `biolab-interactive-guide*.vercel.app` manzillari bu tiklash oqimi uchun canonical emas; ularga production yoki source-of-truth deb tayanmang.
 
 ### QAT’IY SAQLANADIGAN FUNKSIYALAR
 
@@ -68,5 +69,5 @@ node scripts/release/sync_release.mjs --check
 
 ### FINAL REPORT FORMAT
 
-Yakuniy hisobotda READY yoki NOT READY holatini, bajarilgan testlarni, GitHub commitni, Drive file IDni va Vercel production holatini aniq yozing.
+Yakuniy hisobotda READY yoki NOT READY holatini, bajarilgan testlarni, GitHub commitni, Drive file IDni va Manus canonical production URL holatini aniq yozing.
 ```

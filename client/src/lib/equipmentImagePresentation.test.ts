@@ -33,15 +33,15 @@ describe("qurilma rasm presentation profillari", () => {
     }
   });
 
-  it("canonical Drive mirroridagi 100 ta hero-vizualni cover, laboratory va AI shaffofligi bilan ochadi", () => {
+  it("auditdan o‘tgan 85 ta yangi hero-vizualni cover, laboratory va AI shaffofligi bilan ochadi", () => {
     const acceptedHeroIds = Object.keys(auditedHeroImageUrls);
-    expect(acceptedHeroIds).toHaveLength(100);
+    expect(acceptedHeroIds).toHaveLength(85);
 
     for (const id of acceptedHeroIds) {
       expect(getImagePresentation(id).fit).toBe("cover");
       expect(getImageBackgroundProfile(id)).toBe("laboratory");
       expect(equipmentImages[id].url).toBe(auditedHeroImageUrls[id]);
-      expect(equipmentImages[id].url).toContain("/biolab-drive-assets/BIO-");
+      expect(equipmentImages[id].url).toContain("-hero_");
       expect(equipmentImages[id].sourceType).toBe("ai-representative");
     }
   });

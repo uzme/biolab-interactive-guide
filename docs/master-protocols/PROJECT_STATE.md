@@ -13,6 +13,16 @@
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
 | Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; holat **READY** |
 
+## 2026-08-22 Vercel alias audit va canonical hosting qoidasi
+
+Vercel hisobidagi `biolab-interactive-guide` loyihasi (`prj_rqrqaYGGjeUZO5NvuTM6tViLCHwh`) GitHub repository bilan bog‘langan bo‘lib, avtomatik uchta alias yaratadi: `biolab-interactive-guide.vercel.app`, `biolab-interactive-guide-bahroms-projects-fade24c3.vercel.app` va `biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app`. Auditda ushbu loyiha so‘nggi production deployi GitHub `main`dagi `67ab7554489dafff249dac473390449dd2d38ea0` Dependabot commitidan yig‘ilgani aniqlandi; bu BioLab canonical working release bilan mos kelmaydi.
+
+BioLab uchun yagona canonical live manzil: `https://biolabguide-fbcitqyf.manus.space/`. Vercel aliaslari production, tiklash yoki source-of-truth sifatida ishlatilmaydi. Boshqa akkauntdagi tiklash prompti shu qoidaga yangilandi. Vercel Git integratsiyasini uzish yoki loyihani o‘chirish alohida hosting-konfiguratsiya amali bo‘lgani uchun foydalanuvchi tasdiqisiz bajarilmaydi.
+
+Foydalanuvchi tasdig‘idan keyin Vercel Settings → Git ichidan `uzme/biolab-interactive-guide` bog‘lanishi uzildi. Vercel tasdiqi: **“Disconnected Git Repository successfully.”** Loyiha o‘chirilmadi: uning uchta eski aliasi tarixiy manzil bo‘lib qolishi mumkin, biroq GitHub `main`ga kelgusi pushlar endi u yerda avtomatik deploy yaratmaydi. Uzishdan keyin canonical Manus URL browserda qayta ochildi; katalog, qidiruv, gorizontal karusel va detail kirish nuqtalari ishladi. Boshqa akkaunt tiklash oqimi faqat `uzme/biolab-interactive-guide` `main` va `https://biolabguide-fbcitqyf.manus.space/` manzilidan foydalanadi.
+
+Read-only Vercel post-checkda loyiha qaytdi, lekin `gitRepository` yoki ekvivalent Git bog‘lanish maydoni yo‘q edi. Uchtala Vercel manzili tarixiy `domains` qiymati sifatida qoldi; tashqi loyiha `live: false` holatida. Post-check va to‘liq manba ro‘yxati `docs/reports/VERCEL_HOSTING_LINK_INVENTORY.md`da saqlangan.
+
 ## Repository Structure (Tartiblangan papka tuzilmasi)
 - `client/` — React 19 frontend, shadcn/ui komponentlar, custom hooks (`useBookmarks`), PWA offline qo‘llab-quvvatlashi
 - `server/` — Express backend, tRPC routers va API integratsiyalari
@@ -163,11 +173,3 @@ Detail ma’lumotlari uchun `Promise.allSettled` qo‘llanadi: purchase block xa
 Yangi production checkpointidan keyin `https://biolabguide-fbcitqyf.manus.space/` URLida cache-bypass query bilan, iPhone Safari user-agent, touch va 390×844 viewport emulyatsiyasida final smoke-test bajarildi. `BIO-001`, `BIO-026`, `BIO-051` va `BIO-076` to‘rtta dinamik blokdan detail oynasi ochildi, 16 bo‘lim hamda xarid bo‘limlari yuklandi, modal avval pastga surilib yopilgach keyingi ochilish 1-bo‘limdan boshlandi. Holat: **READY / production PASS**.
 
 Xatolikdan tiklanish dalili productionda sun’iy nosozlik kiritish orqali emas, alohida unit regression orqali berildi: purchase promise `reject` qilinganda `resolveDeviceContent` learning natijani va 16-bo‘limli o‘quv oqimini saqlaydi, purchase esa xavfsiz bo‘sh holatga tushadi. Ushbu test **PASS**; production smoke-test esa faqat real success-path yuklanishini tasdiqlaydi.
-
-## 2026-08-22 canonical 100 hero asset deploy integration
-
-Canonical `Biotexnologiya yangi` Drive recovery mirroridan checksum bilan tekshirilgan 100 ta `BIO-NNN.webp` loyiha ichidagi `client/public/biolab-drive-assets/` deploy-safe public storage papkasiga ko‘chirildi. `client/src/lib/auditedHeroImageUrls.ts` endi BIO-001–BIO-100 uchun stable local `/biolab-drive-assets/BIO-NNN.webp` URLlarini ishlatadi; runtime’da `/manus-storage` proxyga bog‘liqlik olib tashlandi. Shu sabab avval 500 qaytarayotgan missing image holati yopildi va birinchi uchta katalog rasmi `loading="eager"` + `fetchPriority="high"` bilan real DOMda tasdiqlandi.
-
-Presentation regression expectationi eski 85 ta URL qamrovidan yangi authoritative 100 ta asset qamroviga yangilandi. Drive recovery auditdagi 15 ta checksum-verified `1440×810` legacy asset `legacyAcceptedHeroIds` sifatida saqlanadi; qolgan 85 ta asset `2560×1440` hero-standardga mos.
-
-Yakuniy validation natijasi: TypeScript check **PASS**, production build **PASS**, Vitest 3 file / 11 test **PASS**, desktop katalog/filter/bookmark/priority smoke-test **PASS**, DeviceViewer va mobil menu/image smoke-test **PASS**, `pnpm release:check` continuity/sanitizatsiya audit **READY**. Buildda faqat mavjud analytics environment placeholder ogohlantirishlari qoldi; ular failure emas. Hozirgi working tree GitHub/Drive publishdan oldingi verified integration holatida.

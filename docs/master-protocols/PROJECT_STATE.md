@@ -13,6 +13,18 @@
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
 | Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; holat **READY** |
 
+## 2026-08-22 100/100 “O‘rganish” detail audit
+
+BIO-001–BIO-100 detail oqimi desktop va iPhone Safari 390×844 emulyatsiyasida avtomatlashtirilgan tekshirildi. Har bir qurilma uchun modal ochilishi, yuqoridan scroll reset, 16 bo‘limli navigatsiya, birinchi o‘quv bo‘limi va 16-bo‘limdagi manbalar ko‘rinishi tasdiqlandi. `learningData.test.ts` esa har 100 qurilmaning 16 bo‘lim tarkibiga xizmat qiladigan barcha majburiy o‘quv maydonlari hamda manbalarini bo‘sh emasligini tekshiradi.
+
+Loader recovery qamrovi alohida browser regression bilan kengaytirildi: learning bloki sun’iy xato qaytarganda foydalanuvchi `O‘quv dosyesi yuklanmadi` hamda `Yangilash va qayta ochish` tugmasini ko‘radi; purchase bloki xato qaytarganda esa 16 bo‘limli o‘quv dosyesi ochiq qoladi. Offline reload assertioni app shell tiklanishini kutadigan qilib barqarorlashtirildi. Ma’lumotlar tarkibi va UI funksionalligi o‘zgartirilmagan; faqat audit/test qamrovi kengaytirildi.
+
+TypeScript check, production build, lokal to‘liq test zanjiri va canonical Manus production URL’da 100/100 detail audit muvaffaqiyatli yakunlandi. Holat: **READY**.
+
+100/100 detail va loader recovery regressiyalari GitHub `uzme/biolab-interactive-guide` `main` branchiga kiritildi. GWS OAuth tokeni vaqtincha eskirganda release to‘xtab qolmasligi uchun `sync_release.mjs`ga rclone fallback qo‘shildi va uning alohida regression kontrakti tekshirildi. Foydalanuvchi qayta autentifikatsiyasidan so‘ng existing canonical snapshot metadata’si yana ochildi va duplicate yaratilmasdan o‘rnida yangilandi.
+
+Yakuniy tasdiqlangan release: GitHub `main` commit `f5604692620fa87212b34d245cdadb15ac9b0c57`; sanitizatsiyalangan source fingerprint `38ceca30724cb7b4eb5080b35268bcbe2149b2229d98a4d91c87a413a128990d`; Drive snapshot `BioLab_Interactive_Guide_source.tar.gz`, ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, parent `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, modified `2026-08-22T05:13:06.698Z`, transport `gws`. Holat: **READY**.
+
 ## 2026-08-22 yakuniy Vercel post-delete release sync
 
 `node scripts/release/sync_release.mjs --publish` typecheck, production build, Vitest, katalog/DeviceViewer browser regressiyalari, continuity audit va secret-sanitizatsiyani muvaffaqiyatli tugatdi. Sanitizatsiyalangan source fingerprint: `9d2716739a85f6bf1f6bf59e5cc8d6e34967e68ed0981de1019b30661d4435c4`.

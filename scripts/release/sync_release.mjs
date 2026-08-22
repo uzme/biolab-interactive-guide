@@ -8,6 +8,8 @@ const PROJECT_ROOT = resolve(process.cwd());
 const CANONICAL_GITHUB_REPOSITORY = "uzme/biolab-interactive-guide";
 const CANONICAL_DRIVE_ROOT_ID = "19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV"; // BioLab — Biotexnologiya yangi root folder ID
 const DRIVE_SNAPSHOT_NAME = "BioLab_Interactive_Guide_source.tar.gz";
+const RCLONE_DRIVE_DESTINATION = `manus_google_drive:Biotexnologiya yangi/${DRIVE_SNAPSHOT_NAME}`;
+const RCLONE_CONFIG_PATH = "/home/ubuntu/.gdrive-rclone.ini";
 const GITHUB_PROJECT_PATH = ".";
 const mode = process.argv[2];
 
@@ -166,6 +168,41 @@ function uploadOrUpdateDrive(snapshotPath, sourceFingerprint) {
   return verifyDriveFile(fileId);
 }
 
+function uploadOrUpdateDriveWithFallback(snapshotPath, sourceFingerprint) {
+  try {
+    return { metadata: uploadOrUpdateDrive(snapshotPath, sourceFingerprint), transport: "gws" };
+  } catch (primaryError) {
+    const reason = primaryError instanceof Error ? primaryError.message : String(primaryError);
+    console.warn(`[Drive] GWS upload bajarilmadi; rclone fallback ishlatiladi. Sabab: ${reason}`);
+    run("rclone", [
+      "copyto", snapshotPath, RCLONE_DRIVE_DESTINATION,
+      "--config", RCLONE_CONFIG_PATH,
+      "--checksum",
+    ], PROJECT_ROOT, true);
+    const raw = run("rclone", [
+      "lsjson", RCLONE_DRIVE_DESTINATION,
+      "--config", RCLONE_CONFIG_PATH,
+    ]);
+    const file = JSON.parse(raw)[0];
+    const valid = file?.Name === DRIVE_SNAPSHOT_NAME
+      && Number(file.Size) > 0
+      && typeof file.ID === "string"
+      && file.ID.length > 0;
+    if (!valid) throw new Error("rclone fallback post-upload tekshiruvi: canonical snapshot metadata si noto‘g‘ri.");
+    return {
+      metadata: {
+        id: file.ID,
+        name: file.Name,
+        size: file.Size,
+        modifiedTime: file.ModTime,
+        parents: [CANONICAL_DRIVE_ROOT_ID],
+        trashed: false,
+      },
+      transport: "rclone-fallback",
+    };
+  }
+}
+
 function copyProjectToCanonicalRepository(destination) {
   cpSync(PROJECT_ROOT, destination, {
     recursive: true,
@@ -229,7 +266,7 @@ try {
   console.log(`[GitHub] ${githubCommit}`);
 
   console.log("[4/4] Snapshot Biotexnologiya yangi BioLab Drive papkasiga yuklanmoqda yoki mavjud nusxa yangilanmoqda...");
-  const driveFile = uploadOrUpdateDrive(archive.snapshotPath, archive.sourceFingerprint);
+  const { metadata: driveFile, transport: driveTransport } = uploadOrUpdateDriveWithFallback(archive.snapshotPath, archive.sourceFingerprint);
   console.log(JSON.stringify({
     githubRepository: `https://github.com/${CANONICAL_GITHUB_REPOSITORY}`,
     githubProjectPath: GITHUB_PROJECT_PATH,
@@ -238,6 +275,7 @@ try {
     driveFileId: driveFile.id,
     driveFileName: driveFile.name,
     driveModifiedTime: driveFile.modifiedTime,
+    driveTransport,
   }, null, 2));
   rmSync(archive.temporaryDirectory, { recursive: true, force: true });
   console.log("PUBLISH COMPLETED: sanitizatsiyalangan BioLab snapshoti va tekshirilgan kod sinxronlandi.");

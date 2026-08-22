@@ -23,6 +23,8 @@ Foydalanuvchi tasdig‘idan keyin Vercel Settings → Git ichidan `uzme/biolab-i
 
 Read-only Vercel post-checkda loyiha qaytdi, lekin `gitRepository` yoki ekvivalent Git bog‘lanish maydoni yo‘q edi. Uchtala Vercel manzili tarixiy `domains` qiymati sifatida qoldi; tashqi loyiha `live: false` holatida. Post-check va to‘liq manba ro‘yxati `docs/reports/VERCEL_HOSTING_LINK_INVENTORY.md`da saqlangan.
 
+Disconnectdan keyin canonical GitHub `main`ga `c70ea2b2867f1f1c11d49ffb12eae49ae048335a` release push qilindi. Vercel deployment history read-only so‘rovi disconnect timestampidan keyin **0 ta deployment** qaytardi. Demak bu real GitHub push yangi Vercel auto-deploy yaratmagan; canonical Manus manzili yagona live release yo‘li bo‘lib qoldi.
+
 ## Repository Structure (Tartiblangan papka tuzilmasi)
 - `client/` — React 19 frontend, shadcn/ui komponentlar, custom hooks (`useBookmarks`), PWA offline qo‘llab-quvvatlashi
 - `server/` — Express backend, tRPC routers va API integratsiyalari

@@ -97,5 +97,5 @@
 - [x] BIO-001–BIO-100 detail auditida 16 bo‘lim kontenti va mobil scroll/reset tekshiruvlarini 100/100 qamrovda isbotlash
 - [x] To‘rtta dinamik learning blokining har birida yuklanish UI ko‘rinishi va 16-bo‘lim kontentiga muvaffaqiyatli o‘tishini browser regressionida tekshirish
 - [x] O‘quv loaderi xato berganda foydalanuvchiga ko‘rinadigan recovery UI va xarid loaderi xatosida o‘quv dosyesi saqlanishi regressionlarini tekshirish
-- [ ] Detail auditida aniqlangan har bir xatoni regressiya testi bilan tuzatish, productionda qayta tekshirish va canonical GitHub–Drive releaseiga sinxronlash
-- [ ] GWS OAuth xatosida mavjud canonical Drive snapshotini duplicate yaratmasdan rclone fallback bilan yangilashni release skriptida avtomatlashtirish va regression orqali tekshirish
+- [x] Detail auditida aniqlangan har bir xatoni regressiya testi bilan tuzatish, productionda qayta tekshirish va canonical GitHub–Drive releaseiga sinxronlash
+- [x] GWS OAuth xatosida mavjud canonical Drive snapshotini duplicate yaratmasdan rclone fallback bilan yangilashni release skriptida avtomatlashtirish va regression orqali tekshirish

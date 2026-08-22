@@ -21,7 +21,9 @@ Loader recovery qamrovi alohida browser regression bilan kengaytirildi: learning
 
 TypeScript check, production build, lokal to‘liq test zanjiri va canonical Manus production URL’da 100/100 detail audit muvaffaqiyatli yakunlandi. Holat: **READY**.
 
-100/100 detail va loader recovery regressiyalari GitHub `uzme/biolab-interactive-guide` `main` branchiga `e830771f034e6491e84b0e574c80afdc4587802a` commitida kiritildi; sanitizatsiyalangan source fingerprint `5b7aaad1eda18f2660471376e44b32fcd649c0a4cec58e101eb086ae27139534`. GWS OAuth tokeni vaqtincha eskirganda release to‘xtab qolmasligi uchun `sync_release.mjs`ga rclone fallback qo‘shildi va uning alohida regression kontrakti tekshirildi. Foydalanuvchi qayta autentifikatsiyasidan so‘ng existing canonical snapshot metadata’si yana ochildi: `BioLab_Interactive_Guide_source.tar.gz`, ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, parent `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, duplicate yo‘q. Keyingi final release aynan shu mavjud faylni o‘rnida yangilaydi.
+100/100 detail va loader recovery regressiyalari GitHub `uzme/biolab-interactive-guide` `main` branchiga kiritildi. GWS OAuth tokeni vaqtincha eskirganda release to‘xtab qolmasligi uchun `sync_release.mjs`ga rclone fallback qo‘shildi va uning alohida regression kontrakti tekshirildi. Foydalanuvchi qayta autentifikatsiyasidan so‘ng existing canonical snapshot metadata’si yana ochildi va duplicate yaratilmasdan o‘rnida yangilandi.
+
+Yakuniy tasdiqlangan release: GitHub `main` commit `f5604692620fa87212b34d245cdadb15ac9b0c57`; sanitizatsiyalangan source fingerprint `38ceca30724cb7b4eb5080b35268bcbe2149b2229d98a4d91c87a413a128990d`; Drive snapshot `BioLab_Interactive_Guide_source.tar.gz`, ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, parent `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, modified `2026-08-22T05:13:06.698Z`, transport `gws`. Holat: **READY**.
 
 ## 2026-08-22 yakuniy Vercel post-delete release sync
 

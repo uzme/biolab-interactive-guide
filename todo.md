@@ -101,4 +101,4 @@
 - [x] GWS OAuth xatosida mavjud canonical Drive snapshotini duplicate yaratmasdan rclone fallback bilan yangilashni release skriptida avtomatlashtirish va regression orqali tekshirish
 - [x] Real mobil brauzerda “O‘rganish” bosilganda faqat fon-blur ko‘rinib, DeviceViewer kontenti chiqmasligi xatosining stacking, viewport va scroll ildiz sababini aniqlash
 - [x] Mobil DeviceViewer modalini kontent qatlamini har doim ko‘rinadigan va amalda scroll qilinadigan qilish uchun tuzatish hamda blur-only regressionini qo‘shish
-- [ ] Tuzatishni realistik iPhone viewportlarda, productionda va barcha canonical release tekshiruvlarida tasdiqlab GitHub–Drive snapshotiga sinxronlash
+- [x] Tuzatishni realistik iPhone viewportlarda, productionda va barcha canonical release tekshiruvlarida tasdiqlab GitHub–Drive snapshotiga sinxronlash

@@ -21,6 +21,8 @@ Modal `createPortal(..., document.body)` bilan sahifa animatsiyasi kontekstidan 
 
 Yangi browser regression iPhone 390×844 viewportida portalning `document.body` ostida ekanini, oq panel va DeviceViewer kontenti blur qatlamidan yuqorida o‘lchamli ko‘rinishini, panel ichki kontenti scroll qilinishini tekshiradi. TypeScript, production build, Vitest, katalog/DeviceViewer, portal modal hamda BIO-001–BIO-100 desktop-mobil detail auditlari lokal muhitda muvaffaqiyatli o‘tdi. Canonical production sinxronlashi navbatda.
 
+Canonical release tasdiqlandi: GitHub `main` commit `cf146ae4308b2da0c55beac0e8f2043f3fbc09e3`; sanitizatsiyalangan source fingerprint `f5867af2d2268c48c0e8f3d0dcba8515bf0e8e4305e5df0f3473f6979444a500`; Drive snapshot `BioLab_Interactive_Guide_source.tar.gz`, ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, parent `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, modified `2026-08-22T06:52:21.535Z`, transport `gws`. Holat: **READY**.
+
 ## 2026-08-22 100/100 “O‘rganish” detail audit
 
 BIO-001–BIO-100 detail oqimi desktop va iPhone Safari 390×844 emulyatsiyasida avtomatlashtirilgan tekshirildi. Har bir qurilma uchun modal ochilishi, yuqoridan scroll reset, 16 bo‘limli navigatsiya, birinchi o‘quv bo‘limi va 16-bo‘limdagi manbalar ko‘rinishi tasdiqlandi. `learningData.test.ts` esa har 100 qurilmaning 16 bo‘lim tarkibiga xizmat qiladigan barcha majburiy o‘quv maydonlari hamda manbalarini bo‘sh emasligini tekshiradi.

@@ -1,5 +1,6 @@
 import express from "express";
 import rateLimit from "express-rate-limit";
+import { readFile } from "fs/promises";
 import { createServer } from "http";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -16,6 +17,7 @@ async function startServer() {
     process.env.NODE_ENV === "production"
       ? path.resolve(__dirname, "public")
       : path.resolve(__dirname, "..", "dist", "public");
+  const fallbackDocument = await readFile(path.join(staticPath, "index.html"), "utf8");
 
   app.use(express.static(staticPath));
 
@@ -28,10 +30,10 @@ async function startServer() {
   });
 
   // Handle client-side routing - serve index.html for all routes.
-  // This file-system access is rate-limited to avoid abuse of the fallback route.
+  // The fallback document is loaded once at startup; route responses avoid disk I/O.
   app.use(spaFallbackLimiter);
   app.get("*", (_req, res) => {
-    res.sendFile(path.join(staticPath, "index.html"));
+    res.type("html").send(fallbackDocument);
   });
 
   const port = process.env.PORT || 3000;

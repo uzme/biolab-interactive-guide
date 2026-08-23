@@ -23,6 +23,12 @@ Yangi browser regression iPhone 390×844 viewportida portalning `document.body` 
 
 Canonical release tasdiqlandi: GitHub `main` commit `cf146ae4308b2da0c55beac0e8f2043f3fbc09e3`; sanitizatsiyalangan source fingerprint `f5867af2d2268c48c0e8f3d0dcba8515bf0e8e4305e5df0f3473f6979444a500`; Drive snapshot `BioLab_Interactive_Guide_source.tar.gz`, ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, parent `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, modified `2026-08-22T06:52:21.535Z`, transport `gws`. Holat: **READY**.
 
+## 2026-08-23 Mobil yuqori panel ikonkalari releasei
+
+Mobil yuqori paneldagi avvalgi yakka-yakka aylana ikonkalari chuqur teal menyu action-kartasi, ixcham BioLab/LAB-01 lock-up va yagona mint action-klasteriga almashtirildi. Internet holati, offline paket, rang mavzusi, saralanganlar va katalog filtrlari funksiyalari saqlandi. Kichik ekranlarda offline action yashirilmaydi; 320 px, 375 px va 390 px viewportlarda barcha actionlar ko‘rinishi hamda 390 pxda filter va saralanganlar oqimi browser regressiyasi bilan tasdiqlandi. Vizual audit qaydi: `docs/validation/MOBILE_HEADER_ICON_AUDIT.md`.
+
+Yakuniy tekshiruvlar TypeScript, production build, 11 ta Vitest, katalog, yangi mobil header, DeviceViewer portal, BIO-001–BIO-100 detail, loading/recovery va Drive fallback regressiyalaridan muvaffaqiyatli o‘tdi. Canonical source release: GitHub `main` commit `39fc68b05964deffe808999afdcd06e6e02e899a`; fingerprint `ee4199f1f1a0a354a380326280bcc99bea3edf6be747cd3871664e406d186ef1`; Drive snapshot `BioLab_Interactive_Guide_source.tar.gz`, ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, parent `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, modified `2026-08-23T07:05:02.273Z`, transport `gws`. Holat: **READY**.
+
 ## 2026-08-22 100/100 “O‘rganish” detail audit
 
 BIO-001–BIO-100 detail oqimi desktop va iPhone Safari 390×844 emulyatsiyasida avtomatlashtirilgan tekshirildi. Har bir qurilma uchun modal ochilishi, yuqoridan scroll reset, 16 bo‘limli navigatsiya, birinchi o‘quv bo‘limi va 16-bo‘limdagi manbalar ko‘rinishi tasdiqlandi. `learningData.test.ts` esa har 100 qurilmaning 16 bo‘lim tarkibiga xizmat qiladigan barcha majburiy o‘quv maydonlari hamda manbalarini bo‘sh emasligini tekshiradi.

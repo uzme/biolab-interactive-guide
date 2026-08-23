@@ -10,7 +10,7 @@ const OFFLINE_ASSETS = [
   ...Object.values(equipmentImages).map((image) => image.url),
 ];
 
-export default function OfflineManager() {
+export default function OfflineManager({ compact = false }: { compact?: boolean }) {
   const { isOnline, isSupported, status, progress, downloadPack, clearPack } = useOfflinePack();
   const isReady = status === "tayyor";
   const isDownloading = status === "yuklanmoqda";
@@ -39,19 +39,24 @@ export default function OfflineManager() {
   }
 
   return (
-    <div className="flex items-center gap-1.5">
+    <div className={compact ? "contents" : "flex items-center gap-1.5"}>
       <span
         data-offline-status={isOnline ? "online" : "offline"}
-        className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1.5 text-[11px] font-semibold ${isOnline ? "border-[#cbded4] bg-white text-[#597b75]" : "border-[#f1c9c2] bg-[#fff6f4] text-[#a24f42]"}`}
+        className={compact
+          ? `header-connection ${isOnline ? "is-online" : "is-offline"}`
+          : `inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1.5 text-[11px] font-semibold ${isOnline ? "border-[#cbded4] bg-white text-[#597b75]" : "border-[#f1c9c2] bg-[#fff6f4] text-[#a24f42]"}`}
         title={isOnline ? "Internet aloqasi mavjud" : "Internet aloqasi yo‘q; saqlangan offline ma’lumotlar mavjud bo‘lsa, ular ishlaydi"}
       >
         <span className={`h-1.5 w-1.5 rounded-full ${isOnline ? "bg-[#16a085]" : "bg-[#d86657]"}`} />
-        <span className="hidden sm:inline">{isOnline ? "Onlayn" : "Offline"}</span>
+        <span className={compact ? "sr-only" : "hidden sm:inline"}>{isOnline ? "Onlayn" : "Offline"}</span>
       </span>
       <Button
         variant="ghost"
         size="sm"
-        className={`rounded-full border px-3 text-xs font-semibold ${isReady ? "border-[#b8dfd1] bg-[#f1fbf7] text-[#0d7773]" : "border-[#cbded4] bg-white text-[#597b75]"}`}
+        data-header-action={compact ? "offline" : undefined}
+        className={compact
+          ? `header-action header-offline-action ${isReady ? "is-ready" : ""}`
+          : `rounded-full border px-3 text-xs font-semibold ${isReady ? "border-[#b8dfd1] bg-[#f1fbf7] text-[#0d7773]" : "border-[#cbded4] bg-white text-[#597b75]"}`}
         onClick={handleDownload}
         loading={isDownloading}
         loadingLabel={`Offline ${percent}%`}
@@ -59,10 +64,10 @@ export default function OfflineManager() {
         aria-label={isDownloading ? `Offline paket yuklanmoqda: ${percent}%` : isReady ? "Offline paketni yangilash" : "Offline paketni yuklash"}
       >
         {!isDownloading && (isReady ? <CheckCircle2 size={14} /> : <Download size={14} />)}
-        <span className="hidden sm:inline">{isReady ? "Offline tayyor" : "Offline paket"}</span>
+        <span className={compact ? "sr-only" : "hidden sm:inline"}>{isReady ? "Offline tayyor" : "Offline paket"}</span>
       </Button>
       {isReady && (
-        <Button variant="ghost" size="icon" className="h-8 w-8 text-[#78938d]" onClick={handleClear} title="Offline paketni tozalash" aria-label="Offline paketni tozalash">
+        <Button variant="ghost" size="icon" className={compact ? "header-action header-clear-action" : "h-8 w-8 text-[#78938d]"} onClick={handleClear} title="Offline paketni tozalash" aria-label="Offline paketni tozalash">
           <Trash2 size={14} />
         </Button>
       )}

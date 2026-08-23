@@ -157,6 +157,75 @@ button { cursor: pointer; }
   .button-ripple svg { transition: transform 180ms var(--ease-out); }
   .button-ripple[data-loading="true"] { cursor: wait; }
   .button-ripple[data-loading="true"] svg { animation: button-icon-spin 780ms linear infinite; }
+  .header-menu-action {
+    border: 1px solid oklch(0.48 0.10 184 / 0.28);
+    border-radius: 14px;
+    background: linear-gradient(145deg, oklch(0.42 0.11 184), oklch(0.32 0.08 190));
+    color: white;
+    box-shadow: 0 9px 18px oklch(0.30 0.07 188 / 0.20);
+    transition: transform 160ms var(--ease-out), box-shadow 180ms var(--ease-out), filter 180ms var(--ease-out);
+  }
+  .header-menu-action:hover { filter: brightness(1.08); box-shadow: 0 12px 22px oklch(0.30 0.07 188 / 0.26); }
+  .header-menu-action:focus-visible { outline: none; box-shadow: 0 0 0 3px oklch(0.72 0.13 174 / 0.42), 0 9px 18px oklch(0.30 0.07 188 / 0.20); }
+  .header-action-cluster {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    min-width: 0;
+    padding: 4px;
+    border: 1px solid oklch(0.84 0.04 180 / 0.9);
+    border-radius: 18px;
+    background: oklch(0.94 0.022 185 / 0.92);
+    box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.66), 0 5px 14px oklch(0.28 0.06 188 / 0.06);
+  }
+  .header-action {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    place-items: center;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    color: oklch(0.35 0.07 188);
+    transition: transform 160ms var(--ease-out), background-color 160ms var(--ease-out), color 160ms var(--ease-out), box-shadow 160ms var(--ease-out);
+  }
+  .header-action:hover { background: oklch(0.995 0.006 188); color: oklch(0.32 0.11 184); box-shadow: 0 4px 10px oklch(0.30 0.07 188 / 0.10); }
+  .header-action:focus-visible { outline: none; background: oklch(0.995 0.006 188); box-shadow: 0 0 0 3px oklch(0.53 0.12 184 / 0.28); }
+  .header-action:active, .header-menu-action:active { transform: scale(.95); }
+  .header-connection {
+    display: grid;
+    width: 15px;
+    height: 36px;
+    flex: 0 0 15px;
+    place-items: center;
+  }
+  .header-connection > span { width: 7px; height: 7px; box-shadow: 0 0 0 3px oklch(0.92 0.02 185); }
+  .header-connection.is-online > span { background: oklch(0.60 0.13 165); }
+  .header-connection.is-offline > span { background: oklch(0.62 0.16 28); }
+  .header-offline-action.is-ready { background: oklch(0.84 0.075 175); color: oklch(0.28 0.09 178); }
+  .header-clear-action { color: oklch(0.48 0.05 188); }
+  .header-action-count {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    display: grid;
+    min-width: 16px;
+    height: 16px;
+    place-items: center;
+    border: 2px solid oklch(0.94 0.022 185);
+    border-radius: 999px;
+    background: oklch(0.37 0.105 186);
+    padding: 0 3px;
+    color: white;
+    font-size: 0.56rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .header-mobile-brand { display: flex; min-width: 0; flex-direction: column; gap: 1px; line-height: 1; }
+  .header-mobile-brand-name { color: oklch(0.24 0.055 190); font-family: "Plus Jakarta Sans", "DM Sans", sans-serif; font-size: 0.96rem; font-weight: 800; letter-spacing: -0.06em; }
+  .header-mobile-brand-name span { color: oklch(0.43 0.12 176); }
+  .header-mobile-brand-meta { overflow: hidden; color: oklch(0.46 0.04 190); font-size: 0.54rem; font-weight: 800; letter-spacing: 0.09em; text-overflow: ellipsis; white-space: nowrap; }
   .button-ripple::after { content: ""; position: absolute; z-index: -1; width: 18px; height: 18px; left: var(--ripple-x, 50%); top: var(--ripple-y, 50%); border-radius: 999px; background: oklch(1 0 0 / 0.28); opacity: 0; transform: translate(-50%, -50%) scale(0.2); pointer-events: none; }
   .button-ripple[data-ripple="active"]::after { animation: button-ripple 420ms var(--ease-out) both; }
   .filter-transition { position: relative; height: 3px; overflow: hidden; border-radius: 999px; background: oklch(0.86 0.04 178 / 0.55); }
@@ -248,6 +317,10 @@ button { cursor: pointer; }
   .hero-sop-track::before { display: none; }
 }
 @media (max-width: 640px) {
+  .app-header { min-height: 64px; }
+  .header-action-cluster { gap: 2px; border-radius: 16px; }
+  .header-action { width: 35px; height: 35px; flex-basis: 35px; border-radius: 11px; }
+  .header-connection { width: 12px; height: 35px; flex-basis: 12px; }
   .sidebar.mobile-drawer {
     position: static;
     display: flex;
@@ -279,6 +352,15 @@ button { cursor: pointer; }
   .sidebar .nav-link { width: auto; }
   main { padding-bottom: 78px; }
 }
+@media (max-width: 360px) {
+  .app-header { padding-left: 8px; padding-right: 8px; }
+  .header-menu-action { width: 38px; height: 38px; }
+  .header-action-cluster { gap: 1px; padding: 3px; border-radius: 15px; }
+  .header-action { width: 32px; height: 32px; flex-basis: 32px; border-radius: 10px; }
+  .header-connection { width: 10px; height: 32px; flex-basis: 10px; }
+  .header-mobile-brand-name { font-size: 0.9rem; }
+  .header-mobile-brand-meta { font-size: 0.5rem; letter-spacing: 0.055em; }
+}
 .dark body { background: var(--background); }
 .dark ::selection { background: oklch(0.54 0.14 174 / 0.42); color: oklch(0.96 0.02 180); }
 .dark .shell { background: oklch(0.16 0.025 195); }
@@ -288,6 +370,11 @@ button { cursor: pointer; }
 .dark .nav-link.active { color: oklch(0.9 0.12 175); background: oklch(0.31 0.1 181); box-shadow: inset 3px 0 0 oklch(0.72 0.13 174); }
 .dark .sidebar-footer button { background: oklch(0.23 0.045 190) !important; border-color: oklch(0.34 0.06 185) !important; }
 .dark .sidebar-footer button:hover { background: oklch(0.28 0.06 185) !important; }
+.dark .header-action-cluster { border-color: oklch(0.34 0.055 187); background: oklch(0.22 0.038 195 / 0.96); box-shadow: inset 0 1px 0 oklch(0.55 0.08 180 / 0.08), 0 6px 16px oklch(0.1 0.02 195 / 0.22); }
+.dark .header-action { color: oklch(0.75 0.055 181); }
+.dark .header-action:hover, .dark .header-action:focus-visible { background: oklch(0.29 0.06 187); color: oklch(0.86 0.12 175); }
+.dark .header-mobile-brand-name { color: oklch(0.91 0.025 178); }
+.dark .header-mobile-brand-meta { color: oklch(0.68 0.04 184); }
 .dark .sop-spine { border-color: oklch(0.34 0.07 182 / 0.95); background: linear-gradient(110deg, oklch(0.205 0.035 195), oklch(0.25 0.07 180)); }
 .dark .sop-spine-step { color: oklch(0.76 0.04 185); }
 .dark .sop-spine-step span { border-color: oklch(0.48 0.09 180); background: oklch(0.22 0.035 195); color: oklch(0.82 0.12 175); }

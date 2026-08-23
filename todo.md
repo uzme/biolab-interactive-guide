@@ -102,3 +102,5 @@
 - [x] Real mobil brauzerda “O‘rganish” bosilganda faqat fon-blur ko‘rinib, DeviceViewer kontenti chiqmasligi xatosining stacking, viewport va scroll ildiz sababini aniqlash
 - [x] Mobil DeviceViewer modalini kontent qatlamini har doim ko‘rinadigan va amalda scroll qilinadigan qilish uchun tuzatish hamda blur-only regressionini qo‘shish
 - [x] Tuzatishni realistik iPhone viewportlarda, productionda va barcha canonical release tekshiruvlarida tasdiqlab GitHub–Drive snapshotiga sinxronlash
+- [x] Mobil yuqori paneldagi ikonka tizimini soddalashtirib, laboratoriya vizual identitetiga mos yagona dizayn va mavjud funksiyalar saqlanishini joriy qilish
+- [x] 320–360 px mobil viewportlarda offline paket boshqaruvini yashirmasdan sig‘dirish va barcha header actionlari ko‘rinishini regression bilan tasdiqlash

@@ -188,57 +188,58 @@ export default function Home() {
     </Sheet>
     <div className="hidden sm:block"><Sidebar activeCategory={activeCategory} onCategory={handleCategoryChange} onOpenSettings={() => setSettingsOpen(true)} /></div>
     <main className="app-main min-w-0 flex-1">
-      <header className="app-header sticky top-0 z-30 border-b border-[#cce4dd] bg-[#f7fbfa]/95 px-4 py-3.5 backdrop-blur-xl sm:px-8 lg:px-12 shadow-[0_4px_20px_rgba(23,61,66,0.04)]">
-        <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
+      <header className="app-header sticky top-0 z-30 border-b border-[#cce4dd] bg-[#f7fbfa]/95 px-3 py-3 backdrop-blur-xl sm:px-8 sm:py-3.5 lg:px-12 shadow-[0_4px_20px_rgba(23,61,66,0.04)]">
+        <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-2.5 sm:gap-3">
+          <div className="flex min-w-0 items-center gap-2.5 sm:gap-3">
             <button
               type="button"
               onClick={() => setMobileNav(true)}
-              className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-[#bce2d5] bg-white text-[#0d7774] shadow-sm transition hover:bg-[#edf7f4] sm:hidden"
+              className="header-menu-action grid h-10 w-10 shrink-0 place-items-center sm:hidden"
               aria-label="Menyuni ochish"
             >
               <Menu size={20} />
             </button>
-            <div className="flex items-center gap-2">
-              <span className="grid h-8 w-8 place-items-center rounded-lg bg-[#0d7774] text-white shadow-sm sm:hidden">
-                <Beaker size={16} />
-              </span>
-              <div>
-                <div className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#6d8b87]">BioLab // Katalog</div>
-                <div className="text-xs font-bold text-[#173d42]">100 Qurilma & 16 SOP</div>
+            <div className="min-w-0">
+              <div className="hidden text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#6d8b87] sm:block">BioLab // Katalog</div>
+              <div className="hidden text-xs font-bold text-[#173d42] sm:block">100 Qurilma & 16 SOP</div>
+              <div className="header-mobile-brand sm:hidden">
+                <span className="header-mobile-brand-name">Bio<span>Lab</span></span>
+                <span className="header-mobile-brand-meta">LAB-01 · 100 × 16</span>
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <OfflineManager />
+          <div className="header-action-cluster" data-mobile-header-actions>
+            <OfflineManager compact />
             <button
               type="button"
               onClick={() => toggleTheme?.()}
-              className="inline-flex items-center gap-1.5 rounded-xl border border-[#bce2d5] bg-white px-3 py-2 text-xs font-bold text-[#173d42] shadow-sm transition hover:bg-[#edf7f4]"
+              className="header-action"
+              data-header-action="theme"
               aria-label={theme === "dark" ? "Yorug‘ rejimga o‘tish" : "Qorong‘i rejimga o‘tish"}
               title={theme === "dark" ? "Yorug‘ rejim" : "Qorong‘i rejim"}
             >
               {theme === "dark" ? <Sun size={16} className="text-[#f3c969]" /> : <Moon size={16} className="text-[#0d7774]" />}
-              <span className="hidden xl:inline">{theme === "dark" ? "Yorug‘" : "Qorong‘i"}</span>
+              <span className="sr-only">{theme === "dark" ? "Yorug‘" : "Qorong‘i"}</span>
             </button>
             <button
               type="button"
               onClick={() => setBookmarksOpen(true)}
-              className="relative inline-flex items-center gap-1.5 rounded-xl border border-[#bce2d5] bg-white px-3 py-2 text-xs font-bold text-[#0d7774] shadow-sm transition hover:bg-[#edf7f4]"
+              className="header-action relative"
+              data-header-action="bookmarks"
               aria-label="Saralanganlarni ochish"
             >
               <Heart size={16} fill={bookmarkedCount > 0 ? "currentColor" : "none"} className={bookmarkedCount > 0 ? "text-[#0d7774]" : "text-[#52716d]"} />
-              <span className="hidden lg:inline">Saralanganlar</span>
-              {bookmarkedCount > 0 && <span className="grid h-5 min-w-5 place-items-center rounded-full bg-[#0d7774] px-1.5 text-[10px] font-bold text-white">{bookmarkedCount}</span>}
+              {bookmarkedCount > 0 && <span className="header-action-count">{bookmarkedCount}</span>}
             </button>
             <button
               type="button"
-              className="inline-flex items-center gap-1.5 rounded-xl border border-[#bce2d5] bg-white px-3 py-2 text-xs font-bold text-[#173d42] shadow-sm transition hover:bg-[#edf7f4]"
+              className="header-action"
+              data-header-action="filters"
               aria-label="Kengaytirilgan katalog filtrlari"
               onClick={() => setFiltersOpen(true)}
             >
               <SlidersHorizontal size={16} className="text-[#0d7774]" />
-              <span className="hidden lg:inline">Filtrlar</span>
+              <span className="sr-only">Filtrlar</span>
             </button>
           </div>
         </div>

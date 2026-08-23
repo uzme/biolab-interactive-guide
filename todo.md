@@ -104,3 +104,4 @@
 - [x] Tuzatishni realistik iPhone viewportlarda, productionda va barcha canonical release tekshiruvlarida tasdiqlab GitHub–Drive snapshotiga sinxronlash
 - [x] Mobil yuqori paneldagi ikonka tizimini soddalashtirib, laboratoriya vizual identitetiga mos yagona dizayn va mavjud funksiyalar saqlanishini joriy qilish
 - [x] 320–360 px mobil viewportlarda offline paket boshqaruvini yashirmasdan sig‘dirish va barcha header actionlari ko‘rinishini regression bilan tasdiqlash
+- [x] Mobil bosh ekran hero yuzasini 16 bo‘limli o‘quv mazmunini saqlagan holda soddaroq, zamonaviy va aniq vizual ierarxiyaga qayta ishlash

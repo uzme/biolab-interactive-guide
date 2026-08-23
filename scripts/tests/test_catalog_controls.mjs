@@ -136,24 +136,26 @@ const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 }
 
 const tabletPage = await browser.newPage({ viewport: { width: 768, height: 1024 } });
 await tabletPage.goto(previewUrl, { waitUntil: "domcontentloaded" });
-const tabletSopRail = tabletPage.locator(".hero-sop-track");
-await tabletSopRail.waitFor();
-const tabletSopLayout = await tabletSopRail.evaluate((rail) => {
-  const steps = [...rail.children];
+const tabletLearningPath = tabletPage.locator("[data-hero-learning-path]");
+await tabletLearningPath.waitFor();
+const tabletSopLayout = await tabletLearningPath.evaluate((path) => {
+  const progress = path.querySelector(".hero-learning-progress");
+  const steps = progress ? [...progress.children] : [];
   const positions = steps.map((step) => {
     const rect = step.getBoundingClientRect();
-    return { top: Math.round(rect.top), width: Math.round(rect.width), text: step.textContent?.trim() ?? "" };
+    return { width: Math.round(rect.width), marked: step.classList.contains("is-marker") };
   });
   return {
-    columns: getComputedStyle(rail).gridTemplateColumns.trim().split(/\s+/).length,
-    rows: new Set(positions.map((step) => step.top)).size,
+    columns: progress ? getComputedStyle(progress).gridTemplateColumns.trim().split(/\s+/).length : 0,
     minimumWidth: Math.min(...positions.map((step) => step.width)),
-    labels: positions.map((step) => step.text),
+    markers: positions.filter((step) => step.marked).length,
+    labels: [...path.querySelectorAll(".hero-learning-stages span")].map((label) => label.textContent?.trim() ?? ""),
   };
 });
-assert(tabletSopLayout.columns === 8 && tabletSopLayout.rows === 2, `Planshetda LAB-01 rail 8×2 grid bo‘lmadi: ${tabletSopLayout.columns}×${tabletSopLayout.rows}`);
-assert(tabletSopLayout.minimumWidth >= 24, `Planshetda LAB-01 qadamlar juda tor: ${tabletSopLayout.minimumWidth}px`);
-assert(tabletSopLayout.labels.length === 16 && tabletSopLayout.labels[0] === "01" && tabletSopLayout.labels.at(-1) === "16", "Planshetda LAB-01 raqamli qadamlari to‘liq yoki tartibli ko‘rinmadi.");
+assert(tabletSopLayout.columns === 16, `Planshetda hero o‘quv yo‘li 16 segmentli bo‘lmadi: ${tabletSopLayout.columns} ustun.`);
+assert(tabletSopLayout.minimumWidth >= 14, `Planshetda hero progress segmentlari juda tor: ${tabletSopLayout.minimumWidth}px`);
+assert(tabletSopLayout.markers === 4, `Planshetda hero o‘quv yo‘lining 4 milestone belgisi topilmadi: ${tabletSopLayout.markers}.`);
+assert(tabletSopLayout.labels.join("|") === "Tushuncha|Prinsip|Workflow|Manbalar", "Planshetda hero bosqichlari to‘liq yoki tartibli ko‘rinmadi.");
 await tabletPage.close();
 
 await mobilePage.goto(previewUrl, { waitUntil: "domcontentloaded" });
@@ -195,7 +197,7 @@ const motionDurations = await reducedMotionPage.evaluate(() => {
   });
 });
 assert(motionDurations.every((duration) => duration === "0s"), `Reduced-motion transitionlari o‘chmadi: ${motionDurations.join(", ")}`);
-await reducedMotionPage.getByRole("button", { name: "O‘quv namunasini ochish" }).click();
+await reducedMotionPage.getByRole("button", { name: "Namunani ko‘rish" }).click();
 await reducedMotionPage.locator("[data-device-modal]").waitFor();
 const modalTransitionDuration = await reducedMotionPage.locator("[data-device-modal]").evaluate((modal) => getComputedStyle(modal).transitionDuration);
 assert(modalTransitionDuration === "0s", "Reduced-motion rejimida detail modal transitioni o‘chmadi.");

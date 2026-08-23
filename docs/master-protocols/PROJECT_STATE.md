@@ -13,6 +13,12 @@
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
 | Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; holat **READY** |
 
+## 2026-08-23 Hero command-deck releasei
+
+Mobil bosh ekran hero yuzasi qayta tartiblandi: oldingi zich 16-qadamli katta rail o‘rniga aniq sarlavha, ixcham 16-segmentli o‘quv yo‘li va katalogga yo‘naltiruvchi actionlar qo‘llandi. 16 bo‘limli o‘quv modeli, 100 qurilma katalogi, PWA va saralanganlar funksiyasi o‘zgarmadi. `test_hero_command_deck.mjs` yangi mobil 390 px va desktop 1280 px kompozitsiya hamda katalog actionini browser regressiyada tasdiqlaydi; audit qaydi `docs/validation/HERO_COMMAND_DECK_AUDIT.md`da.
+
+Tekshiruvlar TypeScript, production build, 11 ta Vitest, katalog, mobil header, hero command-deck, DeviceViewer portal, BIO-001–BIO-100 detail, loading/recovery va Drive fallback regressiyalaridan o‘tdi. Canonical source release: GitHub `main` commit `50c4247be6de8875e6ca8f2e8a414e7d5b2038b4`; fingerprint `7e7cbeceaa7980a93295322c4d3239f6ec43f196c6e904ab7fbdfe79f8105b6a`; Drive snapshot `BioLab_Interactive_Guide_source.tar.gz`, ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, parent `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, modified `2026-08-23T07:51:27.695Z`, transport `gws`. Holat: **READY**.
+
 ## 2026-08-22 Real mobil “blur-only” DeviceViewer tuzatishi
 
 Foydalanuvchining real mobil brauzer skrinshoti “O‘rganish” bosilganda faqat backdrop-blur qatlamining ko‘rinib, o‘quv dosyesi paneli viewportdan tashqarida yoki yopiq stacking contextda qolayotganini ko‘rsatdi. Ildiz sabab DeviceViewer modalining `page-transition` animatsion sahifa konteyneri ichida render qilinishi edi: bu konteyner `transform` qo‘llagani uchun real iOS brauzerida `position: fixed` modalning viewportga biriktirilishi buzilishi mumkin edi.

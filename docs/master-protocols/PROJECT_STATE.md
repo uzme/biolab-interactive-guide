@@ -13,6 +13,12 @@
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
 | Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; holat **READY** |
 
+## 2026-08-23 To‘liq mobil landing redesign releasei
+
+Foydalanuvchi fikriga ko‘ra avvalgi katta 16-qadamli hero yuzasi yetarlicha farqli emas edi. U mazmuni va funksiyalarini saqlagan holda mobil-first ikki qavatli laboratoriya landing kompozitsiyasiga to‘liq almashtirildi: asosiy o‘quv taklifi, to‘rt bosqichli SOP xaritasi, katalogga yo‘naltiruvchi actionlar va ixcham ilmiy record ierarxiyasi aniqroq ajratildi. Eski katta rail hero yuzasidan olib tashlandi; 100 qurilma, 16 bo‘limli detail dosyelari, PWA, offline va saralanganlar oqimlari o‘zgarmadi. Vizual audit qaydi: `docs/validation/LANDING_HERO_REDESIGN_AUDIT.md`.
+
+Tekshiruvlar TypeScript, production build, 11 ta Vitest, katalog, mobil header, yangi landing hero, DeviceViewer portal, BIO-001–BIO-100 detail, loading/recovery va Drive fallback regressiyalarini qamrab oldi. Canonical source release: GitHub `main` commit `4065b6ce48f192f254212e7d974247cce6ce0797`; fingerprint `632947fafbf5eff2da3d1e92a2c5c77774f7083dda473e1d0f62f3dc1e39674e`; Drive snapshot `BioLab_Interactive_Guide_source.tar.gz`, ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, parent `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, modified `2026-08-23T09:30:39.189Z`, transport `gws`. Holat: **READY**.
+
 ## 2026-08-23 Hero command-deck releasei
 
 Mobil bosh ekran hero yuzasi qayta tartiblandi: oldingi zich 16-qadamli katta rail o‘rniga aniq sarlavha, ixcham 16-segmentli o‘quv yo‘li va katalogga yo‘naltiruvchi actionlar qo‘llandi. 16 bo‘limli o‘quv modeli, 100 qurilma katalogi, PWA va saralanganlar funksiyasi o‘zgarmadi. `test_hero_command_deck.mjs` yangi mobil 390 px va desktop 1280 px kompozitsiya hamda katalog actionini browser regressiyada tasdiqlaydi; audit qaydi `docs/validation/HERO_COMMAND_DECK_AUDIT.md`da.

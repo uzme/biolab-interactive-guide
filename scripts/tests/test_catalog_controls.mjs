@@ -139,23 +139,20 @@ await tabletPage.goto(previewUrl, { waitUntil: "domcontentloaded" });
 const tabletLearningPath = tabletPage.locator("[data-hero-learning-path]");
 await tabletLearningPath.waitFor();
 const tabletSopLayout = await tabletLearningPath.evaluate((path) => {
-  const progress = path.querySelector(".hero-learning-progress");
-  const steps = progress ? [...progress.children] : [];
-  const positions = steps.map((step) => {
+  const stages = [...path.querySelectorAll(".landing-map-stages > div")];
+  const positions = stages.map((step) => {
     const rect = step.getBoundingClientRect();
-    return { width: Math.round(rect.width), marked: step.classList.contains("is-marker") };
+    return { width: Math.round(rect.width) };
   });
   return {
-    columns: progress ? getComputedStyle(progress).gridTemplateColumns.trim().split(/\s+/).length : 0,
+    columns: stages.length,
     minimumWidth: Math.min(...positions.map((step) => step.width)),
-    markers: positions.filter((step) => step.marked).length,
-    labels: [...path.querySelectorAll(".hero-learning-stages span")].map((label) => label.textContent?.trim() ?? ""),
+    labels: [...path.querySelectorAll(".landing-map-stages span")].map((label) => label.textContent?.trim() ?? ""),
   };
 });
-assert(tabletSopLayout.columns === 16, `Planshetda hero o‘quv yo‘li 16 segmentli bo‘lmadi: ${tabletSopLayout.columns} ustun.`);
-assert(tabletSopLayout.minimumWidth >= 14, `Planshetda hero progress segmentlari juda tor: ${tabletSopLayout.minimumWidth}px`);
-assert(tabletSopLayout.markers === 4, `Planshetda hero o‘quv yo‘lining 4 milestone belgisi topilmadi: ${tabletSopLayout.markers}.`);
-assert(tabletSopLayout.labels.join("|") === "Tushuncha|Prinsip|Workflow|Manbalar", "Planshetda hero bosqichlari to‘liq yoki tartibli ko‘rinmadi.");
+assert(tabletSopLayout.columns === 4, `Planshetda hero o‘quv xaritasida 4 asosiy bosqich topilmadi: ${tabletSopLayout.columns} ustun.`);
+assert(tabletSopLayout.minimumWidth >= 50, `Planshetda hero o‘quv xaritasi bosqichlari juda tor: ${tabletSopLayout.minimumWidth}px`);
+assert(tabletSopLayout.labels.join("|") === "Asos|Prinsip|Amaliyot|Manbalar", "Planshetda hero bosqichlari to‘liq yoki tartibli ko‘rinmadi.");
 await tabletPage.close();
 
 await mobilePage.goto(previewUrl, { waitUntil: "domcontentloaded" });
@@ -197,7 +194,7 @@ const motionDurations = await reducedMotionPage.evaluate(() => {
   });
 });
 assert(motionDurations.every((duration) => duration === "0s"), `Reduced-motion transitionlari o‘chmadi: ${motionDurations.join(", ")}`);
-await reducedMotionPage.getByRole("button", { name: "Namunani ko‘rish" }).click();
+await reducedMotionPage.getByRole("button", { name: "PCR bilan boshlash" }).click();
 await reducedMotionPage.locator("[data-device-modal]").waitFor();
 const modalTransitionDuration = await reducedMotionPage.locator("[data-device-modal]").evaluate((modal) => getComputedStyle(modal).transitionDuration);
 assert(modalTransitionDuration === "0s", "Reduced-motion rejimida detail modal transitioni o‘chmadi.");

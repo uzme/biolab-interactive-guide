@@ -106,3 +106,4 @@
 - [x] 320–360 px mobil viewportlarda offline paket boshqaruvini yashirmasdan sig‘dirish va barcha header actionlari ko‘rinishini regression bilan tasdiqlash
 - [x] Mobil bosh ekran hero yuzasini 16 bo‘limli o‘quv mazmunini saqlagan holda soddaroq, zamonaviy va aniq vizual ierarxiyaga qayta ishlash
 - [x] Eski katta 16-qadamli hero ko‘rinishini olib tashlab, mobil-first yangi laboratoriya landing yuzasini mazmun va funksiyalarni saqlagan holda to‘liq qayta qurish
+- [ ] 20 daqiqadan ortiq davom etayotgan auto-publish deployment holatini diagnostika qilib, yangi landing versiyasining canonical productionda jonli ekanini tasdiqlash

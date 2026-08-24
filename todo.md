@@ -147,3 +147,5 @@
 - [x] Canonical Drive recovery archive’dagi 100 ta tasdiqlangan WebP va Live Lab fon assetlarini Vercel-compatible `client/public` mirroriga joylash, registry URLlarini almashtirish va asset smoke-test qilish
 
 - [x] Analytics endpoint env bo‘lmaganda Vite build’da placeholder URL yuborilmasligi uchun xavfsiz no-op loading shartini qo‘shish va regressionni qayta tekshirish
+
+- [ ] Katalog regression testida category tanlangandan keyingi mobile scroll holatini deterministic kutish bilan barqarorlashtirish; product xulqini o‘zgartirmaslik

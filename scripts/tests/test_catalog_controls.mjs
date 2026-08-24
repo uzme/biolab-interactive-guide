@@ -182,6 +182,7 @@ await mobilePage.getByRole("button", { name: "Menyuni ochish" }).click();
 await mobilePage.getByRole("button", { name: /Molekulyar biologiya/ }).click();
 await mobilePage.waitForFunction(() => document.querySelector('[aria-label="Kategoriya bo‘yicha filtr"]')?.value === "Molekulyar biologiya");
 await mobilePage.waitForFunction(() => document.querySelectorAll("article.equipment-card").length === 16);
+await mobilePage.waitForTimeout(350);
 assert(await mobilePage.locator("#catalog").evaluate((element) => element.getBoundingClientRect().top < window.innerHeight), "Mobil sidebar kategoriya tanlovi katalog bo‘limiga olib bormadi.");
 assert(await mobilePage.getByRole("button", { name: "Menyuni ochish" }).isVisible(), "Mobil sidebar kategoriya tanlangach yopilmadi.");
 

@@ -139,3 +139,5 @@
 - [x] Kirish sahnasidagi sxematik ikonka kollajini soddaroq, yagona premium laboratoriya kompozitsiyasiga almashtirish; agent, ish stoli, monitor nuri, pipetka, qahva va mushukchani tabiiyroq ierarxiyada berish
 - [x] Premium live sahna uchun sekin va o‘qiladigan monitor glow, pipetka harakati, qahva bug‘i hamda mushukcha holati animatsiyalarini reduced-motion qoidasi bilan yaratish
 - [x] Yangi live sahnani 390×844 mobil viewportda vizual audit, TypeScript va browser regression bilan tekshirish
+
+- [ ] Yangi main Live Lab foniga mos haqiqiy katalog-connected Pixel Agent sahifasini integratsiya qilish; mavjud entry gate, 100 qurilma, 16 SOP va mobil oqimni saqlash

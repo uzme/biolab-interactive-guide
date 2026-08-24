@@ -4,7 +4,7 @@
 */
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useTransition } from "react";
 import { createPortal } from "react-dom";
-import { ArrowUpRight, Beaker, BookOpen, ChevronRight, CircleHelp, FlaskConical, Grid2X2, Heart, LibraryBig, Menu, Microscope, Moon, Search, Settings2, SlidersHorizontal, Sparkles, Sun, X } from "lucide-react";
+import { ArrowUpRight, Beaker, Bot, BookOpen, ChevronRight, CircleHelp, FlaskConical, Grid2X2, Heart, LibraryBig, Menu, Microscope, Moon, Search, Settings2, SlidersHorizontal, Sparkles, Sun, X } from "lucide-react";
 import Pure3DCarousel from "@/components/Pure3DCarousel";
 import BookmarksSidebar from "@/components/BookmarksSidebar";
 import CatalogFilterSheet from "@/components/CatalogFilterSheet";
@@ -48,6 +48,7 @@ function Sidebar({ activeCategory, onCategory, onMobileClose, onOpenSettings, dr
         return <button key={category} onClick={() => { onCategory(category); onMobileClose?.(); }} className={`nav-link ${activeCategory === category ? "active" : ""}`} title={category}><Icon size={17} /><span className="nav-label text-left text-[13px]">{category}</span>{category !== "Barcha uskunalar" && <span className="nav-label ml-auto text-[11px] text-[#91a7a0]">{equipment.filter((item) => item.category === category).length}</span>}</button>;
       })}
     </nav>
+      <a href="/agent" className="mt-5 flex items-center gap-2 rounded-2xl border border-[#b8d8ce] bg-[#eaf7f2] px-3 py-3 text-sm font-bold text-[#0b7772] transition hover:bg-white" aria-label="Pixel Agentni ochish"><Bot size={16} /><span className="sidebar-copy">Pixel Agent</span><ArrowUpRight size={14} className="ml-auto" /></a>
       <div className="sidebar-footer mt-auto px-2 pt-6">
       <button type="button" aria-label="Sozlamalar va Copyright" className="sidebar-copy w-full rounded-2xl border-0 bg-[#edf7f4] p-4 text-left cursor-pointer hover:bg-[#e2ede8] transition shadow-sm" onClick={() => { onOpenSettings?.(); onMobileClose?.(); }}>
         <div className="mb-2 flex items-center gap-2 text-[#0c7773]"><Settings2 size={15} /><span className="text-xs font-bold">Sozlamalar & Copyright</span></div>

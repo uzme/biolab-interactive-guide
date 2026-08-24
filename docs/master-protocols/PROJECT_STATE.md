@@ -11,7 +11,7 @@
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzili | `https://biolabguide-fbcitqyf.manus.space` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; canonical production yangi tema bundleini bermagani uchun holat **BLOCKED — production deploy** |
+| Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; canonical production yangi tema bundleini servis qilayotgani bilan holat **READY** |
 
 ## 2026-08-24 Kun/tun laboratoriya dizayni va production deploy holati
 
@@ -19,7 +19,7 @@ OS `prefers-color-scheme`ga mos avtomatik light/dark mavzu, foydalanuvchining qo
 
 Sanitizatsiyalangan source GitHub `main`ga `b39884545bace04208b1d8b4af4736097957d732` commit bilan yuborildi. Drive’dagi mavjud `BioLab_Interactive_Guide_source.tar.gz` fayli duplicate yaratmasdan aynan o‘rnida yangilandi: ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, parent `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, modified `2026-08-24T06:03:42.232Z`, transport `gws`. Release sanitizatsiyasi endi `.project-config.json`ni qat’iy chiqarib tashlaydi.
 
-Checkpoint `b5183cdb`dan keyin production runtime 2026-08-24T06:06 UTC atrofida qayta ishga tushgan bo‘lsa-da, canonical host `assets/index-Da_M8cKl.js` eski assetini va 2026-08-24T05:23:15 GMT `Last-Modified` qiymatini berishda davom etdi. Ushbu assetda yangi `biolab-theme-preference` hamda sozlamalardagi auto/manual mavzu boshqaruvlari yo‘q. Shuning uchun yangi tema dizayni lokal preview hamda canonical source archive’da tayyor, lekin canonical public hostda hali tasdiqlanmagan. `server/_core/index.ts` diskda mavjud emas; shu sabab xavfli qo‘lda entrypoint almashtirilmadi. Holat: **BLOCKED — platform deployment artifacti yangilanmagan**.
+Checkpoint `b5183cdb`dan keyin production runtime 2026-08-24T06:06 UTC atrofida qayta ishga tushgan bo‘lsa-da, canonical host dastlab `assets/index-Da_M8cKl.js` eski assetini va 2026-08-24T05:23:15 GMT `Last-Modified` qiymatini bergan. Keyingi auto-publish propagation tekshiruvida canonical host `assets/index-CsiwH0ks.js` yangi assetiga o‘tdi; unda `biolab-theme-preference` markeri mavjud va HTML `Last-Modified` qiymati `2026-08-24T06:05:15 GMT` bo‘ldi. Shuning uchun yangi tema dizayni endi canonical public hostda ham tasdiqlangan. `server/_core/index.ts` diskda mavjud emasligi sabab xavfli qo‘lda entrypoint almashtirilmadi; amaldagi legacy build oqimi yangi bundle bilan normal ishladi. Holat: **READY**.
 
 ## 2026-08-23 To‘liq mobil landing redesign releasei
 

@@ -108,6 +108,6 @@
 - [x] Eski katta 16-qadamli hero ko‘rinishini olib tashlab, mobil-first yangi laboratoriya landing yuzasini mazmun va funksiyalarni saqlagan holda to‘liq qayta qurish
 - [x] 20 daqiqadan ortiq davom etayotgan auto-publish deployment holatini diagnostika qilib, yangi landing versiyasining canonical productionda jonli ekanini tasdiqlash
 - [x] Fullstack template va legacy build/runtime entrypointlari nomuvofiqligini bartaraf etib, productionda yangi bundle chiqishini tekshirish (nomuvofiqlik amalda tasdiqlanmadi: `server/index.ts` → `dist/public` production oqimi yangi landingni berayotgani bilan tasdiqlandi)
-- [ ] Kun/tun rejimiga mos zamonaviy laboratoriya rang palitrasi va reduced-motionni hurmat qiladigan jonli interfeys animatsiyalarini joriy qilish
+- [x] Kun/tun rejimiga mos zamonaviy laboratoriya rang palitrasi va reduced-motionni hurmat qiladigan jonli interfeys animatsiyalarini joriy qilish
 - [x] Sanitizatsiyalangan GitHub va Drive release snapshotidan platformning `.project-config.json` maxfiy konfiguratsiyasini qat’iy chiqarib tashlash
-- [ ] Production bundle yangilanishi uchun yetishmayotgan fullstack runtime scaffoldingini xavfsiz tiklash va canonical hostda qayta tekshirish
+- [x] Production bundle yangilanishi uchun yetishmayotgan fullstack runtime scaffoldingini xavfsiz tiklash va canonical hostda qayta tekshirish (canonical host yangi theme assetini berdi; diskda mavjud bo‘lmagan `server/_core` entrypointi xavfsizlik sabab o‘zgartirilmadi)

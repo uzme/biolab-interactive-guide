@@ -19,7 +19,7 @@ Muallif va loyiha egasi foydalanuvchi ko‘radigan Copyright modalida, chap meny
 
 Chap navigatsiyadagi `Barcha uskunalar` va o‘nta kategoriya endi mos katalog holatini tanlaydi, URL/state’ni yangilaydi, drawer’ni yopadi va `#catalog` natijalar maydoniga silliq yo‘naltiradi. Kirish sahnasi real-time CSS illyustratsiyasi bilan boyitildi: agent ish stoli hamda kompyuterda ishlaydi, keyin lounge’da qahva ichib dam oladi; mushukcha, monitor power holati va faoliyat badge’lari 12 soniyali yengil siklda o‘zgaradi. `prefers-reduced-motion` yoki foydalanuvchi reduced-motion tanlovi bo‘lsa bu harakatlar to‘xtatiladi.
 
-Dalillar: 390×844 telefon viewporti vizual auditi, TypeScript check, 13 Vitest, katalog nazorati, kirish/Copyright modal regressiyasi, 100/100 detail audit, production build va Expo Mobile contract PASS. Sanitizatsiyalangan reliz GitHub `main`ga `1b5a53ada4bccdf2bf4cc87e890b869323b5a812` commit bilan yuborildi; mavjud Drive snapshoti `BioLab_Interactive_Guide_source.tar.gz` duplicate yaratmasdan ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`da `2026-08-24T14:56:37.574Z` vaqtda GWS orqali o‘rnida yangilandi. Holat: **READY**.
+Dalillar: 390×844 telefon viewporti vizual auditi, TypeScript check, 13 Vitest, katalog nazorati, kirish/Copyright modal regressiyasi, 100/100 detail audit, production build va Expo Mobile contract PASS. Sanitizatsiyalangan reliz canonical GitHub `main`ga va mavjud Drive snapshoti `BioLab_Interactive_Guide_source.tar.gz`ga (ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`) duplicate yaratmasdan yuboriladi; har relizning aniq commit hash hamda Drive modified time qiymati release manifestida qayd etiladi. Holat: **READY**.
 
 ## 2026-08-24 Expo Go original runtime va laboratoriya kirish ekrani
 

@@ -144,6 +144,6 @@
 
 - [x] Vercel static deploymentda `/agent` kabi client-side route’lar direct ochilganda 404 bo‘lmasligi uchun minimal SPA rewrite qo‘shish va public smoke-testdan o‘tkazish
 
-- [ ] Canonical Drive recovery archive’dagi 100 ta tasdiqlangan WebP va Live Lab fon assetlarini Vercel-compatible `client/public` mirroriga joylash, registry URLlarini almashtirish va asset smoke-test qilish
+- [x] Canonical Drive recovery archive’dagi 100 ta tasdiqlangan WebP va Live Lab fon assetlarini Vercel-compatible `client/public` mirroriga joylash, registry URLlarini almashtirish va asset smoke-test qilish
 
-- [ ] Analytics endpoint env bo‘lmaganda Vite build’da placeholder URL yuborilmasligi uchun xavfsiz no-op loading shartini qo‘shish va regressionni qayta tekshirish
+- [x] Analytics endpoint env bo‘lmaganda Vite build’da placeholder URL yuborilmasligi uchun xavfsiz no-op loading shartini qo‘shish va regressionni qayta tekshirish

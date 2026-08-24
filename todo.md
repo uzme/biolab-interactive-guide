@@ -140,6 +140,6 @@
 - [x] Premium live sahna uchun sekin va o‘qiladigan monitor glow, pipetka harakati, qahva bug‘i hamda mushukcha holati animatsiyalarini reduced-motion qoidasi bilan yaratish
 - [x] Yangi live sahnani 390×844 mobil viewportda vizual audit, TypeScript va browser regression bilan tekshirish
 
-- [ ] Yangi main Live Lab foniga mos haqiqiy katalog-connected Pixel Agent sahifasini integratsiya qilish; mavjud entry gate, 100 qurilma, 16 SOP va mobil oqimni saqlash
+- [x] Yangi main Live Lab foniga mos haqiqiy katalog-connected Pixel Agent sahifasini integratsiya qilish; mavjud entry gate, 100 qurilma, 16 SOP va mobil oqimni saqlash
 
-- [ ] Vercel static deploymentda `/agent` kabi client-side route’lar direct ochilganda 404 bo‘lmasligi uchun minimal SPA rewrite qo‘shish va public smoke-testdan o‘tkazish
+- [x] Vercel static deploymentda `/agent` kabi client-side route’lar direct ochilganda 404 bo‘lmasligi uchun minimal SPA rewrite qo‘shish va public smoke-testdan o‘tkazish

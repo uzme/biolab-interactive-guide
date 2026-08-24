@@ -17,9 +17,8 @@ declare global {
 
 function Router() {
   const [hasEnteredLab, setHasEnteredLab] = useState(() => {
-    if (typeof window === "undefined") return true;
-    const isPreview = new URLSearchParams(window.location.search).get("expo-preview") === "1";
-    return !(window.__BIOLAB_EXPO_GO__ || isPreview);
+    if (typeof window === "undefined") return false;
+    return new URLSearchParams(window.location.search).get("direct") === "1";
   });
 
   if (!hasEnteredLab) return <LabEntryGate onEnter={() => setHasEnteredLab(true)} />;

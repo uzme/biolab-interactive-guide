@@ -51,7 +51,8 @@ function Sidebar({ activeCategory, onCategory, onMobileClose, onOpenSettings, dr
       <div className="sidebar-footer mt-auto px-2 pt-6">
       <button type="button" aria-label="Sozlamalar va Copyright" className="sidebar-copy w-full rounded-2xl border-0 bg-[#edf7f4] p-4 text-left cursor-pointer hover:bg-[#e2ede8] transition shadow-sm" onClick={() => { onOpenSettings?.(); onMobileClose?.(); }}>
         <div className="mb-2 flex items-center gap-2 text-[#0c7773]"><Settings2 size={15} /><span className="text-xs font-bold">Sozlamalar & Copyright</span></div>
-        <p className="sidebar-footer-copy text-xs leading-5 text-[#537c76]">Mualliflik huquqi, litsenziya va tizim holati.</p>
+        <p className="sidebar-footer-copy text-xs leading-5 text-[#537c76]">© 2026 Mengliyev Bahrom Husanovich</p>
+        <p className="sidebar-footer-copy mt-1 text-[11px] leading-4 text-[#6b8c86]">Mualliflik huquqi, litsenziya va tizim holati.</p>
       </button>
     </div>
   </aside>;
@@ -179,7 +180,13 @@ export default function Home() {
       document.body.style.overflow = previousOverflow;
     };
   }, [selectedDevice]);
-  const handleCategoryChange = (category: string) => startFilterTransition(() => setActiveCategory(category));
+  const scrollToCatalog = useCallback(() => {
+    window.requestAnimationFrame(() => document.getElementById("catalog")?.scrollIntoView({ behavior: "smooth", block: "start" }));
+  }, []);
+  const handleCategoryChange = (category: string, shouldScrollToCatalog = false) => startFilterTransition(() => {
+    setActiveCategory(category);
+    if (shouldScrollToCatalog) scrollToCatalog();
+  });
   const handleQueryChange = (value: string) => startFilterTransition(() => setQuery(value));
   const handleModelQueryChange = (value: string) => startFilterTransition(() => setModelQuery(value));
   const handleBookmarksOnlyChange = (value: boolean) => startFilterTransition(() => setBookmarksOnly(value));
@@ -199,10 +206,10 @@ export default function Home() {
           <SheetTitle>Mobil Navigatsiya</SheetTitle>
           <SheetDescription>Kategoriya va sozlamalar paneli</SheetDescription>
         </SheetHeader>
-        <Sidebar drawer activeCategory={activeCategory} onCategory={handleCategoryChange} onMobileClose={() => setMobileNav(false)} onOpenSettings={() => setSettingsOpen(true)} />
+        <Sidebar drawer activeCategory={activeCategory} onCategory={(category) => handleCategoryChange(category, true)} onMobileClose={() => setMobileNav(false)} onOpenSettings={() => setSettingsOpen(true)} />
       </SheetContent>
     </Sheet>
-    <div className="hidden sm:block"><Sidebar activeCategory={activeCategory} onCategory={handleCategoryChange} onOpenSettings={() => setSettingsOpen(true)} /></div>
+    <div className="hidden sm:block"><Sidebar activeCategory={activeCategory} onCategory={(category) => handleCategoryChange(category, true)} onOpenSettings={() => setSettingsOpen(true)} /></div>
     <main className="app-main min-w-0 flex-1">
       <header className="app-header sticky top-0 z-30 border-b border-[#cce4dd] bg-[#f7fbfa]/95 px-3 py-3 backdrop-blur-xl sm:px-8 sm:py-3.5 lg:px-12 shadow-[0_4px_20px_rgba(23,61,66,0.04)]">
         <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-2.5 sm:gap-3">
@@ -217,10 +224,10 @@ export default function Home() {
             </button>
             <div className="min-w-0">
               <div className="hidden text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#6d8b87] sm:block">BioLab // Katalog</div>
-              <div className="hidden text-xs font-bold text-[#173d42] sm:block">100 Qurilma & 16 SOP</div>
+              <div className="hidden text-xs font-bold text-[#173d42] sm:block">100 Qurilma & 16 SOP · Muallif: Mengliyev Bahrom Husanovich</div>
               <div className="header-mobile-brand sm:hidden">
                 <span className="header-mobile-brand-name">Bio<span>Lab</span></span>
-                <span className="header-mobile-brand-meta">LAB-01 · 100 × 16</span>
+                <span className="header-mobile-brand-meta">LAB-01 · 100 × 16 · M.B.H.</span>
               </div>
             </div>
           </div>
@@ -322,6 +329,12 @@ export default function Home() {
         <section className="mt-8" aria-live="polite"><div className="mb-4 flex items-center justify-between gap-3"><div><div className="eyebrow mb-1">LAB-01 / REKORD OQIMI</div><h2 className="display text-2xl font-bold text-[#173d42]">{activeCategory}</h2><p className="mt-1 text-sm text-[#78908c]">{filtered.length} ta qurilma topildi{hasActiveFilters ? " — faol filtrlar qo‘llanilgan" : ""}</p></div>{hasActiveFilters && <button onClick={clearFilters} className="text-xs font-bold text-[#0d7774] hover:underline">Barcha filtrlarni tozalash</button>}</div>
           {filtered.length > 0 ? <div className="space-y-9">{visibleCategoryGroups.map((group, groupIndex) => { const Icon = categoryIcons[group.category] || Beaker; return <section key={group.category} className="relative"><div className="module-header mb-4 flex items-end justify-between gap-4 border-y border-[#c9ddd6] bg-[#f1f8f5] px-4 py-3"><div className="flex min-w-0 items-center gap-3"><div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-[#b8d8ce] bg-white text-[#0b7772]"><Icon size={18} /></div><div><div className="tech-label text-[#0b7772]">MODUL {String(groupIndex + 1).padStart(2, "0")} / SOP KATALOGI</div><h3 className="display truncate text-xl font-bold tracking-[-0.035em] text-[#173d42]">{group.category}</h3></div></div><div className="hidden rounded-full border border-[#b8d8ce] bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#537972] sm:block">{group.devices.length} rekord</div></div><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{group.devices.map((device) => <EquipmentCard key={device.id} device={device} index={filtered.indexOf(device)} onOpen={setSelectedDevice} isBookmarked={isBookmarked(device.id)} onToggleBookmark={toggleBookmark} />)}</div></section>; })}</div> : <div className="rounded-[22px] border border-dashed border-[#b9d8cd] bg-[#ffffff] px-6 py-16 text-center"><Search size={28} className="mx-auto mb-4 text-[#70a298]" /><h3 className="display text-2xl font-bold">Qurilma topilmadi</h3><p className="mt-2 text-sm text-[#78908c]">Qidiruv so‘zini yoki kategoriyani o‘zgartirib ko‘ring.</p></div>}
         </section>
+        <footer className="mt-12 border-t border-[#c9ded7] py-7 text-center" data-copyright-footer>
+          <p className="text-xs font-extrabold uppercase tracking-[0.15em] text-[#0d7774]">Muallif va loyiha egasi</p>
+          <p className="mt-2 text-base font-bold text-[#173d42]">Mengliyev Bahrom Husanovich</p>
+          <p className="mx-auto mt-2 max-w-2xl text-xs leading-5 text-[#66847e]">© 2026 Mengliyev Bahrom Husanovich. BioLab Interactive Guide kodi, original interfeysi va o‘quv tarkibidan foydalanish huquqi muallifda saqlanadi. Uchinchi tomon qurilma brendlari va modellariga oid huquqlar tegishli egalariga tegishlidir.</p>
+          <button type="button" onClick={() => setSettingsOpen(true)} className="mt-3 text-xs font-bold text-[#0d7774] underline-offset-4 transition hover:underline">Mualliflik va litsenziya ma’lumotini ochish</button>
+        </footer>
       </div>
     </main>
     <BookmarksSidebar open={bookmarksOpen} onOpenChange={setBookmarksOpen} devices={bookmarkedDevices} onSelectDevice={setSelectedDevice} onToggleBookmark={toggleBookmark} onClearBookmarks={clearBookmarks} onExportBookmarks={exportBookmarks} onExportBookmarksCsv={handleExportBookmarksCsv} onExportBookmarksPdf={handleExportBookmarksPdf} onImportBookmarks={handleImportBookmarks} />

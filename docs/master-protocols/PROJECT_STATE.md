@@ -13,6 +13,14 @@
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
 | Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; canonical production yangi tema bundleini servis qilayotgani bilan holat **READY** |
 
+## 2026-08-24 Mualliflik, kategoriya navigatsiyasi va agentli laboratoriya sahnasi
+
+Muallif va loyiha egasi foydalanuvchi ko‘radigan Copyright modalida, chap menyu footerida hamda PDF o‘quv konspekti footerida **Mengliyev Bahrom Husanovich** sifatida aniq ko‘rsatildi. Bildirishnoma BioLab Interactive Guide kodi, original interfeysi va o‘quv tarkibidan ruxsatsiz foydalanish taqiqlanganini, rasm hamda manufacturer belgilarining huquqlari tegishli egalarida qolishini tushuntiradi. Bu mahsulot ichidagi mualliflik bildirishi bo‘lib, qonun bilan beriladigan istisno va cheklovlarni o‘zgartirish da’vosini qilmaydi.
+
+Chap navigatsiyadagi `Barcha uskunalar` va o‘nta kategoriya endi mos katalog holatini tanlaydi, URL/state’ni yangilaydi, drawer’ni yopadi va `#catalog` natijalar maydoniga silliq yo‘naltiradi. Kirish sahnasi real-time CSS illyustratsiyasi bilan boyitildi: agent ish stoli hamda kompyuterda ishlaydi, keyin lounge’da qahva ichib dam oladi; mushukcha, monitor power holati va faoliyat badge’lari 12 soniyali yengil siklda o‘zgaradi. `prefers-reduced-motion` yoki foydalanuvchi reduced-motion tanlovi bo‘lsa bu harakatlar to‘xtatiladi.
+
+Dalillar: 390×844 telefon viewporti vizual auditi, TypeScript check, 13 Vitest, katalog nazorati, kirish/Copyright modal regressiyasi, 100/100 detail audit, production build va Expo Mobile contract PASS. Ushbu qayd yozilganidan keyin canonical GitHub/Drive sync bajariladi.
+
 ## 2026-08-24 Expo Go original runtime va laboratoriya kirish ekrani
 
 Expo Go’dagi dastlabki React Native katalog ilovasi original BioLab web UX’ini faqat o‘xshatma tarzida qayta yaratgani uchun foydalanuvchi talab qilgan dizayn tengligiga erishmadi. U o‘rniga Expo SDK 54 qobig‘iga `react-native-webview` kiritildi va qobiq faqat canonical `https://biolabguide-fbcitqyf.manus.space/` runtime’ini ochadigan qilib cheklab qo‘yildi. Shu bilan BioLabning original headeri, hero kompozitsiyasi, 100 ta rasmli qurilma kartasi, filter drawer, saralanganlar, 16 bo‘limli detail, tema hamda CSV/PDF funksiyalari Expo Go ichida aynan webdagidek ishlaydi. Tashqi havolalar ilova tashqarisida ochiladi.

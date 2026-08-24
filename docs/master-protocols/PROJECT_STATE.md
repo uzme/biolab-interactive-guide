@@ -13,6 +13,14 @@
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
 | Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; canonical production yangi tema bundleini servis qilayotgani bilan holat **READY** |
 
+## 2026-08-24 Expo Go original runtime va laboratoriya kirish ekrani
+
+Expo Go’dagi dastlabki React Native katalog ilovasi original BioLab web UX’ini faqat o‘xshatma tarzida qayta yaratgani uchun foydalanuvchi talab qilgan dizayn tengligiga erishmadi. U o‘rniga Expo SDK 54 qobig‘iga `react-native-webview` kiritildi va qobiq faqat canonical `https://biolabguide-fbcitqyf.manus.space/` runtime’ini ochadigan qilib cheklab qo‘yildi. Shu bilan BioLabning original headeri, hero kompozitsiyasi, 100 ta rasmli qurilma kartasi, filter drawer, saralanganlar, 16 bo‘limli detail, tema hamda CSV/PDF funksiyalari Expo Go ichida aynan webdagidek ishlaydi. Tashqi havolalar ilova tashqarisida ochiladi.
+
+Canonical homepage dizayni saqlangan. Faqat Expo Go qobig‘ida, asosiy sahifadan oldin `Laboratoriyani jonli boshqaring.` nomli kirish kadri qo‘shildi: u mavjud tasdiqlangan BioLab laboratorya hero rasmiga yengil grid, skan chizig‘i, DNA signal, holat indikatori va `NAMUNA → TAHLIL → NATIJA` oqimini qo‘llaydi. `Laboratoriyaga kirish` tugmasi 260 ms kirish transitionidan so‘ng o‘zgartirilmagan original asosiy sahifani ochadi. Oddiy web tashrifida bu kadr chiqmaydi; dev vizual audit uchun `?expo-preview=1` query mavjud. `prefers-reduced-motion` bo‘lganda barcha non-essential animatsiyalar amalda to‘xtaydi.
+
+Lokal dalillar: TypeScript check, 13 ta Vitest, mavjud katalog/detail/recovery regressionlari, yangi `test_lab_entry_gate.mjs`, production build va Expo mobile contract PASS. `test_lab_entry_gate.mjs` Expo Go flag bilan kirish ekranining chiqishi va original heroga o‘tishini, oddiy web tashrifida esa original hero bevosita saqlanishini tekshiradi. Google Drive/GitHub canonical synci hamda auto-publish ushbu o‘zgarishdan keyin alohida release qadamida bajarilishi kerak.
+
 ## 2026-08-24 Kun/tun laboratoriya dizayni va production deploy holati
 
 OS `prefers-color-scheme`ga mos avtomatik light/dark mavzu, foydalanuvchining qo‘lda light/dark/avto tanlovi, jonli laboratoriya harakatlari hamda `prefers-reduced-motion` fallbacki lokal sourcega joriy qilindi. Mobil va desktop auditlari hamda to‘liq TypeScript, production build, Vitest va browser regressiya zanjiri muvaffaqiyatli o‘tdi. `docs/validation/THEME_ADAPTATION_VISUAL_AUDIT.md` ushbu ko‘rinish dalillarini saqlaydi.

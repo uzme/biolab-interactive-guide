@@ -44,7 +44,7 @@ await page.getByRole("heading", { name: "Sozlamalar va huquqiy ma’lumot" }).wa
 assert(await page.getByText("Qat’iy Mualliflik Huquqi va Intellektual Mulk Himoyasi").isVisible(), "Sozlamalar dialogidagi copyright/shaffoflik bloki topilmadi.");
 assert(await page.getByText("Litsenziya va rasm manbasi shaffofligi").isVisible(), "Litsenziya va rasm manbasi bloki topilmadi.");
 assert(await page.getByText("© 2026 BioLab", { exact: true }).isVisible(), "Copyright yili ko‘rsatilmagan.");
-assert(await page.getByText("JSON eksport").isVisible() && await page.getByText("JSON import").isVisible(), "Xatcho‘p eksport/import boshqaruvlari topilmadi.");
+assert(await page.getByText("CSV eksport").isVisible() && await page.getByText("PDF eksport").isVisible() && await page.getByText("JSON eksport").isVisible() && await page.getByText("JSON import").isVisible(), "Xatcho‘p CSV/PDF/JSON eksport-import boshqaruvlari topilmadi.");
 const themeToggle = page.getByRole("button", { name: "Rang mavzusini qo‘lda almashtirish" });
 await themeToggle.click();
 await page.waitForFunction(() => ["light", "dark"].includes(localStorage.getItem("biolab-theme-preference") ?? ""));
@@ -72,6 +72,16 @@ await page.getByText("1 ta xatcho‘p faol", { exact: true }).waitFor();
 await page.waitForFunction(() => JSON.parse(localStorage.getItem("biolab-guide:bookmarks:v1") ?? "[]").includes("BIO-001"));
 assert(await page.getByText(importSuccessMessage, { exact: true }).count() === 1, "Valid JSON import uchun dublikat success toast qoldi.");
 assert(await page.getByText("1 ta xatcho‘p faol", { exact: true }).isVisible(), "Importdan keyin SettingsDialog xatcho‘p counti yangilanmadi.");
+
+const csvDownloadPromise = page.waitForEvent("download");
+await page.getByRole("button", { name: "CSV eksport" }).click();
+const csvDownload = await csvDownloadPromise;
+assert(csvDownload.suggestedFilename().endsWith(".csv"), "Saralanganlar CSV fayli yaratilmagan.");
+
+const pdfDownloadPromise = page.waitForEvent("download");
+await page.getByRole("button", { name: "PDF eksport" }).click();
+const pdfDownload = await pdfDownloadPromise;
+assert(pdfDownload.suggestedFilename().endsWith(".pdf"), "Saralanganlar PDF fayli yaratilmagan.");
 
 await bookmarkImportInput.setInputFiles({ name: "invalid-bookmarks.json", mimeType: "application/json", buffer: Buffer.from("{invalid-json") });
 await page.getByText("Xatcho‘plar faylini import qilib bo‘lmadi.").waitFor();

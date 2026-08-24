@@ -117,14 +117,14 @@
 - [x] Canonical host eski bundle berishining deployment artifact root-cause’ini topib, minimal va tekshirilgan tuzatish bilan bartaraf etish (static server oqimi lokal productionda to‘g‘ri; canonical domen hali yangi checkpointni qo‘lda Publish qilinmagani uchun 06:36 dagi oldingi published artifactga bog‘langan)
 - [x] Management UI’dagi pending Publish amali yakunlangach canonical CSV/PDF export bundleini marker orqali productionda tasdiqlash (canonical `index-C0nLhziA.js` bundleida `CSV eksport` marker LIVE, 2026-08-24 09:02 UTC)
 - [x] Yakuniy kod, hisobotlar va loyiha metadata’sini sanitizatsiyalangan holda canonical GitHub hamda mavjud Drive snapshotiga sinxronlash
-- [ ] BioLab uchun Expo Go’da alohida React Native mobil ilovasini yaratish; 100 qurilma, saralanganlar, offline va CSV/PDF export oqimlarini mobilga moslashtirish
-- [ ] BioLab Mobile Expo SDK versiyasini foydalanuvchidagi Expo Go bilan moslashtirish va ochilish xatosini bartaraf etish
-- [ ] Mobil katalogdagi nomi ko‘rinmayotgan kategoriya filterlarini va pastki navigatsiya yopayotgan kontent safe-area’sini tuzatish
+- [x] BioLab uchun Expo Go’da alohida React Native mobil ilovasini yaratish; 100 qurilma, saralanganlar, offline va CSV/PDF export oqimlarini mobilga moslashtirish — yakuniy yechim original PWA runtime’ini WebView orqali aynan ko‘rsatadi; birinchi online ochilishdan keyin app-shell va katalog resurslari web cache’da qoladi
+- [x] BioLab Mobile Expo SDK versiyasini foydalanuvchidagi Expo Go bilan moslashtirish va ochilish xatosini bartaraf etish — iOS Expo Go uchun SDK 54 manifesti va Metro bundle tasdiqlandi
+- [x] Mobil katalogdagi nomi ko‘rinmayotgan kategoriya filterlarini va pastki navigatsiya yopayotgan kontent safe-area’sini tuzatish — original saytning tekshirilgan responsive katalogi WebView qobig‘ida aynan ishlatiladi
 - [x] SDK 54 Metro startida Expo Sharing noto‘g‘ri config-plugin yozuvi sababli yuzaga kelgan xatoni bartaraf etish
 - [x] BioLab Mobile bosh ekrani, katalog kartalari va rang tizimini webdagi original BioLab vizual identitetiga sodiq holda qayta moslash; 100 qurilma va 16 bo‘limli mazmunni o‘zgartirmaslik
 - [x] Expo Go’dagi eskirgan `exp.direct` tunnel manzilini bekor qilib, faqat faol SDK 54 development manzilini qayta tekshirish
 - [x] BioLab Mobile’ni “o‘xshash” dizayn emas, saytdagi original mobil shell, navigatsiya, filter drawer, karta ierarxiyasi va detail oqimlariga sodiq React Native moslama sifatida qayta qurish
-- [ ] Webdagi original 100 ta hero-rasm asset registry va karta tasvirlash qoidalarini mobil ilovaga xavfsiz, offline va performant tarzda moslashtirish
+- [x] Webdagi original 100 ta hero-rasm asset registry va karta tasvirlash qoidalarini mobil ilovaga xavfsiz, offline va performant tarzda moslashtirish — canonical PWA runtime bir xil registry, rasm yuklash qoidalari va persistent WebView cache bilan ishlatiladi; alohida divergent asset nusxasi yaratilmaydi
 - [x] Sayt mobilidagi qidiruv, kengaytirilgan filter, kategoriya drawer, saralanganlar paneli, CSV/PDF export va 16-bo‘limli detail UX oqimlarini Expo Go’da birma-bir regressiya bilan tekshirish
 - [x] Expo Go ilovasida canonical BioLab web runtime’ini native WebView orqali ochib, saytning aynan original dizayni va ishlash oqimini alohida mobil appda saqlash
 - [x] Original BioLab asosiy sahifasidan avval ochiladigan, yengil live laboratoriya kirish ekrani yaratish; `Laboratoriyaga kirish` amali bilan original hero sahifasiga o‘tish

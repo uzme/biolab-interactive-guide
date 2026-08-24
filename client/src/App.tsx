@@ -7,8 +7,23 @@ import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import LabEntryGate from "./components/LabEntryGate";
+
+declare global {
+  interface Window {
+    __BIOLAB_EXPO_GO__?: boolean;
+  }
+}
 
 function Router() {
+  const [hasEnteredLab, setHasEnteredLab] = useState(() => {
+    if (typeof window === "undefined") return true;
+    const isPreview = new URLSearchParams(window.location.search).get("expo-preview") === "1";
+    return !(window.__BIOLAB_EXPO_GO__ || isPreview);
+  });
+
+  if (!hasEnteredLab) return <LabEntryGate onEnter={() => setHasEnteredLab(true)} />;
+
   return (
     <Switch>
       <Route path="/" component={Home} />

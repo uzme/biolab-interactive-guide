@@ -132,3 +132,7 @@
 - [x] Jonli laboratoriya kirish ekranini Expo Go flagisiz ham BioLab saytining asosiy ochilish oqimiga qo‘shish; foydalanuvchi bosgach original katalog hero sahifasiga o‘tishi
 - [x] iPhone Safari va Expo Go’da `Sozlamalar & Copyright` modali faqat blur emas, to‘liq kontent, scroll va yopish boshqaruvi bilan ko‘rinishini tuzatish
 - [x] Sayt kirish oqimi hamda Copyright modalini 390×844 viewportda interaction regression bilan tekshirish
+- [x] Copyright oynasi va saytning ko‘rinadigan footerida muallif/egani `Mengliyev Bahrom Husanovich` sifatida aniq, professional va qonuniy ogohlantirishlar bilan ko‘rsatish
+- [x] Chap navigatsiyadagi `Barcha uskunalar` hamda barcha 10 kategoriya tugmasini katalog filtriga olib boradigan, drawer’ni yopadigan va URL/state oqimini to‘g‘ri yangilaydigan qilish
+- [x] Kirish ekraniga laboratoriya agenti, ish stoli, kompyuter, tanaffus/qahva va mushukchali yengil jonli sahnani qo‘shish; mobil ishlash va reduced-motionni saqlash
+- [x] Mualliflik ko‘rinishi, kategoriya navigatsiyasi hamda agentli kirish sahnasini web/Expo Go 390×844 oqimida regression bilan tekshirish

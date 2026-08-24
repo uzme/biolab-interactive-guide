@@ -270,6 +270,33 @@ button { cursor: pointer; }
   .lab-entry-orbit-one { top: 27%; left: 61%; animation: lab-entry-orbit-one 8s var(--ease-in-out) infinite; }
   .lab-entry-orbit-two { right: 25%; bottom: 26%; width: 18px; height: 18px; animation: lab-entry-orbit-two 7s var(--ease-in-out) infinite; }
   .lab-entry-orbit-two span { width: 5px; height: 5px; border-radius: 999px; background: #9ef7df; }
+  .lab-entry-agent-scene { position: absolute; z-index: 2; inset: 13% 9% 10%; overflow: hidden; border-radius: 15px; background: linear-gradient(140deg, rgba(8, 56, 54, .35), rgba(1, 23, 24, .12)); pointer-events: none; }
+  .agent-scene-path { position: absolute; right: 6%; bottom: 16%; left: 7%; height: 1px; background: repeating-linear-gradient(90deg, rgba(127, 240, 211, .5) 0 6px, transparent 6px 11px); opacity: .72; }
+  .agent-scene-window { position: absolute; top: 11%; left: 8%; display: grid; grid-template-columns: repeat(3, 7px); gap: 2px; padding: 4px; border: 1px solid rgba(139, 239, 213, .36); background: rgba(109, 221, 194, .09); }
+  .agent-scene-window i { height: 13px; background: linear-gradient(180deg, rgba(141, 248, 219, .66), rgba(45, 143, 130, .22)); box-shadow: inset 0 -5px rgba(2, 36, 35, .32); }
+  .agent-scene-desk { position: absolute; right: 13%; bottom: 23%; width: 42%; height: 3px; border-radius: 3px; background: #9ce8d1; box-shadow: 0 9px 0 -1px rgba(136, 228, 204, .42); }
+  .agent-scene-desk::before, .agent-scene-desk::after { position: absolute; bottom: -10px; width: 2px; height: 11px; content: ""; background: rgba(130, 231, 207, .63); }
+  .agent-scene-desk::before { left: 5px; } .agent-scene-desk::after { right: 5px; }
+  .agent-monitor { position: absolute; right: 23%; bottom: 3px; width: 18px; height: 13px; border: 2px solid #a7f0da; border-radius: 2px; background: #0e5651; box-shadow: 0 0 12px rgba(105, 237, 204, .36); animation: agent-monitor-cycle 12s steps(1, end) infinite; }
+  .agent-monitor i { position: absolute; right: 5px; bottom: -5px; left: 5px; height: 3px; background: #a7f0da; }
+  .agent-keyboard { position: absolute; right: 5%; bottom: 1px; width: 16px; height: 3px; border-radius: 2px; background: rgba(173, 247, 224, .73); }
+  .agent-desk-lamp { position: absolute; left: 7%; bottom: 2px; width: 3px; height: 16px; border-radius: 3px; background: #80e8cb; transform: rotate(-18deg); transform-origin: bottom; }
+  .agent-desk-lamp::after { position: absolute; top: -2px; left: -4px; width: 9px; height: 5px; border-radius: 7px 7px 1px 1px; content: ""; background: #d1ffed; box-shadow: 0 0 12px rgba(209, 255, 237, .55); }
+  .agent-figure { position: absolute; z-index: 2; width: 25px; height: 46px; color: #d0ffee; filter: drop-shadow(0 0 6px rgba(104, 240, 205, .25)); }
+  .agent-head { position: absolute; top: 0; left: 8px; width: 10px; height: 10px; border-radius: 50%; background: currentColor; }
+  .agent-body { position: absolute; top: 10px; left: 7px; width: 12px; height: 22px; border-radius: 7px 7px 3px 3px; background: linear-gradient(90deg, #9cf0d6, #58bfa8); }
+  .agent-arm { position: absolute; top: 13px; width: 3px; height: 18px; border-radius: 3px; background: currentColor; transform-origin: top; }
+  .agent-arm-left { left: 5px; } .agent-arm-right { right: 4px; }
+  .agent-figure-work { right: 43%; bottom: 22%; animation: agent-work-cycle 12s var(--ease-in-out) infinite; }
+  .agent-figure-work .agent-arm-left { animation: agent-type-left 620ms steps(2, end) infinite; }.agent-figure-work .agent-arm-right { animation: agent-type-right 620ms steps(2, end) infinite; }
+  .agent-scene-lounge { position: absolute; bottom: 14%; left: 9%; width: 31%; height: 14px; border-radius: 7px 7px 3px 3px; background: linear-gradient(180deg, #71cdb9, #337d74); box-shadow: inset 0 3px rgba(211, 255, 238, .25); }
+  .agent-sofa { position: absolute; left: -3px; bottom: 0; width: 5px; height: 19px; border-radius: 5px 5px 0 0; background: #5cb49e; }.agent-sofa-leg { position: absolute; right: 5px; bottom: -7px; width: 3px; height: 7px; background: #88e2c6; }
+  .agent-figure-rest { bottom: 20%; left: 17%; transform: rotate(80deg); transform-origin: 50% 80%; animation: agent-rest-cycle 12s var(--ease-in-out) infinite; }
+  .agent-figure-rest .agent-arm-right { transform: rotate(-43deg); }.agent-figure-rest .agent-arm-left { transform: rotate(33deg); }
+  .agent-coffee { position: absolute; z-index: 3; bottom: 29%; left: 37%; width: 8px; height: 8px; border: 1px solid #d5ffef; border-radius: 1px 1px 3px 3px; background: #2f8479; animation: agent-coffee-cycle 12s var(--ease-in-out) infinite; }
+  .agent-coffee i { position: absolute; top: -7px; left: 2px; width: 2px; height: 6px; border-radius: 50%; border-left: 1px solid rgba(222, 255, 245, .72); content: ""; animation: agent-steam 1.4s ease-in-out infinite; }.agent-coffee span { position: absolute; top: 1px; right: -4px; width: 3px; height: 4px; border: 1px solid #d5ffef; border-left: 0; border-radius: 0 5px 5px 0; }
+  .agent-cat { position: absolute; z-index: 3; right: 4%; bottom: 16%; width: 16px; height: 9px; border-radius: 9px 9px 4px 4px; background: #b8f3dc; animation: agent-cat-breathe 3.6s var(--ease-in-out) infinite; }.agent-cat-ear { position: absolute; top: -5px; width: 6px; height: 6px; background: #b8f3dc; clip-path: polygon(50% 0, 100% 100%, 0 100%); }.agent-cat-ear-left { left: 1px; }.agent-cat-ear-right { right: 1px; }.agent-cat-tail { position: absolute; right: -6px; bottom: 1px; width: 8px; height: 8px; border-top: 2px solid #b8f3dc; border-radius: 80% 80% 0 0; transform: rotate(24deg); transform-origin: left; animation: agent-cat-tail 1.8s var(--ease-in-out) infinite; }
+  .lab-entry-agent-status { position: absolute; z-index: 5; left: 13px; bottom: 13px; overflow: hidden; width: 142px; height: 21px; border: 1px solid rgba(147, 237, 213, .35); border-radius: 999px; background: rgba(0, 35, 35, .58); color: #ccf9ea; font-family: "Plus Jakarta Sans", "DM Sans", system-ui, sans-serif; font-size: 7px; font-weight: 800; letter-spacing: .11em; backdrop-filter: blur(8px); }.lab-entry-agent-status span { position: absolute; inset: 6px 8px; white-space: nowrap; }.agent-status-work { animation: agent-status-work 12s steps(1, end) infinite; }.agent-status-rest { opacity: 0; animation: agent-status-rest 12s steps(1, end) infinite; }
   .lab-entry-content { padding: 24px 8px 10px; }
   .lab-entry-kicker { display: flex; align-items: center; gap: 9px; margin: 0; color: #88d9c4; font-size: 9px; }
   .lab-entry-kicker span { width: 8px; height: 8px; border-radius: 999px; background: #54e0bd; box-shadow: 0 0 0 6px rgba(84, 224, 189, .11); }
@@ -668,6 +695,9 @@ body {
   .filter-transition,
   [data-device-modal],
   [data-device-modal] > div,
+  .lab-entry *,
+  .lab-entry *::before,
+  .lab-entry *::after,
   .command-hero button,
   .hero-sop-track > div,
   .pure3d-carousel .card-shell,
@@ -720,3 +750,11 @@ body {
 @keyframes lab-entry-orbit-one { 50% { transform: translate3d(12px, -13px, 0) scale(1.08); } }
 @keyframes lab-entry-orbit-two { 50% { transform: translate3d(-12px, 11px, 0) scale(.88); } }
 @keyframes lab-entry-exit { to { opacity: 0; transform: scale(1.018); filter: blur(5px); } }
+@keyframes agent-work-cycle { 0%, 47% { opacity: 1; transform: translateX(0) translateY(0); } 53%, 100% { opacity: 0; transform: translateX(-34px) translateY(4px); } }
+@keyframes agent-rest-cycle { 0%, 47% { opacity: 0; transform: translateX(32px) rotate(80deg); } 53%, 100% { opacity: 1; transform: translateX(0) rotate(80deg); } }
+@keyframes agent-monitor-cycle { 0%, 44% { background: #26c79f; box-shadow: 0 0 14px rgba(79, 250, 204, .72); } 50%, 100% { background: #0a3736; box-shadow: none; } }
+@keyframes agent-type-left { 50% { transform: rotate(28deg); } } @keyframes agent-type-right { 50% { transform: rotate(-28deg); } }
+@keyframes agent-coffee-cycle { 0%, 47% { opacity: 0; transform: translateY(4px); } 53%, 100% { opacity: 1; transform: translateY(0); } }
+@keyframes agent-steam { 50% { opacity: .25; transform: translateY(-3px); } }
+@keyframes agent-cat-breathe { 50% { transform: translateY(-1px) scaleY(.94); } } @keyframes agent-cat-tail { 50% { transform: rotate(-28deg); } }
+@keyframes agent-status-work { 0%, 47% { opacity: 1; } 53%, 100% { opacity: 0; } } @keyframes agent-status-rest { 0%, 47% { opacity: 0; } 53%, 100% { opacity: 1; } }

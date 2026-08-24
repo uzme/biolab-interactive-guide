@@ -184,7 +184,7 @@ ${purchase ? `
 ` : ''}
 
 <div class="footer">
-  <span>© 2026 BioLab Interactive Guide / Biotexnolog. Barcha huquqlar himoyalangan. Ruxsatsiz ko‘chirish va tarqatish taqiqlanadi.</span>
+  <span>© 2026 Mengliyev Bahrom Husanovich. BioLab Interactive Guide kodi, original interfeysi va o‘quv tarkibidan ruxsatsiz foydalanish taqiqlanadi.</span>
   <span>Sahifa: O‘quv Konspekti (PDF eksport)</span>
 </div>
 <script>window.print();</script>

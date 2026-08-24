@@ -11,5 +11,7 @@ assert.match(source, /"copyto"/);
 assert.match(source, /"lsjson"/);
 assert.match(source, /driveTransport/);
 assert.match(source, /DRIVE_SNAPSHOT_NAME/);
+assert.match(source, /EXCLUDED_FILES/);
+assert.match(source, /\.project-config\.json/);
 
-console.log("Release skriptida GWS xatosi uchun rclone Drive fallback kontrakti muvaffaqiyatli tekshirildi.");
+console.log("Release skriptida Drive fallback va maxfiy platform konfiguratsiyasini chiqarib tashlash kontraktlari muvaffaqiyatli tekshirildi.");

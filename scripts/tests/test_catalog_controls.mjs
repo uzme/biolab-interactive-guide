@@ -45,9 +45,9 @@ assert(await page.getByText("Qat’iy Mualliflik Huquqi va Intellektual Mulk Him
 assert(await page.getByText("Litsenziya va rasm manbasi shaffofligi").isVisible(), "Litsenziya va rasm manbasi bloki topilmadi.");
 assert(await page.getByText("© 2026 BioLab", { exact: true }).isVisible(), "Copyright yili ko‘rsatilmagan.");
 assert(await page.getByText("JSON eksport").isVisible() && await page.getByText("JSON import").isVisible(), "Xatcho‘p eksport/import boshqaruvlari topilmadi.");
-const themeToggle = page.getByRole("button", { name: "Rang mavzusini almashtirish" });
+const themeToggle = page.getByRole("button", { name: "Rang mavzusini qo‘lda almashtirish" });
 await themeToggle.click();
-await page.waitForFunction(() => ["light", "dark"].includes(localStorage.getItem("theme") ?? ""));
+await page.waitForFunction(() => ["light", "dark"].includes(localStorage.getItem("biolab-theme-preference") ?? ""));
 await themeToggle.click();
 const motionToggle = page.getByRole("switch", { name: "Kamroq animatsiyani almashtirish" });
 await motionToggle.click();

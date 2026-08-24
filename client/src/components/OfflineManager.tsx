@@ -5,8 +5,9 @@ import { useOfflinePack } from "@/hooks/useOfflinePack";
 import { toast } from "sonner";
 
 const OFFLINE_ASSETS = [
-  "/manus-storage/biolab-logo_c6e5d846.png",
-  "/manus-storage/biolab-hero_a08d430e.jpg",
+  "/biolab-logo.webp",
+  "/biolab-main-hero.webp",
+  "/biolab-live-lab-agent-scene.webp",
   ...Object.values(equipmentImages).map((image) => image.url),
 ];
 

@@ -60,7 +60,7 @@ export default function PixelAgent() {
             <div className="relative p-5 sm:p-8 lg:p-10">
               <div className="mb-7 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#7be1c3]"><Sparkles size={15} /> O‘zbekcha biotexnologiya yordamchisi</div>
               <div className="relative mb-8 overflow-hidden rounded-[24px] border border-[#79d7c0]/35 bg-[#031a1e] shadow-[0_18px_45px_rgba(0,0,0,0.25)]">
-                <img src="/manus-storage/biolab-hero_a08d430e.jpg" alt="Zamonaviy biotexnologiya laboratoriyasi" className="h-44 w-full object-cover opacity-55 sm:h-56" />
+                <img src="/biolab-main-hero.webp" alt="Zamonaviy biotexnologiya laboratoriyasi" className="h-44 w-full object-cover opacity-55 sm:h-56" />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#031a1e]/95 via-[#031a1e]/60 to-[#031a1e]/20" />
                 <div className="absolute left-5 top-5 rounded-full border border-[#7be1c3]/40 bg-[#062a2e]/80 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#a7f0dc]">Ish stoli / live</div>
                 <div className="absolute bottom-5 left-5 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#a7f0dc]"><span className="h-2 w-2 rounded-full bg-[#67e2bf]" /> Katalog bilan bog‘langan</div>

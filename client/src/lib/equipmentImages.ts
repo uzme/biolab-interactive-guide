@@ -1,4 +1,4 @@
-import { auditedHeroImageUrls } from "./auditedHeroImageUrls";
+import { auditedHeroImageUrls, legacyAcceptedHeroIds } from "./auditedHeroImageUrls";
 
 // BioLab image registry — realistik AI assets are linked to the canonical equipment id.
 // 3D/2D visualizers are intentionally not used; these images provide a readable study-page header.
@@ -512,10 +512,18 @@ const baseEquipmentImages: Record<string, EquipmentImage> = {
 };
 
 // Drive auditidan o'tgan 85 ta WebP hero URL avvalgi rasmiysifat metadata sini
-// almashtiradi. Alt matn mavjud qurilma nomi va tavsifini saqlaydi; manba turi
-// esa foydalanuvchi ko'radigan shaffoflik blokida AI-representative bo'lib chiqadi.
+// almashtiradi. Legacy accepted 15 ta ID ham local recovery mirror’dan o‘qiladi;
+// shu bilan barcha 100 karta Vercel’da tashqi Manus storage’siz ishlaydi.
+const localLegacyHeroImages = Object.fromEntries(
+  legacyAcceptedHeroIds.map((id) => [
+    id,
+    { ...baseEquipmentImages[id], url: `/biolab-drive-assets/${id}-hero_local.webp`, sourceType: "ai-representative" as const },
+  ]),
+);
+
 export const equipmentImages: Record<string, EquipmentImage> = {
   ...baseEquipmentImages,
+  ...localLegacyHeroImages,
   ...Object.fromEntries(
     Object.entries(auditedHeroImageUrls).map(([id, url]) => [
       id,

@@ -11,10 +11,10 @@
     <meta name="apple-mobile-web-app-title" content="BioLab" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <title>BioLab — Qurilmalar katalogi</title>
-    <link rel="icon" type="image/png" href="/manus-storage/biolab-logo_c6e5d846.png" />
-    <link rel="preload" as="image" href="/manus-storage/biolab-equipment-001-pcr_c5953119.jpg" fetchpriority="high" />
-    <link rel="preload" as="image" href="/manus-storage/biolab-equipment-002-autoclave_fb2b1209.jpg" fetchpriority="high" />
-    <link rel="preload" as="image" href="/manus-storage/biolab-equipment-003-bsc_922ae195.jpg" fetchpriority="high" />
+    <link rel="icon" type="image/webp" href="/biolab-logo.webp" />
+    <link rel="preload" as="image" href="/biolab-drive-assets/BIO-001-hero_local.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/biolab-drive-assets/BIO-002-hero_local.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/biolab-drive-assets/BIO-003-hero_local.webp" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -22,6 +22,16 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script defer src="%VITE_ANALYTICS_ENDPOINT%/umami" data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
+    <script type="module">
+      const analyticsEndpoint = "%VITE_ANALYTICS_ENDPOINT%";
+      const analyticsWebsiteId = "%VITE_ANALYTICS_WEBSITE_ID%";
+      if (analyticsEndpoint.startsWith("http") && analyticsWebsiteId && !analyticsWebsiteId.startsWith("%")) {
+        const analyticsScript = document.createElement("script");
+        analyticsScript.defer = true;
+        analyticsScript.src = `${analyticsEndpoint}/umami`;
+        analyticsScript.dataset.websiteId = analyticsWebsiteId;
+        document.head.appendChild(analyticsScript);
+      }
+    </script>
   </body>
 </html>

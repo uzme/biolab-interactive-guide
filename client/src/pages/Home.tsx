@@ -38,7 +38,7 @@ const categoryIcons: Record<string, typeof FlaskConical> = {
 function Sidebar({ activeCategory, onCategory, onMobileClose, onOpenSettings, drawer = false }: { activeCategory: string; onCategory: (category: string) => void; onMobileClose?: () => void; onOpenSettings?: () => void; drawer?: boolean }) {
   return <aside className={`sidebar ${drawer ? "mobile-drawer" : ""}`}>
     <div className="mb-10 flex items-center gap-3 px-2">
-      <div className="brand-mark relative grid h-12 w-12 place-items-center overflow-hidden rounded-[15px] border border-[#87d9cd]/55 bg-[#0a5358] shadow-[0_10px_24px_rgba(10,83,88,0.18)]"><img src="/manus-storage/biolab-logo_c6e5d846.png" alt="BioLab laboratoriya belgisi" className="h-8 w-8 object-contain" /><span className="absolute inset-x-2 bottom-1.5 h-px bg-[#86ead1]/70" /><span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-white bg-[#14b8a6]" /></div>
+      <div className="brand-mark relative grid h-12 w-12 place-items-center overflow-hidden rounded-[15px] border border-[#87d9cd]/55 bg-[#0a5358] shadow-[0_10px_24px_rgba(10,83,88,0.18)]"><img src="/biolab-logo.webp" alt="BioLab laboratoriya belgisi" className="h-8 w-8 object-contain" /><span className="absolute inset-x-2 bottom-1.5 h-px bg-[#86ead1]/70" /><span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-white bg-[#14b8a6]" /></div>
       <div className="sidebar-copy"><div className="display flex items-baseline gap-1 text-[22px] font-bold tracking-[-0.055em] text-[#173d42]">Bio<span className="text-[#0d9488]">Lab</span><span className="ml-1 text-[9px] tracking-normal text-[#86a39c]">/ LAB-01</span></div><div className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#5b7c77]">SOP o‘quv tizimi</div></div>
     </div>
     <div className="sidebar-copy mb-3 px-3 text-[10px] font-bold uppercase tracking-[0.17em] text-[#86a39c]">Navigatsiya</div>
@@ -272,7 +272,7 @@ export default function Home() {
       <div className="page-frame mx-auto max-w-[1500px] px-5 py-6 sm:px-8 sm:py-10 lg:px-12">
         <section className="landing-hero" data-hero-surface>
           <div className="landing-hero-visual">
-            <img src="/manus-storage/biolab-hero_a08d430e.jpg" alt="Zamonaviy biotexnologiya laboratoriyasi" className="landing-hero-image" />
+            <img src="/biolab-main-hero.webp" alt="Zamonaviy biotexnologiya laboratoriyasi" className="landing-hero-image" />
             <div className="landing-hero-image-shade" />
             <div className="landing-visual-top"><span>BIO.LAB / LAB-01</span><span>O‘QUV TIZIMI</span></div>
             <div className="landing-visual-core"><span className="landing-visual-index">01—100</span><span className="landing-visual-copy">QURILMA DOSYELARI</span><span className="landing-visual-line" /></div>

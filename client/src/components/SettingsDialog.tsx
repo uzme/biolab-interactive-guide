@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { BookOpen, Check, Database, ExternalLink, FileText, MonitorSmartphone, Moon, Palette, ShieldCheck, Sun, Trash2, X } from "lucide-react";
 import { toast } from "sonner";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -47,16 +48,16 @@ export default function SettingsDialog({ open, onOpenChange, bookmarkedCount, on
     }
   };
 
-  return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-[#173d42]/55 p-3 backdrop-blur-md sm:p-6" onClick={() => onOpenChange(false)}>
-      <div className="relative max-h-[92vh] w-full max-w-3xl overflow-hidden rounded-[28px] border border-[#cfe4db] bg-[#f7fbfa] shadow-[0_30px_90px_rgba(20,68,64,0.28)]" onClick={(event) => event.stopPropagation()}>
+  return createPortal(
+    <div className="fixed inset-0 z-[100] flex min-h-[100dvh] items-center justify-center overflow-y-auto bg-[#173d42]/70 px-3 py-4 backdrop-blur-[2px] sm:p-6" onClick={() => onOpenChange(false)}>
+      <div className="relative my-auto max-h-[calc(100dvh-2rem)] w-full max-w-3xl overflow-hidden rounded-[28px] border border-[#cfe4db] bg-[#f7fbfa] shadow-[0_30px_90px_rgba(20,68,64,0.28)]" role="dialog" aria-modal="true" aria-labelledby="biolab-settings-title" onClick={(event) => event.stopPropagation()}>
         <div className="border-b border-[#d7e7e1] bg-white/95 px-5 py-5 sm:px-7 sm:py-6">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-start gap-3">
               <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#0d7774] text-white shadow-[0_8px_18px_rgba(13,119,116,0.2)]"><Palette size={20} /></span>
               <div>
                 <div className="tech-label text-[#0d7774]">BIO.LAB // CONTROL CENTER</div>
-                <h2 className="display mt-1 text-xl font-bold tracking-[-0.035em] text-[#173d42] sm:text-2xl">Sozlamalar va huquqiy ma’lumot</h2>
+                <h2 id="biolab-settings-title" className="display mt-1 text-xl font-bold tracking-[-0.035em] text-[#173d42] sm:text-2xl">Sozlamalar va huquqiy ma’lumot</h2>
                 <p className="mt-1 text-xs leading-5 text-[#68857f]">Ko‘rinish, qulaylik, ma’lumotlar va platforma shaffofligi bir joyda.</p>
               </div>
             </div>
@@ -64,7 +65,7 @@ export default function SettingsDialog({ open, onOpenChange, bookmarkedCount, on
           </div>
         </div>
 
-        <div className="max-h-[calc(92vh-122px)] overflow-y-auto px-5 py-5 sm:px-7 sm:py-6">
+        <div className="max-h-[calc(100dvh-154px)] overflow-y-auto overscroll-contain px-5 py-5 [-webkit-overflow-scrolling:touch] sm:px-7 sm:py-6">
           <div className="grid gap-4 lg:grid-cols-2">
             <section className="rounded-2xl border border-[#cfe4db] bg-white p-5 shadow-[0_8px_20px_rgba(23,61,66,0.04)]">
               <div className="flex items-center gap-2 text-[#0d7774]"><Palette size={17} /><h3 className="font-bold text-[#173d42]">Ko‘rinish</h3></div>
@@ -121,6 +122,7 @@ export default function SettingsDialog({ open, onOpenChange, bookmarkedCount, on
           </section>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

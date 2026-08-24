@@ -1,7 +1,9 @@
 import { chromium } from "playwright";
 import { readFile } from "node:fs/promises";
 
-const previewUrl = new URL(process.env.BIOLAB_TEST_URL || "http://127.0.0.1:3000/").toString();
+const previewUrlObject = new URL(process.env.BIOLAB_TEST_URL || "http://127.0.0.1:3000/");
+previewUrlObject.searchParams.set("direct", "1");
+const previewUrl = previewUrlObject.toString();
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
 };

@@ -13,8 +13,13 @@ const assert = (condition, message) => {
 };
 
 const cardCodes = async () => page.locator("article.equipment-card [data-equipment-code]").allTextContents();
+const enterLab = async (targetPage) => {
+  await targetPage.locator("[data-lab-entry-action]").click();
+  await targetPage.locator("[data-hero-surface]").waitFor({ state: "visible" });
+};
 
 await page.goto(previewUrl, { waitUntil: "networkidle" });
+await enterLab(page);
 const carousel = page.locator("section.pure3d-carousel");
 await carousel.waitFor();
 assert(await carousel.getAttribute("data-carousel-axis") === "horizontal", "Karusel gorizontal o‘q sifatida belgilanmagan.");
@@ -146,6 +151,7 @@ const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 }
 
 const tabletPage = await browser.newPage({ viewport: { width: 768, height: 1024 } });
 await tabletPage.goto(previewUrl, { waitUntil: "domcontentloaded" });
+await enterLab(tabletPage);
 const tabletLearningPath = tabletPage.locator("[data-hero-learning-path]");
 await tabletLearningPath.waitFor();
 const tabletSopLayout = await tabletLearningPath.evaluate((path) => {
@@ -166,6 +172,7 @@ assert(tabletSopLayout.labels.join("|") === "Asos|Prinsip|Amaliyot|Manbalar", "P
 await tabletPage.close();
 
 await mobilePage.goto(previewUrl, { waitUntil: "domcontentloaded" });
+await enterLab(mobilePage);
 const mobileCarousel = mobilePage.locator("section.pure3d-carousel");
 await mobileCarousel.waitFor();
 assert(await mobileCarousel.getAttribute("data-carousel-axis") === "horizontal", "Mobil ekranda karusel gorizontal o‘qini yo‘qotdi.");
@@ -191,6 +198,7 @@ await mobilePage.close();
 const reducedMotionPage = await browser.newPage({ viewport: { width: 1280, height: 900 } });
 await reducedMotionPage.emulateMedia({ reducedMotion: "reduce" });
 await reducedMotionPage.goto(previewUrl, { waitUntil: "domcontentloaded" });
+await enterLab(reducedMotionPage);
 await reducedMotionPage.locator("section.pure3d-carousel").waitFor();
 const motionDurations = await reducedMotionPage.evaluate(() => {
   const selectors = [

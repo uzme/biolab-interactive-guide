@@ -1,6 +1,8 @@
 import { chromium } from "playwright";
 
-const previewUrl = new URL(process.env.BIOLAB_TEST_URL || "http://127.0.0.1:3000/").toString();
+const previewUrlObject = new URL(process.env.BIOLAB_TEST_URL || "http://127.0.0.1:3000/");
+previewUrlObject.searchParams.set("direct", "1");
+const previewUrl = previewUrlObject.toString();
 const testCases = [
   { deviceIndex: 0, block: 1 },
   { deviceIndex: 25, block: 2 },

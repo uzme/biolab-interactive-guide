@@ -1,6 +1,6 @@
 import { chromium } from "playwright";
 
-const previewUrl = "http://127.0.0.1:3000/";
+const previewUrl = "http://127.0.0.1:3000/?direct=1";
 const browser = await chromium.launch({
   headless: true,
   executablePath: "/usr/bin/chromium",

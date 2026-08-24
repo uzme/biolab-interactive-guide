@@ -129,3 +129,6 @@
 - [x] Expo Go ilovasida canonical BioLab web runtime’ini native WebView orqali ochib, saytning aynan original dizayni va ishlash oqimini alohida mobil appda saqlash
 - [x] Original BioLab asosiy sahifasidan avval ochiladigan, yengil live laboratoriya kirish ekrani yaratish; `Laboratoriyaga kirish` amali bilan original hero sahifasiga o‘tish
 - [x] Kirish ekranidagi harakatlarni reduced-motion afzalligiga moslash va foydalanuvchi harakatidan keyin original sahifaga o‘tishni regression bilan tekshirish
+- [x] Jonli laboratoriya kirish ekranini Expo Go flagisiz ham BioLab saytining asosiy ochilish oqimiga qo‘shish; foydalanuvchi bosgach original katalog hero sahifasiga o‘tishi
+- [x] iPhone Safari va Expo Go’da `Sozlamalar & Copyright` modali faqat blur emas, to‘liq kontent, scroll va yopish boshqaruvi bilan ko‘rinishini tuzatish
+- [x] Sayt kirish oqimi hamda Copyright modalini 390×844 viewportda interaction regression bilan tekshirish

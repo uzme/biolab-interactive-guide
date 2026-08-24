@@ -116,4 +116,4 @@
 - [x] Foydalanuvchi so‘ragan CSV/PDF export production deployini qayta tetiklash va marker bilan tekshirish
 - [x] Canonical host eski bundle berishining deployment artifact root-cause’ini topib, minimal va tekshirilgan tuzatish bilan bartaraf etish (static server oqimi lokal productionda to‘g‘ri; canonical domen hali yangi checkpointni qo‘lda Publish qilinmagani uchun 06:36 dagi oldingi published artifactga bog‘langan)
 - [x] Management UI’dagi pending Publish amali yakunlangach canonical CSV/PDF export bundleini marker orqali productionda tasdiqlash (canonical `index-C0nLhziA.js` bundleida `CSV eksport` marker LIVE, 2026-08-24 09:02 UTC)
-- [ ] Yakuniy kod, hisobotlar va loyiha metadata’sini sanitizatsiyalangan holda canonical GitHub hamda mavjud Drive snapshotiga sinxronlash
+- [x] Yakuniy kod, hisobotlar va loyiha metadata’sini sanitizatsiyalangan holda canonical GitHub hamda mavjud Drive snapshotiga sinxronlash

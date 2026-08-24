@@ -5,9 +5,9 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Web checkpoint | `b5183cdb` |
-| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; 2026-08-24 verified source commit `aedbf59d7f42d88ad5d66429ee3bf52a85ba708f` |
-| Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T07:46:02.607Z` |
+| Web checkpoint | `4325146c` |
+| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; 2026-08-24 final source commit `fde6a503d359cd823976b85bbf9fad011b97e5e0` |
+| Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T09:16:14.165Z` |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzili | `https://biolabguide-fbcitqyf.manus.space` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
@@ -31,7 +31,7 @@ Export faqat foydalanuvchi tanlagan saralangan qurilmalarning o‘quv katalogi m
 
 BioLab Interactive Guide manba kodi, testlari, master-protokollari, vizual auditlari va qayta tiklash hujjatlari yakuniy release tarkibiga tayyor. Qamrov 100 ta biotexnologik qurilma, 16 bo‘limli o‘quv dosyelari, PWA/offline oqimi, lokal saralanganlar, kun/tun mavzusi, reduced-motion qo‘llovi hamda CSV/PDF eksportini o‘z ichiga oladi. Canonical public host `https://biolabguide-fbcitqyf.manus.space/` `assets/index-C0nLhziA.js` bundleini va `CSV eksport` markerini qaytardi; HTTP `Last-Modified` qiymati `2026-08-24T09:02:07Z` bo‘lib, export relizi productionda jonli ekanini tasdiqladi.
 
-Yakuniy archive faqat `uzme/biolab-interactive-guide` repositorysining `main` branchiga va mavjud `BioLab_Interactive_Guide_source.tar.gz` Drive snapshotiga yuboriladi. Release skripti `.env*`, `.project-config.json`, tokenlarga o‘xshash qiymatlar, runtime loglar, build chiqindilari, lokal dependency hamda eski arxivlarni chiqarib tashlaydi; snapshot mavjud Drive faylini duplikatsiz o‘rnida yangilaydi. Holat: **READY — yakuniy sync navbatda**.
+Yakuniy archive faqat `uzme/biolab-interactive-guide` repositorysining `main` branchiga va mavjud `BioLab_Interactive_Guide_source.tar.gz` Drive snapshotiga yuboriladi. Release skripti `.env*`, `.project-config.json`, tokenlarga o‘xshash qiymatlar, runtime loglar, build chiqindilari, lokal dependency hamda eski arxivlarni chiqarib tashlaydi; snapshot mavjud Drive faylini duplikatsiz o‘rnida yangilaydi. Yakuniy sanitizatsiyalangan fingerprint `1ac1d3ab499a3118fda9bcbed159078cbcfb9d9bf68ba4a9eae43f3724857c14`; GitHub `main` commit `fde6a503d359cd823976b85bbf9fad011b97e5e0`; Drive snapshot 2026-08-24T09:16:14.165Z da mavjud faylda yangilandi. Holat: **READY**.
 
 ## 2026-08-23 To‘liq mobil landing redesign releasei
 

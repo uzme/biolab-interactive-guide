@@ -112,5 +112,8 @@
 - [x] Sanitizatsiyalangan GitHub va Drive release snapshotidan platformning `.project-config.json` maxfiy konfiguratsiyasini qat’iy chiqarib tashlash
 - [x] Production bundle yangilanishi uchun yetishmayotgan fullstack runtime scaffoldingini xavfsiz tiklash va canonical hostda qayta tekshirish (canonical host yangi theme assetini berdi; diskda mavjud bo‘lmagan `server/_core` entrypointi xavfsizlik sabab o‘zgartirilmadi)
 - [x] Brauzer xotirasidagi saralangan qurilmalarni foydalanuvchi uchun qulay CSV va PDF formatlarida eksport qilish
-- [ ] CSV/PDF export checkpointidan keyingi canonical production redeploy holatini tekshirish va stuck bo‘lsa bartaraf etish
-- [ ] Foydalanuvchi so‘ragan CSV/PDF export production deployini qayta tetiklash va marker bilan tekshirish
+- [x] CSV/PDF export checkpointidan keyingi canonical production redeploy holatini tekshirish va stuck bo‘lsa bartaraf etish
+- [x] Foydalanuvchi so‘ragan CSV/PDF export production deployini qayta tetiklash va marker bilan tekshirish
+- [x] Canonical host eski bundle berishining deployment artifact root-cause’ini topib, minimal va tekshirilgan tuzatish bilan bartaraf etish (static server oqimi lokal productionda to‘g‘ri; canonical domen hali yangi checkpointni qo‘lda Publish qilinmagani uchun 06:36 dagi oldingi published artifactga bog‘langan)
+- [x] Management UI’dagi pending Publish amali yakunlangach canonical CSV/PDF export bundleini marker orqali productionda tasdiqlash (canonical `index-C0nLhziA.js` bundleida `CSV eksport` marker LIVE, 2026-08-24 09:02 UTC)
+- [x] Yakuniy kod, hisobotlar va loyiha metadata’sini sanitizatsiyalangan holda canonical GitHub hamda mavjud Drive snapshotiga sinxronlash

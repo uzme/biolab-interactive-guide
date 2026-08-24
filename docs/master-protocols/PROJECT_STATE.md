@@ -6,8 +6,8 @@
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
 | Web checkpoint | `b5183cdb` |
-| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; 2026-08-24 verified source commit `b39884545bace04208b1d8b4af4736097957d732` |
-| Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T06:03:42.232Z` |
+| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; 2026-08-24 verified source commit `aedbf59d7f42d88ad5d66429ee3bf52a85ba708f` |
+| Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T07:46:02.607Z` |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzili | `https://biolabguide-fbcitqyf.manus.space` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
@@ -25,7 +25,13 @@ Checkpoint `b5183cdb`dan keyin production runtime 2026-08-24T06:06 UTC atrofida 
 
 Foydalanuvchining brauzer xotirasidagi saralangan qurilmalari endi mavjud `JSON eksport/import` oqimiga qo‘shimcha ravishda **CSV eksport** va **PDF eksport** formatlarida yuklab olinadi. CSV fayli Excel uchun UTF-8 BOM bilan, tartib, kod, qurilma nomi, kategoriya, model va ishlab chiqaruvchi ustunlari bilan yaratiladi. PDF esa haqiqiy `application/pdf` hujjat bo‘lib, BioLab sarlavhasi, eksport sanasi, qurilmalar soni, sahifalangan ro‘yxat hamda footerga ega.
 
-Export faqat foydalanuvchi tanlagan saralangan qurilmalarning o‘quv katalogi ma’lumotlarini qayta ishlaydi; login, server, API, tashqi xizmat yoki maxfiy qiymatlar ishtirok etmaydi. Funksiya Settings oynasi va o‘ngdagi Saralanganlar panelining ikkalasidan ham ishga tushadi. CSV/PDF generatorining unit testlari, download browser regressiyasi, to‘liq Vitest/regressiya zanjiri, TypeScript check va production build muvaffaqiyatli bajarildi. Holat: **READY — canonical sync navbatda**.
+Export faqat foydalanuvchi tanlagan saralangan qurilmalarning o‘quv katalogi ma’lumotlarini qayta ishlaydi; login, server, API, tashqi xizmat yoki maxfiy qiymatlar ishtirok etmaydi. Funksiya Settings oynasi va o‘ngdagi Saralanganlar panelining ikkalasidan ham ishga tushadi. CSV/PDF generatorining unit testlari, download browser regressiyasi, to‘liq Vitest/regressiya zanjiri, TypeScript check va production build muvaffaqiyatli bajarildi. Sanitizatsiyalangan canonical source GitHub `main`ga `aedbf59d7f42d88ad5d66429ee3bf52a85ba708f` commit bilan yuborildi; mavjud Drive snapshoti duplicate yaratmasdan ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`da `2026-08-24T07:46:02.607Z` vaqtda yangilandi. Holat: **READY**.
+
+## 2026-08-24 Yakuniy loyiha closeout holati
+
+BioLab Interactive Guide manba kodi, testlari, master-protokollari, vizual auditlari va qayta tiklash hujjatlari yakuniy release tarkibiga tayyor. Qamrov 100 ta biotexnologik qurilma, 16 bo‘limli o‘quv dosyelari, PWA/offline oqimi, lokal saralanganlar, kun/tun mavzusi, reduced-motion qo‘llovi hamda CSV/PDF eksportini o‘z ichiga oladi. Canonical public host `https://biolabguide-fbcitqyf.manus.space/` `assets/index-C0nLhziA.js` bundleini va `CSV eksport` markerini qaytardi; HTTP `Last-Modified` qiymati `2026-08-24T09:02:07Z` bo‘lib, export relizi productionda jonli ekanini tasdiqladi.
+
+Yakuniy archive faqat `uzme/biolab-interactive-guide` repositorysining `main` branchiga va mavjud `BioLab_Interactive_Guide_source.tar.gz` Drive snapshotiga yuboriladi. Release skripti `.env*`, `.project-config.json`, tokenlarga o‘xshash qiymatlar, runtime loglar, build chiqindilari, lokal dependency hamda eski arxivlarni chiqarib tashlaydi; snapshot mavjud Drive faylini duplikatsiz o‘rnida yangilaydi. Holat: **READY — yakuniy sync navbatda**.
 
 ## 2026-08-23 To‘liq mobil landing redesign releasei
 

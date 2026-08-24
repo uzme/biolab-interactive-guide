@@ -5,13 +5,21 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Web checkpoint | `75bf2c56` |
-| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; latest verified commit va synchronization metadata har bir release outputida qayd etiladi |
-| Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot file ID va modified time har bir release outputida qayd etiladi |
+| Web checkpoint | `b5183cdb` |
+| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; 2026-08-24 verified source commit `b39884545bace04208b1d8b4af4736097957d732` |
+| Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T06:03:42.232Z` |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzili | `https://biolabguide-fbcitqyf.manus.space` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; holat **READY** |
+| Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; canonical production yangi tema bundleini bermagani uchun holat **BLOCKED — production deploy** |
+
+## 2026-08-24 Kun/tun laboratoriya dizayni va production deploy holati
+
+OS `prefers-color-scheme`ga mos avtomatik light/dark mavzu, foydalanuvchining qo‘lda light/dark/avto tanlovi, jonli laboratoriya harakatlari hamda `prefers-reduced-motion` fallbacki lokal sourcega joriy qilindi. Mobil va desktop auditlari hamda to‘liq TypeScript, production build, Vitest va browser regressiya zanjiri muvaffaqiyatli o‘tdi. `docs/validation/THEME_ADAPTATION_VISUAL_AUDIT.md` ushbu ko‘rinish dalillarini saqlaydi.
+
+Sanitizatsiyalangan source GitHub `main`ga `b39884545bace04208b1d8b4af4736097957d732` commit bilan yuborildi. Drive’dagi mavjud `BioLab_Interactive_Guide_source.tar.gz` fayli duplicate yaratmasdan aynan o‘rnida yangilandi: ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, parent `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, modified `2026-08-24T06:03:42.232Z`, transport `gws`. Release sanitizatsiyasi endi `.project-config.json`ni qat’iy chiqarib tashlaydi.
+
+Checkpoint `b5183cdb`dan keyin production runtime 2026-08-24T06:06 UTC atrofida qayta ishga tushgan bo‘lsa-da, canonical host `assets/index-Da_M8cKl.js` eski assetini va 2026-08-24T05:23:15 GMT `Last-Modified` qiymatini berishda davom etdi. Ushbu assetda yangi `biolab-theme-preference` hamda sozlamalardagi auto/manual mavzu boshqaruvlari yo‘q. Shuning uchun yangi tema dizayni lokal preview hamda canonical source archive’da tayyor, lekin canonical public hostda hali tasdiqlanmagan. `server/_core/index.ts` diskda mavjud emas; shu sabab xavfli qo‘lda entrypoint almashtirilmadi. Holat: **BLOCKED — platform deployment artifacti yangilanmagan**.
 
 ## 2026-08-23 To‘liq mobil landing redesign releasei
 

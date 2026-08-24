@@ -110,3 +110,4 @@
 - [x] Fullstack template va legacy build/runtime entrypointlari nomuvofiqligini bartaraf etib, productionda yangi bundle chiqishini tekshirish (nomuvofiqlik amalda tasdiqlanmadi: `server/index.ts` → `dist/public` production oqimi yangi landingni berayotgani bilan tasdiqlandi)
 - [ ] Kun/tun rejimiga mos zamonaviy laboratoriya rang palitrasi va reduced-motionni hurmat qiladigan jonli interfeys animatsiyalarini joriy qilish
 - [x] Sanitizatsiyalangan GitHub va Drive release snapshotidan platformning `.project-config.json` maxfiy konfiguratsiyasini qat’iy chiqarib tashlash
+- [ ] Production bundle yangilanishi uchun yetishmayotgan fullstack runtime scaffoldingini xavfsiz tiklash va canonical hostda qayta tekshirish

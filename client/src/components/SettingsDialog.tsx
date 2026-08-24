@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { BookOpen, Check, Database, ExternalLink, FileText, Moon, Palette, ShieldCheck, Sun, Trash2, X } from "lucide-react";
+import { BookOpen, Check, Database, ExternalLink, FileText, MonitorSmartphone, Moon, Palette, ShieldCheck, Sun, Trash2, X } from "lucide-react";
 import { toast } from "sonner";
 import { useTheme } from "@/contexts/ThemeContext";
 
@@ -13,7 +13,7 @@ type SettingsDialogProps = {
 };
 
 export default function SettingsDialog({ open, onOpenChange, bookmarkedCount, onClearBookmarks, onExportBookmarks, onImportBookmarks }: SettingsDialogProps) {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, themePreference, toggleTheme, useSystemTheme } = useTheme();
   const [reducedMotion, setReducedMotion] = useState(() => localStorage.getItem("biolab-reduced-motion") === "true");
   const importInputRef = useRef<HTMLInputElement>(null);
 
@@ -67,10 +67,13 @@ export default function SettingsDialog({ open, onOpenChange, bookmarkedCount, on
             <section className="rounded-2xl border border-[#cfe4db] bg-white p-5 shadow-[0_8px_20px_rgba(23,61,66,0.04)]">
               <div className="flex items-center gap-2 text-[#0d7774]"><Palette size={17} /><h3 className="font-bold text-[#173d42]">Ko‘rinish</h3></div>
               <div className="mt-4 flex items-center justify-between gap-4 rounded-xl border border-[#dcebe5] bg-[#f7fbfa] p-3">
-                <div><div className="text-sm font-bold text-[#173d42]">Rang mavzusi</div><div className="mt-1 text-xs text-[#68857f]">Ko‘zga qulay yorug‘ yoki tungi rejim.</div></div>
-                <button type="button" onClick={() => toggleTheme?.()} className="inline-flex items-center gap-2 rounded-lg border border-[#b8d8ce] bg-white px-3 py-2 text-xs font-bold text-[#0d7774] transition hover:bg-[#e5f3ed]" aria-label="Rang mavzusini almashtirish">
-                  {theme === "dark" ? <Moon size={15} /> : <Sun size={15} />} {theme === "dark" ? "Tungi" : "Yorug‘"}
-                </button>
+                <div><div className="text-sm font-bold text-[#173d42]">Rang mavzusi</div><div className="mt-1 text-xs text-[#68857f]">Tizimning kun/tun rejimiga avtomatik moslashadi.</div></div>
+                <div className="flex shrink-0 gap-1.5">
+                  <button type="button" onClick={() => useSystemTheme?.()} className={`inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-2 text-xs font-bold transition ${themePreference === "system" ? "border-[#0d7774] bg-[#dff4ed] text-[#075f5c]" : "border-[#b8d8ce] bg-white text-[#0d7774] hover:bg-[#e5f3ed]"}`} aria-pressed={themePreference === "system"} aria-label="Tizim rang mavzusidan foydalanish"><MonitorSmartphone size={15} /> Avto</button>
+                  <button type="button" onClick={() => toggleTheme?.()} className="inline-flex items-center gap-1.5 rounded-lg border border-[#b8d8ce] bg-white px-2.5 py-2 text-xs font-bold text-[#0d7774] transition hover:bg-[#e5f3ed]" aria-label="Rang mavzusini qo‘lda almashtirish">
+                    {theme === "dark" ? <Moon size={15} /> : <Sun size={15} />} {theme === "dark" ? "Tungi" : "Yorug‘"}
+                  </button>
+                </div>
               </div>
               <div className="mt-3 flex items-center justify-between gap-4 rounded-xl border border-[#dcebe5] bg-[#f7fbfa] p-3">
                 <div><div className="text-sm font-bold text-[#173d42]">Kamroq animatsiya</div><div className="mt-1 text-xs text-[#68857f]">Harakatni kamaytirish sozlamasini saqlaydi.</div></div>

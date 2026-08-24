@@ -36,25 +36,27 @@
 }
 
 :root {
-  --background: oklch(0.985 0.008 192);
-  --foreground: oklch(0.2 0.035 198);
-  --card: oklch(0.995 0.004 190);
-  --card-foreground: oklch(0.2 0.035 198);
-  --popover: oklch(0.995 0.004 190);
-  --popover-foreground: oklch(0.2 0.035 198);
-  --primary: oklch(0.37 0.105 186);
+  color-scheme: light;
+  --background: oklch(0.978 0.015 190);
+  --foreground: oklch(0.19 0.045 198);
+  --card: oklch(0.998 0.006 190);
+  --card-foreground: oklch(0.19 0.045 198);
+  --popover: oklch(0.998 0.006 190);
+  --popover-foreground: oklch(0.19 0.045 198);
+  --primary: oklch(0.42 0.13 186);
   --primary-foreground: oklch(0.98 0.01 190);
-  --secondary: oklch(0.93 0.028 190);
-  --secondary-foreground: oklch(0.28 0.065 185);
-  --muted: oklch(0.94 0.018 190);
-  --muted-foreground: oklch(0.49 0.04 193);
-  --accent: oklch(0.76 0.12 175);
-  --accent-foreground: oklch(0.24 0.06 185);
+  --secondary: oklch(0.91 0.048 187);
+  --secondary-foreground: oklch(0.24 0.085 185);
+  --muted: oklch(0.94 0.03 190);
+  --muted-foreground: oklch(0.45 0.055 193);
+  --accent: oklch(0.78 0.16 171);
+  --accent-foreground: oklch(0.2 0.07 185);
   --destructive: oklch(0.57 0.16 26);
   --destructive-foreground: oklch(0.98 0.01 91);
-  --border: oklch(0.87 0.028 190);
-  --input: oklch(0.87 0.028 190);
-  --ring: oklch(0.53 0.12 184);
+  --border: oklch(0.85 0.045 190);
+  --input: oklch(0.85 0.045 190);
+  --ring: oklch(0.57 0.15 184);
+  --lab-glow: oklch(0.73 0.15 175 / 0.32);
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
@@ -78,6 +80,7 @@
   --border: oklch(0.34 0.045 190);
   --input: oklch(0.34 0.045 190);
   --ring: oklch(0.72 0.13 174);
+  --lab-glow: oklch(0.66 0.17 174 / 0.26);
 }
 
 * { box-sizing: border-box; }
@@ -86,11 +89,12 @@ body {
   margin: 0;
   overflow-x: clip;
   min-width: 320px;
-  background: var(--background);
+  background: radial-gradient(circle at 82% -8%, var(--lab-glow), transparent 28rem), var(--background);
   color: var(--foreground);
   font-family: "DM Sans", system-ui, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 380ms var(--ease-out), color 280ms var(--ease-out);
 }
 button, input { font: inherit; }
 button { cursor: pointer; }
@@ -542,6 +546,8 @@ body {
 /* Landing surface: intentionally replaces the former large SOP rail with a visual lab dossier and concise learning map. */
 .landing-hero { display: grid; position: relative; overflow: hidden; border: 1px solid oklch(0.27 0.07 191); border-radius: 1.7rem; background: oklch(0.12 0.045 194); box-shadow: 0 1.8rem 4rem oklch(0.2 0.07 190 / 0.22), inset 0 1px 0 oklch(0.78 0.12 176 / 0.13); isolation: isolate; }
 .landing-hero::before { position: absolute; z-index: -1; top: -8rem; right: -8rem; width: 19rem; height: 19rem; border: 1px solid oklch(0.7 0.13 176 / 0.2); border-radius: 999px; box-shadow: 0 0 0 2.5rem oklch(0.65 0.13 176 / 0.045); content: ""; }
+.landing-hero::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(115deg, transparent 34%, oklch(0.76 0.16 174 / 0.12) 49%, transparent 62%); content: ""; pointer-events: none; transform: translateX(-125%); }
+.landing-hero-visual, .landing-hero-panel { position: relative; z-index: 1; }
 .landing-hero-visual { position: relative; min-height: 14.5rem; overflow: hidden; border-bottom: 1px solid oklch(0.67 0.12 176 / 0.22); background: oklch(0.16 0.075 186); }
 .landing-hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 66% center; opacity: 0.78; mix-blend-mode: luminosity; }
 .landing-hero-image-shade { position: absolute; inset: 0; background: linear-gradient(135deg, oklch(0.1 0.055 194 / 0.8), oklch(0.12 0.08 185 / 0.42) 62%, oklch(0.1 0.04 195 / 0.74)); }
@@ -643,9 +649,18 @@ body {
 .dark .equipment-card:hover::after { border-color: oklch(0.68 0.12 175 / 0.58); }
 
 @media (prefers-reduced-motion: no-preference) {
-  .command-hero, .metric-card, .carousel-zone, .catalog-zone { animation: design-rise 460ms var(--ease-out) both; }
+  .command-hero, .landing-hero, .metric-card, .carousel-zone, .catalog-zone { animation: design-rise 460ms var(--ease-out) both; }
   .metric-card:nth-child(2) { animation-delay: 60ms; }
   .metric-card:nth-child(3) { animation-delay: 120ms; }
+  .landing-hero::after { animation: lab-scan 5.5s var(--ease-in-out) infinite; }
+  .landing-status-dot, .landing-visual-signal, .hero-kicker-status > span { animation: lab-pulse 2.4s var(--ease-in-out) infinite; }
+  .landing-visual-line { animation: signal-breath 2.8s var(--ease-in-out) infinite; transform-origin: left; }
+  .landing-hero-image { animation: lab-image-drift 12s var(--ease-in-out) infinite alternate; }
+  .equipment-card:hover figure img { transform: scale(1.035); }
 }
 
 @keyframes design-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes lab-scan { 0%, 54% { transform: translateX(-125%); } 82%, 100% { transform: translateX(125%); } }
+@keyframes lab-pulse { 0%, 100% { box-shadow: 0 0 0 0.24rem oklch(0.72 0.14 174 / 0.14), 0 0 0 oklch(0.72 0.14 174 / 0); } 52% { box-shadow: 0 0 0 0.38rem oklch(0.72 0.14 174 / 0.05), 0 0 1.1rem oklch(0.72 0.14 174 / 0.45); } }
+@keyframes signal-breath { 0%, 100% { opacity: 0.72; transform: scaleX(0.82); } 50% { opacity: 1; transform: scaleX(1); } }
+@keyframes lab-image-drift { from { transform: scale(1.01) translateX(0); } to { transform: scale(1.06) translateX(-1.15%); } }

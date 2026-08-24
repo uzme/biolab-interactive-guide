@@ -25,6 +25,9 @@ const EXCLUDED_DIRECTORIES = new Set([
   "__pycache__",
 ]);
 const EXCLUDED_SUFFIXES = [".log", ".pyc", ".zip", ".tar.gz"];
+const EXCLUDED_FILES = new Set([
+  ".project-config.json",
+]);
 const SECRET_PATTERNS = [
   ["private-key", /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/],
   ["github-token", /\b(?:gh[pousr]_[A-Za-z0-9_]{20,}|github_pat_[A-Za-z0-9_]{30,})\b/],
@@ -46,6 +49,7 @@ function run(command, args, cwd = PROJECT_ROOT, inherit = false) {
 function isExcluded(relativePath) {
   const parts = relativePath.split("/").filter(Boolean);
   if (parts.some((part) => EXCLUDED_DIRECTORIES.has(part))) return true;
+  if (EXCLUDED_FILES.has(relativePath)) return true;
   const filename = parts.at(-1) ?? "";
   if (filename.startsWith(".env") && filename !== ".env.example") return true;
   return EXCLUDED_SUFFIXES.some((suffix) => filename.endsWith(suffix));

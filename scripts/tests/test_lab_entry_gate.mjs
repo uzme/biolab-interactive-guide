@@ -14,6 +14,8 @@ assert(await page.getByRole("heading", { name: /Laboratoriyani jonli boshqaring/
 assert(await page.locator("[data-lab-entry-action]").isVisible(), "Kirish ekranida laboratoriyaga kirish amali yo‘q.");
 assert(await page.locator("[data-agent-scene]").isVisible(), "Kirish ekranida laboratoriya agenti sahnasi ko‘rinmadi.");
 assert(await page.locator("[data-agent-status]").isVisible(), "Kirish ekranida agent faoliyati holati ko‘rinmadi.");
+assert(await page.locator(".studio-monitor-glow").isVisible(), "Premium sahnada monitorning live nuri ko‘rinmadi.");
+assert(await page.locator(".studio-coffee-steam").first().isVisible(), "Premium sahnada qahva bug‘i live effekti ko‘rinmadi.");
 assert(await page.locator("[data-hero-surface]").count() === 0, "Original sahifa kirish ekranidan oldin ko‘rinib qoldi.");
 await page.locator("[data-lab-entry-action]").click();
 await page.locator("[data-hero-surface]").waitFor({ state: "visible" });

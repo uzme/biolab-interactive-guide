@@ -136,3 +136,6 @@
 - [x] Chap navigatsiyadagi `Barcha uskunalar` hamda barcha 10 kategoriya tugmasini katalog filtriga olib boradigan, drawer’ni yopadigan va URL/state oqimini to‘g‘ri yangilaydigan qilish
 - [x] Kirish ekraniga laboratoriya agenti, ish stoli, kompyuter, tanaffus/qahva va mushukchali yengil jonli sahnani qo‘shish; mobil ishlash va reduced-motionni saqlash
 - [x] Mualliflik ko‘rinishi, kategoriya navigatsiyasi hamda agentli kirish sahnasini web/Expo Go 390×844 oqimida regression bilan tekshirish
+- [x] Kirish sahnasidagi sxematik ikonka kollajini soddaroq, yagona premium laboratoriya kompozitsiyasiga almashtirish; agent, ish stoli, monitor nuri, pipetka, qahva va mushukchani tabiiyroq ierarxiyada berish
+- [x] Premium live sahna uchun sekin va o‘qiladigan monitor glow, pipetka harakati, qahva bug‘i hamda mushukcha holati animatsiyalarini reduced-motion qoidasi bilan yaratish
+- [x] Yangi live sahnani 390×844 mobil viewportda vizual audit, TypeScript va browser regression bilan tekshirish

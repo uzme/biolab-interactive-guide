@@ -13,6 +13,12 @@
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
 | Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; canonical production yangi tema bundleini servis qilayotgani bilan holat **READY** |
 
+## 2026-08-24 Premium illustratsion laboratoriya live sahnasi
+
+Kirish ekranidagi avvalgi sxematik agent kollaji soddalashtirildi va bir butun premium laboratoriya illustratsiyasi bilan almashtirildi. Sahnada biotexnolog mutaxassisi ish stoli, kompyuter/monitor, pipetka, qahva va mushukcha bilan tabiiyroq ko‘rinadi; interface ustiga faqat sokin monitor nuri, qahva bug‘i va live signal animatsiyalari qo‘yildi. Illustratsiya project-lifecycle static storage orqali beriladi, lokal build ichiga media kiritilmaydi. `prefers-reduced-motion` holatida dekorativ harakatlar to‘xtaydi.
+
+Dalillar: 390×844 mobil vizual audit, TypeScript check, 13 Vitest, barcha katalog/detail/loader/kirish regressiyalari, production build va Expo Mobile contract PASS. Yakuniy commit hamda Drive modified-time qiymatlari release manifestida qayd etiladi. Holat: **READY**.
+
 ## 2026-08-24 Mualliflik, kategoriya navigatsiyasi va agentli laboratoriya sahnasi
 
 Muallif va loyiha egasi foydalanuvchi ko‘radigan Copyright modalida, chap menyu footerida hamda PDF o‘quv konspekti footerida **Mengliyev Bahrom Husanovich** sifatida aniq ko‘rsatildi. Bildirishnoma BioLab Interactive Guide kodi, original interfeysi va o‘quv tarkibidan ruxsatsiz foydalanish taqiqlanganini, rasm hamda manufacturer belgilarining huquqlari tegishli egalarida qolishini tushuntiradi. Bu mahsulot ichidagi mualliflik bildirishi bo‘lib, qonun bilan beriladigan istisno va cheklovlarni o‘zgartirish da’vosini qilmaydi.

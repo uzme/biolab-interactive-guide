@@ -111,3 +111,4 @@
 - [x] Kun/tun rejimiga mos zamonaviy laboratoriya rang palitrasi va reduced-motionni hurmat qiladigan jonli interfeys animatsiyalarini joriy qilish
 - [x] Sanitizatsiyalangan GitHub va Drive release snapshotidan platformning `.project-config.json` maxfiy konfiguratsiyasini qat’iy chiqarib tashlash
 - [x] Production bundle yangilanishi uchun yetishmayotgan fullstack runtime scaffoldingini xavfsiz tiklash va canonical hostda qayta tekshirish (canonical host yangi theme assetini berdi; diskda mavjud bo‘lmagan `server/_core` entrypointi xavfsizlik sabab o‘zgartirilmadi)
+- [x] Brauzer xotirasidagi saralangan qurilmalarni foydalanuvchi uchun qulay CSV va PDF formatlarida eksport qilish

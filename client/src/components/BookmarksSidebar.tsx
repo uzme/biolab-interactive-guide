@@ -1,5 +1,5 @@
 import { useRef, type ChangeEvent } from "react";
-import { ArrowUpRight, BookOpen, Download, Heart, ImageOff, Trash2, Upload } from "lucide-react";
+import { ArrowUpRight, BookOpen, Download, FileSpreadsheet, FileText, Heart, ImageOff, Trash2, Upload } from "lucide-react";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { toast } from "sonner";
 import type { Equipment } from "@/lib/equipmentData";
@@ -15,6 +15,8 @@ type BookmarksSidebarProps = {
   onToggleBookmark: (deviceId: string) => void;
   onClearBookmarks: () => void;
   onExportBookmarks: () => void;
+  onExportBookmarksCsv: () => void;
+  onExportBookmarksPdf: () => Promise<void> | void;
   onImportBookmarks: (file: File) => Promise<BookmarkImportResult>;
 };
 
@@ -26,6 +28,8 @@ export default function BookmarksSidebar({
   onToggleBookmark,
   onClearBookmarks,
   onExportBookmarks,
+  onExportBookmarksCsv,
+  onExportBookmarksPdf,
   onImportBookmarks,
 }: BookmarksSidebarProps) {
   const importInputRef = useRef<HTMLInputElement>(null);
@@ -85,6 +89,22 @@ export default function BookmarksSidebar({
             <div className="mt-3 grid grid-cols-2 gap-2">
               <button
                 type="button"
+                onClick={onExportBookmarksCsv}
+                disabled={devices.length === 0}
+                className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#b8d8ce] bg-white px-2.5 py-2 text-[11px] font-bold text-[#0d7774] transition hover:border-[#0d7774] hover:bg-[#e5f3ed] disabled:cursor-not-allowed disabled:opacity-45"
+              >
+                <FileSpreadsheet size={13} /> CSV eksport
+              </button>
+              <button
+                type="button"
+                onClick={() => { void onExportBookmarksPdf(); }}
+                disabled={devices.length === 0}
+                className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#b8d8ce] bg-white px-2.5 py-2 text-[11px] font-bold text-[#0d7774] transition hover:border-[#0d7774] hover:bg-[#e5f3ed] disabled:cursor-not-allowed disabled:opacity-45"
+              >
+                <FileText size={13} /> PDF eksport
+              </button>
+              <button
+                type="button"
                 onClick={onExportBookmarks}
                 disabled={devices.length === 0}
                 className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#b8d8ce] bg-white px-2.5 py-2 text-[11px] font-bold text-[#0d7774] transition hover:border-[#0d7774] hover:bg-[#e5f3ed] disabled:cursor-not-allowed disabled:opacity-45"
@@ -100,7 +120,7 @@ export default function BookmarksSidebar({
               </button>
               <input ref={importInputRef} type="file" accept="application/json,.json" className="sr-only" onChange={handleImportChange} />
             </div>
-            <p className="mt-2 text-[10px] leading-4 text-[#6f8c86]">Eksport fayli faqat qurilma IDlarini saqlaydi; maxfiy ma’lumot kiritilmaydi.</p>
+            <p className="mt-2 text-[10px] leading-4 text-[#6f8c86]">CSV va PDF faqat saralangan qurilmalar haqidagi o‘quv ma’lumotlarini beradi; maxfiy ma’lumot kiritilmaydi.</p>
           </div>
         </SheetHeader>
 

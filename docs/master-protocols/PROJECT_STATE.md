@@ -6,8 +6,8 @@
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
 | Web checkpoint | `b5183cdb` |
-| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; 2026-08-24 verified source commit `b39884545bace04208b1d8b4af4736097957d732` |
-| Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T06:03:42.232Z` |
+| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; 2026-08-24 verified source commit `aedbf59d7f42d88ad5d66429ee3bf52a85ba708f` |
+| Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T07:46:02.607Z` |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzili | `https://biolabguide-fbcitqyf.manus.space` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
@@ -20,6 +20,12 @@ OS `prefers-color-scheme`ga mos avtomatik light/dark mavzu, foydalanuvchining qo
 Sanitizatsiyalangan source GitHub `main`ga `b39884545bace04208b1d8b4af4736097957d732` commit bilan yuborildi. Drive’dagi mavjud `BioLab_Interactive_Guide_source.tar.gz` fayli duplicate yaratmasdan aynan o‘rnida yangilandi: ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, parent `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`, modified `2026-08-24T06:03:42.232Z`, transport `gws`. Release sanitizatsiyasi endi `.project-config.json`ni qat’iy chiqarib tashlaydi.
 
 Checkpoint `b5183cdb`dan keyin production runtime 2026-08-24T06:06 UTC atrofida qayta ishga tushgan bo‘lsa-da, canonical host dastlab `assets/index-Da_M8cKl.js` eski assetini va 2026-08-24T05:23:15 GMT `Last-Modified` qiymatini bergan. Keyingi auto-publish propagation tekshiruvida canonical host `assets/index-CsiwH0ks.js` yangi assetiga o‘tdi; unda `biolab-theme-preference` markeri mavjud va HTML `Last-Modified` qiymati `2026-08-24T06:05:15 GMT` bo‘ldi. Shuning uchun yangi tema dizayni endi canonical public hostda ham tasdiqlangan. `server/_core/index.ts` diskda mavjud emasligi sabab xavfli qo‘lda entrypoint almashtirilmadi; amaldagi legacy build oqimi yangi bundle bilan normal ishladi. Holat: **READY**.
+
+## 2026-08-24 Saralanganlar CSV/PDF export releasei
+
+Foydalanuvchining brauzer xotirasidagi saralangan qurilmalari endi mavjud `JSON eksport/import` oqimiga qo‘shimcha ravishda **CSV eksport** va **PDF eksport** formatlarida yuklab olinadi. CSV fayli Excel uchun UTF-8 BOM bilan, tartib, kod, qurilma nomi, kategoriya, model va ishlab chiqaruvchi ustunlari bilan yaratiladi. PDF esa haqiqiy `application/pdf` hujjat bo‘lib, BioLab sarlavhasi, eksport sanasi, qurilmalar soni, sahifalangan ro‘yxat hamda footerga ega.
+
+Export faqat foydalanuvchi tanlagan saralangan qurilmalarning o‘quv katalogi ma’lumotlarini qayta ishlaydi; login, server, API, tashqi xizmat yoki maxfiy qiymatlar ishtirok etmaydi. Funksiya Settings oynasi va o‘ngdagi Saralanganlar panelining ikkalasidan ham ishga tushadi. CSV/PDF generatorining unit testlari, download browser regressiyasi, to‘liq Vitest/regressiya zanjiri, TypeScript check va production build muvaffaqiyatli bajarildi. Sanitizatsiyalangan canonical source GitHub `main`ga `aedbf59d7f42d88ad5d66429ee3bf52a85ba708f` commit bilan yuborildi; mavjud Drive snapshoti duplicate yaratmasdan ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`da `2026-08-24T07:46:02.607Z` vaqtda yangilandi. Holat: **READY**.
 
 ## 2026-08-23 To‘liq mobil landing redesign releasei
 

@@ -6,12 +6,12 @@
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
 | Oxirgi checkpoint | `4325146c`; Pixel Agent/Vercel yangilanishi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
-| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; ilova relizi `a6e09e2295eacb81525fbf9d1e5647bfcbd16f52` |
+| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; ilova relizi `0333d01d39afb162e5782b4be8b95a19f44b93b9` |
 | Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T09:16:14.165Z`; foydalanuvchining yangi aniq so‘rovisiz bu taskda Drive yangilanmagan |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzillari | Canonical: `https://biolabguide-fbcitqyf.manus.space`; faol Vercel main mirror: `https://biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | TypeScript check, production build, 16 ta Vitest, 100/100 detail regressiyasi, path audit, sanitizatsiya va continuity audit muvaffaqiyatli; Vercel `/agent` browser smoke testi ham PASS. Premium Live Lab agenti uchun mobil 390×844 va desktop 1280×720 vizual auditdan keyin rasm yorqinligi/soya minimal ravshanlashtirildi: agent, pipetka va ish stoli endi sahnada aniq ajraladi. Pixel/Vercel scope holati **READY**. |
+| Joriy audit | TypeScript check, production build, 16 ta Vitest, 100/100 detail regressiyasi, path audit, sanitizatsiya va continuity audit muvaffaqiyatli; Vercel `/agent` browser smoke testi ham PASS. Vercel `dpl_J8T2BtBnV43GA9Ts4RZu66U5bD96` production deploymenti `0333d01`dan **READY**. Premium Live Lab agenti uchun mobil 390×844 va desktop 1280×720 vizual auditdan keyin rasm yorqinligi/soya minimal ravshanlashtirildi: agent, pipetka va ish stoli endi sahnada aniq ajraladi. Pixel/Vercel scope holati **READY**. |
 
 ## 2026-08-25 Pixel Agent va Vercel mirror — tekshirildi
 

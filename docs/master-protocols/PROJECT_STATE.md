@@ -11,7 +11,7 @@
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzillari | Canonical: `https://biolabguide-fbcitqyf.manus.space`; faol Vercel main mirror: `https://biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | TypeScript check, production build, 16 ta Vitest, 100/100 detail regressiyasi, path audit, sanitizatsiya va continuity audit muvaffaqiyatli; Vercel `/agent` browser smoke testi ham PASS. Pixel/Vercel scope holati **READY**; premium sahnadagi agent ko‘rinishi uchun alohida kosmetik audit TODOsi ochiq. |
+| Joriy audit | TypeScript check, production build, 16 ta Vitest, 100/100 detail regressiyasi, path audit, sanitizatsiya va continuity audit muvaffaqiyatli; Vercel `/agent` browser smoke testi ham PASS. Premium Live Lab agenti uchun mobil 390×844 va desktop 1280×720 vizual auditdan keyin rasm yorqinligi/soya minimal ravshanlashtirildi: agent, pipetka va ish stoli endi sahnada aniq ajraladi. Pixel/Vercel scope holati **READY**. |
 
 ## 2026-08-25 Pixel Agent va Vercel mirror — tekshirildi
 

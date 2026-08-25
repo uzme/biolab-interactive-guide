@@ -139,7 +139,7 @@
 - [x] Kirish sahnasidagi sxematik ikonka kollajini soddaroq, yagona premium laboratoriya kompozitsiyasiga almashtirish; agent, ish stoli, monitor nuri, pipetka, qahva va mushukchani tabiiyroq ierarxiyada berish
 - [x] Premium live sahna uchun sekin va o‘qiladigan monitor glow, pipetka harakati, qahva bug‘i hamda mushukcha holati animatsiyalarini reduced-motion qoidasi bilan yaratish
 - [x] Yangi live sahnani 390×844 mobil viewportda vizual audit, TypeScript va browser regression bilan tekshirish
-- [ ] Premium kirish sahnasidagi laboratoriya agenti foydalanuvchiga aniq ajralib ko‘rinishi, ish holati tushunarli bo‘lishi va kompozitsiya ichida yo‘qolib qolmasligini qayta audit qilish
+- [x] Premium kirish sahnasidagi laboratoriya agenti foydalanuvchiga aniq ajralib ko‘rinishi, ish holati tushunarli bo‘lishi va kompozitsiya ichida yo‘qolib qolmasligini qayta audit qilish
 - [x] Expo Go development manzilidagi 502 upstream connect failed xatosini SDK 54 Metro serverini qayta ishga tushirib bartaraf etish va faol manzilni tekshirish
 - [x] Mavjud Pixel Agent fayllari, `/agent` route, Live Lab-first oqimi, Sidebar havolasi va deterministic local katalog engine’ni duplicate yaratmasdan audit qilish; faqat zarur minimal patchni qo‘llash
 - [x] BioLabning tekshirilgan current main versiyasini Vercel deploymentida qayta faollashtirish va Manus bilan mosligini tekshirish

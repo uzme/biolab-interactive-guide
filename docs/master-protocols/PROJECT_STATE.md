@@ -11,7 +11,7 @@
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzillari | Canonical: `https://biolabguide-fbcitqyf.manus.space`; faol Vercel main mirror: `https://biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | TypeScript check, production build, 18 ta Vitest va 100/100 detail regressiyasi muvaffaqiyatli. Saralanganlar paneli hamda Sozlamalar oynasida PDF eksportiga qo‘shimcha ravishda **PDF ulashish** mavjud: qo‘llab-quvvatlangan telefon/brauzerda native Share oynasi ochiladi, aks holda ayni PDF fayli download qilinadi. DeviceViewer loading regressiyasi global toast statusidan ajratilib, o‘quv oynasidagi `role=status` bilan tekshiriladi. Vercel `dpl_J8T2BtBnV43GA9Ts4RZu66U5bD96` production deploymenti `0333d01`dan **READY**. Premium Live Lab agenti uchun mobil 390×844 va desktop 1280×720 vizual auditdan keyin rasm yorqinligi/soya minimal ravshanlashtirildi: agent, pipetka va ish stoli endi sahnada aniq ajraladi. Pixel/Vercel scope holati **READY**. |
+| Joriy audit | TypeScript check, production build, 20 ta Vitest va BIO-001–BIO-100 detail regressiyasi muvaffaqiyatli. Har bir katalog kartasi va qurilma detail oynasida alohida **PDFni ulashish** boshqaruvi bor: u 16 bo‘limli o‘zbekcha qurilma dosyesini haqiqiy `application/pdf` fayliga yaratadi, native Share orqali Telegram, WhatsApp yoki qurilmaning boshqa ulashish manziliga yuboradi; mos bo‘lmagan brauzerda fayl download qilinadi. DeviceViewer loading regressiyasi keshlangan modul holatida ham bevosita o‘quv oynasining semantik signaliga bog‘langan. Vercel `dpl_J8T2BtBnV43GA9Ts4RZu66U5bD96` production deploymenti `0333d01`dan **READY**. Premium Live Lab agenti uchun mobil 390×844 va desktop 1280×720 vizual auditdan keyin rasm yorqinligi/soya minimal ravshanlashtirildi: agent, pipetka va ish stoli endi sahnada aniq ajraladi. Pixel/Vercel scope holati **READY**. |
 
 ## 2026-08-25 Pixel Agent va Vercel mirror — tekshirildi
 
@@ -24,6 +24,8 @@ Lokal browser smoke tekshiruvi: oddiy `/agent` avval Live Lab kirish ekranini ko
 Pixel Agent browser javobi ham tekshirildi: `BIO-001 haqida ayt` tezkor so‘rovi katalogdagi PCR qurilmasi, uning kategoriya va Bio-Rad CFX96 Touch Real-Time PCR modelini qaytardi. Bu javob local `equipment` yozuvidan hosil bo‘ldi; tarmoq so‘rovi qilinmadi.
 
 Pixel Agentdagi ikkala qaytish boshqaruvi endi aniq **“Asosiy katalog oynasiga qaytish”** deb nomlangan va `/?direct=1#catalog`ga yo‘naltiriladi. Shuning uchun foydalanuvchi Live Lab kirish ekraniga qaytmaydi; to‘g‘ridan-to‘g‘ri BioLabning katalog oynasidagi qurilmalar, qidiruv va filtrlar oqimiga o‘tadi. Browserda URL, katalog interfeysi va Live Lab gate’siz ochilish holati tekshirildi.
+
+Individual qurilma PDF dosyesi relizi: katalogdagi har bir kartada `PDF` boshqaruvi ko‘rinadi va u tegishli qurilmaning alohida PDF dosyesini yaratish/ulashish oqimini boshlaydi. Browser auditida BIO-001–BIO-012 kartalarida PDF tugmalari ko‘rinishi hamda BIO-001 tugmasining amali tekshirildi; native Share qo‘llab-quvvatlanmagan muhitlarda download fallback qo‘llanadi.
 
 ## 2026-08-24 Premium illustratsion laboratoriya live sahnasi
 

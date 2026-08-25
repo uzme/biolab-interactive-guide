@@ -149,3 +149,5 @@
 - [x] Pixel Agentdan Live Lab kirishiga emas, BioLabning asosiy katalog oynasiga aniq va tushunarli qaytish boshqaruvini qo‘shish
 - [x] Saralanganlardan yaratilgan PDFni qurilmaning tizim Share oynasi orqali ulashish va qo‘llab-quvvatlanmagan brauzer uchun download fallback qo‘shish
 - [x] DeviceViewer loading regressiya testidagi status semantikasini global toastlardan emas, aynan o‘quv oynasidan tekshirish
+- [x] Har bir qurilma uchun o‘zbekcha, sifatli individual PDF dosyesini yaratish va uni karta/detail oynasidan yuklab olish yoki native Share oynasi orqali Telegram, WhatsApp hamda qurilma xotirasiga ulashish
+- [x] Dinamik learning moduli keshlangan holatda flake qilayotgan DeviceViewer loading regression assertionini ishonchli semantik signal bilan barqarorlashtirish

@@ -23,6 +23,8 @@ Lokal browser smoke tekshiruvi: oddiy `/agent` avval Live Lab kirish ekranini ko
 
 Pixel Agent browser javobi ham tekshirildi: `BIO-001 haqida ayt` tezkor so‘rovi katalogdagi PCR qurilmasi, uning kategoriya va Bio-Rad CFX96 Touch Real-Time PCR modelini qaytardi. Bu javob local `equipment` yozuvidan hosil bo‘ldi; tarmoq so‘rovi qilinmadi.
 
+Pixel Agentdagi ikkala qaytish boshqaruvi endi aniq **“Asosiy katalog oynasiga qaytish”** deb nomlangan va `/?direct=1#catalog`ga yo‘naltiriladi. Shuning uchun foydalanuvchi Live Lab kirish ekraniga qaytmaydi; to‘g‘ridan-to‘g‘ri BioLabning katalog oynasidagi qurilmalar, qidiruv va filtrlar oqimiga o‘tadi. Browserda URL, katalog interfeysi va Live Lab gate’siz ochilish holati tekshirildi.
+
 ## 2026-08-24 Premium illustratsion laboratoriya live sahnasi
 
 Kirish ekranidagi avvalgi sxematik agent kollaji soddalashtirildi va bir butun premium laboratoriya illustratsiyasi bilan almashtirildi. Sahnada biotexnolog mutaxassisi ish stoli, kompyuter/monitor, pipetka, qahva va mushukcha bilan tabiiyroq ko‘rinadi; interface ustiga faqat sokin monitor nuri, qahva bug‘i va live signal animatsiyalari qo‘yildi. Illustratsiya project-lifecycle static storage orqali beriladi, lokal build ichiga media kiritilmaydi. `prefers-reduced-motion` holatida dekorativ harakatlar to‘xtaydi.

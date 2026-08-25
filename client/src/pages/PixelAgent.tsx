@@ -3,6 +3,8 @@ import { ArrowUpRight, Bot, CheckCircle2, ChevronLeft, Database, LoaderCircle, S
 import { equipment } from "@/lib/equipmentData";
 import { buildAgentReply, getQuickPrompts, type PixelAgentSource } from "@/lib/pixelAgent";
 
+export const CATALOG_WINDOW_URL = "/?direct=1#catalog";
+
 type ChatMessage = {
   id: number;
   role: "agent" | "user";
@@ -45,7 +47,7 @@ export default function PixelAgent() {
     <div className="min-h-screen bg-[#031417] text-[#eaf8f0] selection:bg-[#67e2bf]/30">
       <div className="mx-auto min-h-screen max-w-[1180px] px-3 py-3 sm:px-6 sm:py-6 lg:px-10">
         <header className="flex items-center justify-between rounded-[22px] border border-[#2d716c]/50 bg-[#082b30]/90 px-4 py-3 shadow-[0_18px_40px_rgba(0,0,0,0.22)] backdrop-blur-xl sm:px-6">
-          <a href="/" className="flex items-center gap-3 text-[#d9f7e9] transition hover:text-[#7de0c2]" aria-label="BioLab katalogiga qaytish">
+          <a href={CATALOG_WINDOW_URL} className="flex items-center gap-3 text-[#d9f7e9] transition hover:text-[#7de0c2]" aria-label="BioLab asosiy katalog oynasiga qaytish">
             <span className="grid h-10 w-10 place-items-center rounded-xl border border-[#70dec1]/50 bg-[#0e6564] text-sm font-black shadow-[0_0_24px_rgba(82,220,185,0.2)]">BL</span>
             <span><span className="block text-[11px] font-bold uppercase tracking-[0.22em] text-[#a5e8d6]">BIO.LAB / LAB-01</span><span className="block text-xs text-[#739c97]">Pixel Agent workspace</span></span>
           </a>
@@ -80,7 +82,7 @@ export default function PixelAgent() {
               <div className="space-y-2">{quickPrompts.map((prompt) => <button key={prompt} type="button" onClick={() => submitQuestion(prompt)} className="group flex w-full items-center justify-between rounded-2xl border border-[#2f6865] bg-[#0a373b] px-3 py-3 text-left text-xs leading-5 text-[#c8eee2] transition hover:border-[#71ddc0] hover:bg-[#0d4547]"><span>{prompt}</span><ArrowUpRight size={15} className="shrink-0 text-[#6bd8bb] transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></button>)}</div>
             </section>
             <section className="rounded-[26px] border border-[#2d716c]/60 bg-[#082b30] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.22)] sm:p-6"><div className="mb-4 flex items-center justify-between"><div className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#8fe8d0]">Tizim holati</div><CheckCircle2 size={17} className="text-[#6fe5c1]" /></div><div className="space-y-3 text-xs text-[#a8cbc1]"><div className="flex justify-between border-b border-white/10 pb-2"><span>Katalog</span><span className="font-bold text-[#d9f7e9]">100 rekord</span></div><div className="flex justify-between border-b border-white/10 pb-2"><span>SOP oqimi</span><span className="font-bold text-[#d9f7e9]">16 bo‘lim</span></div><div className="flex justify-between"><span>Javob manbasi</span><span className="font-bold text-[#6fe5c1]">Local</span></div></div></section>
-            <a href="/" className="flex items-center justify-center gap-2 rounded-2xl border border-[#4a8d82] bg-[#d7f5e7] px-4 py-3 text-sm font-bold text-[#07555a] transition hover:bg-white"><ChevronLeft size={17} /> Katalogga qaytish</a>
+            <a href={CATALOG_WINDOW_URL} className="flex items-center justify-center gap-2 rounded-2xl border border-[#4a8d82] bg-[#d7f5e7] px-4 py-3 text-sm font-bold text-[#07555a] transition hover:bg-white"><ChevronLeft size={17} /> Asosiy katalog oynasiga qaytish</a>
           </aside>
         </main>
         <footer className="px-2 py-5 text-center text-[10px] font-bold uppercase tracking-[0.16em] text-[#5f8983]">BioLab Pixel Agent <span className="mx-2 text-[#70dfc1]">•</span> 100 × 16 o‘quv rekordi</footer>

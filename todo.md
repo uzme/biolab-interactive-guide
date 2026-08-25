@@ -146,3 +146,4 @@
 - [x] GitHub `main`dagi tarixiy BioLab manbasi bilan joriy canonical Manus manbasini force-pushsiz normal merge commit orqali birlashtirish; so‘ng Vercelni aynan shu main commitdan qayta build qilish
 - [x] Vercel deploymentida `/agent` va SPA ichki route’lari 404 bermasligi uchun minimal Vercel routing/build mosligini tuzatish va productionda tekshirish
 - [x] Vercel mirrorida tasdiqlangan 100 ta qurilma, logo va Live Lab rasm assetlari ham yuklanishini tarixiy source-controlled local mirror asosida moslashtirish
+- [x] Pixel Agentdan Live Lab kirishiga emas, BioLabning asosiy katalog oynasiga aniq va tushunarli qaytish boshqaruvini qo‘shish

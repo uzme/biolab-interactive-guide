@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { equipment } from "@/lib/equipmentData";
 import { buildAgentReply, searchCatalog } from "@/lib/pixelAgent";
+import { CATALOG_WINDOW_URL } from "@/pages/PixelAgent";
 
 describe("pixel agent catalog engine", () => {
   it("finds an exact BIO record and model", () => {
@@ -20,5 +21,9 @@ describe("pixel agent catalog engine", () => {
     const reply = buildAgentReply("mars rover laboratoriyasi", equipment);
     expect(reply.sources).toHaveLength(0);
     expect(reply.text).toContain("aniq rekord topilmadi");
+  });
+
+  it("returns to the catalog window without reopening the Live Lab gate", () => {
+    expect(CATALOG_WINDOW_URL).toBe("/?direct=1#catalog");
   });
 });

@@ -140,9 +140,9 @@
 - [x] Premium live sahna uchun sekin va o‘qiladigan monitor glow, pipetka harakati, qahva bug‘i hamda mushukcha holati animatsiyalarini reduced-motion qoidasi bilan yaratish
 - [x] Yangi live sahnani 390×844 mobil viewportda vizual audit, TypeScript va browser regression bilan tekshirish
 - [ ] Premium kirish sahnasidagi laboratoriya agenti foydalanuvchiga aniq ajralib ko‘rinishi, ish holati tushunarli bo‘lishi va kompozitsiya ichida yo‘qolib qolmasligini qayta audit qilish
-- [ ] Expo Go development manzilidagi 502 upstream connect failed xatosini SDK 54 Metro serverini qayta ishga tushirib bartaraf etish va faol manzilni tekshirish
-- [ ] Mavjud Pixel Agent fayllari, `/agent` route, Live Lab-first oqimi, Sidebar havolasi va deterministic local katalog engine’ni duplicate yaratmasdan audit qilish; faqat zarur minimal patchni qo‘llash
-- [ ] BioLabning tekshirilgan current main versiyasini Vercel deploymentida qayta faollashtirish va Manus bilan mosligini tekshirish
-- [ ] GitHub `main`dagi tarixiy BioLab manbasi bilan joriy canonical Manus manbasini force-pushsiz normal merge commit orqali birlashtirish; so‘ng Vercelni aynan shu main commitdan qayta build qilish
-- [ ] Vercel deploymentida `/agent` va SPA ichki route’lari 404 bermasligi uchun minimal Vercel routing/build mosligini tuzatish va productionda tekshirish
-- [ ] Vercel mirrorida tasdiqlangan 100 ta qurilma, logo va Live Lab rasm assetlari ham yuklanishini tarixiy source-controlled local mirror asosida moslashtirish
+- [x] Expo Go development manzilidagi 502 upstream connect failed xatosini SDK 54 Metro serverini qayta ishga tushirib bartaraf etish va faol manzilni tekshirish
+- [x] Mavjud Pixel Agent fayllari, `/agent` route, Live Lab-first oqimi, Sidebar havolasi va deterministic local katalog engine’ni duplicate yaratmasdan audit qilish; faqat zarur minimal patchni qo‘llash
+- [x] BioLabning tekshirilgan current main versiyasini Vercel deploymentida qayta faollashtirish va Manus bilan mosligini tekshirish
+- [x] GitHub `main`dagi tarixiy BioLab manbasi bilan joriy canonical Manus manbasini force-pushsiz normal merge commit orqali birlashtirish; so‘ng Vercelni aynan shu main commitdan qayta build qilish
+- [x] Vercel deploymentida `/agent` va SPA ichki route’lari 404 bermasligi uchun minimal Vercel routing/build mosligini tuzatish va productionda tekshirish
+- [x] Vercel mirrorida tasdiqlangan 100 ta qurilma, logo va Live Lab rasm assetlari ham yuklanishini tarixiy source-controlled local mirror asosida moslashtirish

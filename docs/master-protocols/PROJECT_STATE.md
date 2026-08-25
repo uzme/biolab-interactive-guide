@@ -5,19 +5,19 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Web checkpoint | `4325146c` |
-| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; 2026-08-24 final source commit `fde6a503d359cd823976b85bbf9fad011b97e5e0` |
-| Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T09:16:14.165Z` |
+| Oxirgi checkpoint | `4325146c`; Pixel Agent/Vercel yangilanishi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
+| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; ilova relizi `a6e09e2295eacb81525fbf9d1e5647bfcbd16f52` |
+| Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T09:16:14.165Z`; foydalanuvchining yangi aniq so‘rovisiz bu taskda Drive yangilanmagan |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
-| Ishlab chiqarish manzili | `https://biolabguide-fbcitqyf.manus.space` |
+| Ishlab chiqarish manzillari | Canonical: `https://biolabguide-fbcitqyf.manus.space`; faol Vercel main mirror: `https://biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; canonical production yangi tema bundleini servis qilayotgani bilan holat **READY** |
+| Joriy audit | TypeScript check, production build, 16 ta Vitest, 100/100 detail regressiyasi, path audit, sanitizatsiya va continuity audit muvaffaqiyatli; Vercel `/agent` browser smoke testi ham PASS. Pixel/Vercel scope holati **READY**; premium sahnadagi agent ko‘rinishi uchun alohida kosmetik audit TODOsi ochiq. |
 
-## 2026-08-25 Pixel Agent va Vercel mirror — tekshiruv davom etmoqda
+## 2026-08-25 Pixel Agent va Vercel mirror — tekshirildi
 
-Vercel loyihasi foydalanuvchi talabi bilan yana faol mirror sifatida saqlanadi; u canonical host o‘rnini bosmaydi. `a42dd05` GitHub `main` commitidan yaratilgan `dpl_GXgBVMEQtGTBH1LcuREHr2id5AJL` buildi muvaffaqiyatli tugagan bo‘lsa-da, Vercel default output katalogi noto‘g‘ri tanlangani sabab root va `/agent` noto‘g‘ri statik faylni qaytardi. Audit Vite buildning haqiqiy client chiqishi `dist/public` ekanini tasdiqladi; shu sabab `vercel.json`ga Vite output override va SPA catch-all rewrite qo‘shildi. Production tekshiruvi hali bajarilmagan.
+Vercel loyihasi foydalanuvchi talabi bilan yana faol mirror sifatida saqlanadi; u canonical Manus host o‘rnini bosmaydi. Vite client outputi `dist/public` ekanligi audit qilindi va `vercel.json`ga aynan shu output katalogi hamda SPA catch-all rewrite qo‘shildi. `a6e09e2295eacb81525fbf9d1e5647bfcbd16f52` GitHub `main` commitidan yaratilgan `dpl_BRNRMPW9J1YWwdvJwcM1gtPeseS6` branch deploymenti **READY** holatiga yetdi; uning `https://biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app/agent` manzili Live Lab gate va `/agent` SPA marshrutini HTTP 200 bilan berdi. Vercel asset mirrorida 100 ta qurilma, logo hamda Live Lab rasmlari source-controlled local fayllardan yuklanadi.
 
-Tarixiy GitHub manbasida mavjud, ammo canonical daraxtga kelmagan Pixel Agent moduli qayta yaratilmadi: u lokal `equipment` katalogida deterministic qidiruv va javob generatori, unit test hamda `/agent` route bilan minimal qayta tiklandi. Agent tarmoq, API, backend, secret yoki LLM ishlatmaydi; normal `/agent` tashrifi ham Live Lab kirish ekranidan o‘tadi. Funksional va Vercel smoke testlari tugamaguncha bu holat **IN PROGRESS** hisoblanadi.
+Tarixiy GitHub manbasida mavjud, ammo canonical daraxtga kelmagan Pixel Agent moduli qayta yaratilmadi: u lokal `equipment` katalogida deterministic qidiruv va javob generatori, unit test hamda `/agent` route bilan minimal qayta tiklandi. Agent tarmoq, API, backend, secret yoki LLM ishlatmaydi; normal `/agent` tashrifi ham Live Lab kirish ekranidan o‘tadi. Vercel browser smoke tekshiruvida gate’dan keyin Pixel Agent workspace, local/offline indikatorlari, tezkor so‘rovlar hamda katalogga qaytish havolasi ko‘rindi.
 
 Lokal browser smoke tekshiruvi: oddiy `/agent` avval Live Lab kirish ekranini ko‘rsatdi; `Laboratoriyaga kirish` bosilgach Pixel Agent workspace ochildi va uning local/offline catalog indicatorlari, tezkor so‘rovlari hamda qaytish havolasi ko‘rindi.
 

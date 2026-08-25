@@ -144,3 +144,5 @@
 - [ ] Mavjud Pixel Agent fayllari, `/agent` route, Live Lab-first oqimi, Sidebar havolasi va deterministic local katalog engine’ni duplicate yaratmasdan audit qilish; faqat zarur minimal patchni qo‘llash
 - [ ] BioLabning tekshirilgan current main versiyasini Vercel deploymentida qayta faollashtirish va Manus bilan mosligini tekshirish
 - [ ] GitHub `main`dagi tarixiy BioLab manbasi bilan joriy canonical Manus manbasini force-pushsiz normal merge commit orqali birlashtirish; so‘ng Vercelni aynan shu main commitdan qayta build qilish
+- [ ] Vercel deploymentida `/agent` va SPA ichki route’lari 404 bermasligi uchun minimal Vercel routing/build mosligini tuzatish va productionda tekshirish
+- [ ] Vercel mirrorida tasdiqlangan 100 ta qurilma, logo va Live Lab rasm assetlari ham yuklanishini tarixiy source-controlled local mirror asosida moslashtirish

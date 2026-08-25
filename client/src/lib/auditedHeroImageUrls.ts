@@ -94,3 +94,12 @@ export const legacyAcceptedHeroIds = [
   "BIO-016", "BIO-017", "BIO-018", "BIO-019", "BIO-020", "BIO-021", "BIO-022",
   "BIO-024", "BIO-025", "BIO-027", "BIO-028", "BIO-029", "BIO-031", "BIO-033", "BIO-035",
 ] as const;
+
+// Vercel mirror uchun tarixiy source tree ichida tekshirilgan 100 ta local WebP nusxa.
+// BIO kodi fayl nomiga qat’iy biriktirilgan; bu map tarmoqdagi Manus storage’ga bog‘liq emas.
+export const localMirrorImageUrls: Record<string, string> = Object.fromEntries(
+  Array.from({ length: 100 }, (_, index) => {
+    const id = `BIO-${String(index + 1).padStart(3, "0")}`;
+    return [id, `/biolab-drive-assets/${id}-hero_local.webp`];
+  }),
+);

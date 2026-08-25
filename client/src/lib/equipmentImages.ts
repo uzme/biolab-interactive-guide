@@ -1,4 +1,4 @@
-import { auditedHeroImageUrls } from "./auditedHeroImageUrls";
+import { auditedHeroImageUrls, localMirrorImageUrls } from "./auditedHeroImageUrls";
 
 // BioLab image registry — realistik AI assets are linked to the canonical equipment id.
 // 3D/2D visualizers are intentionally not used; these images provide a readable study-page header.
@@ -518,6 +518,12 @@ export const equipmentImages: Record<string, EquipmentImage> = {
   ...baseEquipmentImages,
   ...Object.fromEntries(
     Object.entries(auditedHeroImageUrls).map(([id, url]) => [
+      id,
+      { ...baseEquipmentImages[id], url, sourceType: "ai-representative" as const },
+    ]),
+  ),
+  ...Object.fromEntries(
+    Object.entries(localMirrorImageUrls).map(([id, url]) => [
       id,
       { ...baseEquipmentImages[id], url, sourceType: "ai-representative" as const },
     ]),

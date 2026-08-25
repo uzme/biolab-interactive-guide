@@ -7,6 +7,7 @@ import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import PixelAgent from "./pages/PixelAgent";
 import LabEntryGate from "./components/LabEntryGate";
 
 declare global {
@@ -26,6 +27,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/agent" component={PixelAgent} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

@@ -13,6 +13,16 @@
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
 | Joriy audit | TypeScript check, production build, Vitest/regressiya testlari, path audit, sanitizatsiya va canonical docs audit muvaffaqiyatli; canonical production yangi tema bundleini servis qilayotgani bilan holat **READY** |
 
+## 2026-08-25 Pixel Agent va Vercel mirror — tekshiruv davom etmoqda
+
+Vercel loyihasi foydalanuvchi talabi bilan yana faol mirror sifatida saqlanadi; u canonical host o‘rnini bosmaydi. `a42dd05` GitHub `main` commitidan yaratilgan `dpl_GXgBVMEQtGTBH1LcuREHr2id5AJL` buildi muvaffaqiyatli tugagan bo‘lsa-da, Vercel default output katalogi noto‘g‘ri tanlangani sabab root va `/agent` noto‘g‘ri statik faylni qaytardi. Audit Vite buildning haqiqiy client chiqishi `dist/public` ekanini tasdiqladi; shu sabab `vercel.json`ga Vite output override va SPA catch-all rewrite qo‘shildi. Production tekshiruvi hali bajarilmagan.
+
+Tarixiy GitHub manbasida mavjud, ammo canonical daraxtga kelmagan Pixel Agent moduli qayta yaratilmadi: u lokal `equipment` katalogida deterministic qidiruv va javob generatori, unit test hamda `/agent` route bilan minimal qayta tiklandi. Agent tarmoq, API, backend, secret yoki LLM ishlatmaydi; normal `/agent` tashrifi ham Live Lab kirish ekranidan o‘tadi. Funksional va Vercel smoke testlari tugamaguncha bu holat **IN PROGRESS** hisoblanadi.
+
+Lokal browser smoke tekshiruvi: oddiy `/agent` avval Live Lab kirish ekranini ko‘rsatdi; `Laboratoriyaga kirish` bosilgach Pixel Agent workspace ochildi va uning local/offline catalog indicatorlari, tezkor so‘rovlari hamda qaytish havolasi ko‘rindi.
+
+Pixel Agent browser javobi ham tekshirildi: `BIO-001 haqida ayt` tezkor so‘rovi katalogdagi PCR qurilmasi, uning kategoriya va Bio-Rad CFX96 Touch Real-Time PCR modelini qaytardi. Bu javob local `equipment` yozuvidan hosil bo‘ldi; tarmoq so‘rovi qilinmadi.
+
 ## 2026-08-24 Premium illustratsion laboratoriya live sahnasi
 
 Kirish ekranidagi avvalgi sxematik agent kollaji soddalashtirildi va bir butun premium laboratoriya illustratsiyasi bilan almashtirildi. Sahnada biotexnolog mutaxassisi ish stoli, kompyuter/monitor, pipetka, qahva va mushukcha bilan tabiiyroq ko‘rinadi; interface ustiga faqat sokin monitor nuri, qahva bug‘i va live signal animatsiyalari qo‘yildi. Illustratsiya project-lifecycle static storage orqali beriladi, lokal build ichiga media kiritilmaydi. `prefers-reduced-motion` holatida dekorativ harakatlar to‘xtaydi.

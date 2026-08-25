@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { equipmentImages } from "./equipmentImages";
-import { auditedHeroImageUrls } from "./auditedHeroImageUrls";
+import { auditedHeroImageUrls, localMirrorImageUrls } from "./auditedHeroImageUrls";
 import {
   getImageBackgroundProfile,
   getImagePresentation,
@@ -40,8 +40,8 @@ describe("qurilma rasm presentation profillari", () => {
     for (const id of acceptedHeroIds) {
       expect(getImagePresentation(id).fit).toBe("cover");
       expect(getImageBackgroundProfile(id)).toBe("laboratory");
-      expect(equipmentImages[id].url).toBe(auditedHeroImageUrls[id]);
-      expect(equipmentImages[id].url).toContain("-hero_");
+      expect(equipmentImages[id].url).toBe(localMirrorImageUrls[id]);
+      expect(equipmentImages[id].url).toBe(`/biolab-drive-assets/${id}-hero_local.webp`);
       expect(equipmentImages[id].sourceType).toBe("ai-representative");
     }
   });

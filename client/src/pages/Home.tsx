@@ -4,7 +4,7 @@
 */
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useTransition } from "react";
 import { createPortal } from "react-dom";
-import { ArrowUpRight, Beaker, BookOpen, ChevronRight, CircleHelp, FlaskConical, Grid2X2, Heart, LibraryBig, Menu, Microscope, Moon, Search, Settings2, SlidersHorizontal, Sparkles, Sun, X } from "lucide-react";
+import { ArrowUpRight, Beaker, BookOpen, Bot, ChevronRight, CircleHelp, FlaskConical, Grid2X2, Heart, LibraryBig, Menu, Microscope, Moon, Search, Settings2, SlidersHorizontal, Sparkles, Sun, X } from "lucide-react";
 import Pure3DCarousel from "@/components/Pure3DCarousel";
 import BookmarksSidebar from "@/components/BookmarksSidebar";
 import CatalogFilterSheet from "@/components/CatalogFilterSheet";
@@ -38,7 +38,7 @@ const categoryIcons: Record<string, typeof FlaskConical> = {
 function Sidebar({ activeCategory, onCategory, onMobileClose, onOpenSettings, drawer = false }: { activeCategory: string; onCategory: (category: string) => void; onMobileClose?: () => void; onOpenSettings?: () => void; drawer?: boolean }) {
   return <aside className={`sidebar ${drawer ? "mobile-drawer" : ""}`}>
     <div className="mb-10 flex items-center gap-3 px-2">
-      <div className="brand-mark relative grid h-12 w-12 place-items-center overflow-hidden rounded-[15px] border border-[#87d9cd]/55 bg-[#0a5358] shadow-[0_10px_24px_rgba(10,83,88,0.18)]"><img src="/manus-storage/biolab-logo_c6e5d846.png" alt="BioLab laboratoriya belgisi" className="h-8 w-8 object-contain" /><span className="absolute inset-x-2 bottom-1.5 h-px bg-[#86ead1]/70" /><span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-white bg-[#14b8a6]" /></div>
+      <div className="brand-mark relative grid h-12 w-12 place-items-center overflow-hidden rounded-[15px] border border-[#87d9cd]/55 bg-[#0a5358] shadow-[0_10px_24px_rgba(10,83,88,0.18)]"><img src="/biolab-logo.webp" alt="BioLab laboratoriya belgisi" className="h-8 w-8 object-contain" /><span className="absolute inset-x-2 bottom-1.5 h-px bg-[#86ead1]/70" /><span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-white bg-[#14b8a6]" /></div>
       <div className="sidebar-copy"><div className="display flex items-baseline gap-1 text-[22px] font-bold tracking-[-0.055em] text-[#173d42]">Bio<span className="text-[#0d9488]">Lab</span><span className="ml-1 text-[9px] tracking-normal text-[#86a39c]">/ LAB-01</span></div><div className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#5b7c77]">SOP o‘quv tizimi</div></div>
     </div>
     <div className="sidebar-copy mb-3 px-3 text-[10px] font-bold uppercase tracking-[0.17em] text-[#86a39c]">Navigatsiya</div>
@@ -48,7 +48,8 @@ function Sidebar({ activeCategory, onCategory, onMobileClose, onOpenSettings, dr
         return <button key={category} onClick={() => { onCategory(category); onMobileClose?.(); }} className={`nav-link ${activeCategory === category ? "active" : ""}`} title={category}><Icon size={17} /><span className="nav-label text-left text-[13px]">{category}</span>{category !== "Barcha uskunalar" && <span className="nav-label ml-auto text-[11px] text-[#91a7a0]">{equipment.filter((item) => item.category === category).length}</span>}</button>;
       })}
     </nav>
-      <div className="sidebar-footer mt-auto px-2 pt-6">
+    <a href="/agent" className="mt-5 flex items-center gap-2 rounded-2xl border border-[#b8d8ce] bg-[#eaf7f2] px-3 py-3 text-sm font-bold text-[#0b7772] transition hover:bg-white" aria-label="Pixel Agentni ochish"><Bot size={16} /><span className="sidebar-copy">Pixel Agent</span><ArrowUpRight size={14} className="ml-auto" /></a>
+    <div className="sidebar-footer mt-auto px-2 pt-6">
       <button type="button" aria-label="Sozlamalar va Copyright" className="sidebar-copy w-full rounded-2xl border-0 bg-[#edf7f4] p-4 text-left cursor-pointer hover:bg-[#e2ede8] transition shadow-sm" onClick={() => { onOpenSettings?.(); onMobileClose?.(); }}>
         <div className="mb-2 flex items-center gap-2 text-[#0c7773]"><Settings2 size={15} /><span className="text-xs font-bold">Sozlamalar & Copyright</span></div>
         <p className="sidebar-footer-copy text-xs leading-5 text-[#537c76]">© 2026 Mengliyev Bahrom Husanovich</p>
@@ -271,7 +272,7 @@ export default function Home() {
       <div className="page-frame mx-auto max-w-[1500px] px-5 py-6 sm:px-8 sm:py-10 lg:px-12">
         <section className="landing-hero" data-hero-surface>
           <div className="landing-hero-visual">
-            <img src="/manus-storage/biolab-hero_a08d430e.jpg" alt="Zamonaviy biotexnologiya laboratoriyasi" className="landing-hero-image" />
+            <img src="/biolab-main-hero.webp" alt="Zamonaviy biotexnologiya laboratoriyasi" className="landing-hero-image" />
             <div className="landing-hero-image-shade" />
             <div className="landing-visual-top"><span>BIO.LAB / LAB-01</span><span>O‘QUV TIZIMI</span></div>
             <div className="landing-visual-core"><span className="landing-visual-index">01—100</span><span className="landing-visual-copy">QURILMA DOSYELARI</span><span className="landing-visual-line" /></div>

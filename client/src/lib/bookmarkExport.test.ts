@@ -1,6 +1,6 @@
 import { PDFDocument } from "pdf-lib";
-import { describe, expect, it } from "vitest";
-import { buildBookmarksCsv, buildBookmarksPdf } from "./bookmarkExport";
+import { describe, expect, it, vi } from "vitest";
+import { buildBookmarksCsv, buildBookmarksPdf, shareBookmarksPdf } from "./bookmarkExport";
 import type { Equipment } from "./equipmentData";
 
 const devices = [
@@ -40,5 +40,22 @@ describe("bookmark exports", () => {
     const document = await PDFDocument.load(await blob.arrayBuffer());
     expect(document.getPageCount()).toBe(1);
     expect(document.getTitle()).toBe("BioLab — Saralangan qurilmalar");
+  });
+
+  it("qo‘llab-quvvatlangan qurilmada PDFni native Share oynasiga beradi", async () => {
+    const navigatorDescriptor = Object.getOwnPropertyDescriptor(globalThis, "navigator");
+    const share = vi.fn().mockResolvedValue(undefined);
+    const canShare = vi.fn(() => true);
+    Object.defineProperty(globalThis, "navigator", { configurable: true, value: { share, canShare } });
+
+    try {
+      await expect(shareBookmarksPdf(devices, exportedAt)).resolves.toBe("shared");
+      expect(canShare).toHaveBeenCalledOnce();
+      expect(share).toHaveBeenCalledOnce();
+      expect(share.mock.calls[0][0].files?.[0].name).toBe("BioLab_saralanganlar_2026-08-24.pdf");
+    } finally {
+      if (navigatorDescriptor) Object.defineProperty(globalThis, "navigator", navigatorDescriptor);
+      else Reflect.deleteProperty(globalThis, "navigator");
+    }
   });
 });

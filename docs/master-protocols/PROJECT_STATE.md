@@ -11,7 +11,7 @@
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzillari | Canonical: `https://biolabguide-fbcitqyf.manus.space`; faol Vercel main mirror: `https://biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | TypeScript check, production build, 16 ta Vitest, 100/100 detail regressiyasi, path audit, sanitizatsiya va continuity audit muvaffaqiyatli; Vercel `/agent` browser smoke testi ham PASS. Vercel `dpl_J8T2BtBnV43GA9Ts4RZu66U5bD96` production deploymenti `0333d01`dan **READY**. Premium Live Lab agenti uchun mobil 390×844 va desktop 1280×720 vizual auditdan keyin rasm yorqinligi/soya minimal ravshanlashtirildi: agent, pipetka va ish stoli endi sahnada aniq ajraladi. Pixel/Vercel scope holati **READY**. |
+| Joriy audit | TypeScript check, production build, 18 ta Vitest va 100/100 detail regressiyasi muvaffaqiyatli. Saralanganlar paneli hamda Sozlamalar oynasida PDF eksportiga qo‘shimcha ravishda **PDF ulashish** mavjud: qo‘llab-quvvatlangan telefon/brauzerda native Share oynasi ochiladi, aks holda ayni PDF fayli download qilinadi. DeviceViewer loading regressiyasi global toast statusidan ajratilib, o‘quv oynasidagi `role=status` bilan tekshiriladi. Vercel `dpl_J8T2BtBnV43GA9Ts4RZu66U5bD96` production deploymenti `0333d01`dan **READY**. Premium Live Lab agenti uchun mobil 390×844 va desktop 1280×720 vizual auditdan keyin rasm yorqinligi/soya minimal ravshanlashtirildi: agent, pipetka va ish stoli endi sahnada aniq ajraladi. Pixel/Vercel scope holati **READY**. |
 
 ## 2026-08-25 Pixel Agent va Vercel mirror — tekshirildi
 

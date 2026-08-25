@@ -14,6 +14,10 @@ function exportDateToken(date = new Date()) {
   return date.toISOString().slice(0, 10);
 }
 
+export function getBookmarksPdfFilename(exportedAt = new Date()) {
+  return `BioLab_saralanganlar_${exportDateToken(exportedAt)}.pdf`;
+}
+
 function quoteCsv(value: string | number) {
   return `"${String(value).replaceAll('"', '""')}"`;
 }
@@ -152,5 +156,34 @@ export function downloadBookmarksCsv(devices: Equipment[]) {
 }
 
 export async function downloadBookmarksPdf(devices: Equipment[]) {
-  triggerDownload(await buildBookmarksPdf(devices), `BioLab_saralanganlar_${exportDateToken()}.pdf`);
+  triggerDownload(await buildBookmarksPdf(devices), getBookmarksPdfFilename());
+}
+
+export type PdfShareResult = "shared" | "downloaded" | "cancelled";
+
+export async function shareBookmarksPdf(devices: Equipment[], exportedAt = new Date()): Promise<PdfShareResult> {
+  const filename = getBookmarksPdfFilename(exportedAt);
+  const pdfBlob = await buildBookmarksPdf(devices, exportedAt);
+
+  if (typeof navigator !== "undefined" && typeof navigator.share === "function" && typeof File !== "undefined") {
+    const file = new File([pdfBlob], filename, { type: "application/pdf" });
+    const shareData: ShareData = {
+      files: [file],
+      title: "BioLab — Saralangan qurilmalar",
+      text: `${devices.length} ta saralangan BioLab qurilmasi ro‘yxati`,
+    };
+    const supportsFiles = typeof navigator.canShare !== "function" || navigator.canShare(shareData);
+
+    if (supportsFiles) {
+      try {
+        await navigator.share(shareData);
+        return "shared";
+      } catch (error) {
+        if (error instanceof Error && error.name === "AbortError") return "cancelled";
+      }
+    }
+  }
+
+  triggerDownload(pdfBlob, filename);
+  return "downloaded";
 }

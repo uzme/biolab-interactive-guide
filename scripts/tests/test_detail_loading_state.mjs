@@ -34,7 +34,7 @@ try {
 
     const loadingHeading = page.getByRole("heading", { name: "O‘quv dosyesi yuklanmoqda…" });
     await loadingHeading.waitFor({ state: "visible", timeout: 10_000 });
-    await assert(await page.getByRole("status").isVisible(), `Learning block ${block}: loading status semantikasi ko‘rinmadi.`);
+    await assert(await page.locator("[data-device-viewer] [role='status']").isVisible(), `Learning block ${block}: loading status semantikasi ko‘rinmadi.`);
     await page.waitForFunction(() => document.querySelectorAll('nav[aria-label="16 bo‘limli o‘quv dasturi"] button').length === 16, null, { timeout: 30_000 });
     await loadingHeading.waitFor({ state: "hidden", timeout: 5_000 });
     await context.close();

@@ -20,7 +20,7 @@ import DeviceViewer from "@/components/DeviceViewer";
 import { toast } from "sonner";
 import { useBookmarks } from "@/hooks/useBookmarks";
 import { useTheme } from "@/contexts/ThemeContext";
-import { downloadBookmarksCsv, downloadBookmarksPdf } from "@/lib/bookmarkExport";
+import { downloadBookmarksCsv, downloadBookmarksPdf, shareBookmarksPdf } from "@/lib/bookmarkExport";
 
 const categoryIcons: Record<string, typeof FlaskConical> = {
   "Molekulyar biologiya": FlaskConical,
@@ -104,6 +104,24 @@ export default function Home() {
       toast.success(`${bookmarkedDevices.length} ta saralangan qurilma PDF fayliga eksport qilindi.`);
     } catch {
       toast.error("PDF faylini yaratib bo‘lmadi. Iltimos, qayta urinib ko‘ring.");
+    }
+  };
+  const handleShareBookmarksPdf = async () => {
+    if (!bookmarkedDevices.length) {
+      toast.info("Ulashish uchun kamida bitta qurilmani saralang.");
+      return;
+    }
+    try {
+      const result = await shareBookmarksPdf(bookmarkedDevices);
+      if (result === "shared") {
+        toast.success(`${bookmarkedDevices.length} ta saralangan qurilma PDFi ulashish oynasiga tayyorlandi.`);
+      } else if (result === "downloaded") {
+        toast.info("Bu brauzer PDF fayl ulashishni qo‘llamaydi. PDF yuklab olindi.");
+      } else {
+        toast.info("PDFni ulashish bekor qilindi.");
+      }
+    } catch {
+      toast.error("PDF faylini ulashishga tayyorlab bo‘lmadi. Iltimos, qayta urinib ko‘ring.");
     }
   };
 
@@ -338,7 +356,7 @@ export default function Home() {
         </footer>
       </div>
     </main>
-    <BookmarksSidebar open={bookmarksOpen} onOpenChange={setBookmarksOpen} devices={bookmarkedDevices} onSelectDevice={setSelectedDevice} onToggleBookmark={toggleBookmark} onClearBookmarks={clearBookmarks} onExportBookmarks={exportBookmarks} onExportBookmarksCsv={handleExportBookmarksCsv} onExportBookmarksPdf={handleExportBookmarksPdf} onImportBookmarks={handleImportBookmarks} />
+    <BookmarksSidebar open={bookmarksOpen} onOpenChange={setBookmarksOpen} devices={bookmarkedDevices} onSelectDevice={setSelectedDevice} onToggleBookmark={toggleBookmark} onClearBookmarks={clearBookmarks} onExportBookmarks={exportBookmarks} onExportBookmarksCsv={handleExportBookmarksCsv} onExportBookmarksPdf={handleExportBookmarksPdf} onShareBookmarksPdf={handleShareBookmarksPdf} onImportBookmarks={handleImportBookmarks} />
     {selectedDevice && typeof document !== "undefined" && createPortal(
       <div data-device-modal role="dialog" aria-modal="true" aria-label={`${selectedDevice.name} o‘quv dosyesi`} className="fixed inset-0 z-[100] flex h-[100vh] h-[100dvh] min-h-[100svh] items-stretch justify-center overflow-hidden bg-[#173d42]/60 p-0 backdrop-blur-md sm:items-center sm:p-6" onClick={() => setSelectedDevice(null)}>
         <div data-device-modal-panel className="relative flex h-full min-h-0 w-full flex-col overflow-hidden border-[#d8e7e3] bg-[#f7fbfa] shadow-[0_30px_90px_rgba(20,68,64,0.3)] sm:h-auto sm:max-h-[92dvh] sm:max-w-6xl sm:rounded-[30px] sm:border" onClick={(event) => event.stopPropagation()}>
@@ -352,6 +370,6 @@ export default function Home() {
       document.body,
     )}
     <CatalogFilterSheet open={filtersOpen} onOpenChange={setFiltersOpen} query={query} modelQuery={modelQuery} activeCategory={activeCategory} categories={categories} bookmarksOnly={bookmarksOnly} resultCount={filtered.length} bookmarkedCount={bookmarkedCount} hasActiveFilters={hasActiveFilters} onQueryChange={handleQueryChange} onModelQueryChange={handleModelQueryChange} onCategoryChange={handleCategoryChange} onBookmarksOnlyChange={handleBookmarksOnlyChange} onClearFilters={clearFilters} />
-    <SettingsDialog open={settingsOpen} onOpenChange={setSettingsOpen} bookmarkedCount={bookmarkedCount} onClearBookmarks={clearBookmarks} onExportBookmarks={exportBookmarks} onExportBookmarksCsv={handleExportBookmarksCsv} onExportBookmarksPdf={handleExportBookmarksPdf} onImportBookmarks={handleImportBookmarks} />
+    <SettingsDialog open={settingsOpen} onOpenChange={setSettingsOpen} bookmarkedCount={bookmarkedCount} onClearBookmarks={clearBookmarks} onExportBookmarks={exportBookmarks} onExportBookmarksCsv={handleExportBookmarksCsv} onExportBookmarksPdf={handleExportBookmarksPdf} onShareBookmarksPdf={handleShareBookmarksPdf} onImportBookmarks={handleImportBookmarks} />
   </div>;
 }

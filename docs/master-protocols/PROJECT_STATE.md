@@ -5,13 +5,19 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Oxirgi checkpoint | `93aaacb3`; foydalanuvchi tasdiqlagan oltin 3D monogram relizi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
+| Oxirgi checkpoint | `8f95c9bd`; Live Lab markaziy oltin emblem relizi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
 | Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; ilova relizi `0333d01d39afb162e5782b4be8b95a19f44b93b9` |
 | Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T09:16:14.165Z`; foydalanuvchining yangi aniq so‘rovisiz bu taskda Drive yangilanmagan |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzillari | Canonical: `https://biolabguide-fbcitqyf.manus.space`; faol Vercel main mirror: `https://biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | Foydalanuvchi tasdiqlagan oltin 3D DNA–B monogram Live Lab va katalog sidebariga joriy qilindi. TypeScript check, production build, 23 ta Vitest, katalog/detail/loader/kirish regressiyalari va BIO-001–BIO-100 auditlari PASS. Desktop 1280×720 hamda mobil 390×844 ko‘rinishlarida logo aniq va responsive ko‘rindi. Har bir katalog kartasi va qurilma detail oynasida alohida **PDFni ulashish** boshqaruvi bor: u 16 bo‘limli o‘zbekcha qurilma dosyesini haqiqiy `application/pdf` fayliga yaratadi, native Share orqali Telegram, WhatsApp yoki qurilmaning boshqa ulashish manziliga yuboradi; mos bo‘lmagan brauzerda fayl download qilinadi. GitHub yoki Drive sync bajarilmadi; manual-only siyosat saqlandi. |
+| Joriy audit | Foydalanuvchi yuborgan oltin kolba–DNA–barg emblem Live Lab markaziy laboratoriya rasmi ustiga qo‘yildi; katalog sidebaridagi tasdiqlangan oltin 3D DNA–B monogram saqlandi. TypeScript check, production build, 23 ta Vitest, katalog/detail/loader/kirish regressiyalari va BIO-001–BIO-100 auditlari PASS. Desktop 1280×720 hamda mobil 390×844 ko‘rinishlarida overlay oq fon artefaktisiz aniq va responsive ko‘rindi. Har bir katalog kartasi va qurilma detail oynasida alohida **PDFni ulashish** boshqaruvi bor: u 16 bo‘limli o‘zbekcha qurilma dosyesini haqiqiy `application/pdf` fayliga yaratadi, native Share orqali Telegram, WhatsApp yoki qurilmaning boshqa ulashish manziliga yuboradi; mos bo‘lmagan brauzerda fayl download qilinadi. GitHub yoki Drive sync bajarilmadi; manual-only siyosat saqlandi. |
+
+## 2026-08-26 Live Lab markaziy oltin emblem overlayi
+
+Foydalanuvchi yuborgan premium oltin kolba–DNA–barg belgisi Live Lab kirish kadri ichidagi markaziy laboratoriya rasmi ustiga overlay sifatida joriy qilindi. Oqartirilgan kvadrat fon ko‘ringani uchun u oddiy raster ko‘chirish bilan qo‘yilmadi: emblem uchun fon, yozuv va rangli chet artefaktlarisiz shaffof web asset tayyorlandi. Ilovada `/manus-storage/biolab-gold-lab-image-overlay-alpha_11e875f8.png` lifecycle manzili ishlatiladi; belgi surat markazida yengil soya va sokin float harakati bilan turadi, rasm labeli hamda agent statusini to‘smasligi uchun qatlamlar alohida joylashtirildi.
+
+Dalillar: 390×844 mobil vizual auditda emblеm laboratoriya ustiga oq fon artefaktisiz markazlashgani tasdiqlandi; desktop vizual kontrakti, TypeScript check, production build, 23 ta Vitest, katalog, mobil header, hero, Live Lab, PWA fallback, tema, DeviceViewer, BIO-001–BIO-100 detail, loader/recovery va release-sanitizatsiya regressiyalari PASS. GitHub commit/push yoki Google Drive snapshot upload bajarilmadi. Holat: **READY — checkpoint kutilmoqda**.
 
 ## 2026-08-26 Foydalanuvchi tasdiqlagan oltin 3D BioLab monogrami
 

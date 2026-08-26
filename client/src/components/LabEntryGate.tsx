@@ -27,6 +27,7 @@ export default function LabEntryGate({ onEnter }: LabEntryGateProps) {
       <div className="lab-entry-visual" aria-label="Jonli laboratoriya ish va tanaffus sahnasi">
         <img src="/biolab-live-lab-agent-scene.webp" alt="Laboratoriyada kompyuter va pipetka bilan ishlayotgan biotexnolog mutaxassisi, qahva va mushukcha bilan" />
         <div className="lab-entry-shade" aria-hidden="true" />
+        <img className="lab-entry-gold-emblem" src="/manus-storage/biolab-gold-lab-image-overlay-alpha_11e875f8.png" alt="" aria-hidden="true" />
         <div className="lab-entry-agent-scene" data-agent-scene aria-hidden="true">
           <span className="studio-monitor-glow" />
           <span className="studio-coffee-steam studio-coffee-steam-one" />

@@ -161,3 +161,4 @@
 - [x] Foydalanuvchi yuborgan namuna uslubida original oltin 3D kolba–DNA–barg kompozitsiyali BioLab logo yaratish va avval rasm sifatida tasdiqlatish
 - [x] Oltin 3D uslubini saqlagan holda, avvalgi kolba–DNA–barg kompozitsiyasidan aniq farq qiladigan original BioLab logo variantini yaratib rasm sifatida ko‘rsatish
 - [x] Foydalanuvchi tasdiqlagan toza fonli oltin 3D DNA–B monogram logoni Live Lab va asosiy katalog brend nuqtalariga joriy etib, mobil/desktopda tekshirish
+- [x] Foydalanuvchi yuborgan oltin kolba–DNA–barg logoni Live Lab markaziy laboratoriya rasmi ustiga muvozanatli overlay sifatida qo‘yish va mobil/desktopda tekshirish

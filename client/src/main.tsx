@@ -18,7 +18,10 @@ if ("serviceWorker" in navigator && window.isSecureContext) {
 
     navigator.serviceWorker
       .register("/sw.js", { scope: "/" })
-      .then((registration) => registration.update())
+      .then((registration) => {
+        if (!registration || typeof registration.update !== "function") return undefined;
+        return registration.update();
+      })
       .catch((error) => {
         console.warn("BioLab offline rejimi ishga tushmadi:", error);
       });

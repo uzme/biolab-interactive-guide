@@ -9,7 +9,7 @@
     "start": "NODE_ENV=production node dist/index.js",
     "preview": "vite preview --host",
     "check": "tsc --noEmit",
-    "test": "vitest run && node scripts/tests/test_catalog_controls.mjs && node scripts/tests/test_mobile_header_actions.mjs && node scripts/tests/test_hero_command_deck.mjs && node scripts/tests/test_lab_entry_gate.mjs && node scripts/tests/test_theme_adaptation.mjs && node scripts/tests/test_device_viewer.mjs && node scripts/tests/test_device_modal_portal.mjs && node scripts/tests/test_all_device_learning.mjs && node scripts/tests/test_detail_loading_state.mjs && node scripts/tests/test_detail_loader_recovery.mjs && node scripts/tests/test_release_drive_fallback.mjs",
+    "test": "vitest run && node scripts/tests/test_catalog_controls.mjs && node scripts/tests/test_mobile_header_actions.mjs && node scripts/tests/test_hero_command_deck.mjs && node scripts/tests/test_lab_entry_gate.mjs && node scripts/tests/test_pwa_service_worker_fallback.mjs && node scripts/tests/test_theme_adaptation.mjs && node scripts/tests/test_device_viewer.mjs && node scripts/tests/test_device_modal_portal.mjs && node scripts/tests/test_all_device_learning.mjs && node scripts/tests/test_detail_loading_state.mjs && node scripts/tests/test_detail_loader_recovery.mjs && node scripts/tests/test_release_drive_fallback.mjs",
     "format": "prettier --write .",
     "audit:continuity": "node scripts/release/verify_continuity_docs.mjs",
     "release:check": "node scripts/release/sync_release.mjs --check",

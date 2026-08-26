@@ -5,13 +5,19 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Oxirgi checkpoint | `4325146c`; Pixel Agent/Vercel yangilanishi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
+| Oxirgi checkpoint | `030d8cb7`; premium logo relizi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
 | Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; ilova relizi `0333d01d39afb162e5782b4be8b95a19f44b93b9` |
 | Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T09:16:14.165Z`; foydalanuvchining yangi aniq so‘rovisiz bu taskda Drive yangilanmagan |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzillari | Canonical: `https://biolabguide-fbcitqyf.manus.space`; faol Vercel main mirror: `https://biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | TypeScript check, production build, 20 ta Vitest va BIO-001–BIO-100 detail regressiyasi muvaffaqiyatli. Har bir katalog kartasi va qurilma detail oynasida alohida **PDFni ulashish** boshqaruvi bor: u 16 bo‘limli o‘zbekcha qurilma dosyesini haqiqiy `application/pdf` fayliga yaratadi, native Share orqali Telegram, WhatsApp yoki qurilmaning boshqa ulashish manziliga yuboradi; mos bo‘lmagan brauzerda fayl download qilinadi. DeviceViewer loading regressiyasi keshlangan modul holatida ham bevosita o‘quv oynasining semantik signaliga bog‘langan. Vercel `dpl_J8T2BtBnV43GA9Ts4RZu66U5bD96` production deploymenti `0333d01`dan **READY**. Premium Live Lab agenti uchun mobil 390×844 va desktop 1280×720 vizual auditdan keyin rasm yorqinligi/soya minimal ravshanlashtirildi: agent, pipetka va ish stoli endi sahnada aniq ajraladi. Pixel/Vercel scope holati **READY**. |
+| Joriy audit | Premium logo relizi TypeScript check, production build, 23 ta Vitest, katalog/detail/loader/kirish regressiyalari va BIO-001–BIO-100 auditidan muvaffaqiyatli o‘tdi. Desktop 1280×720 hamda mobil 390×844 ko‘rinishlarida Live Lab va asosiy katalogdagi yangi brend belgisi aniq hamda responsive ko‘rindi. Har bir katalog kartasi va qurilma detail oynasida alohida **PDFni ulashish** boshqaruvi bor: u 16 bo‘limli o‘zbekcha qurilma dosyesini haqiqiy `application/pdf` fayliga yaratadi, native Share orqali Telegram, WhatsApp yoki qurilmaning boshqa ulashish manziliga yuboradi; mos bo‘lmagan brauzerda fayl download qilinadi. GitHub yoki Drive sync bajarilmadi; manual-only siyosat saqlandi. |
+
+## 2026-08-26 Premium BioLab logo relizi
+
+BioLab uchun maxsus precision-biotech logo yaratildi va project-lifecycle storage manzilidagi `/manus-storage/biolab-logo-premium_552801cf.png` asseti orqali Live Lab kirish kadri hamda asosiy katalog sidebar brend belgisiga joriy qilindi. Logo chuqur teal va mint palitrasidagi minimal laboratoriya belgisi bo‘lib, u foydalanuvchi interfeysida kod orqali berilgan aniq `BIO.LAB / LAB-01` va `BioLab` nomlari bilan yonma-yon ishlaydi; shuning uchun identitet mobil hamda desktopda ravshan qoladi.
+
+Dalillar: 1280×720 desktop va 390×844 mobil vizual audit, TypeScript check, production build, 23 ta Vitest hamda katalog, mobil header, hero, Live Lab kirish, tema, DeviceViewer, BIO-001–BIO-100 detail, loader/recovery va release-sanitizatsiya regressiyalari PASS. QR modal source importi bitta `useEffect` importi bilan tekshirildi. Playwright service-worker registration obyektini bermaydigan muhitda `registration.update()` endi himoyalangan fallback bilan chaqiriladi; shu sabab test muhitidagi PWA updater ogohlantirishi yo‘q, haqiqiy brauzerda esa registration mavjud bo‘lsa update odatdagidek ishlaydi. Manual-only siyosatga muvofiq GitHub commit/push va Google Drive snapshot upload bajarilmadi. Holat: **READY — checkpoint kutilmoqda**.
 
 ## 2026-08-25 Pixel Agent va Vercel mirror — tekshirildi
 

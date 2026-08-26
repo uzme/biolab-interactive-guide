@@ -155,3 +155,5 @@
 - [x] Login talab qilmaydigan, brauzer xotirasida saqlanadigan qurilma hamda 16-bo‘limli o‘quv progressi boshqaruvini qo‘shish
 - [x] Individual qurilma PDF dosyesiga detail sahifasini ochadigan QR-kod va skan qilish yo‘riqnomasini kiritish
 - [x] QR modalida React hook importi hamda Vite runtime transform holatini yakuniy tekshirish
+- [x] BioLab uchun asosiy sahifadagi laboratoriya brendiga mos, sodda va responsive maxsus logo yaratish hamda joriy etish
+- [x] Playwright service-worker registration cheklovida offline updater xatosiz fallback qilishi va haqiqiy PWA oqimi saqlanishini tekshirish

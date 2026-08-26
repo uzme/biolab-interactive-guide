@@ -20,7 +20,7 @@ export default function LabEntryGate({ onEnter }: LabEntryGateProps) {
     <div className="lab-entry-glow lab-entry-glow-b" aria-hidden="true" />
     <section className="lab-entry-frame">
       <div className="lab-entry-topline">
-        <div className="lab-entry-brand"><span className="lab-entry-mark"><img src="/manus-storage/biolab-logo-premium_552801cf.png" alt="" /></span><span>BIO.LAB <b>/ LAB-01</b></span></div>
+        <div className="lab-entry-brand"><span className="lab-entry-mark"><img src="/manus-storage/biolab-gold-3d-monogram-clean_2eb9f2d4.png" alt="" /></span><span>BIO.LAB <b>/ LAB-01</b></span></div>
         <span className="lab-entry-live"><i /> LIVE TIZIM</span>
       </div>
 

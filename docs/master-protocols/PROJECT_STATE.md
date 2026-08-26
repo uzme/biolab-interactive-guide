@@ -5,13 +5,19 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Oxirgi checkpoint | `030d8cb7`; premium logo relizi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
+| Oxirgi checkpoint | `93aaacb3`; foydalanuvchi tasdiqlagan oltin 3D monogram relizi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
 | Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; ilova relizi `0333d01d39afb162e5782b4be8b95a19f44b93b9` |
 | Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T09:16:14.165Z`; foydalanuvchining yangi aniq so‘rovisiz bu taskda Drive yangilanmagan |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzillari | Canonical: `https://biolabguide-fbcitqyf.manus.space`; faol Vercel main mirror: `https://biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | Premium logo relizi TypeScript check, production build, 23 ta Vitest, katalog/detail/loader/kirish regressiyalari va BIO-001–BIO-100 auditidan muvaffaqiyatli o‘tdi. Desktop 1280×720 hamda mobil 390×844 ko‘rinishlarida Live Lab va asosiy katalogdagi yangi brend belgisi aniq hamda responsive ko‘rindi. Har bir katalog kartasi va qurilma detail oynasida alohida **PDFni ulashish** boshqaruvi bor: u 16 bo‘limli o‘zbekcha qurilma dosyesini haqiqiy `application/pdf` fayliga yaratadi, native Share orqali Telegram, WhatsApp yoki qurilmaning boshqa ulashish manziliga yuboradi; mos bo‘lmagan brauzerda fayl download qilinadi. GitHub yoki Drive sync bajarilmadi; manual-only siyosat saqlandi. |
+| Joriy audit | Foydalanuvchi tasdiqlagan oltin 3D DNA–B monogram Live Lab va katalog sidebariga joriy qilindi. TypeScript check, production build, 23 ta Vitest, katalog/detail/loader/kirish regressiyalari va BIO-001–BIO-100 auditlari PASS. Desktop 1280×720 hamda mobil 390×844 ko‘rinishlarida logo aniq va responsive ko‘rindi. Har bir katalog kartasi va qurilma detail oynasida alohida **PDFni ulashish** boshqaruvi bor: u 16 bo‘limli o‘zbekcha qurilma dosyesini haqiqiy `application/pdf` fayliga yaratadi, native Share orqali Telegram, WhatsApp yoki qurilmaning boshqa ulashish manziliga yuboradi; mos bo‘lmagan brauzerda fayl download qilinadi. GitHub yoki Drive sync bajarilmadi; manual-only siyosat saqlandi. |
+
+## 2026-08-26 Foydalanuvchi tasdiqlagan oltin 3D BioLab monogrami
+
+Foydalanuvchi ko‘rib tasdiqlagan yakuniy belgi avvalgi kolba–DNA–barg kompozitsiyasidan farqli bo‘lgan oltin 3D **DNA–B monogram**dir. U shaffof fonli asset sifatida `/manus-storage/biolab-gold-3d-monogram-clean_2eb9f2d4.png` manzilida saqlanadi va faqat mavjud ikki brend nuqtasiga — Live Lab kirishining chap yuqori belgisiga hamda asosiy katalog sidebariga — joriy qilindi. Mavjud kod-based `BIO.LAB / LAB-01` va `BioLab` matnlari saqlanib, kichik ekranlarda brend nomi ravshan qoladi.
+
+Dalillar: foydalanuvchi tasdig‘i, 1280×720 katalog sidebar hamda Live Lab desktop auditi, 390×844 Live Lab mobil auditi, TypeScript check, production build, 23 ta Vitest va katalog, mobil header, hero, Live Lab, PWA fallback, tema, DeviceViewer, BIO-001–BIO-100 detail, loader/recovery hamda release-sanitizatsiya regressiyalari PASS. GitHub commit/push yoki Google Drive snapshot upload bajarilmadi; manual-only siyosat saqlandi. Holat: **READY — checkpoint kutilmoqda**.
 
 ## 2026-08-26 Premium BioLab logo relizi
 

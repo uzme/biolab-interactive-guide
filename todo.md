@@ -157,3 +157,7 @@
 - [x] QR modalida React hook importi hamda Vite runtime transform holatini yakuniy tekshirish
 - [x] BioLab uchun asosiy sahifadagi laboratoriya brendiga mos, sodda va responsive maxsus logo yaratish hamda joriy etish
 - [x] Playwright service-worker registration cheklovida offline updater xatosiz fallback qilishi va haqiqiy PWA oqimi saqlanishini tekshirish
+- [x] Yangi BioLab logo variantini avval foydalanuvchiga ko‘rsatish va faqat tasdiqlansa ilovadagi avvalgi belgi o‘rniga joriy etish
+- [x] Foydalanuvchi yuborgan namuna uslubida original oltin 3D kolba–DNA–barg kompozitsiyali BioLab logo yaratish va avval rasm sifatida tasdiqlatish
+- [x] Oltin 3D uslubini saqlagan holda, avvalgi kolba–DNA–barg kompozitsiyasidan aniq farq qiladigan original BioLab logo variantini yaratib rasm sifatida ko‘rsatish
+- [x] Foydalanuvchi tasdiqlagan toza fonli oltin 3D DNA–B monogram logoni Live Lab va asosiy katalog brend nuqtalariga joriy etib, mobil/desktopda tekshirish

@@ -151,3 +151,7 @@
 - [x] DeviceViewer loading regressiya testidagi status semantikasini global toastlardan emas, aynan o‘quv oynasidan tekshirish
 - [x] Har bir qurilma uchun o‘zbekcha, sifatli individual PDF dosyesini yaratish va uni karta/detail oynasidan yuklab olish yoki native Share oynasi orqali Telegram, WhatsApp hamda qurilma xotirasiga ulashish
 - [x] Dinamik learning moduli keshlangan holatda flake qilayotgan DeviceViewer loading regression assertionini ishonchli semantik signal bilan barqarorlashtirish
+- [x] Har bir qurilma uchun uning detail oynasini ochadigan QR-kod yaratish va karta/detail UXiga qo‘shish
+- [x] Login talab qilmaydigan, brauzer xotirasida saqlanadigan qurilma hamda 16-bo‘limli o‘quv progressi boshqaruvini qo‘shish
+- [x] Individual qurilma PDF dosyesiga detail sahifasini ochadigan QR-kod va skan qilish yo‘riqnomasini kiritish
+- [ ] QR modalida React hook importi hamda Vite runtime transform holatini yakuniy tekshirish

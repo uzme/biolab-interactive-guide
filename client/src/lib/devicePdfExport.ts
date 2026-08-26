@@ -1,6 +1,7 @@
 import { PDFDocument, rgb, StandardFonts, type PDFFont, type PDFPage } from "pdf-lib";
 import type { Equipment } from "@/lib/equipmentData";
 import { loadLearningContent, loadPurchaseContent, resolveDeviceContent, type LearningContent, type PurchaseContent } from "@/lib/learningData";
+import { getDeviceQrDataUrl } from "@/lib/deviceQr";
 
 const PAGE_WIDTH = 595.28;
 const PAGE_HEIGHT = 841.89;
@@ -100,6 +101,9 @@ export async function buildDevicePdf(device: Equipment, learning: LearningConten
 
   const regular = await pdf.embedFont(StandardFonts.Helvetica);
   const bold = await pdf.embedFont(StandardFonts.HelveticaBold);
+  const qrDataUrl = await getDeviceQrDataUrl(device.id);
+  const qrBytes = await fetch(qrDataUrl).then((response) => response.arrayBuffer());
+  const qrImage = await pdf.embedPng(qrBytes);
   const pages: PDFPage[] = [];
   let page!: PDFPage;
   let cursorY = 0;
@@ -113,14 +117,16 @@ export async function buildDevicePdf(device: Equipment, learning: LearningConten
 
   createPage();
   page.drawRectangle({ x: MARGIN, y: PAGE_HEIGHT - 292, width: BODY_WIDTH, height: 166, color: rgb(0.94, 0.98, 0.97), borderColor: rgb(0.71, 0.86, 0.81), borderWidth: 0.8 });
-  page.drawText(toPdfText(learning?.title || device.name), { x: MARGIN + 18, y: PAGE_HEIGHT - 161, size: 20, font: bold, color: rgb(0.04, 0.27, 0.27), maxWidth: BODY_WIDTH - 36, lineHeight: 24 });
+  page.drawText(toPdfText(learning?.title || device.name), { x: MARGIN + 18, y: PAGE_HEIGHT - 161, size: 20, font: bold, color: rgb(0.04, 0.27, 0.27), maxWidth: BODY_WIDTH - 148, lineHeight: 24 });
+  page.drawImage(qrImage, { x: PAGE_WIDTH - MARGIN - 104, y: PAGE_HEIGHT - 278, width: 90, height: 90 });
+  page.drawText("Skan qiling: detail oynasi", { x: PAGE_WIDTH - MARGIN - 118, y: PAGE_HEIGHT - 290, size: 6.7, font: bold, color: rgb(0.04, 0.42, 0.39), maxWidth: 118 });
   const profileLines = [
     `${device.id}  |  ${device.category}`,
     `Model: ${learning?.model || device.model}`,
     `Manufacturer: ${learning?.manufacturer || device.brands || "Aniqlanmagan"}`,
     `Eksport sanasi: ${DATE_FORMATTER.format(exportedAt)}`,
   ];
-  profileLines.forEach((line, index) => page.drawText(toPdfText(line), { x: MARGIN + 18, y: PAGE_HEIGHT - 222 - index * 15, size: 9, font: index === 0 ? bold : regular, color: index === 0 ? rgb(0.04, 0.47, 0.43) : rgb(0.24, 0.42, 0.39) }));
+  profileLines.forEach((line, index) => page.drawText(toPdfText(line), { x: MARGIN + 18, y: PAGE_HEIGHT - 222 - index * 15, size: 9, font: index === 0 ? bold : regular, color: index === 0 ? rgb(0.04, 0.47, 0.43) : rgb(0.24, 0.42, 0.39), maxWidth: BODY_WIDTH - 145 }));
 
   const ensureSpace = (height: number) => {
     if (cursorY - height < MARGIN + 42) createPage(true);

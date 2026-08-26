@@ -17,11 +17,14 @@ import { equipment, categories, type Equipment } from "@/lib/equipmentData";
 import { equipmentImages } from "@/lib/equipmentImages";
 import EquipmentCard from "@/components/EquipmentCard";
 import DeviceViewer from "@/components/DeviceViewer";
+import DeviceQrDialog from "@/components/DeviceQrDialog";
 import { toast } from "sonner";
 import { useBookmarks } from "@/hooks/useBookmarks";
+import { useLearningProgress } from "@/hooks/useLearningProgress";
 import { useTheme } from "@/contexts/ThemeContext";
 import { downloadBookmarksCsv, downloadBookmarksPdf, shareBookmarksPdf } from "@/lib/bookmarkExport";
 import { shareDevicePdf } from "@/lib/devicePdfExport";
+import { DEVICE_QUERY_KEY } from "@/lib/deviceQr";
 
 const categoryIcons: Record<string, typeof FlaskConical> = {
   "Molekulyar biologiya": FlaskConical,
@@ -65,6 +68,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [modelQuery, setModelQuery] = useState("");
   const [selectedDevice, setSelectedDevice] = useState<Equipment | null>(null);
+  const [qrDevice, setQrDevice] = useState<Equipment | null>(null);
   const [mobileNav, setMobileNav] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [filtersOpen, setFiltersOpen] = useState(false);
@@ -84,6 +88,7 @@ export default function Home() {
   }, []);
   const { theme, toggleTheme } = useTheme();
   const validDeviceIds = useMemo(() => new Set(equipment.map((device) => device.id)), []);
+  const { markSectionRead, getCompletedSections, learnedDeviceCount, completedSectionCount } = useLearningProgress(validDeviceIds);
   const { bookmarkedIds, bookmarkedCount, isBookmarked, toggleBookmark, clearBookmarks, exportBookmarks, importBookmarks } = useBookmarks(validDeviceIds);
   const handleImportBookmarks = async (file: File) => importBookmarks(file);
   const bookmarkedDevices = useMemo(() => bookmarkedIds.map((id) => equipment.find((device) => device.id === id)).filter((device): device is Equipment => Boolean(device)), [bookmarkedIds]);
@@ -136,6 +141,12 @@ export default function Home() {
       toast.error(`${device.id} uchun PDF dosyesini yaratib bo‘lmadi. Iltimos, qayta urinib ko‘ring.`);
     }
   };
+
+  useEffect(() => {
+    const deviceId = new URLSearchParams(window.location.search).get(DEVICE_QUERY_KEY);
+    const deepLinkedDevice = equipment.find((device) => device.id === deviceId);
+    if (deepLinkedDevice) setSelectedDevice(deepLinkedDevice);
+  }, []);
 
   const categoryCounts = useMemo(() => categories.slice(1).map((category) => ({ name: category, count: equipment.filter((item) => item.category === category).length })), []);
   const filtered = useMemo(() => equipment.filter((item) => {
@@ -358,7 +369,8 @@ export default function Home() {
         </section>
 
         <section className="mt-8" aria-live="polite"><div className="mb-4 flex items-center justify-between gap-3"><div><div className="eyebrow mb-1">LAB-01 / REKORD OQIMI</div><h2 className="display text-2xl font-bold text-[#173d42]">{activeCategory}</h2><p className="mt-1 text-sm text-[#78908c]">{filtered.length} ta qurilma topildi{hasActiveFilters ? " — faol filtrlar qo‘llanilgan" : ""}</p></div>{hasActiveFilters && <button onClick={clearFilters} className="text-xs font-bold text-[#0d7774] hover:underline">Barcha filtrlarni tozalash</button>}</div>
-          {filtered.length > 0 ? <div className="space-y-9">{visibleCategoryGroups.map((group, groupIndex) => { const Icon = categoryIcons[group.category] || Beaker; return <section key={group.category} className="relative"><div className="module-header mb-4 flex items-end justify-between gap-4 border-y border-[#c9ddd6] bg-[#f1f8f5] px-4 py-3"><div className="flex min-w-0 items-center gap-3"><div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-[#b8d8ce] bg-white text-[#0b7772]"><Icon size={18} /></div><div><div className="tech-label text-[#0b7772]">MODUL {String(groupIndex + 1).padStart(2, "0")} / SOP KATALOGI</div><h3 className="display truncate text-xl font-bold tracking-[-0.035em] text-[#173d42]">{group.category}</h3></div></div><div className="hidden rounded-full border border-[#b8d8ce] bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#537972] sm:block">{group.devices.length} rekord</div></div><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{group.devices.map((device) => <EquipmentCard key={device.id} device={device} index={filtered.indexOf(device)} onOpen={setSelectedDevice} onSharePdf={handleShareDevicePdf} isBookmarked={isBookmarked(device.id)} onToggleBookmark={toggleBookmark} />)}</div></section>; })}</div> : <div className="rounded-[22px] border border-dashed border-[#b9d8cd] bg-[#ffffff] px-6 py-16 text-center"><Search size={28} className="mx-auto mb-4 text-[#70a298]" /><h3 className="display text-2xl font-bold">Qurilma topilmadi</h3><p className="mt-2 text-sm text-[#78908c]">Qidiruv so‘zini yoki kategoriyani o‘zgartirib ko‘ring.</p></div>}
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[#c6e1d7] bg-[#edf8f4] px-4 py-3 text-sm text-[#386761]"><span className="font-bold">Sizning lokal o‘quv progressingiz</span><span className="rounded-full border border-[#afd8c9] bg-white px-3 py-1 text-xs font-extrabold text-[#087a73]">{learnedDeviceCount} qurilma · {completedSectionCount} bo‘lim o‘qildi</span></div>
+          {filtered.length > 0 ? <div className="space-y-9">{visibleCategoryGroups.map((group, groupIndex) => { const Icon = categoryIcons[group.category] || Beaker; return <section key={group.category} className="relative"><div className="module-header mb-4 flex items-end justify-between gap-4 border-y border-[#c9ddd6] bg-[#f1f8f5] px-4 py-3"><div className="flex min-w-0 items-center gap-3"><div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-[#b8d8ce] bg-white text-[#0b7772]"><Icon size={18} /></div><div><div className="tech-label text-[#0b7772]">MODUL {String(groupIndex + 1).padStart(2, "0")} / SOP KATALOGI</div><h3 className="display truncate text-xl font-bold tracking-[-0.035em] text-[#173d42]">{group.category}</h3></div></div><div className="hidden rounded-full border border-[#b8d8ce] bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#537972] sm:block">{group.devices.length} rekord</div></div><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{group.devices.map((device) => <EquipmentCard key={device.id} device={device} index={filtered.indexOf(device)} onOpen={setSelectedDevice} onSharePdf={handleShareDevicePdf} onShowQr={setQrDevice} completedSectionCount={getCompletedSections(device.id).length} isBookmarked={isBookmarked(device.id)} onToggleBookmark={toggleBookmark} />)}</div></section>; })}</div> : <div className="rounded-[22px] border border-dashed border-[#b9d8cd] bg-[#ffffff] px-6 py-16 text-center"><Search size={28} className="mx-auto mb-4 text-[#70a298]" /><h3 className="display text-2xl font-bold">Qurilma topilmadi</h3><p className="mt-2 text-sm text-[#78908c]">Qidiruv so‘zini yoki kategoriyani o‘zgartirib ko‘ring.</p></div>}
         </section>
         <footer className="mt-12 border-t border-[#c9ded7] py-7 text-center" data-copyright-footer>
           <p className="text-xs font-extrabold uppercase tracking-[0.15em] text-[#0d7774]">Muallif va loyiha egasi</p>
@@ -374,7 +386,7 @@ export default function Home() {
         <div data-device-modal-panel className="relative flex h-full min-h-0 w-full flex-col overflow-hidden border-[#d8e7e3] bg-[#f7fbfa] shadow-[0_30px_90px_rgba(20,68,64,0.3)] sm:h-auto sm:max-h-[92dvh] sm:max-w-6xl sm:rounded-[30px] sm:border" onClick={(event) => event.stopPropagation()}>
           <div ref={deviceModalScrollRef} className="min-h-0 flex-1 overflow-y-auto overscroll-contain [-webkit-overflow-scrolling:touch]">
             <div ref={deviceViewerScrollRef} className="min-h-full w-full">
-              <DeviceViewer key={selectedDevice.id} device={selectedDevice} onBack={() => setSelectedDevice(null)} onReady={resetDeviceViewerScroll} onSharePdf={handleShareDevicePdf} />
+              <DeviceViewer key={selectedDevice.id} device={selectedDevice} onBack={() => setSelectedDevice(null)} onReady={resetDeviceViewerScroll} onSharePdf={handleShareDevicePdf} onShowQr={setQrDevice} completedSections={getCompletedSections(selectedDevice.id)} onSectionRead={markSectionRead} />
             </div>
           </div>
         </div>
@@ -383,5 +395,6 @@ export default function Home() {
     )}
     <CatalogFilterSheet open={filtersOpen} onOpenChange={setFiltersOpen} query={query} modelQuery={modelQuery} activeCategory={activeCategory} categories={categories} bookmarksOnly={bookmarksOnly} resultCount={filtered.length} bookmarkedCount={bookmarkedCount} hasActiveFilters={hasActiveFilters} onQueryChange={handleQueryChange} onModelQueryChange={handleModelQueryChange} onCategoryChange={handleCategoryChange} onBookmarksOnlyChange={handleBookmarksOnlyChange} onClearFilters={clearFilters} />
     <SettingsDialog open={settingsOpen} onOpenChange={setSettingsOpen} bookmarkedCount={bookmarkedCount} onClearBookmarks={clearBookmarks} onExportBookmarks={exportBookmarks} onExportBookmarksCsv={handleExportBookmarksCsv} onExportBookmarksPdf={handleExportBookmarksPdf} onShareBookmarksPdf={handleShareBookmarksPdf} onImportBookmarks={handleImportBookmarks} />
+    <DeviceQrDialog device={qrDevice} open={Boolean(qrDevice)} onOpenChange={(open) => { if (!open) setQrDevice(null); }} />
   </div>;
 }

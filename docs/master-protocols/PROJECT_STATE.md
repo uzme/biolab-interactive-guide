@@ -27,6 +27,8 @@ Pixel Agentdagi ikkala qaytish boshqaruvi endi aniq **“Asosiy katalog oynasiga
 
 Individual qurilma PDF dosyesi relizi: katalogdagi har bir kartada `PDF` boshqaruvi ko‘rinadi va u tegishli qurilmaning alohida PDF dosyesini yaratish/ulashish oqimini boshlaydi. Browser auditida BIO-001–BIO-012 kartalarida PDF tugmalari ko‘rinishi hamda BIO-001 tugmasining amali tekshirildi; native Share qo‘llab-quvvatlanmagan muhitlarda download fallback qo‘llanadi.
 
+QR va lokal progress relizi: katalog browser auditida BIO-001–BIO-012 kartalarida `QR-kod`, `PDF` va `O‘rganish` boshqaruvlari hamda har bir rekordning `0/16` boshlang‘ich progress indikatori ko‘rindi. Katalog sarlavhasi `Sizning lokal o‘quv progressingiz` orqali qurilma/bo‘lim hisobini ko‘rsatadi. QR modal aynan qurilmaning `?device=BIO-NNN` detail deep-linkini yaratadi; browserda `?direct=1&device=BIO-001` ochilganda PCR detail oynasi Live Lab gatesiz avtomatik ko‘rindi va birinchi o‘quv bo‘limi `1 qurilma · 1 bo‘lim o‘qildi` sifatida lokal progressga yozildi.
+
 ## 2026-08-24 Premium illustratsion laboratoriya live sahnasi
 
 Kirish ekranidagi avvalgi sxematik agent kollaji soddalashtirildi va bir butun premium laboratoriya illustratsiyasi bilan almashtirildi. Sahnada biotexnolog mutaxassisi ish stoli, kompyuter/monitor, pipetka, qahva va mushukcha bilan tabiiyroq ko‘rinadi; interface ustiga faqat sokin monitor nuri, qahva bug‘i va live signal animatsiyalari qo‘yildi. Illustratsiya project-lifecycle static storage orqali beriladi, lokal build ichiga media kiritilmaydi. `prefers-reduced-motion` holatida dekorativ harakatlar to‘xtaydi.

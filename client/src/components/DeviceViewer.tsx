@@ -18,6 +18,7 @@ import {
   Info,
   Library,
   PackageSearch,
+  QrCode,
   ShieldCheck,
   Sparkles,
   Wrench,
@@ -55,7 +56,7 @@ async function refreshLearningWorkspace() {
   window.location.reload();
 }
 
-export default function DeviceViewer({ device, onBack, onReady, onSharePdf }: { device: Equipment; onBack: () => void; onReady?: () => void; onSharePdf: (device: Equipment) => void }) {
+export default function DeviceViewer({ device, onBack, onReady, onSharePdf, onShowQr, completedSections, onSectionRead }: { device: Equipment; onBack: () => void; onReady?: () => void; onSharePdf: (device: Equipment) => void; onShowQr: (device: Equipment) => void; completedSections: number[]; onSectionRead: (deviceId: string, sectionNumber: number) => void }) {
   const [lessonIndex, setLessonIndex] = useState(0);
   const [learning, setLearning] = useState<LearningContent>();
   const [purchase, setPurchase] = useState<PurchaseContent>();
@@ -122,7 +123,17 @@ export default function DeviceViewer({ device, onBack, onReady, onSharePdf }: { 
   ] : [], [learning]);
 
   const activeSection = sections[lessonIndex] ?? sections[0];
-  const progress = sections.length ? Math.round(((lessonIndex + 1) / sections.length) * 100) : 0;
+  const completedCount = completedSections.filter((sectionNumber) => sectionNumber >= 1 && sectionNumber <= sections.length).length;
+  const progress = sections.length ? Math.round((completedCount / sections.length) * 100) : 0;
+  const selectLesson = (index: number) => {
+    setLessonIndex(index);
+    const selectedSection = sections[index];
+    if (selectedSection) onSectionRead(device.id, selectedSection.number);
+  };
+
+  useEffect(() => {
+    if (!isLoading && activeSection) onSectionRead(device.id, activeSection.number);
+  }, [activeSection?.number, device.id, isLoading, onSectionRead]);
   const purchaseSections = purchase ? [
     { value: "price", title: "Narx benchmarki va dalili", content: `${purchase.priceEvidence}\n\nManba: ${purchase.source || "manbada ko‘rsatilgan"}\nHolat: ${purchase.priceStatus || "aniqlanmagan"}` },
     { value: "buy", title: "Xarid, import va yetkazib berish", content: `${purchase.whereToBuy}\n\n${purchase.purchaseRule}\n\n${purchase.availabilityUz}\n\n${purchase.importInfo}\n\n${purchase.delivery}` },
@@ -135,8 +146,9 @@ export default function DeviceViewer({ device, onBack, onReady, onSharePdf }: { 
         <button onClick={onBack} className="flex items-center gap-2 text-sm font-bold text-[#126a6a] transition hover:gap-3"><ArrowLeft size={17} /> Barcha uskunalar</button>
         <div className="hidden items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#6d8b87] sm:flex"><BookOpenCheck size={15} /> 16 bo‘limli o‘quv markazi</div>
         <div className="flex items-center gap-3">
+          <button onClick={() => onShowQr(device)} className="grid h-8 w-8 place-items-center rounded-xl border border-[#a9cfc4] bg-white text-[#0d7774] transition hover:bg-[#e8f6f0]" title="Qurilma QR-kodini ochish" aria-label="Qurilma QR-kodini ochish"><QrCode size={16} /></button>
           <button onClick={() => onSharePdf(device)} className="flex items-center gap-2 rounded-xl border border-[#0d7774] bg-[#0d7774] px-3.5 py-1.5 text-xs font-bold text-white shadow-sm transition hover:bg-[#075e5c]" title="Qurilma PDF dosyesini ulashish"><FileDown size={15} /> PDFni ulashish</button>
-          <div className="rounded-full border border-[#b7d6ca] bg-white px-3 py-1.5 text-xs font-bold text-[#126a6a]">{learning ? `${lessonIndex + 1} / 16` : "Yuklanmoqda…"}</div>
+          <div className="rounded-full border border-[#b7d6ca] bg-white px-3 py-1.5 text-xs font-bold text-[#126a6a]">{learning ? `${completedCount} / 16` : "Yuklanmoqda…"}</div>
         </div>
       </div>
     </header>
@@ -176,15 +188,15 @@ export default function DeviceViewer({ device, onBack, onReady, onSharePdf }: { 
       {sections.length > 0 && <section className="mt-7 grid gap-5 sm:mt-8 sm:gap-6 lg:grid-cols-[minmax(240px,300px)_minmax(0,1fr)] lg:gap-8">
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <div className="rounded-[24px] border border-[#d8e7e3] bg-white p-4 shadow-[0_14px_40px_rgba(28,71,67,0.06)]">
-            <div className="mb-4 px-2"><div className="flex items-center justify-between text-xs font-bold uppercase tracking-[0.16em] text-[#71918b]"><span>O‘quv progressi</span><span>{progress}%</span></div><div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[#e8f1ef]"><div className="h-full rounded-full bg-[#0d7774] transition-all duration-300" style={{ width: `${progress}%` }} /></div></div>
-            <nav className="grid gap-1 sm:grid-cols-2 lg:grid-cols-1" aria-label="16 bo‘limli o‘quv dasturi">{sections.map((section, index) => { const Icon = section.icon; return <button key={section.id} onClick={() => setLessonIndex(index)} className={`flex items-center gap-3 rounded-xl border p-3 text-left transition ${lessonIndex === index ? "border-[#0d7774] bg-[#0d7774] text-white shadow-[0_10px_22px_rgba(13,119,116,0.18)]" : "border-transparent bg-[#fbfefd] text-[#35625f] hover:border-[#c7dfd7] hover:bg-[#f1faf7]"}`}><span className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg text-xs font-bold ${lessonIndex === index ? "bg-white/15 text-[#bbf2e1]" : "bg-[#e7f4ef] text-[#087a73]"}`}>{section.number}</span><span className="min-w-0"><span className="flex items-center gap-2 text-sm font-bold"><Icon size={15} className="shrink-0" />{section.title}</span><span className={`mt-0.5 block text-xs ${lessonIndex === index ? "text-[#c5ede0]" : "text-[#7a9892]"}`}>{section.subtitle}</span></span></button>; })}</nav>
+            <div className="mb-4 px-2"><div className="flex items-center justify-between text-xs font-bold uppercase tracking-[0.16em] text-[#71918b]"><span>O‘quv progressi</span><span>{completedCount} / 16 · {progress}%</span></div><div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[#e8f1ef]"><div className="h-full rounded-full bg-[#0d7774] transition-all duration-300" style={{ width: `${progress}%` }} /></div></div>
+            <nav className="grid gap-1 sm:grid-cols-2 lg:grid-cols-1" aria-label="16 bo‘limli o‘quv dasturi">{sections.map((section, index) => { const Icon = section.icon; const isCompleted = completedSections.includes(section.number); return <button key={section.id} onClick={() => selectLesson(index)} className={`flex items-center gap-3 rounded-xl border p-3 text-left transition ${lessonIndex === index ? "border-[#0d7774] bg-[#0d7774] text-white shadow-[0_10px_22px_rgba(13,119,116,0.18)]" : "border-transparent bg-[#fbfefd] text-[#35625f] hover:border-[#c7dfd7] hover:bg-[#f1faf7]"}`}><span className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg text-xs font-bold ${lessonIndex === index ? "bg-white/15 text-[#bbf2e1]" : "bg-[#e7f4ef] text-[#087a73]"}`}>{isCompleted ? <CheckCircle2 size={16} /> : section.number}</span><span className="min-w-0"><span className="flex items-center gap-2 text-sm font-bold"><Icon size={15} className="shrink-0" />{section.title}</span><span className={`mt-0.5 block text-xs ${lessonIndex === index ? "text-[#c5ede0]" : "text-[#7a9892]"}`}>{section.subtitle}</span></span></button>; })}</nav>
           </div>
         </aside>
 
         {activeSection && <article className="rounded-[28px] border border-[#d8e7e3] bg-white p-5 shadow-[0_16px_45px_rgba(28,71,67,0.06)] sm:p-9 lg:p-10">
           <div className="mb-7 border-b border-[#deebe7] pb-6"><div className="eyebrow mb-3">{String(activeSection.number).padStart(2, "0")} — O‘quv bo‘limi</div><div className="flex items-start gap-4"><span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-[#dff3eb] text-[#087a73]"><activeSection.icon size={22} /></span><div><h2 className="display text-3xl font-bold text-[#173d42]">{activeSection.title}</h2><p className="mt-1 text-sm text-[#6c8984]">{activeSection.subtitle}</p></div></div></div>
           {activeSection.id !== "sources" ? <SourceText value={activeSection.content} /> : <div className="space-y-4">{learning?.sources.map((source) => <div key={source.label} className="rounded-2xl border border-[#d9e8e3] bg-[#fbfefd] p-5"><div className="flex items-start justify-between gap-4"><div><h3 className="font-bold text-[#214d50]">{source.label}</h3><p className="mt-2 text-sm leading-6 text-[#56756f]">{source.note}</p></div>{source.url && <a href={source.url} target="_blank" rel="noreferrer" className="inline-flex shrink-0 items-center gap-1 rounded-lg border border-[#b9d8cd] px-3 py-2 text-xs font-bold text-[#0d7774] hover:bg-[#e3f2e9]">Ochish <ExternalLink size={14} /></a>}</div></div>)}</div>}
-          <div className="mt-10 flex flex-wrap justify-between gap-3 border-t border-[#deebe7] pt-5"><Button variant="outline" className="border-[#b7d6ca] text-[#126a6a]" disabled={lessonIndex === 0} onClick={() => setLessonIndex((index) => index - 1)}>Oldingi bo‘lim</Button><Button className="bg-[#0d7774] text-white hover:bg-[#075e5c]" disabled={lessonIndex === sections.length - 1} onClick={() => setLessonIndex((index) => index + 1)}>Keyingi bo‘lim</Button></div>
+          <div className="mt-10 flex flex-wrap justify-between gap-3 border-t border-[#deebe7] pt-5"><Button variant="outline" className="border-[#b7d6ca] text-[#126a6a]" disabled={lessonIndex === 0} onClick={() => selectLesson(lessonIndex - 1)}>Oldingi bo‘lim</Button><Button className="bg-[#0d7774] text-white hover:bg-[#075e5c]" disabled={lessonIndex === sections.length - 1} onClick={() => selectLesson(lessonIndex + 1)}>Keyingi bo‘lim</Button></div>
         </article>}
       </section>}
 

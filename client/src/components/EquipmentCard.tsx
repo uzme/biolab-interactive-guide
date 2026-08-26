@@ -4,7 +4,7 @@
   category-specific scientific glyphs, deep teal structure, and mint only for active learning signals.
 */
 import { useState } from "react";
-import { ArrowUpRight, Beaker, BookOpenCheck, CircleDollarSign, Cpu, FileDown, FlaskConical, Gauge, Grid2X2, Heart, ImageOff, LoaderCircle, Microscope, Settings2, Snowflake } from "lucide-react";
+import { ArrowUpRight, Beaker, BookOpenCheck, CheckCircle2, CircleDollarSign, Cpu, FileDown, FlaskConical, Gauge, Grid2X2, Heart, ImageOff, LoaderCircle, Microscope, QrCode, Settings2, Snowflake } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Equipment } from "@/lib/equipmentData";
 import { equipmentImages } from "@/lib/equipmentImages";
@@ -36,7 +36,7 @@ const categoryTone: Record<string, { icon: string; signal: string }> = {
   "Avtomatlashtirish": { icon: "border-[#cbd3da] bg-[#f0f3f5] text-[#536b78]", signal: "bg-[#536b78]" },
 };
 
-export default function EquipmentCard({ device, index, onOpen, onSharePdf, isBookmarked, onToggleBookmark }: { device: Equipment; index: number; onOpen: (device: Equipment) => void; onSharePdf: (device: Equipment) => void; isBookmarked: boolean; onToggleBookmark: (deviceId: string) => void }) {
+export default function EquipmentCard({ device, index, onOpen, onSharePdf, onShowQr, completedSectionCount, isBookmarked, onToggleBookmark }: { device: Equipment; index: number; onOpen: (device: Equipment) => void; onSharePdf: (device: Equipment) => void; onShowQr: (device: Equipment) => void; completedSectionCount: number; isBookmarked: boolean; onToggleBookmark: (deviceId: string) => void }) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
   const Icon = cardIcons[device.category] || FlaskConical;
@@ -96,8 +96,12 @@ export default function EquipmentCard({ device, index, onOpen, onSharePdf, isBoo
         <div className="grid grid-cols-[1fr_auto] gap-2 border-b border-[#d6e6e0] px-3 py-2.5"><span className="flex min-w-0 items-center gap-1.5 truncate text-[#355e58]"><span className="shrink-0 rounded bg-[#dcefe8] px-1 py-0.5 text-[8px] text-[#39746a]">MODEL</span><span className="truncate">{device.model}</span></span><span className="rounded-sm bg-[#0b5358] px-1.5 py-0.5 text-white">16 qadam</span></div>
         <div className="flex items-center justify-between gap-2 px-3 py-2"><span className="flex min-w-0 items-center gap-1.5 truncate text-[#5f817c]"><BookOpenCheck size={12} className="shrink-0 text-[#0d9488]" /><span className="truncate">{device.brands || "Manual"}</span></span><span className="shrink-0 rounded border border-[#bce4d8] bg-[#e7f5ef] px-1.5 py-0.5 text-[#087a73]">{recordCode}</span></div>
       </div>
+      <div className="mt-2 flex items-center justify-between gap-2 text-[10px] font-bold text-[#547871]" aria-label={`${device.name} o‘quv progressi: ${completedSectionCount} / 16 bo‘lim`}>
+        <span className="inline-flex items-center gap-1.5"><CheckCircle2 size={13} className={completedSectionCount ? "text-[#0d9488]" : "text-[#9ab7b0]"} />O‘quv progressi</span>
+        <span className="rounded-full border border-[#c3dfd5] bg-white px-2 py-0.5 text-[#087a73]">{completedSectionCount} / 16</span>
+      </div>
       <p className="relative mt-3 min-h-[54px] text-sm leading-6 text-[#6f8984]">{device.description}</p>
-      <div className="relative mt-auto flex items-center justify-between gap-2 border-t border-[#d7e5df] pt-4"><span className="min-w-0 truncate text-xs font-semibold text-[#466c67]"><CircleDollarSign size={13} className="mr-1 inline text-[#0d9488]" />{price}</span><div className="flex shrink-0 items-center gap-1.5"><Button size="sm" variant="outline" className="h-8 border-[#94bcb1] bg-transparent px-2 text-[#0d7774] hover:bg-[#e3f2e9]" onClick={(event) => { event.stopPropagation(); onSharePdf(device); }} title={`${device.name} PDF dosyesini ulashish`} aria-label={`${device.name} PDF dosyesini ulashish`}><FileDown size={15} /><span className="sr-only sm:not-sr-only sm:ml-1">PDF</span></Button><Button size="sm" variant="outline" className="h-8 border-[#94bcb1] bg-transparent text-[#0d7774] hover:bg-[#e3f2e9]" onClick={(event) => { event.stopPropagation(); onOpen(device); }}>O‘rganish <ArrowUpRight size={15} /></Button></div></div>
+      <div className="relative mt-auto flex items-center justify-between gap-2 border-t border-[#d7e5df] pt-4"><span className="min-w-0 truncate text-xs font-semibold text-[#466c67]"><CircleDollarSign size={13} className="mr-1 inline text-[#0d9488]" />{price}</span><div className="flex shrink-0 items-center gap-1.5"><Button size="sm" variant="outline" className="h-8 border-[#94bcb1] bg-transparent px-2 text-[#0d7774] hover:bg-[#e3f2e9]" onClick={(event) => { event.stopPropagation(); onShowQr(device); }} title={`${device.name} QR-kodini ochish`} aria-label={`${device.name} QR-kodini ochish`}><QrCode size={15} /><span className="sr-only">QR-kod</span></Button><Button size="sm" variant="outline" className="h-8 border-[#94bcb1] bg-transparent px-2 text-[#0d7774] hover:bg-[#e3f2e9]" onClick={(event) => { event.stopPropagation(); onSharePdf(device); }} title={`${device.name} PDF dosyesini ulashish`} aria-label={`${device.name} PDF dosyesini ulashish`}><FileDown size={15} /><span className="sr-only sm:not-sr-only sm:ml-1">PDF</span></Button><Button size="sm" variant="outline" className="h-8 border-[#94bcb1] bg-transparent text-[#0d7774] hover:bg-[#e3f2e9]" onClick={(event) => { event.stopPropagation(); onOpen(device); }}>O‘rganish <ArrowUpRight size={15} /></Button></div></div>
     </div>
   </article>;
 }

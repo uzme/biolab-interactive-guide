@@ -164,3 +164,5 @@
 - [x] Foydalanuvchi yuborgan oltin kolba–DNA–barg logoni Live Lab markaziy laboratoriya rasmi ustiga muvozanatli overlay sifatida qo‘yish va mobil/desktopda tekshirish
 - [x] Live Lab kirish sahnasini mobil hamda desktop viewportni to‘liq egallaydigan premium laboratoriya sahnasiga moslashtirish
 - [x] Offline paket boshqaruvidan so‘ng onlayn katalogga qaytish ishlamay qolishi sababini topib, qaytish va reload oqimini regression bilan tuzatish
+- [x] Asosiy ochilish sahnasini sof qora fonda foydalanuvchi yuborgan oltin BioLab logotipi viewportni to‘liq egallaydigan kompozitsiyaga almashtirish va katalogga kirish oqimini saqlash
+- [x] Qora ochilish sahnasidagi oltin logo assetidan ko‘rinib qolgan shaxmat-fon artefaktini bartaraf etish

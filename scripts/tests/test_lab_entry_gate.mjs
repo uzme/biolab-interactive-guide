@@ -10,6 +10,8 @@ await page.goto(previewUrl, { waitUntil: "networkidle" });
 
 const gate = page.locator("[data-lab-entry]");
 await gate.waitFor();
+const gateBounds = await gate.boundingBox();
+assert(Boolean(gateBounds) && gateBounds.width >= 389 && gateBounds.height >= 843, "Live Lab kirish sahnasi mobil viewportni to‘liq egallamadi.");
 assert(await page.getByRole("heading", { name: /Laboratoriyani jonli boshqaring/i }).isVisible(), "Expo Go kirish ekranida laboratoriya sarlavhasi ko‘rinmadi.");
 assert(await page.locator("[data-lab-entry-action]").isVisible(), "Kirish ekranida laboratoriyaga kirish amali yo‘q.");
 assert(await page.locator("[data-agent-scene]").isVisible(), "Kirish ekranida laboratoriya agenti sahnasi ko‘rinmadi.");
@@ -25,6 +27,8 @@ await page.close();
 const normalPage = await browser.newPage({ viewport: { width: 390, height: 844 } });
 await normalPage.goto(previewUrl, { waitUntil: "networkidle" });
 assert(await normalPage.locator("[data-lab-entry]").isVisible(), "Oddiy web tashrifida laboratoriya kirish ekrani ko‘rinmadi.");
+const normalFrame = normalPage.locator("[data-lab-entry-frame]");
+assert(await normalFrame.evaluate((frame) => Math.round(frame.getBoundingClientRect().width) === Math.round(window.innerWidth)), "Live Lab qobig‘i oddiy web tashrifida to‘liq ekranli emas.");
 await normalPage.locator("[data-lab-entry-action]").click();
 await normalPage.locator("[data-hero-surface]").waitFor({ state: "visible" });
 assert(await normalPage.getByRole("heading", { name: /Qurilmani bilib oling/i }).isVisible(), "Oddiy web tashrifida kirish amali original asosiy sahifaga o‘tmadi.");

@@ -1,4 +1,4 @@
-import { CheckCircle2, Download, RefreshCw, Trash2, WifiOff } from "lucide-react";
+import { Download, RefreshCw, Trash2, WifiOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { equipmentImages } from "@/lib/equipmentImages";
 import { useOfflinePack } from "@/hooks/useOfflinePack";
@@ -31,6 +31,18 @@ export default function OfflineManager({ compact = false }: { compact?: boolean 
     toast.success("Offline paket keshdan tozalandi.");
   };
 
+  const handleReturnOnline = () => {
+    if (!isOnline) {
+      toast.error("Onlayn katalogga qaytish uchun internet aloqasi kerak.");
+      return;
+    }
+
+    void navigator.serviceWorker?.getRegistration()
+      .then((registration) => registration?.update())
+      .catch(() => undefined);
+    window.location.replace("/?direct=1&online=1");
+  };
+
   if (!isSupported) {
     return (
       <span className="hidden items-center gap-2 rounded-full border border-[#ead8b7] bg-[#fffaf0] px-3 py-1.5 text-xs font-semibold text-[#8b6b3f] sm:inline-flex" title="Offline rejim HTTPS ulanishini talab qiladi">
@@ -58,14 +70,14 @@ export default function OfflineManager({ compact = false }: { compact?: boolean 
         className={compact
           ? `header-action header-offline-action ${isReady ? "is-ready" : ""}`
           : `rounded-full border px-3 text-xs font-semibold ${isReady ? "border-[#b8dfd1] bg-[#f1fbf7] text-[#0d7773]" : "border-[#cbded4] bg-white text-[#597b75]"}`}
-        onClick={handleDownload}
+        onClick={isReady ? handleReturnOnline : handleDownload}
         loading={isDownloading}
         loadingLabel={`Offline ${percent}%`}
-        title={isReady ? "Offline paketni yangilash" : "Offline o‘quv paketini yuklash"}
-        aria-label={isDownloading ? `Offline paket yuklanmoqda: ${percent}%` : isReady ? "Offline paketni yangilash" : "Offline paketni yuklash"}
+        title={isReady ? "Onlayn katalogga qaytish" : "Offline o‘quv paketini yuklash"}
+        aria-label={isDownloading ? `Offline paket yuklanmoqda: ${percent}%` : isReady ? "Onlayn katalogga qaytish" : "Offline paketni yuklash"}
       >
-        {!isDownloading && (isReady ? <CheckCircle2 size={14} /> : <Download size={14} />)}
-        <span className={compact ? "sr-only" : "hidden sm:inline"}>{isReady ? "Offline tayyor" : "Offline paket"}</span>
+        {!isDownloading && (isReady ? <RefreshCw size={14} /> : <Download size={14} />)}
+        <span className={compact ? "sr-only" : "hidden sm:inline"}>{isReady ? "Onlaynga qaytish" : "Offline paket"}</span>
       </Button>
       {isReady && (
         <Button variant="ghost" size="icon" className={compact ? "header-action header-clear-action" : "h-8 w-8 text-[#78938d]"} onClick={handleClear} title="Offline paketni tozalash" aria-label="Offline paketni tozalash">

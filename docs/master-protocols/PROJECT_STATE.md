@@ -5,13 +5,21 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Oxirgi checkpoint | `8f95c9bd`; Live Lab markaziy oltin emblem relizi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
+| Oxirgi checkpoint | `f997195f`; to‘liq ekranli Live Lab va onlayn katalogga qaytish relizi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
 | Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; ilova relizi `0333d01d39afb162e5782b4be8b95a19f44b93b9` |
 | Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T09:16:14.165Z`; foydalanuvchining yangi aniq so‘rovisiz bu taskda Drive yangilanmagan |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzillari | Canonical: `https://biolabguide-fbcitqyf.manus.space`; faol Vercel main mirror: `https://biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | Foydalanuvchi yuborgan oltin kolba–DNA–barg emblem Live Lab markaziy laboratoriya rasmi ustiga qo‘yildi; katalog sidebaridagi tasdiqlangan oltin 3D DNA–B monogram saqlandi. TypeScript check, production build, 23 ta Vitest, katalog/detail/loader/kirish regressiyalari va BIO-001–BIO-100 auditlari PASS. Desktop 1280×720 hamda mobil 390×844 ko‘rinishlarida overlay oq fon artefaktisiz aniq va responsive ko‘rindi. Har bir katalog kartasi va qurilma detail oynasida alohida **PDFni ulashish** boshqaruvi bor: u 16 bo‘limli o‘zbekcha qurilma dosyesini haqiqiy `application/pdf` fayliga yaratadi, native Share orqali Telegram, WhatsApp yoki qurilmaning boshqa ulashish manziliga yuboradi; mos bo‘lmagan brauzerda fayl download qilinadi. GitHub yoki Drive sync bajarilmadi; manual-only siyosat saqlandi. |
+| Joriy audit | Live Lab kirish sahnasi endi mobil va desktop viewportni to‘liq egallaydi; oltin kolba–DNA–barg emblem markaziy laboratoriya rasmi ustida saqlangan. Offline paket tayyor holatidagi mobil action endi `/?direct=1&online=1`ga qayta yuklaydi, shu sabab onlayn katalog ochilishi aniq. TypeScript check, production build, 23 ta Vitest, 320/375/390 mobil header, Live Lab, katalog/detail/loader hamda BIO-001–BIO-100 auditlari PASS. GitHub yoki Drive sync bajarilmadi; manual-only siyosat saqlandi. |
+
+## 2026-08-26 To‘liq ekranli Live Lab va onlayn katalogga qaytish
+
+Live Lab kirish sahnasi card ko‘rinishidan chiqarilib, mobil hamda desktop viewportning to‘liq maydoniga moslashtirildi. Desktopda laboratoriya rasmi keng sahna bo‘lib ochiladi; mobil variant safe-area insetlarini hisobga oladi, rasm–matn–kirish tugmasi orasidagi ortiqcha bo‘shliq olib tashlandi. Oltin kolba–DNA–barg emblem markaziy rasmda saqlanib, status label va boshqa boshqaruvlarni to‘smasdan ishlaydi.
+
+Offline paket holati `tayyor` bo‘lganda u endi qayta yuklash nomidagi noaniq action emas, **“Onlayn katalogga qaytish”** tugmasiga aylanadi. Internet mavjud bo‘lsa service-worker update so‘rovi xavfsiz yuborilib, sahifa `/?direct=1&online=1` manziliga `replace` orqali ochiladi. Bu qaytishning browser regressiyasi 390px mobil header testida tekshirildi; `Qurilmani bilib oling` katalog sarlavhasi ko‘rinishi tasdiqlandi.
+
+Dalillar: 1280×720 desktop va 390×844 mobil vizual audit, TypeScript check, production build, 23 ta Vitest, 320/375/390 mobil header, Live Lab gate, PWA fallback, katalog, DeviceViewer, BIO-001–BIO-100 detail, loader/recovery hamda release-sanitizatsiya regressiyalari PASS. GitHub commit/push yoki Google Drive snapshot upload bajarilmadi. Holat: **READY — checkpoint kutilmoqda**.
 
 ## 2026-08-26 Live Lab markaziy oltin emblem overlayi
 

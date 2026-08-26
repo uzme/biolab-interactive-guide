@@ -37,6 +37,16 @@ for (const width of [320, 375, 390]) {
     await page.getByRole("button", { name: "Saralanganlarni ochish" }).click();
     await page.locator("[data-bookmarks-sidebar]").waitFor();
     await page.keyboard.press("Escape");
+
+    await page.evaluate(() => localStorage.setItem("biolab:offline-pack:v1", "true"));
+    await page.reload({ waitUntil: "networkidle" });
+    const returnOnline = page.getByRole("button", { name: "Onlayn katalogga qaytish" });
+    await returnOnline.waitFor();
+    await Promise.all([
+      page.waitForURL(/\?direct=1&online=1/),
+      returnOnline.click(),
+    ]);
+    assert(await page.getByRole("heading", { name: /Qurilmani bilib oling/i }).isVisible(), "Offline paketdan so‘ng onlayn katalog qayta ochilmadi.");
   }
 
   await page.close();

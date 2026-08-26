@@ -154,4 +154,4 @@
 - [x] Har bir qurilma uchun uning detail oynasini ochadigan QR-kod yaratish va karta/detail UXiga qo‘shish
 - [x] Login talab qilmaydigan, brauzer xotirasida saqlanadigan qurilma hamda 16-bo‘limli o‘quv progressi boshqaruvini qo‘shish
 - [x] Individual qurilma PDF dosyesiga detail sahifasini ochadigan QR-kod va skan qilish yo‘riqnomasini kiritish
-- [ ] QR modalida React hook importi hamda Vite runtime transform holatini yakuniy tekshirish
+- [x] QR modalida React hook importi hamda Vite runtime transform holatini yakuniy tekshirish

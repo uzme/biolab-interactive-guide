@@ -5,9 +5,9 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Oxirgi checkpoint | `704558cf`; OLED true-black hotfixi productionda jonli |
-| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; qo‘lda, force-pushsiz yuborilgan hotfix commit `704558cf95a7bca127ef736b724298d46577978e` |
-| Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, version `232`, modified `2026-08-27T20:00:42.730Z` |
+| Oxirgi checkpoint | `88285285`; OLED true-black hotfixi va manual sync metadata relizi productionda jonli |
+| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; qo‘lda, force-pushsiz yuborilgan sync metadata checkpoint `88285285` |
+| Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, version `234`, modified `2026-08-27T20:04:09.793Z`, size `34,244,857` byte |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzili | Canonical: `https://biolabguide-fbcitqyf.manus.space` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
@@ -21,9 +21,9 @@ Natijada true-black faollashganda fon grafik gradientlarsiz haqiqiy qora rangda 
 
 ## 2026-08-28 OLED hotfixi uchun yakuniy manual sync
 
-Canonical GitHub `main` tarmog‘i `23b0a0ec9b442bd09b70f19be234f2240e6d2231` dan `704558cf95a7bca127ef736b724298d46577978e` gacha **force-pushsiz** fast-forward bilan yangilandi. Drive’da yangi fayl yoki papka yaratilmadi: mavjud `BioLab_Interactive_Guide_source.tar.gz` (`1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`) aynan o‘zida yangilandi va canonical parent (`19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`) o‘zgarmadi.
+Canonical GitHub `main` tarmog‘i `23b0a0ec9b442bd09b70f19be234f2240e6d2231` dan `704558cf95a7bca127ef736b724298d46577978e`, so‘ng sync metadata checkpointi `88285285`gacha **force-pushsiz** fast-forward bilan yangilandi. Drive’da yangi fayl yoki papka yaratilmadi: mavjud `BioLab_Interactive_Guide_source.tar.gz` (`1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`) aynan o‘zida yangilandi va canonical parent (`19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`) o‘zgarmadi.
 
-Snapshot `git archive` orqali checkpointdan yaratildi va `.env*`, `.project-config.json`, `.git`, `dist`, `node_modules` hamda `.manus-logs` yo‘llaridan tozaligi tekshirildi. SHA-256: `bd9dc2ad321cc0bd68d42a63b5b19f3a0b28a320645a1ee425f1db6099b806e5`; Drive’dan qayta olingan 34,244,722-byte nusxa ayni SHA-256ga ega va `cmp` orqali byte-darajasida tengligi tasdiqlandi. Drive metadata: version `232`, modified `2026-08-27T20:00:42.730Z`. Holat: **manual sync PASS**.
+Snapshot `git archive` orqali `88285285` checkpointidan yaratildi va `.env*`, `.project-config.json`, `.git`, `dist`, `node_modules` hamda `.manus-logs` yo‘llaridan tozaligi tekshirildi. SHA-256: `8921010a1183ebe0555b6d79ae141b711c5fb80f521fbc50eb43932088f45299`; Drive’dan qayta olingan 34,244,857-byte nusxa ayni SHA-256ga ega va `cmp` orqali byte-darajasida tengligi tasdiqlandi. Drive metadata: version `234`, modified `2026-08-27T20:04:09.793Z`. Holat: **manual sync PASS**.
 
 ## 2026-08-28 Qo‘lda GitHub va Google Drive sinxronlashi
 

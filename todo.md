@@ -179,4 +179,5 @@
 - [x] Qurilma PDF dosyesi dizaynini yorug‘ va qorong‘i tema palitrasi bilan mos premium eksport uslubiga yangilash
 - [x] Sozlamalar oynasiga foydalanuvchi tanlay oladigan kontrast rejimi boshqaruvini qo‘shish va saqlanishini ta’minlash
 - [x] OLED ekranlar uchun alohida true-black tema rejimini qo‘shish, persistence va kontrast regressiyasini tekshirish
-- [ ] Tasdiqlangan sanitizatsiyalangan relizni aniqlashtirilgan canonical GitHub hamda Google Drive manziliga qo‘lda sinxronlash
+- [x] Tasdiqlangan sanitizatsiyalangan relizni aniqlashtirilgan canonical GitHub hamda Google Drive manziliga qo‘lda sinxronlash
+- [x] OLED true-black rejimida umumiy qorong‘i gradient fonni qayta yozishi regressiyasini bartaraf etish va to‘liq reliz zanjirini qayta tasdiqlash

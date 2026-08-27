@@ -5,13 +5,27 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Oxirgi checkpoint | `57a7b678`; QR, to‘liq emblem, PDF palitrasi va display rejimlari relizi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
-| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; ilova relizi `0333d01d39afb162e5782b4be8b95a19f44b93b9` |
-| Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T09:16:14.165Z`; foydalanuvchining yangi aniq so‘rovisiz bu taskda Drive yangilanmagan |
+| Oxirgi checkpoint | `23b0a0ec`; OLED true-black hotfixi tekshirildi va yangi checkpoint yaratilishi kutilmoqda |
+| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; oxirgi qo‘lda yuborilgan release commit `23b0a0ec9b442bd09b70f19be234f2240e6d2231`; OLED hotfixidan keyingi sync kutilmoqda |
+| Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, version `229`, modified `2026-08-27T19:34:52.292Z`; OLED hotfixidan keyingi yangilash kutilmoqda |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzillari | Canonical: `https://biolabguide-fbcitqyf.manus.space`; faol Vercel main mirror: `https://biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | DeviceViewerning yuqori QR tugmasi dialogi statik tayyor holatda; sidebar va Sozlamalardagi brend belgisi to‘liq oltin BioLab emblemiga o‘tkazildi. PDF eksportlari aktiv tema palitrasiga moslashadi; Sozlamalarda yuqori-kontrast va OLED true-black tanlovlari browser xotirasida saqlanadi. TypeScript check, production build, 25 ta Vitest, barcha browser regressiyalari va BIO-001–BIO-100 o‘quv auditi PASS. GitHub/Drive qo‘lda sync so‘rovi olindi, lekin checkpointdan keyin bajariladi. |
+| Joriy audit | DeviceViewerning yuqori QR tugmasi dialogi statik tayyor holatda; sidebar va Sozlamalardagi brend belgisi to‘liq oltin BioLab emblemiga o‘tkazildi. PDF eksportlari aktiv tema palitrasiga moslashadi; Sozlamalarda yuqori-kontrast va OLED true-black tanlovlari browser xotirasida saqlanadi. OLED safarbar hotfixi barcha keyingi gradientlarni bekor qilib, hujjat fonini haqiqiy `#000`ga mustahkamlaydi. TypeScript check, production build, 25 ta Vitest, barcha browser regressiyalari va BIO-001–BIO-100 o‘quv auditi PASS. Oldingi GitHub/Drive sync saqlangan, yangi hotfix uchun foydalanuvchi so‘ragan navbatdagi sync checkpointdan keyin bajariladi. |
+
+## 2026-08-28 OLED true-black hotfixi
+
+OLED rejimi holat va persistence jihatidan to‘g‘ri yoqilgan bo‘lsa-da, umumiy qorong‘i sahifa qatlamining keyin keluvchi gradienti ayrim browserlarda `body` fonini sof qora emas, teal-gradient sifatida hisoblatishi aniqlandi. Qorong‘i OLED selectorlari umumiy dark shell qatlamidan keyinga ko‘chirildi va `html.dark.oled`, `body`, `.shell`, hamda `.app-main` uchun `background-color: #000 !important` va `background-image: none !important` bilan mustahkamlandi.
+
+Natijada true-black faollashganda fon grafik gradientlarsiz haqiqiy qora rangda render qilinadi; DeviceViewer va Sozlamalar ichidagi asosiy yuzalar esa o‘qiluvchan tafovut uchun `#020809` qatlamida qoladi. Targeted browser regressiyasi va to‘liq release zanjiri sof qora `document.body` fonini, OLED localStorage persistenceini, QR, PDF, light/dark, mobil header, PWA hamda BIO-001–BIO-100 o‘quv oqimlarini PASS deb tasdiqladi. Holat: **READY — checkpoint va hotfixni GitHub/Drivega qo‘lda sinxronlash kutilmoqda**.
+
+## 2026-08-28 Qo‘lda GitHub va Google Drive sinxronlashi
+
+Foydalanuvchining aniq tasdig‘idan so‘ng canonical GitHub `uzme/biolab-interactive-guide` repositorysining `main` tarmog‘i **force-pushsiz** fast-forward bilan `b91e91236f01b231b055d67c1576d59152f89b48` dan production release `23b0a0ec9b442bd09b70f19be234f2240e6d2231` gacha yuborildi. Yuklashdan avval ishchi daraxt tozaligi, diff whitespace tekshiruvi va remote divergensiyasi ko‘rib chiqildi; 13 ta commit oldinga, remote tomonda qarama-qarshi commit yo‘qligi tasdiqlandi.
+
+Google Drive’da duplicate fayl yoki papka yaratilmadi. Mavjud **`BioLab_Interactive_Guide_source.tar.gz`** snapshot (`1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`) aynan o‘zida yangilandi va uning parent’i canonical **Biotexnologiya yangi BioLab root** (`19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`) sifatida saqlandi. Sanitizatsiyalangan archive `git archive` asosida release commitdan hosil qilindi: 398 manba/hujjat fayli kiritildi, `.env*`, `.project-config.json`, `.git`, `dist`, `node_modules` va `.manus-logs` yo‘llari soni **0**.
+
+Archive SHA-256: `0746962c6d0f186a91ba954be0b61c72faa6e8d5ba34fc7df3d2ddd4b2209eef`. Drive’dan qayta olingan 34,240,644-byte nusxa ayni SHA-256ga ega va byte-darajasida `cmp` orqali tengligi tasdiqlandi. Drive fayli version `229`, MD5 `1d0078fd0397a6855e14afb2b3312ff7`, modified `2026-08-27T19:34:52.292Z`. Holat: **manual sync PASS**.
 
 ## 2026-08-28 QR, to‘liq BioLab emblemi va display rejimlari
 

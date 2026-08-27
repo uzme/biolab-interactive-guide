@@ -169,3 +169,7 @@
 - [x] Mobil qora splashda ortiqcha yuqori bo‘shliqni yo‘qotib, oltin BioLab logotipi, tagline va kirish tugmasini safe-area doirasida sifatli muvozanatlashtirish
 - [x] BIO-001–BIO-100 QR kod deep-linklari hamda QR dialoglarini browser auditida qayta tekshirish va aniqlangan xatoni tuzatish
 - [x] Sozlamalar oynasidagi BioLab brend belgisini qora/oltin splash identiteti bilan mos, aniq va professional ko‘rinishga yangilash
+- [x] Mobil yuqori headerdagi menyu, offline, tozalash, tema, saralanganlar va Sozlamalar ikonkalari o‘lchami, kontrasti hamda tegish maydonini premium va bir xil ko‘rinishga moslash
+- [x] Dastlabki katalog ochilishida faqat zarur hero va brend resurslarini ustuvor yuklab, qolgan og‘ir rasm assetlarini kechiktirilgan yuklash bilan tezlikni oshirish
+- [x] Mobil header hamda optimallashtirilgan yuklanish oqimini browser regressiyasi va Lighthouse-sifat ko‘rsatkichlari bilan tekshirish
+- [x] Header optimizatsiyasidan keyin browser regressionda ochilmay qolgan Saralanganlar yon paneli oqimini tuzatish

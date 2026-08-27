@@ -2,13 +2,10 @@
   BioLab design reminder: Modern Precision Biotech — cold laboratory canvas, deep teal authority,
   asymmetric left navigation, and a 16-section Uzbek learning curriculum for every instrument.
 */
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useTransition } from "react";
+import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useTransition } from "react";
 import { createPortal } from "react-dom";
 import { ArrowUpRight, Beaker, BookOpen, Bot, ChevronRight, CircleHelp, FlaskConical, Grid2X2, Heart, LibraryBig, Menu, Microscope, Moon, Search, Settings2, SlidersHorizontal, Sparkles, Sun, X } from "lucide-react";
 import Pure3DCarousel from "@/components/Pure3DCarousel";
-import BookmarksSidebar from "@/components/BookmarksSidebar";
-import CatalogFilterSheet from "@/components/CatalogFilterSheet";
-import SettingsDialog from "@/components/SettingsDialog";
 import OfflineManager from "@/components/OfflineManager";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
@@ -16,15 +13,17 @@ import { Input } from "@/components/ui/input";
 import { equipment, categories, type Equipment } from "@/lib/equipmentData";
 import { equipmentImages } from "@/lib/equipmentImages";
 import EquipmentCard from "@/components/EquipmentCard";
-import DeviceViewer from "@/components/DeviceViewer";
-import DeviceQrDialog from "@/components/DeviceQrDialog";
+import BookmarksSidebar from "@/components/BookmarksSidebar";
+import CatalogFilterSheet from "@/components/CatalogFilterSheet";
+import SettingsDialog from "@/components/SettingsDialog";
 import { toast } from "sonner";
 import { useBookmarks } from "@/hooks/useBookmarks";
 import { useLearningProgress } from "@/hooks/useLearningProgress";
 import { useTheme } from "@/contexts/ThemeContext";
-import { downloadBookmarksCsv, downloadBookmarksPdf, shareBookmarksPdf } from "@/lib/bookmarkExport";
-import { shareDevicePdf } from "@/lib/devicePdfExport";
 import { DEVICE_QUERY_KEY } from "@/lib/deviceQr";
+
+const DeviceViewer = lazy(() => import("@/components/DeviceViewer"));
+const DeviceQrDialog = lazy(() => import("@/components/DeviceQrDialog"));
 
 const categoryIcons: Record<string, typeof FlaskConical> = {
   "Molekulyar biologiya": FlaskConical,
@@ -92,11 +91,12 @@ export default function Home() {
   const { bookmarkedIds, bookmarkedCount, isBookmarked, toggleBookmark, clearBookmarks, exportBookmarks, importBookmarks } = useBookmarks(validDeviceIds);
   const handleImportBookmarks = async (file: File) => importBookmarks(file);
   const bookmarkedDevices = useMemo(() => bookmarkedIds.map((id) => equipment.find((device) => device.id === id)).filter((device): device is Equipment => Boolean(device)), [bookmarkedIds]);
-  const handleExportBookmarksCsv = () => {
+  const handleExportBookmarksCsv = async () => {
     if (!bookmarkedDevices.length) {
       toast.info("Eksport qilish uchun kamida bitta qurilmani saralang.");
       return;
     }
+    const { downloadBookmarksCsv } = await import("@/lib/bookmarkExport");
     downloadBookmarksCsv(bookmarkedDevices);
     toast.success(`${bookmarkedDevices.length} ta saralangan qurilma CSV fayliga eksport qilindi.`);
   };
@@ -106,6 +106,7 @@ export default function Home() {
       return;
     }
     try {
+      const { downloadBookmarksPdf } = await import("@/lib/bookmarkExport");
       await downloadBookmarksPdf(bookmarkedDevices);
       toast.success(`${bookmarkedDevices.length} ta saralangan qurilma PDF fayliga eksport qilindi.`);
     } catch {
@@ -118,6 +119,7 @@ export default function Home() {
       return;
     }
     try {
+      const { shareBookmarksPdf } = await import("@/lib/bookmarkExport");
       const result = await shareBookmarksPdf(bookmarkedDevices);
       if (result === "shared") {
         toast.success(`${bookmarkedDevices.length} ta saralangan qurilma PDFi ulashish oynasiga tayyorlandi.`);
@@ -133,6 +135,7 @@ export default function Home() {
   const handleShareDevicePdf = async (device: Equipment) => {
     try {
       toast.message(`${device.id} PDF dosyesi tayyorlanmoqda…`);
+      const { shareDevicePdf } = await import("@/lib/devicePdfExport");
       const result = await shareDevicePdf(device);
       if (result === "shared") toast.success(`${device.id} PDF dosyesi ulashish oynasiga tayyorlandi.`);
       else if (result === "downloaded") toast.info("Bu brauzer PDF-fayl ulashishni qo‘llamaydi. PDF qurilmaga yuklab olindi.");
@@ -386,15 +389,15 @@ export default function Home() {
         <div data-device-modal-panel className="relative flex h-full min-h-0 w-full flex-col overflow-hidden border-[#d8e7e3] bg-[#f7fbfa] shadow-[0_30px_90px_rgba(20,68,64,0.3)] sm:h-auto sm:max-h-[92dvh] sm:max-w-6xl sm:rounded-[30px] sm:border" onClick={(event) => event.stopPropagation()}>
           <div ref={deviceModalScrollRef} className="min-h-0 flex-1 overflow-y-auto overscroll-contain [-webkit-overflow-scrolling:touch]">
             <div ref={deviceViewerScrollRef} className="min-h-full w-full">
-              <DeviceViewer key={selectedDevice.id} device={selectedDevice} onBack={() => setSelectedDevice(null)} onReady={resetDeviceViewerScroll} onSharePdf={handleShareDevicePdf} onShowQr={setQrDevice} completedSections={getCompletedSections(selectedDevice.id)} onSectionRead={markSectionRead} />
+              <Suspense fallback={<div className="p-6 text-sm font-semibold text-[#537c76]" role="status">O‘quv dosyesi tayyorlanmoqda…</div>}><DeviceViewer key={selectedDevice.id} device={selectedDevice} onBack={() => setSelectedDevice(null)} onReady={resetDeviceViewerScroll} onSharePdf={handleShareDevicePdf} onShowQr={setQrDevice} completedSections={getCompletedSections(selectedDevice.id)} onSectionRead={markSectionRead} /></Suspense>
             </div>
           </div>
         </div>
       </div>,
       document.body,
     )}
-    <CatalogFilterSheet open={filtersOpen} onOpenChange={setFiltersOpen} query={query} modelQuery={modelQuery} activeCategory={activeCategory} categories={categories} bookmarksOnly={bookmarksOnly} resultCount={filtered.length} bookmarkedCount={bookmarkedCount} hasActiveFilters={hasActiveFilters} onQueryChange={handleQueryChange} onModelQueryChange={handleModelQueryChange} onCategoryChange={handleCategoryChange} onBookmarksOnlyChange={handleBookmarksOnlyChange} onClearFilters={clearFilters} />
-    <SettingsDialog open={settingsOpen} onOpenChange={setSettingsOpen} bookmarkedCount={bookmarkedCount} onClearBookmarks={clearBookmarks} onExportBookmarks={exportBookmarks} onExportBookmarksCsv={handleExportBookmarksCsv} onExportBookmarksPdf={handleExportBookmarksPdf} onShareBookmarksPdf={handleShareBookmarksPdf} onImportBookmarks={handleImportBookmarks} />
-    <DeviceQrDialog device={qrDevice} open={Boolean(qrDevice)} onOpenChange={(open) => { if (!open) setQrDevice(null); }} />
+    {filtersOpen && <CatalogFilterSheet open={filtersOpen} onOpenChange={setFiltersOpen} query={query} modelQuery={modelQuery} activeCategory={activeCategory} categories={categories} bookmarksOnly={bookmarksOnly} resultCount={filtered.length} bookmarkedCount={bookmarkedCount} hasActiveFilters={hasActiveFilters} onQueryChange={handleQueryChange} onModelQueryChange={handleModelQueryChange} onCategoryChange={handleCategoryChange} onBookmarksOnlyChange={handleBookmarksOnlyChange} onClearFilters={clearFilters} />}
+    {settingsOpen && <SettingsDialog open={settingsOpen} onOpenChange={setSettingsOpen} bookmarkedCount={bookmarkedCount} onClearBookmarks={clearBookmarks} onExportBookmarks={exportBookmarks} onExportBookmarksCsv={handleExportBookmarksCsv} onExportBookmarksPdf={handleExportBookmarksPdf} onShareBookmarksPdf={handleShareBookmarksPdf} onImportBookmarks={handleImportBookmarks} />}
+    {qrDevice && <Suspense fallback={null}><DeviceQrDialog device={qrDevice} open={Boolean(qrDevice)} onOpenChange={(open) => { if (!open) setQrDevice(null); }} /></Suspense>}
   </div>;
 }

@@ -402,10 +402,26 @@ button { cursor: pointer; }
   .hero-sop-track::before { display: none; }
 }
 @media (max-width: 640px) {
-  .app-header { min-height: 64px; }
-  .header-action-cluster { gap: 2px; border-radius: 16px; }
-  .header-action { width: 35px; height: 35px; flex-basis: 35px; border-radius: 11px; }
-  .header-connection { width: 12px; height: 35px; flex-basis: 12px; }
+  .app-header { min-height: 68px; }
+  .header-action-cluster {
+    gap: 3px;
+    padding: 4px;
+    border-radius: 17px;
+    border-color: oklch(0.48 0.075 183 / 0.85);
+    background: oklch(0.18 0.028 195 / 0.96);
+    box-shadow: inset 0 1px 0 oklch(0.66 0.07 180 / 0.12), 0 8px 20px oklch(0.08 0.02 195 / 0.3);
+  }
+  .header-action {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+    border-radius: 12px;
+    color: oklch(0.8 0.06 181);
+  }
+  .header-action svg { width: 18px; height: 18px; stroke-width: 2.15; }
+  .header-action:hover, .header-action:focus-visible { color: oklch(0.93 0.11 174); background: oklch(0.31 0.075 182 / 0.84); }
+  .header-action[data-header-action="clear"] { display: none; }
+  .header-connection { width: 13px; height: 38px; flex-basis: 13px; }
   .sidebar.mobile-drawer {
     position: static;
     display: flex;
@@ -440,9 +456,10 @@ button { cursor: pointer; }
 @media (max-width: 360px) {
   .app-header { padding-left: 8px; padding-right: 8px; }
   .header-menu-action { width: 38px; height: 38px; }
-  .header-action-cluster { gap: 1px; padding: 3px; border-radius: 15px; }
-  .header-action { width: 32px; height: 32px; flex-basis: 32px; border-radius: 10px; }
-  .header-connection { width: 10px; height: 32px; flex-basis: 10px; }
+  .header-action-cluster { gap: 2px; padding: 3px; border-radius: 15px; }
+  .header-action { width: 34px; height: 34px; flex-basis: 34px; border-radius: 10px; }
+  .header-action svg { width: 16px; height: 16px; }
+  .header-connection { width: 11px; height: 34px; flex-basis: 11px; }
   .header-mobile-brand-name { font-size: 0.9rem; }
   .header-mobile-brand-meta { font-size: 0.5rem; letter-spacing: 0.055em; }
 }

@@ -49,7 +49,9 @@ export default function EquipmentCard({ device, index, onOpen, onSharePdf, onSho
   const imageLabel = image?.sourceType === "official" ? "Mahsulot rasmi" : "O‘quv vizuali";
   const recordCode = `SOP-${String(device.number).padStart(3, "0")}`;
   const isInitialViewportImage = index < 3;
-  const shouldEagerLoad = index < 6;
+  // Faqat boshlang‘ich viewportdagi uchta karta ustuvor yuklanadi. Qolgan 97 ta
+  // qurilma rasmi brauzer viewportiga yaqinlashgandagina tarmoqdan olinadi.
+  const shouldEagerLoad = isInitialViewportImage;
 
   const imageSurface = imageBackgroundProfile === "paper"
     ? "bg-[#f8fbfa] dark:bg-[#eaf2ee]"

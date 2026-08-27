@@ -26,7 +26,7 @@ for (const width of [320, 375, 390]) {
 
   const headerBounds = await header.boundingBox();
   const bounds = await actionCluster.boundingBox();
-  assert(Boolean(bounds) && Boolean(headerBounds) && bounds.width < width - 110 && bounds.height >= 38, `${width}px da action-kartalar guruhi tor ekran uchun noto‘g‘ri o‘lchamda.`);
+  assert(Boolean(bounds) && Boolean(headerBounds) && bounds.width < width - 110 && bounds.height >= 42, `${width}px da action-kartalar guruhi tor ekran uchun noto‘g‘ri o‘lchamda.`);
   assert(Boolean(bounds) && Boolean(headerBounds) && bounds.x + bounds.width <= headerBounds.x + headerBounds.width + 0.5, `${width}px da action-kartalar headerdan tashqariga chiqdi.`);
 
   if (width === 390) {

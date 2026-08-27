@@ -5,13 +5,21 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Oxirgi checkpoint | `0deb197e`; mobil splash sifati, QR audit va Sozlamalar brendi relizi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
+| Oxirgi checkpoint | `fe1352fa`; mobil header, boshlang‘ich yuklanish va Saralanganlar regressiyasi relizi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
 | Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; ilova relizi `0333d01d39afb162e5782b4be8b95a19f44b93b9` |
 | Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T09:16:14.165Z`; foydalanuvchining yangi aniq so‘rovisiz bu taskda Drive yangilanmagan |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzillari | Canonical: `https://biolabguide-fbcitqyf.manus.space`; faol Vercel main mirror: `https://biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | Mobil qora splashdagi ortiqcha yuqori bo‘shliq bartaraf etildi: oltin BioLab logo, tagline va kirish boshqaruvi safe-area ichida zich hamda muvozanatli joylashadi. Sozlamalar oynasida qora-oltin ramkali DNA–B monogram brend belgisi ishlatiladi. QR bo‘yicha 100/100 URL kontrakti, skan qilinadigan PNG, QR dialogi hamda BIO-001/BIO-050/BIO-100 browser deep-linklari PASS. TypeScript check, production build, 25 ta Vitest va 100 qurilmali browser auditlari PASS. GitHub yoki Drive sync bajarilmadi; manual-only siyosat saqlandi. |
+| Joriy audit | Mobil header boshqaruvlari quyuq premium klaster, bir xil ikonka kontrasti va 38 px touch-targetlar bilan yangilandi; 360 px viewportda 34 px variant ishlaydi. Katalogda faqat 3 rasm `eager/high`, qolgan 97 rasm `lazy`; DeviceViewer, QR va PDF modullari alohida kechiktirilgan chunklarda qoldi. Saralanganlar, filtr va Sozlamalar modulining birinchi bosishdagi ochilish poygasi statik, kichik header-modullar bilan bartaraf etildi. TypeScript check, production build, 25 ta Vitest, barcha browser regressiyalari hamda BIO-001–BIO-100 o‘quv auditi PASS. GitHub yoki Drive sync bajarilmadi; manual-only siyosat saqlandi. |
+
+## 2026-08-27 Mobil header va boshlang‘ich yuklanish relizi
+
+Mobil yuqori panelning menyu, offline, tema, Saralanganlar va filtr boshqaruvlari quyuq, aniq ajralib turuvchi yagona action-klasterga moslandi. Asosiy variantda har bir amaliy boshqaruv 38 px, 360 px va undan tor ekranlarda esa sig‘imni saqlash uchun 34 px touch-target bilan berildi. 390×844 mobil hamda 1280×720 desktop vizual auditlarida ikonkalarning kontrasti, horizontal sig‘imi va umumiy header ritmi tasdiqlandi.
+
+Boshlang‘ich katalog oqimida aynan uchta karta rasmi `eager`/`high` prioritet bilan yuklanadi, qolgan 97 tasi `lazy` strategiyasida qoladi. Og‘ir DeviceViewer, QR va PDF funksiyalari lazy chunklarda saqlangan; hozirgi production buildda `DeviceViewer` 51.85 kB, `PDFButton` 429.37 kB bo‘lib, katalogning dastlabki action-klasteri bilan birga yuklanmaydi. Saralanganlar paneli lazy import vaqt poygasi sabab browser regressiyada ochilmay qolgani uchun u, filtr va Sozlamalar kabi kichik hamda yuqori chastotali header modullari statik importga qaytarildi. Natijada barcha header amallari birinchi bosishda ochiladi.
+
+Dalillar: `pnpm check`, `pnpm build`, 25 ta Vitest va to‘liq `pnpm test` PASS. To‘liq browser zanjiri katalog, 320/375/390 mobil header, 3/97 rasm prioritizatsiyasi, hero, Live Lab, QR deep-link, PWA fallback, tema, DeviceViewer, mobil portal, BIO-001–BIO-100 o‘quv auditi, dynamic-loader recovery va release-sanitizatsiyani qamrab oldi. GitHub push yoki Google Drive upload bajarilmadi. Holat: **READY — checkpoint kutilmoqda**.
 
 ## 2026-08-27 Mobil splash sifati, QR audit va Sozlamalar brendi
 

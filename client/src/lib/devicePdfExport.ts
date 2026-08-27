@@ -10,8 +10,20 @@ const BODY_WIDTH = PAGE_WIDTH - MARGIN * 2;
 const DATE_FORMATTER = new Intl.DateTimeFormat("uz-UZ", { day: "2-digit", month: "long", year: "numeric" });
 
 export type DevicePdfShareResult = "shared" | "downloaded" | "cancelled";
+export type PdfTheme = "light" | "dark";
 
 type DossierSection = { number: number; title: string; content: string };
+type PdfPalette = { page: ReturnType<typeof rgb>; surface: ReturnType<typeof rgb>; border: ReturnType<typeof rgb>; header: ReturnType<typeof rgb>; accent: ReturnType<typeof rgb>; accentSoft: ReturnType<typeof rgb>; heading: ReturnType<typeof rgb>; body: ReturnType<typeof rgb>; muted: ReturnType<typeof rgb>; divider: ReturnType<typeof rgb>; };
+
+function getActivePdfTheme(): PdfTheme {
+  return typeof document !== "undefined" && document.documentElement.classList.contains("dark") ? "dark" : "light";
+}
+
+function getPdfPalette(theme: PdfTheme): PdfPalette {
+  return theme === "dark"
+    ? { page: rgb(0.015, 0.035, 0.04), surface: rgb(0.045, 0.105, 0.11), border: rgb(0.17, 0.43, 0.4), header: rgb(0.01, 0.08, 0.085), accent: rgb(0.32, 0.9, 0.8), accentSoft: rgb(0.57, 0.92, 0.84), heading: rgb(0.91, 0.98, 0.95), body: rgb(0.76, 0.88, 0.84), muted: rgb(0.61, 0.77, 0.72), divider: rgb(0.2, 0.43, 0.4) }
+    : { page: rgb(1, 1, 1), surface: rgb(0.94, 0.98, 0.97), border: rgb(0.71, 0.86, 0.81), header: rgb(0.025, 0.16, 0.16), accent: rgb(0.05, 0.57, 0.51), accentSoft: rgb(0.56, 0.92, 0.83), heading: rgb(0.04, 0.27, 0.27), body: rgb(0.22, 0.36, 0.34), muted: rgb(0.24, 0.42, 0.39), divider: rgb(0.82, 0.9, 0.87) };
+}
 
 function toPdfText(value: string) {
   return value
@@ -86,13 +98,13 @@ function triggerDownload(blob: Blob, filename: string) {
   window.setTimeout(() => URL.revokeObjectURL(url), 0);
 }
 
-function drawHeader(page: PDFPage, bold: PDFFont, regular: PDFFont, device: Equipment, continuation: boolean) {
-  page.drawRectangle({ x: 0, y: PAGE_HEIGHT - 92, width: PAGE_WIDTH, height: 92, color: rgb(0.025, 0.16, 0.16) });
-  page.drawText("BIO.LAB / INDIVIDUAL O'QUV DOSYESI", { x: MARGIN, y: PAGE_HEIGHT - 42, size: 8.5, font: bold, color: rgb(0.56, 0.92, 0.83) });
-  page.drawText(toPdfText(`${device.id}  |  ${continuation ? "DAVOMI" : "16 BO'LIMLI SOP"}`), { x: MARGIN, y: PAGE_HEIGHT - 63, size: 8.2, font: regular, color: rgb(0.8, 0.92, 0.87) });
+function drawHeader(page: PDFPage, bold: PDFFont, regular: PDFFont, device: Equipment, continuation: boolean, palette: PdfPalette) {
+  page.drawRectangle({ x: 0, y: PAGE_HEIGHT - 92, width: PAGE_WIDTH, height: 92, color: palette.header });
+  page.drawText("BIO.LAB / INDIVIDUAL O'QUV DOSYESI", { x: MARGIN, y: PAGE_HEIGHT - 42, size: 8.5, font: bold, color: palette.accentSoft });
+  page.drawText(toPdfText(`${device.id}  |  ${continuation ? "DAVOMI" : "16 BO'LIMLI SOP"}`), { x: MARGIN, y: PAGE_HEIGHT - 63, size: 8.2, font: regular, color: palette.body });
 }
 
-export async function buildDevicePdf(device: Equipment, learning: LearningContent | undefined, purchase: PurchaseContent | undefined, exportedAt = new Date()) {
+export async function buildDevicePdf(device: Equipment, learning: LearningContent | undefined, purchase: PurchaseContent | undefined, exportedAt = new Date(), theme: PdfTheme = getActivePdfTheme()) {
   const pdf = await PDFDocument.create();
   pdf.setTitle(`BioLab — ${device.name}`);
   pdf.setAuthor("BioLab Interactive Guide");
@@ -101,6 +113,7 @@ export async function buildDevicePdf(device: Equipment, learning: LearningConten
 
   const regular = await pdf.embedFont(StandardFonts.Helvetica);
   const bold = await pdf.embedFont(StandardFonts.HelveticaBold);
+  const palette = getPdfPalette(theme);
   const qrDataUrl = await getDeviceQrDataUrl(device.id);
   const qrBytes = await fetch(qrDataUrl).then((response) => response.arrayBuffer());
   const qrImage = await pdf.embedPng(qrBytes);
@@ -111,22 +124,23 @@ export async function buildDevicePdf(device: Equipment, learning: LearningConten
   const createPage = (continuation = false) => {
     page = pdf.addPage([PAGE_WIDTH, PAGE_HEIGHT]);
     pages.push(page);
-    drawHeader(page, bold, regular, device, continuation);
+    page.drawRectangle({ x: 0, y: 0, width: PAGE_WIDTH, height: PAGE_HEIGHT, color: palette.page });
+    drawHeader(page, bold, regular, device, continuation, palette);
     cursorY = continuation ? PAGE_HEIGHT - 118 : PAGE_HEIGHT - 315;
   };
 
   createPage();
-  page.drawRectangle({ x: MARGIN, y: PAGE_HEIGHT - 292, width: BODY_WIDTH, height: 166, color: rgb(0.94, 0.98, 0.97), borderColor: rgb(0.71, 0.86, 0.81), borderWidth: 0.8 });
-  page.drawText(toPdfText(learning?.title || device.name), { x: MARGIN + 18, y: PAGE_HEIGHT - 161, size: 20, font: bold, color: rgb(0.04, 0.27, 0.27), maxWidth: BODY_WIDTH - 148, lineHeight: 24 });
+  page.drawRectangle({ x: MARGIN, y: PAGE_HEIGHT - 292, width: BODY_WIDTH, height: 166, color: palette.surface, borderColor: palette.border, borderWidth: 0.8 });
+  page.drawText(toPdfText(learning?.title || device.name), { x: MARGIN + 18, y: PAGE_HEIGHT - 161, size: 20, font: bold, color: palette.heading, maxWidth: BODY_WIDTH - 148, lineHeight: 24 });
   page.drawImage(qrImage, { x: PAGE_WIDTH - MARGIN - 104, y: PAGE_HEIGHT - 278, width: 90, height: 90 });
-  page.drawText("Skan qiling: detail oynasi", { x: PAGE_WIDTH - MARGIN - 118, y: PAGE_HEIGHT - 290, size: 6.7, font: bold, color: rgb(0.04, 0.42, 0.39), maxWidth: 118 });
+  page.drawText("Skan qiling: detail oynasi", { x: PAGE_WIDTH - MARGIN - 118, y: PAGE_HEIGHT - 290, size: 6.7, font: bold, color: palette.accent, maxWidth: 118 });
   const profileLines = [
     `${device.id}  |  ${device.category}`,
     `Model: ${learning?.model || device.model}`,
     `Manufacturer: ${learning?.manufacturer || device.brands || "Aniqlanmagan"}`,
     `Eksport sanasi: ${DATE_FORMATTER.format(exportedAt)}`,
   ];
-  profileLines.forEach((line, index) => page.drawText(toPdfText(line), { x: MARGIN + 18, y: PAGE_HEIGHT - 222 - index * 15, size: 9, font: index === 0 ? bold : regular, color: index === 0 ? rgb(0.04, 0.47, 0.43) : rgb(0.24, 0.42, 0.39), maxWidth: BODY_WIDTH - 145 }));
+  profileLines.forEach((line, index) => page.drawText(toPdfText(line), { x: MARGIN + 18, y: PAGE_HEIGHT - 222 - index * 15, size: 9, font: index === 0 ? bold : regular, color: index === 0 ? palette.accent : palette.muted, maxWidth: BODY_WIDTH - 145 }));
 
   const ensureSpace = (height: number) => {
     if (cursorY - height < MARGIN + 42) createPage(true);
@@ -138,10 +152,10 @@ export async function buildDevicePdf(device: Equipment, learning: LearningConten
     const bodyLines = section.content.split(/\n{2,}|\n/).flatMap((paragraph) => wrapText(paragraph, regular, 9.1, BODY_WIDTH - 28));
     ensureSpace(24 + titleLines.length * 14 + Math.min(bodyLines.length, 5) * 12 + 20);
 
-    page.drawRectangle({ x: MARGIN, y: cursorY - 5, width: 4, height: 18, color: rgb(0.05, 0.57, 0.51) });
+    page.drawRectangle({ x: MARGIN, y: cursorY - 5, width: 4, height: 18, color: palette.accent });
     let textY = cursorY;
     titleLines.forEach((line) => {
-      page.drawText(line, { x: MARGIN + 14, y: textY, size: 11.5, font: bold, color: rgb(0.04, 0.26, 0.26) });
+      page.drawText(line, { x: MARGIN + 14, y: textY, size: 11.5, font: bold, color: palette.heading });
       textY -= 14;
     });
     cursorY = textY - 4;
@@ -149,11 +163,11 @@ export async function buildDevicePdf(device: Equipment, learning: LearningConten
       if (cursorY < MARGIN + 46) {
         createPage(true);
       }
-      page.drawText(line, { x: MARGIN + 14, y: cursorY, size: 9.1, font: regular, color: rgb(0.22, 0.36, 0.34) });
+      page.drawText(line, { x: MARGIN + 14, y: cursorY, size: 9.1, font: regular, color: palette.body });
       cursorY -= 12;
     });
     cursorY -= 16;
-    if (cursorY > MARGIN + 42) page.drawLine({ start: { x: MARGIN + 14, y: cursorY + 6 }, end: { x: PAGE_WIDTH - MARGIN, y: cursorY + 6 }, thickness: 0.45, color: rgb(0.82, 0.9, 0.87) });
+    if (cursorY > MARGIN + 42) page.drawLine({ start: { x: MARGIN + 14, y: cursorY + 6 }, end: { x: PAGE_WIDTH - MARGIN, y: cursorY + 6 }, thickness: 0.45, color: palette.divider });
   };
 
   getSections(learning, device).forEach(drawSection);
@@ -162,18 +176,18 @@ export async function buildDevicePdf(device: Equipment, learning: LearningConten
   }
 
   pages.forEach((pdfPage, index) => {
-    pdfPage.drawLine({ start: { x: MARGIN, y: 31 }, end: { x: PAGE_WIDTH - MARGIN, y: 31 }, thickness: 0.6, color: rgb(0.72, 0.84, 0.8) });
-    pdfPage.drawText("© 2026 Mengliyev Bahrom Husanovich  |  BioLab Interactive Guide", { x: MARGIN, y: 18, size: 7.4, font: regular, color: rgb(0.31, 0.47, 0.43) });
-    pdfPage.drawText(`${index + 1} / ${pages.length}`, { x: PAGE_WIDTH - MARGIN - 24, y: 18, size: 7.4, font: bold, color: rgb(0.05, 0.42, 0.39) });
+    pdfPage.drawLine({ start: { x: MARGIN, y: 31 }, end: { x: PAGE_WIDTH - MARGIN, y: 31 }, thickness: 0.6, color: palette.border });
+    pdfPage.drawText("© 2026 Mengliyev Bahrom Husanovich  |  BioLab Interactive Guide", { x: MARGIN, y: 18, size: 7.4, font: regular, color: palette.muted });
+    pdfPage.drawText(`${index + 1} / ${pages.length}`, { x: PAGE_WIDTH - MARGIN - 24, y: 18, size: 7.4, font: bold, color: palette.accent });
   });
 
   return new Blob([await pdf.save()], { type: "application/pdf" });
 }
 
-export async function shareDevicePdf(device: Equipment, exportedAt = new Date()): Promise<DevicePdfShareResult> {
+export async function shareDevicePdf(device: Equipment, exportedAt = new Date(), theme: PdfTheme = getActivePdfTheme()): Promise<DevicePdfShareResult> {
   const { learning, purchase } = await resolveDeviceContent(loadLearningContent(device.number), loadPurchaseContent(device.number));
   const filename = getDevicePdfFilename(device, exportedAt);
-  const blob = await buildDevicePdf(device, learning, purchase, exportedAt);
+  const blob = await buildDevicePdf(device, learning, purchase, exportedAt, theme);
 
   if (typeof navigator !== "undefined" && typeof navigator.share === "function" && typeof File !== "undefined") {
     const file = new File([blob], filename, { type: "application/pdf" });

@@ -29,7 +29,7 @@ export default function DeviceQrDialog({ device, open, onOpenChange }: { device:
   };
 
   return <Dialog open={open} onOpenChange={onOpenChange}>
-    <DialogContent className="max-w-md border-[#b9ddd2] bg-[#f8fcfa] p-6 text-[#173d42] sm:p-7">
+    <DialogContent data-device-qr-dialog className="max-w-md border-[#b9ddd2] bg-[#f8fcfa] p-6 text-[#173d42] sm:p-7">
       <DialogHeader>
         <div className="mb-2 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#0d7774] text-white"><QrCode size={22} /></div>
         <DialogTitle className="display pr-7 text-2xl font-bold">{device?.id} QR-kodi</DialogTitle>

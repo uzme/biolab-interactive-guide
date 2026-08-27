@@ -174,3 +174,9 @@
 - [x] Mobil header hamda optimallashtirilgan yuklanish oqimini browser regressiyasi va Lighthouse-sifat ko‘rsatkichlari bilan tekshirish
 - [x] Header optimizatsiyasidan keyin browser regressionda ochilmay qolgan Saralanganlar yon paneli oqimini tuzatish
 - [x] DeviceViewer detail oynasidagi rang yuzalari, matn va accordion kontrastini yorug‘ hamda qorong‘i rejimlarda yagona premium dizayn tizimiga moslashtirish
+- [x] BIO-001–BIO-100 DeviceViewer yuqori QR tugmasining birinchi bosishda QR dialogini ochish oqimini tuzatish va browser regressiyasi bilan tekshirish
+- [x] Mobil sidebar headeridagi BioLab brend logotipini to‘liq emblem ko‘rinishida, kesilmasdan va ikonka ramkasiga proporsional moslashtirish
+- [x] Qurilma PDF dosyesi dizaynini yorug‘ va qorong‘i tema palitrasi bilan mos premium eksport uslubiga yangilash
+- [x] Sozlamalar oynasiga foydalanuvchi tanlay oladigan kontrast rejimi boshqaruvini qo‘shish va saqlanishini ta’minlash
+- [x] OLED ekranlar uchun alohida true-black tema rejimini qo‘shish, persistence va kontrast regressiyasini tekshirish
+- [ ] Tasdiqlangan sanitizatsiyalangan relizni aniqlashtirilgan canonical GitHub hamda Google Drive manziliga qo‘lda sinxronlash

@@ -629,6 +629,43 @@ button { cursor: pointer; }
 .dark [data-device-viewer] [class~="text-[#6f5a26]"],
 .dark [data-device-viewer] [class~="text-[#75612e]"] { color: oklch(0.9 0.1 88) !important; }
 
+/* The compact brand mark preserves the entire approved emblem; it must never
+   crop the flask, DNA, leaf or BioLab wordmark into an unrelated monogram. */
+.brand-mark-emblem { display: block; object-fit: contain; object-position: center; }
+
+/* Display preferences are stored independently from the day/night preference.
+   High contrast preserves the chosen palette but makes boundaries and type
+   separation stronger. OLED only activates visually when the active theme is dark. */
+.high-contrast:not(.dark) body { background: #ffffff; color: #082a2d; }
+.high-contrast:not(.dark) .app-header,
+.high-contrast:not(.dark) .sidebar,
+.high-contrast:not(.dark) [data-device-viewer] { border-color: #0b5f60 !important; }
+.high-contrast:not(.dark) [data-device-viewer] [data-device-learning],
+.high-contrast:not(.dark) [data-device-viewer] [data-device-purchase] { border-color: #087a73 !important; box-shadow: 0 0 0 1px rgb(8 122 115 / 0.13); }
+.dark.high-contrast { color-scheme: dark; }
+.dark.high-contrast .app-header,
+.dark.high-contrast .sidebar,
+.dark.high-contrast [data-device-viewer] [data-device-header] { border-color: oklch(0.72 0.12 175) !important; }
+.dark.high-contrast [data-device-viewer] [data-device-learning],
+.dark.high-contrast [data-device-viewer] [data-device-purchase] { border-color: oklch(0.76 0.13 175) !important; box-shadow: 0 0 0 1px oklch(0.76 0.13 175 / 0.25) !important; }
+.dark.high-contrast [data-device-viewer] :is(h1, h2, h3, p) { text-shadow: 0 0 0 transparent; }
+.dark.oled,
+.dark.oled body,
+.dark.oled .shell,
+.dark.oled .app-main { background: #000 !important; }
+.dark.oled .sidebar,
+.dark.oled .app-header,
+.dark.oled [data-device-viewer],
+.dark.oled [data-device-viewer] [data-device-header] { background-color: #020809 !important; }
+.dark.oled [data-device-viewer] [data-device-purchase],
+.dark.oled [data-device-viewer] [data-device-learning],
+.dark.oled [data-settings-dialog] > div { background-color: #020809 !important; }
+.dark.oled .page-frame::before { opacity: 0.48; }
+.dark [data-device-qr-dialog] { border-color: oklch(0.42 0.07 185) !important; background-color: oklch(0.19 0.03 195) !important; color: oklch(0.93 0.025 178) !important; }
+.dark [data-device-qr-dialog] [class~="bg-white"] { background-color: oklch(0.225 0.038 193) !important; }
+.dark [data-device-qr-dialog] [class~="text-[#5e7d77]"],
+.dark [data-device-qr-dialog] [class~="text-[#53726c]"] { color: oklch(0.73 0.035 183) !important; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }

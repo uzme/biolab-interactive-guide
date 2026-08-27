@@ -61,6 +61,35 @@ async function inspectDeviceViewerTheme(colorScheme) {
   return state;
 }
 
+async function inspectDisplayPreferences() {
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, colorScheme: "light" });
+  const page = await context.newPage();
+  await page.goto(previewUrl, { waitUntil: "networkidle" });
+  await page.getByRole("button", { name: "Menyuni ochish" }).click();
+  const settingsTrigger = page.getByRole("button", { name: "Sozlamalar va Copyright" });
+  await settingsTrigger.waitFor({ state: "visible" });
+  await settingsTrigger.click();
+  const contrastButton = page.getByRole("button", { name: "Yuqori kontrast rejimini almashtirish" });
+  await contrastButton.click();
+  const highContrast = await page.evaluate(() => ({
+    active: document.documentElement.classList.contains("high-contrast"),
+    stored: localStorage.getItem("biolab-contrast-mode"),
+  }));
+  const themeButton = page.getByRole("button", { name: "Rang mavzusini qo‘lda almashtirish" });
+  await themeButton.click();
+  const oledButton = page.getByRole("button", { name: "OLED true-black rejimini almashtirish" });
+  assert(!(await oledButton.isDisabled()), "OLED true-black boshqaruvi tungi rejimda faollashmadi.");
+  await oledButton.click();
+  const oled = await page.evaluate(() => ({
+    dark: document.documentElement.classList.contains("dark"),
+    active: document.documentElement.classList.contains("oled"),
+    stored: localStorage.getItem("biolab-display-mode"),
+    viewerBackground: getComputedStyle(document.body).backgroundColor,
+  }));
+  await context.close();
+  return { highContrast, oled };
+}
+
 const darkMotion = await inspectTheme("dark", "no-preference");
 assert(darkMotion.dark, "Tizim tungi rejimida .dark class avtomatik qo‘llanmadi.");
 assert(darkMotion.preference === "system", "Birinchi ochilishda tema tizim afzalligiga bog‘lanmadi.");
@@ -84,5 +113,10 @@ assert(!lightDetail.dark, "DeviceViewer yorug‘ rejimda noto‘g‘ri qorong‘
 assert(lightDetail.purchaseBackground === "rgb(239, 248, 245)", "Yorug‘ rejimdagi xarid moduli tasdiqlangan och rang tizimini saqlamadi.");
 assert(lightDetail.learningBackground === "rgb(255, 255, 255)", "Yorug‘ rejimdagi o‘quv maqolasi oq o‘qish yuzasini saqlamadi.");
 
+const displayPreferences = await inspectDisplayPreferences();
+assert(displayPreferences.highContrast.active && displayPreferences.highContrast.stored === "high", "Yuqori kontrast tanlovi brauzer xotirasida saqlanmadi.");
+assert(displayPreferences.oled.dark && displayPreferences.oled.active && displayPreferences.oled.stored === "oled", "OLED true-black tanlovi faollashmadi yoki saqlanmadi.");
+assert(displayPreferences.oled.viewerBackground === "rgb(0, 0, 0)", "OLED true-black rejimi sahifa fonini sof qora rangga o‘tkazmadi.");
+
 await browser.close();
-console.log("Kun/tun tema, DeviceViewer kontrasti va reduced-motion laboratoriya animatsiyalari muvaffaqiyatli tekshirildi.");
+console.log("Kun/tun tema, DeviceViewer kontrasti, yuqori kontrast, OLED true-black va reduced-motion laboratoriya animatsiyalari muvaffaqiyatli tekshirildi.");

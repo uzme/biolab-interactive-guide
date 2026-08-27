@@ -2,12 +2,18 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 
 type Theme = "light" | "dark";
 type ThemePreference = Theme | "system";
+type ContrastMode = "standard" | "high";
+type DisplayMode = "standard" | "oled";
 
 interface ThemeContextType {
   theme: Theme;
   themePreference: ThemePreference;
   toggleTheme?: () => void;
   useSystemTheme?: () => void;
+  contrastMode: ContrastMode;
+  toggleContrastMode?: () => void;
+  displayMode: DisplayMode;
+  toggleOledMode?: () => void;
   switchable: boolean;
 }
 
@@ -31,6 +37,8 @@ export function ThemeProvider({
     return stored === "light" || stored === "dark" || stored === "system" ? stored : "system";
   });
   const [theme, setTheme] = useState<Theme>(() => themePreference === "system" ? getSystemTheme() : themePreference);
+  const [contrastMode, setContrastMode] = useState<ContrastMode>(() => localStorage.getItem("biolab-contrast-mode") === "high" ? "high" : "standard");
+  const [displayMode, setDisplayMode] = useState<DisplayMode>(() => localStorage.getItem("biolab-display-mode") === "oled" ? "oled" : "standard");
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-color-scheme: dark)");
@@ -49,8 +57,15 @@ export function ThemeProvider({
       root.classList.remove("dark");
     }
 
-    if (switchable) localStorage.setItem("biolab-theme-preference", themePreference);
-  }, [theme, themePreference, switchable]);
+    root.classList.toggle("high-contrast", contrastMode === "high");
+    root.classList.toggle("oled", displayMode === "oled");
+
+    if (switchable) {
+      localStorage.setItem("biolab-theme-preference", themePreference);
+      localStorage.setItem("biolab-contrast-mode", contrastMode);
+      localStorage.setItem("biolab-display-mode", displayMode);
+    }
+  }, [contrastMode, displayMode, theme, themePreference, switchable]);
 
   const toggleTheme = switchable
     ? () => {
@@ -61,9 +76,11 @@ export function ThemeProvider({
       }
     : undefined;
   const useSystemTheme = switchable ? () => setThemePreference("system") : undefined;
+  const toggleContrastMode = switchable ? () => setContrastMode((mode) => mode === "standard" ? "high" : "standard") : undefined;
+  const toggleOledMode = switchable ? () => setDisplayMode((mode) => mode === "standard" ? "oled" : "standard") : undefined;
 
   return (
-    <ThemeContext.Provider value={{ theme, themePreference, toggleTheme, useSystemTheme, switchable }}>
+    <ThemeContext.Provider value={{ theme, themePreference, toggleTheme, useSystemTheme, contrastMode, toggleContrastMode, displayMode, toggleOledMode, switchable }}>
       {children}
     </ThemeContext.Provider>
   );

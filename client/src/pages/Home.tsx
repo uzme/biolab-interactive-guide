@@ -15,6 +15,7 @@ import { equipmentImages } from "@/lib/equipmentImages";
 import EquipmentCard from "@/components/EquipmentCard";
 import BookmarksSidebar from "@/components/BookmarksSidebar";
 import CatalogFilterSheet from "@/components/CatalogFilterSheet";
+import DeviceQrDialog from "@/components/DeviceQrDialog";
 import SettingsDialog from "@/components/SettingsDialog";
 import { toast } from "sonner";
 import { useBookmarks } from "@/hooks/useBookmarks";
@@ -23,7 +24,6 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { DEVICE_QUERY_KEY } from "@/lib/deviceQr";
 
 const DeviceViewer = lazy(() => import("@/components/DeviceViewer"));
-const DeviceQrDialog = lazy(() => import("@/components/DeviceQrDialog"));
 
 const categoryIcons: Record<string, typeof FlaskConical> = {
   "Molekulyar biologiya": FlaskConical,
@@ -40,8 +40,8 @@ const categoryIcons: Record<string, typeof FlaskConical> = {
 
 function Sidebar({ activeCategory, onCategory, onMobileClose, onOpenSettings, drawer = false }: { activeCategory: string; onCategory: (category: string) => void; onMobileClose?: () => void; onOpenSettings?: () => void; drawer?: boolean }) {
   return <aside className={`sidebar ${drawer ? "mobile-drawer" : ""}`}>
-    <div className="mb-10 flex items-center gap-3 px-2">
-      <div className="brand-mark relative grid h-12 w-12 place-items-center overflow-hidden rounded-[15px] border border-[#e7b64a]/70 bg-[#2a1a08] shadow-[0_10px_24px_rgba(129,83,9,0.24)]"><img src="/manus-storage/biolab-gold-3d-monogram-clean_2eb9f2d4.png" alt="BioLab oltin DNA–B monogram belgisi" className="h-10 w-10 object-contain" /><span className="absolute inset-x-2 bottom-1.5 h-px bg-[#f4d57d]/75" /><span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-white bg-[#d79e2f]" /></div>
+      <div className="mb-10 flex items-center gap-3 px-2">
+      <div className="brand-mark relative grid h-12 w-12 place-items-center overflow-hidden rounded-[15px] border border-[#e7b64a]/70 bg-black shadow-[0_10px_24px_rgba(129,83,9,0.24)]"><img src="/manus-storage/biolab-gold-fullscreen-black_15728cda.png" alt="BioLab oltin laboratoriya emblemi" className="brand-mark-emblem h-full w-full object-contain object-center" /></div>
       <div className="sidebar-copy"><div className="display flex items-baseline gap-1 text-[22px] font-bold tracking-[-0.055em] text-[#173d42]">Bio<span className="text-[#0d9488]">Lab</span><span className="ml-1 text-[9px] tracking-normal text-[#86a39c]">/ LAB-01</span></div><div className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#5b7c77]">SOP o‘quv tizimi</div></div>
     </div>
     <div className="sidebar-copy mb-3 px-3 text-[10px] font-bold uppercase tracking-[0.17em] text-[#86a39c]">Navigatsiya</div>
@@ -107,7 +107,7 @@ export default function Home() {
     }
     try {
       const { downloadBookmarksPdf } = await import("@/lib/bookmarkExport");
-      await downloadBookmarksPdf(bookmarkedDevices);
+      await downloadBookmarksPdf(bookmarkedDevices, theme);
       toast.success(`${bookmarkedDevices.length} ta saralangan qurilma PDF fayliga eksport qilindi.`);
     } catch {
       toast.error("PDF faylini yaratib bo‘lmadi. Iltimos, qayta urinib ko‘ring.");
@@ -120,7 +120,7 @@ export default function Home() {
     }
     try {
       const { shareBookmarksPdf } = await import("@/lib/bookmarkExport");
-      const result = await shareBookmarksPdf(bookmarkedDevices);
+      const result = await shareBookmarksPdf(bookmarkedDevices, new Date(), theme);
       if (result === "shared") {
         toast.success(`${bookmarkedDevices.length} ta saralangan qurilma PDFi ulashish oynasiga tayyorlandi.`);
       } else if (result === "downloaded") {
@@ -136,7 +136,7 @@ export default function Home() {
     try {
       toast.message(`${device.id} PDF dosyesi tayyorlanmoqda…`);
       const { shareDevicePdf } = await import("@/lib/devicePdfExport");
-      const result = await shareDevicePdf(device);
+      const result = await shareDevicePdf(device, new Date(), theme);
       if (result === "shared") toast.success(`${device.id} PDF dosyesi ulashish oynasiga tayyorlandi.`);
       else if (result === "downloaded") toast.info("Bu brauzer PDF-fayl ulashishni qo‘llamaydi. PDF qurilmaga yuklab olindi.");
       else toast.info("PDFni ulashish bekor qilindi.");
@@ -398,6 +398,6 @@ export default function Home() {
     )}
     {filtersOpen && <CatalogFilterSheet open={filtersOpen} onOpenChange={setFiltersOpen} query={query} modelQuery={modelQuery} activeCategory={activeCategory} categories={categories} bookmarksOnly={bookmarksOnly} resultCount={filtered.length} bookmarkedCount={bookmarkedCount} hasActiveFilters={hasActiveFilters} onQueryChange={handleQueryChange} onModelQueryChange={handleModelQueryChange} onCategoryChange={handleCategoryChange} onBookmarksOnlyChange={handleBookmarksOnlyChange} onClearFilters={clearFilters} />}
     {settingsOpen && <SettingsDialog open={settingsOpen} onOpenChange={setSettingsOpen} bookmarkedCount={bookmarkedCount} onClearBookmarks={clearBookmarks} onExportBookmarks={exportBookmarks} onExportBookmarksCsv={handleExportBookmarksCsv} onExportBookmarksPdf={handleExportBookmarksPdf} onShareBookmarksPdf={handleShareBookmarksPdf} onImportBookmarks={handleImportBookmarks} />}
-    {qrDevice && <Suspense fallback={null}><DeviceQrDialog device={qrDevice} open={Boolean(qrDevice)} onOpenChange={(open) => { if (!open) setQrDevice(null); }} /></Suspense>}
+    <DeviceQrDialog device={qrDevice} open={Boolean(qrDevice)} onOpenChange={(open) => { if (!open) setQrDevice(null); }} />
   </div>;
 }

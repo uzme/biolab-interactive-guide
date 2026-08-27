@@ -5,13 +5,23 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Oxirgi checkpoint | `487d094f`; DeviceViewer yorug‘/qorong‘i tema uyg‘unligi relizi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
+| Oxirgi checkpoint | `57a7b678`; QR, to‘liq emblem, PDF palitrasi va display rejimlari relizi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
 | Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; ilova relizi `0333d01d39afb162e5782b4be8b95a19f44b93b9` |
 | Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T09:16:14.165Z`; foydalanuvchining yangi aniq so‘rovisiz bu taskda Drive yangilanmagan |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzillari | Canonical: `https://biolabguide-fbcitqyf.manus.space`; faol Vercel main mirror: `https://biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | DeviceViewerning o‘quv, rasm shaffofligi, progress, manbalar, xarid va ogohlantirish yuzalari qorong‘i temadagi yagona slate-teal qatlamga moslandi; yorug‘ rejimdagi tasdiqlangan editorial oq yuzalar saqlandi. Header/performance relizi ham saqlangan: 3 rasm `eager/high`, 97 rasm `lazy`, QR va PDF og‘ir modullari kechiktirilgan chunklarda. TypeScript check, production build, 25 ta Vitest, barcha browser regressiyalari hamda BIO-001–BIO-100 o‘quv auditi PASS. GitHub yoki Drive sync bajarilmadi; manual-only siyosat saqlandi. |
+| Joriy audit | DeviceViewerning yuqori QR tugmasi dialogi statik tayyor holatda; sidebar va Sozlamalardagi brend belgisi to‘liq oltin BioLab emblemiga o‘tkazildi. PDF eksportlari aktiv tema palitrasiga moslashadi; Sozlamalarda yuqori-kontrast va OLED true-black tanlovlari browser xotirasida saqlanadi. TypeScript check, production build, 25 ta Vitest, barcha browser regressiyalari va BIO-001–BIO-100 o‘quv auditi PASS. GitHub/Drive qo‘lda sync so‘rovi olindi, lekin checkpointdan keyin bajariladi. |
+
+## 2026-08-28 QR, to‘liq BioLab emblemi va display rejimlari
+
+DeviceViewer detail ekranidagi yuqori QR boshqaruvi ilgari dialog modulining kech yuklanishiga bog‘liq edi; shu sabab ayrim mobil holatlarda birinchi bosish javobsiz ko‘rinishi mumkin edi. QR dialogi endi header bilan birga darhol tayyor turadi. Browser regressiyasi `BIO-001`, `BIO-050` va `BIO-100`ning detail oynalarida QR tugmasi birinchi bosishda to‘g‘ri nomlangan dialogni ochishi hamda `data:image/png;base64` formatidagi QR PNG chiqarishini tasdiqladi. Barcha 100 URL kontrakti tegishli unit va katalog auditlarida saqlandi.
+
+Sidebar va Sozlamalar oynasining kichik eski belgilari o‘rniga qora fondagi to‘liq oltin BioLab emblemi qo‘llandi. Ikonka ramkasida `object-contain` ishlatilgani uchun logo kesilmaydi va mobil drawer hamda desktop sidebarida yagona brend ko‘rinishi saqlanadi.
+
+Individual qurilma va Saralanganlar PDF dosyelari tanlangan kun/tun palitrasiga mos rang argumentini qabul qiladi. Sozlamalarda **yuqori kontrast** rejimi va faqat tungi temada yoqiladigan **OLED true-black** rejimi qo‘shildi; har ikkisi localStorage orqali qayta ochilganda saqlanadi. Browser regressiyasi bu holatlarni, DeviceViewerning qorong‘i/yorug‘ kontrastini va mobil Sozlamalar oqimini tekshiradi.
+
+Dalillar: `pnpm check`, `pnpm build`, **25 ta Vitest** va to‘liq `pnpm test` PASS. To‘liq zanjir katalog, 320/375/390 mobile header, hero, Live Lab, QR, PWA, kun/tun/kontrast/OLED, DeviceViewer, 100 qurilmaning 16-bo‘limli o‘quv auditi, loader recovery va release-sanitizatsiyani qamrab oldi. Holat: **READY — checkpoint va foydalanuvchi so‘ragan sanitizatsiyalangan GitHub/Drive sync kutilmoqda**.
 
 ## 2026-08-27 DeviceViewer kun/tun tema uyg‘unligi
 

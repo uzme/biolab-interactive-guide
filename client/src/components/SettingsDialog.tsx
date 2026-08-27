@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { BookOpen, Check, Database, ExternalLink, FileText, MonitorSmartphone, Moon, Palette, ShieldCheck, Sun, Trash2, X } from "lucide-react";
+import { BookOpen, Check, Contrast, Database, ExternalLink, FileText, MonitorSmartphone, Moon, Palette, ShieldCheck, Sun, Trash2, X } from "lucide-react";
 import { toast } from "sonner";
 import { useTheme } from "@/contexts/ThemeContext";
 
@@ -17,7 +17,7 @@ type SettingsDialogProps = {
 };
 
 export default function SettingsDialog({ open, onOpenChange, bookmarkedCount, onClearBookmarks, onExportBookmarks, onExportBookmarksCsv, onExportBookmarksPdf, onShareBookmarksPdf, onImportBookmarks }: SettingsDialogProps) {
-  const { theme, themePreference, toggleTheme, useSystemTheme } = useTheme();
+  const { theme, themePreference, toggleTheme, useSystemTheme, contrastMode, toggleContrastMode, displayMode, toggleOledMode } = useTheme();
   const [reducedMotion, setReducedMotion] = useState(() => localStorage.getItem("biolab-reduced-motion") === "true");
   const importInputRef = useRef<HTMLInputElement>(null);
 
@@ -50,13 +50,13 @@ export default function SettingsDialog({ open, onOpenChange, bookmarkedCount, on
   };
 
   return createPortal(
-    <div className="fixed inset-0 z-[100] flex min-h-[100dvh] items-center justify-center overflow-y-auto bg-[#173d42]/70 px-3 py-4 backdrop-blur-[2px] sm:p-6" onClick={() => onOpenChange(false)}>
+    <div data-settings-dialog className="fixed inset-0 z-[100] flex min-h-[100dvh] items-center justify-center overflow-y-auto bg-[#173d42]/70 px-3 py-4 backdrop-blur-[2px] sm:p-6" onClick={() => onOpenChange(false)}>
       <div className="relative my-auto max-h-[calc(100dvh-2rem)] w-full max-w-3xl overflow-hidden rounded-[28px] border border-[#cfe4db] bg-[#f7fbfa] shadow-[0_30px_90px_rgba(20,68,64,0.28)]" role="dialog" aria-modal="true" aria-labelledby="biolab-settings-title" onClick={(event) => event.stopPropagation()}>
         <div className="border-b border-[#d7e7e1] bg-white/95 px-5 py-5 sm:px-7 sm:py-6">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-start gap-3">
-              <span data-settings-brand className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-2xl border border-[#c7973b]/55 bg-[#0a0804] p-1 shadow-[0_8px_20px_rgba(137,92,18,0.26)]">
-                <img src="/manus-storage/biolab-gold-3d-monogram-clean_2eb9f2d4.png" alt="BioLab oltin brend belgisi" className="h-full w-full object-contain" />
+              <span data-settings-brand className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-2xl border border-[#c7973b]/55 bg-black shadow-[0_8px_20px_rgba(137,92,18,0.26)]">
+                <img src="/manus-storage/biolab-gold-fullscreen-black_15728cda.png" alt="BioLab oltin laboratoriya emblemi" className="h-full w-full object-contain object-center" />
               </span>
               <div>
                 <div className="tech-label text-[#0d7774]">BIO.LAB // CONTROL CENTER</div>
@@ -80,6 +80,14 @@ export default function SettingsDialog({ open, onOpenChange, bookmarkedCount, on
                     {theme === "dark" ? <Moon size={15} /> : <Sun size={15} />} {theme === "dark" ? "Tungi" : "Yorug‘"}
                   </button>
                 </div>
+              </div>
+              <div data-settings-contrast className="mt-3 flex items-center justify-between gap-4 rounded-xl border border-[#dcebe5] bg-[#f7fbfa] p-3">
+                <div><div className="text-sm font-bold text-[#173d42]">Yuqori kontrast</div><div className="mt-1 text-xs text-[#68857f]">Matn va chegara farqini kuchaytiradi.</div></div>
+                <button type="button" onClick={() => toggleContrastMode?.()} className={`inline-flex shrink-0 items-center gap-1.5 rounded-lg border px-2.5 py-2 text-xs font-bold transition ${contrastMode === "high" ? "border-[#0d7774] bg-[#0d7774] text-white" : "border-[#b8d8ce] bg-white text-[#0d7774] hover:bg-[#e5f3ed]"}`} aria-pressed={contrastMode === "high"} aria-label="Yuqori kontrast rejimini almashtirish"><Contrast size={15} /> {contrastMode === "high" ? "Faol" : "Standart"}</button>
+              </div>
+              <div data-settings-oled className="mt-3 flex items-center justify-between gap-4 rounded-xl border border-[#dcebe5] bg-[#f7fbfa] p-3">
+                <div><div className="text-sm font-bold text-[#173d42]">OLED true-black</div><div className="mt-1 text-xs text-[#68857f]">Tungi rejimda sof qora fon bilan ishlaydi.</div></div>
+                <button type="button" onClick={() => toggleOledMode?.()} disabled={theme !== "dark"} className={`inline-flex shrink-0 items-center gap-1.5 rounded-lg border px-2.5 py-2 text-xs font-bold transition disabled:cursor-not-allowed disabled:opacity-45 ${displayMode === "oled" ? "border-[#0d7774] bg-[#0d7774] text-white" : "border-[#b8d8ce] bg-white text-[#0d7774] hover:bg-[#e5f3ed]"}`} aria-pressed={displayMode === "oled"} aria-label="OLED true-black rejimini almashtirish"><Moon size={15} /> {displayMode === "oled" ? "Faol" : "O‘chiq"}</button>
               </div>
               <div className="mt-3 flex items-center justify-between gap-4 rounded-xl border border-[#dcebe5] bg-[#f7fbfa] p-3">
                 <div><div className="text-sm font-bold text-[#173d42]">Kamroq animatsiya</div><div className="mt-1 text-xs text-[#68857f]">Harakatni kamaytirish sozlamasini saqlaydi.</div></div>

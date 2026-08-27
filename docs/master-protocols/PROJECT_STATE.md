@@ -5,19 +5,25 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Oxirgi checkpoint | `23b0a0ec`; OLED true-black hotfixi tekshirildi va yangi checkpoint yaratilishi kutilmoqda |
-| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; oxirgi qo‘lda yuborilgan release commit `23b0a0ec9b442bd09b70f19be234f2240e6d2231`; OLED hotfixidan keyingi sync kutilmoqda |
-| Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, version `229`, modified `2026-08-27T19:34:52.292Z`; OLED hotfixidan keyingi yangilash kutilmoqda |
+| Oxirgi checkpoint | `704558cf`; OLED true-black hotfixi productionda jonli |
+| Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; qo‘lda, force-pushsiz yuborilgan hotfix commit `704558cf95a7bca127ef736b724298d46577978e` |
+| Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, version `232`, modified `2026-08-27T20:00:42.730Z` |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
-| Ishlab chiqarish manzillari | Canonical: `https://biolabguide-fbcitqyf.manus.space`; faol Vercel main mirror: `https://biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app` |
+| Ishlab chiqarish manzili | Canonical: `https://biolabguide-fbcitqyf.manus.space` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | DeviceViewerning yuqori QR tugmasi dialogi statik tayyor holatda; sidebar va Sozlamalardagi brend belgisi to‘liq oltin BioLab emblemiga o‘tkazildi. PDF eksportlari aktiv tema palitrasiga moslashadi; Sozlamalarda yuqori-kontrast va OLED true-black tanlovlari browser xotirasida saqlanadi. OLED safarbar hotfixi barcha keyingi gradientlarni bekor qilib, hujjat fonini haqiqiy `#000`ga mustahkamlaydi. TypeScript check, production build, 25 ta Vitest, barcha browser regressiyalari va BIO-001–BIO-100 o‘quv auditi PASS. Oldingi GitHub/Drive sync saqlangan, yangi hotfix uchun foydalanuvchi so‘ragan navbatdagi sync checkpointdan keyin bajariladi. |
+| Joriy audit | DeviceViewerning yuqori QR tugmasi dialogi statik tayyor holatda; sidebar va Sozlamalardagi brend belgisi to‘liq oltin BioLab emblemiga o‘tkazildi. PDF eksportlari aktiv tema palitrasiga moslashadi; Sozlamalarda yuqori-kontrast va OLED true-black tanlovlari browser xotirasida saqlanadi. OLED hotfixi keyingi gradientlarni bekor qilib, hujjat fonini haqiqiy `#000`ga mustahkamlaydi. TypeScript check, production build, 25 ta Vitest, barcha browser regressiyalari va BIO-001–BIO-100 o‘quv auditi PASS. Canonical GitHub va mavjud Drive snapshot foydalanuvchi tasdiqlagan qo‘lda sync bilan yangilandi; archive SHA-256 byte-darajasida tekshirildi. |
 
 ## 2026-08-28 OLED true-black hotfixi
 
 OLED rejimi holat va persistence jihatidan to‘g‘ri yoqilgan bo‘lsa-da, umumiy qorong‘i sahifa qatlamining keyin keluvchi gradienti ayrim browserlarda `body` fonini sof qora emas, teal-gradient sifatida hisoblatishi aniqlandi. Qorong‘i OLED selectorlari umumiy dark shell qatlamidan keyinga ko‘chirildi va `html.dark.oled`, `body`, `.shell`, hamda `.app-main` uchun `background-color: #000 !important` va `background-image: none !important` bilan mustahkamlandi.
 
-Natijada true-black faollashganda fon grafik gradientlarsiz haqiqiy qora rangda render qilinadi; DeviceViewer va Sozlamalar ichidagi asosiy yuzalar esa o‘qiluvchan tafovut uchun `#020809` qatlamida qoladi. Targeted browser regressiyasi va to‘liq release zanjiri sof qora `document.body` fonini, OLED localStorage persistenceini, QR, PDF, light/dark, mobil header, PWA hamda BIO-001–BIO-100 o‘quv oqimlarini PASS deb tasdiqladi. Holat: **READY — checkpoint va hotfixni GitHub/Drivega qo‘lda sinxronlash kutilmoqda**.
+Natijada true-black faollashganda fon grafik gradientlarsiz haqiqiy qora rangda render qilinadi; DeviceViewer va Sozlamalar ichidagi asosiy yuzalar esa o‘qiluvchan tafovut uchun `#020809` qatlamida qoladi. Targeted browser regressiyasi va to‘liq release zanjiri sof qora `document.body` fonini, OLED localStorage persistenceini, QR, PDF, light/dark, mobil header, PWA hamda BIO-001–BIO-100 o‘quv oqimlarini PASS deb tasdiqladi. Hotfix checkpointi `704558cf` canonical GitHubga force-pushsiz yuborildi va mavjud Drive snapshoti duplicate yaratmasdan yangilandi. Holat: **READY — qo‘lda sync yakunlandi**.
+
+## 2026-08-28 OLED hotfixi uchun yakuniy manual sync
+
+Canonical GitHub `main` tarmog‘i `23b0a0ec9b442bd09b70f19be234f2240e6d2231` dan `704558cf95a7bca127ef736b724298d46577978e` gacha **force-pushsiz** fast-forward bilan yangilandi. Drive’da yangi fayl yoki papka yaratilmadi: mavjud `BioLab_Interactive_Guide_source.tar.gz` (`1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`) aynan o‘zida yangilandi va canonical parent (`19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`) o‘zgarmadi.
+
+Snapshot `git archive` orqali checkpointdan yaratildi va `.env*`, `.project-config.json`, `.git`, `dist`, `node_modules` hamda `.manus-logs` yo‘llaridan tozaligi tekshirildi. SHA-256: `bd9dc2ad321cc0bd68d42a63b5b19f3a0b28a320645a1ee425f1db6099b806e5`; Drive’dan qayta olingan 34,244,722-byte nusxa ayni SHA-256ga ega va `cmp` orqali byte-darajasida tengligi tasdiqlandi. Drive metadata: version `232`, modified `2026-08-27T20:00:42.730Z`. Holat: **manual sync PASS**.
 
 ## 2026-08-28 Qo‘lda GitHub va Google Drive sinxronlashi
 

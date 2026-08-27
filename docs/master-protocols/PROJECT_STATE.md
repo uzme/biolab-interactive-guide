@@ -5,13 +5,21 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Oxirgi checkpoint | `fe1352fa`; mobil header, boshlang‘ich yuklanish va Saralanganlar regressiyasi relizi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
+| Oxirgi checkpoint | `487d094f`; DeviceViewer yorug‘/qorong‘i tema uyg‘unligi relizi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
 | Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; ilova relizi `0333d01d39afb162e5782b4be8b95a19f44b93b9` |
 | Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T09:16:14.165Z`; foydalanuvchining yangi aniq so‘rovisiz bu taskda Drive yangilanmagan |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzillari | Canonical: `https://biolabguide-fbcitqyf.manus.space`; faol Vercel main mirror: `https://biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | Mobil header boshqaruvlari quyuq premium klaster, bir xil ikonka kontrasti va 38 px touch-targetlar bilan yangilandi; 360 px viewportda 34 px variant ishlaydi. Katalogda faqat 3 rasm `eager/high`, qolgan 97 rasm `lazy`; DeviceViewer, QR va PDF modullari alohida kechiktirilgan chunklarda qoldi. Saralanganlar, filtr va Sozlamalar modulining birinchi bosishdagi ochilish poygasi statik, kichik header-modullar bilan bartaraf etildi. TypeScript check, production build, 25 ta Vitest, barcha browser regressiyalari hamda BIO-001–BIO-100 o‘quv auditi PASS. GitHub yoki Drive sync bajarilmadi; manual-only siyosat saqlandi. |
+| Joriy audit | DeviceViewerning o‘quv, rasm shaffofligi, progress, manbalar, xarid va ogohlantirish yuzalari qorong‘i temadagi yagona slate-teal qatlamga moslandi; yorug‘ rejimdagi tasdiqlangan editorial oq yuzalar saqlandi. Header/performance relizi ham saqlangan: 3 rasm `eager/high`, 97 rasm `lazy`, QR va PDF og‘ir modullari kechiktirilgan chunklarda. TypeScript check, production build, 25 ta Vitest, barcha browser regressiyalari hamda BIO-001–BIO-100 o‘quv auditi PASS. GitHub yoki Drive sync bajarilmadi; manual-only siyosat saqlandi. |
+
+## 2026-08-27 DeviceViewer kun/tun tema uyg‘unligi
+
+Foydalanuvchi yuborgan mobil misolda detail ekranining yuqori qismi qorong‘i tema rangida bo‘lgani holda, **“Xarid va foydalanish xarajatlari”** bloki yorug‘ `mint` yuza sifatida qolib ketgani aniqlandi. Sabab: DeviceViewer ichidagi qator hard-code qilingan light yuzalar umumiy qorong‘i tema override-lariga to‘liq ulanmagan edi.
+
+Tuzatishda DeviceViewerning ildiz, sticky header, o‘quv maqolasi va xarid bo‘limlariga semantik `data-*` belgilari qo‘shildi. Qorong‘i rejimda barcha ichki `card`, accordion, ma’lumot, ogohlantirish, chegara va sarlavha/matn ranglari yagona slate-teal kontrast tizimiga o‘tadi. Yorug‘ rejimda mavjud oq o‘qish yuzasi va mint xarid modulining tasdiqlangan premium ko‘rinishi o‘zgarmaydi. Natijada bir ekran ichida turli tema yuzalarining aralashib qolishi bartaraf etildi.
+
+Dalillar: yangi browser regressiyasi qurilma detailini tizimning qorong‘i va yorug‘ afzalliklari bilan ochib, DeviceViewer, o‘quv maqolasi, xarid moduli hamda sarlavha computed-style kontrastini tekshiradi. `pnpm check`, `pnpm build`, **25 ta Vitest** va to‘liq `pnpm test` PASS; katalog, 320/375/390 header, QR, PWA, DeviceViewer, loader recovery, BIO-001–BIO-100 o‘quv auditi va release-sanitizatsiya qamrovi saqlandi. GitHub yoki Google Drive sinxronlanmadi. Holat: **READY — checkpoint kutilmoqda**.
 
 ## 2026-08-27 Mobil header va boshlang‘ich yuklanish relizi
 

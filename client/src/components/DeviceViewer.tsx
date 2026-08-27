@@ -141,7 +141,7 @@ export default function DeviceViewer({ device, onBack, onReady, onSharePdf, onSh
   ] : [];
 
   return <div data-device-viewer className="min-h-full bg-[#f7fbfa] text-[#173d42]">
-    <header className="sticky top-0 z-30 border-b border-[#d8e7e3] bg-[#f7fbfa]/95 px-5 py-4 backdrop-blur-xl sm:px-8">
+    <header data-device-header className="sticky top-0 z-30 border-b border-[#d8e7e3] bg-[#f7fbfa]/95 px-5 py-4 backdrop-blur-xl sm:px-8">
       <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4">
         <button onClick={onBack} className="flex items-center gap-2 text-sm font-bold text-[#126a6a] transition hover:gap-3"><ArrowLeft size={17} /> Barcha uskunalar</button>
         <div className="hidden items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#6d8b87] sm:flex"><BookOpenCheck size={15} /> 16 bo‘limli o‘quv markazi</div>
@@ -193,14 +193,14 @@ export default function DeviceViewer({ device, onBack, onReady, onSharePdf, onSh
           </div>
         </aside>
 
-        {activeSection && <article className="rounded-[28px] border border-[#d8e7e3] bg-white p-5 shadow-[0_16px_45px_rgba(28,71,67,0.06)] sm:p-9 lg:p-10">
+        {activeSection && <article data-device-learning className="rounded-[28px] border border-[#d8e7e3] bg-white p-5 shadow-[0_16px_45px_rgba(28,71,67,0.06)] sm:p-9 lg:p-10">
           <div className="mb-7 border-b border-[#deebe7] pb-6"><div className="eyebrow mb-3">{String(activeSection.number).padStart(2, "0")} — O‘quv bo‘limi</div><div className="flex items-start gap-4"><span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-[#dff3eb] text-[#087a73]"><activeSection.icon size={22} /></span><div><h2 className="display text-3xl font-bold text-[#173d42]">{activeSection.title}</h2><p className="mt-1 text-sm text-[#6c8984]">{activeSection.subtitle}</p></div></div></div>
           {activeSection.id !== "sources" ? <SourceText value={activeSection.content} /> : <div className="space-y-4">{learning?.sources.map((source) => <div key={source.label} className="rounded-2xl border border-[#d9e8e3] bg-[#fbfefd] p-5"><div className="flex items-start justify-between gap-4"><div><h3 className="font-bold text-[#214d50]">{source.label}</h3><p className="mt-2 text-sm leading-6 text-[#56756f]">{source.note}</p></div>{source.url && <a href={source.url} target="_blank" rel="noreferrer" className="inline-flex shrink-0 items-center gap-1 rounded-lg border border-[#b9d8cd] px-3 py-2 text-xs font-bold text-[#0d7774] hover:bg-[#e3f2e9]">Ochish <ExternalLink size={14} /></a>}</div></div>)}</div>}
           <div className="mt-10 flex flex-wrap justify-between gap-3 border-t border-[#deebe7] pt-5"><Button variant="outline" className="border-[#b7d6ca] text-[#126a6a]" disabled={lessonIndex === 0} onClick={() => selectLesson(lessonIndex - 1)}>Oldingi bo‘lim</Button><Button className="bg-[#0d7774] text-white hover:bg-[#075e5c]" disabled={lessonIndex === sections.length - 1} onClick={() => selectLesson(lessonIndex + 1)}>Keyingi bo‘lim</Button></div>
         </article>}
       </section>}
 
-      {purchase && <section className="mt-10 rounded-[28px] border border-[#c8dfd8] bg-[#eff8f5] p-5 sm:p-7">
+      {purchase && <section data-device-purchase className="mt-10 rounded-[28px] border border-[#c8dfd8] bg-[#eff8f5] p-5 sm:p-7">
         <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end"><div><div className="eyebrow mb-2">Qo‘shimcha qaror moduli</div><h2 className="display text-3xl font-bold text-[#173d42]">Xarid va foydalanish xarajatlari</h2><p className="mt-2 max-w-2xl text-sm leading-6 text-[#587873]">Asosiy o‘quv dasturidan keyin model, konfiguratsiya, servis va import masalalarini baholash uchun.</p></div><div className="rounded-2xl border border-[#bcdcd1] bg-white px-5 py-4 text-right shadow-sm"><div className="tech-label text-[#6f8e87]">Narx benchmarki</div><div className="mt-1 text-lg font-bold text-[#0b706b]">{purchase.price || device.newPrice}</div></div></div>
         <Accordion type="single" collapsible className="rounded-2xl border border-[#cbded7] bg-white px-5 sm:px-6">{purchaseSections.map((section) => <AccordionItem key={section.value} value={section.value} className="border-[#dceae5]"><AccordionTrigger className="py-5 text-left font-bold text-[#214d50] no-underline hover:no-underline"><span className="flex items-center gap-3"><PackageSearch size={18} className="text-[#087a73]" />{section.title}</span></AccordionTrigger><AccordionContent className="pb-6"><SourceText value={section.content} /></AccordionContent></AccordionItem>)}</Accordion>
         <div className="mt-4 flex items-start gap-3 rounded-xl border border-[#edd8a5] bg-[#fff9e9] p-4 text-sm leading-6 text-[#75612e]"><AlertTriangle size={18} className="mt-0.5 shrink-0 text-[#b17813]" /><span>Ko‘rsatilgan narx va yetkazib berish ma’lumotlari yakuniy tijorat taklifi emas. Konfiguratsiya, servis, sertifikat va O‘zbekistondagi yetkazib berish shartlari bo‘yicha yozma RFQ olinadi.</span></div>

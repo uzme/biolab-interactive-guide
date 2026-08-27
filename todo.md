@@ -173,3 +173,4 @@
 - [x] Dastlabki katalog ochilishida faqat zarur hero va brend resurslarini ustuvor yuklab, qolgan og‘ir rasm assetlarini kechiktirilgan yuklash bilan tezlikni oshirish
 - [x] Mobil header hamda optimallashtirilgan yuklanish oqimini browser regressiyasi va Lighthouse-sifat ko‘rsatkichlari bilan tekshirish
 - [x] Header optimizatsiyasidan keyin browser regressionda ochilmay qolgan Saralanganlar yon paneli oqimini tuzatish
+- [x] DeviceViewer detail oynasidagi rang yuzalari, matn va accordion kontrastini yorug‘ hamda qorong‘i rejimlarda yagona premium dizayn tizimiga moslashtirish

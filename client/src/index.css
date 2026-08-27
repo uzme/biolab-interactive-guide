@@ -587,6 +587,48 @@ button { cursor: pointer; }
 .dark [class~="text-[#6f5a26]"],
 .dark [class~="text-[#75612e]"] { color: oklch(0.86 0.09 88) !important; }
 
+/* DeviceViewer uses a dense editorial surface system. Keep its cards, learning text,
+   purchase module and sticky controls on the same dark palette instead of leaving
+   a light-tinted island inside the dark application shell. */
+.dark [data-device-viewer] { background-color: oklch(0.16 0.028 195) !important; color: oklch(0.93 0.025 178); }
+.dark [data-device-viewer] [data-device-header] { border-color: oklch(0.36 0.06 185) !important; background-color: oklch(0.17 0.028 195 / 0.96) !important; }
+.dark [data-device-viewer] [data-device-purchase] { border-color: oklch(0.4 0.065 185) !important; background: linear-gradient(145deg, oklch(0.22 0.045 190), oklch(0.19 0.03 195)) !important; }
+.dark [data-device-viewer] [class~="bg-white"],
+.dark [data-device-viewer] [class~="bg-[#fbfefd]"],
+.dark [data-device-viewer] [class~="bg-[#eef8f4]"],
+.dark [data-device-viewer] [class~="bg-[#eaf5f2]"],
+.dark [data-device-viewer] [class~="bg-[#e7f4ef]"],
+.dark [data-device-viewer] [class~="bg-[#e8f1ef]"] { background-color: oklch(0.215 0.035 193) !important; }
+.dark [data-device-viewer] [class~="bg-[#fff9e9]"] { background-color: oklch(0.28 0.07 82) !important; }
+.dark [data-device-viewer] [class~="text-[#173d42]"],
+.dark [data-device-viewer] [class~="text-[#174a4b]"],
+.dark [data-device-viewer] [class~="text-[#214d50]"] { color: oklch(0.93 0.025 178) !important; }
+.dark [data-device-viewer] [class~="text-[#496b70]"],
+.dark [data-device-viewer] [class~="text-[#5b7773]"],
+.dark [data-device-viewer] [class~="text-[#5d7c76]"],
+.dark [data-device-viewer] [class~="text-[#56756f]"] { color: oklch(0.79 0.035 183) !important; }
+.dark [data-device-viewer] [class~="text-[#66847e]"],
+.dark [data-device-viewer] [class~="text-[#68857f]"],
+.dark [data-device-viewer] [class~="text-[#6c8984]"],
+.dark [data-device-viewer] [class~="text-[#6c8d86]"],
+.dark [data-device-viewer] [class~="text-[#71918b]"],
+.dark [data-device-viewer] [class~="text-[#78908c]"],
+.dark [data-device-viewer] [class~="text-[#7a9892]"] { color: oklch(0.72 0.035 183) !important; }
+.dark [data-device-viewer] [class~="text-[#087a73]"],
+.dark [data-device-viewer] [class~="text-[#0b706b]"],
+.dark [data-device-viewer] [class~="text-[#0d7774]"],
+.dark [data-device-viewer] [class~="text-[#126a6a]"],
+.dark [data-device-viewer] [class~="text-[#35625f]"],
+.dark [data-device-viewer] [class~="text-[#42736d]"] { color: oklch(0.82 0.12 175) !important; }
+.dark [data-device-viewer] [class*="border-[#c8dfd8]"],
+.dark [data-device-viewer] [class*="border-[#bcdcd1]"],
+.dark [data-device-viewer] [class*="border-[#cbded7]"],
+.dark [data-device-viewer] [class*="border-[#b7d6ca]"],
+.dark [data-device-viewer] [class*="border-[#b9d8cd]"],
+.dark [data-device-viewer] [class*="border-[#edd8a5]"] { border-color: oklch(0.42 0.07 185) !important; }
+.dark [data-device-viewer] [class~="text-[#6f5a26]"],
+.dark [data-device-viewer] [class~="text-[#75612e]"] { color: oklch(0.9 0.1 88) !important; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }

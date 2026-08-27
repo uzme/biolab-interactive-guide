@@ -872,6 +872,37 @@ body {
   .lab-entry-splash-footer { bottom: max(34px, env(safe-area-inset-bottom)); }
 }
 
+/* Mobil black splash: logo yuqoridan boshlanadi, CTA esa safe-area ichida qoladi. */
+@media (max-width: 759px) {
+  .lab-entry-splash-frame {
+    display: flex;
+    min-height: 100dvh;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: max(16px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+  }
+
+  .lab-entry-splash-halo { top: 1svh; }
+
+  .lab-entry-splash-logo {
+    width: min(100%, 480px);
+    height: min(65svh, 560px);
+    max-height: none;
+    margin-top: clamp(2px, 1.5svh, 14px);
+    object-fit: contain;
+  }
+
+  .lab-entry-splash-footer {
+    position: static;
+    width: 100%;
+    margin-top: auto;
+    padding-top: 8px;
+  }
+
+  .lab-entry-splash-footer p { font-size: 8.5px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .lab-entry-splash-logo { animation: none; }
 }

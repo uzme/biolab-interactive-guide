@@ -17,6 +17,7 @@ assert(await page.locator("[data-lab-entry-action]").isVisible(), "Kirish ekrani
 assert(await page.locator("[data-lab-entry-logo]").isVisible(), "Qora fondagi asosiy BioLab logosi ko‘rinmadi.");
 const logoBounds = await page.locator("[data-lab-entry-logo]").boundingBox();
 assert(Boolean(logoBounds) && logoBounds.height >= 300, "Asosiy BioLab logosi mobil sahnada yetarlicha katta emas.");
+assert(Boolean(logoBounds) && logoBounds.y < 150, "Asosiy BioLab logosi mobil sahnada yuqoridan ortiqcha bo‘shliq bilan boshlangan.");
 assert(await page.locator("[data-hero-surface]").count() === 0, "Original sahifa kirish ekranidan oldin ko‘rinib qoldi.");
 await page.locator("[data-lab-entry-action]").click();
 await page.locator("[data-hero-surface]").waitFor({ state: "visible" });
@@ -47,6 +48,10 @@ const settingsDialog = settingsPage.getByRole("dialog", { name: /Sozlamalar va h
 await settingsDialog.waitFor({ state: "visible" });
 assert(await settingsDialog.getByText(/Qat’iy Mualliflik Huquqi/i).isVisible(), "Mobil Copyright modalining kontenti ko‘rinmadi.");
 assert(await settingsDialog.getByText("Mengliyev Bahrom Husanovich", { exact: true }).first().isVisible(), "Mobil Copyright modalida muallifning to‘liq ismi ko‘rinmadi.");
+const settingsBrand = settingsDialog.locator("[data-settings-brand] img");
+await settingsBrand.waitFor({ state: "visible" });
+const settingsBrandSrc = await settingsBrand.getAttribute("src");
+assert(settingsBrandSrc?.includes("biolab-gold-3d-monogram-clean"), "Sozlamalardagi BioLab brend belgisi topilmadi.");
 await settingsPage.getByRole("button", { name: /Sozlamalarni yopish/i }).click();
 assert(await settingsDialog.count() === 0, "Mobil Copyright modali yopilmadi.");
 await settingsPage.close();

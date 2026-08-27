@@ -55,7 +55,9 @@ export default function SettingsDialog({ open, onOpenChange, bookmarkedCount, on
         <div className="border-b border-[#d7e7e1] bg-white/95 px-5 py-5 sm:px-7 sm:py-6">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-start gap-3">
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#0d7774] text-white shadow-[0_8px_18px_rgba(13,119,116,0.2)]"><Palette size={20} /></span>
+              <span data-settings-brand className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-2xl border border-[#c7973b]/55 bg-[#0a0804] p-1 shadow-[0_8px_20px_rgba(137,92,18,0.26)]">
+                <img src="/manus-storage/biolab-gold-3d-monogram-clean_2eb9f2d4.png" alt="BioLab oltin brend belgisi" className="h-full w-full object-contain" />
+              </span>
               <div>
                 <div className="tech-label text-[#0d7774]">BIO.LAB // CONTROL CENTER</div>
                 <h2 id="biolab-settings-title" className="display mt-1 text-xl font-bold tracking-[-0.035em] text-[#173d42] sm:text-2xl">Sozlamalar va huquqiy ma’lumot</h2>

@@ -166,3 +166,6 @@
 - [x] Offline paket boshqaruvidan so‘ng onlayn katalogga qaytish ishlamay qolishi sababini topib, qaytish va reload oqimini regression bilan tuzatish
 - [x] Asosiy ochilish sahnasini sof qora fonda foydalanuvchi yuborgan oltin BioLab logotipi viewportni to‘liq egallaydigan kompozitsiyaga almashtirish va katalogga kirish oqimini saqlash
 - [x] Qora ochilish sahnasidagi oltin logo assetidan ko‘rinib qolgan shaxmat-fon artefaktini bartaraf etish
+- [x] Mobil qora splashda ortiqcha yuqori bo‘shliqni yo‘qotib, oltin BioLab logotipi, tagline va kirish tugmasini safe-area doirasida sifatli muvozanatlashtirish
+- [x] BIO-001–BIO-100 QR kod deep-linklari hamda QR dialoglarini browser auditida qayta tekshirish va aniqlangan xatoni tuzatish
+- [x] Sozlamalar oynasidagi BioLab brend belgisini qora/oltin splash identiteti bilan mos, aniq va professional ko‘rinishga yangilash

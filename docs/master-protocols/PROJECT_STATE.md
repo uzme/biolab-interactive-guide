@@ -5,13 +5,19 @@
 | Ko‘rsatkich | Qiymat |
 |---|---|
 | Web loyiha | BioLab Interactive Guide |
-| Oxirgi checkpoint | `432b6c23`; sof qora fondagi to‘liq ekranli BioLab logo sahnasi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
+| Oxirgi checkpoint | `0deb197e`; mobil splash sifati, QR audit va Sozlamalar brendi relizi uchun yangi checkpoint tekshiruvlardan keyin yaratiladi |
 | Canonical GitHub | `https://github.com/uzme/biolab-interactive-guide`, `main`; ilova relizi `0333d01d39afb162e5782b4be8b95a19f44b93b9` |
 | Canonical Google Drive | **Biotexnologiya yangi** BioLab root, ID `19um8Y1EuuZbbTR2ncXDeg6mekc_xorhV`; canonical snapshot ID `1q3PT-h_0FOHSoTIRMfQ6IOaRqHYkrgjh`, modified `2026-08-24T09:16:14.165Z`; foydalanuvchining yangi aniq so‘rovisiz bu taskda Drive yangilanmagan |
 | Joriy snapshot nomi | `BioLab_Interactive_Guide_source.tar.gz` |
 | Ishlab chiqarish manzillari | Canonical: `https://biolabguide-fbcitqyf.manus.space`; faol Vercel main mirror: `https://biolab-interactive-guide-git-main-bahroms-projects-fade24c3.vercel.app` |
 | Qamrov | 10 kategoriya, 100 qurilma, 16 bo‘limli o‘quv tarkibi |
-| Joriy audit | Asosiy kirish sahnasi sof qora fondagi to‘liq ekranli BioLab splashga almashtirildi: foydalanuvchi yuborgan oltin kolba–DNA–barg logotipi dominant va kesilmasdan ko‘rinadi. Shaxmat-fon artefakti qora canvasli asset bilan bartaraf etildi. Offline actioni `/?direct=1&online=1` orqali onlayn katalogni ochadi. TypeScript check, production build, 23 ta Vitest, 320/375/390 mobil header, Live Lab, katalog/detail/loader hamda BIO-001–BIO-100 auditlari PASS. GitHub yoki Drive sync bajarilmadi; manual-only siyosat saqlandi. |
+| Joriy audit | Mobil qora splashdagi ortiqcha yuqori bo‘shliq bartaraf etildi: oltin BioLab logo, tagline va kirish boshqaruvi safe-area ichida zich hamda muvozanatli joylashadi. Sozlamalar oynasida qora-oltin ramkali DNA–B monogram brend belgisi ishlatiladi. QR bo‘yicha 100/100 URL kontrakti, skan qilinadigan PNG, QR dialogi hamda BIO-001/BIO-050/BIO-100 browser deep-linklari PASS. TypeScript check, production build, 25 ta Vitest va 100 qurilmali browser auditlari PASS. GitHub yoki Drive sync bajarilmadi; manual-only siyosat saqlandi. |
+
+## 2026-08-27 Mobil splash sifati, QR audit va Sozlamalar brendi
+
+Foydalanuvchi yuborgan mobil screenshot asosida qora splash kompozitsiyasi qayta sozlandi: telefon ekranidagi yuqori bo‘shliq qisqartirildi, oltin BioLab logo sahnaning yuqori qismidan boshlanadi va barcha markaziy elementlar safe-area ichida qoladi. Tagline hamda **“Laboratoriyaga kirish”** tugmasi logo bilan tabiiy vertikal ritmda ko‘rinadi. Sozlamalar oynasining avvalgi tekis teal ikonasi o‘rniga qora fonda oltin chegarali, ichida BioLab DNA–B monogram bo‘lgan professional brend belgisi o‘rnatildi.
+
+QR oqimi qayta tekshirildi. Unit sinovida `BIO-001`–`BIO-100`ning barchasi `?direct=1&device=BIO-NNN` manzilini hosil qilishi hamda PNG QR data URL berishi tasdiqlandi. Browser regresiyasida QR dialogi raster QR kodini ko‘rsatdi va `BIO-001`, `BIO-050`, `BIO-100` deep-linklari tegishli DeviceViewer oynasini ochdi. Natija: TypeScript check, production build, **25 ta Vitest**, QR browser sinovi, mobil splash va Sozlamalar regressionlari, shuningdek BIO-001–BIO-100 o‘quv auditlari PASS. GitHub hamda Google Drive manual-only siyosatga muvofiq sinxronlanmadi. Holat: **READY — checkpoint kutilmoqda**.
 
 ## 2026-08-26 Sof qora fondagi BioLab splash sahnasi
 

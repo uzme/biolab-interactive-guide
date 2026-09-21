@@ -18,12 +18,11 @@ export default function LabEntryGate({ onEnter }: LabEntryGateProps) {
     <section className="lab-entry-frame lab-entry-splash-frame" data-lab-entry-frame>
       <div className="lab-entry-splash-halo" aria-hidden="true" />
       <h1 id="lab-entry-title" className="sr-only">BioLab laboratoriya ochilish sahifasi</h1>
-      <img
-        className="lab-entry-splash-logo"
-        data-lab-entry-logo
-        src="/biolab-logo.webp"
-        alt="BioLab laboratoriya logotipi"
-      />
+      <div className="lab-entry-splash-brand" data-lab-entry-logo aria-label="BioLab. Muallif: Mengliyev Bahrom">
+        <img className="lab-entry-splash-logo" src="/biolab-logo.webp" alt="BioLab laboratoriya logotipi" />
+        <span className="lab-entry-splash-brand-name">BioLab</span>
+        <span className="lab-entry-splash-brand-author">Muallif: Mengliyev Bahrom</span>
+      </div>
       <div className="lab-entry-splash-footer">
         <p>O‘ZBEKCHA BIOTEXNOLOGIYA TIZIMI</p>
         <button type="button" className="lab-entry-action lab-entry-splash-action" data-lab-entry-action onClick={enterLaboratory} disabled={isEntering}>

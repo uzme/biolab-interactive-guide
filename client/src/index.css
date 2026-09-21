@@ -925,6 +925,39 @@ html.dark.oled .app-main {
   pointer-events: none;
 }
 
+.lab-entry-splash-brand {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  width: min(98vw, 940px);
+  text-align: center;
+}
+
+.lab-entry-splash-brand-name {
+  margin-top: clamp(4px, 1.2vh, 12px);
+  background: linear-gradient(180deg, #fff2b7 0%, #f4c85f 28%, #d99420 60%, #8a500e 100%);
+  background-clip: text;
+  color: transparent;
+  font-family: "Plus Jakarta Sans", "DM Sans", system-ui, sans-serif;
+  font-size: clamp(2.6rem, 7vw, 5.8rem);
+  font-weight: 800;
+  letter-spacing: -.08em;
+  line-height: .92;
+  -webkit-background-clip: text;
+  text-shadow: 0 2px 0 #a96913, 0 4px 0 #74430c, 0 10px 24px rgba(220, 158, 38, .28);
+}
+
+.lab-entry-splash-brand-author {
+  margin-top: 10px;
+  color: rgba(255, 225, 157, .84);
+  font-size: clamp(.7rem, 1.45vw, .95rem);
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 12px rgba(222, 160, 34, .28);
+}
+
 .lab-entry-splash-logo {
   position: relative;
   z-index: 1;
@@ -998,6 +1031,10 @@ html.dark.oled .app-main {
     margin-top: clamp(2px, 1.5svh, 14px);
     object-fit: contain;
   }
+
+  .lab-entry-splash-brand { width: 100%; }
+  .lab-entry-splash-brand-name { font-size: clamp(2.45rem, 14vw, 4.4rem); }
+  .lab-entry-splash-brand-author { font-size: 0.66rem; letter-spacing: .1em; }
 
   .lab-entry-splash-footer {
     position: static;

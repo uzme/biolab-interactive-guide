@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import { PDFDocument } from "pdf-lib";
 import { equipment } from "./equipmentData";
-import { buildDevicePdf, getDevicePdfFilename, shareDevicePdf } from "./devicePdfExport";
+import { buildDevicePdf, getDevicePdfFilename, shareDevicePdf, toPdfText } from "./devicePdfExport";
 import { loadLearningContent, loadPurchaseContent, resolveDeviceContent } from "./learningData";
 
 describe("individual qurilma PDF dosyesi", () => {
@@ -17,6 +17,10 @@ describe("individual qurilma PDF dosyesi", () => {
     expect(document.getTitle()).toBe(`BioLab — ${device.name}`);
     expect(document.getPageCount()).toBeGreaterThan(1);
     expect(getDevicePdfFilename(device, exportedAt)).toBe("BioLab_BIO-001_oquv_dosyesi_2026-08-25.pdf");
+  });
+
+  it("PDF matnida Markdown bold markerlarini ko‘rsatmaydi", () => {
+    expect(toPdfText("**Boshlang‘ich:** QC tekshiruvi")).toBe("Boshlang'ich: QC tekshiruvi");
   });
 
   it("qo‘llab-quvvatlangan qurilmada individual PDFni native Share oynasiga beradi", async () => {

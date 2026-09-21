@@ -2,6 +2,7 @@ import { PDFDocument, rgb, StandardFonts, type PDFFont, type PDFPage } from "pdf
 import type { Equipment } from "@/lib/equipmentData";
 import { loadLearningContent, loadPurchaseContent, resolveDeviceContent, type LearningContent, type PurchaseContent } from "@/lib/learningData";
 import { getDeviceQrDataUrl } from "@/lib/deviceQr";
+import { equipmentImages } from "@/lib/equipmentImages";
 
 const PAGE_WIDTH = 595.28;
 const PAGE_HEIGHT = 841.89;
@@ -25,14 +26,50 @@ function getPdfPalette(theme: PdfTheme): PdfPalette {
     : { page: rgb(1, 1, 1), surface: rgb(0.94, 0.98, 0.97), border: rgb(0.71, 0.86, 0.81), header: rgb(0.025, 0.16, 0.16), accent: rgb(0.05, 0.57, 0.51), accentSoft: rgb(0.56, 0.92, 0.83), heading: rgb(0.04, 0.27, 0.27), body: rgb(0.22, 0.36, 0.34), muted: rgb(0.24, 0.42, 0.39), divider: rgb(0.82, 0.9, 0.87) };
 }
 
-function toPdfText(value: string) {
+export function toPdfText(value: string) {
   return value
+    .replace(/\*\*/g, "")
     .replace(/[ʻʼ‘’]/g, "'")
     .replace(/[“”]/g, '"')
     .replace(/[—–]/g, "-")
     .normalize("NFKD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^\x20-\x7E]/g, " ");
+}
+
+async function embedHeroImage(pdf: PDFDocument, deviceId: string) {
+  if (typeof document === "undefined" || typeof Image === "undefined") return undefined;
+  const imageUrl = equipmentImages[deviceId]?.url;
+  if (!imageUrl) return undefined;
+
+  try {
+    const response = await fetch(imageUrl);
+    if (!response.ok) return undefined;
+    const sourceBlob = await response.blob();
+    const objectUrl = URL.createObjectURL(sourceBlob);
+    try {
+      const image = new Image();
+      image.decoding = "async";
+      image.src = objectUrl;
+      await image.decode();
+      const maxWidth = 900;
+      const width = Math.min(maxWidth, image.naturalWidth || maxWidth);
+      const height = Math.max(1, Math.round(width * (image.naturalHeight || 9) / (image.naturalWidth || 16)));
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      const context = canvas.getContext("2d");
+      if (!context) return undefined;
+      context.drawImage(image, 0, 0, width, height);
+      const pngBlob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/png"));
+      if (!pngBlob) return undefined;
+      return await pdf.embedPng(new Uint8Array(await pngBlob.arrayBuffer()));
+    } finally {
+      URL.revokeObjectURL(objectUrl);
+    }
+  } catch {
+    return undefined;
+  }
 }
 
 function wrapText(value: string, font: PDFFont, size: number, maxWidth: number) {
@@ -117,6 +154,7 @@ export async function buildDevicePdf(device: Equipment, learning: LearningConten
   const qrDataUrl = await getDeviceQrDataUrl(device.id);
   const qrBytes = await fetch(qrDataUrl).then((response) => response.arrayBuffer());
   const qrImage = await pdf.embedPng(qrBytes);
+  const heroImage = await embedHeroImage(pdf, device.id);
   const pages: PDFPage[] = [];
   let page!: PDFPage;
   let cursorY = 0;
@@ -131,7 +169,13 @@ export async function buildDevicePdf(device: Equipment, learning: LearningConten
 
   createPage();
   page.drawRectangle({ x: MARGIN, y: PAGE_HEIGHT - 292, width: BODY_WIDTH, height: 166, color: palette.surface, borderColor: palette.border, borderWidth: 0.8 });
-  page.drawText(toPdfText(learning?.title || device.name), { x: MARGIN + 18, y: PAGE_HEIGHT - 161, size: 20, font: bold, color: palette.heading, maxWidth: BODY_WIDTH - 148, lineHeight: 24 });
+  if (heroImage) {
+    const heroSize = heroImage.scaleToFit(126, 86);
+    page.drawRectangle({ x: MARGIN + 16, y: PAGE_HEIGHT - 276, width: 132, height: 94, color: palette.page, borderColor: palette.border, borderWidth: 0.6 });
+    page.drawImage(heroImage, { x: MARGIN + 19 + (126 - heroSize.width) / 2, y: PAGE_HEIGHT - 272 + (82 - heroSize.height) / 2, width: heroSize.width, height: heroSize.height });
+  }
+  const coverTextX = MARGIN + 158;
+  page.drawText(toPdfText(learning?.title || device.name), { x: coverTextX, y: PAGE_HEIGHT - 161, size: 18, font: bold, color: palette.heading, maxWidth: BODY_WIDTH - 296, lineHeight: 22 });
   page.drawImage(qrImage, { x: PAGE_WIDTH - MARGIN - 104, y: PAGE_HEIGHT - 278, width: 90, height: 90 });
   page.drawText("Skan qiling: detail oynasi", { x: PAGE_WIDTH - MARGIN - 118, y: PAGE_HEIGHT - 290, size: 6.7, font: bold, color: palette.accent, maxWidth: 118 });
   const profileLines = [
@@ -140,7 +184,7 @@ export async function buildDevicePdf(device: Equipment, learning: LearningConten
     `Manufacturer: ${learning?.manufacturer || device.brands || "Aniqlanmagan"}`,
     `Eksport sanasi: ${DATE_FORMATTER.format(exportedAt)}`,
   ];
-  profileLines.forEach((line, index) => page.drawText(toPdfText(line), { x: MARGIN + 18, y: PAGE_HEIGHT - 222 - index * 15, size: 9, font: index === 0 ? bold : regular, color: index === 0 ? palette.accent : palette.muted, maxWidth: BODY_WIDTH - 145 }));
+  profileLines.forEach((line, index) => page.drawText(toPdfText(line), { x: coverTextX, y: PAGE_HEIGHT - 222 - index * 15, size: 8.5, font: index === 0 ? bold : regular, color: index === 0 ? palette.accent : palette.muted, maxWidth: BODY_WIDTH - 296 }));
 
   const ensureSpace = (height: number) => {
     if (cursorY - height < MARGIN + 42) createPage(true);

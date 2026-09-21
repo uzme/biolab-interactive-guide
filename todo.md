@@ -188,3 +188,4 @@
 - [x] Sidebardagi mavjud bo‘lmagan Manus-storage logo URLini committed local BioLab logo assetiga almashtirish va 100-device runtime auditini yakunlash
 - [x] PDF eksportida Markdown `**` markerlarini foydalanuvchiga ko‘rsatmaslik va PDF regressiyasi bilan tasdiqlash
 - [x] Barcha 100 qurilma PDF cover sahifasiga mos local WebP hero rasmini embed qilish va image/PDF regressiyasini tekshirish
+- [x] PDF cover header kontrasti, o‘zbekcha eksport sanasi va QR yozuvi joylashuvini premium ko‘rinishga yaxshilash

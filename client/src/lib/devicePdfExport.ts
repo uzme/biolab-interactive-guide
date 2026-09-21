@@ -8,10 +8,15 @@ const PAGE_WIDTH = 595.28;
 const PAGE_HEIGHT = 841.89;
 const MARGIN = 44;
 const BODY_WIDTH = PAGE_WIDTH - MARGIN * 2;
-const DATE_FORMATTER = new Intl.DateTimeFormat("uz-UZ", { day: "2-digit", month: "long", year: "numeric" });
+const UZ_MONTHS = ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"];
 
 export type DevicePdfShareResult = "shared" | "downloaded" | "cancelled";
 export type PdfTheme = "light" | "dark";
+
+function formatPdfDate(date: Date) {
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${day}-${UZ_MONTHS[date.getMonth()]} ${date.getFullYear()}`;
+}
 
 type DossierSection = { number: number; title: string; content: string };
 type PdfPalette = { page: ReturnType<typeof rgb>; surface: ReturnType<typeof rgb>; border: ReturnType<typeof rgb>; header: ReturnType<typeof rgb>; accent: ReturnType<typeof rgb>; accentSoft: ReturnType<typeof rgb>; heading: ReturnType<typeof rgb>; body: ReturnType<typeof rgb>; muted: ReturnType<typeof rgb>; divider: ReturnType<typeof rgb>; };
@@ -138,7 +143,7 @@ function triggerDownload(blob: Blob, filename: string) {
 function drawHeader(page: PDFPage, bold: PDFFont, regular: PDFFont, device: Equipment, continuation: boolean, palette: PdfPalette) {
   page.drawRectangle({ x: 0, y: PAGE_HEIGHT - 92, width: PAGE_WIDTH, height: 92, color: palette.header });
   page.drawText("BIO.LAB / INDIVIDUAL O'QUV DOSYESI", { x: MARGIN, y: PAGE_HEIGHT - 42, size: 8.5, font: bold, color: palette.accentSoft });
-  page.drawText(toPdfText(`${device.id}  |  ${continuation ? "DAVOMI" : "16 BO'LIMLI SOP"}`), { x: MARGIN, y: PAGE_HEIGHT - 63, size: 8.2, font: regular, color: palette.body });
+  page.drawText(toPdfText(`${device.id}  |  ${continuation ? "DAVOMI" : "16 BO'LIMLI SOP"}`), { x: MARGIN, y: PAGE_HEIGHT - 63, size: 8.2, font: regular, color: palette.accentSoft });
 }
 
 export async function buildDevicePdf(device: Equipment, learning: LearningContent | undefined, purchase: PurchaseContent | undefined, exportedAt = new Date(), theme: PdfTheme = getActivePdfTheme()) {
@@ -177,12 +182,12 @@ export async function buildDevicePdf(device: Equipment, learning: LearningConten
   const coverTextX = MARGIN + 158;
   page.drawText(toPdfText(learning?.title || device.name), { x: coverTextX, y: PAGE_HEIGHT - 161, size: 18, font: bold, color: palette.heading, maxWidth: BODY_WIDTH - 296, lineHeight: 22 });
   page.drawImage(qrImage, { x: PAGE_WIDTH - MARGIN - 104, y: PAGE_HEIGHT - 278, width: 90, height: 90 });
-  page.drawText("Skan qiling: detail oynasi", { x: PAGE_WIDTH - MARGIN - 118, y: PAGE_HEIGHT - 290, size: 6.7, font: bold, color: palette.accent, maxWidth: 118 });
+  page.drawText("Skan qiling: detail oynasi", { x: PAGE_WIDTH - MARGIN - 118, y: PAGE_HEIGHT - 284, size: 7.1, font: bold, color: palette.accent, maxWidth: 118 });
   const profileLines = [
     `${device.id}  |  ${device.category}`,
     `Model: ${learning?.model || device.model}`,
     `Manufacturer: ${learning?.manufacturer || device.brands || "Aniqlanmagan"}`,
-    `Eksport sanasi: ${DATE_FORMATTER.format(exportedAt)}`,
+    `Eksport sanasi: ${formatPdfDate(exportedAt)}`,
   ];
   profileLines.forEach((line, index) => page.drawText(toPdfText(line), { x: coverTextX, y: PAGE_HEIGHT - 222 - index * 15, size: 8.5, font: index === 0 ? bold : regular, color: index === 0 ? palette.accent : palette.muted, maxWidth: BODY_WIDTH - 296 }));
 

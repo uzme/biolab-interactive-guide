@@ -59,6 +59,7 @@ export function ThemeProvider({
 
     root.classList.toggle("high-contrast", contrastMode === "high");
     root.classList.toggle("oled", displayMode === "oled");
+    document.body.style.backgroundColor = theme === "dark" && displayMode === "oled" ? "#000" : "";
 
     if (switchable) {
       localStorage.setItem("biolab-theme-preference", themePreference);

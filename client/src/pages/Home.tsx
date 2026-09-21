@@ -41,7 +41,7 @@ const categoryIcons: Record<string, typeof FlaskConical> = {
 function Sidebar({ activeCategory, onCategory, onMobileClose, onOpenSettings, drawer = false }: { activeCategory: string; onCategory: (category: string) => void; onMobileClose?: () => void; onOpenSettings?: () => void; drawer?: boolean }) {
   return <aside className={`sidebar ${drawer ? "mobile-drawer" : ""}`}>
       <div className="mb-10 flex items-center gap-3 px-2">
-      <div className="brand-mark relative grid h-12 w-12 place-items-center overflow-hidden rounded-[15px] border border-[#e7b64a]/70 bg-black shadow-[0_10px_24px_rgba(129,83,9,0.24)]"><img src="/manus-storage/biolab-gold-fullscreen-black_15728cda.png" alt="BioLab oltin laboratoriya emblemi" className="brand-mark-emblem h-full w-full object-contain object-center" /></div>
+      <div className="brand-mark relative grid h-12 w-12 place-items-center overflow-hidden rounded-[15px] border border-[#e7b64a]/70 bg-black shadow-[0_10px_24px_rgba(129,83,9,0.24)]"><img src="/biolab-logo.webp" alt="BioLab laboratoriya emblemi" className="brand-mark-emblem h-full w-full object-contain object-center" /></div>
       <div className="sidebar-copy"><div className="display flex items-baseline gap-1 text-[22px] font-bold tracking-[-0.055em] text-[#173d42]">Bio<span className="text-[#0d9488]">Lab</span><span className="ml-1 text-[9px] tracking-normal text-[#86a39c]">/ LAB-01</span></div><div className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#5b7c77]">SOP o‘quv tizimi</div></div>
     </div>
     <div className="sidebar-copy mb-3 px-3 text-[10px] font-bold uppercase tracking-[0.17em] text-[#86a39c]">Navigatsiya</div>
@@ -389,7 +389,7 @@ export default function Home() {
         <div data-device-modal-panel className="relative flex h-full min-h-0 w-full flex-col overflow-hidden border-[#d8e7e3] bg-[#f7fbfa] shadow-[0_30px_90px_rgba(20,68,64,0.3)] sm:h-auto sm:max-h-[92dvh] sm:max-w-6xl sm:rounded-[30px] sm:border" onClick={(event) => event.stopPropagation()}>
           <div ref={deviceModalScrollRef} className="min-h-0 flex-1 overflow-y-auto overscroll-contain [-webkit-overflow-scrolling:touch]">
             <div ref={deviceViewerScrollRef} className="min-h-full w-full">
-              <Suspense fallback={<div className="p-6 text-sm font-semibold text-[#537c76]" role="status">O‘quv dosyesi tayyorlanmoqda…</div>}><DeviceViewer key={selectedDevice.id} device={selectedDevice} onBack={() => setSelectedDevice(null)} onReady={resetDeviceViewerScroll} onSharePdf={handleShareDevicePdf} onShowQr={setQrDevice} completedSections={getCompletedSections(selectedDevice.id)} onSectionRead={markSectionRead} /></Suspense>
+              <Suspense fallback={<div className="p-6 text-sm font-semibold text-[#537c76]" role="status">{selectedDevice.id} · O‘quv dosyesi tayyorlanmoqda…</div>}><DeviceViewer key={selectedDevice.id} device={selectedDevice} onBack={() => setSelectedDevice(null)} onReady={resetDeviceViewerScroll} onSharePdf={handleShareDevicePdf} onShowQr={setQrDevice} completedSections={getCompletedSections(selectedDevice.id)} onSectionRead={markSectionRead} /></Suspense>
             </div>
           </div>
         </div>

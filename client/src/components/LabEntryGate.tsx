@@ -21,8 +21,8 @@ export default function LabEntryGate({ onEnter }: LabEntryGateProps) {
       <img
         className="lab-entry-splash-logo"
         data-lab-entry-logo
-        src="/manus-storage/biolab-gold-fullscreen-black_15728cda.png"
-        alt="BioLab oltin laboratoriya logotipi"
+        src="/biolab-logo.webp"
+        alt="BioLab laboratoriya logotipi"
       />
       <div className="lab-entry-splash-footer">
         <p>O‘ZBEKCHA BIOTEXNOLOGIYA TIZIMI</p>

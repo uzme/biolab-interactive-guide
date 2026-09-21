@@ -181,3 +181,8 @@
 - [x] OLED ekranlar uchun alohida true-black tema rejimini qo‘shish, persistence va kontrast regressiyasini tekshirish
 - [x] Tasdiqlangan sanitizatsiyalangan relizni aniqlashtirilgan canonical GitHub hamda Google Drive manziliga qo‘lda sinxronlash
 - [x] OLED true-black rejimida umumiy qorong‘i gradient fonni qayta yozishi regressiyasini bartaraf etish va to‘liq reliz zanjirini qayta tasdiqlash
+
+- [x] QR deep-link (`?direct=1&device=BIO-NNN`) detail modalini browser regressiyasida tuzatish va barcha testlarni qayta tasdiqlash
+- [x] OLED true-black rejimida body fonini CSS specificity va display preference oqimi bilan tuzatish
+- [x] Env bo‘lmaganida analytics placeholder so‘rovlarini yubormaslik va 100-qurilma browser auditini to‘liq pass qilish
+- [x] Sidebardagi mavjud bo‘lmagan Manus-storage logo URLini committed local BioLab logo assetiga almashtirish va 100-device runtime auditini yakunlash

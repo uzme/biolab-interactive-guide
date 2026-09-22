@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { BookOpen, Check, Contrast, Database, ExternalLink, FileText, MonitorSmartphone, Moon, Palette, ShieldCheck, Sun, Trash2, X } from "lucide-react";
 import { toast } from "sonner";
 import { useTheme } from "@/contexts/ThemeContext";
+import { localeOptions, useLanguage } from "@/contexts/LanguageContext";
 
 type SettingsDialogProps = {
   open: boolean;
@@ -18,6 +19,7 @@ type SettingsDialogProps = {
 
 export default function SettingsDialog({ open, onOpenChange, bookmarkedCount, onClearBookmarks, onExportBookmarks, onExportBookmarksCsv, onExportBookmarksPdf, onShareBookmarksPdf, onImportBookmarks }: SettingsDialogProps) {
   const { theme, themePreference, toggleTheme, useSystemTheme, contrastMode, toggleContrastMode, displayMode, toggleOledMode } = useTheme();
+  const { locale, setLocale, text } = useLanguage();
   const [reducedMotion, setReducedMotion] = useState(() => localStorage.getItem("biolab-reduced-motion") === "true");
   const importInputRef = useRef<HTMLInputElement>(null);
 
@@ -69,6 +71,14 @@ export default function SettingsDialog({ open, onOpenChange, bookmarkedCount, on
         </div>
 
         <div className="max-h-[calc(100dvh-154px)] overflow-y-auto overscroll-contain px-5 py-5 [-webkit-overflow-scrolling:touch] sm:px-7 sm:py-6">
+          <section className="mb-4 rounded-2xl border border-[#cfe4db] bg-white p-5 shadow-[0_8px_20px_rgba(23,61,66,0.04)]" aria-label={text.language}>
+            <div className="flex items-center justify-between gap-4">
+              <div><div className="text-sm font-bold text-[#173d42]">{text.language}</div><div className="mt-1 text-xs text-[#68857f]">{text.languageDescription}</div></div>
+              <select value={locale} onChange={(event) => setLocale(event.target.value as typeof locale)} className="rounded-xl border border-[#b8d8ce] bg-[#f7fbfa] px-3 py-2 text-sm font-bold text-[#0d7774] outline-none focus:ring-2 focus:ring-[#0d7774]/30" aria-label={text.language}>
+                {localeOptions.map((option) => <option key={option.value} value={option.value}>{option.nativeLabel}</option>)}
+              </select>
+            </div>
+          </section>
           <div className="grid gap-4 lg:grid-cols-2">
             <section className="rounded-2xl border border-[#cfe4db] bg-white p-5 shadow-[0_8px_20px_rgba(23,61,66,0.04)]">
               <div className="flex items-center gap-2 text-[#0d7774]"><Palette size={17} /><h3 className="font-bold text-[#173d42]">Ko‘rinish</h3></div>

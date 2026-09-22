@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type LabEntryGateProps = {
   onEnter: () => void;
@@ -7,6 +8,7 @@ type LabEntryGateProps = {
 
 export default function LabEntryGate({ onEnter }: LabEntryGateProps) {
   const [isEntering, setIsEntering] = useState(false);
+  const { text } = useLanguage();
 
   const enterLaboratory = () => {
     if (isEntering) return;
@@ -21,12 +23,12 @@ export default function LabEntryGate({ onEnter }: LabEntryGateProps) {
       <div className="lab-entry-splash-brand" data-lab-entry-logo aria-label="BioLab. Muallif: Mengliyev Bahrom">
         <img className="lab-entry-splash-logo" src="/biolab-logo.webp" alt="BioLab laboratoriya logotipi" />
         <span className="lab-entry-splash-brand-name">BioLab</span>
-        <span className="lab-entry-splash-brand-author">Muallif: Mengliyev Bahrom</span>
+        <span className="lab-entry-splash-brand-author">{text.author}</span>
       </div>
       <div className="lab-entry-splash-footer">
-        <p>O‘ZBEKCHA BIOTEXNOLOGIYA TIZIMI</p>
+        <p>{text.systemTagline}</p>
         <button type="button" className="lab-entry-action lab-entry-splash-action" data-lab-entry-action onClick={enterLaboratory} disabled={isEntering}>
-          <span>{isEntering ? "Laboratoriya ochilmoqda…" : "Laboratoriyaga kirish"}</span><ArrowUpRight size={20} aria-hidden="true" />
+          <span>{isEntering ? text.loading : text.enterLab}</span><ArrowUpRight size={20} aria-hidden="true" />
         </button>
       </div>
     </section>

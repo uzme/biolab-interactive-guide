@@ -21,6 +21,7 @@ import { toast } from "sonner";
 import { useBookmarks } from "@/hooks/useBookmarks";
 import { useLearningProgress } from "@/hooks/useLearningProgress";
 import { useTheme } from "@/contexts/ThemeContext";
+import { getCategoryLabel, useLanguage } from "@/contexts/LanguageContext";
 import { DEVICE_QUERY_KEY } from "@/lib/deviceQr";
 
 const DeviceViewer = lazy(() => import("@/components/DeviceViewer"));
@@ -39,22 +40,24 @@ const categoryIcons: Record<string, typeof FlaskConical> = {
 };
 
 function Sidebar({ activeCategory, onCategory, onMobileClose, onOpenSettings, drawer = false }: { activeCategory: string; onCategory: (category: string) => void; onMobileClose?: () => void; onOpenSettings?: () => void; drawer?: boolean }) {
+  const { locale, text } = useLanguage();
   return <aside className={`sidebar ${drawer ? "mobile-drawer" : ""}`}>
       <div className="mb-10 flex items-center gap-3 px-2">
       <div className="brand-mark relative grid h-12 w-12 place-items-center overflow-hidden rounded-[15px] border border-[#e7b64a]/70 bg-black shadow-[0_10px_24px_rgba(129,83,9,0.24)]"><img src="/biolab-logo.webp" alt="BioLab laboratoriya emblemi" className="brand-mark-emblem h-full w-full object-contain object-center" /></div>
       <div className="sidebar-copy"><div className="display flex items-baseline gap-1 text-[22px] font-bold tracking-[-0.055em] text-[#173d42]">Bio<span className="text-[#0d9488]">Lab</span><span className="ml-1 text-[9px] tracking-normal text-[#86a39c]">/ LAB-01</span></div><div className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#5b7c77]">SOP o‘quv tizimi</div></div>
     </div>
-    <div className="sidebar-copy mb-3 px-3 text-[10px] font-bold uppercase tracking-[0.17em] text-[#86a39c]">Navigatsiya</div>
+    <div className="sidebar-copy mb-3 px-3 text-[10px] font-bold uppercase tracking-[0.17em] text-[#86a39c]">{text.navigation}</div>
     <nav className="space-y-1 overflow-y-auto scrollbar-thin">
       {categories.map((category) => {
         const Icon = category === "Barcha uskunalar" ? Grid2X2 : categoryIcons[category] || Beaker;
-        return <button key={category} onClick={() => { onCategory(category); onMobileClose?.(); }} className={`nav-link ${activeCategory === category ? "active" : ""}`} title={category}><Icon size={17} /><span className="nav-label text-left text-[13px]">{category}</span>{category !== "Barcha uskunalar" && <span className="nav-label ml-auto text-[11px] text-[#91a7a0]">{equipment.filter((item) => item.category === category).length}</span>}</button>;
+        const label = getCategoryLabel(category, locale);
+        return <button key={category} onClick={() => { onCategory(category); onMobileClose?.(); }} className={`nav-link ${activeCategory === category ? "active" : ""}`} title={label}><Icon size={17} /><span className="nav-label text-left text-[13px]">{label}</span>{category !== "Barcha uskunalar" && <span className="nav-label ml-auto text-[11px] text-[#91a7a0]">{equipment.filter((item) => item.category === category).length}</span>}</button>;
       })}
     </nav>
-    <a href="/agent" className="mt-5 flex items-center gap-2 rounded-2xl border border-[#b8d8ce] bg-[#eaf7f2] px-3 py-3 text-sm font-bold text-[#0b7772] transition hover:bg-white" aria-label="Pixel Agentni ochish"><Bot size={16} /><span className="sidebar-copy">Pixel Agent</span><ArrowUpRight size={14} className="ml-auto" /></a>
+    <a href="/agent" className="mt-5 flex items-center gap-2 rounded-2xl border border-[#b8d8ce] bg-[#eaf7f2] px-3 py-3 text-sm font-bold text-[#0b7772] transition hover:bg-white" aria-label={text.pixelAgent}><Bot size={16} /><span className="sidebar-copy">{text.pixelAgent}</span><ArrowUpRight size={14} className="ml-auto" /></a>
     <div className="sidebar-footer mt-auto px-2 pt-6">
       <button type="button" aria-label="Sozlamalar va Copyright" className="sidebar-copy w-full rounded-2xl border-0 bg-[#edf7f4] p-4 text-left cursor-pointer hover:bg-[#e2ede8] transition shadow-sm" onClick={() => { onOpenSettings?.(); onMobileClose?.(); }}>
-        <div className="mb-2 flex items-center gap-2 text-[#0c7773]"><Settings2 size={15} /><span className="text-xs font-bold">Sozlamalar & Copyright</span></div>
+        <div className="mb-2 flex items-center gap-2 text-[#0c7773]"><Settings2 size={15} /><span className="text-xs font-bold">{text.settings}</span></div>
         <p className="sidebar-footer-copy text-xs leading-5 text-[#537c76]">© 2026 Mengliyev Bahrom Husanovich</p>
         <p className="sidebar-footer-copy mt-1 text-[11px] leading-4 text-[#6b8c86]">Mualliflik huquqi, litsenziya va tizim holati.</p>
       </button>
@@ -86,6 +89,7 @@ export default function Home() {
     });
   }, []);
   const { theme, toggleTheme } = useTheme();
+  const { locale, text } = useLanguage();
   const validDeviceIds = useMemo(() => new Set(equipment.map((device) => device.id)), []);
   const { markSectionRead, getCompletedSections, learnedDeviceCount, completedSectionCount } = useLearningProgress(validDeviceIds);
   const { bookmarkedIds, bookmarkedCount, isBookmarked, toggleBookmark, clearBookmarks, exportBookmarks, importBookmarks } = useBookmarks(validDeviceIds);
@@ -136,7 +140,7 @@ export default function Home() {
     try {
       toast.message(`${device.id} PDF dosyesi tayyorlanmoqda…`);
       const { shareDevicePdf } = await import("@/lib/devicePdfExport");
-      const result = await shareDevicePdf(device, new Date(), theme);
+      const result = await shareDevicePdf(device, new Date(), theme, locale);
       if (result === "shared") toast.success(`${device.id} PDF dosyesi ulashish oynasiga tayyorlandi.`);
       else if (result === "downloaded") toast.info("Bu brauzer PDF-fayl ulashishni qo‘llamaydi. PDF qurilmaga yuklab olindi.");
       else toast.info("PDFni ulashish bekor qilindi.");
@@ -362,8 +366,8 @@ export default function Home() {
               </div>
             </div>
             <div className="grid gap-2 md:grid-cols-[1.25fr_1fr_0.9fr]">
-              <label className="relative block"><span className="sr-only">Qurilma yoki manufacturer qidirish</span><Search size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#67908a]" /><Input value={query} onChange={(event) => handleQueryChange(event.target.value)} placeholder="Qurilma yoki manufacturer qidiring..." className="h-11 rounded-xl border-[#cbded8] bg-white pl-9 pr-9 text-sm text-[#173d42] placeholder:text-[#94aaa5]" />{query && <button type="button" onClick={() => handleQueryChange("")} className="absolute right-2 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-md text-[#5d827c] transition hover:bg-[#e5f2ed] hover:text-[#0b7772]" aria-label="Qurilma qidiruvini bekor qilish"><X size={15} /></button>}</label>
-              <label className="relative block"><span className="sr-only">Model bo‘yicha qidirish</span><Settings2 size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#67908a]" /><Input value={modelQuery} onChange={(event) => handleModelQueryChange(event.target.value)} placeholder="Model: masalan, CFX96 yoki TSX" className="h-11 rounded-xl border-[#cbded8] bg-white pl-9 pr-9 text-sm text-[#173d42] placeholder:text-[#94aaa5]" />{modelQuery && <button type="button" onClick={() => handleModelQueryChange("")} className="absolute right-2 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-md text-[#5d827c] transition hover:bg-[#e5f2ed] hover:text-[#0b7772]" aria-label="Model qidiruvini bekor qilish"><X size={15} /></button>}</label>
+              <label className="relative block"><span className="sr-only">{text.searchPlaceholder}</span><Search size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#67908a]" /><Input value={query} onChange={(event) => handleQueryChange(event.target.value)} placeholder={text.searchPlaceholder} className="h-11 rounded-xl border-[#cbded8] bg-white pl-9 pr-9 text-sm text-[#173d42] placeholder:text-[#94aaa5]" />{query && <button type="button" onClick={() => handleQueryChange("")} className="absolute right-2 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-md text-[#5d827c] transition hover:bg-[#e5f2ed] hover:text-[#0b7772]" aria-label={text.searchPlaceholder}><X size={15} /></button>}</label>
+              <label className="relative block"><span className="sr-only">{text.modelFilter}</span><Settings2 size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#67908a]" /><Input value={modelQuery} onChange={(event) => handleModelQueryChange(event.target.value)} placeholder={text.modelFilter} className="h-11 rounded-xl border-[#cbded8] bg-white pl-9 pr-9 text-sm text-[#173d42] placeholder:text-[#94aaa5]" />{modelQuery && <button type="button" onClick={() => handleModelQueryChange("")} className="absolute right-2 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-md text-[#5d827c] transition hover:bg-[#e5f2ed] hover:text-[#0b7772]" aria-label={text.modelFilter}><X size={15} /></button>}</label>
               <label className="relative block"><span className="sr-only">Kategoriya bo‘yicha filtr</span><select value={activeCategory} onChange={(event) => handleCategoryChange(event.target.value)} className="h-11 w-full appearance-none rounded-xl border border-[#cbded8] bg-white px-3 pr-16 text-sm font-semibold text-[#315b56] outline-none transition focus:border-[#0d7774] focus:ring-2 focus:ring-[#0d7774]/15" aria-label="Kategoriya bo‘yicha filtr">{categories.map((category) => <option key={category} value={category}>{category === "Barcha uskunalar" ? "Barcha kategoriyalar" : category}</option>)}</select>{activeCategory !== "Barcha uskunalar" && <button type="button" onClick={() => handleCategoryChange("Barcha uskunalar")} className="absolute right-8 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-md text-[#5d827c] transition hover:bg-[#e5f2ed] hover:text-[#0b7772]" aria-label="Kategoriya filtrini bekor qilish"><X size={15} /></button>}<ChevronRight size={16} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 rotate-90 text-[#67908a]" /></label>
             </div>
           </div>

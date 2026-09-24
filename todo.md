@@ -196,3 +196,4 @@
 - [x] Live Lab kirish ekranida oltin 3D BioLab yozuvi va muallif satrini qo‘shish, responsive regressiya va production buildni tekshirish
 - [x] O‘zbek, English va Русский uchun i18n tizimi, 100 qurilma kontenti, Pixel Agent va tilga mos PDF eksportini qo‘shish; til auditlarini bajarish
 - [x] Saralangan qurilmalar PDF/CSV eksportida tanlangan tilni to‘liq qo‘llash
+- [x] OLED true-black testidagi vaqtinchalik effect timing flake’ini barqarorlashtirish va release regressiyasini qayta PASS qilish

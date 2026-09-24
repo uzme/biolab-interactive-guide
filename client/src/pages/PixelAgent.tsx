@@ -2,6 +2,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowUpRight, Bot, CheckCircle2, ChevronLeft, Database, LoaderCircle, Send, Sparkles, UserRound } from "lucide-react";
 import { equipment } from "@/lib/equipmentData";
 import { buildAgentReply, getQuickPrompts, type PixelAgentSource } from "@/lib/pixelAgent";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { localizeEquipment } from "@/lib/catalogLocalization";
 
 export const CATALOG_WINDOW_URL = "/?direct=1#catalog";
 
@@ -19,6 +21,8 @@ const welcomeMessage: ChatMessage = {
 };
 
 export default function PixelAgent() {
+  const { locale, text } = useLanguage();
+  const localizedEquipment = useMemo(() => equipment.map((device) => localizeEquipment(device, locale)), [locale]);
   const [messages, setMessages] = useState<ChatMessage[]>([welcomeMessage]);
   const [draft, setDraft] = useState("");
   const [isThinking, setIsThinking] = useState(false);
@@ -37,7 +41,7 @@ export default function PixelAgent() {
     setDraft("");
     setIsThinking(true);
     window.setTimeout(() => {
-      const reply = buildAgentReply(trimmed, equipment);
+      const reply = buildAgentReply(trimmed, localizedEquipment, locale);
       setMessages((current) => [...current, { id: nextId.current++, role: "agent", text: reply.text, sources: reply.sources }]);
       setIsThinking(false);
     }, 180);
@@ -58,18 +62,18 @@ export default function PixelAgent() {
           <section className="relative overflow-hidden rounded-[30px] border border-[#2d7770]/60 bg-[#083337] shadow-[0_24px_70px_rgba(0,0,0,0.3)]">
             <div className="absolute inset-0 opacity-25" style={{ backgroundImage: "linear-gradient(rgba(125,224,194,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(125,224,194,.18) 1px, transparent 1px)", backgroundSize: "32px 32px", maskImage: "linear-gradient(180deg, black 0%, transparent 62%)" }} />
             <div className="relative p-5 sm:p-8 lg:p-10">
-              <div className="mb-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#7be1c3]"><Sparkles size={15} /> O‘zbekcha biotexnologiya yordamchisi</div>
-              <h1 className="max-w-2xl text-[2.8rem] font-bold leading-[0.94] tracking-[-0.065em] text-white sm:text-6xl">Katalog bilan <span className="text-[#6fe5c1]">tez ishlang.</span></h1>
-              <p className="mt-5 max-w-xl text-sm leading-7 text-[#b7d9cf] sm:text-base">Agent faqat ushbu ilovadagi 100 qurilma va 16 bo‘limli o‘quv yozuvlarini qidiradi. Tarmoq, API yoki model chaqirilmaydi.</p>
+              <div className="mb-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#7be1c3]"><Sparkles size={15} /> {locale === "en" ? "Biotechnology assistant" : locale === "ru" ? "Биотехнологический помощник" : "O‘zbekcha biotexnologiya yordamchisi"}</div>
+              <h1 className="max-w-2xl text-[2.8rem] font-bold leading-[0.94] tracking-[-0.065em] text-white sm:text-6xl">{locale === "en" ? "Work faster with the" : locale === "ru" ? "Быстрее работайте с" : "Katalog bilan"} <span className="text-[#6fe5c1]">{locale === "en" ? "catalog." : locale === "ru" ? "каталогом." : "tez ishlang."}</span></h1>
+              <p className="mt-5 max-w-xl text-sm leading-7 text-[#b7d9cf] sm:text-base">{locale === "en" ? "The agent searches the 100 devices and 16-section learning records available in this app. No network, API or model call is used." : locale === "ru" ? "Агент ищет 100 установок и учебные записи из 16 разделов, доступные в приложении. Сеть, API и модели не используются." : "Agent faqat ushbu ilovadagi 100 qurilma va 16 bo‘limli o‘quv yozuvlarini qidiradi. Tarmoq, API yoki model chaqirilmaydi."}</p>
               <div className="mt-8 rounded-[24px] border border-[#4d9e90]/45 bg-[#041c20]/90 p-3 shadow-[0_16px_38px_rgba(0,0,0,0.2)] sm:p-4">
-                <div className="mb-3 flex items-center justify-between gap-3 px-1"><div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#8fe8d0]"><Bot size={15} /> Agent muloqoti</div><span className="text-[10px] text-[#739c97]">Offline katalog rejimi</span></div>
+                <div className="mb-3 flex items-center justify-between gap-3 px-1"><div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#8fe8d0]"><Bot size={15} /> {locale === "en" ? "Agent chat" : locale === "ru" ? "Диалог с агентом" : "Agent muloqoti"}</div><span className="text-[10px] text-[#739c97]">{locale === "en" ? "Offline catalog mode" : locale === "ru" ? "Офлайн-режим каталога" : "Offline katalog rejimi"}</span></div>
                 <div className="max-h-[430px] space-y-3 overflow-y-auto pr-1 sm:max-h-[480px]">
                   {messages.map((message) => <MessageBubble key={message.id} message={message} />)}
-                  {isThinking && <div className="flex items-center gap-2 text-xs text-[#8dd8c5]"><span className="grid h-8 w-8 place-items-center rounded-full bg-[#0f6561]"><Bot size={15} /></span><span className="rounded-2xl rounded-bl-sm border border-[#2d7770] bg-[#0a3338] px-3 py-2"><LoaderCircle size={14} className="mr-2 inline animate-spin" />Katalog tahlil qilinmoqda...</span></div>}
+                  {isThinking && <div className="flex items-center gap-2 text-xs text-[#8dd8c5]"><span className="grid h-8 w-8 place-items-center rounded-full bg-[#0f6561]"><Bot size={15} /></span><span className="rounded-2xl rounded-bl-sm border border-[#2d7770] bg-[#0a3338] px-3 py-2"><LoaderCircle size={14} className="mr-2 inline animate-spin" />{locale === "en" ? "Analyzing catalog..." : locale === "ru" ? "Анализ каталога..." : "Katalog tahlil qilinmoqda..."}</span></div>}
                   <div ref={endRef} />
                 </div>
                 <form className="mt-4 flex gap-2" onSubmit={(event) => { event.preventDefault(); submitQuestion(draft); }}>
-                  <input value={draft} onChange={(event) => setDraft(event.target.value)} placeholder="Savolingizni yozing..." aria-label="Pixel Agentga savol yozing" className="min-w-0 flex-1 rounded-2xl border border-[#397e77] bg-[#082a2f] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#70958e] focus:border-[#73e5c5] focus:ring-2 focus:ring-[#73e5c5]/20" />
+                  <input value={draft} onChange={(event) => setDraft(event.target.value)} placeholder={locale === "en" ? "Ask a question..." : locale === "ru" ? "Введите вопрос..." : "Savolingizni yozing..."} aria-label={locale === "en" ? "Ask Pixel Agent" : locale === "ru" ? "Задать вопрос Pixel Agent" : "Pixel Agentga savol yozing"} className="min-w-0 flex-1 rounded-2xl border border-[#397e77] bg-[#082a2f] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#70958e] focus:border-[#73e5c5] focus:ring-2 focus:ring-[#73e5c5]/20" />
                   <button type="submit" disabled={!draft.trim() || isThinking} aria-label="Savolni yuborish" className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[#70dfc1] text-[#06393b] transition hover:bg-[#a0f1db] active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"><Send size={18} /></button>
                 </form>
               </div>

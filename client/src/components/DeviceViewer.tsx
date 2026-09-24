@@ -30,6 +30,8 @@ import { equipmentImages } from "@/lib/equipmentImages";
 import { getImageBackgroundProfile, getImagePresentation } from "@/lib/equipmentImagePresentation";
 import { loadLearningContent, loadPurchaseContent, resolveDeviceContent } from "@/lib/learningData";
 import type { LearningContent, PurchaseContent } from "@/lib/learningData";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { localizeLearning, localizePurchase } from "@/lib/catalogLocalization";
 
 function SourceText({ value }: { value: string }) {
   const normalized = value.replace(/\*\*/g, "").replace(/^>\s?/gm, "").trim();
@@ -57,6 +59,7 @@ async function refreshLearningWorkspace() {
 }
 
 export default function DeviceViewer({ device, onBack, onReady, onSharePdf, onShowQr, completedSections, onSectionRead }: { device: Equipment; onBack: () => void; onReady?: () => void; onSharePdf: (device: Equipment) => void; onShowQr: (device: Equipment) => void; completedSections: number[]; onSectionRead: (deviceId: string, sectionNumber: number) => void }) {
+  const { locale } = useLanguage();
   const [lessonIndex, setLessonIndex] = useState(0);
   const [learning, setLearning] = useState<LearningContent>();
   const [purchase, setPurchase] = useState<PurchaseContent>();
@@ -74,8 +77,8 @@ export default function DeviceViewer({ device, onBack, onReady, onSharePdf, onSh
     resolveDeviceContent(loadLearningContent(device.number), loadPurchaseContent(device.number))
       .then(({ learning: nextLearning, purchase: nextPurchase, learningLoadFailed }) => {
         if (cancelled) return;
-        setLearning(nextLearning);
-        setPurchase(nextPurchase);
+        setLearning(localizeLearning(nextLearning, device.id, locale));
+        setPurchase(localizePurchase(nextPurchase, device.id, locale));
         setLoadError(learningLoadFailed);
       })
       .catch(() => {
@@ -89,7 +92,7 @@ export default function DeviceViewer({ device, onBack, onReady, onSharePdf, onSh
     return () => {
       cancelled = true;
     };
-  }, [device.number]);
+  }, [device.id, device.number, locale]);
 
   useEffect(() => {
     if (isLoading) return;

@@ -1,4 +1,5 @@
 import type { Equipment } from "@/lib/equipmentData";
+import type { Locale } from "@/contexts/LanguageContext";
 
 export type PixelAgentSource = Pick<
   Equipment,
@@ -88,18 +89,20 @@ function hasAny(query: string, words: string[]) {
   return words.some((word) => cleaned.includes(normalize(word)));
 }
 
-export function buildAgentReply(query: string, equipment: Equipment[]): PixelAgentReply {
+export function buildAgentReply(query: string, equipment: Equipment[], locale: Locale = "uz"): PixelAgentReply {
+  const copy = locale === "en"
+    ? { empty: "Type a question — I can guide you through 100 BioLab devices, models, purposes, categories and starting prices.", hello: "Hello. I am the BioLab catalog Pixel Agent. Enter a device name, BIO code, model, category or laboratory purpose.", none: "No exact catalog record was found. Try a code such as BIO-001, a device name, model or purpose.", model: "Model", price: "Starting price range for a new device", brands: "Recommended manufacturers", purpose: "Main purpose", more: "more matching records found." }
+    : locale === "ru"
+      ? { empty: "Введите вопрос — я помогу по 100 установкам BioLab, моделям, назначению, категориям и начальным ценам.", hello: "Здравствуйте. Я Pixel Agent каталога BioLab. Введите название установки, код BIO, модель, категорию или назначение.", none: "Точная запись в каталоге не найдена. Попробуйте код BIO-001, название установки, модель или назначение.", model: "Модель", price: "Начальный диапазон цены новой установки", brands: "Рекомендуемые производители", purpose: "Основное назначение", more: "похожих записей найдено." }
+      : { empty: "Savolingizni yozing — men 100 ta BioLab qurilmasi, model, maqsad, kategoriya va boshlang‘ich narx bo‘yicha tezkor katalog yo‘l-yo‘riq beraman.", hello: "Salom. Men BioLab katalogining Pixel Agentiman. Qurilma nomi, BIO kodi, model, kategoriya yoki laboratoriya vazifasini yozing.", none: "Bu so‘rov bo‘yicha katalogdan aniq rekord topilmadi. BIO-001 kabi kod, qurilma nomi, model yoki vazifa bilan qayta urinib ko‘ring.", model: "Modeli", price: "Yangi qurilma uchun ko‘rsatilgan boshlang‘ich diapazon", brands: "Tavsiya etilgan ishlab chiqaruvchilar", purpose: "Asosiy vazifasi", more: "ta yaqin rekord topildi." };
   const cleaned = normalize(query);
   if (!cleaned) {
-    return {
-      text: "Savolingizni yozing — men 100 ta BioLab qurilmasi, model, maqsad, kategoriya va boshlang‘ich narx bo‘yicha tezkor katalog yo‘l-yo‘riq beraman.",
-      sources: [],
-    };
+    return { text: copy.empty, sources: [] };
   }
 
   if (hasAny(cleaned, ["salom", "assalom", "hello"])) {
     return {
-      text: "Salom. Men BioLab katalogining Pixel Agentiman. Qurilma nomi, BIO kodi, model, kategoriya yoki laboratoriya vazifasini yozing — mos rekordlarni topib beraman.",
+      text: copy.hello,
       sources: [],
     };
   }
@@ -107,22 +110,22 @@ export function buildAgentReply(query: string, equipment: Equipment[]): PixelAge
   const matches = searchCatalog(query, equipment);
   if (matches.length === 0) {
     return {
-      text: "Bu so‘rov bo‘yicha katalogdan aniq rekord topilmadi. BIO-001 kabi kod, qurilma nomi, model yoki ‘DNK amplifikatsiyasi’, ‘sovutish’, ‘sterilizatsiya’ kabi vazifa bilan qayta urinib ko‘ring.",
+      text: copy.none,
       sources: [],
     };
   }
 
   const primary = matches[0];
   const detail = hasAny(cleaned, ["model", "rusum", "nomi"])
-    ? `Modeli: ${primary.model}.`
+    ? `${copy.model}: ${primary.model}.`
     : hasAny(cleaned, ["narx", "qancha", "budjet"])
-      ? `Yangi qurilma uchun ko‘rsatilgan boshlang‘ich diapazon: ${primary.newPrice}.`
+      ? `${copy.price}: ${primary.newPrice}.`
       : hasAny(cleaned, ["brend", "ishlab chiqaruvchi", "manufacturer"])
-        ? `Tavsiya etilgan ishlab chiqaruvchilar: ${primary.brands}.`
+        ? `${copy.brands}: ${primary.brands}.`
         : hasAny(cleaned, ["maqsad", "vazifa", "nima qiladi", "ishlatiladi"])
-          ? `Asosiy vazifasi: ${primary.purpose}.`
+          ? `${copy.purpose}: ${primary.purpose}.`
           : primary.description;
-  const extra = matches.length > 1 ? ` Yana ${matches.length - 1} ta yaqin rekord topildi.` : "";
+  const extra = matches.length > 1 ? ` ${matches.length - 1} ${copy.more}` : "";
 
   return {
     text: `${primary.id} — ${primary.name} (${primary.category}). ${detail}${extra}`,

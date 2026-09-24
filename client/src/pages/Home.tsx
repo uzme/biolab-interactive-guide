@@ -22,6 +22,7 @@ import { useBookmarks } from "@/hooks/useBookmarks";
 import { useLearningProgress } from "@/hooks/useLearningProgress";
 import { useTheme } from "@/contexts/ThemeContext";
 import { getCategoryLabel, useLanguage } from "@/contexts/LanguageContext";
+import { localizeEquipment } from "@/lib/catalogLocalization";
 import { DEVICE_QUERY_KEY } from "@/lib/deviceQr";
 
 const DeviceViewer = lazy(() => import("@/components/DeviceViewer"));
@@ -90,18 +91,19 @@ export default function Home() {
   }, []);
   const { theme, toggleTheme } = useTheme();
   const { locale, text } = useLanguage();
+  const localizedEquipment = useMemo(() => equipment.map((device) => localizeEquipment(device, locale)), [locale]);
   const validDeviceIds = useMemo(() => new Set(equipment.map((device) => device.id)), []);
   const { markSectionRead, getCompletedSections, learnedDeviceCount, completedSectionCount } = useLearningProgress(validDeviceIds);
   const { bookmarkedIds, bookmarkedCount, isBookmarked, toggleBookmark, clearBookmarks, exportBookmarks, importBookmarks } = useBookmarks(validDeviceIds);
   const handleImportBookmarks = async (file: File) => importBookmarks(file);
-  const bookmarkedDevices = useMemo(() => bookmarkedIds.map((id) => equipment.find((device) => device.id === id)).filter((device): device is Equipment => Boolean(device)), [bookmarkedIds]);
+  const bookmarkedDevices = useMemo(() => bookmarkedIds.map((id) => localizedEquipment.find((device) => device.id === id)).filter((device): device is Equipment => Boolean(device)), [bookmarkedIds, localizedEquipment]);
   const handleExportBookmarksCsv = async () => {
     if (!bookmarkedDevices.length) {
       toast.info("Eksport qilish uchun kamida bitta qurilmani saralang.");
       return;
     }
     const { downloadBookmarksCsv } = await import("@/lib/bookmarkExport");
-    downloadBookmarksCsv(bookmarkedDevices);
+    downloadBookmarksCsv(bookmarkedDevices, locale);
     toast.success(`${bookmarkedDevices.length} ta saralangan qurilma CSV fayliga eksport qilindi.`);
   };
   const handleExportBookmarksPdf = async () => {
@@ -111,7 +113,7 @@ export default function Home() {
     }
     try {
       const { downloadBookmarksPdf } = await import("@/lib/bookmarkExport");
-      await downloadBookmarksPdf(bookmarkedDevices, theme);
+      await downloadBookmarksPdf(bookmarkedDevices, theme, locale);
       toast.success(`${bookmarkedDevices.length} ta saralangan qurilma PDF fayliga eksport qilindi.`);
     } catch {
       toast.error("PDF faylini yaratib bo‘lmadi. Iltimos, qayta urinib ko‘ring.");
@@ -124,7 +126,7 @@ export default function Home() {
     }
     try {
       const { shareBookmarksPdf } = await import("@/lib/bookmarkExport");
-      const result = await shareBookmarksPdf(bookmarkedDevices, new Date(), theme);
+      const result = await shareBookmarksPdf(bookmarkedDevices, new Date(), theme, locale);
       if (result === "shared") {
         toast.success(`${bookmarkedDevices.length} ta saralangan qurilma PDFi ulashish oynasiga tayyorlandi.`);
       } else if (result === "downloaded") {
@@ -151,18 +153,18 @@ export default function Home() {
 
   useEffect(() => {
     const deviceId = new URLSearchParams(window.location.search).get(DEVICE_QUERY_KEY);
-    const deepLinkedDevice = equipment.find((device) => device.id === deviceId);
+    const deepLinkedDevice = localizedEquipment.find((device) => device.id === deviceId);
     if (deepLinkedDevice) setSelectedDevice(deepLinkedDevice);
-  }, []);
+  }, [localizedEquipment]);
 
   const categoryCounts = useMemo(() => categories.slice(1).map((category) => ({ name: category, count: equipment.filter((item) => item.category === category).length })), []);
-  const filtered = useMemo(() => equipment.filter((item) => {
+  const filtered = useMemo(() => localizedEquipment.filter((item) => {
     const matchesCategory = activeCategory === "Barcha uskunalar" || item.category === activeCategory;
     const matchesBookmark = !bookmarksOnly || bookmarkedIds.includes(item.id);
     const searchText = `${item.name} ${item.model} ${item.models} ${item.brands} ${item.category} ${item.description} ${item.purpose}`.toLowerCase();
     const modelText = `${item.model} ${item.models} ${item.brands}`.toLowerCase();
     return matchesCategory && matchesBookmark && searchText.includes(query.trim().toLowerCase()) && modelText.includes(modelQuery.trim().toLowerCase());
-  }), [activeCategory, bookmarkedIds, bookmarksOnly, modelQuery, query]);
+  }), [activeCategory, bookmarkedIds, bookmarksOnly, modelQuery, query, localizedEquipment]);
   const hasActiveFilters = activeCategory !== "Barcha uskunalar" || Boolean(query.trim()) || Boolean(modelQuery.trim()) || bookmarksOnly;
   const orderedFiltered = useMemo(() => [...filtered].sort((first, second) => Number(first.id.replace("BIO-", "")) - Number(second.id.replace("BIO-", ""))), [filtered]);
   const visibleCategoryGroups = useMemo(() => {
@@ -330,7 +332,7 @@ export default function Home() {
             <div className="landing-hero-kicker"><span className="landing-status-dot" aria-hidden="true" />O‘ZBEKCHA BIOTEXNOLOGIYA KATALOGI</div>
             <h1 className="landing-hero-title display">Qurilmani bilib oling.<br /><span>Keyin aniq ishlating.</span></h1>
             <p className="landing-hero-copy">Modeldan natija talqiniga qadar — laboratoriyadagi har bir qurilma uchun ketma-ket, amaliy va ishonchli o‘quv yo‘li.</p>
-            <div className="landing-hero-actions"><Button className="landing-primary-action" onClick={() => document.getElementById("catalog")?.scrollIntoView({ behavior: "smooth" })}>Katalogni ko‘rish <ArrowUpRight size={17} /></Button><Button variant="outline" className="landing-secondary-action" onClick={() => setSelectedDevice(equipment[0])}>PCR bilan boshlash <ChevronRight size={17} /></Button></div>
+            <div className="landing-hero-actions"><Button className="landing-primary-action" onClick={() => document.getElementById("catalog")?.scrollIntoView({ behavior: "smooth" })}>Katalogni ko‘rish <ArrowUpRight size={17} /></Button><Button variant="outline" className="landing-secondary-action" onClick={() => setSelectedDevice(localizedEquipment[0])}>PCR bilan boshlash <ChevronRight size={17} /></Button></div>
             <div className="landing-benefits" aria-label="Platforma afzalliklari"><span><LibraryBig size={15} />100 qurilma</span><span><Settings2 size={15} />Real workflow</span><span><CircleHelp size={15} />Natija talqini</span></div>
             <div className="landing-learning-map" data-hero-learning-path aria-label="16 bo‘limli o‘quv xaritasi">
               <div className="landing-map-heading"><span>16 BO‘LIMLI SOP</span><b>4 asosiy bosqich</b></div>
@@ -366,8 +368,8 @@ export default function Home() {
               </div>
             </div>
             <div className="grid gap-2 md:grid-cols-[1.25fr_1fr_0.9fr]">
-              <label className="relative block"><span className="sr-only">{text.searchPlaceholder}</span><Search size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#67908a]" /><Input value={query} onChange={(event) => handleQueryChange(event.target.value)} placeholder={text.searchPlaceholder} className="h-11 rounded-xl border-[#cbded8] bg-white pl-9 pr-9 text-sm text-[#173d42] placeholder:text-[#94aaa5]" />{query && <button type="button" onClick={() => handleQueryChange("")} className="absolute right-2 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-md text-[#5d827c] transition hover:bg-[#e5f2ed] hover:text-[#0b7772]" aria-label={text.searchPlaceholder}><X size={15} /></button>}</label>
-              <label className="relative block"><span className="sr-only">{text.modelFilter}</span><Settings2 size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#67908a]" /><Input value={modelQuery} onChange={(event) => handleModelQueryChange(event.target.value)} placeholder={text.modelFilter} className="h-11 rounded-xl border-[#cbded8] bg-white pl-9 pr-9 text-sm text-[#173d42] placeholder:text-[#94aaa5]" />{modelQuery && <button type="button" onClick={() => handleModelQueryChange("")} className="absolute right-2 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-md text-[#5d827c] transition hover:bg-[#e5f2ed] hover:text-[#0b7772]" aria-label={text.modelFilter}><X size={15} /></button>}</label>
+              <label className="relative block"><span className="sr-only">{text.searchPlaceholder}</span><Search size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#67908a]" /><Input value={query} onChange={(event) => handleQueryChange(event.target.value)} placeholder={locale === "uz" ? "Qurilma yoki manufacturer qidiring..." : text.searchPlaceholder} className="h-11 rounded-xl border-[#cbded8] bg-white pl-9 pr-9 text-sm text-[#173d42] placeholder:text-[#94aaa5]" />{query && <button type="button" onClick={() => handleQueryChange("")} className="absolute right-2 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-md text-[#5d827c] transition hover:bg-[#e5f2ed] hover:text-[#0b7772]" aria-label="Qurilma qidiruvini bekor qilish"><X size={15} /></button>}</label>
+              <label className="relative block"><span className="sr-only">{text.modelFilter}</span><Settings2 size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#67908a]" /><Input value={modelQuery} onChange={(event) => handleModelQueryChange(event.target.value)} placeholder={locale === "uz" ? "Model: masalan, CFX96 yoki TSX" : text.modelFilter} className="h-11 rounded-xl border-[#cbded8] bg-white pl-9 pr-9 text-sm text-[#173d42] placeholder:text-[#94aaa5]" />{modelQuery && <button type="button" onClick={() => handleModelQueryChange("")} className="absolute right-2 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-md text-[#5d827c] transition hover:bg-[#e5f2ed] hover:text-[#0b7772]" aria-label="Model qidiruvini bekor qilish"><X size={15} /></button>}</label>
               <label className="relative block"><span className="sr-only">Kategoriya bo‘yicha filtr</span><select value={activeCategory} onChange={(event) => handleCategoryChange(event.target.value)} className="h-11 w-full appearance-none rounded-xl border border-[#cbded8] bg-white px-3 pr-16 text-sm font-semibold text-[#315b56] outline-none transition focus:border-[#0d7774] focus:ring-2 focus:ring-[#0d7774]/15" aria-label="Kategoriya bo‘yicha filtr">{categories.map((category) => <option key={category} value={category}>{category === "Barcha uskunalar" ? "Barcha kategoriyalar" : category}</option>)}</select>{activeCategory !== "Barcha uskunalar" && <button type="button" onClick={() => handleCategoryChange("Barcha uskunalar")} className="absolute right-8 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-md text-[#5d827c] transition hover:bg-[#e5f2ed] hover:text-[#0b7772]" aria-label="Kategoriya filtrini bekor qilish"><X size={15} /></button>}<ChevronRight size={16} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 rotate-90 text-[#67908a]" /></label>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { PDFDocument, StandardFonts, rgb, type PDFFont, type PDFPage } from "pdf-lib";
 import type { Equipment } from "@/lib/equipmentData";
+import type { Locale } from "@/contexts/LanguageContext";
 
 const PDF_PAGE_WIDTH = 595.28;
 const PDF_PAGE_HEIGHT = 841.89;
@@ -16,11 +17,11 @@ function getPdfPalette(theme: PdfTheme): PdfPalette {
     ? { page: rgb(0.015, 0.035, 0.04), entryEven: rgb(0.045, 0.105, 0.11), entryOdd: rgb(0.035, 0.075, 0.08), border: rgb(0.17, 0.43, 0.4), header: rgb(0.01, 0.08, 0.085), accent: rgb(0.57, 0.91, 0.83), heading: rgb(0.91, 0.98, 0.95), body: rgb(0.76, 0.88, 0.84), muted: rgb(0.61, 0.77, 0.72) }
     : { page: rgb(1, 1, 1), entryEven: rgb(0.95, 0.98, 0.97), entryOdd: rgb(1, 1, 1), border: rgb(0.78, 0.88, 0.84), header: rgb(0.02, 0.16, 0.16), accent: rgb(0.57, 0.91, 0.83), heading: rgb(0.05, 0.24, 0.25), body: rgb(0.27, 0.44, 0.42), muted: rgb(0.33, 0.48, 0.45) };
 }
-const EXPORT_DATE_FORMATTER = new Intl.DateTimeFormat("uz-UZ", {
-  day: "2-digit",
-  month: "long",
-  year: "numeric",
-});
+const EXPORT_DATE_LOCALES: Record<Locale, string> = { uz: "uz-UZ", en: "en-US", ru: "ru-RU" };
+
+function formatExportDate(date: Date, locale: Locale) {
+  return new Intl.DateTimeFormat(EXPORT_DATE_LOCALES[locale], { day: "2-digit", month: "long", year: "numeric" }).format(date);
+}
 
 function exportDateToken(date = new Date()) {
   return date.toISOString().slice(0, 10);
@@ -74,20 +75,22 @@ function triggerDownload(blob: Blob, filename: string) {
   window.setTimeout(() => URL.revokeObjectURL(url), 0);
 }
 
-function drawPdfHeader(page: PDFPage, bold: PDFFont, regular: PDFFont, deviceCount: number, exportedAt: Date, palette: PdfPalette) {
+function drawPdfHeader(page: PDFPage, bold: PDFFont, regular: PDFFont, deviceCount: number, exportedAt: Date, palette: PdfPalette, locale: Locale) {
+  const copy = locale === "en" ? { eyebrow: "BIO.LAB / BOOKMARKS", title: "Bookmarked equipment", count: "equipment" } : locale === "ru" ? { eyebrow: "BIO.LAB / СОХРАНЁННЫЕ", title: "Сохранённые установки", count: "установок" } : { eyebrow: "BIO.LAB / SARALANGANLAR", title: "Saralangan qurilmalar ro‘yxati", count: "ta qurilma" };
   page.drawRectangle({ x: 0, y: PDF_PAGE_HEIGHT - 116, width: PDF_PAGE_WIDTH, height: 116, color: palette.header });
-  page.drawText("BIO.LAB / SARALANGANLAR", { x: PDF_MARGIN, y: PDF_PAGE_HEIGHT - 48, size: 9, font: bold, color: palette.accent });
-  page.drawText("Saralangan qurilmalar ro'yxati", { x: PDF_MARGIN, y: PDF_PAGE_HEIGHT - 78, size: 19, font: bold, color: palette.heading });
-  const subtitle = `${deviceCount} ta qurilma  |  ${EXPORT_DATE_FORMATTER.format(exportedAt)}`;
+  page.drawText(toPdfText(copy.eyebrow), { x: PDF_MARGIN, y: PDF_PAGE_HEIGHT - 48, size: 9, font: bold, color: palette.accent });
+  page.drawText(toPdfText(copy.title), { x: PDF_MARGIN, y: PDF_PAGE_HEIGHT - 78, size: 19, font: bold, color: palette.heading });
+  const subtitle = `${deviceCount} ${copy.count}  |  ${formatExportDate(exportedAt, locale)}`;
   page.drawText(toPdfText(subtitle), { x: PDF_MARGIN, y: PDF_PAGE_HEIGHT - 97, size: 8.5, font: regular, color: palette.body });
 }
 
-export function buildBookmarksCsv(devices: Equipment[], exportedAt = new Date()) {
+export function buildBookmarksCsv(devices: Equipment[], exportedAt = new Date(), locale: Locale = "uz") {
+  const labels = locale === "en" ? ["BioLab Interactive Guide — Bookmarked equipment", "Export date", "No.", "Code", "Equipment name", "Category", "Model", "Manufacturer"] : locale === "ru" ? ["BioLab Interactive Guide — Сохранённые установки", "Дата экспорта", "№", "Код", "Название установки", "Категория", "Модель", "Производитель"] : ["BioLab Interactive Guide — Saralangan qurilmalar", "Eksport sanasi", "Tartib", "Kod", "Qurilma nomi", "Kategoriya", "Model", "Ishlab chiqaruvchi"];
   const rows = [
-    ["BioLab Interactive Guide — Saralangan qurilmalar"],
-    [`Eksport sanasi: ${EXPORT_DATE_FORMATTER.format(exportedAt)}`],
+    [labels[0]],
+    [`${labels[1]}: ${formatExportDate(exportedAt, locale)}`],
     [],
-    ["Tartib", "Kod", "Qurilma nomi", "Kategoriya", "Model", "Ishlab chiqaruvchi"],
+    labels.slice(2),
     ...devices.map((device, index) => [
       index + 1,
       device.id,
@@ -101,7 +104,7 @@ export function buildBookmarksCsv(devices: Equipment[], exportedAt = new Date())
   return `\uFEFF${rows.map((row) => row.map(quoteCsv).join(",")).join("\r\n")}\r\n`;
 }
 
-export async function buildBookmarksPdf(devices: Equipment[], exportedAt = new Date(), theme: PdfTheme = getActivePdfTheme()) {
+export async function buildBookmarksPdf(devices: Equipment[], exportedAt = new Date(), theme: PdfTheme = getActivePdfTheme(), locale: Locale = "uz") {
   const pdf = await PDFDocument.create();
   pdf.setTitle("BioLab — Saralangan qurilmalar");
   pdf.setAuthor("BioLab Interactive Guide");
@@ -115,7 +118,7 @@ export async function buildBookmarksPdf(devices: Equipment[], exportedAt = new D
   const createPage = () => {
     const page = pdf.addPage([PDF_PAGE_WIDTH, PDF_PAGE_HEIGHT]);
     page.drawRectangle({ x: 0, y: 0, width: PDF_PAGE_WIDTH, height: PDF_PAGE_HEIGHT, color: palette.page });
-    drawPdfHeader(page, bold, regular, devices.length, exportedAt, palette);
+    drawPdfHeader(page, bold, regular, devices.length, exportedAt, palette, locale);
     pages.push(page);
     return { page, cursorY: PDF_PAGE_HEIGHT - 144 };
   };
@@ -162,22 +165,22 @@ export async function buildBookmarksPdf(devices: Equipment[], exportedAt = new D
   return new Blob([await pdf.save()], { type: "application/pdf" });
 }
 
-export function downloadBookmarksCsv(devices: Equipment[]) {
+export function downloadBookmarksCsv(devices: Equipment[], locale: Locale = "uz") {
   triggerDownload(
-    new Blob([buildBookmarksCsv(devices)], { type: "text/csv;charset=utf-8" }),
+    new Blob([buildBookmarksCsv(devices, new Date(), locale)], { type: "text/csv;charset=utf-8" }),
     `BioLab_saralanganlar_${exportDateToken()}.csv`,
   );
 }
 
-export async function downloadBookmarksPdf(devices: Equipment[], theme: PdfTheme = getActivePdfTheme()) {
-  triggerDownload(await buildBookmarksPdf(devices, new Date(), theme), getBookmarksPdfFilename());
+export async function downloadBookmarksPdf(devices: Equipment[], theme: PdfTheme = getActivePdfTheme(), locale: Locale = "uz") {
+  triggerDownload(await buildBookmarksPdf(devices, new Date(), theme, locale), getBookmarksPdfFilename());
 }
 
 export type PdfShareResult = "shared" | "downloaded" | "cancelled";
 
-export async function shareBookmarksPdf(devices: Equipment[], exportedAt = new Date(), theme: PdfTheme = getActivePdfTheme()): Promise<PdfShareResult> {
+export async function shareBookmarksPdf(devices: Equipment[], exportedAt = new Date(), theme: PdfTheme = getActivePdfTheme(), locale: Locale = "uz"): Promise<PdfShareResult> {
   const filename = getBookmarksPdfFilename(exportedAt);
-  const pdfBlob = await buildBookmarksPdf(devices, exportedAt, theme);
+  const pdfBlob = await buildBookmarksPdf(devices, exportedAt, theme, locale);
 
   if (typeof navigator !== "undefined" && typeof navigator.share === "function" && typeof File !== "undefined") {
     const file = new File([pdfBlob], filename, { type: "application/pdf" });
